@@ -1,0 +1,74 @@
+{
+  "image_id": "w3MFlsmvpeCTNUcG_3",
+  "truth_country": "france",
+  "pred_country": "france",
+  "is_correct": true,
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": true,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.0,
+      "botanics": 0.0,
+      "regulatory": 0.0,
+      "meta": 0.0
+    },
+    "visual_consistency_score": {
+      "linguistic": 1.0,
+      "landscape": 1.0,
+      "botanics": 1.0,
+      "regulatory": 1.0,
+      "meta": 1.0
+    },
+    "confidence_calibration_score": {
+      "linguistic": 1.0,
+      "landscape": 0.75,
+      "botanics": 0.75,
+      "regulatory": 0.75,
+      "meta": 0.75
+    },
+    "round2_improvement": {
+      "linguistic": 0.0,
+      "landscape": 0.5,
+      "botanics": 0.5,
+      "regulatory": 0.5,
+      "meta": 0.75
+    },
+    "round2_improvement_notes": {
+      "linguistic": "Agent provided no output in either round; no improvement possible.",
+      "landscape": "Agent shifted its top candidate to Denmark in R2, likely influenced by the Meta agent's strong initial claim. This was a lateral move rather than a refinement toward the correct answer.",
+      "botanics": "Agent maintained its top candidate (France) but explicitly integrated the Meta agent's evidence to downgrade Denmark, showing good synthesis.",
+      "regulatory": "Agent moved from no output to a low-confidence France prediction, synthesizing the 'bocage' evidence from other agents.",
+      "meta": "Agent successfully corrected its initial Denmark bias by weighing the 'bocage' evidence from the Landscape and Botanics agents, demonstrating strong cross-domain synthesis."
+    },
+    "role_leakage_score": {
+      "linguistic": 0.0,
+      "landscape": 0.5,
+      "botanics": 0.5,
+      "regulatory": 0.5,
+      "meta": 0.5
+    },
+    "role_leakage_notes": {
+      "linguistic": "none",
+      "landscape": "Minor leakage: Landscape agent incorporated the Meta agent's specific observation about 'rough-hewn wooden fence posts' into its R2 evidence list.",
+      "botanics": "Minor leakage: Botanics agent referenced the Landscape agent's 'bocage' observation and the Meta agent's infrastructure notes in its R2 reasoning.",
+      "regulatory": "Minor leakage: Regulatory agent relied entirely on the Landscape and Botanics agents' 'bocage' and vegetation descriptions to form its R2 hypothesis, as it had no visual regulatory evidence.",
+      "meta": "Minor leakage: Meta agent incorporated the 'bocage' (hedgerow) terminology and evidence from the Landscape and Botanics agents to refine its R2 hypothesis."
+    },
+    "hallucination_examples": {
+      "linguistic": [],
+      "landscape": [],
+      "botanics": [],
+      "regulatory": [],
+      "meta": []
+    },
+    "judge_synthesis_quality": 0.75,
+    "judge_synthesis_notes": "The judge correctly identified the final answer (France) and utilized the 'bocage' evidence to weigh against the Meta agent's initial Denmark bias. However, the provided reasoning trace is truncated ('*Fra [...]'), preventing a full evaluation of the elimination logic and final chain of thought."
+  }
+}

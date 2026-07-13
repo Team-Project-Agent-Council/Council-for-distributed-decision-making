@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VLM Council Tournament Only Evaluation Report</title>
+<style>
+  :root {
+    --bg: #FFFFFF;
+    --fg: #222222;
+    --muted: #666666;
+    --border: #DDDDDD;
+    --accent: #4C72B0;
+    --success: #55A868;
+    --error: #C44E52;
+    --warning: #DD8452;
+    --code-bg: #F4F4F4;
+    --side-bg: #FAFAFA;
+  }
+  [data-theme="dark"] {
+    --bg: #1A1A1A;
+    --fg: #E5E5E5;
+    --muted: #999999;
+    --border: #333333;
+    --accent: #6FA0D6;
+    --success: #6FBE82;
+    --error: #DA6B6E;
+    --warning: #E89A6E;
+    --code-bg: #2A2A2A;
+    --side-bg: #222222;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                 "Helvetica Neue", Arial, sans-serif;
+    color: var(--fg);
+    background: var(--bg);
+    line-height: 1.55;
+  }
+  .layout { display: flex; min-height: 100vh; }
+  nav.toc {
+    width: 250px;
+    flex: 0 0 250px;
+    background: var(--side-bg);
+    border-right: 1px solid var(--border);
+    padding: 1.2rem 1rem;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    font-size: 0.9rem;
+  }
+  nav.toc h2 {
+    font-size: 0.95rem;
+    margin: 0 0 0.6rem 0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+  }
+  nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
+  nav.toc li { margin: 0.25rem 0; }
+  nav.toc a {
+    color: var(--fg);
+    text-decoration: none;
+    border-left: 2px solid transparent;
+    padding-left: 0.5rem;
+    display: block;
+  }
+  nav.toc a:hover { border-left-color: var(--accent); }
+  nav.toc a.active { border-left-color: var(--accent); color: var(--accent); }
+  main {
+    flex: 1;
+    max-width: 1100px;
+    padding: 1.5rem 2rem 4rem 2rem;
+  }
+  h1 { font-size: 1.8rem; margin-top: 0; }
+  h2 {
+    font-size: 1.35rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.3rem;
+    margin-top: 2rem;
+  }
+  h3 { font-size: 1.1rem; }
+  details {
+    margin: 0.75rem 0;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 0.5rem 0.75rem;
+    background: var(--side-bg);
+  }
+  details > summary {
+    cursor: pointer;
+    font-weight: 600;
+    margin: -0.5rem -0.75rem;
+    padding: 0.5rem 0.75rem;
+  }
+  details[open] > summary { border-bottom: 1px solid var(--border); margin-bottom: 0.5rem; }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 0.6rem 0;
+    font-size: 0.92rem;
+  }
+  th, td {
+    border: 1px solid var(--border);
+    padding: 0.45rem 0.6rem;
+    text-align: left;
+  }
+  th {
+    background: var(--side-bg);
+    cursor: pointer;
+    user-select: none;
+  }
+  th.sort-asc::after { content: " ^"; color: var(--muted); }
+  th.sort-desc::after { content: " v"; color: var(--muted); }
+  img.figure {
+    max-width: 100%;
+    height: auto;
+    margin: 0.6rem 0;
+    border: 1px solid var(--border);
+    background: white;
+  }
+  .caption {
+    font-size: 0.85rem;
+    color: var(--muted);
+    font-style: italic;
+    margin-bottom: 1rem;
+  }
+  .headline-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 0.6rem;
+    margin: 1rem 0;
+  }
+  .stat {
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 0.6rem 0.8rem;
+    background: var(--side-bg);
+  }
+  .stat .label { font-size: 0.78rem; color: var(--muted); text-transform: uppercase; }
+  .stat .value { font-size: 1.4rem; font-weight: 600; color: var(--accent); }
+  .badge {
+    display: inline-block;
+    padding: 0.1rem 0.5rem;
+    border-radius: 3px;
+    font-size: 0.78rem;
+    background: var(--code-bg);
+    color: var(--fg);
+  }
+  .badge.ok { background: var(--success); color: white; }
+  .badge.bad { background: var(--error); color: white; }
+  .badge.warn { background: var(--warning); color: white; }
+  blockquote {
+    border-left: 3px solid var(--accent);
+    margin: 0.8rem 0;
+    padding: 0.4rem 0.8rem;
+    background: var(--code-bg);
+  }
+  iframe.world-map {
+    width: 100%;
+    height: 600px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+  }
+  .controls {
+    position: fixed;
+    top: 0.6rem;
+    right: 0.8rem;
+    display: flex;
+    gap: 0.4rem;
+    z-index: 100;
+  }
+  .controls button {
+    padding: 0.3rem 0.7rem;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--fg);
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 0.85rem;
+  }
+  .controls button:hover { background: var(--side-bg); }
+  code { font-family: "SFMono-Regular", Menlo, monospace; font-size: 0.88rem;
+         background: var(--code-bg); padding: 0.05rem 0.3rem; border-radius: 2px; }
+  .meta { font-size: 0.85rem; color: var(--muted); }
+  .small-table { font-size: 0.85rem; }
+  details.example { background: var(--bg); }
+</style>
+</head>
+<body>
+<div class="controls">
+  <button onclick="toggleTheme()">theme</button>
+  <button onclick="expandAll(true)">expand all</button>
+  <button onclick="expandAll(false)">collapse all</button>
+</div>
+<div class="layout">
+<nav class="toc">
+  <h2>Sections</h2>
+  <ul>
+    <li><a href="#headline">Headline</a></li>
+    {% if geo or heatmap or calibration %}<li><a href="#gt">1. Ground-truth statistics</a></li>{% endif %}
+    {% if dynamics %}<li><a href="#dynamics">2. Approach dynamics</a></li>{% endif %}
+    {% if judge %}<li><a href="#judge">3. LLM-as-judge verdicts</a></li>{% endif %}
+  </ul>
+  <p class="meta">
+    Tournament only approach (no region gate)<br>
+    Generated {{ generated_at }}<br>
+    {{ run_metadata.n_images }} images
+  </p>
+</nav>
+
+<main>
+<h1 id="headline">VLM Council Tournament Only Evaluation Report</h1>
+
+<div class="headline-grid">
+  {% if geo %}
+  <div class="stat">
+    <div class="label">Country accuracy</div>
+    <div class="value">{{ pct(geo.country_accuracy) }}</div>
+  </div>
+  <div class="stat">
+    <div class="label">Median haversine</div>
+    <div class="value">{{ km(geo.haversine_km.median) }}</div>
+  </div>
+  <div class="stat">
+    <div class="label">Images</div>
+    <div class="value">{{ geo.n_total }}</div>
+  </div>
+  {% endif %}
+  {% if judge and judge.overall_quality_score and judge.overall_quality_score.n %}
+  <div class="stat">
+    <div class="label">Judge synthesis quality</div>
+    <div class="value">{{ "%.2f"|format(judge.overall_quality_score.mean) }}</div>
+  </div>
+  {% endif %}
+</div>
+
+{# ===== 1. GROUND-TRUTH STATISTICS ===== #}
+{% if geo or heatmap or calibration %}
+<h2 id="gt">1. Ground-truth statistics</h2>
+
+{% if geo %}
+<h3>Headline metrics</h3>
+<table>
+  <thead><tr><th>Metric</th><th data-sort="num">Value</th></tr></thead>
+  <tbody>
+    <tr><td>Country accuracy</td><td>{{ pct(geo.country_accuracy) }}</td></tr>
+    <tr><td>Median haversine</td><td>{{ km(geo.haversine_km.median) }}</td></tr>
+    <tr><td>Mean haversine</td><td>{{ km(geo.haversine_km.mean) }}</td></tr>
+    <tr><td>N images</td><td>{{ geo.n_total }}</td></tr>
+  </tbody>
+</table>
+
+<h3>Geo-spatial bias</h3>
+<ul>
+  <li>North/south bias: {{ geo.north_bias_test.interpretation }}</li>
+  <li>East/west bias: {{ geo.east_bias_test.interpretation }}</li>
+</ul>
+<img class="figure" src="plots/error_distribution.png" alt="Error distribution">
+<p class="caption">Figure: latitude and longitude error distribution.</p>
+<img class="figure" src="plots/bearing_rose.png" alt="Bearing rose">
+<p class="caption">Figure: bearing of prediction errors.</p>
+{% if geo.top_confusions %}
+<details><summary>Top confusion pairs</summary>
+<table class="small-table"><thead><tr><th>Truth</th><th>Predicted</th><th data-sort="num">Count</th></tr></thead><tbody>
+{% for row in geo.top_confusions[:30] %}
+<tr><td>{{ row.truth }}</td><td>{{ row.predicted }}</td><td>{{ row.count }}</td></tr>
+{% endfor %}
+</tbody></table></details>
+{% endif %}
+{% endif %}
+
+{% if heatmap %}
+<h3>Geographic world maps</h3>
+<p>Per-country true-positive rate (TPR = correct over truth = country) and false-positive
+counts. Macro-averaged TPR across countries with truth: <strong>{{ pct(heatmap.macro_avg_tpr) }}</strong>
+({{ heatmap.n_countries_with_truth }} countries).</p>
+<img class="figure" src="plots/world_map_accuracy.png" alt="World accuracy heatmap">
+<p class="caption">Figure: per-country TPR (green) with false-positive outlines (red).</p>
+<img class="figure" src="plots/world_map_f1.png" alt="World F1 map">
+<p class="caption">Figure: per-country F1, divergent around the run macro-F1.
+Green = above average, red = below average.</p>
+<img class="figure" src="plots/world_map_error_bias.png" alt="World error-bias map">
+<p class="caption">Figure: per-country error bias (FP over FN). Red = over-predicted,
+blue = missed.</p>
+<details><summary>Per-country breakdown ({{ heatmap.per_country|length }} entries)</summary>
+<table class="small-table"><thead><tr>
+  <th>Country</th><th data-sort="num">n_truth</th><th data-sort="num">n_correct</th>
+  <th data-sort="num">n_predicted</th><th data-sort="num">n_false_positive</th>
+  <th data-sort="num">TPR</th><th data-sort="num">PPV</th>
+</tr></thead><tbody>
+{% for name, blk in heatmap.per_country.items() %}
+<tr>
+  <td>{{ name|title }}</td>
+  <td>{{ blk.n_truth }}</td>
+  <td>{{ blk.n_correct }}</td>
+  <td>{{ blk.n_predicted }}</td>
+  <td>{{ blk.n_false_positive }}</td>
+  <td>{{ pct(blk.tpr) if blk.tpr is not none else "n/a" }}</td>
+  <td>{{ pct(blk.ppv) if blk.ppv is not none else "n/a" }}</td>
+</tr>
+{% endfor %}
+</tbody></table></details>
+{% endif %}
+
+{% if calibration %}
+<h3>Confidence calibration</h3>
+<p>Each specialist annotates every candidate with a confidence label
+(high / medium / low / speculative). When an agent assigns label X to a country,
+in what fraction of those (image, country) pairs was that country the ground truth?</p>
+{% set labels = calibration.labels or ["high", "medium", "low", "speculative"] %}
+<table>
+  <thead><tr><th>Agent</th>
+    {% for lab in labels %}<th>{{ lab }} (n)</th>{% endfor %}
+  </tr></thead>
+  <tbody>
+  {% for agent, m in calibration.per_agent.items() %}
+    <tr><td>{{ agent }}</td>
+    {% for lab in labels %}
+      {% set blk = (m.label_hit_rate or {}).get(lab) or {} %}
+      <td>{% if blk.rate is not none and blk.n %}{{ pct(blk.rate) }} ({{ blk.n }}){% else %}n/a ({{ blk.n or 0 }}){% endif %}</td>
+    {% endfor %}
+    </tr>
+  {% endfor %}
+    <tr><td><strong>average</strong></td>
+    {% for lab in labels %}
+      {% set blk = (calibration.average.label_hit_rate or {}).get(lab) or {} %}
+      <td>{% if blk.rate is not none and blk.n %}<strong>{{ pct(blk.rate) }}</strong> ({{ blk.n }}){% else %}n/a ({{ blk.n or 0 }}){% endif %}</td>
+    {% endfor %}
+    </tr>
+  </tbody>
+</table>
+<img class="figure" src="plots/calibration_label_hit_rate.png" alt="Per-label hit-rate">
+<p class="caption">Figure: per-label hit-rate. A well-calibrated agent shows
+monotonically falling bars (high, medium, low, speculative).</p>
+<table>
+  <thead><tr><th>Agent</th><th data-sort="num">n</th>
+    <th data-sort="num">Brier</th><th data-sort="num">ECE</th></tr></thead>
+  <tbody>
+  {% for agent, m in calibration.per_agent.items() %}
+    <tr><td>{{ agent }}</td><td>{{ m.n_top1 }}</td>
+      <td>{{ "%.3f"|format(m.brier) }}</td>
+      <td>{{ "%.3f"|format(m.ece) }}</td></tr>
+  {% endfor %}
+    <tr><td><strong>average</strong></td><td>{{ calibration.average.n_top1 }}</td>
+      <td><strong>{{ "%.3f"|format(calibration.average.brier) }}</strong></td>
+      <td><strong>{{ "%.3f"|format(calibration.average.ece) }}</strong></td></tr>
+  </tbody>
+</table>
+{% endif %}
+{% endif %}
+
+{# ===== 2. APPROACH DYNAMICS ===== #}
+{% if dynamics and not dynamics._error is defined %}
+<h2 id="dynamics">2. Approach dynamics</h2>
+<p>The tournament only pipeline runs five independent agent assessments into a
+candidate pool, seeds the top four of that pool into a bracket (seed 0 vs seed 3,
+seed 1 vs seed 2, then a final), and returns the champion as the answer. There is
+no region gate, so these dynamics cover the candidate pool, the pool to bracket
+seeding step, the bracket matches and the ground truth survival ladder.</p>
+
+{% if dynamics.pool_bracket %}
+{% set pb = dynamics.pool_bracket %}
+<h3>Candidate pool to bracket seeding</h3>
+<table>
+  <thead><tr><th>Metric</th><th data-sort="num">Value</th></tr></thead>
+  <tbody>
+    <tr><td>Mean pool size</td><td>{{ "%.2f"|format(pb.pool_size_mean) if pb.pool_size_mean is not none else "n/a" }}</td></tr>
+    <tr><td>Max pool size</td><td>{{ pb.pool_size_max if pb.pool_size_max is not none else "n/a" }}</td></tr>
+    <tr><td>Mean bracket size</td><td>{{ "%.2f"|format(pb.bracket_size_mean) if pb.bracket_size_mean is not none else "n/a" }}</td></tr>
+    <tr><td>Mean pool to bracket slack</td><td>{{ "%.2f"|format(pb.slack_mean) if pb.slack_mean is not none else "n/a" }} (max {{ pb.slack_max if pb.slack_max is not none else "n/a" }})</td></tr>
+    <tr><td>Bracket equals pool top 4 (as a set)</td><td>{{ pb.n_bracket_equals_pool_top4 }} ({{ pct(pb.bracket_equals_pool_top4_rate) }})</td></tr>
+    <tr><td>Pool larger than 4 (some pool entries dropped)</td><td>{{ pb.n_pool_beyond_4 }} ({{ pct(pb.pool_beyond_4_rate) }})</td></tr>
+  </tbody>
+</table>
+{% endif %}
+
+{% if dynamics.seed0_origin and dynamics.seed0_origin.n %}
+{% set s0 = dynamics.seed0_origin %}
+<h3>Seed 0 origin (which signal produces the top seed)</h3>
+<p>Across {{ s0.n }} images with a bracket, the seed 0 country matches the initial
+plurality (at least 2 of 5 agents) <strong>{{ pct(s0.matches_initial_plurality_rate) }}</strong>
+of the time (n={{ s0.matches_initial_plurality }}).</p>
+<table>
+  <thead><tr><th>Agent</th><th data-sort="num">Seed 0 matches this agent top pick</th></tr></thead>
+  <tbody>
+  {% for a in agent_names %}
+    {% set blk = (s0.matches_agent_top_pick or {}).get(a) or {} %}
+    <tr><td>{{ a }}</td><td>{{ blk.n or 0 }} ({{ pct(blk.rate) }})</td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endif %}
+
+{% if dynamics.tournament and dynamics.tournament.n_matches %}
+{% set t = dynamics.tournament %}
+<h3>Tournament matches</h3>
+<p>Across {{ t.n_matches }} bracket matches: judge agrees with the specialists
+<strong>{{ pct(t.agree_rate) }}</strong> (n={{ t.agree }}), disagrees
+<strong>{{ pct(t.disagree_rate) }}</strong> (n={{ t.disagree }}), and a lower seed
+wins (upset) <strong>{{ pct(t.upset_rate) }}</strong> (n={{ t.upsets }}).</p>
+{% if t.champion_by_seed %}
+<table>
+  <thead><tr><th data-sort="num">Original seed</th><th data-sort="num">Champions</th><th>Share</th></tr></thead>
+  <tbody>
+  {% for k, blk in t.champion_by_seed.items() %}
+    <tr><td>{{ k }}</td><td>{{ blk.n or 0 }}</td><td>{{ pct(blk.rate) }}</td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endif %}
+{% endif %}
+
+{% if dynamics.initial_plurality_vs_champion and dynamics.initial_plurality_vs_champion.n_with_plurality %}
+{% set rv = dynamics.initial_plurality_vs_champion %}
+<h3>Initial plurality vs champion (ratify or revise)</h3>
+<p>Of {{ rv.n_with_plurality }} images with an initial plurality (at least 2 of 5
+agents naming the same country), the tournament champion equals that plurality
+<strong>{{ pct(rv.champion_equals_plurality_rate) }}</strong> (n={{ rv.champion_equals_plurality }})
+and revises it <strong>{{ pct(rv.champion_differs_rate) }}</strong> (n={{ rv.champion_differs }}).
+{{ rv.n_no_plurality }} images had no initial plurality.</p>
+{% endif %}
+
+{% if dynamics.gt_ladder and dynamics.gt_ladder.n_with_gt %}
+{% set gl = dynamics.gt_ladder %}
+<h3>Ground truth survival ladder</h3>
+<p>Each gate can drop the ground truth country, and no downstream gate can recover
+it. Rates are over {{ gl.n_with_gt }} images with ground truth.</p>
+<table>
+  <thead><tr><th>Gate</th><th data-sort="num">Survived</th><th data-sort="num">Rate</th></tr></thead>
+  <tbody>
+    <tr><td>Ground truth in candidate pool</td><td>{{ gl.gt_in_pool }}</td><td>{{ pct(gl.gt_in_pool_rate) }}</td></tr>
+    <tr><td>Ground truth in bracket (top 4 seeded)</td><td>{{ gl.gt_in_bracket }}</td><td>{{ pct(gl.gt_in_bracket_rate) }}</td></tr>
+    <tr><td>Ground truth at seed 0</td><td>{{ gl.gt_at_seed0 }}</td><td>{{ pct(gl.gt_at_seed0_rate) }}</td></tr>
+    <tr><td>Ground truth reached the final</td><td>{{ gl.gt_reached_final }}</td><td>{{ pct(gl.gt_reached_final_rate) }}</td></tr>
+    <tr><td>Ground truth won the tournament</td><td>{{ gl.gt_won_final }}</td><td>{{ pct(gl.gt_won_final_rate) }}</td></tr>
+  </tbody>
+</table>
+<p>Gate to gate survival of ground truth: in pool to in bracket
+{{ pct(gl.survival.pool_to_bracket) }}, in bracket to reached final
+{{ pct(gl.survival.bracket_to_final) }}, reached final to won tournament
+{{ pct(gl.survival.final_to_champion) }}.</p>
+{% endif %}
+
+{% if dynamics.seed_fidelity and dynamics.seed_fidelity.n_gt_in_bracket %}
+{% set sf = dynamics.seed_fidelity %}
+<h3>Seed fidelity (does the tournament correct mis seedings?)</h3>
+<p>Over the {{ sf.n_gt_in_bracket }} images where the ground truth reached the
+bracket, the tournament picks it <strong>{{ pct(sf.won_when_in_bracket_rate) }}</strong>
+of the time (n={{ sf.won_when_in_bracket }}).</p>
+{% if sf.by_seed %}
+<table>
+  <thead><tr><th data-sort="num">Ground truth seed</th><th data-sort="num">n</th><th data-sort="num">Won</th><th data-sort="num">Win rate</th></tr></thead>
+  <tbody>
+  {% for k, blk in sf.by_seed.items() %}
+    <tr><td>{{ k }}</td><td>{{ blk.n or 0 }}</td><td>{{ blk.won or 0 }}</td><td>{{ pct(blk.win_rate) }}</td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endif %}
+{% endif %}
+
+{% if agents %}
+<h3>Per-agent initial round</h3>
+<p>In tournament only there is no per-agent country reassessment, so each agent
+contributes only its initial top pick.</p>
+<table>
+  <thead><tr><th>Agent</th><th data-sort="num">n</th>
+    <th data-sort="num">Top-1</th><th data-sort="num">Top-3</th>
+    <th data-sort="num">Coverage</th></tr></thead>
+  <tbody>
+  {% for a in agent_names %}
+    {% set m = agents.initial_round.get(a) or {} %}
+    <tr><td>{{ a }}</td><td>{{ m.n or 0 }}</td>
+      <td>{{ pct(m.top1_accuracy or 0) }}</td>
+      <td>{{ pct(m.top3_hit_rate or 0) }}</td>
+      <td>{{ pct(m.coverage or 0) }}</td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+<img class="figure" src="plots/agent_top1.png" alt="Agent top-1">
+<p class="caption">Figure: per-agent top-1 accuracy.</p>
+{% endif %}
+{% endif %}
+
+{# ===== 3. LLM-AS-JUDGE VERDICTS ===== #}
+{% if judge %}
+<h2 id="judge">3. LLM-as-judge verdicts</h2>
+<p>Verdicts: {{ judge.n_with_verdict }} / {{ judge.n_total_judge_files }}.
+   Constructive synthesis: {{ pct(judge.constructive_synthesis_rate) }}
+   (n={{ judge.constructive_synthesis_n }})</p>
+{% if judge.overall_quality_score and judge.overall_quality_score.n %}
+<p>Overall quality score: mean {{ "%.3f"|format(judge.overall_quality_score.mean) }},
+median {{ "%.3f"|format(judge.overall_quality_score.median) }}.</p>
+{% endif %}
+<h3>Per-agent quantitative scores</h3>
+<table>
+  <thead><tr><th>Agent</th><th data-sort="num">n</th>
+    <th data-sort="num">Role adher.</th>
+    <th data-sort="num">Hallucination (lower is better)</th>
+    <th data-sort="num">Visual cons. (higher is better)</th>
+    <th data-sort="num">Calibration (higher is better)</th></tr></thead>
+  <tbody>
+  {% for a in agent_names %}
+    {% set m = judge.per_agent.get(a) or {} %}
+    <tr>
+      <td>{{ a }}</td>
+      <td>{{ m.n or 0 }}</td>
+      <td>{{ pct(m.role_adherence_rate or 0) }}</td>
+      <td>{{ stat_or_dash(m, "hallucination_score") }}</td>
+      <td>{{ stat_or_dash(m, "visual_consistency_score") }}</td>
+      <td>{{ stat_or_dash(m, "confidence_calibration_score") }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+<img class="figure" src="plots/judge_role_adherence.png" alt="Role adherence">
+<p class="caption">Figure: per-agent role adherence rate.</p>
+<img class="figure" src="plots/judge_hallucination.png" alt="Hallucination scores">
+<p class="caption">Figure: per-agent mean hallucination score (0 = clean, 1 = severe).</p>
+<img class="figure" src="plots/judge_visual_consistency.png" alt="Visual consistency">
+<p class="caption">Figure: per-agent mean visual consistency.</p>
+
+{% if judge.tournament_failure and judge.tournament_failure.by_reason %}
+<h3>Tournament failure attribution</h3>
+<p>For matches where the truth was in the candidate pool but did not win, the judge
+classifies why. Counterfactual winnable rate:
+<strong>{{ pct(judge.tournament_failure.counterfactual_winnable_rate) }}</strong>
+({{ judge.tournament_failure.counterfactual_n }} attributable losses).</p>
+<table>
+  <thead><tr><th>Failure reason</th><th data-sort="num">Count</th></tr></thead>
+  <tbody>
+  {% for reason, count in judge.tournament_failure.by_reason.items() %}
+    <tr><td>{{ reason }}</td><td>{{ count }}</td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+<img class="figure" src="plots/judge_failure_reasons.png" alt="Failure attribution">
+<p class="caption">Figure: tournament failure attribution histogram.</p>
+{% if judge.tournament_failure.examples %}
+<details><summary>Failure examples ({{ judge.tournament_failure.examples|length }})</summary>
+{% for e in judge.tournament_failure.examples %}
+<details class="example"><summary>{{ e.image_id }}, {{ e.failure_reason }}
+  (lost to {{ e.truth_lost_to or "n/a" }})</summary>
+<p><strong>Round:</strong> {{ e.failure_match_round or "n/a" }},
+   <strong>Counterfactual winnable:</strong>
+   <span class="badge {{ 'ok' if e.counterfactual_winnable else 'bad' }}">
+     {{ "yes" if e.counterfactual_winnable else "no" }}</span></p>
+{% if e.failure_reasoning %}<p>{{ e.failure_reasoning }}</p>{% endif %}
+</details>
+{% endfor %}
+</details>
+{% endif %}
+{% endif %}
+
+{% if judge.per_agent %}
+<h3>Hallucination examples</h3>
+{% for a in agent_names %}
+{% set m = judge.per_agent.get(a) or {} %}
+{% if m.hallucination_examples %}
+<details><summary>{{ a }}, {{ m.hallucination_examples|length }} flagged claims</summary>
+<table class="small-table"><thead><tr><th>Image</th><th data-sort="num">Score</th><th>Hallucinated claim</th></tr></thead><tbody>
+{% for ex in m.hallucination_examples %}
+<tr><td>{{ ex.image_id }}</td>
+  <td>{{ "%.2f"|format(ex.score) if ex.score is not none else "n/a" }}</td>
+  <td>{{ ex.example }}</td></tr>
+{% endfor %}
+</tbody></table></details>
+{% endif %}
+{% endfor %}
+{% endif %}
+{% endif %}
+
+</main>
+</div>
+
+<script>
+function toggleTheme() {
+  const r = document.documentElement;
+  r.dataset.theme = r.dataset.theme === "dark" ? "light" : "dark";
+}
+function expandAll(open) {
+  document.querySelectorAll("details").forEach(d => { d.open = open; });
+}
+// Sortable tables: any <th> click sorts column. data-sort="num" forces numeric.
+document.querySelectorAll("table").forEach(table => {
+  table.querySelectorAll("th").forEach((th, idx) => {
+    th.addEventListener("click", () => {
+      const tbody = table.tBodies[0];
+      if (!tbody) return;
+      const rows = Array.from(tbody.rows);
+      const numeric = th.dataset.sort === "num";
+      const asc = !th.classList.contains("sort-asc");
+      rows.sort((a, b) => {
+        const x = a.cells[idx]?.innerText || "";
+        const y = b.cells[idx]?.innerText || "";
+        if (numeric) {
+          const xn = parseFloat(x.replace(/[^\d.\-]/g, "")) || 0;
+          const yn = parseFloat(y.replace(/[^\d.\-]/g, "")) || 0;
+          return asc ? xn - yn : yn - xn;
+        }
+        return asc ? x.localeCompare(y) : y.localeCompare(x);
+      });
+      rows.forEach(r => tbody.appendChild(r));
+      table.querySelectorAll("th").forEach(t => t.classList.remove("sort-asc", "sort-desc"));
+      th.classList.toggle("sort-asc", asc);
+      th.classList.toggle("sort-desc", !asc);
+    });
+  });
+});
+// Scroll-spy: highlight active TOC entry
+const sections = Array.from(document.querySelectorAll("main h2"));
+const tocLinks = Array.from(document.querySelectorAll("nav.toc a"));
+function onScroll() {
+  let current = null;
+  for (const s of sections) {
+    if (s.getBoundingClientRect().top < 100) current = s.id;
+  }
+  tocLinks.forEach(a => a.classList.toggle("active",
+    a.getAttribute("href") === "#" + current));
+}
+window.addEventListener("scroll", onScroll, { passive: true });
+onScroll();
+</script>
+</body>
+</html>

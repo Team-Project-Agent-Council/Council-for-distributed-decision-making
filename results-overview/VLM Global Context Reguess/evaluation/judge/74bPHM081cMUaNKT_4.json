@@ -1,0 +1,78 @@
+{
+  "image_id": "74bPHM081cMUaNKT_4",
+  "truth_country": "kenya",
+  "pred_country": "ethiopia",
+  "is_correct": false,
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": true,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.25,
+      "botanics": 0.25,
+      "regulatory": 0.0,
+      "meta": 0.0
+    },
+    "visual_consistency_score": {
+      "linguistic": 1.0,
+      "landscape": 0.75,
+      "botanics": 0.75,
+      "regulatory": 1.0,
+      "meta": 1.0
+    },
+    "confidence_calibration_score": {
+      "linguistic": 1.0,
+      "landscape": 0.25,
+      "botanics": 0.25,
+      "regulatory": 0.25,
+      "meta": 0.25
+    },
+    "round2_improvement": {
+      "linguistic": 1.0,
+      "landscape": 0.5,
+      "botanics": 0.5,
+      "regulatory": 0.5,
+      "meta": 0.5
+    },
+    "round2_improvement_notes": {
+      "linguistic": "Agent provided no output in either round; technically consistent with a null result.",
+      "landscape": "Acknowledged other agents' evidence and shifted hypothesis from Colombia to Ethiopia, but the shift was driven by incorrect synthesis of the visual data.",
+      "botanics": "Acknowledged other agents' evidence and shifted hypothesis from Ethiopia to Colombia, but the shift was driven by incorrect synthesis of the visual data.",
+      "regulatory": "Acknowledged other agents' evidence but maintained the Ethiopia hypothesis without substantive change to the reasoning.",
+      "meta": "Acknowledged other agents' evidence and shifted hypothesis from Colombia to Ethiopia, reinforcing the incorrect consensus."
+    },
+    "role_leakage_score": {
+      "linguistic": 0.0,
+      "landscape": 0.5,
+      "botanics": 0.5,
+      "regulatory": 0.5,
+      "meta": 0.5
+    },
+    "role_leakage_notes": {
+      "linguistic": "none",
+      "landscape": "Minor leakage: explicitly referenced the 'Regulatory Agent's observation of Ethiopian road markings' and 'Botanics Agent's identification' to justify the shift to Ethiopia.",
+      "botanics": "Minor leakage: explicitly referenced 'infrastructure and terrain reported by other agents' to justify the shift to Colombia.",
+      "regulatory": "Minor leakage: explicitly referenced 'Botanics agent's identification of Ethiopian Highland scrub' to justify maintaining the Ethiopia hypothesis.",
+      "meta": "Minor leakage: explicitly referenced 'Botanics and Regulatory agents' to justify the shift to Ethiopia."
+    },
+    "hallucination_examples": {
+      "linguistic": [],
+      "landscape": [
+        "The vegetation and road infrastructure are nearly identical [to Ecuador]"
+      ],
+      "botanics": [
+        "The vegetation consists of tropical scrub and mixed deciduous growth typical of the Andean foothills."
+      ],
+      "regulatory": [],
+      "meta": []
+    },
+    "judge_synthesis_quality": 0.25,
+    "judge_synthesis_notes": "The Judge's synthesis is weak and circular. It relies entirely on the incorrect consensus of the specialist agents (Landscape, Meta, Regulatory) to select Ethiopia, while dismissing the Botanics agent's correct (though initially low-confidence) Kenya signal. The Judge fails to critically evaluate the visual evidence (e.g., the specific road markings or vegetation) against the ground truth, instead deferring to the flawed majority vote of the pipeline."
+  }
+}

@@ -1,0 +1,708 @@
+{
+  "image_path": "/pfs/data6/home/ma/ma_ma/ma_lweisssc/llm_council_agent_orchestration_tests/clean_images_GeoRC_500/SwSJB5DW8YXOSLn2_1.png",
+  "model": "google/gemma-4-31B-it",
+  "judge_model": "google/gemma-4-31B-it",
+  "timing": {
+    "total_seconds": 101.1
+  },
+  "assessments": {
+    "linguistic": {
+      "agent_name": "linguistic",
+      "candidates": [],
+      "evidence": []
+    },
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "United Kingdom",
+          "confidence": "medium",
+          "reasoning": "The combination of low-lying heathland, scrubby gorse-like vegetation, and a light-colored gravel track is very characteristic of the UK's lowland heaths (e.g., New Forest or Dorset). The temperate, overcast sky and deciduous tree colors suggest a Northern Hemisphere autumn."
+        },
+        {
+          "country": "France",
+          "confidence": "medium",
+          "reasoning": "Similar Atlantic-influenced temperate landscapes exist in Western France, particularly in coastal heathlands. The terrain and vegetation are nearly indistinguishable from the UK in this specific environment."
+        },
+        {
+          "country": "Spain",
+          "confidence": "low",
+          "reasoning": "The scrubland (maquis/garrigue) in Northern Spain can mirror this appearance, though the soil color here is lighter and the vegetation appears more lush/temperate than typical Mediterranean scrub."
+        },
+        {
+          "country": "New Zealand",
+          "confidence": "speculative",
+          "reasoning": "As a global analog, New Zealand has similar temperate scrub and gravel road networks in its rural interior, though the sun angle and vegetation types would need further verification to confirm the Southern Hemisphere."
+        }
+      ],
+      "evidence": [
+        "Temperate heathland/scrub vegetation",
+        "Light-colored gravel/crushed stone road",
+        "Deciduous trees with autumn foliage",
+        "Overcast, diffused lighting typical of maritime temperate climates",
+        "Low-relief, undulating terrain"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "United Kingdom",
+          "confidence": "medium",
+          "reasoning": "The combination of low-growing Calluna vulgaris (heather) and Ulex europaeus (gorse) is highly characteristic of British heathlands. The deciduous trees in the background showing autumn colors are consistent with Northern European temperate forests."
+        },
+        {
+          "country": "France",
+          "confidence": "medium",
+          "reasoning": "Similar Atlantic heathland biomes exist in Western France (e.g., Brittany), featuring the same mix of gorse and heather. It is botanically indistinguishable from the UK in this specific view without endemic markers."
+        },
+        {
+          "country": "Spain",
+          "confidence": "low",
+          "reasoning": "Northern Spain (Galicia/Asturias) hosts similar Atlantic scrubland and heathland vegetation. However, the specific hue of the autumn foliage suggests a slightly more northerly temperate climate."
+        },
+        {
+          "country": "United States",
+          "confidence": "speculative",
+          "reasoning": "The Northeastern US (New England) has similar temperate deciduous forests and scrubland biomes. While the species may differ, the overall vegetation structure and seasonal color are a global analog."
+        }
+      ],
+      "evidence": [
+        "Calluna vulgaris (Heather)",
+        "Ulex europaeus (Gorse)",
+        "Temperate deciduous forest",
+        "Atlantic heathland biome"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "United Kingdom",
+          "confidence": "low",
+          "reasoning": "The gravel track and surrounding scrubland/heathland vegetation are common in rural UK parks or moorlands. No specific regulatory markers are present to confirm."
+        },
+        {
+          "country": "France",
+          "confidence": "low",
+          "reasoning": "Similar rural unpaved tracks and vegetation patterns are found in various French regional parks or rural areas."
+        },
+        {
+          "country": "Australia",
+          "confidence": "speculative",
+          "reasoning": "Global analog: Rural gravel roads with similar width and lack of formal infrastructure are common across rural Australia."
+        },
+        {
+          "country": "United States",
+          "confidence": "speculative",
+          "reasoning": "Global analog: Unpaved rural access roads with basic gravel composition are visually identical to many rural US forest or park roads."
+        }
+      ],
+      "evidence": [
+        "unpaved gravel road",
+        "absence of road signs",
+        "absence of bollards",
+        "absence of utility poles in immediate foreground",
+        "natural scrubland shoulders"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "United Kingdom",
+          "confidence": "medium",
+          "reasoning": "The image shows a Google Trekker (backpack) capture, which is common for rural paths in the UK. The fence style with thin metal posts and wire is very typical for British countryside boundaries."
+        },
+        {
+          "country": "France",
+          "confidence": "medium",
+          "reasoning": "Google Trekker coverage is extensive in French rural and forest areas. The fence construction and general path maintenance are consistent with regional French park or forest trails."
+        },
+        {
+          "country": "United States",
+          "confidence": "low",
+          "reasoning": "Global analog: The US has extensive Trekker coverage in national parks and rural trails with similar wire fencing, though the specific vegetation (handled by others) might differ."
+        },
+        {
+          "country": "Japan",
+          "confidence": "speculative",
+          "reasoning": "Global analog: Japan uses Trekker for many mountain and rural paths, and similar simple wire fencing is used to delineate property or protect nature reserves."
+        }
+      ],
+      "evidence": [
+        "Google Trekker (backpack) camera generation",
+        "Wire fencing with thin metal stakes"
+      ]
+    }
+  },
+  "progressive_narrowing": {
+    "region_consensus": false,
+    "confirmed_region": "Europe",
+    "runner_up_region": "North America",
+    "surviving_regions": [
+      "Europe",
+      "North America"
+    ],
+    "proposed_regions": [
+      "Europe",
+      "Oceania",
+      "North America",
+      "East Asia"
+    ],
+    "region_candidates": {
+      "Europe": {
+        "United Kingdom": 4,
+        "France": 4,
+        "Spain": 2
+      },
+      "Oceania": {
+        "New Zealand": 1,
+        "Australia": 1
+      },
+      "North America": {
+        "United States": 3
+      },
+      "East Asia": {
+        "Japan": 1
+      }
+    },
+    "region_decision_reasoning": "Europe received the highest score due to multiple 'strongly_support' ratings across landscape, botanics, and meta-data agents, specifically citing Atlantic heathland and Google Trekker patterns. North America is the runner-up as it was consistently supported as a compatible temperate alternative, though viewed as less characteristic than Europe.",
+    "path": "B"
+  },
+  "road_evidence": {
+    "outside_color": "none",
+    "inside_color": "none",
+    "driving_side": "UNCLEAR",
+    "driving_side_basis": "none"
+  },
+  "country_assessments": {
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "United Kingdom",
+          "confidence": "high",
+          "reasoning": "The combination of low-lying heathland, gorse-like scrub, and a light-colored gravel track is highly characteristic of the UK's lowland heaths (e.g., New Forest or Dorset). The vegetation density and muted autumn colors are typical for the British Isles."
+        },
+        {
+          "country": "France",
+          "confidence": "medium",
+          "reasoning": "Similar heathland and scrub environments exist in western France, particularly in Brittany. The terrain and soil composition are geographically similar to the UK, though the vegetation patterns are slightly more varied."
+        },
+        {
+          "country": "Netherlands",
+          "confidence": "medium",
+          "reasoning": "The flat terrain and sandy, light-colored soil of the road are consistent with the Veluwe or other sandy heathland regions in the Netherlands. The settlement pattern of open, managed scrubland is common here."
+        },
+        {
+          "country": "United States",
+          "confidence": "low",
+          "reasoning": "Certain coastal regions of the Northeastern US or parts of the Pacific Northwest could exhibit similar temperate scrub and gravel roads. However, the specific density and type of low-lying shrubbery are more characteristic of Western Europe."
+        }
+      ],
+      "evidence": [
+        "Low-lying temperate heathland with dense scrub/gorse",
+        "Light-colored sandy/gravel soil on unpaved road",
+        "Muted autumn foliage on deciduous trees in the background",
+        "Flat to gently undulating terrain",
+        "Northern hemisphere sun angle based on shadow cast"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "United Kingdom",
+          "confidence": "high",
+          "reasoning": "The landscape is characteristic of Atlantic heathland, dominated by Calluna vulgaris (heather) and Ulex europaeus (gorse). This specific combination of low-lying scrub and deciduous broadleaf trees in the background is highly typical of the UK uplands or coastal heaths."
+        },
+        {
+          "country": "Ireland",
+          "confidence": "high",
+          "reasoning": "The vegetation is virtually identical to the UK, featuring the same mix of gorse and heather common in Irish bogs and heaths. Botanically, it is indistinguishable from the UK without further geographic markers."
+        },
+        {
+          "country": "France",
+          "confidence": "medium",
+          "reasoning": "Similar heathland biomes exist in Brittany and Normandy. The presence of Ulex and Calluna is common here, though the overall density and tree composition slightly favor the British Isles."
+        },
+        {
+          "country": "United States",
+          "confidence": "low",
+          "reasoning": "Certain coastal regions of the Pacific Northwest or New England have similar temperate scrub and deciduous mixes. However, the specific growth habit of the gorse-like shrubs is more characteristic of Western Europe."
+        }
+      ],
+      "evidence": [
+        "Calluna vulgaris (Heather)",
+        "Ulex europaeus (Common Gorse)",
+        "Temperate Atlantic Heathland",
+        "Deciduous broadleaf forest edge"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "United Kingdom",
+          "confidence": "low",
+          "reasoning": "The narrow, unpaved gravel track and the style of the surrounding scrubland/heathland are common in rural UK parks or moorlands. The single wooden utility pole in the distance is consistent with rural British infrastructure."
+        },
+        {
+          "country": "France",
+          "confidence": "low",
+          "reasoning": "The light-colored gravel/crushed stone road surface is very common for rural 'chemins' in France. The vegetation and general landscape are consistent with Western European rural areas."
+        },
+        {
+          "country": "United States",
+          "confidence": "low",
+          "reasoning": "The basic gravel road and wooden utility pole are generic rural infrastructure found across North America. The scrubby vegetation is consistent with various temperate regions in the US."
+        },
+        {
+          "country": "Canada",
+          "confidence": "low",
+          "reasoning": "Similar to the USA, the unpaved road and basic utility pole are standard for rural Canadian backcountry or park roads."
+        }
+      ],
+      "evidence": [
+        "unpaved gravel road",
+        "single wooden utility pole",
+        "absence of road markings",
+        "absence of signage"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "United Kingdom",
+          "confidence": "medium",
+          "reasoning": "The image shows a distinct 'Google Trekker' (backpack) perspective, indicated by the blurred shape of the person's torso/backpack at the bottom of the frame. The UK has extensive Trekker coverage on rural footpaths and bridleways like this one."
+        },
+        {
+          "country": "United States",
+          "confidence": "low",
+          "reasoning": "The US also utilizes Google Trekker for national parks and rural trails. However, the specific quality of the image and the style of the dirt path are more characteristic of European rural trails."
+        },
+        {
+          "country": "France",
+          "confidence": "low",
+          "reasoning": "France has significant Trekker coverage in rural and forested areas. The image quality and camera generation are consistent with European Trekker deployments."
+        }
+      ],
+      "evidence": [
+        "Google Trekker camera perspective (visible person/backpack blur at bottom center)",
+        "Image quality and blur patterns consistent with Trekker rig"
+      ]
+    }
+  },
+  "hypothesis_evaluations": [
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_europe",
+      "confidence": "strongly_support",
+      "reasoning": "The combination of low-lying heathland, scrubby gorse-like vegetation, and deciduous trees with autumn colors is highly characteristic of Western and Northern European landscapes (e.g., UK, France, Belgium, Germany). The soil appears sandy/stony and the light quality is consistent with a high northern latitude.",
+      "key_evidence": [
+        "temperate heathland",
+        "deciduous autumn foliage",
+        "sandy-gravel track"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_north_america",
+      "confidence": "support",
+      "reasoning": "The terrain is compatible with the Northeastern US or Southeastern Canada during autumn. However, the specific density and type of scrubland are more typical of European moorlands than North American forests.",
+      "key_evidence": [
+        "temperate climate",
+        "autumnal colors"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_oceania",
+      "confidence": "contradicts",
+      "reasoning": "The vegetation consists of temperate deciduous trees and European-style scrub, which does not match the dominant sclerophyll forests or arid landscapes of Australia or the volcanic terrain of New Zealand.",
+      "key_evidence": [
+        "deciduous foliage",
+        "temperate scrub type"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_east_asia",
+      "confidence": "contradicts",
+      "reasoning": "While temperate forests exist in East Asia, the specific open heathland/scrub settlement pattern and the appearance of the gravel road are not characteristic of the region's typical rural geography.",
+      "key_evidence": [
+        "heathland morphology",
+        "vegetation structure"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_europe",
+      "confidence": "support",
+      "reasoning": "The vegetation is highly characteristic of Atlantic heathland or moorland, featuring dense low-lying shrubs like Calluna vulgaris (heather) and Ulex (gorse), which are ubiquitous across Western Europe, particularly in the UK, France, and Spain.",
+      "key_evidence": [
+        "Calluna vulgaris",
+        "Ulex europaeus",
+        "Atlantic heathland biome"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_north_america",
+      "confidence": "support",
+      "reasoning": "Similar temperate scrubland and heath-like vegetation can be found in the Northeastern US or Atlantic Canada, though the specific density and mix of these shrubs are more typical of European landscapes.",
+      "key_evidence": [
+        "Temperate scrubland",
+        "Ericaceous shrubs"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_oceania",
+      "confidence": "low",
+      "reasoning": "While some parts of Australia or New Zealand have scrublands, the specific leaf structure and growth habit of the shrubs seen here are more aligned with Northern Hemisphere temperate species than typical sclerophyll forests or antipodean scrub.",
+      "key_evidence": [
+        "Lack of Eucalyptus or typical Australasian scrub patterns"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_east_asia",
+      "confidence": "low",
+      "reasoning": "The open, low-shrub heathland is less common in the humid temperate zones of East Asia, which typically feature denser forest cover or different agricultural land-use patterns in similar climates.",
+      "key_evidence": [
+        "Absence of typical East Asian temperate broadleaf forest structure"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_europe",
+      "confidence": "strongly_support",
+      "reasoning": "The image shows a distinct 'Google Trekker' (backpack) perspective, indicated by the blurred silhouette of the person's torso/backpack at the bottom of the frame. This specific capture style on narrow dirt paths is extremely common in European national parks and rural trails. The image quality and color grading are consistent with Gen 4 camera equipment used extensively across Europe.",
+      "key_evidence": [
+        "Google Trekker backpack silhouette",
+        "Gen 4 camera image quality"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_oceania",
+      "confidence": "support",
+      "reasoning": "Google Trekker coverage exists in Oceania (e.g., Australia and New Zealand) for hiking trails, making this compatible. However, the specific lighting and image processing are more characteristic of European coverage.",
+      "key_evidence": [
+        "Google Trekker backpack silhouette"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_north_america",
+      "confidence": "support",
+      "reasoning": "Trekker coverage is present in North American parks. While compatible, the lack of specific North American trail markers or signage (though not the focus) and the general 'feel' of the camera rig make it less likely than Europe.",
+      "key_evidence": [
+        "Google Trekker backpack silhouette"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_east_asia",
+      "confidence": "low",
+      "reasoning": "While Trekker is used in Japan, the specific visual artifacts and the nature of the path are less typical for the primary Trekker-mapped regions in East Asia compared to the vast networks in Europe.",
+      "key_evidence": [
+        "Google Trekker backpack silhouette"
+      ]
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "country_united_kingdom",
+      "confidence": "neutral",
+      "reasoning": "No text is visible in the image to support or contradict this hypothesis.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "country_france",
+      "confidence": "neutral",
+      "reasoning": "No text is visible in the image to support or contradict this hypothesis.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "country_united_states",
+      "confidence": "neutral",
+      "reasoning": "No text is visible in the image to support or contradict this hypothesis.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "country_netherlands",
+      "confidence": "neutral",
+      "reasoning": "No text is visible in the image to support or contradict this hypothesis.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "country_ireland",
+      "confidence": "neutral",
+      "reasoning": "No text is visible in the image to support or contradict this hypothesis.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "country_canada",
+      "confidence": "neutral",
+      "reasoning": "No text is visible in the image to support or contradict this hypothesis.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_united_kingdom",
+      "confidence": "strongly_support",
+      "reasoning": "The combination of low-lying heathland, gorse-like scrub, and a light-colored gravel track is highly characteristic of the UK's lowland heaths (e.g., New Forest or Dorset). The vegetation density and the specific mix of deciduous trees in autumn colors are very consistent with the British Isles.",
+      "key_evidence": [
+        "lowland heathland",
+        "gorse scrub",
+        "light gravel road",
+        "temperate autumn foliage"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_ireland",
+      "confidence": "support",
+      "reasoning": "The terrain and climate are very similar to the UK, featuring temperate scrub and similar soil moisture levels. However, the specific type of heathland scrub seen here is slightly more common in the UK than the boggy landscapes typical of much of Ireland.",
+      "key_evidence": [
+        "temperate scrub",
+        "similar climate to UK"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_france",
+      "confidence": "support",
+      "reasoning": "Similar landscapes exist in Northern France (e.g., Brittany), which shares a similar Atlantic climate and heathland vegetation. It is geographically compatible, though the specific road texture is very common in UK rural parks.",
+      "key_evidence": [
+        "Atlantic climate",
+        "northern European scrubland"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_netherlands",
+      "confidence": "neutral",
+      "reasoning": "While the Netherlands has some sandy heathlands (Veluwe), the rolling nature of the terrain and the specific tree types are more indicative of the British Isles or France.",
+      "key_evidence": [
+        "sandy soil compatibility"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_united_states",
+      "confidence": "contradicts",
+      "reasoning": "While some parts of the Northeast US have similar autumn colors, the specific structure of the scrubland and the style of the rural track are more characteristic of Western Europe.",
+      "key_evidence": [
+        "vegetation structure",
+        "road composition"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_canada",
+      "confidence": "contradicts",
+      "reasoning": "The vegetation is too low and scrubby for typical Canadian forest landscapes, and the lack of coniferous dominance in this specific scrub type makes it less likely than European candidates.",
+      "key_evidence": [
+        "lack of boreal characteristics",
+        "scrub type"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_united_kingdom",
+      "confidence": "support",
+      "reasoning": "The vegetation is highly characteristic of Atlantic heathland, featuring dense Calluna vulgaris (heather) and Ulex europaeus (gorse), which are ubiquitous in the UK uplands and moorlands.",
+      "key_evidence": [
+        "Calluna vulgaris",
+        "Ulex europaeus",
+        "Atlantic heathland biome"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_ireland",
+      "confidence": "support",
+      "reasoning": "The combination of low-lying scrub, gorse, and heather is nearly identical to the landscapes found in Ireland, making it botanically indistinguishable from the UK in this view.",
+      "key_evidence": [
+        "Calluna vulgaris",
+        "Ulex europaeus",
+        "Atlantic heathland biome"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_france",
+      "confidence": "support",
+      "reasoning": "Similar heathland vegetation exists in Brittany and northwestern France, though the specific density of this scrub is more typical of the British Isles.",
+      "key_evidence": [
+        "Calluna vulgaris",
+        "Ulex europaeus"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_netherlands",
+      "confidence": "neutral",
+      "reasoning": "While the Netherlands has some heathlands (e.g., Veluwe), the topography and the specific mix of scrub and deciduous trees in the background are less characteristic than in the UK or Ireland.",
+      "key_evidence": [
+        "Heathland vegetation"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_united_states",
+      "confidence": "low",
+      "reasoning": "While some coastal areas of the US Northeast have similar temperate scrub, the specific composition of European gorse and heather is far more diagnostic of Western Europe.",
+      "key_evidence": [
+        "Temperate scrub"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_canada",
+      "confidence": "contradicts",
+      "reasoning": "The specific structure of the scrub and the presence of these particular European heathland species are inconsistent with the typical boreal or temperate forest compositions of Canada.",
+      "key_evidence": [
+        "Lack of North American boreal species"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_united_kingdom",
+      "confidence": "support",
+      "reasoning": "The image quality and the specific blur pattern at the bottom of the frame are consistent with Google's Gen 3 or Gen 4 camera rigs used extensively in the UK. The dirt road texture and general image clarity are common in rural UK coverage.",
+      "key_evidence": [
+        "camera generation blur",
+        "image quality"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_france",
+      "confidence": "support",
+      "reasoning": "The camera quality and the way the road is captured are compatible with French rural coverage. France has extensive coverage of similar unpaved paths using the same Google camera generations.",
+      "key_evidence": [
+        "camera generation blur",
+        "image quality"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_ireland",
+      "confidence": "support",
+      "reasoning": "The visual artifacts of the camera rig and the general image processing are consistent with Irish rural coverage, which shares similar hardware with the UK.",
+      "key_evidence": [
+        "camera generation blur",
+        "image quality"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_netherlands",
+      "confidence": "support",
+      "reasoning": "The camera generation is compatible with the hardware used in the Netherlands, although the lack of specific street furniture makes it less diagnostic than the UK/France.",
+      "key_evidence": [
+        "camera generation blur"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_united_states",
+      "confidence": "low",
+      "reasoning": "While the US has many dirt roads, the specific blur pattern and the 'feel' of the camera rig are more characteristic of European Gen 3/4 coverage than the typical US Gen 4 coverage seen on rural roads.",
+      "key_evidence": [
+        "camera generation blur"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_canada",
+      "confidence": "low",
+      "reasoning": "Similar to the US, the camera artifacts are less typical for Canadian rural coverage compared to the European candidates.",
+      "key_evidence": [
+        "camera generation blur"
+      ]
+    }
+  ],
+  "candidate_pool": [
+    "United Kingdom",
+    "France",
+    "United States",
+    "Netherlands",
+    "Ireland",
+    "Canada"
+  ],
+  "rag_findings": [
+    {
+      "kind": "tournament_match",
+      "country": "Netherlands",
+      "detail": "The landscape features low-lying heathland with dense gorse and heather, which is highly characteristic of the UK's lowland heaths. Specialist evidence strongly supports the UK based on the specific combination of Atlantic heathland vegetation and the rolling terrain, whereas the Netherlands is less characteristic for this specific topography.",
+      "opponent": "United Kingdom",
+      "winner": "United Kingdom"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "France",
+      "detail": "The landscape features a combination of low-lying scrub, gorse, and heather that is highly characteristic of the British Isles, including Ireland. While France has similar regions, the specific density and appearance of the heathland scrub and the unpaved road texture align more closely with the Irish rural profile described in the specialist evidence.",
+      "opponent": "Ireland",
+      "winner": "Ireland"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Ireland",
+      "detail": "The landscape features low-lying heathland with dense gorse and heather, which is highly characteristic of the UK's lowland heaths such as the New Forest. While Ireland has similar vegetation, the specific combination of the light-colored gravel track and the scrub density is more strongly associated with the UK landscape specialists' evidence.",
+      "opponent": "United Kingdom",
+      "winner": "United Kingdom"
+    }
+  ],
+  "rag_refs_seen": [],
+  "road_filter_warnings": [],
+  "tournament_log": [
+    {
+      "round_label": "semi-1",
+      "country_a": "United Kingdom",
+      "country_b": "Netherlands",
+      "pool_rank_a": 0,
+      "pool_rank_b": 3,
+      "winner": "United Kingdom",
+      "reasoning": "The landscape features low-lying heathland with dense gorse and heather, which is highly characteristic of the UK's lowland heaths. Specialist evidence strongly supports the UK based on the specific combination of Atlantic heathland vegetation and the rolling terrain, whereas the Netherlands is less characteristic for this specific topography.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "semi-2",
+      "country_a": "France",
+      "country_b": "Ireland",
+      "pool_rank_a": 1,
+      "pool_rank_b": 2,
+      "winner": "Ireland",
+      "reasoning": "The landscape features a combination of low-lying scrub, gorse, and heather that is highly characteristic of the British Isles, including Ireland. While France has similar regions, the specific density and appearance of the heathland scrub and the unpaved road texture align more closely with the Irish rural profile described in the specialist evidence.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "final",
+      "country_a": "United Kingdom",
+      "country_b": "Ireland",
+      "pool_rank_a": 0,
+      "pool_rank_b": 2,
+      "winner": "United Kingdom",
+      "reasoning": "The landscape features low-lying heathland with dense gorse and heather, which is highly characteristic of the UK's lowland heaths such as the New Forest. While Ireland has similar vegetation, the specific combination of the light-colored gravel track and the scrub density is more strongly associated with the UK landscape specialists' evidence.",
+      "agreement": "agree"
+    }
+  ],
+  "country_result": "Country: United Kingdom\nCoordinates: 50.812, -1.625\nReasoning: The landscape features low-lying heathland with dense gorse and heather, which is highly characteristic of the UK's lowland heaths such as the New Forest. While Ireland has similar vegetation, the specific combination of the light-colored gravel track and the scrub density is more strongly associated with the UK landscape specialists' evidence.\n\nTournament:\n  semi-1: United Kingdom vs Netherlands → United Kingdom\n  semi-2: France vs Ireland → Ireland\n  final: United Kingdom vs Ireland → United Kingdom",
+  "coordinates": {
+    "lat": 50.812,
+    "lng": -1.625
+  },
+  "final_reasoning": "The landscape features low-lying heathland with dense gorse and heather, which is highly characteristic of the UK's lowland heaths such as the New Forest. While Ireland has similar vegetation, the specific combination of the light-colored gravel track and the scrub density is more strongly associated with the UK landscape specialists' evidence."
+}

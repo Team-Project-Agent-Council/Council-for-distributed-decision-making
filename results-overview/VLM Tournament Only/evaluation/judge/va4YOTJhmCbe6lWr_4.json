@@ -1,0 +1,99 @@
+{
+  "image_id": "va4YOTJhmCbe6lWr_4",
+  "truth_country": "kenya",
+  "pred_country": "namibia",
+  "is_correct": false,
+  "candidate_pool": [
+    "Namibia",
+    "Botswana",
+    "Australia",
+    "South Africa",
+    "USA",
+    "Argentina"
+  ],
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": true,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "role_adherence_notes": {
+      "linguistic": "The agent provided no candidates or evidence, effectively failing its domain.",
+      "landscape": "Analyzed terrain, soil color, and vegetation density consistent with its role.",
+      "botanics": "Analyzed vegetation types (xeric shrubland) consistent with its role.",
+      "regulatory": "Analyzed road infrastructure (marker posts, poles) consistent with its role.",
+      "meta": "Synthesized cross-domain cues (marker post shape, camera generation) consistent with its role."
+    },
+    "argumentative_quality": {
+      "linguistic": "very_weak",
+      "landscape": "strong",
+      "botanics": "strong",
+      "regulatory": "strong",
+      "meta": "strong"
+    },
+    "constructive_synthesis": true,
+    "overall_verdict_notes": "The pipeline failed because the linguistic agent was empty and the other agents relied on a hallucinated 'meta cue' (the white marker post) to distinguish between Namibia and Botswana. The tournament correctly followed the agents' lead but arrived at the wrong answer.",
+    "role_adherence_score": {
+      "linguistic": 0.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.9,
+      "meta": 0.9
+    },
+    "argumentative_quality_score": {
+      "linguistic": 0.0,
+      "landscape": 0.8,
+      "botanics": 0.8,
+      "regulatory": 0.8,
+      "meta": 0.8
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.0,
+      "botanics": 0.0,
+      "regulatory": 0.0,
+      "meta": 0.5
+    },
+    "hallucination_examples": {
+      "linguistic": [],
+      "landscape": [],
+      "botanics": [],
+      "regulatory": [],
+      "meta": [
+        "claimed 'white, low-profile concrete marker post... is highly characteristic of Namibian road infrastructure' (it is not unique to Namibia and is present in Botswana/Kenya)"
+      ]
+    },
+    "visual_consistency_score": {
+      "linguistic": 0.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.9,
+      "meta": 0.9
+    },
+    "visual_consistency_notes": {
+      "linguistic": "No claims made.",
+      "landscape": "Accurately described the arid, flat landscape.",
+      "botanics": "Accurately described the sparse scrub.",
+      "regulatory": "Accurately described the visible road markers and poles.",
+      "meta": "Accurately described the visible marker post, but misinterpreted its diagnostic value."
+    },
+    "confidence_calibration": {
+      "linguistic": 0.0,
+      "landscape": 0.2,
+      "botanics": 0.2,
+      "regulatory": 0.2,
+      "meta": 0.2
+    },
+    "tournament_failure": {
+      "truth_in_pool": false,
+      "truth_lost_to": null,
+      "failure_match_round": null,
+      "failure_reason": "agent_misled_pre_pool",
+      "failure_reasoning": "The ground truth (Kenya) was not included in the candidate pool. The landscape and botanics agents failed to consider Kenya, likely due to the strong visual similarity to the Namibian/Kalahari biomes. The linguistic agent provided no input, missing the opportunity to flag the lack of local language cues.",
+      "counterfactual_winnable": false
+    }
+  }
+}

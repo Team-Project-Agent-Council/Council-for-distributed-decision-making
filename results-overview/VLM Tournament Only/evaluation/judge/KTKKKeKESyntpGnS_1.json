@@ -1,0 +1,101 @@
+{
+  "image_id": "KTKKKeKESyntpGnS_1",
+  "truth_country": "austria",
+  "pred_country": "france",
+  "is_correct": false,
+  "candidate_pool": [
+    "France",
+    "USA",
+    "Germany",
+    "Austria",
+    "Poland",
+    "Belgium"
+  ],
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": true,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "role_adherence_notes": {
+      "linguistic": "Correctly identified the absence of visible text and stayed within domain.",
+      "landscape": "Analyzed terrain, vegetation, and climate cues consistent with the image.",
+      "botanics": "Identified maize and deciduous trees, staying within botanical scope.",
+      "regulatory": "Analyzed road markings, bollards, and path infrastructure.",
+      "meta": "Synthesized cross-domain evidence (infrastructure + landscape) to form hypotheses."
+    },
+    "argumentative_quality": {
+      "linguistic": "normal",
+      "landscape": "strong",
+      "botanics": "strong",
+      "regulatory": "strong",
+      "meta": "strong"
+    },
+    "constructive_synthesis": true,
+    "overall_verdict_notes": "The pipeline correctly identified the country (Austria) as a candidate but failed in the final tournament match against Germany due to a hallucinated visual detail (red reflector) used to favor France. The specialists provided high-quality, grounded evidence, but the meta-agent's misinterpretation of the bollard reflector color drove the final decision.",
+    "role_adherence_score": {
+      "linguistic": 1.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.9,
+      "meta": 0.9
+    },
+    "argumentative_quality_score": {
+      "linguistic": 0.5,
+      "landscape": 0.8,
+      "botanics": 0.8,
+      "regulatory": 0.8,
+      "meta": 0.8
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.0,
+      "botanics": 0.0,
+      "regulatory": 0.0,
+      "meta": 0.75
+    },
+    "hallucination_examples": {
+      "linguistic": [],
+      "landscape": [],
+      "botanics": [],
+      "regulatory": [],
+      "meta": [
+        "claimed 'white delineator posts with black bands' (image shows white posts with black tops)",
+        "claimed 'white delineator posts with a small red reflector band' (image shows no red reflector)",
+        "claimed 'Gen 4 Google Street View camera quality' (unverifiable speculation)"
+      ]
+    },
+    "visual_consistency_score": {
+      "linguistic": 1.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.9,
+      "meta": 0.4
+    },
+    "visual_consistency_notes": {
+      "linguistic": "Accurately noted lack of text.",
+      "landscape": "Accurately described the flat plains and tree lines.",
+      "botanics": "Accurately identified maize and deciduous trees.",
+      "regulatory": "Accurately described the bollards and path layout.",
+      "meta": "Failed to accurately describe the bollard reflector color and band placement."
+    },
+    "confidence_calibration": {
+      "linguistic": 0.5,
+      "landscape": 0.75,
+      "botanics": 0.75,
+      "regulatory": 0.75,
+      "meta": 0.25
+    },
+    "tournament_failure": {
+      "truth_in_pool": true,
+      "truth_lost_to": "Germany",
+      "failure_match_round": "semi-2",
+      "failure_reason": "agent_misled_in_tournament",
+      "failure_reasoning": "In the Austria vs Germany match, the landscape and botanics agents assigned 'support' to Austria, while the regulatory agent assigned 'support' to Germany. However, the meta-agent assigned 'support' to Austria but explicitly stated the reflector pattern was 'more aligned with French standards' (a hallucination). The tournament judge then favored Germany based on the 'Radweg' (bicycle path) evidence, which was correctly identified by the landscape and regulatory agents as a hallmark of German infrastructure. The failure is attributed to the meta-agent's misleading evidence regarding the reflector, which biased the judge against Austria despite the strong landscape/botanical support for the region.",
+      "counterfactual_winnable": true
+    }
+  }
+}

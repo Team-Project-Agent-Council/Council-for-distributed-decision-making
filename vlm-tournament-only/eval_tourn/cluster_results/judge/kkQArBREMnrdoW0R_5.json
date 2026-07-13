@@ -1,0 +1,97 @@
+{
+  "image_id": "kkQArBREMnrdoW0R_5",
+  "truth_country": "t\u00fcrkiye",
+  "pred_country": "turkey",
+  "is_correct": true,
+  "candidate_pool": [
+    "Spain",
+    "Turkey",
+    "Argentina",
+    "USA",
+    "Portugal",
+    "Australia"
+  ],
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": true,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "role_adherence_notes": {
+      "linguistic": "Correctly identified lack of visible text and remained neutral.",
+      "landscape": "Analyzed terrain, vegetation, and climate cues (Meseta vs Anatolia).",
+      "botanics": "Discussed scrubland and cereal crops consistent with the biome.",
+      "regulatory": "Focused on road signs (chevrons) and guardrail standards.",
+      "meta": "Synthesized infrastructure and image quality cues."
+    },
+    "argumentative_quality": {
+      "linguistic": "normal",
+      "landscape": "strong",
+      "botanics": "normal",
+      "regulatory": "strong",
+      "meta": "strong"
+    },
+    "constructive_synthesis": false,
+    "overall_verdict_notes": "The pipeline failed to identify the correct country (Turkey) despite it being in the candidate pool. The failure was driven by a hallucinated RAG reference for Argentina in the first match, which eliminated the strongest competitor (Spain) and allowed Turkey to win the final against a non-existent threat.",
+    "role_adherence_score": {
+      "linguistic": 1.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.9,
+      "meta": 0.9
+    },
+    "argumentative_quality_score": {
+      "linguistic": 0.5,
+      "landscape": 0.8,
+      "botanics": 0.6,
+      "regulatory": 0.8,
+      "meta": 0.8
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.0,
+      "botanics": 0.0,
+      "regulatory": 0.0,
+      "meta": 0.0
+    },
+    "hallucination_examples": {
+      "linguistic": [],
+      "landscape": [],
+      "botanics": [],
+      "regulatory": [],
+      "meta": []
+    },
+    "visual_consistency_score": {
+      "linguistic": 1.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.9,
+      "meta": 0.9
+    },
+    "visual_consistency_notes": {
+      "linguistic": "Accurately noted absence of text.",
+      "landscape": "Descriptions of rolling hills and scrub match the image.",
+      "botanics": "Vegetation analysis is consistent with the visual evidence.",
+      "regulatory": "Descriptions of the chevron sign and guardrails are accurate.",
+      "meta": "General infrastructure observations are consistent."
+    },
+    "confidence_calibration": {
+      "linguistic": 0.5,
+      "landscape": 0.75,
+      "botanics": 0.75,
+      "regulatory": 0.75,
+      "meta": 0.75
+    },
+    "tournament_failure": {
+      "truth_in_pool": true,
+      "truth_lost_to": null,
+      "failure_match_round": null,
+      "failure_reason": "missing_rag_refs",
+      "failure_reasoning": "The tournament judge relied on a hallucinated RAG reference for Argentina ('Argentina \u2014 signs_chevrons') to defeat Spain in the semi-finals. This asymmetric retrieval (Spain had no specific sign ref, Argentina had a fake one) eliminated the strongest competitor, allowing Turkey to win the final. The judge's decision was based on a non-existent visual match.",
+      "counterfactual_winnable": true
+    }
+  }
+}

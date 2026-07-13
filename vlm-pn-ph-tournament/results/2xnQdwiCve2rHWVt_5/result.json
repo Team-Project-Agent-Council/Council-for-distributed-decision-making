@@ -1,0 +1,524 @@
+{
+  "image_path": "/pfs/data6/home/ma/ma_ma/ma_lweisssc/llm_council_agent_orchestration_tests/clean_images_GeoRC_500/2xnQdwiCve2rHWVt_5.png",
+  "model": "google/gemma-4-31B-it",
+  "judge_model": "google/gemma-4-31B-it",
+  "timing": {
+    "total_seconds": 441.2
+  },
+  "assessments": {
+    "linguistic": {
+      "agent_name": "linguistic",
+      "candidates": [],
+      "evidence": []
+    },
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Spain",
+          "confidence": "medium",
+          "reasoning": "The combination of low, rolling hills with scrubby Mediterranean vegetation and granite outcroppings is very characteristic of the Spanish interior or coastal highlands. The road quality and shoulder style are consistent with rural Spanish regional roads."
+        },
+        {
+          "country": "Portugal",
+          "confidence": "medium",
+          "reasoning": "The landscape is nearly identical to the Spanish highlands, featuring similar scrubland and rocky terrain. Portugal shares this Atlantic-influenced Mediterranean climate and topography, making it equally likely based on landscape alone."
+        },
+        {
+          "country": "South Africa",
+          "confidence": "low",
+          "reasoning": "The fynbos-like scrubland and rolling hills with granite boulders are reminiscent of the Western Cape region. The sun position suggests a potential Southern Hemisphere location, though the road style is more typical of Europe."
+        },
+        {
+          "country": "Australia",
+          "confidence": "speculative",
+          "reasoning": "The arid, scrubby hills and light-colored soil on the road shoulder are analogous to parts of the Australian coast or highlands. This serves as a cross-continent analog for temperate/arid scrubland."
+        }
+      ],
+      "evidence": [
+        "Rolling hills with low-lying scrub vegetation",
+        "Granite rock outcroppings on the horizon",
+        "Light-colored, sandy/stony road shoulders",
+        "High sun angle with shadows suggesting a midday position",
+        "Absence of tall trees, indicating a wind-swept or semi-arid environment"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Spain",
+          "confidence": "medium",
+          "reasoning": "The vegetation is characteristic of Mediterranean scrubland (maquis/garrigue), specifically resembling the Atlantic-influenced scrub of Galicia or Asturias. The presence of dense, low-lying evergreen shrubs and wind-swept grasses is common in the northwest Iberian Peninsula."
+        },
+        {
+          "country": "Portugal",
+          "confidence": "medium",
+          "reasoning": "The landscape is nearly identical to the northern regions of Portugal, where similar Atlantic scrub and heathlands occur. It is botanically indistinguishable from the neighboring Spanish Galicia region."
+        },
+        {
+          "country": "France",
+          "confidence": "low",
+          "reasoning": "Similar coastal heathlands and scrub are found in Brittany, though the specific density and color of the shrubs here are more typical of the Iberian Atlantic coast."
+        },
+        {
+          "country": "South Africa",
+          "confidence": "speculative",
+          "reasoning": "Following the Global Analog Rule, this landscape resembles the Fynbos biome of the Western Cape, which features similar low-growing, sclerophyllous shrubs and a similar open, hilly topography."
+        },
+        {
+          "country": "Australia",
+          "confidence": "speculative",
+          "reasoning": "The xeric, scrubby vegetation and open hills are analogous to certain coastal heathlands in Southern Australia, though the specific leaf structure suggests a Mediterranean-climate shrubland."
+        }
+      ],
+      "evidence": [
+        "Mediterranean scrubland",
+        "Sclerophyllous shrubs",
+        "Atlantic heathland",
+        "Wind-swept graminoids"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Spain",
+          "confidence": "low",
+          "reasoning": "The road width, asphalt quality, and surrounding scrubland vegetation are consistent with rural roads in the Iberian Peninsula."
+        },
+        {
+          "country": "South Africa",
+          "confidence": "low",
+          "reasoning": "The landscape and basic rural asphalt road without shoulders are common in various South African provinces."
+        },
+        {
+          "country": "Australia",
+          "confidence": "low",
+          "reasoning": "The combination of a narrow paved road, gravel edges, and low-lying scrub vegetation is typical of rural Australian landscapes."
+        },
+        {
+          "country": "Chile",
+          "confidence": "low",
+          "reasoning": "The hilly terrain and road construction style are similar to rural areas in central or southern Chile."
+        }
+      ],
+      "evidence": [
+        "narrow rural asphalt road",
+        "unpaved gravel shoulders",
+        "absence of road signs",
+        "absence of utility poles",
+        "absence of bollards"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "Spain",
+          "confidence": "low",
+          "reasoning": "The image quality and lighting are consistent with Gen 4 Google camera coverage common in Southern Europe. The road surface texture and lack of shoulder markings are typical for rural Spanish secondary roads."
+        },
+        {
+          "country": "South Africa",
+          "confidence": "low",
+          "reasoning": "The high-sun position and specific asphalt wear patterns are common in South African rural coverage. This serves as a cross-continent analog due to similar lighting and road quality."
+        },
+        {
+          "country": "Chile",
+          "confidence": "speculative",
+          "reasoning": "The image quality and the way the road edges blend into the scrubland are seen in some rural Chilean coverage, providing another Southern Hemisphere analog."
+        }
+      ],
+      "evidence": [
+        "Gen 4 camera quality",
+        "Asphalt texture and wear",
+        "High sun position/lighting"
+      ]
+    }
+  },
+  "progressive_narrowing": {
+    "region_consensus": false,
+    "confirmed_region": "Europe",
+    "runner_up_region": "Oceania",
+    "surviving_regions": [
+      "Europe",
+      "Oceania"
+    ],
+    "proposed_regions": [
+      "Europe",
+      "Sub-Saharan Africa",
+      "Oceania",
+      "South America"
+    ],
+    "region_candidates": {
+      "Europe": {
+        "Spain": 4,
+        "Portugal": 2,
+        "France": 1
+      },
+      "Sub-Saharan Africa": {
+        "South Africa": 4
+      },
+      "Oceania": {
+        "Australia": 3
+      },
+      "South America": {
+        "Chile": 2
+      }
+    },
+    "region_decision_reasoning": "Both Europe and Oceania received 'support' weights (+1), while other regions were either neutral or contradicted. Europe is selected as the primary region based on the agent's specific observation of asphalt texture and road edge quality common to European rural areas.",
+    "path": "B"
+  },
+  "road_evidence": {
+    "outside_color": "none",
+    "inside_color": "none",
+    "driving_side": "UNCLEAR",
+    "driving_side_basis": "none"
+  },
+  "country_assessments": {
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Spain",
+          "confidence": "high",
+          "reasoning": "The combination of low, rolling hills covered in scrubland (maquis/garrigue) and the presence of rounded granite boulders on the horizon is very characteristic of the Galician or Northern Spanish coast. The vegetation density and road style are consistent with rural Iberian landscapes."
+        },
+        {
+          "country": "Portugal",
+          "confidence": "high",
+          "reasoning": "The landscape is nearly identical to Northern Spain, featuring the same Atlantic-influenced scrubland and granite outcrops. Geographically, the border regions of Portugal and Spain share this exact terrain and climate profile."
+        },
+        {
+          "country": "Australia",
+          "confidence": "medium",
+          "reasoning": "The low-lying, scrubby vegetation and the bright, high-angle sun are consistent with coastal heathlands in Southern Australia. The rounded rock formations on the hill are a common feature in various Australian coastal ranges."
+        },
+        {
+          "country": "France",
+          "confidence": "low",
+          "reasoning": "The terrain resembles the coastal regions of Brittany, which share the same Atlantic climate and granite-based soil as the Iberian Peninsula. However, the specific scrub density is slightly more characteristic of Spain/Portugal."
+        }
+      ],
+      "evidence": [
+        "Rounded granite boulders on hilltops",
+        "Low-lying Atlantic scrubland/heathland vegetation",
+        "High sun angle suggesting mid-latitude",
+        "Narrow asphalt road with weathered edges and no shoulder"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Spain",
+          "confidence": "high",
+          "reasoning": "The vegetation is characteristic of Atlantic heathland and scrub found in Northwest Spain (Galicia), featuring dense Ericaceae and Ulex species. This specific combination of low-lying green scrub and rocky outcrops is highly typical of the Galician landscape."
+        },
+        {
+          "country": "Portugal",
+          "confidence": "high",
+          "reasoning": "The flora is nearly identical to that of Northwest Spain, as both share the same Atlantic biogeographic region. The presence of dense, wind-swept scrubland and heath is common in Northern Portugal."
+        },
+        {
+          "country": "Ireland",
+          "confidence": "medium",
+          "reasoning": "The landscape resembles the Atlantic bogs and heathlands of Western Ireland. However, the specific density and structure of the scrub on the hillsides are slightly more characteristic of the Iberian Atlantic coast."
+        },
+        {
+          "country": "New Zealand",
+          "confidence": "low",
+          "reasoning": "Certain coastal scrublands in New Zealand can mimic this appearance, though the specific growth habit of the shrubs seen here is more aligned with European Ericaceous heathlands."
+        }
+      ],
+      "evidence": [
+        "Ericaceae (Heath/Heather)",
+        "Ulex europaeus (Gorse)",
+        "Atlantic scrubland biome",
+        "Western European Atlantic coast distribution"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Spain",
+          "confidence": "low",
+          "reasoning": "The road width and asphalt quality are consistent with rural secondary roads in Northern Spain or the Canary Islands. The surrounding scrubland vegetation is common in Mediterranean climates."
+        },
+        {
+          "country": "Portugal",
+          "confidence": "low",
+          "reasoning": "The narrow asphalt road with rough, unpaved shoulders is typical of rural Portuguese interior roads. The landscape matches Atlantic coastal scrubland."
+        },
+        {
+          "country": "Australia",
+          "confidence": "low",
+          "reasoning": "The road construction and the presence of low-lying, hardy scrub vegetation are highly characteristic of rural coastal regions in Australia. The lack of roadside infrastructure is common in remote areas."
+        },
+        {
+          "country": "New Zealand",
+          "confidence": "low",
+          "reasoning": "The narrow, winding rural road and the specific green, hilly terrain are consistent with various rural regions of New Zealand."
+        }
+      ],
+      "evidence": [
+        "narrow rural asphalt road",
+        "unpaved gravel shoulders",
+        "absence of road signs",
+        "absence of bollards",
+        "absence of utility poles"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "Spain",
+          "confidence": "medium",
+          "reasoning": "The image quality and lighting are consistent with Gen 4 camera coverage common in rural Spain. The road surface texture and the way the asphalt meets the shoulder are typical for Spanish secondary roads in hilly regions."
+        },
+        {
+          "country": "Portugal",
+          "confidence": "medium",
+          "reasoning": "Shares very similar camera generation and road construction styles with Spain. The lack of distinct bollards makes it difficult to distinguish from Spain, but the general 'feel' of the Google car's image processing matches Iberian coverage."
+        },
+        {
+          "country": "Australia",
+          "confidence": "low",
+          "reasoning": "The high sun position and clear sky are common in Australian rural coverage. While the road is narrow, the asphalt quality and camera generation are consistent with some regional Australian roads, serving as a cross-continent analog."
+        }
+      ],
+      "evidence": [
+        "Gen 4 camera quality",
+        "Asphalt texture and shoulder transition",
+        "High sun angle/lighting profile"
+      ]
+    }
+  },
+  "hypothesis_evaluations": [
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_europe",
+      "confidence": "support",
+      "reasoning": "The image quality and camera generation are consistent with standard Google Street View coverage found throughout Europe. The asphalt texture and road edge quality are common in European rural areas.",
+      "key_evidence": [
+        "camera generation",
+        "asphalt quality"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_oceania",
+      "confidence": "support",
+      "reasoning": "The camera generation and image clarity are compatible with coverage in Australia or New Zealand. The lack of specific infrastructure makes it a viable analog to European rural roads.",
+      "key_evidence": [
+        "camera generation"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_south_america",
+      "confidence": "low",
+      "reasoning": "While Google has coverage in South America, the specific clarity and lack of typical regional road degradation or specific utility pole styles make it less likely than Europe or Oceania, though still possible.",
+      "key_evidence": [
+        "camera generation"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_sub-saharan_africa",
+      "confidence": "contradicts",
+      "reasoning": "The high-resolution, seamless camera coverage and the specific quality of the paved road surface are inconsistent with the limited and often lower-quality Street View coverage typically found in Sub-Saharan Africa.",
+      "key_evidence": [
+        "camera generation",
+        "road surface quality"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_portugal",
+      "confidence": "support",
+      "reasoning": "The vegetation is highly characteristic of the Atlantic-Mediterranean transition, specifically the 'maquis' or 'matorral' scrubland. The presence of dense, sclerophyllous shrubs and the specific appearance of the low-lying green cover are very common in the coastal and hilly regions of Portugal.",
+      "key_evidence": [
+        "Sclerophyllous scrubland",
+        "Mediterranean-Atlantic transition vegetation"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_spain",
+      "confidence": "support",
+      "reasoning": "The botanical profile is nearly identical to Portugal, as both share the Iberian Peninsula's Mediterranean biome. The scrubland and low-growth shrubs are consistent with the landscapes of Galicia or the northern coast of Spain.",
+      "key_evidence": [
+        "Sclerophyllous scrubland",
+        "Iberian matorral"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_france",
+      "confidence": "support",
+      "reasoning": "The vegetation is compatible with the garrigue or maquis found in Southern France. However, the specific density and color of the scrub are slightly more typical of the Iberian Peninsula.",
+      "key_evidence": [
+        "Mediterranean garrigue"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_australia",
+      "confidence": "low",
+      "reasoning": "While Australia has similar xeric shrublands (Global Analog Rule), the specific leaf structure and growth habit of the shrubs seen here lack the characteristic morphology of dominant Australian sclerophylls like Eucalyptus or Acacia.",
+      "key_evidence": [
+        "Xeric shrubland analog"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_new_zealand",
+      "confidence": "contradicts",
+      "reasoning": "The vegetation lacks the characteristic ferns, podocarps, or specific grassland types common in New Zealand's temperate climate; the scrub here is too characteristic of a Mediterranean summer-dry regime.",
+      "key_evidence": [
+        "Lack of temperate rainforest/fern indicators"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_ireland",
+      "confidence": "contradicts",
+      "reasoning": "The vegetation is too xeric and scrubby for Ireland. Ireland's landscape is dominated by lush, hydrophilic grasses and peatland vegetation, not the dry, woody scrubland seen here.",
+      "key_evidence": [
+        "Absence of hydrophilic grassland",
+        "Presence of xeric scrub"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_spain",
+      "confidence": "support",
+      "reasoning": "The image quality and lighting are consistent with Gen 4 camera coverage common in Southern Europe. The road surface and lack of specific markings are compatible with rural Spanish roads.",
+      "key_evidence": [
+        "Gen 4 camera quality",
+        "asphalt texture"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_portugal",
+      "confidence": "support",
+      "reasoning": "Similar to Spain, the camera generation and lighting are consistent with Iberian Peninsula coverage. The rural road style is very common in Portuguese highlands.",
+      "key_evidence": [
+        "Gen 4 camera quality",
+        "asphalt texture"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_france",
+      "confidence": "support",
+      "reasoning": "The image quality is compatible with French Gen 4 coverage. Rural roads in France often share this generic asphalt appearance.",
+      "key_evidence": [
+        "Gen 4 camera quality"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_ireland",
+      "confidence": "low",
+      "reasoning": "While the landscape is green, the lighting and camera clarity are more typical of Southern Europe or Oceania than the often softer, more diffused light of Ireland.",
+      "key_evidence": [
+        "lighting quality"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_australia",
+      "confidence": "low",
+      "reasoning": "The camera quality is compatible with Australian coverage, but the specific asphalt wear and road edge transition are more typical of European rural roads.",
+      "key_evidence": [
+        "Gen 4 camera quality"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_new_zealand",
+      "confidence": "low",
+      "reasoning": "Compatible with Gen 4 camera quality, but lacks the specific road shoulder characteristics often seen in rural New Zealand.",
+      "key_evidence": [
+        "Gen 4 camera quality"
+      ]
+    }
+  ],
+  "candidate_pool": [
+    "Spain",
+    "Portugal",
+    "Australia",
+    "New Zealand",
+    "France",
+    "Ireland"
+  ],
+  "rag_findings": [
+    {
+      "kind": "tournament_match",
+      "country": "Australia",
+      "detail": "The botanical profile of the scrubland and low-growth shrubs is highly consistent with the Mediterranean biome of the Iberian Peninsula, specifically northern Spain. In contrast, the vegetation lacks the characteristic morphology of dominant Australian sclerophylls like Eucalyptus or Acacia.",
+      "opponent": "Spain",
+      "winner": "Spain"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "France",
+      "detail": "The vegetation is highly characteristic of the Atlantic-Mediterranean transition and 'maquis' scrubland common in Portugal, as noted by the botanics specialist. Additionally, the rural road style and lighting are more consistent with the Iberian Peninsula coverage than France.",
+      "opponent": "Portugal",
+      "winner": "Portugal"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Spain",
+      "detail": "The landscape features dense, low-lying sclerophyllous scrubland and rolling hills with granite outcrops, which is highly characteristic of the Portuguese Atlantic-Mediterranean transition zones. While similar to Spain, the specific combination of vegetation and road style is strongly indicative of the Portuguese highlands.",
+      "opponent": "Portugal",
+      "winner": "Portugal"
+    }
+  ],
+  "rag_refs_seen": [],
+  "road_filter_warnings": [],
+  "tournament_log": [
+    {
+      "round_label": "semi-1",
+      "country_a": "Spain",
+      "country_b": "Australia",
+      "pool_rank_a": 0,
+      "pool_rank_b": 3,
+      "winner": "Spain",
+      "reasoning": "The botanical profile of the scrubland and low-growth shrubs is highly consistent with the Mediterranean biome of the Iberian Peninsula, specifically northern Spain. In contrast, the vegetation lacks the characteristic morphology of dominant Australian sclerophylls like Eucalyptus or Acacia.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "semi-2",
+      "country_a": "Portugal",
+      "country_b": "France",
+      "pool_rank_a": 1,
+      "pool_rank_b": 2,
+      "winner": "Portugal",
+      "reasoning": "The vegetation is highly characteristic of the Atlantic-Mediterranean transition and 'maquis' scrubland common in Portugal, as noted by the botanics specialist. Additionally, the rural road style and lighting are more consistent with the Iberian Peninsula coverage than France.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "final",
+      "country_a": "Spain",
+      "country_b": "Portugal",
+      "pool_rank_a": 0,
+      "pool_rank_b": 1,
+      "winner": "Portugal",
+      "reasoning": "The landscape features dense, low-lying sclerophyllous scrubland and rolling hills with granite outcrops, which is highly characteristic of the Portuguese Atlantic-Mediterranean transition zones. While similar to Spain, the specific combination of vegetation and road style is strongly indicative of the Portuguese highlands.",
+      "agreement": "agree"
+    }
+  ],
+  "country_result": "Country: Portugal\nCoordinates: 40.123, -8.654\nReasoning: The landscape features dense, low-lying sclerophyllous scrubland and rolling hills with granite outcrops, which is highly characteristic of the Portuguese Atlantic-Mediterranean transition zones. While similar to Spain, the specific combination of vegetation and road style is strongly indicative of the Portuguese highlands.\n\nTournament:\n  semi-1: Spain vs Australia → Spain\n  semi-2: Portugal vs France → Portugal\n  final: Spain vs Portugal → Portugal",
+  "coordinates": {
+    "lat": 40.123,
+    "lng": -8.654
+  },
+  "final_reasoning": "The landscape features dense, low-lying sclerophyllous scrubland and rolling hills with granite outcrops, which is highly characteristic of the Portuguese Atlantic-Mediterranean transition zones. While similar to Spain, the specific combination of vegetation and road style is strongly indicative of the Portuguese highlands."
+}

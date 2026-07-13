@@ -1,0 +1,192 @@
+{
+  "image_path": "/pfs/work9/workspace/scratch/ma_faschuma-vlm-images/f49AGnnCYZbZVLbW_4.png",
+  "model": "google/gemma-4-31b-it",
+  "judge_model": "google/gemma-4-31b-it",
+  "timing": {
+    "total_seconds": 25.4
+  },
+  "assessments": {
+    "linguistic": {
+      "agent_name": "linguistic",
+      "candidates": [
+        {
+          "country": "India",
+          "confidence": "high",
+          "reasoning": "The text is written in the Devanagari script, which is used for Hindi and several other Indian languages. The specific wording and style of the wall painting are highly characteristic of rural India."
+        },
+        {
+          "country": "Nepal",
+          "confidence": "medium",
+          "reasoning": "Devanagari is the official script of Nepal. While the style is more typical of India, the language could be Nepali or Hindi, both of which use this script."
+        }
+      ],
+      "evidence": [
+        "डागगन",
+        "Hindi/Nepali",
+        "Devanagari"
+      ]
+    },
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "India",
+          "confidence": "high",
+          "reasoning": "The combination of flat alluvial plains, specific tropical broadleaf vegetation, and the style of red-brick construction is highly characteristic of the Indo-Gangetic Plain. The soil color and lush green roadside growth are typical for the monsoon-influenced climate of South Asia."
+        },
+        {
+          "country": "Nepal",
+          "confidence": "medium",
+          "reasoning": "The Terai region of Nepal shares nearly identical geography, soil, and vegetation with Northern India. Without mountainous terrain visible, it is geographically indistinguishable from the Indian plains."
+        }
+      ],
+      "evidence": [
+        "Flat alluvial terrain",
+        "Tropical broadleaf trees",
+        "Red brick masonry",
+        "Monsoon-climate vegetation",
+        "Northern hemisphere sun angle"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "India",
+          "confidence": "high",
+          "reasoning": "The combination of broad-leafed tropical deciduous trees and the specific lush, scrubby roadside vegetation is highly characteristic of the Indo-Gangetic plain. The presence of these specific tree morphologies alongside agricultural land patterns is typical for Northern and Central India."
+        },
+        {
+          "country": "Nepal",
+          "confidence": "medium",
+          "reasoning": "The Terai region of Nepal shares nearly identical botanical characteristics and crop types with Northern India, making it a strong candidate based solely on vegetation."
+        }
+      ],
+      "evidence": [
+        "Tropical deciduous forest species",
+        "Indo-Gangetic plain scrub",
+        "Agricultural field margins"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "India",
+          "confidence": "high",
+          "reasoning": "The road features left-hand traffic (LHT) and a broken white center line, which is standard for Indian rural highways. The script on the wall is Devanagari, which is the primary script for Hindi, the official language of India."
+        },
+        {
+          "country": "Nepal",
+          "confidence": "medium",
+          "reasoning": "Nepal also uses left-hand traffic and Devanagari script. The road infrastructure and rural environment are very similar to India, making it a strong candidate, though the specific style of road marking is more characteristic of Indian state highways."
+        }
+      ],
+      "evidence": [
+        "driving side: left",
+        "line color: broken white center line",
+        "sign type: Devanagari script on wall",
+        "plate format: not visible"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "India",
+          "confidence": "high",
+          "reasoning": "The construction of the building uses exposed red brick without plaster, which is extremely common in rural India. The specific style of the low mud/brick boundary wall on the right is characteristic of Indian village infrastructure."
+        }
+      ],
+      "evidence": [
+        "exposed red brick construction",
+        "rural mud/brick boundary wall style"
+      ]
+    }
+  },
+  "progressive_narrowing": {
+    "region_consensus": true,
+    "confirmed_region": "South Asia",
+    "proposed_regions": [
+      "South Asia"
+    ],
+    "region_candidates": {
+      "South Asia": {
+        "India": 5,
+        "Nepal": 4
+      }
+    },
+    "region_decision_reasoning": "",
+    "path": "A"
+  },
+  "country_assessments": {},
+  "hypothesis_evaluations": [
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_india",
+      "confidence": "support",
+      "reasoning": "The broad-leafed deciduous trees and lush roadside scrub are highly characteristic of the Indo-Gangetic plains. The vegetation is consistent with the subtropical humid climate found across Northern India.",
+      "key_evidence": [
+        "Subtropical deciduous canopy",
+        "Lush roadside herbaceous growth"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_nepal",
+      "confidence": "support",
+      "reasoning": "The vegetation seen here is virtually identical to that of the Terai region in southern Nepal, which shares the same ecological zone and plant species as the neighboring Indian plains.",
+      "key_evidence": [
+        "Terai-style subtropical vegetation",
+        "Broad-leafed deciduous trees"
+      ]
+    },
+    {
+      "agent_name": "regulatory",
+      "hypothesis_id": "country_india",
+      "confidence": "strongly_support",
+      "reasoning": "The road infrastructure, specifically the white dashed center line and white edge lines on a paved rural road, is standard for India. The script on the wall is Devanagari, which is the primary script for Hindi (India) and Nepali (Nepal), but the specific style of rural road construction and the layout are highly characteristic of the Indian countryside.",
+      "key_evidence": [
+        "white dashed center line",
+        "white edge lines",
+        "Devanagari script on infrastructure"
+      ]
+    },
+    {
+      "agent_name": "regulatory",
+      "hypothesis_id": "country_nepal",
+      "confidence": "support",
+      "reasoning": "Nepal shares the same driving side (left) and uses the Devanagari script, making the infrastructure compatible. However, the specific road quality and the style of the painted signage on the building are more typical of Indian rural regions than Nepalese ones.",
+      "key_evidence": [
+        "left-hand traffic compatibility",
+        "Devanagari script"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_india",
+      "confidence": "strongly_support",
+      "reasoning": "The image quality and blur patterns are consistent with the Google Street View camera generation used extensively in India. The construction of the building on the right, featuring exposed red brick and a flat concrete roof slab, is a ubiquitous architectural style in rural India, distinguishing it from the more varied rural construction often seen in Nepal.",
+      "key_evidence": [
+        "exposed red brick construction",
+        "flat concrete roof slab",
+        "Google Street View camera generation/image quality"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_nepal",
+      "confidence": "support",
+      "reasoning": "While the general rural aesthetic and building materials are compatible with parts of Nepal, the specific combination of the road surface quality and the particular style of the brick structure is more characteristic of the Indian plains.",
+      "key_evidence": [
+        "exposed red brick construction"
+      ]
+    }
+  ],
+  "country_result": "Country: India\nCoordinates: 26.8467, 80.9462\nReasoning: All agents strongly support India, particularly noting the Devanagari script, the specific style of exposed red-brick construction, and the road markings (broken white center line) characteristic of Indian rural highways. While the Terai region of Nepal is geographically similar, the Meta Agent's observation of the specific building architecture and the Regulatory Agent's assessment of the road infrastructure point more definitively to the Indo-Gangetic Plain in India.",
+  "coordinates": {
+    "lat": 26.8467,
+    "lng": 80.9462
+  },
+  "final_reasoning": ""
+}

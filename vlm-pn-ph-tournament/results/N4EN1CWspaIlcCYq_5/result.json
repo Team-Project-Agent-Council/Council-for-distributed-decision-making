@@ -1,0 +1,555 @@
+{
+  "image_path": "/pfs/data6/home/ma/ma_ma/ma_lweisssc/llm_council_agent_orchestration_tests/clean_images_GeoRC_500/N4EN1CWspaIlcCYq_5.png",
+  "model": "google/gemma-4-31B-it",
+  "judge_model": "google/gemma-4-31B-it",
+  "timing": {
+    "total_seconds": 171.0
+  },
+  "assessments": {
+    "linguistic": {
+      "agent_name": "linguistic",
+      "candidates": [],
+      "evidence": []
+    },
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Ukraine",
+          "confidence": "high",
+          "reasoning": "The image shows extremely fertile, dark 'chernozem' (black earth) soil, which is a hallmark of the Ukrainian steppe. The flat to gently undulating terrain and large-scale agricultural patterns are highly characteristic of this region."
+        },
+        {
+          "country": "Russia",
+          "confidence": "high",
+          "reasoning": "The southern regions of Russia share the same chernozem soil belt and flat steppe landscape as Ukraine, making it geographically indistinguishable from Ukraine based on terrain alone."
+        },
+        {
+          "country": "Kazakhstan",
+          "confidence": "medium",
+          "reasoning": "The northern parts of Kazakhstan feature similar black soil and vast, flat agricultural plains, though the vegetation density can vary."
+        },
+        {
+          "country": "United States",
+          "confidence": "speculative",
+          "reasoning": "The Great Plains of the US Midwest (e.g., Kansas or Nebraska) feature similar flat terrain and large-scale farming, though the specific deep black soil hue is more characteristic of the Eurasian steppe."
+        }
+      ],
+      "evidence": [
+        "Chernozem (deep black soil)",
+        "Flat steppe terrain",
+        "Large-scale agricultural fields",
+        "Temperate continental climate indicators",
+        "Low-density settlement pattern"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Ukraine",
+          "confidence": "high",
+          "reasoning": "The combination of deep, dark 'Chernozem' (black earth) soil and vast, open agricultural plains is highly characteristic of the Ukrainian steppe. The winter wheat or cover crop on the right is typical for this region's agricultural cycle."
+        },
+        {
+          "country": "Russia",
+          "confidence": "high",
+          "reasoning": "The southern regions of Russia share the same Chernozem soil belt and agricultural patterns as Ukraine, making it botanically indistinguishable from the Ukrainian steppe in this view."
+        },
+        {
+          "country": "Kazakhstan",
+          "confidence": "medium",
+          "reasoning": "The northern steppes of Kazakhstan feature similar black soils and large-scale cereal farming, though the tree line in the distance is slightly more characteristic of the European steppe."
+        },
+        {
+          "country": "United States",
+          "confidence": "low",
+          "reasoning": "The Great Plains (e.g., Kansas or North Dakota) feature similar large-scale agriculture and temperate grasslands, serving as a cross-continent analog for this biome."
+        },
+        {
+          "country": "Canada",
+          "confidence": "low",
+          "reasoning": "The Prairie provinces exhibit similar soil colors and vast cereal crop fields, though the specific tree silhouettes in the distance are more typical of Eurasia."
+        }
+      ],
+      "evidence": [
+        "Chernozem (Black Earth)",
+        "Winter wheat/cereal crops",
+        "Temperate steppe grassland",
+        "Deciduous shelterbelt trees"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Ukraine",
+          "confidence": "low",
+          "reasoning": "The combination of wide, flat agricultural plains with dark chernozem soil and basic, weathered asphalt roads is highly characteristic of the Ukrainian steppe."
+        },
+        {
+          "country": "Russia",
+          "confidence": "low",
+          "reasoning": "Similar to Ukraine, the rural road quality and the vast, open agricultural landscape are common across southern Russian regions."
+        },
+        {
+          "country": "Kazakhstan",
+          "confidence": "low",
+          "reasoning": "The flat horizon and basic rural road infrastructure are consistent with the agricultural regions of northern Kazakhstan."
+        },
+        {
+          "country": "United States",
+          "confidence": "speculative",
+          "reasoning": "Global analog: Rural asphalt roads with gravel shoulders and vast agricultural fields are visually similar to the Great Plains of the US Midwest."
+        },
+        {
+          "country": "Argentina",
+          "confidence": "speculative",
+          "reasoning": "Global analog: The pampas region features similar flat agricultural landscapes and basic rural road infrastructure."
+        }
+      ],
+      "evidence": [
+        "Basic asphalt road with significant cracking",
+        "Unpaved gravel/dirt shoulders",
+        "Absence of road signs, bollards, or utility poles in immediate view",
+        "Flat agricultural terrain with dark soil"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "Russia",
+          "confidence": "medium",
+          "reasoning": "The image quality and specific asphalt texture are highly characteristic of Russian rural coverage. The lack of road markings on a paved rural road is common in regional Russian provinces."
+        },
+        {
+          "country": "Ukraine",
+          "confidence": "medium",
+          "reasoning": "Shares nearly identical camera generation and rural road infrastructure with Russia, including the specific style of asphalt degradation and shoulder composition."
+        },
+        {
+          "country": "Kazakhstan",
+          "confidence": "low",
+          "reasoning": "Similar Google camera generation and rural road characteristics are found in Kazakhstan, though the landscape is often more arid than shown here."
+        },
+        {
+          "country": "Argentina",
+          "confidence": "speculative",
+          "reasoning": "Global analog: Argentina has similar vast rural paved roads with minimal markings and similar camera generation artifacts in certain provinces."
+        }
+      ],
+      "evidence": [
+        "Google Street View camera generation (Gen 3/4 quality)",
+        "Asphalt texture and cracking patterns",
+        "Lack of road edge markings/delineators"
+      ]
+    }
+  },
+  "progressive_narrowing": {
+    "region_consensus": false,
+    "confirmed_region": "Europe",
+    "runner_up_region": "Central Asia",
+    "surviving_regions": [
+      "Europe",
+      "Central Asia"
+    ],
+    "proposed_regions": [
+      "Europe",
+      "Central Asia",
+      "North America",
+      "South America"
+    ],
+    "region_candidates": {
+      "Europe": {
+        "Ukraine": 4,
+        "Russia": 4
+      },
+      "Central Asia": {
+        "Kazakhstan": 4
+      },
+      "North America": {
+        "United States": 3,
+        "Canada": 1
+      },
+      "South America": {
+        "Argentina": 2
+      }
+    },
+    "region_decision_reasoning": "Both Europe and Central Asia received consistent 'support' votes from both the botanics and meta agents, resulting in tied top scores. Europe is selected as the primary region due to the specific mention of the Pontic-Caspian steppe and Eastern European plains as highly characteristic.",
+    "path": "B"
+  },
+  "road_evidence": {
+    "outside_color": "none",
+    "inside_color": "none",
+    "driving_side": "UNCLEAR",
+    "driving_side_basis": "none"
+  },
+  "country_assessments": {
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Ukraine",
+          "confidence": "high",
+          "reasoning": "The image shows extremely fertile, dark 'Chernozem' (black earth) soil, which is a hallmark of the Ukrainian steppe. The vast, flat agricultural landscape and the specific style of rural road degradation are highly characteristic of this region."
+        },
+        {
+          "country": "Russia",
+          "confidence": "high",
+          "reasoning": "The southern regions of Russia share the same Chernozem soil belt and flat steppe topography as Ukraine. Geographically, the landscape is nearly identical to the Ukrainian plains, making it an equally likely candidate."
+        },
+        {
+          "country": "Kazakhstan",
+          "confidence": "medium",
+          "reasoning": "The northern parts of Kazakhstan feature similar vast plains and fertile soils. However, the vegetation and road quality here lean slightly more towards the European steppe than the Central Asian interior."
+        },
+        {
+          "country": "Romania",
+          "confidence": "low",
+          "reasoning": "The Wallachian plain has similar agricultural patterns and flat terrain. However, the soil color is typically not as deep black as seen in the Ukrainian/Russian heartland."
+        }
+      ],
+      "evidence": [
+        "Chernozem (deep black soil)",
+        "Flat steppe topography",
+        "Temperate continental climate vegetation",
+        "Low-density agricultural settlement pattern",
+        "Worn asphalt rural road with longitudinal cracking"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Ukraine",
+          "confidence": "high",
+          "reasoning": "The presence of deep, dark 'Chernozem' (black earth) soil is highly characteristic of the Ukrainian steppe. The combination of large-scale cereal cultivation and the specific horizon of deciduous shelterbelts is typical for this region."
+        },
+        {
+          "country": "Russia",
+          "confidence": "high",
+          "reasoning": "The southern regions of Russia share the same Chernozem soil belt and agricultural patterns as Ukraine. The vegetation and land use are virtually indistinguishable from eastern Ukraine in this biome."
+        },
+        {
+          "country": "Kazakhstan",
+          "confidence": "medium",
+          "reasoning": "The northern steppes of Kazakhstan feature similar black soils and large-scale grain farming. However, the density of the distant tree line is slightly more characteristic of the European side of the steppe."
+        },
+        {
+          "country": "Moldova",
+          "confidence": "medium",
+          "reasoning": "Moldova possesses similar fertile soils and agricultural landscapes, though the topography is often more undulating than the flat plain seen here."
+        }
+      ],
+      "evidence": [
+        "Chernozem (Black Earth)",
+        "Winter wheat/cereal crops",
+        "Deciduous shelterbelts",
+        "Steppe biome"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Ukraine",
+          "confidence": "medium",
+          "reasoning": "The combination of wide, flat agricultural plains with dark chernozem soil and a narrow, weathered asphalt road with rough edges is highly characteristic of rural Ukraine."
+        },
+        {
+          "country": "Russia",
+          "confidence": "medium",
+          "reasoning": "The landscape and road quality are consistent with rural regions of European Russia, featuring similar soil types and basic asphalt infrastructure."
+        },
+        {
+          "country": "Kazakhstan",
+          "confidence": "low",
+          "reasoning": "The vast, open steppe landscape and simple road construction are common in northern Kazakhstan, though the soil color is more typical of the black-earth regions further west."
+        },
+        {
+          "country": "Romania",
+          "confidence": "low",
+          "reasoning": "The rural road width and the presence of large agricultural fields are similar to the Bărăgan Plain, although the lack of specific markers makes this speculative."
+        }
+      ],
+      "evidence": [
+        "narrow asphalt road width",
+        "rough/unimproved road shoulders",
+        "absence of road signs",
+        "absence of bollards",
+        "absence of utility poles in immediate vicinity"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "Russia",
+          "confidence": "medium",
+          "reasoning": "The image quality and slight blur patterns are consistent with Gen 3 Google Street View coverage common in rural Russia. The road surface texture and lack of edge markings are typical for secondary rural roads in this region."
+        },
+        {
+          "country": "Ukraine",
+          "confidence": "medium",
+          "reasoning": "The camera generation and image quality are nearly identical to those found in Russia. The rural road infrastructure and asphalt wear patterns are highly characteristic of the Ukrainian countryside."
+        },
+        {
+          "country": "Kazakhstan",
+          "confidence": "low",
+          "reasoning": "The wide-open landscape and road quality match rural Kazakhstan coverage. However, the specific camera artifacts are more common in the European part of the former Soviet bloc."
+        }
+      ],
+      "evidence": [
+        "Google Street View Gen 3 camera quality",
+        "Rural asphalt wear patterns",
+        "Lack of road delineators/bollards"
+      ]
+    }
+  },
+  "hypothesis_evaluations": [
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_europe",
+      "confidence": "support",
+      "reasoning": "The combination of deep chernozem (black earth) soil and winter cereal crops is highly characteristic of the Pontic-Caspian steppe and Eastern European plains (e.g., Ukraine, Russia, Romania).",
+      "key_evidence": [
+        "Chernozem soil",
+        "Winter wheat/rye"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_central_asia",
+      "confidence": "support",
+      "reasoning": "The vast, open steppe landscape with similar soil profiles and agricultural practices is common in Kazakhstan and Southern Russia, making it botanically indistinguishable from Eastern Europe in this view.",
+      "key_evidence": [
+        "Steppe vegetation",
+        "Chernozem soil"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_north_america",
+      "confidence": "low",
+      "reasoning": "While the US Great Plains (e.g., Kansas, Dakotas) have similar agricultural patterns and soils, the specific hue of the soil and the distant deciduous tree line are more typical of the Eurasian steppe.",
+      "key_evidence": [
+        "Temperate grassland biome"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_south_america",
+      "confidence": "low",
+      "reasoning": "The Pampas of Argentina have similar fertile soils and cereal crops, but the specific combination of dormant winter grasses and the distant tree silhouette is less characteristic than the Northern Hemisphere temperate zones.",
+      "key_evidence": [
+        "Temperate grassland biome"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_europe",
+      "confidence": "support",
+      "reasoning": "The image quality and camera generation are consistent with standard Google Street View coverage found across Eastern Europe. The road surface texture and lack of shoulder markings are common in rural European regions.",
+      "key_evidence": [
+        "camera generation",
+        "road surface texture"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_central_asia",
+      "confidence": "support",
+      "reasoning": "The camera quality and the specific look of the rural asphalt are highly compatible with coverage in Central Asian countries like Kazakhstan, which often feature similar vast, open landscapes with this specific image clarity.",
+      "key_evidence": [
+        "camera generation",
+        "road surface texture"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_north_america",
+      "confidence": "neutral",
+      "reasoning": "While rural roads exist in North America, the specific image quality and the absence of typical North American road infrastructure (like wide gravel shoulders or specific utility pole styles) make it less likely, though not impossible.",
+      "key_evidence": [
+        "absence of typical NA road infrastructure"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_south_america",
+      "confidence": "neutral",
+      "reasoning": "The image quality is compatible with some South American coverage, but there are no specific regional meta cues (like specific pole types or car artifacts) to strongly support this over other regions.",
+      "key_evidence": [
+        "camera generation"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_ukraine",
+      "confidence": "support",
+      "reasoning": "The presence of deep, dark 'Chernozem' (black earth) soil is highly characteristic of the Ukrainian steppe and forest-steppe regions. The combination of large-scale cereal cultivation and these specific soil properties is a hallmark of the region.",
+      "key_evidence": [
+        "Chernozem soil",
+        "winter cereal crops"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_russia",
+      "confidence": "support",
+      "reasoning": "The southern regions of Russia (e.g., Krasnodar or Voronezh) share the same Chernozem soil profiles and agricultural patterns as Ukraine, making it botanically indistinguishable from the Ukrainian steppe in this view.",
+      "key_evidence": [
+        "Chernozem soil",
+        "winter cereal crops"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_kazakhstan",
+      "confidence": "medium",
+      "reasoning": "While Northern Kazakhstan has Chernozem soils and similar wheat farming, the vegetation density in the distant tree line is slightly more characteristic of the European steppe than the more arid Kazakh steppe.",
+      "key_evidence": [
+        "Chernozem soil",
+        "winter cereal crops"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_moldova",
+      "confidence": "medium",
+      "reasoning": "Moldova possesses similar black soils and agricultural practices, though the landscape is often more undulating than the flat horizon seen here.",
+      "key_evidence": [
+        "Chernozem soil",
+        "winter cereal crops"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_romania",
+      "confidence": "low",
+      "reasoning": "While Romania has fertile soils in the east, the specific deep black hue of the tilled earth is more diagnostic of the Pontic-Caspian steppe (Ukraine/Russia) than the typical Romanian soil profiles.",
+      "key_evidence": [
+        "Chernozem soil"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_ukraine",
+      "confidence": "support",
+      "reasoning": "The image quality and camera generation are consistent with Google Street View coverage in Ukraine. The road surface and lack of markings are common in rural Ukrainian regions.",
+      "key_evidence": [
+        "camera generation",
+        "road surface quality"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_russia",
+      "confidence": "neutral",
+      "reasoning": "While the landscape is compatible, Google Street View coverage in Russia is extremely limited and outdated compared to the image quality seen here.",
+      "key_evidence": [
+        "camera generation"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_kazakhstan",
+      "confidence": "neutral",
+      "reasoning": "The camera generation is compatible with some Kazakh coverage, but there are no specific regional meta markers (like specific poles or bollards) to distinguish it from other Eastern European regions.",
+      "key_evidence": [
+        "camera generation"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_romania",
+      "confidence": "support",
+      "reasoning": "The image quality is consistent with Gen 3/4 Google camera coverage found in Romania. The rural road style is compatible with Romanian countryside.",
+      "key_evidence": [
+        "camera generation",
+        "road surface quality"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_moldova",
+      "confidence": "support",
+      "reasoning": "The camera generation and image quality match the coverage patterns seen in Moldova. The road infrastructure is consistent with rural Moldovan standards.",
+      "key_evidence": [
+        "camera generation",
+        "road surface quality"
+      ]
+    }
+  ],
+  "candidate_pool": [
+    "Ukraine",
+    "Russia",
+    "Kazakhstan",
+    "Romania",
+    "Moldova"
+  ],
+  "rag_findings": [
+    {
+      "kind": "tournament_match",
+      "country": "Moldova",
+      "detail": "The streetview shows an exceptionally flat horizon and deep, dark 'Chernozem' soil, which is a primary characteristic of the Ukrainian steppe. While Moldova has similar soil, the extreme flatness of the landscape more strongly aligns with the specialist evidence for Ukraine.",
+      "opponent": "Ukraine",
+      "winner": "Ukraine"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Russia",
+      "detail": "The image quality and camera generation are consistent with current Google Street View coverage in Romania, whereas coverage in Russia is extremely limited and outdated. While the soil is dark, the overall road infrastructure and image metadata support Romania over Russia.",
+      "opponent": "Romania",
+      "winner": "Romania"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Romania",
+      "detail": "The most distinctive visual feature is the deep, dark 'Chernozem' (black earth) soil seen in the tilled field on the left, which is highly characteristic of the Ukrainian steppe. While the road is generic, the combination of this specific soil profile and the vast, flat agricultural landscape strongly supports Ukraine over Romania.",
+      "opponent": "Ukraine",
+      "winner": "Ukraine"
+    }
+  ],
+  "rag_refs_seen": [],
+  "road_filter_warnings": [],
+  "tournament_log": [
+    {
+      "round_label": "semi-1",
+      "country_a": "Ukraine",
+      "country_b": "Moldova",
+      "pool_rank_a": 0,
+      "pool_rank_b": 3,
+      "winner": "Ukraine",
+      "reasoning": "The streetview shows an exceptionally flat horizon and deep, dark 'Chernozem' soil, which is a primary characteristic of the Ukrainian steppe. While Moldova has similar soil, the extreme flatness of the landscape more strongly aligns with the specialist evidence for Ukraine.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "semi-2",
+      "country_a": "Russia",
+      "country_b": "Romania",
+      "pool_rank_a": 1,
+      "pool_rank_b": 2,
+      "winner": "Romania",
+      "reasoning": "The image quality and camera generation are consistent with current Google Street View coverage in Romania, whereas coverage in Russia is extremely limited and outdated. While the soil is dark, the overall road infrastructure and image metadata support Romania over Russia.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "final",
+      "country_a": "Ukraine",
+      "country_b": "Romania",
+      "pool_rank_a": 0,
+      "pool_rank_b": 2,
+      "winner": "Ukraine",
+      "reasoning": "The most distinctive visual feature is the deep, dark 'Chernozem' (black earth) soil seen in the tilled field on the left, which is highly characteristic of the Ukrainian steppe. While the road is generic, the combination of this specific soil profile and the vast, flat agricultural landscape strongly supports Ukraine over Romania.",
+      "agreement": "agree"
+    }
+  ],
+  "country_result": "Country: Ukraine\nCoordinates: 48.4667, 33.4833\nReasoning: The most distinctive visual feature is the deep, dark 'Chernozem' (black earth) soil seen in the tilled field on the left, which is highly characteristic of the Ukrainian steppe. While the road is generic, the combination of this specific soil profile and the vast, flat agricultural landscape strongly supports Ukraine over Romania.\n\nTournament:\n  semi-1: Ukraine vs Moldova → Ukraine\n  semi-2: Russia vs Romania → Romania\n  final: Ukraine vs Romania → Ukraine",
+  "coordinates": {
+    "lat": 48.4667,
+    "lng": 33.4833
+  },
+  "final_reasoning": "The most distinctive visual feature is the deep, dark 'Chernozem' (black earth) soil seen in the tilled field on the left, which is highly characteristic of the Ukrainian steppe. While the road is generic, the combination of this specific soil profile and the vast, flat agricultural landscape strongly supports Ukraine over Romania."
+}

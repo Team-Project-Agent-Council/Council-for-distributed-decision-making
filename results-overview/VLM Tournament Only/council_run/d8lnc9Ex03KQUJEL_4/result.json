@@ -1,0 +1,404 @@
+{
+  "image_path": "/pfs/data6/home/ma/ma_ma/ma_lweisssc/llm_council_agent_orchestration_tests/clean_images_GeoRC_500/d8lnc9Ex03KQUJEL_4.png",
+  "model": "google/gemma-4-31B-it",
+  "judge_model": "google/gemma-4-31B-it",
+  "timing": {
+    "total_seconds": 101.4
+  },
+  "assessments": {
+    "linguistic": {
+      "agent_name": "linguistic",
+      "candidates": [
+        {
+          "country": "United States",
+          "confidence": "high",
+          "reasoning": "The word 'STOP' on a red octagonal sign is standard in the US. While used elsewhere, the specific font and sign style are highly characteristic of North American road signage."
+        },
+        {
+          "country": "Canada",
+          "confidence": "high",
+          "reasoning": "The word 'STOP' on a red octagonal sign is standard in English-speaking Canada. It is linguistically identical to the US signage in this context."
+        }
+      ],
+      "evidence": [
+        "STOP",
+        "English",
+        "Latin"
+      ]
+    },
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "USA",
+          "confidence": "high",
+          "reasoning": "The combination of broadleaf deciduous forest, specific road shoulder composition, and the style of the stop sign is highly characteristic of the Eastern United States, particularly the Appalachian or Mid-Atlantic regions."
+        },
+        {
+          "country": "Canada",
+          "confidence": "medium",
+          "reasoning": "The temperate deciduous forest and road infrastructure are very similar to the Northeastern US, specifically in Southern Ontario or Quebec, where the landscape is nearly identical."
+        },
+        {
+          "country": "Japan",
+          "confidence": "low",
+          "reasoning": "Japan has similar temperate broadleaf forests and narrow paved rural roads, though the specific vegetation density and road shoulder style are slightly different from the North American model."
+        },
+        {
+          "country": "France",
+          "confidence": "speculative",
+          "reasoning": "As a global analog, Western Europe possesses similar temperate deciduous forests and rural paved lanes, though the specific flora and road markings often differ from the North American style seen here."
+        }
+      ],
+      "evidence": [
+        "Temperate deciduous broadleaf forest",
+        "Paved narrow rural road with gravel/dirt shoulders",
+        "Northern hemisphere sun angle based on shadow cast",
+        "Dense undergrowth typical of humid temperate climates"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "USA",
+          "confidence": "medium",
+          "reasoning": "The combination of broadleaf deciduous trees (likely Quercus and Acer species) and the dense, lush understory is highly characteristic of the Eastern Deciduous Forest biome, particularly in the Appalachian or Mid-Atlantic regions."
+        },
+        {
+          "country": "Canada",
+          "confidence": "medium",
+          "reasoning": "Similar mixed deciduous forests are found in Southern Ontario and Quebec, sharing the same species composition as the Northeastern US."
+        },
+        {
+          "country": "Japan",
+          "confidence": "low",
+          "reasoning": "Temperate broadleaf forests in Japan can exhibit similar density and leaf structure, though the specific undergrowth composition often differs from North American forests."
+        },
+        {
+          "country": "France",
+          "confidence": "low",
+          "reasoning": "Central and Western European temperate forests feature similar deciduous canopies, though the specific mix of beech and oak often creates a slightly different forest floor appearance."
+        }
+      ],
+      "evidence": [
+        "Temperate broadleaf deciduous forest",
+        "Quercus (Oak) and Acer (Maple) type canopy",
+        "Dense herbaceous understory"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "USA",
+          "confidence": "high",
+          "reasoning": "The octagonal red 'STOP' sign is characteristic of the MUTCD standard used in the United States. The narrow asphalt road with gravel shoulders and surrounding deciduous forest is typical of rural North American residential or forest roads."
+        },
+        {
+          "country": "Canada",
+          "confidence": "high",
+          "reasoning": "Canada utilizes the same MUTCD-style octagonal 'STOP' signs as the USA. The road infrastructure and vegetation are virtually indistinguishable from the US Northeast or Midwest."
+        },
+        {
+          "country": "Mexico",
+          "confidence": "medium",
+          "reasoning": "Mexico also uses the octagonal red 'STOP' sign. While the vegetation is more typical of temperate zones, similar rural road styles exist in higher altitude forested regions."
+        },
+        {
+          "country": "Australia",
+          "confidence": "speculative",
+          "reasoning": "Rural roads with basic asphalt and gravel shoulders are common globally. While the stop sign is standard, the specific forest type is less common but possible in certain temperate regions."
+        }
+      ],
+      "evidence": [
+        "Octagonal red STOP sign (MUTCD style)",
+        "Narrow asphalt road width",
+        "Unpaved gravel shoulders",
+        "Lack of formal curbing or drainage infrastructure"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "USA",
+          "confidence": "medium",
+          "reasoning": "The image quality and lighting are consistent with Gen 3/4 Google Street View coverage common in North America. The narrow asphalt road with rough, uncurbed edges is typical of rural US residential or forest roads."
+        },
+        {
+          "country": "Canada",
+          "confidence": "medium",
+          "reasoning": "Shares nearly identical Google camera meta and rural road construction styles with the USA, making it a primary candidate based on the available visual meta."
+        },
+        {
+          "country": "Japan",
+          "confidence": "low",
+          "reasoning": "Rural Japanese forest roads often have similar narrow asphalt widths and lack of curbing, though the camera generation here feels more North American."
+        }
+      ],
+      "evidence": [
+        "Google Street View camera generation (Gen 3/4 lighting/blur)",
+        "Rural asphalt road construction (no curbing, rough edges)"
+      ]
+    }
+  },
+  "progressive_narrowing": {
+    "region_consensus": null,
+    "confirmed_region": null,
+    "runner_up_region": null,
+    "surviving_regions": [],
+    "proposed_regions": [],
+    "region_candidates": {},
+    "region_decision_reasoning": "",
+    "path": "TOURNAMENT_ONLY"
+  },
+  "road_evidence": {},
+  "country_assessments": {},
+  "hypothesis_evaluations": [
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_usa",
+      "confidence": "strongly_support",
+      "reasoning": "The combination of broadleaf deciduous forest, specific undergrowth patterns, and the narrow asphalt road with soft shoulders is highly characteristic of the Eastern United States (Appalachia or New England). The vegetation density and tree species are a perfect match for this temperate humid climate.",
+      "key_evidence": [
+        "deciduous broadleaf forest",
+        "temperate humid climate vegetation",
+        "road shoulder composition"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_united_states",
+      "confidence": "strongly_support",
+      "reasoning": "This is a duplicate of country_usa; the landscape features are strongly consistent with the Eastern US temperate forest biome.",
+      "key_evidence": [
+        "deciduous broadleaf forest",
+        "temperate humid climate vegetation"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_canada",
+      "confidence": "support",
+      "reasoning": "The temperate deciduous forest is compatible with Southern Ontario or Quebec, though the specific lushness of the undergrowth is slightly more typical of the US Mid-Atlantic or South.",
+      "key_evidence": [
+        "temperate deciduous forest",
+        "humid climate"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_japan",
+      "confidence": "support",
+      "reasoning": "Japan has similar temperate deciduous forests and narrow rural roads, making the landscape compatible, though the specific tree trunk textures and leaf shapes are more reminiscent of North American hardwoods.",
+      "key_evidence": [
+        "temperate forest",
+        "narrow rural road"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_france",
+      "confidence": "support",
+      "reasoning": "The landscape is compatible with rural forested areas of Central or Western France, although the specific density of the forest canopy is more typical of the Americas.",
+      "key_evidence": [
+        "temperate deciduous forest"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_mexico",
+      "confidence": "contradicts",
+      "reasoning": "While Mexico has temperate forests in the highlands, the specific composition of this lush, broadleaf deciduous canopy and the soil moisture levels are inconsistent with the majority of Mexican forest types.",
+      "key_evidence": [
+        "vegetation type",
+        "climate indicators"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_usa",
+      "confidence": "support",
+      "reasoning": "The temperate broadleaf forest composition, featuring a mix of deciduous hardwoods and a dense, leafy understory, is highly characteristic of the Eastern United States (Appalachia/Mid-Atlantic).",
+      "key_evidence": [
+        "temperate broadleaf forest",
+        "deciduous hardwoods"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_united_states",
+      "confidence": "support",
+      "reasoning": "Identical to country_usa; the vegetation is consistent with the humid subtropical or temperate climates of the Eastern US.",
+      "key_evidence": [
+        "temperate broadleaf forest",
+        "deciduous hardwoods"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_canada",
+      "confidence": "support",
+      "reasoning": "The vegetation is compatible with Southern Ontario or Quebec, though the density of the undergrowth is slightly more typical of the US Eastern Seaboard.",
+      "key_evidence": [
+        "temperate broadleaf forest"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_japan",
+      "confidence": "support",
+      "reasoning": "Japan possesses similar temperate deciduous forests in its mountainous regions, making this biome a viable global analog.",
+      "key_evidence": [
+        "temperate broadleaf forest"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_france",
+      "confidence": "support",
+      "reasoning": "The forest structure is compatible with Western European temperate forests, although the specific leaf density and species mix lean slightly more North American.",
+      "key_evidence": [
+        "temperate broadleaf forest"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_mexico",
+      "confidence": "contradicts",
+      "reasoning": "While Mexico has temperate forests in the highlands, the specific lush, humid broadleaf composition seen here is not representative of the majority of Mexican landscapes.",
+      "key_evidence": [
+        "lack of xeric or high-altitude pine-oak characteristics"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_usa",
+      "confidence": "strongly_support",
+      "reasoning": "The image quality and blur patterns are consistent with Gen 4 Google Street View camera coverage common in the US. The stop sign post is a simple thin metal pipe, which is standard for rural US roads, whereas Canada often uses different post specifications or reflective markers.",
+      "key_evidence": [
+        "Google camera generation",
+        "stop sign post style"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_united_states",
+      "confidence": "strongly_support",
+      "reasoning": "Duplicate of country_usa; the meta evidence strongly supports the United States based on the camera artifacts and rural street furniture.",
+      "key_evidence": [
+        "Google camera generation",
+        "stop sign post style"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_canada",
+      "confidence": "support",
+      "reasoning": "The camera generation and general rural road appearance are compatible with Canada, but the specific lack of Canadian-style delineators or specific post markers makes it slightly less likely than the US.",
+      "key_evidence": [
+        "Google camera generation"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_mexico",
+      "confidence": "low",
+      "reasoning": "While the camera generation is used globally, the specific combination of road surface quality and the style of the stop sign post is less typical for rural Mexico compared to North American standards.",
+      "key_evidence": [
+        "Google camera generation"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_japan",
+      "confidence": "contradicts",
+      "reasoning": "The road width, the style of the stop sign post, and the general camera rig artifacts do not match the typical Japanese rural meta (which often features specific utility pole designs and different road markings).",
+      "key_evidence": [
+        "stop sign post style",
+        "road width"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_france",
+      "confidence": "contradicts",
+      "reasoning": "The stop sign post is not a French-style bollard or post, and the camera generation/image quality does not align with the typical French rural coverage patterns.",
+      "key_evidence": [
+        "stop sign post style"
+      ]
+    }
+  ],
+  "candidate_pool": [
+    "Canada",
+    "USA",
+    "Japan",
+    "France",
+    "United States",
+    "Mexico"
+  ],
+  "rag_findings": [
+    {
+      "kind": "tournament_match",
+      "country": "Japan",
+      "detail": "The stop sign and its simple thin metal post are highly characteristic of rural USA, whereas the specialist evidence notes this does not match typical Japanese rural infrastructure. Additionally, the broadleaf deciduous forest and road style strongly align with the Eastern United States landscape.",
+      "opponent": "USA",
+      "winner": "USA"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Canada",
+      "detail": "The streetview features a red octagonal STOP sign and lush temperate forest undergrowth that strongly align with the Eastern US landscape and botanics evidence. Meta evidence specifically supports the United States based on camera artifacts and rural street furniture typical of the region.",
+      "opponent": "United States",
+      "winner": "United States"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "United States",
+      "detail": "The visual evidence, including the specific style of the octagonal stop sign on a thin metal post and the temperate broadleaf deciduous forest, is highly characteristic of the Eastern United States. Both candidates are the same country, but USA is selected as the primary identifier based on the specialist evidence provided.",
+      "opponent": "USA",
+      "winner": "USA"
+    }
+  ],
+  "rag_refs_seen": [],
+  "road_filter_warnings": [],
+  "tournament_log": [
+    {
+      "round_label": "semi-1",
+      "country_a": "USA",
+      "country_b": "Japan",
+      "pool_rank_a": 0,
+      "pool_rank_b": 3,
+      "winner": "USA",
+      "reasoning": "The stop sign and its simple thin metal post are highly characteristic of rural USA, whereas the specialist evidence notes this does not match typical Japanese rural infrastructure. Additionally, the broadleaf deciduous forest and road style strongly align with the Eastern United States landscape.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "semi-2",
+      "country_a": "United States",
+      "country_b": "Canada",
+      "pool_rank_a": 1,
+      "pool_rank_b": 2,
+      "winner": "United States",
+      "reasoning": "The streetview features a red octagonal STOP sign and lush temperate forest undergrowth that strongly align with the Eastern US landscape and botanics evidence. Meta evidence specifically supports the United States based on camera artifacts and rural street furniture typical of the region.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "final",
+      "country_a": "USA",
+      "country_b": "United States",
+      "pool_rank_a": 0,
+      "pool_rank_b": 1,
+      "winner": "USA",
+      "reasoning": "The visual evidence, including the specific style of the octagonal stop sign on a thin metal post and the temperate broadleaf deciduous forest, is highly characteristic of the Eastern United States. Both candidates are the same country, but USA is selected as the primary identifier based on the specialist evidence provided.",
+      "agreement": "agree"
+    }
+  ],
+  "country_result": "Country: USA\nCoordinates: 38.8951, -77.0364\nReasoning: The visual evidence, including the specific style of the octagonal stop sign on a thin metal post and the temperate broadleaf deciduous forest, is highly characteristic of the Eastern United States. Both candidates are the same country, but USA is selected as the primary identifier based on the specialist evidence provided.\n\nTournament:\n  semi-1: USA vs Japan → USA\n  semi-2: United States vs Canada → United States\n  final: USA vs United States → USA",
+  "coordinates": {
+    "lat": 38.8951,
+    "lng": -77.0364
+  },
+  "final_reasoning": "The visual evidence, including the specific style of the octagonal stop sign on a thin metal post and the temperate broadleaf deciduous forest, is highly characteristic of the Eastern United States. Both candidates are the same country, but USA is selected as the primary identifier based on the specialist evidence provided."
+}

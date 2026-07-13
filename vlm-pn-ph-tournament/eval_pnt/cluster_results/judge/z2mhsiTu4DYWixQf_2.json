@@ -1,0 +1,98 @@
+{
+  "image_id": "z2mhsiTu4DYWixQf_2",
+  "truth_country": "t\u00fcrkiye",
+  "pred_country": "tunisia",
+  "is_correct": false,
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": true,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "role_adherence_notes": {
+      "linguistic": "Correctly identified the absence of linguistic cues (no signs) and stayed within domain.",
+      "landscape": "Analyzed terrain, vegetation, and climate cues consistent with the role.",
+      "botanics": "Identified plant types (scrub, deciduous, olive) and their regional distributions.",
+      "regulatory": "Analyzed road width, shoulders, and utility pole infrastructure.",
+      "meta": "Synthesized cross-domain features (pole design, image quality) to distinguish regions."
+    },
+    "argumentative_quality": {
+      "linguistic": "normal",
+      "landscape": "strong",
+      "botanics": "strong",
+      "regulatory": "normal",
+      "meta": "strong"
+    },
+    "constructive_synthesis": true,
+    "overall_verdict_notes": "The pipeline failed to identify the ground truth (Turkey) because the agents' visual analysis of the utility poles and vegetation was biased towards North Africa (Tunisia/Algeria). The 'meta' agent's focus on pole design overrode the 'landscape' agent's correct identification of the Anatolian biome. The final decision was a hallucinated tie-break between two incorrect candidates.",
+    "assertiveness": null,
+    "assertiveness_score": {},
+    "overall_quality_score": null,
+    "role_adherence_score": {
+      "linguistic": 1.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.9,
+      "meta": 0.9
+    },
+    "argumentative_quality_score": {
+      "linguistic": 0.5,
+      "landscape": 0.8,
+      "botanics": 0.8,
+      "regulatory": 0.5,
+      "meta": 0.8
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.1,
+      "botanics": 0.2,
+      "regulatory": 0.3,
+      "meta": 0.5
+    },
+    "hallucination_examples": {
+      "linguistic": [],
+      "landscape": [],
+      "botanics": [
+        "Phase 2: 'Olea europaea (Olive tree)' \u2014 While olive trees are present in Turkey, the specific identification is an assumption not strictly supported by the low-res image, though plausible."
+      ],
+      "regulatory": [
+        "Phase 1: 'T-shaped cross-arms' \u2014 The poles appear to have a single horizontal cross-arm, not a T-shape."
+      ],
+      "meta": [
+        "Phase 2: 'specific cross-arm bracket' \u2014 The judge used this specific detail to distinguish Tunisia from Algeria, despite the poles being visually identical in the image and the claim being unsupported by the visual evidence."
+      ]
+    },
+    "visual_consistency_score": {
+      "linguistic": 1.0,
+      "landscape": 0.9,
+      "botanics": 0.8,
+      "regulatory": 0.7,
+      "meta": 0.5
+    },
+    "visual_consistency_notes": {
+      "linguistic": "Correctly noted no text.",
+      "landscape": "Accurately described the Mediterranean scrub and flat terrain.",
+      "botanics": "Correctly identified the mix of scrub and deciduous trees.",
+      "regulatory": "Correctly described the road and poles, though misidentified the pole shape.",
+      "meta": "Invented specific pole details ('bracket') to justify the final wrong answer."
+    },
+    "confidence_calibration": {
+      "linguistic": 0.5,
+      "landscape": 0.2,
+      "botanics": 0.2,
+      "regulatory": 0.2,
+      "meta": 0.1
+    },
+    "tournament_failure": {
+      "truth_in_pool": false,
+      "truth_lost_to": "Tunisia",
+      "failure_match_round": "final",
+      "failure_reason": "not_applicable",
+      "failure_reasoning": "Turkey was not in the candidate pool for the final tournament. The agents failed to identify Turkey as a candidate in Phase 1, likely due to the 'meta' agent's bias towards North African infrastructure.",
+      "counterfactual_winnable": false
+    }
+  }
+}

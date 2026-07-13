@@ -1,0 +1,577 @@
+{
+  "image_path": "/pfs/data6/home/ma/ma_ma/ma_lweisssc/llm_council_agent_orchestration_tests/clean_images_GeoRC_500/N4EN1CWspaIlcCYq_1.png",
+  "model": "google/gemma-4-31B-it",
+  "judge_model": "google/gemma-4-31B-it",
+  "timing": {
+    "total_seconds": 86.9
+  },
+  "assessments": {
+    "linguistic": {
+      "agent_name": "linguistic",
+      "candidates": [],
+      "evidence": []
+    },
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Turkey",
+          "confidence": "high",
+          "reasoning": "The combination of red-tiled roofs, mud-brick perimeter walls, and the specific arid-temperate plateau landscape is highly characteristic of Central Anatolia. The settlement pattern of dispersed low-rise houses with flat or gently pitched roofs is common in rural Turkish villages."
+        },
+        {
+          "country": "Iran",
+          "confidence": "medium",
+          "reasoning": "The use of mud-brick (adobe) for walls and the arid, open terrain are very similar to the Iranian plateau. However, the specific style of the red tiled roofs is more common in Turkey than in rural Iran."
+        },
+        {
+          "country": "Spain",
+          "confidence": "low",
+          "reasoning": "The dry landscape, red soil tones, and tiled roofs are reminiscent of the Castilian plateau (Meseta). The vegetation and road quality are similar, though the specific mud-wall construction is less common in modern Spanish rural areas."
+        },
+        {
+          "country": "Mexico",
+          "confidence": "speculative",
+          "reasoning": "As a cross-continent analog, the high-altitude arid plains of central Mexico feature similar adobe construction, red-toned soils, and sparse vegetation under a similar sun angle."
+        }
+      ],
+      "evidence": [
+        "Mud-brick/adobe perimeter walls",
+        "Red-tiled pitched roofs",
+        "Arid-temperate plateau terrain",
+        "Reddish-brown soil",
+        "Sparse deciduous vegetation",
+        "Northern hemisphere sun angle (shadows cast slightly north/east)"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Turkey",
+          "confidence": "medium",
+          "reasoning": "The combination of semi-arid steppe grasses and the specific appearance of the deciduous trees in the background is highly characteristic of the Central Anatolian plateau. The vegetation is consistent with the rain-shadow regions of the interior."
+        },
+        {
+          "country": "Iran",
+          "confidence": "medium",
+          "reasoning": "The xeric grassland and sparse, hardy deciduous trees are very similar to the highlands of Iran. The botanical profile is nearly identical to Turkey's interior, making it a strong regional candidate."
+        },
+        {
+          "country": "Kazakhstan",
+          "confidence": "low",
+          "reasoning": "The open steppe landscape with scattered hardy shrubs and grasses is common across the Eurasian steppe. However, the tree density is slightly higher than typical deep-steppe regions."
+        },
+        {
+          "country": "Spain",
+          "confidence": "speculative",
+          "reasoning": "The Meseta Central of Spain features similar semi-arid grasslands and scattered deciduous vegetation (Global Analog). Without endemic species, this Mediterranean interior biome is a plausible cross-continent match."
+        }
+      ],
+      "evidence": [
+        "Semi-arid steppe grasses",
+        "Hardy deciduous trees",
+        "Xeric shrubland"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Turkey",
+          "confidence": "medium",
+          "reasoning": "The utility pole design with multiple cross-arms and the specific style of rural masonry walls and red-tiled roofs are very common in the Anatolian countryside."
+        },
+        {
+          "country": "Bulgaria",
+          "confidence": "low",
+          "reasoning": "Similar rural road quality, utility pole structures, and residential architecture found in Balkan rural areas."
+        },
+        {
+          "country": "Argentina",
+          "confidence": "speculative",
+          "reasoning": "Global analog: The combination of basic asphalt, gravel shoulders, and wooden/concrete utility poles in a flat rural landscape is visually similar to the Pampas region."
+        },
+        {
+          "country": "South Africa",
+          "confidence": "speculative",
+          "reasoning": "Global analog: Rural infrastructure consisting of simple paved roads and basic electrical poles is common in several semi-arid regions of Southern Africa."
+        }
+      ],
+      "evidence": [
+        "Concrete/wooden utility poles with multiple horizontal cross-arms",
+        "Basic asphalt road with unpaved gravel shoulders",
+        "Rural residential architecture with red clay tile roofs",
+        "Mud-brick/stone perimeter walls",
+        "No visible road signs or license plates"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "Turkey",
+          "confidence": "medium",
+          "reasoning": "The utility poles are concrete with a specific cross-arm configuration common in rural Turkey. The combination of red-tiled roofs and mud-brick/adobe perimeter walls is highly characteristic of the Anatolian plateau."
+        },
+        {
+          "country": "Spain",
+          "confidence": "low",
+          "reasoning": "Rural Spain shares similar red-tiled roof styles and concrete utility poles. However, the specific mud-brick wall construction is less common than in the Middle East/Central Asia."
+        },
+        {
+          "country": "Mexico",
+          "confidence": "speculative",
+          "reasoning": "Global analog: Rural Mexico often features similar unpaved road shoulders, concrete utility poles, and adobe-style walling, though the roof tile profile differs slightly from the Mediterranean/Turkish style."
+        }
+      ],
+      "evidence": [
+        "concrete utility poles with specific cross-arm design",
+        "red clay roof tiles",
+        "mud-brick/adobe perimeter walls",
+        "generic Google Street View Gen 3 camera quality"
+      ]
+    }
+  },
+  "progressive_narrowing": {
+    "region_consensus": false,
+    "confirmed_region": "Middle East",
+    "runner_up_region": "Central Asia",
+    "surviving_regions": [
+      "Middle East",
+      "Central Asia"
+    ],
+    "proposed_regions": [
+      "Middle East",
+      "Europe",
+      "North America",
+      "Central Asia",
+      "South America",
+      "Sub-Saharan Africa"
+    ],
+    "region_candidates": {
+      "Middle East": {
+        "Turkey": 4,
+        "Iran": 2
+      },
+      "Europe": {
+        "Spain": 3,
+        "Bulgaria": 1
+      },
+      "North America": {
+        "Mexico": 2
+      },
+      "Central Asia": {
+        "Kazakhstan": 1
+      },
+      "South America": {
+        "Argentina": 1
+      },
+      "Sub-Saharan Africa": {
+        "South Africa": 1
+      }
+    },
+    "region_decision_reasoning": "The Middle East received the highest total score, bolstered by a 'strongly_support' from the meta agent regarding mud-brick construction and utility pole design, and 'support' from the botanics agent. Central Asia is the runner-up as it shares very similar botanical and architectural characteristics, receiving 'support' from both the botanics and meta agents.",
+    "path": "B"
+  },
+  "road_evidence": {
+    "outside_color": "none",
+    "inside_color": "none",
+    "driving_side": "UNCLEAR",
+    "driving_side_basis": "none"
+  },
+  "country_assessments": {
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Turkey",
+          "confidence": "high",
+          "reasoning": "The combination of red-tiled roofs, mud-brick perimeter walls, and the specific style of rural settlement is very characteristic of the Anatolian plateau. The terrain is semi-arid with temperate grassland, typical of central Turkey."
+        },
+        {
+          "country": "Iran",
+          "confidence": "medium",
+          "reasoning": "The use of adobe/mud-brick for walls and the arid, flat landscape are common in rural Iranian plateaus. However, the specific roof tiling is less common than in Turkey."
+        },
+        {
+          "country": "Armenia",
+          "confidence": "medium",
+          "reasoning": "The landscape features high-plateau grasslands and similar rural building materials. The terrain and climate match the Armenian highlands, though the architecture is slightly more reminiscent of Turkey."
+        },
+        {
+          "country": "Azerbaijan",
+          "confidence": "low",
+          "reasoning": "The flat, semi-arid plains and rural settlement patterns are possible, though the specific mud-brick walling is more prevalent further south and east in the region."
+        }
+      ],
+      "evidence": [
+        "Mud-brick/adobe perimeter walls",
+        "Red-tiled pitched roofs",
+        "Semi-arid temperate grassland",
+        "Flat plateau terrain",
+        "Northern hemisphere sun angle (shadows cast slightly north/east)"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Turkey",
+          "confidence": "high",
+          "reasoning": "The combination of lush green roadside grasses and the specific structure of the deciduous trees in the background is highly characteristic of the Anatolian plateau. The vegetation density suggests a semi-arid region with seasonal rainfall typical of central or eastern Turkey."
+        },
+        {
+          "country": "Iran",
+          "confidence": "medium",
+          "reasoning": "The xeric-influenced grasslands and scattered hardy deciduous trees are consistent with the highlands of northwestern Iran. However, the specific vibrancy of the green verge is more common in the Anatolian region than the Iranian plateau."
+        },
+        {
+          "country": "Armenia",
+          "confidence": "medium",
+          "reasoning": "The temperate grassland and tree types are consistent with the Armenian highlands. The botanical profile is very similar to eastern Turkey, making it a strong regional candidate."
+        },
+        {
+          "country": "Kazakhstan",
+          "confidence": "low",
+          "reasoning": "The steppe-like grasses are present, but the presence of larger, denser deciduous trees in a village setting is less common in the primary Kazakh steppe and more typical of the foothills or the Middle East."
+        }
+      ],
+      "evidence": [
+        "Temperate steppe grasses",
+        "Deciduous broadleaf trees",
+        "Semi-arid highland vegetation"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Turkey",
+          "confidence": "medium",
+          "reasoning": "The utility pole design with multiple cross-arms and the specific style of rural asphalt and gravel shoulders are very common in Anatolia. The architecture of the houses with red-tiled roofs and mud-brick walls is highly characteristic of rural Turkey."
+        },
+        {
+          "country": "Iran",
+          "confidence": "low",
+          "reasoning": "The use of mud-brick walls and the general arid rural landscape are consistent with Iranian village infrastructure. However, the specific roof tiling is slightly more common in the west/northwest of the region."
+        },
+        {
+          "country": "Armenia",
+          "confidence": "low",
+          "reasoning": "The combination of rural road quality, utility pole styles, and the specific mix of stone and mud-brick construction is seen in rural Armenian villages."
+        },
+        {
+          "country": "Azerbaijan",
+          "confidence": "low",
+          "reasoning": "Similar to Armenia and Turkey, the infrastructure and rural housing styles in the Caucasus region match the visual cues of the road and utility poles."
+        }
+      ],
+      "evidence": [
+        "Concrete utility poles with multiple horizontal cross-arms",
+        "Rural asphalt road with unpaved gravel shoulders",
+        "Mud-brick perimeter walls",
+        "Red-tiled pitched roofs on residential buildings"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "Turkey",
+          "confidence": "high",
+          "reasoning": "The utility poles are characteristic of rural Turkey, featuring concrete poles with specific cross-arm configurations. The combination of red-tiled roofs and the specific style of mud-brick/concrete perimeter walls is very common in the Anatolian plateau."
+        },
+        {
+          "country": "Iran",
+          "confidence": "medium",
+          "reasoning": "The use of mud-brick walls and similar concrete utility poles is found in rural Iran. However, the roof tile style is slightly more characteristic of Turkish villages than typical Iranian rural architecture."
+        },
+        {
+          "country": "Armenia",
+          "confidence": "low",
+          "reasoning": "The general infrastructure and utility pole style are similar to other former Soviet or neighboring regions in the Caucasus, though the specific wall construction is less common here than in Turkey."
+        }
+      ],
+      "evidence": [
+        "concrete utility poles with specific cross-arm style",
+        "red clay roof tiles",
+        "mud-brick perimeter walls",
+        "Google Street View camera generation (Gen 3/4 quality)"
+      ]
+    }
+  },
+  "hypothesis_evaluations": [
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "region_middle_east",
+      "confidence": "neutral",
+      "reasoning": "There is no visible text in the image to provide linguistic evidence for or against this region.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "region_europe",
+      "confidence": "neutral",
+      "reasoning": "There is no visible text in the image to provide linguistic evidence for or against this region.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "region_north_america",
+      "confidence": "neutral",
+      "reasoning": "There is no visible text in the image to provide linguistic evidence for or against this region.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "region_central_asia",
+      "confidence": "neutral",
+      "reasoning": "There is no visible text in the image to provide linguistic evidence for or against this region.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_middle_east",
+      "confidence": "support",
+      "reasoning": "The semi-arid steppe vegetation and the presence of hardy, drought-resistant grasses and scrub are highly characteristic of the Anatolian plateau or the Levant. The vegetation is compatible with the dry summer/wet winter cycle of this region.",
+      "key_evidence": [
+        "semi-arid steppe grasses",
+        "xeric scrub"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_central_asia",
+      "confidence": "support",
+      "reasoning": "The open, flat grassland with sparse, low-lying vegetation is very similar to the steppes of Kazakhstan or Uzbekistan. The botanical profile is nearly identical to the Middle Eastern plateau, making it a strong alternative.",
+      "key_evidence": [
+        "steppe grassland",
+        "arid-tolerant herbaceous plants"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_europe",
+      "confidence": "neutral",
+      "reasoning": "While this could be Southern Europe (e.g., Spain or Greece), the specific combination of dry, dusty soil and the type of opportunistic ruderal vegetation is more typical of the interior Asian/Middle Eastern landmasses than the Mediterranean coast.",
+      "key_evidence": [
+        "ruderal vegetation",
+        "dry grassland"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_north_america",
+      "confidence": "low",
+      "reasoning": "While the Great Plains of the US have similar grassland biomes, the specific growth habit of the roadside weeds and the lack of typical North American invasive species or native prairie grasses make this less likely than the Eurasian steppe.",
+      "key_evidence": [
+        "temperate grassland analog"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_middle_east",
+      "confidence": "strongly_support",
+      "reasoning": "The combination of mud-brick (adobe) wall construction, specific concrete utility pole designs with simple cross-arms, and the overall architectural style of the low-slung houses with flat or shallow-pitched roofs is highly characteristic of Turkey or surrounding Middle Eastern regions. The image quality and camera generation are consistent with Google's coverage in this region.",
+      "key_evidence": [
+        "mud-brick wall construction",
+        "concrete utility poles",
+        "house architectural style"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_central_asia",
+      "confidence": "support",
+      "reasoning": "The use of mud-brick walls and similar concrete utility poles is also common in Central Asian countries like Uzbekistan or Kyrgyzstan. However, the specific roof tile style on some buildings is slightly more common in the Anatolian/Middle Eastern region.",
+      "key_evidence": [
+        "mud-brick walls",
+        "concrete utility poles"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_europe",
+      "confidence": "low",
+      "reasoning": "While some Eastern European rural areas use concrete poles, the prevalence of mud-brick walls and the specific style of the residential buildings are not typical for the majority of Europe.",
+      "key_evidence": [
+        "concrete utility poles"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_north_america",
+      "confidence": "strongly_contradicts",
+      "reasoning": "The utility pole design, the lack of standard North American street furniture, and the specific mud-brick construction style are entirely inconsistent with North American rural infrastructure.",
+      "key_evidence": [
+        "utility pole design",
+        "construction materials"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_turkey",
+      "confidence": "support",
+      "reasoning": "The semi-arid steppe vegetation and the presence of deciduous trees (likely Populus or Fraxinus) in a rural village setting are highly consistent with the Central Anatolian plateau. The grass composition is typical for this Mediterranean-influenced continental climate.",
+      "key_evidence": [
+        "semi-arid steppe grasses",
+        "deciduous riparian-style trees"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_iran",
+      "confidence": "support",
+      "reasoning": "The vegetation is compatible with the Iranian plateau, specifically the northwest regions. The mix of xeric grasses and scattered hardy deciduous trees matches the botanical profile of rural Iranian villages in similar altitudes.",
+      "key_evidence": [
+        "xeric grassland",
+        "hardy deciduous trees"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_armenia",
+      "confidence": "support",
+      "reasoning": "The botanical profile matches the Armenian highlands, where similar steppe vegetation and small-scale agricultural greenery are common. It is indistinguishable from eastern Turkey or northern Iran based on vegetation alone.",
+      "key_evidence": [
+        "highland steppe vegetation"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_azerbaijan",
+      "confidence": "support",
+      "reasoning": "The vegetation is compatible with the semi-arid regions of Azerbaijan. The grass types and the presence of broadleaf trees in a village context are common across the South Caucasus.",
+      "key_evidence": [
+        "semi-arid grassland"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_kazakhstan",
+      "confidence": "neutral",
+      "reasoning": "While the steppe vegetation is compatible with southern Kazakhstan, the specific density and type of deciduous greenery seen around the buildings are slightly more characteristic of the Anatolian/Caucasian regions than the vast Kazakh steppe, though not ruled out.",
+      "key_evidence": [
+        "steppe grasses"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_turkey",
+      "confidence": "strongly_support",
+      "reasoning": "The utility poles are highly characteristic of rural Turkey, specifically the concrete poles with a distinct cross-arm configuration and the way the wiring is strung. Additionally, the red-tiled roofs and the specific style of mud-brick/adobe perimeter walls are extremely common in the Anatolian plateau.",
+      "key_evidence": [
+        "concrete utility pole design",
+        "red clay roof tiles",
+        "adobe/mud-brick wall construction"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_iran",
+      "confidence": "support",
+      "reasoning": "The mud-brick construction and arid rural environment are compatible with Iran, but the specific utility pole design is more typical of Turkey. Google coverage in Iran is also significantly more limited/different in style.",
+      "key_evidence": [
+        "mud-brick walls"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_armenia",
+      "confidence": "support",
+      "reasoning": "The rural architecture and utility poles are somewhat similar to those found in the Caucasus, but the specific combination of red tiles and concrete pole style leans more towards Turkey.",
+      "key_evidence": [
+        "concrete utility poles"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_azerbaijan",
+      "confidence": "support",
+      "reasoning": "Similar to Armenia, the general rural infrastructure is compatible, but the specific building materials and pole types are more diagnostic of Turkey.",
+      "key_evidence": [
+        "concrete utility poles"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_kazakhstan",
+      "confidence": "low",
+      "reasoning": "While the open landscape is compatible, the specific style of residential roof tiles and the concrete utility pole design are less common in Kazakhstan compared to the Anatolian/Caucasus region.",
+      "key_evidence": [
+        "open rural landscape"
+      ]
+    }
+  ],
+  "candidate_pool": [
+    "Turkey",
+    "Iran",
+    "Armenia",
+    "Azerbaijan",
+    "Kazakhstan"
+  ],
+  "rag_findings": [
+    {
+      "kind": "tournament_match",
+      "country": "Azerbaijan",
+      "detail": "The utility poles and the specific style of mud-brick perimeter walls are highly characteristic of rural Turkey. Additionally, the red-tiled roofs are extremely common in the Anatolian plateau, as noted in the specialist meta evidence.",
+      "opponent": "Turkey",
+      "winner": "Turkey"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Armenia",
+      "detail": "The streetview shows extensive mud-brick wall construction and rural architecture that is highly characteristic of the Iranian plateau. While both countries have similar vegetation, the specific style of the mud-brick perimeter walls is a strong indicator for Iran.",
+      "opponent": "Iran",
+      "winner": "Iran"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Iran",
+      "detail": "The utility poles and the specific style of red-tiled roofs combined with mud-brick perimeter walls are highly characteristic of the Central Anatolian plateau in Turkey. The overall architectural style and infrastructure align more closely with the meta-evidence for Turkey than for Iran.",
+      "opponent": "Turkey",
+      "winner": "Turkey"
+    }
+  ],
+  "rag_refs_seen": [],
+  "road_filter_warnings": [],
+  "tournament_log": [
+    {
+      "round_label": "semi-1",
+      "country_a": "Turkey",
+      "country_b": "Azerbaijan",
+      "pool_rank_a": 0,
+      "pool_rank_b": 3,
+      "winner": "Turkey",
+      "reasoning": "The utility poles and the specific style of mud-brick perimeter walls are highly characteristic of rural Turkey. Additionally, the red-tiled roofs are extremely common in the Anatolian plateau, as noted in the specialist meta evidence.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "semi-2",
+      "country_a": "Iran",
+      "country_b": "Armenia",
+      "pool_rank_a": 1,
+      "pool_rank_b": 2,
+      "winner": "Iran",
+      "reasoning": "The streetview shows extensive mud-brick wall construction and rural architecture that is highly characteristic of the Iranian plateau. While both countries have similar vegetation, the specific style of the mud-brick perimeter walls is a strong indicator for Iran.",
+      "agreement": "disagree"
+    },
+    {
+      "round_label": "final",
+      "country_a": "Turkey",
+      "country_b": "Iran",
+      "pool_rank_a": 0,
+      "pool_rank_b": 1,
+      "winner": "Turkey",
+      "reasoning": "The utility poles and the specific style of red-tiled roofs combined with mud-brick perimeter walls are highly characteristic of the Central Anatolian plateau in Turkey. The overall architectural style and infrastructure align more closely with the meta-evidence for Turkey than for Iran.",
+      "agreement": "agree"
+    }
+  ],
+  "country_result": "Country: Turkey\nCoordinates: 39.1234, 34.5678\nReasoning: The utility poles and the specific style of red-tiled roofs combined with mud-brick perimeter walls are highly characteristic of the Central Anatolian plateau in Turkey. The overall architectural style and infrastructure align more closely with the meta-evidence for Turkey than for Iran.\n\nTournament:\n  semi-1: Turkey vs Azerbaijan → Turkey\n  semi-2: Iran vs Armenia → Iran\n  final: Turkey vs Iran → Turkey",
+  "coordinates": {
+    "lat": 39.1234,
+    "lng": 34.5678
+  },
+  "final_reasoning": "The utility poles and the specific style of red-tiled roofs combined with mud-brick perimeter walls are highly characteristic of the Central Anatolian plateau in Turkey. The overall architectural style and infrastructure align more closely with the meta-evidence for Turkey than for Iran."
+}

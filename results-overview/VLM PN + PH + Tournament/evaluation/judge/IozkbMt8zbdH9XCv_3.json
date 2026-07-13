@@ -1,0 +1,95 @@
+{
+  "image_id": "IozkbMt8zbdH9XCv_3",
+  "truth_country": "argentina",
+  "pred_country": "iran",
+  "is_correct": false,
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": true,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "role_adherence_notes": {
+      "linguistic": "Correctly identified lack of text; stayed within domain.",
+      "landscape": "Focused on terrain, soil, and climate; stayed within domain.",
+      "botanics": "Focused on tree species (Populus) and planting habits; stayed within domain.",
+      "regulatory": "Analyzed road markings (curbs), walls, and utility poles; stayed within domain.",
+      "meta": "Synthesized infrastructure and architectural styles; stayed within domain."
+    },
+    "argumentative_quality": {
+      "linguistic": "normal",
+      "landscape": "strong",
+      "botanics": "strong",
+      "regulatory": "normal",
+      "meta": "strong"
+    },
+    "constructive_synthesis": true,
+    "overall_verdict_notes": "The pipeline executed a coherent, domain-specific analysis that correctly identified the visual features of the image (arid climate, specific architecture). However, the agents suffered from a strong 'Iran-centric' bias, likely due to training data overlap, leading them to confidently misidentify the location (Argentina) as Iran. The final decision was driven by the meta-agent's hallucinated 'Google Street View coverage' argument rather than visual evidence.",
+    "role_adherence_score": {
+      "linguistic": 1.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.9,
+      "meta": 0.9
+    },
+    "argumentative_quality_score": {
+      "linguistic": 0.5,
+      "landscape": 0.8,
+      "botanics": 0.8,
+      "regulatory": 0.6,
+      "meta": 0.7
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.1,
+      "botanics": 0.1,
+      "regulatory": 0.2,
+      "meta": 0.8
+    },
+    "hallucination_examples": {
+      "linguistic": [],
+      "landscape": [],
+      "botanics": [],
+      "regulatory": [
+        "regulatory agent claimed 'blue and white painted curbs' are a 'frequent regulatory marker in Iranian cities' (unsupported generalization)."
+      ],
+      "meta": [
+        "meta agent claimed 'image quality and blur patterns are strongly consistent with Google Street View coverage in Iran' (fabricated technical artifact analysis).",
+        "meta agent claimed 'specific concrete utility poles' are 'highly characteristic of Armenian urban areas' (unsupported specific claim)."
+      ]
+    },
+    "visual_consistency_score": {
+      "linguistic": 1.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.8,
+      "meta": 0.5
+    },
+    "visual_consistency_notes": {
+      "linguistic": "Accurately noted absence of text.",
+      "landscape": "Accurately described the arid soil, deciduous trees, and flat terrain.",
+      "botanics": "Accurately identified the trees as deciduous/poplar-like.",
+      "regulatory": "Accurately described the walls and poles, though the curb color interpretation was debatable.",
+      "meta": "Failed to distinguish the image from Iran; relied on non-visual 'blur' cues."
+    },
+    "confidence_calibration": {
+      "linguistic": 0.5,
+      "landscape": 0.2,
+      "botanics": 0.2,
+      "regulatory": 0.2,
+      "meta": 0.0
+    },
+    "tournament_failure": {
+      "truth_in_pool": false,
+      "truth_lost_to": "Iran",
+      "failure_match_round": "final",
+      "failure_reason": "not_applicable",
+      "failure_reasoning": "The ground truth (Argentina) was not included in the candidate pool at any stage of the pipeline.",
+      "counterfactual_winnable": false
+    }
+  },
+  "validation_error": "1 validation error for JudgeVerdict\noverall_verdict_notes\n  String should have at most 400 characters [type=string_too_long, input_value=\"The pipeline executed a ...r than visual evidence.\", input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_too_long"
+}

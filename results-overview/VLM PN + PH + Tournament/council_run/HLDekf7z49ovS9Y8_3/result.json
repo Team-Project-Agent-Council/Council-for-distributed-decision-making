@@ -1,0 +1,688 @@
+{
+  "image_path": "/pfs/data6/home/ma/ma_ma/ma_lweisssc/llm_council_agent_orchestration_tests/clean_images_GeoRC_500/HLDekf7z49ovS9Y8_3.png",
+  "model": "google/gemma-4-31B-it",
+  "judge_model": "google/gemma-4-31B-it",
+  "timing": {
+    "total_seconds": 299.2
+  },
+  "assessments": {
+    "linguistic": {
+      "agent_name": "linguistic",
+      "candidates": [
+        {
+          "country": "United States",
+          "confidence": "high",
+          "reasoning": "The street signs 'ADAMS' and 'CHICAGO ST' use English, and the 'STOP' sign is a standard US design. The combination of English language and specific street naming conventions is highly characteristic of the United States."
+        }
+      ],
+      "evidence": [
+        "ADAMS",
+        "CHICAGO ST",
+        "STOP",
+        "English",
+        "Latin"
+      ]
+    },
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "United States",
+          "confidence": "high",
+          "reasoning": "The combination of wide asphalt roads, specific mobile home architecture, and temperate deciduous forest is highly characteristic of the American South or Midwest. The settlement pattern of detached, low-density housing with large grassy setbacks is a standard US suburban/rural layout."
+        },
+        {
+          "country": "Canada",
+          "confidence": "medium",
+          "reasoning": "The temperate forest and mobile home styles are very similar to those found in Southern Canada. However, the specific vegetation density and road wear are slightly more indicative of a warmer US climate."
+        },
+        {
+          "country": "Australia",
+          "confidence": "speculative",
+          "reasoning": "Certain rural areas in the eastern temperate zones of Australia feature similar detached housing and greenery, serving as a cross-continent analog for temperate suburban sprawl."
+        }
+      ],
+      "evidence": [
+        "Temperate deciduous forest",
+        "Low-density residential settlement pattern",
+        "Asphalt road with weathered edges",
+        "Flat to gently undulating terrain"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "United States",
+          "confidence": "high",
+          "reasoning": "The combination of broadleaf deciduous trees (likely Quercus and Acer species) and the specific lush, temperate grassland undergrowth is highly characteristic of the Eastern and Midwestern United States. The vegetation density and species composition are consistent with the humid subtropical to temperate transition zone found in the US South and Midwest."
+        },
+        {
+          "country": "Canada",
+          "confidence": "medium",
+          "reasoning": "The deciduous forest composition is similar to Southern Ontario or Quebec. However, the specific vibrancy and growth habit of the roadside weeds are more typical of slightly warmer temperate zones than the Canadian average."
+        },
+        {
+          "country": "France",
+          "confidence": "low",
+          "reasoning": "The temperate broadleaf forest biome is present across Western Europe, including France. While the tree types are similar, the specific arrangement of opportunistic roadside vegetation is more characteristic of North American suburban fringes."
+        },
+        {
+          "country": "China",
+          "confidence": "speculative",
+          "reasoning": "Temperate deciduous forests with similar canopy structures exist in Eastern China. This is a global analog based on the biome (temperate broadleaf) rather than specific endemic markers."
+        }
+      ],
+      "evidence": [
+        "Temperate broadleaf deciduous trees",
+        "Humid temperate grassland/weeds",
+        "North American temperate forest biome"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "United States",
+          "confidence": "high",
+          "reasoning": "The street name sign (green rectangle with white text) and the octagonal red STOP sign are characteristic of the MUTCD standard. The presence of wooden utility poles with specific cross-arm configurations and the style of the residential mobile homes are highly typical of rural/suburban United States."
+        },
+        {
+          "country": "Canada",
+          "confidence": "medium",
+          "reasoning": "Canada shares the same MUTCD-based signage (STOP signs and street name signs) and similar wooden utility pole infrastructure as the USA."
+        },
+        {
+          "country": "Australia",
+          "confidence": "speculative",
+          "reasoning": "Rural areas in Australia can feature similar wooden utility poles and basic asphalt road surfaces, though the specific sign styles seen here are less common."
+        }
+      ],
+      "evidence": [
+        "MUTCD style octagonal red STOP sign",
+        "Green rectangular street name sign with white sans-serif text",
+        "Wooden utility poles with overhead electrical lines",
+        "Basic asphalt road with weathered edges and no formal curbing"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "United States",
+          "confidence": "high",
+          "reasoning": "The combination of wooden utility poles with specific cross-arm configurations, the style of the red fire hydrant, and the prevalence of mobile home/trailer housing is highly characteristic of rural or suburban USA. The blue plastic waste bins are also very common in North American residential areas."
+        },
+        {
+          "country": "Canada",
+          "confidence": "medium",
+          "reasoning": "Canada shares almost identical infrastructure meta with the USA, including the wooden utility poles, fire hydrant styles, and residential construction materials. It is a primary analog for this specific visual set."
+        },
+        {
+          "country": "Australia",
+          "confidence": "speculative",
+          "reasoning": "While less likely due to the specific house styles, some rural Australian areas use similar wooden utility poles and plastic waste bins, serving as a cross-continent analog for generic wooden pole infrastructure."
+        }
+      ],
+      "evidence": [
+        "wooden utility poles",
+        "red fire hydrant",
+        "blue plastic waste bins",
+        "mobile home/trailer housing style",
+        "residential roof tile/shingle materials"
+      ]
+    }
+  },
+  "progressive_narrowing": {
+    "region_consensus": false,
+    "confirmed_region": "North America",
+    "runner_up_region": "Europe",
+    "surviving_regions": [
+      "North America",
+      "Europe"
+    ],
+    "proposed_regions": [
+      "North America",
+      "Oceania",
+      "Europe",
+      "East Asia"
+    ],
+    "region_candidates": {
+      "North America": {
+        "United States": 5,
+        "Canada": 4
+      },
+      "Oceania": {
+        "Australia": 3
+      },
+      "Europe": {
+        "France": 1
+      },
+      "East Asia": {
+        "China": 1
+      }
+    },
+    "region_decision_reasoning": "North America received overwhelming support across all agents, with multiple 'strongly_support' ratings based on the MUTCD signage, utility pole style, and mobile home architecture. Europe is the runner-up due to some support for the temperate deciduous vegetation, although it was strongly contradicted by the regulatory infrastructure.",
+    "path": "B"
+  },
+  "road_evidence": {
+    "outside_color": "none",
+    "inside_color": "none",
+    "driving_side": "UNCLEAR",
+    "driving_side_basis": "none"
+  },
+  "country_assessments": {
+    "linguistic": {
+      "agent_name": "linguistic",
+      "candidates": [
+        {
+          "country": "United States",
+          "confidence": "high",
+          "reasoning": "The street signs 'ADAMS' and 'CHICAGO ST' use English, which is the primary language of the US. The specific naming convention and the 'ST' abbreviation for Street are characteristic of American urban planning."
+        }
+      ],
+      "evidence": [
+        "ADAMS",
+        "CHICAGO ST",
+        "English",
+        "Latin"
+      ]
+    },
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "United States",
+          "confidence": "high",
+          "reasoning": "The combination of wide asphalt roads, specific mobile home architecture, and the presence of large deciduous hardwood trees is highly characteristic of the American Southeast or Midwest. The settlement pattern of detached, low-density housing with large grassy setbacks is a standard US suburban/rural layout."
+        },
+        {
+          "country": "Canada",
+          "confidence": "medium",
+          "reasoning": "The temperate forest vegetation and road infrastructure are similar to the USA, particularly in southern provinces. However, the specific style of the mobile homes and the lack of distinct Canadian regional markers make it slightly less likely than the US."
+        },
+        {
+          "country": "United Kingdom",
+          "confidence": "low",
+          "reasoning": "While the temperate climate and greenery match, the road width and the specific style of the prefabricated housing are not typical for the UK, where plots are generally smaller and road layouts are more constrained."
+        }
+      ],
+      "evidence": [
+        "Temperate deciduous forest canopy",
+        "Low-density residential settlement pattern",
+        "Wide asphalt road with weathered edges",
+        "Flat to gently undulating terrain",
+        "North American style mobile home architecture"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "United States",
+          "confidence": "high",
+          "reasoning": "The combination of broadleaf deciduous trees (likely Quercus and Acer species) and the specific lush, weedy roadside grass is highly characteristic of the humid subtropical or temperate climates of the Eastern and Midwestern United States. The vegetation density and species composition are consistent with the American South or Midwest."
+        },
+        {
+          "country": "Canada",
+          "confidence": "medium",
+          "reasoning": "Similar deciduous forest compositions are found in Southern Ontario and Quebec. However, the specific growth habit and lushness of the undergrowth are more typical of slightly warmer North American latitudes."
+        },
+        {
+          "country": "France",
+          "confidence": "low",
+          "reasoning": "The temperate broadleaf forest biome is present across Western Europe, including France. However, the specific arrangement of opportunistic roadside weeds and the tree canopy structure are more characteristic of North American suburban fringes."
+        }
+      ],
+      "evidence": [
+        "Deciduous broadleaf trees (Quercus/Acer spp.)",
+        "Temperate ruderal grasses",
+        "Humid temperate forest biome"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "United States",
+          "confidence": "high",
+          "reasoning": "The green street name sign with white sans-serif text is characteristic of US MUTCD standards. The red octagonal stop sign and the style of wooden utility poles with overhead wiring are ubiquitous in American residential areas."
+        },
+        {
+          "country": "Canada",
+          "confidence": "medium",
+          "reasoning": "Canada shares very similar road infrastructure standards with the USA, including the octagonal stop sign and green street name signs. The residential architecture and utility pole style are also consistent with rural or suburban Canada."
+        }
+      ],
+      "evidence": [
+        "MUTCD style green street name sign",
+        "Octagonal red stop sign",
+        "Wooden utility poles with overhead lines",
+        "Asphalt road with rough, uncurbed edges"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "United States",
+          "confidence": "high",
+          "reasoning": "The combination of wooden utility poles with specific cross-arm configurations, the style of the red fire hydrant, and the prevalence of mobile home/trailer housing is highly characteristic of rural or suburban USA. The blue plastic waste bins are also very common in American residential areas."
+        },
+        {
+          "country": "Canada",
+          "confidence": "medium",
+          "reasoning": "Canada shares almost identical utility pole and residential infrastructure (mobile homes, waste bins) with the US. However, the specific style of the fire hydrant and the overall architectural aesthetic are slightly more typical of the US South or Midwest."
+        }
+      ],
+      "evidence": [
+        "Wooden utility poles with single cross-arms",
+        "Red fire hydrant design",
+        "Blue plastic residential waste bins",
+        "Mobile home/trailer house construction",
+        "Google Street View camera generation (Gen 3/4 quality)"
+      ]
+    }
+  },
+  "hypothesis_evaluations": [
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_north_america",
+      "confidence": "strongly_support",
+      "reasoning": "The combination of temperate deciduous forest, flat to gently rolling terrain, and the specific style of low-density residential settlement with mobile homes is highly characteristic of the Eastern or Midwestern United States. The vegetation and soil moisture levels are consistent with a humid subtropical or humid continental climate.",
+      "key_evidence": [
+        "temperate deciduous trees",
+        "flat terrain",
+        "humid subtropical vegetation",
+        "low-density residential settlement pattern"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_oceania",
+      "confidence": "contradicts",
+      "reasoning": "While some parts of Australia or New Zealand have temperate forests, the specific species of broadleaf trees and the overall moisture profile of the greenery do not align with the typical scrubland or alpine forests of Oceania. Furthermore, the settlement style is not characteristic of the region.",
+      "key_evidence": [
+        "tree species",
+        "climate profile"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_europe",
+      "confidence": "support",
+      "reasoning": "The temperate climate and deciduous greenery are compatible with Central or Western Europe. However, the specific layout of the road and the prevalence of mobile-home style dwellings are far less common in European rural landscapes compared to North America.",
+      "key_evidence": [
+        "temperate deciduous forest",
+        "flat terrain"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_east_asia",
+      "confidence": "contradicts",
+      "reasoning": "The vegetation and terrain are broadly compatible with parts of East Asia, but the settlement pattern and the specific architectural integration with the landscape are inconsistent with rural East Asian geography.",
+      "key_evidence": [
+        "settlement pattern",
+        "vegetation type"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_north_america",
+      "confidence": "support",
+      "reasoning": "The broadleaf deciduous trees, specifically the canopy structure resembling Quercus (Oak) and Acer (Maple) species, are highly characteristic of the temperate forests of the Eastern United States. The lush, opportunistic roadside grasses and weeds are typical of North American suburban/rural fringes.",
+      "key_evidence": [
+        "Temperate broadleaf deciduous trees",
+        "North American ruderal grass species"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_europe",
+      "confidence": "support",
+      "reasoning": "The vegetation is compatible with Central or Western Europe's temperate deciduous biomes. However, the specific density and growth habit of the undergrowth are slightly more characteristic of North American temperate zones than European managed landscapes.",
+      "key_evidence": [
+        "Temperate broadleaf deciduous trees"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_east_asia",
+      "confidence": "low",
+      "reasoning": "While temperate deciduous forests exist in East Asia (China, Japan, Korea), the specific combination of tree morphology and the type of opportunistic grass seen here is less typical for these regions compared to the Americas.",
+      "key_evidence": [
+        "Temperate broadleaf deciduous trees"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_oceania",
+      "confidence": "contradicts",
+      "reasoning": "The dominant vegetation consists of Northern Hemisphere temperate deciduous trees. While some are introduced to Oceania, the overall forest structure and the absence of Eucalyptus or other diagnostic Australasian flora make this highly unlikely.",
+      "key_evidence": [
+        "Absence of Eucalyptus",
+        "Presence of Northern Hemisphere deciduous canopy"
+      ]
+    },
+    {
+      "agent_name": "regulatory",
+      "hypothesis_id": "region_north_america",
+      "confidence": "strongly_support",
+      "reasoning": "The street name sign (green rectangle with white text) and the octagonal red STOP sign are characteristic of the MUTCD standard used in the USA. The wooden utility poles and the specific style of residential mobile homes are highly typical of rural/suburban North American infrastructure.",
+      "key_evidence": [
+        "MUTCD style green street sign",
+        "Octagonal red STOP sign",
+        "Wooden utility poles"
+      ]
+    },
+    {
+      "agent_name": "regulatory",
+      "hypothesis_id": "region_oceania",
+      "confidence": "low",
+      "reasoning": "While rural Australia or New Zealand use wooden utility poles and similar asphalt, the specific design of the street name sign and the STOP sign are not standard for those regions.",
+      "key_evidence": [
+        "Wooden utility poles"
+      ]
+    },
+    {
+      "agent_name": "regulatory",
+      "hypothesis_id": "region_europe",
+      "confidence": "strongly_contradicts",
+      "reasoning": "The infrastructure lacks Vienna Convention signage; the octagonal STOP sign and the specific green street sign format are not standard in Europe.",
+      "key_evidence": [
+        "Non-Vienna Convention sign styles"
+      ]
+    },
+    {
+      "agent_name": "regulatory",
+      "hypothesis_id": "region_east_asia",
+      "confidence": "strongly_contradicts",
+      "reasoning": "The road infrastructure, utility pole style, and signage are entirely inconsistent with the standards found in East Asian countries.",
+      "key_evidence": [
+        "Non-regional sign styles",
+        "Infrastructure layout"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_north_america",
+      "confidence": "strongly_support",
+      "reasoning": "The combination of wooden utility poles with specific cross-arm configurations, the style of the red fire hydrant, and the prevalence of mobile home/trailer housing is highly characteristic of rural or suburban North America, specifically the USA. The blue plastic waste bins are also very common in this region.",
+      "key_evidence": [
+        "wooden utility poles",
+        "red fire hydrant design",
+        "mobile home construction",
+        "blue plastic waste bins"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_oceania",
+      "confidence": "low",
+      "reasoning": "While some wooden poles and general suburban layouts are similar, the specific style of the fire hydrant and the architectural style of the mobile homes are much more aligned with North American standards than those found in Australia or New Zealand.",
+      "key_evidence": [
+        "wooden utility poles"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_europe",
+      "confidence": "contradicts",
+      "reasoning": "The utility pole style, the specific design of the fire hydrant, and the widespread use of mobile homes as primary residences in this specific architectural style are not typical for European countries.",
+      "key_evidence": [
+        "fire hydrant style",
+        "mobile home architecture"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_east_asia",
+      "confidence": "strongly_contradicts",
+      "reasoning": "The infrastructure, including the utility poles, the fire hydrant, and the residential construction materials (siding and mobile homes), is entirely inconsistent with the urban or rural meta found in East Asian countries.",
+      "key_evidence": [
+        "utility pole design",
+        "residential construction materials"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_united_states",
+      "confidence": "strongly_support",
+      "reasoning": "The combination of flat terrain, temperate deciduous forest, and the specific settlement pattern of mobile homes/manufactured housing on large, uncurbed lots is highly characteristic of the rural US South or Midwest. The vegetation and soil moisture levels are consistent with a humid subtropical or humid continental climate.",
+      "key_evidence": [
+        "manufactured housing settlement pattern",
+        "temperate deciduous broadleaf trees",
+        "flat topography",
+        "humid climate vegetation"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_canada",
+      "confidence": "support",
+      "reasoning": "The temperate forest and flat terrain are compatible with Southern Canada (e.g., Ontario), though the specific style of mobile home placement and the lushness of the greenery are more typical of the US.",
+      "key_evidence": [
+        "temperate deciduous forest",
+        "flat terrain"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_united_kingdom",
+      "confidence": "contradicts",
+      "reasoning": "While the climate is temperate, the settlement pattern of wide-open lots with detached manufactured homes is not characteristic of the UK's denser, hedged, or planned rural landscape.",
+      "key_evidence": [
+        "atypical settlement density",
+        "lack of traditional UK rural boundary markers (hedgerows)"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_france",
+      "confidence": "contradicts",
+      "reasoning": "The landscape and vegetation are compatible with temperate Europe, but the specific architectural layout and the use of mobile homes as primary residences in this manner are not typical of French rural geography.",
+      "key_evidence": [
+        "atypical settlement pattern",
+        "roadside layout"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_united_states",
+      "confidence": "support",
+      "reasoning": "The broadleaf deciduous trees and lush, opportunistic roadside grasses are highly characteristic of the humid subtropical or temperate climates of the Eastern and Midwestern United States. The specific canopy structure and leaf density are very common in the US South and Midwest.",
+      "key_evidence": [
+        "Deciduous broadleaf canopy",
+        "Temperate roadside grasses"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_canada",
+      "confidence": "support",
+      "reasoning": "The vegetation is compatible with Southern Canada (e.g., Ontario or Quebec), where similar temperate deciduous forests and mixed grasslands occur. However, the lushness and specific growth habit are slightly more typical of the US mid-latitudes.",
+      "key_evidence": [
+        "Temperate deciduous forest"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_united_kingdom",
+      "confidence": "neutral",
+      "reasoning": "While the greenery is compatible with the UK's temperate maritime climate, the specific species of broadleaf trees seen here lack the distinct characteristics of common UK hedgerow or urban flora, appearing more North American in morphology.",
+      "key_evidence": [
+        "Generic temperate greenery"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_france",
+      "confidence": "neutral",
+      "reasoning": "The vegetation is compatible with temperate regions of France, but there are no diagnostic European species or agricultural markers to specifically support this over North American candidates.",
+      "key_evidence": [
+        "Generic temperate greenery"
+      ]
+    },
+    {
+      "agent_name": "regulatory",
+      "hypothesis_id": "country_united_states",
+      "confidence": "strongly_support",
+      "reasoning": "The green street name sign with white text and the octagonal red STOP sign are characteristic of the MUTCD standard used in the US. The wooden utility poles and the specific style of residential infrastructure (mobile homes/trailers) are highly typical of rural or suburban American neighborhoods.",
+      "key_evidence": [
+        "MUTCD style green street sign",
+        "Octagonal red STOP sign",
+        "Wooden utility poles"
+      ]
+    },
+    {
+      "agent_name": "regulatory",
+      "hypothesis_id": "country_canada",
+      "confidence": "support",
+      "reasoning": "Canada uses very similar MUTCD-based signage (STOP signs and street signs) and wooden utility poles, making it visually compatible, though the overall architectural style is more common in the US.",
+      "key_evidence": [
+        "MUTCD style signage",
+        "Wooden utility poles"
+      ]
+    },
+    {
+      "agent_name": "regulatory",
+      "hypothesis_id": "country_united_kingdom",
+      "confidence": "strongly_contradicts",
+      "reasoning": "The octagonal STOP sign and the green rectangular street sign are not standard in the UK, which uses different shapes and styles for these markers. The utility pole and housing style are also inconsistent with UK norms.",
+      "key_evidence": [
+        "Octagonal STOP sign",
+        "Green street sign style"
+      ]
+    },
+    {
+      "agent_name": "regulatory",
+      "hypothesis_id": "country_france",
+      "confidence": "strongly_contradicts",
+      "reasoning": "France follows the Vienna Convention for road signs; the octagonal STOP sign and the specific green street sign format seen here are not used in France. The infrastructure and housing style are entirely different.",
+      "key_evidence": [
+        "Octagonal STOP sign",
+        "Green street sign style"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_united_states",
+      "confidence": "strongly_support",
+      "reasoning": "The combination of wooden utility poles with specific cross-arm configurations, the style of the red fire hydrant, and the prevalence of mobile home/trailer housing is highly characteristic of rural or suburban USA. The blue plastic waste bins and the specific design of the street sign post are also standard US infrastructure.",
+      "key_evidence": [
+        "wooden utility poles",
+        "red fire hydrant design",
+        "mobile home construction",
+        "blue plastic waste bins",
+        "street sign post style"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_canada",
+      "confidence": "support",
+      "reasoning": "Canada shares many of the same infrastructure metas as the US, including wooden poles and similar residential construction styles. However, the specific combination of the fire hydrant and the overall 'feel' of the residential layout is more typical of the US.",
+      "key_evidence": [
+        "wooden utility poles",
+        "residential construction style"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_united_kingdom",
+      "confidence": "strongly_contradicts",
+      "reasoning": "The utility pole style, the wide open residential layout with mobile homes, and the specific design of the fire hydrant are not found in the UK. The street furniture and house construction materials are entirely inconsistent with UK standards.",
+      "key_evidence": [
+        "utility pole style",
+        "house construction materials",
+        "fire hydrant design"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_france",
+      "confidence": "strongly_contradicts",
+      "reasoning": "The infrastructure is completely inconsistent with France. French utility poles are typically concrete or different wooden styles, and the residential architecture (mobile homes with this specific siding) and fire hydrant design are not French.",
+      "key_evidence": [
+        "utility pole style",
+        "residential architecture",
+        "fire hydrant design"
+      ]
+    }
+  ],
+  "candidate_pool": [
+    "United States",
+    "Canada",
+    "United Kingdom",
+    "France"
+  ],
+  "rag_findings": [
+    {
+      "kind": "tournament_match",
+      "country": "France",
+      "detail": "The image contains an octagonal red STOP sign and a green street name sign, both of which are standard MUTCD regulatory markers used in the United States and not in France. Additionally, the prevalence of mobile home/trailer housing and the specific style of wooden utility poles are highly characteristic of the US.",
+      "opponent": "United States",
+      "winner": "United States"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "United Kingdom",
+      "detail": "The streetview features an octagonal STOP sign and green rectangular street signs, which are standard in North America and compatible with Canada. Specialist evidence strongly contradicts the United Kingdom due to the wide-open residential layout, mobile homes, and utility pole style, which are not characteristic of the UK.",
+      "opponent": "Canada",
+      "winner": "Canada"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Canada",
+      "detail": "The visual evidence strongly supports the United States, specifically the green street name sign with white text and the octagonal red STOP sign which follow the US MUTCD standard. Additionally, the prevalence of mobile home/trailer housing and the specific style of the red fire hydrant are highly characteristic of rural or suburban American neighborhoods.",
+      "opponent": "United States",
+      "winner": "United States"
+    }
+  ],
+  "rag_refs_seen": [
+    [
+      "United Kingdom",
+      "/pfs/work9/workspace/scratch/ma_lweisssc-vlm-council-nt-v12/data/signs_stop/images/united-kingdom_1.png"
+    ]
+  ],
+  "road_filter_warnings": [],
+  "tournament_log": [
+    {
+      "round_label": "semi-1",
+      "country_a": "United States",
+      "country_b": "France",
+      "pool_rank_a": 0,
+      "pool_rank_b": 3,
+      "winner": "United States",
+      "reasoning": "The image contains an octagonal red STOP sign and a green street name sign, both of which are standard MUTCD regulatory markers used in the United States and not in France. Additionally, the prevalence of mobile home/trailer housing and the specific style of wooden utility poles are highly characteristic of the US.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "semi-2",
+      "country_a": "Canada",
+      "country_b": "United Kingdom",
+      "pool_rank_a": 1,
+      "pool_rank_b": 2,
+      "winner": "Canada",
+      "reasoning": "The streetview features an octagonal STOP sign and green rectangular street signs, which are standard in North America and compatible with Canada. Specialist evidence strongly contradicts the United Kingdom due to the wide-open residential layout, mobile homes, and utility pole style, which are not characteristic of the UK.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "final",
+      "country_a": "United States",
+      "country_b": "Canada",
+      "pool_rank_a": 0,
+      "pool_rank_b": 1,
+      "winner": "United States",
+      "reasoning": "The visual evidence strongly supports the United States, specifically the green street name sign with white text and the octagonal red STOP sign which follow the US MUTCD standard. Additionally, the prevalence of mobile home/trailer housing and the specific style of the red fire hydrant are highly characteristic of rural or suburban American neighborhoods.",
+      "agreement": "agree"
+    }
+  ],
+  "country_result": "Country: United States\nCoordinates: 36.1627, -86.7816\nReasoning: The visual evidence strongly supports the United States, specifically the green street name sign with white text and the octagonal red STOP sign which follow the US MUTCD standard. Additionally, the prevalence of mobile home/trailer housing and the specific style of the red fire hydrant are highly characteristic of rural or suburban American neighborhoods.\n\nTournament:\n  semi-1: United States vs France → United States\n  semi-2: Canada vs United Kingdom → Canada\n  final: United States vs Canada → United States",
+  "coordinates": {
+    "lat": 36.1627,
+    "lng": -86.7816
+  },
+  "final_reasoning": "The visual evidence strongly supports the United States, specifically the green street name sign with white text and the octagonal red STOP sign which follow the US MUTCD standard. Additionally, the prevalence of mobile home/trailer housing and the specific style of the red fire hydrant are highly characteristic of rural or suburban American neighborhoods."
+}

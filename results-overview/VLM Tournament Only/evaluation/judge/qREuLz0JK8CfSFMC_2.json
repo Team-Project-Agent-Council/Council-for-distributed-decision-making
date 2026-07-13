@@ -1,0 +1,101 @@
+{
+  "image_id": "qREuLz0JK8CfSFMC_2",
+  "truth_country": "argentina",
+  "pred_country": "costa rica",
+  "is_correct": false,
+  "candidate_pool": [
+    "Costa Rica",
+    "Thailand",
+    "Panama",
+    "Vietnam",
+    "Brazil",
+    "Colombia"
+  ],
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": true,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "role_adherence_notes": {
+      "linguistic": "Correctly identified the absence of text and remained within script/language analysis.",
+      "landscape": "Analyzed terrain, vegetation density, and climate cues consistent with the image.",
+      "botanics": "Focused on forest biome types and leaf morphology without drifting into regulatory topics.",
+      "regulatory": "Analyzed the road surface and guardrail type, which are relevant to infrastructure standards.",
+      "meta": "Used camera generation artifacts and general infrastructure styles to narrow candidates."
+    },
+    "argumentative_quality": {
+      "linguistic": "normal",
+      "landscape": "strong",
+      "botanics": "strong",
+      "regulatory": "normal",
+      "meta": "strong"
+    },
+    "constructive_synthesis": true,
+    "overall_verdict_notes": "The pipeline failed because the ground truth (Argentina) was not in the candidate pool. The agents relied heavily on 'tropical' and 'humid' descriptors, missing the subtropical/temperate nature of the image (e.g., the large-leafed plant on the left is not tropical). The tournament then arbitrarily selected Costa Rica over Panama based on coverage density rather than visual evidence.",
+    "role_adherence_score": {
+      "linguistic": 1.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.9,
+      "meta": 0.9
+    },
+    "argumentative_quality_score": {
+      "linguistic": 0.5,
+      "landscape": 0.7,
+      "botanics": 0.7,
+      "regulatory": 0.5,
+      "meta": 0.7
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.2,
+      "botanics": 0.2,
+      "regulatory": 0.0,
+      "meta": 0.0
+    },
+    "hallucination_examples": {
+      "linguistic": [],
+      "landscape": [
+        "landscape agent described the environment as 'tropical' and 'humid subtropical', whereas the image shows a temperate/subtropical environment (e.g., the large-leafed plant on the left is likely a weed like *Ageratina* or *Eupatorium*, not a tropical species)."
+      ],
+      "botanics": [
+        "botanics agent claimed the vegetation is 'highly characteristic of Central American rainforests', which is a hallucination of specificity not supported by the generic foliage."
+      ],
+      "regulatory": [],
+      "meta": []
+    },
+    "visual_consistency_score": {
+      "linguistic": 1.0,
+      "landscape": 0.8,
+      "botanics": 0.8,
+      "regulatory": 1.0,
+      "meta": 0.9
+    },
+    "visual_consistency_notes": {
+      "linguistic": "Correctly noted no text.",
+      "landscape": "Correctly identified the road and guardrail, but mischaracterized the climate zone.",
+      "botanics": "Correctly identified dense vegetation, but misidentified the biome type.",
+      "regulatory": "Correctly described the gravel road and guardrail.",
+      "meta": "Correctly identified camera artifacts."
+    },
+    "confidence_calibration": {
+      "linguistic": 0.5,
+      "landscape": 0.2,
+      "botanics": 0.2,
+      "regulatory": 0.2,
+      "meta": 0.2
+    },
+    "tournament_failure": {
+      "truth_in_pool": false,
+      "truth_lost_to": null,
+      "failure_match_round": null,
+      "failure_reason": "agent_misled_pre_pool",
+      "failure_reasoning": "The ground truth (Argentina) was not included in the candidate pool. The agents failed to nominate it because they misclassified the subtropical/temperate vegetation as 'tropical' or 'humid subtropical', leading them to focus exclusively on Central America, Southeast Asia, and Brazil.",
+      "counterfactual_winnable": false
+    }
+  }
+}

@@ -1,0 +1,560 @@
+{
+  "image_path": "/pfs/data6/home/ma/ma_ma/ma_lweisssc/llm_council_agent_orchestration_tests/clean_images_GeoRC_500/4UvmdTHySo6AXW4M_3.png",
+  "model": "google/gemma-4-31B-it",
+  "judge_model": "google/gemma-4-31B-it",
+  "timing": {
+    "total_seconds": 85.0
+  },
+  "assessments": {
+    "linguistic": {
+      "agent_name": "linguistic",
+      "candidates": [],
+      "evidence": []
+    },
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Poland",
+          "confidence": "medium",
+          "reasoning": "The mix of Scots pine and birch trees is highly characteristic of the North European Plain. The flat terrain and road style are consistent with rural Polish landscapes."
+        },
+        {
+          "country": "Belarus",
+          "confidence": "medium",
+          "reasoning": "Shares nearly identical forest composition (pine/birch) and flat topography with Poland. The road quality and surrounding vegetation are indistinguishable from Eastern Poland."
+        },
+        {
+          "country": "Lithuania",
+          "confidence": "medium",
+          "reasoning": "The temperate mixed forest and flat landscape are typical for the Baltic region, specifically the sandy soil areas where pines dominate."
+        },
+        {
+          "country": "Russia",
+          "confidence": "medium",
+          "reasoning": "The vast taiga-edge forests of Western Russia feature this exact combination of birch and pine on flat terrain."
+        },
+        {
+          "country": "Canada",
+          "confidence": "low",
+          "reasoning": "Global analog: The boreal forests of Canada feature similar mixed coniferous and deciduous (birch/aspen) growth and flat road stretches, though the road markings differ slightly."
+        }
+      ],
+      "evidence": [
+        "Mixed temperate forest with Scots pine and silver birch",
+        "Flat topography (North European Plain style)",
+        "Sandy soil indicators in the undergrowth",
+        "Overcast lighting suggesting high northern latitude"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Poland",
+          "confidence": "medium",
+          "reasoning": "The mix of Pinus sylvestris (Scots Pine) and Betula pendula (Silver Birch) is highly characteristic of the North European Plain, particularly the sandy soils of Poland. This specific forest composition is ubiquitous across the Polish landscape."
+        },
+        {
+          "country": "Belarus",
+          "confidence": "medium",
+          "reasoning": "The vegetation is virtually identical to that of eastern Poland, featuring the same temperate mixed forest of pine and birch. There is no botanical feature here to distinguish it from neighboring Poland or Russia."
+        },
+        {
+          "country": "Russia",
+          "confidence": "medium",
+          "reasoning": "The boreal-temperate transition zone in Western Russia exhibits this exact combination of Scots Pine and Birch. The density and species composition are consistent with the European part of Russia."
+        },
+        {
+          "country": "Canada",
+          "confidence": "low",
+          "reasoning": "The mixed coniferous-deciduous forest of the Canadian boreal shield can look similar, featuring pine and birch species. However, the specific growth habit of the pines here is more typical of European varieties."
+        },
+        {
+          "country": "United States",
+          "confidence": "low",
+          "reasoning": "Similar mixed forests occur in the Northeastern US (New England), though the specific species of birch and pine often differ slightly in morphology from the European counterparts seen here."
+        }
+      ],
+      "evidence": [
+        "Pinus sylvestris (Scots Pine)",
+        "Betula pendula (Silver Birch)",
+        "Temperate mixed forest biome"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Russia",
+          "confidence": "low",
+          "reasoning": "The road width, asphalt quality, and surrounding mixed forest are very common for rural Russian regional roads. The lack of formal shoulders and basic pavement edge treatment is typical."
+        },
+        {
+          "country": "Poland",
+          "confidence": "low",
+          "reasoning": "The vegetation and road style are consistent with rural Polish forests. The road width and lack of curbing are common for lower-class regional roads."
+        },
+        {
+          "country": "Canada",
+          "confidence": "speculative",
+          "reasoning": "Global analog: Rural forested roads in Canada often feature similar asphalt quality, narrow widths, and lack of formal shoulders in remote areas."
+        },
+        {
+          "country": "United States",
+          "confidence": "speculative",
+          "reasoning": "Global analog: Rural state roads in the Northeast or Midwest can share this basic asphalt-and-forest aesthetic without distinct regulatory markers."
+        }
+      ],
+      "evidence": [
+        "narrow rural asphalt road",
+        "lack of formal shoulders",
+        "mixed deciduous and coniferous forest",
+        "no visible road signs or bollards"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "Russia",
+          "confidence": "medium",
+          "reasoning": "The image quality and slight blur patterns are consistent with Gen 3 Google Street View coverage common in rural Russia. The road surface texture and the specific style of the distant truck are frequently seen in Eastern European/Russian rural corridors."
+        },
+        {
+          "country": "Ukraine",
+          "confidence": "medium",
+          "reasoning": "Shares nearly identical camera generation and road infrastructure characteristics with Russia. The lack of specific bollards makes it difficult to distinguish from neighboring Slavic countries using the same Google car generation."
+        },
+        {
+          "country": "Canada",
+          "confidence": "low",
+          "reasoning": "Global analog: Rural Canadian roads often feature similar asphalt quality and Gen 3 camera artifacts in forested regions, though the specific truck design is less common there."
+        }
+      ],
+      "evidence": [
+        "Google Street View Gen 3 camera artifacts",
+        "Road surface texture and wear patterns",
+        "Distant truck silhouette/color scheme"
+      ]
+    }
+  },
+  "progressive_narrowing": {
+    "region_consensus": false,
+    "confirmed_region": "Europe",
+    "runner_up_region": "North America",
+    "surviving_regions": [
+      "Europe",
+      "North America"
+    ],
+    "proposed_regions": [
+      "Europe",
+      "North America"
+    ],
+    "region_candidates": {
+      "Europe": {
+        "Poland": 3,
+        "Belarus": 2,
+        "Lithuania": 1,
+        "Russia": 4,
+        "Ukraine": 1
+      },
+      "North America": {
+        "Canada": 4,
+        "United States": 2
+      }
+    },
+    "region_decision_reasoning": "Europe received strong support from both the botanics and meta agents, particularly regarding the specific tree species and road infrastructure. North America received conflicting evaluations, with botanic support offset by a contradiction from the meta agent regarding road width and markings.",
+    "path": "B"
+  },
+  "road_evidence": {
+    "outside_color": "none",
+    "inside_color": "white",
+    "driving_side": "RIGHT",
+    "driving_side_basis": "oncoming_traffic"
+  },
+  "country_assessments": {
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Poland",
+          "confidence": "medium",
+          "reasoning": "The mix of Scots pine and birch trees is highly characteristic of the North European Plain. The flat terrain and specific road shoulder vegetation are very common in rural Polish landscapes."
+        },
+        {
+          "country": "Belarus",
+          "confidence": "medium",
+          "reasoning": "The landscape is virtually identical to eastern Poland, featuring the same temperate mixed forest and flat topography. The road quality and surrounding greenery are consistent with this region."
+        },
+        {
+          "country": "Lithuania",
+          "confidence": "medium",
+          "reasoning": "The prevalence of pine forests and sandy-soil indicators along the road edges match the Baltic landscape. It shares the same environmental profile as Poland and Belarus."
+        },
+        {
+          "country": "Russia",
+          "confidence": "medium",
+          "reasoning": "The European part of Russia features these exact mixed coniferous and deciduous forests. The flat terrain and road style are consistent with rural western Russia."
+        },
+        {
+          "country": "Canada",
+          "confidence": "low",
+          "reasoning": "The mixed forest of pine and birch is a global analog found in the Canadian boreal transition zones. However, the road markings and shoulder style are slightly more characteristic of Europe."
+        },
+        {
+          "country": "United States",
+          "confidence": "low",
+          "reasoning": "Similar mixed temperate forests exist in the Northeastern US or Great Lakes region. The flat terrain and tree species provide a strong environmental match despite different infrastructure norms."
+        }
+      ],
+      "evidence": [
+        "Mixed temperate forest consisting of Scots pine and silver birch",
+        "Flat, low-lying terrain characteristic of a plain",
+        "Northern hemisphere sun angle (diffuse light, high overcast)",
+        "Narrow asphalt road with minimal shoulder and natural grass verges"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Poland",
+          "confidence": "medium",
+          "reasoning": "The combination of Pinus sylvestris (Scots Pine) with Betula pendula (Silver Birch) and mixed deciduous undergrowth is highly characteristic of the North European Plain. This specific forest structure is ubiquitous across central Poland."
+        },
+        {
+          "country": "Belarus",
+          "confidence": "medium",
+          "reasoning": "The vegetation is virtually identical to that of eastern Poland, featuring the same mix of pine and birch forests common in the Belarusian landscape."
+        },
+        {
+          "country": "Lithuania",
+          "confidence": "medium",
+          "reasoning": "The temperate mixed forest composition, specifically the prevalence of birch and pine, is a primary botanical feature of the Baltic region."
+        },
+        {
+          "country": "Russia",
+          "confidence": "medium",
+          "reasoning": "The European part of Russia shares this exact boreal-temperate transition forest (taiga edge) consisting of Scots pine and birch."
+        },
+        {
+          "country": "Canada",
+          "confidence": "low",
+          "reasoning": "The mixed coniferous-deciduous forest (specifically pine and birch) is a global analog found in the Canadian boreal shield, though the specific undergrowth density differs slightly from European models."
+        },
+        {
+          "country": "United States",
+          "confidence": "low",
+          "reasoning": "Similar mixed forests of pine and birch occur in the Northeastern United States and Great Lakes region, serving as a North American analog to the European temperate forest."
+        }
+      ],
+      "evidence": [
+        "Pinus sylvestris (Scots Pine)",
+        "Betula pendula (Silver Birch)",
+        "Temperate mixed forest biome",
+        "North European Plain / Boreal transition distribution"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Poland",
+          "confidence": "low",
+          "reasoning": "The road width, asphalt quality, and the specific mix of pine and birch forests are very common in rural Poland. The lack of defined shoulders and the way the grass meets the asphalt is typical for regional roads here."
+        },
+        {
+          "country": "Russia",
+          "confidence": "low",
+          "reasoning": "The vegetation and the basic, slightly worn asphalt road without formal drainage or shoulders are highly characteristic of rural Russian landscapes."
+        },
+        {
+          "country": "Lithuania",
+          "confidence": "low",
+          "reasoning": "The forest composition and the simple two-lane rural road infrastructure are consistent with Baltic regional roads."
+        },
+        {
+          "country": "Canada",
+          "confidence": "speculative",
+          "reasoning": "Following the global analog rule for rural infrastructure, the wooden-pole-style environment and mixed coniferous/deciduous forest are visually similar to rural parts of Eastern Canada."
+        },
+        {
+          "country": "United States",
+          "confidence": "speculative",
+          "reasoning": "The basic asphalt road with grass shoulders in a forested area is a common rural sight in the Northeastern United States."
+        }
+      ],
+      "evidence": [
+        "rural asphalt road",
+        "no visible road signs",
+        "no visible bollards",
+        "grass shoulders",
+        "mixed pine and birch forest"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "Lithuania",
+          "confidence": "medium",
+          "reasoning": "The image quality and slight blur patterns are consistent with Gen 3 coverage common in the Baltics. The road surface texture and the specific style of the white dashed center line are very typical for rural Lithuanian roads."
+        },
+        {
+          "country": "Latvia",
+          "confidence": "medium",
+          "reasoning": "Shares very similar Google camera generation and road maintenance styles with Lithuania. The rural road infrastructure in the Baltics is often indistinguishable without specific bollards or signs."
+        },
+        {
+          "country": "Estonia",
+          "confidence": "medium",
+          "reasoning": "Similar to Latvia and Lithuania, the camera quality and road surface are consistent with Baltic state coverage. The lack of distinct shoulder markings is common in these rural areas."
+        },
+        {
+          "country": "Poland",
+          "confidence": "low",
+          "reasoning": "The road quality and camera generation are similar to the Baltics, though Polish rural roads often have slightly different asphalt patching patterns."
+        }
+      ],
+      "evidence": [
+        "Google Street View Gen 3 camera quality",
+        "Specific asphalt texture and wear patterns",
+        "White dashed center line style"
+      ]
+    }
+  },
+  "hypothesis_evaluations": [
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_europe",
+      "confidence": "support",
+      "reasoning": "The combination of Pinus sylvestris (Scots Pine) with its characteristic orange-red upper bark and Betula pendula (Silver Birch) is highly characteristic of the temperate mixed forests of Northern and Central Europe.",
+      "key_evidence": [
+        "Pinus sylvestris",
+        "Betula pendula",
+        "Temperate mixed forest biome"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_north_america",
+      "confidence": "support",
+      "reasoning": "The vegetation is compatible with the boreal or temperate mixed forests of Canada or the Northern United States, where similar pine and birch species (such as Pinus banksiana or Betula papyrifera) create a visually similar canopy structure.",
+      "key_evidence": [
+        "Mixed coniferous-deciduous forest",
+        "Birch-like white bark",
+        "Pine species"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_europe",
+      "confidence": "support",
+      "reasoning": "The image quality and camera generation are consistent with Google Street View coverage in Europe. The narrow road width and the specific style of the white dashed center line are very common across European rural roads, particularly in Eastern or Central Europe.",
+      "key_evidence": [
+        "Google Street View camera generation",
+        "Road width and asphalt texture"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_north_america",
+      "confidence": "contradicts",
+      "reasoning": "The road is significantly narrower than standard North American rural roads. Additionally, the style of the center line marking and the overall image quality/camera rig artifacts are not typical for North American coverage.",
+      "key_evidence": [
+        "Road width",
+        "Center line marking style"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_poland",
+      "confidence": "support",
+      "reasoning": "The mix of Pinus sylvestris (Scots Pine) and Betula pendula (Silver Birch) is extremely characteristic of the Central European lowland plains, particularly in Poland.",
+      "key_evidence": [
+        "Pinus sylvestris",
+        "Betula pendula",
+        "temperate mixed forest"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_lithuania",
+      "confidence": "support",
+      "reasoning": "The vegetation is virtually identical to that of Poland and Belarus, consisting of boreal-temperate mixed forests common across the Baltic region.",
+      "key_evidence": [
+        "Pinus sylvestris",
+        "Betula pendula",
+        "temperate mixed forest"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_belarus",
+      "confidence": "support",
+      "reasoning": "The dense mix of birch and pine on sandy soils is a hallmark of the Belarusian landscape and the wider East European Plain.",
+      "key_evidence": [
+        "Pinus sylvestris",
+        "Betula pendula",
+        "temperate mixed forest"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_russia",
+      "confidence": "support",
+      "reasoning": "This vegetation pattern is consistent with the European part of Russia, where mixed birch-pine forests are dominant.",
+      "key_evidence": [
+        "Pinus sylvestris",
+        "Betula pendula",
+        "temperate mixed forest"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_canada",
+      "confidence": "low",
+      "reasoning": "While Canada has birch and pine, the specific structure and undergrowth seen here are more typical of European lowland forests than North American boreal or mixed forests.",
+      "key_evidence": [
+        "Pinus sylvestris",
+        "Betula pendula"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_united_states",
+      "confidence": "low",
+      "reasoning": "Similar mixed forests exist in the Northeast US, but the specific combination of species and the 'look' of the roadside vegetation is more characteristic of the Eurasian plain.",
+      "key_evidence": [
+        "Pinus sylvestris",
+        "Betula pendula"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_poland",
+      "confidence": "support",
+      "reasoning": "The image quality and camera generation are consistent with Google's coverage in Poland. The road surface and general infrastructure are compatible with rural Polish roads.",
+      "key_evidence": [
+        "camera generation",
+        "road surface quality"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_lithuania",
+      "confidence": "support",
+      "reasoning": "The camera generation and image quality are consistent with Baltic coverage. The rural road style is very similar to that found in Lithuania.",
+      "key_evidence": [
+        "camera generation",
+        "road surface quality"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_russia",
+      "confidence": "neutral",
+      "reasoning": "While the environment is compatible, there are no specific Russian meta-markers (like specific utility poles or camera artifacts) visible to confirm or deny.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_belarus",
+      "confidence": "neutral",
+      "reasoning": "Similar to Russia, the general look is compatible, but there is a lack of specific meta-evidence to distinguish it from other Eastern European countries.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_canada",
+      "confidence": "low",
+      "reasoning": "While rural roads in Canada can look similar, the specific camera generation and the style of the distant vehicle are more characteristic of European coverage.",
+      "key_evidence": [
+        "camera generation",
+        "vehicle style"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_united_states",
+      "confidence": "low",
+      "reasoning": "The camera generation and the narrowness of the road without wide shoulders are less typical for US rural highways compared to European counterparts.",
+      "key_evidence": [
+        "camera generation",
+        "road width"
+      ]
+    }
+  ],
+  "candidate_pool": [
+    "Poland",
+    "Lithuania",
+    "Russia",
+    "Canada",
+    "United States",
+    "Belarus"
+  ],
+  "rag_findings": [
+    {
+      "kind": "tournament_match",
+      "country": "Belarus",
+      "detail": "The image quality and camera generation are highly consistent with Google's coverage in Poland, whereas Belarus has very limited official Google Street View coverage. The road infrastructure and the specific mix of Scots Pine and Silver Birch are strongly compatible with the rural landscapes of Poland.",
+      "opponent": "Poland",
+      "winner": "Poland"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Russia",
+      "detail": "The image quality and camera generation are highly consistent with Baltic coverage, and the rural road style is a strong match for Lithuania. While the vegetation is common to both, the meta-evidence specifically supports Lithuania over Russia.",
+      "opponent": "Lithuania",
+      "winner": "Lithuania"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Lithuania",
+      "detail": "The landscape features a mix of Scots Pine and Silver Birch, which is highly characteristic of the Central European lowland plains in Poland. The road infrastructure and image quality are consistent with rural Polish coverage.",
+      "opponent": "Poland",
+      "winner": "Poland"
+    }
+  ],
+  "rag_refs_seen": [],
+  "road_filter_warnings": [],
+  "tournament_log": [
+    {
+      "round_label": "semi-1",
+      "country_a": "Poland",
+      "country_b": "Belarus",
+      "pool_rank_a": 0,
+      "pool_rank_b": 3,
+      "winner": "Poland",
+      "reasoning": "The image quality and camera generation are highly consistent with Google's coverage in Poland, whereas Belarus has very limited official Google Street View coverage. The road infrastructure and the specific mix of Scots Pine and Silver Birch are strongly compatible with the rural landscapes of Poland.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "semi-2",
+      "country_a": "Lithuania",
+      "country_b": "Russia",
+      "pool_rank_a": 1,
+      "pool_rank_b": 2,
+      "winner": "Lithuania",
+      "reasoning": "The image quality and camera generation are highly consistent with Baltic coverage, and the rural road style is a strong match for Lithuania. While the vegetation is common to both, the meta-evidence specifically supports Lithuania over Russia.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "final",
+      "country_a": "Poland",
+      "country_b": "Lithuania",
+      "pool_rank_a": 0,
+      "pool_rank_b": 1,
+      "winner": "Poland",
+      "reasoning": "The landscape features a mix of Scots Pine and Silver Birch, which is highly characteristic of the Central European lowland plains in Poland. The road infrastructure and image quality are consistent with rural Polish coverage.",
+      "agreement": "agree"
+    }
+  ],
+  "country_result": "Country: Poland\nCoordinates: 52.2297, 21.0122\nReasoning: The landscape features a mix of Scots Pine and Silver Birch, which is highly characteristic of the Central European lowland plains in Poland. The road infrastructure and image quality are consistent with rural Polish coverage.\n\nTournament:\n  semi-1: Poland vs Belarus → Poland\n  semi-2: Lithuania vs Russia → Lithuania\n  final: Poland vs Lithuania → Poland",
+  "coordinates": {
+    "lat": 52.2297,
+    "lng": 21.0122
+  },
+  "final_reasoning": "The landscape features a mix of Scots Pine and Silver Birch, which is highly characteristic of the Central European lowland plains in Poland. The road infrastructure and image quality are consistent with rural Polish coverage."
+}

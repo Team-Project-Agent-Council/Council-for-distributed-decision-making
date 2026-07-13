@@ -1,0 +1,97 @@
+{
+  "image_id": "NqhvwHTYOTtGmZgm_4",
+  "truth_country": "canada",
+  "pred_country": "canada",
+  "is_correct": true,
+  "discussion_rounds": 2,
+  "was_questioned": {
+    "linguistic": true,
+    "landscape": false,
+    "botanics": false,
+    "regulatory": true,
+    "meta": true
+  },
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": true,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.0,
+      "botanics": 0.0,
+      "regulatory": 0.75,
+      "meta": 0.75
+    },
+    "visual_consistency_score": {
+      "linguistic": 1.0,
+      "landscape": 0.75,
+      "botanics": 0.75,
+      "regulatory": 0.25,
+      "meta": 0.25
+    },
+    "confidence_calibration_score": {
+      "linguistic": 0.5,
+      "landscape": 0.75,
+      "botanics": 0.75,
+      "regulatory": 0.25,
+      "meta": 0.25
+    },
+    "question_relevance_score": {
+      "linguistic": 1.0,
+      "landscape": 0.5,
+      "botanics": 0.5,
+      "regulatory": 1.0,
+      "meta": 1.0
+    },
+    "question_relevance_notes": {
+      "linguistic": "Judge asked for text/signs, squarely in linguistic domain.",
+      "landscape": "Agent was not questioned; default score applied.",
+      "botanics": "Agent was not questioned; default score applied.",
+      "regulatory": "Judge asked about guardrail posts and utility poles, squarely in regulatory domain.",
+      "meta": "Judge asked about guardrail reflectors, squarely in meta domain."
+    },
+    "response_update_quality": {
+      "linguistic": 1.0,
+      "landscape": 0.5,
+      "botanics": 0.5,
+      "regulatory": 0.0,
+      "meta": 0.0
+    },
+    "response_update_notes": {
+      "linguistic": "Agent correctly re-examined and confirmed absence of text.",
+      "landscape": "Agent was not questioned; default score applied.",
+      "botanics": "Agent was not questioned; default score applied.",
+      "regulatory": "Agent provided a fabricated response claiming 'square-profile' posts and 'specific bolt-head orientation' which are not visible or verifiable in the image.",
+      "meta": "Agent provided a fabricated response claiming 'rectangular yellow reflectors mounted directly onto the vertical support posts' which contradicts the image showing reflectors on the rail."
+    },
+    "targeted_agent_addressed_question": {
+      "linguistic": true,
+      "regulatory": false,
+      "meta": false
+    },
+    "hallucination_examples": {
+      "linguistic": [],
+      "landscape": [],
+      "botanics": [],
+      "regulatory": [
+        "The guardrail features square-profile galvanized steel posts with a specific bolt-head orientation and spacing common in Canadian provincial standards.",
+        "The guardrail posts are square-profile galvanized steel, which is a standard specification in many Canadian provinces."
+      ],
+      "meta": [
+        "The guardrail features small, rectangular yellow reflectors mounted directly onto the vertical support posts rather than the horizontal rail itself.",
+        "The guardrail's galvanized steel finish are common in Canada."
+      ]
+    },
+    "judge_question_strategy_score": 0.75,
+    "judge_question_strategy_notes": "The judge correctly identified that the landscape and regulatory agents were stuck on 'North America' and targeted the meta and regulatory agents to find the specific differentiating details (guardrail reflectors/posts). The questions were precise and relevant to the agents' domains.",
+    "judge_synthesis_quality": 0.75,
+    "judge_synthesis_notes": "The judge correctly identified the key differentiator (guardrail reflectors) and used it to select Canada. However, the judge failed to notice that the agents' descriptions of the reflectors were hallucinations (claiming they were on the posts when they are on the rail). The judge's final reasoning ('yellow rectangular reflectors mounted directly onto the guardrail support posts') repeats the hallucination, showing a failure to verify the agent's claims against the image.",
+    "discussion_convergence_score": 0.5,
+    "discussion_convergence_notes": "The discussion did not converge on the truth. The agents provided fabricated details to justify their initial guesses. The judge accepted these fabrications as evidence, leading to a correct final answer but for the wrong reasons (relying on hallucinated evidence rather than actual visual verification)."
+  }
+}

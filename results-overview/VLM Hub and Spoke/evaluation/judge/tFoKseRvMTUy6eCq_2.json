@@ -1,0 +1,94 @@
+{
+  "image_id": "tFoKseRvMTUy6eCq_2",
+  "truth_country": "canada",
+  "pred_country": "canada",
+  "is_correct": true,
+  "discussion_rounds": 3,
+  "was_questioned": {
+    "linguistic": false,
+    "landscape": true,
+    "botanics": false,
+    "regulatory": true,
+    "meta": true
+  },
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": true,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.25,
+      "botanics": 0.25,
+      "regulatory": 0.75,
+      "meta": 0.25
+    },
+    "visual_consistency_score": {
+      "linguistic": 1.0,
+      "landscape": 0.75,
+      "botanics": 0.75,
+      "regulatory": 0.25,
+      "meta": 0.75
+    },
+    "confidence_calibration_score": {
+      "linguistic": 0.5,
+      "landscape": 0.75,
+      "botanics": 0.75,
+      "regulatory": 0.25,
+      "meta": 0.75
+    },
+    "question_relevance_score": {
+      "linguistic": 0.5,
+      "landscape": 1.0,
+      "botanics": 0.5,
+      "regulatory": 1.0,
+      "meta": 1.0
+    },
+    "question_relevance_notes": {
+      "linguistic": "Agent was not questioned.",
+      "landscape": "Questions regarding field patterns and drainage were perfectly suited to the landscape agent's domain.",
+      "botanics": "Agent was not questioned.",
+      "regulatory": "Questions regarding road markings and reflectors were perfectly suited to the regulatory agent's domain.",
+      "meta": "Questions regarding camera artifacts and coverage patterns were perfectly suited to the meta agent's domain."
+    },
+    "response_update_quality": {
+      "linguistic": 0.5,
+      "landscape": 0.75,
+      "botanics": 0.5,
+      "regulatory": 0.0,
+      "meta": 0.75
+    },
+    "response_update_notes": {
+      "linguistic": "Agent was not questioned.",
+      "landscape": "Agent provided specific details about field scale and grass species, directly addressing the prompt.",
+      "botanics": "Agent was not questioned.",
+      "regulatory": "Agent failed to address the question. It hallucinated the presence of reflectors (which are not visible) and did not correct its initial error of claiming 'no signs visible'.",
+      "meta": "Agent provided specific details about camera 'softness' and perspective, directly addressing the prompt."
+    },
+    "targeted_agent_addressed_question": {
+      "landscape": true,
+      "regulatory": false,
+      "meta": true
+    },
+    "hallucination_examples": {
+      "linguistic": [],
+      "landscape": [],
+      "botanics": [],
+      "regulatory": [
+        "Upon close inspection of the white shoulder lines, there are small, white raised pavement markers (reflectors) spaced regularly",
+        "The road features right-hand driving and a yellow center line. The specific combination of a narrow paved surface with wide, unpaved gravel shoulders and the particular style of longitudinal cracking and patching is extremely common in the Canadian Prairies (Saskatchewan/Alberta)."
+      ],
+      "meta": []
+    },
+    "judge_question_strategy_score": 0.75,
+    "judge_question_strategy_notes": "The judge correctly identified the key uncertainty (Canada vs US) and targeted the most relevant agents (regulatory, landscape, meta) with specific, high-value questions. However, the judge failed to notice the regulatory agent's hallucination in Round 1 and did not probe it further, allowing the error to persist.",
+    "judge_synthesis_quality": 0.75,
+    "judge_synthesis_notes": "The judge correctly identified the country as Canada. However, the reasoning relied on the regulatory agent's hallucinated evidence of 'white raised pavement markers' which are not visible in the image. The judge should have been more skeptical of this specific claim.",
+    "discussion_convergence_score": 0.5,
+    "discussion_convergence_notes": "The discussion did not lead to convergence. The regulatory agent's response in Round 3 was a complete fabrication that contradicted the visual evidence and its own initial assessment. The judge accepted this hallucination as a key piece of evidence."
+  }
+}

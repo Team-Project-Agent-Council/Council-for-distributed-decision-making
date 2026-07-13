@@ -1,0 +1,1816 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VLM Council Tournament Only Evaluation Report</title>
+<style>
+  :root {
+    --bg: #FFFFFF;
+    --fg: #222222;
+    --muted: #666666;
+    --border: #DDDDDD;
+    --accent: #4C72B0;
+    --success: #55A868;
+    --error: #C44E52;
+    --warning: #DD8452;
+    --code-bg: #F4F4F4;
+    --side-bg: #FAFAFA;
+  }
+  [data-theme="dark"] {
+    --bg: #1A1A1A;
+    --fg: #E5E5E5;
+    --muted: #999999;
+    --border: #333333;
+    --accent: #6FA0D6;
+    --success: #6FBE82;
+    --error: #DA6B6E;
+    --warning: #E89A6E;
+    --code-bg: #2A2A2A;
+    --side-bg: #222222;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                 "Helvetica Neue", Arial, sans-serif;
+    color: var(--fg);
+    background: var(--bg);
+    line-height: 1.55;
+  }
+  .layout { display: flex; min-height: 100vh; }
+  nav.toc {
+    width: 250px;
+    flex: 0 0 250px;
+    background: var(--side-bg);
+    border-right: 1px solid var(--border);
+    padding: 1.2rem 1rem;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    font-size: 0.9rem;
+  }
+  nav.toc h2 {
+    font-size: 0.95rem;
+    margin: 0 0 0.6rem 0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+  }
+  nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
+  nav.toc li { margin: 0.25rem 0; }
+  nav.toc a {
+    color: var(--fg);
+    text-decoration: none;
+    border-left: 2px solid transparent;
+    padding-left: 0.5rem;
+    display: block;
+  }
+  nav.toc a:hover { border-left-color: var(--accent); }
+  nav.toc a.active { border-left-color: var(--accent); color: var(--accent); }
+  main {
+    flex: 1;
+    max-width: 1100px;
+    padding: 1.5rem 2rem 4rem 2rem;
+  }
+  h1 { font-size: 1.8rem; margin-top: 0; }
+  h2 {
+    font-size: 1.35rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.3rem;
+    margin-top: 2rem;
+  }
+  h3 { font-size: 1.1rem; }
+  details {
+    margin: 0.75rem 0;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 0.5rem 0.75rem;
+    background: var(--side-bg);
+  }
+  details > summary {
+    cursor: pointer;
+    font-weight: 600;
+    margin: -0.5rem -0.75rem;
+    padding: 0.5rem 0.75rem;
+  }
+  details[open] > summary { border-bottom: 1px solid var(--border); margin-bottom: 0.5rem; }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 0.6rem 0;
+    font-size: 0.92rem;
+  }
+  th, td {
+    border: 1px solid var(--border);
+    padding: 0.45rem 0.6rem;
+    text-align: left;
+  }
+  th {
+    background: var(--side-bg);
+    cursor: pointer;
+    user-select: none;
+  }
+  th.sort-asc::after { content: " ^"; color: var(--muted); }
+  th.sort-desc::after { content: " v"; color: var(--muted); }
+  img.figure {
+    max-width: 100%;
+    height: auto;
+    margin: 0.6rem 0;
+    border: 1px solid var(--border);
+    background: white;
+  }
+  .caption {
+    font-size: 0.85rem;
+    color: var(--muted);
+    font-style: italic;
+    margin-bottom: 1rem;
+  }
+  .headline-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 0.6rem;
+    margin: 1rem 0;
+  }
+  .stat {
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 0.6rem 0.8rem;
+    background: var(--side-bg);
+  }
+  .stat .label { font-size: 0.78rem; color: var(--muted); text-transform: uppercase; }
+  .stat .value { font-size: 1.4rem; font-weight: 600; color: var(--accent); }
+  .badge {
+    display: inline-block;
+    padding: 0.1rem 0.5rem;
+    border-radius: 3px;
+    font-size: 0.78rem;
+    background: var(--code-bg);
+    color: var(--fg);
+  }
+  .badge.ok { background: var(--success); color: white; }
+  .badge.bad { background: var(--error); color: white; }
+  .badge.warn { background: var(--warning); color: white; }
+  blockquote {
+    border-left: 3px solid var(--accent);
+    margin: 0.8rem 0;
+    padding: 0.4rem 0.8rem;
+    background: var(--code-bg);
+  }
+  iframe.world-map {
+    width: 100%;
+    height: 600px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+  }
+  .controls {
+    position: fixed;
+    top: 0.6rem;
+    right: 0.8rem;
+    display: flex;
+    gap: 0.4rem;
+    z-index: 100;
+  }
+  .controls button {
+    padding: 0.3rem 0.7rem;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--fg);
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 0.85rem;
+  }
+  .controls button:hover { background: var(--side-bg); }
+  code { font-family: "SFMono-Regular", Menlo, monospace; font-size: 0.88rem;
+         background: var(--code-bg); padding: 0.05rem 0.3rem; border-radius: 2px; }
+  .meta { font-size: 0.85rem; color: var(--muted); }
+  .small-table { font-size: 0.85rem; }
+  details.example { background: var(--bg); }
+</style>
+</head>
+<body>
+<div class="controls">
+  <button onclick="toggleTheme()">theme</button>
+  <button onclick="expandAll(true)">expand all</button>
+  <button onclick="expandAll(false)">collapse all</button>
+</div>
+<div class="layout">
+<nav class="toc">
+  <h2>Sections</h2>
+  <ul>
+    <li><a href="#headline">Headline</a></li>
+<li><a href="#gt">1. Ground-truth statistics</a></li><li><a href="#dynamics">2. Approach dynamics</a></li><li><a href="#judge">3. LLM-as-judge verdicts</a></li>  </ul>
+  <p class="meta">
+    Tournament only approach (no region gate)<br>
+    Generated 2026-07-12T15:21:17+00:00<br>
+    500 images
+  </p>
+</nav>
+
+<main>
+<h1 id="headline">VLM Council Tournament Only Evaluation Report</h1>
+
+<div class="headline-grid">
+  <div class="stat">
+    <div class="label">Country accuracy</div>
+    <div class="value">67.8%</div>
+  </div>
+  <div class="stat">
+    <div class="label">Median haversine</div>
+    <div class="value">395 km</div>
+  </div>
+  <div class="stat">
+    <div class="label">Images</div>
+    <div class="value">500</div>
+  </div>
+</div>
+
+<h2 id="gt">1. Ground-truth statistics</h2>
+
+<h3>Headline metrics</h3>
+<table>
+  <thead><tr><th>Metric</th><th data-sort="num">Value</th></tr></thead>
+  <tbody>
+    <tr><td>Country accuracy</td><td>67.8%</td></tr>
+    <tr><td>Median haversine</td><td>395 km</td></tr>
+    <tr><td>Mean haversine</td><td>1,412 km</td></tr>
+    <tr><td>N images</td><td>500</td></tr>
+  </tbody>
+</table>
+
+<h3>Geo-spatial bias</h3>
+<ul>
+  <li>North/south bias: strong north bias (p=0.0073)</li>
+  <li>East/west bias: no significant bias (p=0.5408)</li>
+</ul>
+<img class="figure" src="plots/error_distribution.png" alt="Error distribution">
+<p class="caption">Figure: latitude and longitude error distribution.</p>
+<img class="figure" src="plots/bearing_rose.png" alt="Bearing rose">
+<p class="caption">Figure: bearing of prediction errors.</p>
+<details><summary>Top confusion pairs</summary>
+<table class="small-table"><thead><tr><th>Truth</th><th>Predicted</th><th data-sort="num">Count</th></tr></thead><tbody>
+<tr><td>canada</td><td>united states</td><td>4</td></tr>
+<tr><td>south africa</td><td>botswana</td><td>3</td></tr>
+<tr><td>south africa</td><td>namibia</td><td>3</td></tr>
+<tr><td>panama</td><td>puerto rico</td><td>3</td></tr>
+<tr><td>uruguay</td><td>brazil</td><td>3</td></tr>
+<tr><td>indonesia</td><td>philippines</td><td>2</td></tr>
+<tr><td>argentina</td><td>mexico</td><td>2</td></tr>
+<tr><td>norway</td><td>sweden</td><td>2</td></tr>
+<tr><td>bolivia</td><td>brazil</td><td>2</td></tr>
+<tr><td>botswana</td><td>namibia</td><td>2</td></tr>
+<tr><td>peru</td><td>colombia</td><td>2</td></tr>
+<tr><td>montenegro</td><td>croatia</td><td>2</td></tr>
+<tr><td>sweden</td><td>finland</td><td>2</td></tr>
+<tr><td>indonesia</td><td>thailand</td><td>2</td></tr>
+<tr><td>russia</td><td>ukraine</td><td>2</td></tr>
+<tr><td>chile</td><td>peru</td><td>2</td></tr>
+<tr><td>mexico</td><td>thailand</td><td>2</td></tr>
+<tr><td>kenya</td><td>rwanda</td><td>2</td></tr>
+<tr><td>kyrgyzstan</td><td>azerbaijan</td><td>1</td></tr>
+<tr><td>serbia</td><td>bosnia and herzegovina</td><td>1</td></tr>
+</tbody></table></details>
+
+<h3>Geographic world maps</h3>
+<p>Per-country true-positive rate (TPR = correct over truth = country) and false-positive
+counts. Macro-averaged TPR across countries with truth: <strong>56.2%</strong>
+(91 countries).</p>
+<img class="figure" src="plots/world_map_accuracy.png" alt="World accuracy heatmap">
+<p class="caption">Figure: per-country TPR (green) with false-positive outlines (red).</p>
+<img class="figure" src="plots/world_map_f1.png" alt="World F1 map">
+<p class="caption">Figure: per-country F1, divergent around the run macro-F1.
+Green = above average, red = below average.</p>
+<img class="figure" src="plots/world_map_error_bias.png" alt="World error-bias map">
+<p class="caption">Figure: per-country error bias (FP over FN). Red = over-predicted,
+blue = missed.</p>
+<details><summary>Per-country breakdown (107 entries)</summary>
+<table class="small-table"><thead><tr>
+  <th>Country</th><th data-sort="num">n_truth</th><th data-sort="num">n_correct</th>
+  <th data-sort="num">n_predicted</th><th data-sort="num">n_false_positive</th>
+  <th data-sort="num">TPR</th><th data-sort="num">PPV</th>
+</tr></thead><tbody>
+<tr>
+  <td>Albania</td>
+  <td>2</td>
+  <td>1</td>
+  <td>2</td>
+  <td>1</td>
+  <td>50.0%</td>
+  <td>50.0%</td>
+</tr>
+<tr>
+  <td>American Samoa</td>
+  <td>1</td>
+  <td>0</td>
+  <td>0</td>
+  <td>0</td>
+  <td>0.0%</td>
+  <td>n/a</td>
+</tr>
+<tr>
+  <td>Andorra</td>
+  <td>2</td>
+  <td>2</td>
+  <td>2</td>
+  <td>0</td>
+  <td>100.0%</td>
+  <td>100.0%</td>
+</tr>
+<tr>
+  <td>Argentina</td>
+  <td>14</td>
+  <td>8</td>
+  <td>11</td>
+  <td>3</td>
+  <td>57.1%</td>
+  <td>72.7%</td>
+</tr>
+<tr>
+  <td>Aruba</td>
+  <td>0</td>
+  <td>0</td>
+  <td>1</td>
+  <td>1</td>
+  <td>n/a</td>
+  <td>0.0%</td>
+</tr>
+<tr>
+  <td>Australia</td>
+  <td>19</td>
+  <td>18</td>
+  <td>19</td>
+  <td>1</td>
+  <td>94.7%</td>
+  <td>94.7%</td>
+</tr>
+<tr>
+  <td>Austria</td>
+  <td>1</td>
+  <td>0</td>
+  <td>1</td>
+  <td>1</td>
+  <td>0.0%</td>
+  <td>0.0%</td>
+</tr>
+<tr>
+  <td>Azerbaijan</td>
+  <td>0</td>
+  <td>0</td>
+  <td>1</td>
+  <td>1</td>
+  <td>n/a</td>
+  <td>0.0%</td>
+</tr>
+<tr>
+  <td>Bangladesh</td>
+  <td>8</td>
+  <td>6</td>
+  <td>6</td>
+  <td>0</td>
+  <td>75.0%</td>
+  <td>100.0%</td>
+</tr>
+<tr>
+  <td>Belgium</td>
+  <td>5</td>
+  <td>2</td>
+  <td>3</td>
+  <td>1</td>
+  <td>40.0%</td>
+  <td>66.7%</td>
+</tr>
+<tr>
+  <td>Bhutan</td>
+  <td>3</td>
+  <td>0</td>
+  <td>0</td>
+  <td>0</td>
+  <td>0.0%</td>
+  <td>n/a</td>
+</tr>
+<tr>
+  <td>Bolivia</td>
+  <td>2</td>
+  <td>0</td>
+  <td>0</td>
+  <td>0</td>
+  <td>0.0%</td>
+  <td>n/a</td>
+</tr>
+<tr>
+  <td>Bosnia And Herzegovina</td>
+  <td>0</td>
+  <td>0</td>
+  <td>2</td>
+  <td>2</td>
+  <td>n/a</td>
+  <td>0.0%</td>
+</tr>
+<tr>
+  <td>Botswana</td>
+  <td>5</td>
+  <td>3</td>
+  <td>6</td>
+  <td>3</td>
+  <td>60.0%</td>
+  <td>50.0%</td>
+</tr>
+<tr>
+  <td>Brazil</td>
+  <td>26</td>
+  <td>25</td>
+  <td>35</td>
+  <td>10</td>
+  <td>96.2%</td>
+  <td>71.4%</td>
+</tr>
+<tr>
+  <td>Bulgaria</td>
+  <td>3</td>
+  <td>1</td>
+  <td>3</td>
+  <td>2</td>
+  <td>33.3%</td>
+  <td>33.3%</td>
+</tr>
+<tr>
+  <td>Cambodia</td>
+  <td>2</td>
+  <td>1</td>
+  <td>3</td>
+  <td>2</td>
+  <td>50.0%</td>
+  <td>33.3%</td>
+</tr>
+<tr>
+  <td>Canada</td>
+  <td>14</td>
+  <td>10</td>
+  <td>10</td>
+  <td>0</td>
+  <td>71.4%</td>
+  <td>100.0%</td>
+</tr>
+<tr>
+  <td>Chile</td>
+  <td>6</td>
+  <td>3</td>
+  <td>3</td>
+  <td>0</td>
+  <td>50.0%</td>
+  <td>100.0%</td>
+</tr>
+<tr>
+  <td>Colombia</td>
+  <td>5</td>
+  <td>2</td>
+  <td>8</td>
+  <td>6</td>
+  <td>40.0%</td>
+  <td>25.0%</td>
+</tr>
+<tr>
+  <td>Costa Rica</td>
+  <td>0</td>
+  <td>0</td>
+  <td>5</td>
+  <td>5</td>
+  <td>n/a</td>
+  <td>0.0%</td>
+</tr>
+<tr>
+  <td>Croatia</td>
+  <td>2</td>
+  <td>1</td>
+  <td>3</td>
+  <td>2</td>
+  <td>50.0%</td>
+  <td>33.3%</td>
+</tr>
+<tr>
+  <td>Curacao</td>
+  <td>1</td>
+  <td>0</td>
+  <td>0</td>
+  <td>0</td>
+  <td>0.0%</td>
+  <td>n/a</td>
+</tr>
+<tr>
+  <td>Cyprus</td>
+  <td>0</td>
+  <td>0</td>
+  <td>1</td>
+  <td>1</td>
+  <td>n/a</td>
+  <td>0.0%</td>
+</tr>
+<tr>
+  <td>Czechia</td>
+  <td>4</td>
+  <td>3</td>
+  <td>3</td>
+  <td>0</td>
+  <td>75.0%</td>
+  <td>100.0%</td>
+</tr>
+<tr>
+  <td>Denmark</td>
+  <td>2</td>
+  <td>2</td>
+  <td>5</td>
+  <td>3</td>
+  <td>100.0%</td>
+  <td>40.0%</td>
+</tr>
+<tr>
+  <td>Dominican Republic</td>
+  <td>1</td>
+  <td>1</td>
+  <td>4</td>
+  <td>3</td>
+  <td>100.0%</td>
+  <td>25.0%</td>
+</tr>
+<tr>
+  <td>Ecuador</td>
+  <td>3</td>
+  <td>0</td>
+  <td>0</td>
+  <td>0</td>
+  <td>0.0%</td>
+  <td>n/a</td>
+</tr>
+<tr>
+  <td>Egypt</td>
+  <td>0</td>
+  <td>0</td>
+  <td>1</td>
+  <td>1</td>
+  <td>n/a</td>
+  <td>0.0%</td>
+</tr>
+<tr>
+  <td>Estonia</td>
+  <td>2</td>
+  <td>1</td>
+  <td>2</td>
+  <td>1</td>
+  <td>50.0%</td>
+  <td>50.0%</td>
+</tr>
+<tr>
+  <td>Ethiopia</td>
+  <td>0</td>
+  <td>0</td>
+  <td>1</td>
+  <td>1</td>
+  <td>n/a</td>
+  <td>0.0%</td>
+</tr>
+<tr>
+  <td>Finland</td>
+  <td>4</td>
+  <td>3</td>
+  <td>5</td>
+  <td>2</td>
+  <td>75.0%</td>
+  <td>60.0%</td>
+</tr>
+<tr>
+  <td>France</td>
+  <td>10</td>
+  <td>5</td>
+  <td>11</td>
+  <td>6</td>
+  <td>50.0%</td>
+  <td>45.5%</td>
+</tr>
+<tr>
+  <td>Georgia</td>
+  <td>0</td>
+  <td>0</td>
+  <td>1</td>
+  <td>1</td>
+  <td>n/a</td>
+  <td>0.0%</td>
+</tr>
+<tr>
+  <td>Germany</td>
+  <td>10</td>
+  <td>7</td>
+  <td>7</td>
+  <td>0</td>
+  <td>70.0%</td>
+  <td>100.0%</td>
+</tr>
+<tr>
+  <td>Greece</td>
+  <td>4</td>
+  <td>3</td>
+  <td>4</td>
+  <td>1</td>
+  <td>75.0%</td>
+  <td>75.0%</td>
+</tr>
+<tr>
+  <td>Greenland</td>
+  <td>1</td>
+  <td>0</td>
+  <td>0</td>
+  <td>0</td>
+  <td>0.0%</td>
+  <td>n/a</td>
+</tr>
+<tr>
+  <td>Guam</td>
+  <td>1</td>
+  <td>0</td>
+  <td>0</td>
+  <td>0</td>
+  <td>0.0%</td>
+  <td>n/a</td>
+</tr>
+<tr>
+  <td>Guatemala</td>
+  <td>1</td>
+  <td>0</td>
+  <td>1</td>
+  <td>1</td>
+  <td>0.0%</td>
+  <td>0.0%</td>
+</tr>
+<tr>
+  <td>Hawaii, Usa</td>
+  <td>0</td>
+  <td>0</td>
+  <td>1</td>
+  <td>1</td>
+  <td>n/a</td>
+  <td>0.0%</td>
+</tr>
+<tr>
+  <td>Hong Kong</td>
+  <td>1</td>
+  <td>0</td>
+  <td>0</td>
+  <td>0</td>
+  <td>0.0%</td>
+  <td>n/a</td>
+</tr>
+<tr>
+  <td>Hungary</td>
+  <td>3</td>
+  <td>0</td>
+  <td>1</td>
+  <td>1</td>
+  <td>0.0%</td>
+  <td>0.0%</td>
+</tr>
+<tr>
+  <td>Iceland</td>
+  <td>2</td>
+  <td>2</td>
+  <td>3</td>
+  <td>1</td>
+  <td>100.0%</td>
+  <td>66.7%</td>
+</tr>
+<tr>
+  <td>India</td>
+  <td>7</td>
+  <td>5</td>
+  <td>10</td>
+  <td>5</td>
+  <td>71.4%</td>
+  <td>50.0%</td>
+</tr>
+<tr>
+  <td>Indonesia</td>
+  <td>18</td>
+  <td>11</td>
+  <td>12</td>
+  <td>1</td>
+  <td>61.1%</td>
+  <td>91.7%</td>
+</tr>
+<tr>
+  <td>Iran</td>
+  <td>0</td>
+  <td>0</td>
+  <td>1</td>
+  <td>1</td>
+  <td>n/a</td>
+  <td>0.0%</td>
+</tr>
+<tr>
+  <td>Iraq</td>
+  <td>0</td>
+  <td>0</td>
+  <td>1</td>
+  <td>1</td>
+  <td>n/a</td>
+  <td>0.0%</td>
+</tr>
+<tr>
+  <td>Ireland</td>
+  <td>1</td>
+  <td>1</td>
+  <td>1</td>
+  <td>0</td>
+  <td>100.0%</td>
+  <td>100.0%</td>
+</tr>
+<tr>
+  <td>Italy</td>
+  <td>4</td>
+  <td>3</td>
+  <td>3</td>
+  <td>0</td>
+  <td>75.0%</td>
+  <td>100.0%</td>
+</tr>
+<tr>
+  <td>Jamaica</td>
+  <td>0</td>
+  <td>0</td>
+  <td>2</td>
+  <td>2</td>
+  <td>n/a</td>
+  <td>0.0%</td>
+</tr>
+<tr>
+  <td>Japan</td>
+  <td>22</td>
+  <td>22</td>
+  <td>22</td>
+  <td>0</td>
+  <td>100.0%</td>
+  <td>100.0%</td>
+</tr>
+<tr>
+  <td>Jordan</td>
+  <td>3</td>
+  <td>3</td>
+  <td>3</td>
+  <td>0</td>
+  <td>100.0%</td>
+  <td>100.0%</td>
+</tr>
+<tr>
+  <td>Kazakhstan</td>
+  <td>3</td>
+  <td>1</td>
+  <td>1</td>
+  <td>0</td>
+  <td>33.3%</td>
+  <td>100.0%</td>
+</tr>
+<tr>
+  <td>Kenya</td>
+  <td>8</td>
+  <td>1</td>
+  <td>1</td>
+  <td>0</td>
+  <td>12.5%</td>
+  <td>100.0%</td>
+</tr>
+<tr>
+  <td>Kyrgyzstan</td>
+  <td>1</td>
+  <td>0</td>
+  <td>0</td>
+  <td>0</td>
+  <td>0.0%</td>
+  <td>n/a</td>
+</tr>
+<tr>
+  <td>Laos</td>
+  <td>1</td>
+  <td>1</td>
+  <td>1</td>
+  <td>0</td>
+  <td>100.0%</td>
+  <td>100.0%</td>
+</tr>
+<tr>
+  <td>Latvia</td>
+  <td>3</td>
+  <td>1</td>
+  <td>1</td>
+  <td>0</td>
+  <td>33.3%</td>
+  <td>100.0%</td>
+</tr>
+<tr>
+  <td>Lebanon</td>
+  <td>1</td>
+  <td>0</td>
+  <td>0</td>
+  <td>0</td>
+  <td>0.0%</td>
+  <td>n/a</td>
+</tr>
+<tr>
+  <td>Lesotho</td>
+  <td>1</td>
+  <td>1</td>
+  <td>1</td>
+  <td>0</td>
+  <td>100.0%</td>
+  <td>100.0%</td>
+</tr>
+<tr>
+  <td>Lithuania</td>
+  <td>2</td>
+  <td>2</td>
+  <td>3</td>
+  <td>1</td>
+  <td>100.0%</td>
+  <td>66.7%</td>
+</tr>
+<tr>
+  <td>Luxembourg</td>
+  <td>1</td>
+  <td>0</td>
+  <td>0</td>
+  <td>0</td>
+  <td>0.0%</td>
+  <td>n/a</td>
+</tr>
+<tr>
+  <td>Malaysia</td>
+  <td>5</td>
+  <td>4</td>
+  <td>5</td>
+  <td>1</td>
+  <td>80.0%</td>
+  <td>80.0%</td>
+</tr>
+<tr>
+  <td>Malta</td>
+  <td>1</td>
+  <td>1</td>
+  <td>1</td>
+  <td>0</td>
+  <td>100.0%</td>
+  <td>100.0%</td>
+</tr>
+<tr>
+  <td>Mexico</td>
+  <td>12</td>
+  <td>6</td>
+  <td>11</td>
+  <td>5</td>
+  <td>50.0%</td>
+  <td>54.5%</td>
+</tr>
+<tr>
+  <td>Monaco</td>
+  <td>1</td>
+  <td>1</td>
+  <td>1</td>
+  <td>0</td>
+  <td>100.0%</td>
+  <td>100.0%</td>
+</tr>
+<tr>
+  <td>Mongolia</td>
+  <td>3</td>
+  <td>3</td>
+  <td>4</td>
+  <td>1</td>
+  <td>100.0%</td>
+  <td>75.0%</td>
+</tr>
+<tr>
+  <td>Montenegro</td>
+  <td>6</td>
+  <td>1</td>
+  <td>1</td>
+  <td>0</td>
+  <td>16.7%</td>
+  <td>100.0%</td>
+</tr>
+<tr>
+  <td>Namibia</td>
+  <td>0</td>
+  <td>0</td>
+  <td>6</td>
+  <td>6</td>
+  <td>n/a</td>
+  <td>0.0%</td>
+</tr>
+<tr>
+  <td>Nepal</td>
+  <td>0</td>
+  <td>0</td>
+  <td>1</td>
+  <td>1</td>
+  <td>n/a</td>
+  <td>0.0%</td>
+</tr>
+<tr>
+  <td>Netherlands</td>
+  <td>5</td>
+  <td>5</td>
+  <td>7</td>
+  <td>2</td>
+  <td>100.0%</td>
+  <td>71.4%</td>
+</tr>
+<tr>
+  <td>New Zealand</td>
+  <td>9</td>
+  <td>8</td>
+  <td>9</td>
+  <td>1</td>
+  <td>88.9%</td>
+  <td>88.9%</td>
+</tr>
+<tr>
+  <td>Nigeria</td>
+  <td>2</td>
+  <td>1</td>
+  <td>1</td>
+  <td>0</td>
+  <td>50.0%</td>
+  <td>100.0%</td>
+</tr>
+<tr>
+  <td>North Macedonia</td>
+  <td>1</td>
+  <td>0</td>
+  <td>0</td>
+  <td>0</td>
+  <td>0.0%</td>
+  <td>n/a</td>
+</tr>
+<tr>
+  <td>Northern Mariana Islands</td>
+  <td>1</td>
+  <td>0</td>
+  <td>0</td>
+  <td>0</td>
+  <td>0.0%</td>
+  <td>n/a</td>
+</tr>
+<tr>
+  <td>Norway</td>
+  <td>8</td>
+  <td>5</td>
+  <td>6</td>
+  <td>1</td>
+  <td>62.5%</td>
+  <td>83.3%</td>
+</tr>
+<tr>
+  <td>Oman</td>
+  <td>3</td>
+  <td>1</td>
+  <td>2</td>
+  <td>1</td>
+  <td>33.3%</td>
+  <td>50.0%</td>
+</tr>
+<tr>
+  <td>Panama</td>
+  <td>8</td>
+  <td>0</td>
+  <td>1</td>
+  <td>1</td>
+  <td>0.0%</td>
+  <td>0.0%</td>
+</tr>
+<tr>
+  <td>Peru</td>
+  <td>7</td>
+  <td>3</td>
+  <td>5</td>
+  <td>2</td>
+  <td>42.9%</td>
+  <td>60.0%</td>
+</tr>
+<tr>
+  <td>Philippines</td>
+  <td>11</td>
+  <td>9</td>
+  <td>12</td>
+  <td>3</td>
+  <td>81.8%</td>
+  <td>75.0%</td>
+</tr>
+<tr>
+  <td>Poland</td>
+  <td>5</td>
+  <td>3</td>
+  <td>7</td>
+  <td>4</td>
+  <td>60.0%</td>
+  <td>42.9%</td>
+</tr>
+<tr>
+  <td>Portugal</td>
+  <td>6</td>
+  <td>5</td>
+  <td>6</td>
+  <td>1</td>
+  <td>83.3%</td>
+  <td>83.3%</td>
+</tr>
+<tr>
+  <td>Puerto Rico</td>
+  <td>0</td>
+  <td>0</td>
+  <td>5</td>
+  <td>5</td>
+  <td>n/a</td>
+  <td>0.0%</td>
+</tr>
+<tr>
+  <td>Qatar</td>
+  <td>2</td>
+  <td>1</td>
+  <td>1</td>
+  <td>0</td>
+  <td>50.0%</td>
+  <td>100.0%</td>
+</tr>
+<tr>
+  <td>Romania</td>
+  <td>2</td>
+  <td>1</td>
+  <td>4</td>
+  <td>3</td>
+  <td>50.0%</td>
+  <td>25.0%</td>
+</tr>
+<tr>
+  <td>Russia</td>
+  <td>16</td>
+  <td>13</td>
+  <td>18</td>
+  <td>5</td>
+  <td>81.2%</td>
+  <td>72.2%</td>
+</tr>
+<tr>
+  <td>Rwanda</td>
+  <td>1</td>
+  <td>1</td>
+  <td>3</td>
+  <td>2</td>
+  <td>100.0%</td>
+  <td>33.3%</td>
+</tr>
+<tr>
+  <td>Saudi Arabia</td>
+  <td>0</td>
+  <td>0</td>
+  <td>2</td>
+  <td>2</td>
+  <td>n/a</td>
+  <td>0.0%</td>
+</tr>
+<tr>
+  <td>Senegal</td>
+  <td>2</td>
+  <td>2</td>
+  <td>5</td>
+  <td>3</td>
+  <td>100.0%</td>
+  <td>40.0%</td>
+</tr>
+<tr>
+  <td>Serbia</td>
+  <td>2</td>
+  <td>0</td>
+  <td>1</td>
+  <td>1</td>
+  <td>0.0%</td>
+  <td>0.0%</td>
+</tr>
+<tr>
+  <td>Slovakia</td>
+  <td>1</td>
+  <td>0</td>
+  <td>0</td>
+  <td>0</td>
+  <td>0.0%</td>
+  <td>n/a</td>
+</tr>
+<tr>
+  <td>South Africa</td>
+  <td>16</td>
+  <td>7</td>
+  <td>9</td>
+  <td>2</td>
+  <td>43.8%</td>
+  <td>77.8%</td>
+</tr>
+<tr>
+  <td>South Korea</td>
+  <td>7</td>
+  <td>7</td>
+  <td>7</td>
+  <td>0</td>
+  <td>100.0%</td>
+  <td>100.0%</td>
+</tr>
+<tr>
+  <td>Spain</td>
+  <td>9</td>
+  <td>9</td>
+  <td>11</td>
+  <td>2</td>
+  <td>100.0%</td>
+  <td>81.8%</td>
+</tr>
+<tr>
+  <td>Sri Lanka</td>
+  <td>6</td>
+  <td>3</td>
+  <td>5</td>
+  <td>2</td>
+  <td>50.0%</td>
+  <td>60.0%</td>
+</tr>
+<tr>
+  <td>Sweden</td>
+  <td>5</td>
+  <td>1</td>
+  <td>4</td>
+  <td>3</td>
+  <td>20.0%</td>
+  <td>25.0%</td>
+</tr>
+<tr>
+  <td>Switzerland</td>
+  <td>4</td>
+  <td>2</td>
+  <td>2</td>
+  <td>0</td>
+  <td>50.0%</td>
+  <td>100.0%</td>
+</tr>
+<tr>
+  <td>Taiwan</td>
+  <td>3</td>
+  <td>3</td>
+  <td>5</td>
+  <td>2</td>
+  <td>100.0%</td>
+  <td>60.0%</td>
+</tr>
+<tr>
+  <td>Thailand</td>
+  <td>12</td>
+  <td>12</td>
+  <td>19</td>
+  <td>7</td>
+  <td>100.0%</td>
+  <td>63.2%</td>
+</tr>
+<tr>
+  <td>Tunisia</td>
+  <td>4</td>
+  <td>3</td>
+  <td>3</td>
+  <td>0</td>
+  <td>75.0%</td>
+  <td>100.0%</td>
+</tr>
+<tr>
+  <td>Turkey</td>
+  <td>10</td>
+  <td>8</td>
+  <td>9</td>
+  <td>1</td>
+  <td>80.0%</td>
+  <td>88.9%</td>
+</tr>
+<tr>
+  <td>Uganda</td>
+  <td>2</td>
+  <td>2</td>
+  <td>3</td>
+  <td>1</td>
+  <td>100.0%</td>
+  <td>66.7%</td>
+</tr>
+<tr>
+  <td>Ukraine</td>
+  <td>7</td>
+  <td>5</td>
+  <td>9</td>
+  <td>4</td>
+  <td>71.4%</td>
+  <td>55.6%</td>
+</tr>
+<tr>
+  <td>United Arab Emirates</td>
+  <td>3</td>
+  <td>2</td>
+  <td>2</td>
+  <td>0</td>
+  <td>66.7%</td>
+  <td>100.0%</td>
+</tr>
+<tr>
+  <td>United Kingdom</td>
+  <td>6</td>
+  <td>6</td>
+  <td>10</td>
+  <td>4</td>
+  <td>100.0%</td>
+  <td>60.0%</td>
+</tr>
+<tr>
+  <td>United States</td>
+  <td>32</td>
+  <td>30</td>
+  <td>36</td>
+  <td>6</td>
+  <td>93.8%</td>
+  <td>83.3%</td>
+</tr>
+<tr>
+  <td>Uruguay</td>
+  <td>6</td>
+  <td>2</td>
+  <td>2</td>
+  <td>0</td>
+  <td>33.3%</td>
+  <td>100.0%</td>
+</tr>
+<tr>
+  <td>Vietnam</td>
+  <td>2</td>
+  <td>1</td>
+  <td>1</td>
+  <td>0</td>
+  <td>50.0%</td>
+  <td>100.0%</td>
+</tr>
+</tbody></table></details>
+
+<h3>Confidence calibration</h3>
+<p>Each specialist annotates every candidate with a confidence label
+(high / medium / low / speculative). When an agent assigns label X to a country,
+in what fraction of those (image, country) pairs was that country the ground truth?</p>
+<table>
+  <thead><tr><th>Agent</th>
+<th>high (n)</th><th>medium (n)</th><th>low (n)</th><th>speculative (n)</th>  </tr></thead>
+  <tbody>
+    <tr><td>linguistic</td>
+      <td>83.0% (94)</td>
+      <td>7.9% (215)</td>
+      <td>5.4% (56)</td>
+      <td>n/a (0)</td>
+    </tr>
+    <tr><td>landscape</td>
+      <td>58.2% (545)</td>
+      <td>9.7% (801)</td>
+      <td>2.9% (409)</td>
+      <td>0.2% (445)</td>
+    </tr>
+    <tr><td>botanics</td>
+      <td>56.4% (367)</td>
+      <td>21.9% (834)</td>
+      <td>1.4% (648)</td>
+      <td>0.6% (326)</td>
+    </tr>
+    <tr><td>regulatory</td>
+      <td>87.8% (131)</td>
+      <td>38.8% (544)</td>
+      <td>11.4% (667)</td>
+      <td>1.4% (629)</td>
+    </tr>
+    <tr><td>meta</td>
+      <td>83.4% (217)</td>
+      <td>27.2% (668)</td>
+      <td>6.0% (532)</td>
+      <td>1.6% (322)</td>
+    </tr>
+    <tr><td><strong>average</strong></td>
+      <td><strong>66.3%</strong> (1354)</td>
+      <td><strong>21.9%</strong> (3062)</td>
+      <td><strong>5.7%</strong> (2312)</td>
+      <td><strong>1.0%</strong> (1722)</td>
+    </tr>
+  </tbody>
+</table>
+<img class="figure" src="plots/calibration_label_hit_rate.png" alt="Per-label hit-rate">
+<p class="caption">Figure: per-label hit-rate. A well-calibrated agent shows
+monotonically falling bars (high, medium, low, speculative).</p>
+<table>
+  <thead><tr><th>Agent</th><th data-sort="num">n</th>
+    <th data-sort="num">Brier</th><th data-sort="num">ECE</th></tr></thead>
+  <tbody>
+    <tr><td>linguistic</td><td>107</td>
+      <td>0.136</td>
+      <td>0.053</td></tr>
+    <tr><td>landscape</td><td>500</td>
+      <td>0.218</td>
+      <td>0.175</td></tr>
+    <tr><td>botanics</td><td>500</td>
+      <td>0.221</td>
+      <td>0.107</td></tr>
+    <tr><td>regulatory</td><td>500</td>
+      <td>0.197</td>
+      <td>0.038</td></tr>
+    <tr><td>meta</td><td>500</td>
+      <td>0.209</td>
+      <td>0.098</td></tr>
+    <tr><td><strong>average</strong></td><td>2107</td>
+      <td><strong>0.207</strong></td>
+      <td><strong>0.090</strong></td></tr>
+  </tbody>
+</table>
+
+<h2 id="dynamics">2. Approach dynamics</h2>
+<p>The tournament only pipeline runs five independent agent assessments into a
+candidate pool, seeds the top four of that pool into a bracket (seed 0 vs seed 3,
+seed 1 vs seed 2, then a final), and returns the champion as the answer. There is
+no region gate, so these dynamics cover the candidate pool, the pool to bracket
+seeding step, the bracket matches and the ground truth survival ladder.</p>
+
+<h3>Candidate pool to bracket seeding</h3>
+<table>
+  <thead><tr><th>Metric</th><th data-sort="num">Value</th></tr></thead>
+  <tbody>
+    <tr><td>Mean pool size</td><td>5.75</td></tr>
+    <tr><td>Max pool size</td><td>6</td></tr>
+    <tr><td>Mean bracket size</td><td>4.00</td></tr>
+    <tr><td>Mean pool to bracket slack</td><td>1.75 (max 2)</td></tr>
+    <tr><td>Bracket equals pool top 4 (as a set)</td><td>204 (40.8%)</td></tr>
+    <tr><td>Pool larger than 4 (some pool entries dropped)</td><td>485 (97.0%)</td></tr>
+  </tbody>
+</table>
+
+<h3>Seed 0 origin (which signal produces the top seed)</h3>
+<p>Across 500 images with a bracket, the seed 0 country matches the initial
+plurality (at least 2 of 5 agents) <strong>93.4%</strong>
+of the time (n=467).</p>
+<table>
+  <thead><tr><th>Agent</th><th data-sort="num">Seed 0 matches this agent top pick</th></tr></thead>
+  <tbody>
+    <tr><td>linguistic</td><td>95 (19.0%)</td></tr>
+    <tr><td>landscape</td><td>460 (92.0%)</td></tr>
+    <tr><td>botanics</td><td>442 (88.4%)</td></tr>
+    <tr><td>regulatory</td><td>432 (86.4%)</td></tr>
+    <tr><td>meta</td><td>416 (83.2%)</td></tr>
+  </tbody>
+</table>
+
+<h3>Tournament matches</h3>
+<p>Across 1500 bracket matches: judge agrees with the specialists
+<strong>97.9%</strong> (n=1469), disagrees
+<strong>2.1%</strong> (n=31), and a lower seed
+wins (upset) <strong>5.5%</strong> (n=82).</p>
+<table>
+  <thead><tr><th data-sort="num">Original seed</th><th data-sort="num">Champions</th><th>Share</th></tr></thead>
+  <tbody>
+    <tr><td>0</td><td>492</td><td>98.4%</td></tr>
+    <tr><td>1</td><td>4</td><td>0.8%</td></tr>
+    <tr><td>2</td><td>4</td><td>0.8%</td></tr>
+  </tbody>
+</table>
+
+<h3>Initial plurality vs champion (ratify or revise)</h3>
+<p>Of 498 images with an initial plurality (at least 2 of 5
+agents naming the same country), the tournament champion equals that plurality
+<strong>93.0%</strong> (n=463)
+and revises it <strong>7.0%</strong> (n=35).
+2 images had no initial plurality.</p>
+
+<h3>Ground truth survival ladder</h3>
+<p>Each gate can drop the ground truth country, and no downstream gate can recover
+it. Rates are over 500 images with ground truth.</p>
+<table>
+  <thead><tr><th>Gate</th><th data-sort="num">Survived</th><th data-sort="num">Rate</th></tr></thead>
+  <tbody>
+    <tr><td>Ground truth in candidate pool</td><td>429</td><td>85.8%</td></tr>
+    <tr><td>Ground truth in bracket (top 4 seeded)</td><td>418</td><td>83.6%</td></tr>
+    <tr><td>Ground truth at seed 0</td><td>336</td><td>67.2%</td></tr>
+    <tr><td>Ground truth reached the final</td><td>384</td><td>76.8%</td></tr>
+    <tr><td>Ground truth won the tournament</td><td>339</td><td>67.8%</td></tr>
+  </tbody>
+</table>
+<p>Gate to gate survival of ground truth: in pool to in bracket
+97.4%, in bracket to reached final
+91.9%, reached final to won tournament
+88.3%.</p>
+
+<h3>Seed fidelity (does the tournament correct mis seedings?)</h3>
+<p>Over the 418 images where the ground truth reached the
+bracket, the tournament picks it <strong>81.1%</strong>
+of the time (n=339).</p>
+<table>
+  <thead><tr><th data-sort="num">Ground truth seed</th><th data-sort="num">n</th><th data-sort="num">Won</th><th data-sort="num">Win rate</th></tr></thead>
+  <tbody>
+    <tr><td>0</td><td>336</td><td>334</td><td>99.4%</td></tr>
+    <tr><td>1</td><td>40</td><td>1</td><td>2.5%</td></tr>
+    <tr><td>2</td><td>27</td><td>4</td><td>14.8%</td></tr>
+    <tr><td>3</td><td>15</td><td>0</td><td>0.0%</td></tr>
+  </tbody>
+</table>
+
+<h3>Per-agent initial round</h3>
+<p>In tournament only there is no per-agent country reassessment, so each agent
+contributes only its initial top pick.</p>
+<table>
+  <thead><tr><th>Agent</th><th data-sort="num">n</th>
+    <th data-sort="num">Top-1</th><th data-sort="num">Top-3</th>
+    <th data-sort="num">Coverage</th></tr></thead>
+  <tbody>
+    <tr><td>linguistic</td><td>107</td>
+      <td>78.5%</td>
+      <td>86.0%</td>
+      <td>91.6%</td></tr>
+    <tr><td>landscape</td><td>500</td>
+      <td>64.8%</td>
+      <td>79.6%</td>
+      <td>81.4%</td></tr>
+    <tr><td>botanics</td><td>500</td>
+      <td>63.4%</td>
+      <td>78.4%</td>
+      <td>80.0%</td></tr>
+    <tr><td>regulatory</td><td>500</td>
+      <td>64.8%</td>
+      <td>79.4%</td>
+      <td>82.0%</td></tr>
+    <tr><td>meta</td><td>500</td>
+      <td>62.6%</td>
+      <td>78.2%</td>
+      <td>79.8%</td></tr>
+  </tbody>
+</table>
+<img class="figure" src="plots/agent_top1.png" alt="Agent top-1">
+<p class="caption">Figure: per-agent top-1 accuracy.</p>
+
+<h2 id="judge">3. LLM-as-judge verdicts</h2>
+<p>Verdicts: 500 / 500.
+   Constructive synthesis: 93.2%
+   (n=500)</p>
+<h3>Per-agent quantitative scores</h3>
+<table>
+  <thead><tr><th>Agent</th><th data-sort="num">n</th>
+    <th data-sort="num">Role adher.</th>
+    <th data-sort="num">Hallucination (lower is better)</th>
+    <th data-sort="num">Visual cons. (higher is better)</th>
+    <th data-sort="num">Calibration (higher is better)</th></tr></thead>
+  <tbody>
+    <tr>
+      <td>linguistic</td>
+      <td>107</td>
+      <td>100.0%</td>
+      <td>0.01 ± 0.06</td>
+      <td>0.53 ± 0.49</td>
+      <td>0.34 ± 0.35</td>
+    </tr>
+    <tr>
+      <td>landscape</td>
+      <td>500</td>
+      <td>100.0%</td>
+      <td>0.01 ± 0.07</td>
+      <td>0.91 ± 0.06</td>
+      <td>0.69 ± 0.28</td>
+    </tr>
+    <tr>
+      <td>botanics</td>
+      <td>500</td>
+      <td>100.0%</td>
+      <td>0.02 ± 0.09</td>
+      <td>0.90 ± 0.08</td>
+      <td>0.65 ± 0.27</td>
+    </tr>
+    <tr>
+      <td>regulatory</td>
+      <td>500</td>
+      <td>100.0%</td>
+      <td>0.01 ± 0.08</td>
+      <td>0.90 ± 0.09</td>
+      <td>0.63 ± 0.26</td>
+    </tr>
+    <tr>
+      <td>meta</td>
+      <td>500</td>
+      <td>100.0%</td>
+      <td>0.06 ± 0.20</td>
+      <td>0.86 ± 0.18</td>
+      <td>0.66 ± 0.32</td>
+    </tr>
+  </tbody>
+</table>
+<img class="figure" src="plots/judge_role_adherence.png" alt="Role adherence">
+<p class="caption">Figure: per-agent role adherence rate.</p>
+<img class="figure" src="plots/judge_hallucination.png" alt="Hallucination scores">
+<p class="caption">Figure: per-agent mean hallucination score (0 = clean, 1 = severe).</p>
+<img class="figure" src="plots/judge_visual_consistency.png" alt="Visual consistency">
+<p class="caption">Figure: per-agent mean visual consistency.</p>
+
+<h3>Tournament failure attribution</h3>
+<p>For matches where the truth was in the candidate pool but did not win, the judge
+classifies why. Counterfactual winnable rate:
+<strong>19.2%</strong>
+(193 attributable losses).</p>
+<table>
+  <thead><tr><th>Failure reason</th><th data-sort="num">Count</th></tr></thead>
+  <tbody>
+    <tr><td>agent_misled_in_tournament</td><td>41</td></tr>
+    <tr><td>not_applicable</td><td>307</td></tr>
+    <tr><td>ambiguous_evidence</td><td>15</td></tr>
+    <tr><td>judge_misjudgment</td><td>34</td></tr>
+    <tr><td>agent_misled_pre_pool</td><td>102</td></tr>
+    <tr><td>missing_rag_refs</td><td>1</td></tr>
+  </tbody>
+</table>
+<img class="figure" src="plots/judge_failure_reasons.png" alt="Failure attribution">
+<p class="caption">Figure: tournament failure attribution histogram.</p>
+<details><summary>Failure examples (20)</summary>
+<details class="example"><summary>1NJsXTxIF9GGMDxC_1, agent_misled_in_tournament
+  (lost to Kazakhstan)</summary>
+<p><strong>Round:</strong> semi-2,
+   <strong>Counterfactual winnable:</strong>
+   <span class="badge bad">
+     no</span></p>
+<p>The landscape and meta agents assigned 'neutral' or 'support' to Kyrgyzstan but 'strongly_support' to Azerbaijan. Specifically, the landscape agent contradicted Kyrgyzstan based on terrain flatness, and the meta agent downgraded Kyrgyzstan based on the totem. This caused the tournament judge to eliminate Kyrgyzstan in the semi-finals against Kazakhstan, preventing it from ever facing Azerbaijan.</p></details>
+<details class="example"><summary>1NJsXTxIF9GGMDxC_3, ambiguous_evidence
+  (lost to Bosnia and Herzegovina)</summary>
+<p><strong>Round:</strong> final,
+   <strong>Counterfactual winnable:</strong>
+   <span class="badge bad">
+     no</span></p>
+<p>The visual evidence (socialist-era apartment blocks, specific balcony railings, street lamps) is highly characteristic of the former Yugoslavia and is shared by both Serbia and Bosnia and Herzegovina. The agents and tournament judge could not distinguish between the two based on the available visual cues.</p></details>
+<details class="example"><summary>3I4ZtihbhZy5qZzQ_1, judge_misjudgment
+  (lost to India)</summary>
+<p><strong>Round:</strong> final,
+   <strong>Counterfactual winnable:</strong>
+   <span class="badge ok">
+     yes</span></p>
+<p>The final match between India and Bangladesh was decided by the 'meta' agent's claim that camera artifacts and utility pole styles were 'more characteristic' of India. These features are visually identical in rural West Bengal (India) and Bangladesh. The judge misjudged the evidence by treating shared regional features as unique differentiators, leading to a wrong conclusion despite the truth being in the pool.</p></details>
+<details class="example"><summary>3I4ZtihbhZy5qZzQ_2, agent_misled_pre_pool
+  (lost to n/a)</summary>
+<p><strong>Round:</strong> n/a,
+   <strong>Counterfactual winnable:</strong>
+   <span class="badge bad">
+     no</span></p>
+</details>
+<details class="example"><summary>3I4ZtihbhZy5qZzQ_4, agent_misled_pre_pool
+  (lost to n/a)</summary>
+<p><strong>Round:</strong> n/a,
+   <strong>Counterfactual winnable:</strong>
+   <span class="badge bad">
+     no</span></p>
+</details>
+<details class="example"><summary>3I4ZtihbhZy5qZzQ_5, judge_misjudgment
+  (lost to Ecuador)</summary>
+<p><strong>Round:</strong> semi-2,
+   <strong>Counterfactual winnable:</strong>
+   <span class="badge ok">
+     yes</span></p>
+<p>The judge incorrectly favored Ecuador over Panama in the semi-final. The visual evidence (concrete walls, corrugated roofs, flat terrain) is equally or more consistent with Panama. The judge's reasoning relied on 'Andean urban infrastructure' which is a misinterpretation of the flat, lowland tropical environment shown in the image.</p></details>
+<details class="example"><summary>3OuVMcpGjmm0tVfG_1, judge_misjudgment
+  (lost to Philippines)</summary>
+<p><strong>Round:</strong> final,
+   <strong>Counterfactual winnable:</strong>
+   <span class="badge ok">
+     yes</span></p>
+<p>The landscape specialist assigned 'strongly_support' to the Philippines based on 'volcanic grey rocky embankments', treating a shared regional feature (volcanic soil/rock) as a unique differentiator. The judge accepted this flawed reasoning in the final match, despite Indonesia having comparable support. The visual evidence (volcanic rock) is ambiguous between the two archipelagos, but the judge failed to recognize this ambiguity and incorrectly favored the Philippines.</p></details>
+<details class="example"><summary>3OuVMcpGjmm0tVfG_5, agent_misled_pre_pool
+  (lost to n/a)</summary>
+<p><strong>Round:</strong> n/a,
+   <strong>Counterfactual winnable:</strong>
+   <span class="badge bad">
+     no</span></p>
+<p>The correct country (Argentina) was not included in the candidate pool. The specialists failed to nominate it, likely due to a bias towards North/Central American infrastructure and vegetation patterns (e.g., confusing the local palm species with Mexican Fan Palms).</p></details>
+<details class="example"><summary>3uP6lYo9pzx5Q0km_2, ambiguous_evidence
+  (lost to Sweden)</summary>
+<p><strong>Round:</strong> final,
+   <strong>Counterfactual winnable:</strong>
+   <span class="badge bad">
+     no</span></p>
+<p>The visual evidence (rural road, birch/pine forest, white wooden house) is nearly identical in Sweden and Norway. The agents and tournament judge correctly identified the Fennoscandian context but could not distinguish between the two based on the available visual cues.</p></details>
+<details class="example"><summary>3uP6lYo9pzx5Q0km_3, judge_misjudgment
+  (lost to Czech Republic)</summary>
+<p><strong>Round:</strong> final,
+   <strong>Counterfactual winnable:</strong>
+   <span class="badge ok">
+     yes</span></p>
+<p>The specialists (meta and regulatory) correctly identified the posts as Polish and gave high confidence to Poland. The judge ignored this strong specialist signal and the RAG evidence for Poland, instead relying on a flawed RAG reference for the Czech Republic to make the final decision.</p></details>
+<details class="example"><summary>3uP6lYo9pzx5Q0km_5, agent_misled_pre_pool
+  (lost to n/a)</summary>
+<p><strong>Round:</strong> n/a,
+   <strong>Counterfactual winnable:</strong>
+   <span class="badge bad">
+     no</span></p>
+<p>The ground truth (Montenegro) was not included in the candidate pool. The agents failed to nominate it, likely because the visual evidence (rural road, forest, rusted guardrail) is generic to the Balkans and did not trigger a specific Montenegro hypothesis in any specialist.</p></details>
+<details class="example"><summary>4UvmdTHySo6AXW4M_1, agent_misled_pre_pool
+  (lost to n/a)</summary>
+<p><strong>Round:</strong> n/a,
+   <strong>Counterfactual winnable:</strong>
+   <span class="badge bad">
+     no</span></p>
+<p>The ground truth (Luxembourg) was not included in the candidate pool. The landscape and botanics agents failed to nominate it, likely because the visual features (green pastures, bare trees, narrow road) are generic to Western Europe and did not trigger a specific match for Luxembourg over the UK or Ireland.</p></details>
+<details class="example"><summary>4UvmdTHySo6AXW4M_3, judge_misjudgment
+  (lost to Russia)</summary>
+<p><strong>Round:</strong> semi-1,
+   <strong>Counterfactual winnable:</strong>
+   <span class="badge ok">
+     yes</span></p>
+<p>The judge accepted the 'absence of bollards' argument as a strong differentiator for Russia over Poland. However, the absence of evidence is not evidence of absence; rural Polish roads often lack these markers. The judge failed to weigh the positive visual evidence (road width, asphalt texture, truck style) which was actually consistent with Poland, and instead relied on a negative inference that was not unique to Russia.</p></details>
+<details class="example"><summary>4UvmdTHySo6AXW4M_4, agent_misled_in_tournament
+  (lost to South Africa)</summary>
+<p><strong>Round:</strong> final,
+   <strong>Counterfactual winnable:</strong>
+   <span class="badge bad">
+     no</span></p>
+<p>The meta agent hallucinated that the utility poles were concrete and tapered (claiming they were 'concrete poles with a specific tapered design'), whereas the image clearly shows wooden poles. This hallucinated evidence was used to strongly support South Africa and contradict the USA, leading the tournament to reject the correct answer.</p></details>
+<details class="example"><summary>4UvmdTHySo6AXW4M_5, agent_misled_pre_pool
+  (lost to n/a)</summary>
+<p><strong>Round:</strong> n/a,
+   <strong>Counterfactual winnable:</strong>
+   <span class="badge bad">
+     no</span></p>
+<p>The ground truth (Cambodia) was not included in the candidate pool. The landscape and botanics agents incorrectly identified the scene as Northern India/Pakistan based on the Indo-Gangetic plain analogy, and the meta agent failed to identify the Southeast Asian context, instead favoring India based on camera artifacts.</p></details>
+<details class="example"><summary>56Q4T4rpv9O9sCpP_4, agent_misled_pre_pool
+  (lost to n/a)</summary>
+<p><strong>Round:</strong> n/a,
+   <strong>Counterfactual winnable:</strong>
+   <span class="badge bad">
+     no</span></p>
+</details>
+<details class="example"><summary>56Q4T4rpv9O9sCpP_5, judge_misjudgment
+  (lost to Botswana)</summary>
+<p><strong>Round:</strong> final,
+   <strong>Counterfactual winnable:</strong>
+   <span class="badge ok">
+     yes</span></p>
+<p>The meta agent hallucinated a 'camera rig artifact' (blur/halo) to support Botswana. The judge accepted this hallucination as 'strong evidence' and used it to override the visual evidence (road markings) that actually pointed to South Africa/Namibia. The judge failed to verify the existence of the artifact in the image.</p></details>
+<details class="example"><summary>5GS2RPgTrf85UZM5_1, ambiguous_evidence
+  (lost to Romania)</summary>
+<p><strong>Round:</strong> final,
+   <strong>Counterfactual winnable:</strong>
+   <span class="badge bad">
+     no</span></p>
+<p>The visual evidence (concrete poles, red roofs, curbs) is genuinely ambiguous between Bulgaria and Romania. The agents and tournament judge relied on 'meta' features that are not unique to Romania, leading to a defensible but incorrect choice.</p></details>
+<details class="example"><summary>5GS2RPgTrf85UZM5_3, agent_misled_pre_pool
+  (lost to n/a)</summary>
+<p><strong>Round:</strong> n/a,
+   <strong>Counterfactual winnable:</strong>
+   <span class="badge bad">
+     no</span></p>
+<p>Bolivia was not included in the candidate pool. The landscape, botanics, and regulatory agents all prioritized Brazil based on red soil and tropical vegetation, failing to consider Bolivia despite the visual evidence being highly consistent with the Bolivian interior (e.g., Santa Cruz/Chiquitos region).</p></details>
+<details class="example"><summary>5GS2RPgTrf85UZM5_5, agent_misled_pre_pool
+  (lost to n/a)</summary>
+<p><strong>Round:</strong> n/a,
+   <strong>Counterfactual winnable:</strong>
+   <span class="badge bad">
+     no</span></p>
+</details>
+</details>
+
+<h3>Hallucination examples</h3>
+<details><summary>linguistic, 4 flagged claims</summary>
+<table class="small-table"><thead><tr><th>Image</th><th data-sort="num">Score</th><th>Hallucinated claim</th></tr></thead><tbody>
+<tr><td>HF1MKwIFNCNb4FdM_3</td>
+  <td>0.75</td>
+  <td>The text 'Vilabonita' on the billboard is a specific residential project name common in Colombia.</td></tr>
+<tr><td>HLDekf7z49ovS9Y8_1</td>
+  <td>0.50</td>
+  <td>The graffiti 'PIRAI CAMEO' contains words consistent with Portuguese.</td></tr>
+<tr><td>oIqmyQzBGtaIeI84_4</td>
+  <td>0.75</td>
+  <td>The text 'SOLGAS' refers to a gas distribution company that operates primarily in Colombia.</td></tr>
+<tr><td>z2mhsiTu4DYWixQf_5</td>
+  <td>0.50</td>
+  <td>The sign on the left contains the word 'سورية' (Syria/Syrian)</td></tr>
+</tbody></table></details>
+<details><summary>landscape, 5 flagged claims</summary>
+<table class="small-table"><thead><tr><th>Image</th><th data-sort="num">Score</th><th>Hallucinated claim</th></tr></thead><tbody>
+<tr><td>74bPHM081cMUaNKT_4</td>
+  <td>0.75</td>
+  <td>The landscape specialist claims 'light-colored, weathered sedimentary rock cuts on the right' are 'highly characteristic of the Colombian interior' and 'specific weathered sedimentary rock cuts'. The image shows a generic dirt/gravel embankment with some exposed subsoil, not distinct sedimentary rock cuts.</td></tr>
+<tr><td>74bPHM081cMUaNKT_4</td>
+  <td>0.75</td>
+  <td>The landscape specialist claims the 'specific road marking style... is very common in the Colombian highlands'. The yellow center line is a generic international standard, not specific to Colombia.</td></tr>
+<tr><td>9lNwy1vjD53PTSwt_2</td>
+  <td>0.20</td>
+  <td>claimed 'specific species of deciduous trees' — the prominent trees are clearly Eucalyptus (evergreen), not deciduous.</td></tr>
+<tr><td>HLDekf7z49ovS9Y8_1</td>
+  <td>0.50</td>
+  <td>The combination of reddish-brown sandy soil... is highly characteristic of Brazil.</td></tr>
+<tr><td>KWr0ySMIaUQRvikA_3</td>
+  <td>0.75</td>
+  <td>landscape agent: 'The combination of sandy red-brown soil and dense, low-lying scrubby green vegetation is highly characteristic of the Sahelian transition zone.' (The image shows a Chaco landscape, not the Sahel; the agents hallucinated the Sahel context.)</td></tr>
+</tbody></table></details>
+<details><summary>botanics, 5 flagged claims</summary>
+<table class="small-table"><thead><tr><th>Image</th><th data-sort="num">Score</th><th>Hallucinated claim</th></tr></thead><tbody>
+<tr><td>4UvmdTHySo6AXW4M_4</td>
+  <td>0.50</td>
+  <td>claimed 'Saguaro' is a common North American desert indicator (it is not native to the region shown)</td></tr>
+<tr><td>4UvmdTHySo6AXW4M_4</td>
+  <td>0.50</td>
+  <td>claimed 'Creosote bush' is a distinct visual indicator present/absent in the scrub</td></tr>
+<tr><td>6ypQOh9cOoE7WaWH_3</td>
+  <td>0.20</td>
+  <td>claimed 'eucalyptus globulus (introduced)' visible in background — image shows generic montane forest/scrub, no distinct eucalyptus trees visible</td></tr>
+<tr><td>74bPHM081cMUaNKT_4</td>
+  <td>0.25</td>
+  <td>The botanics agent claims 'Acacia-like trees' are visible. The trees in the image are generic broadleaf/scrub; identifying them as Acacia is a weak inference, though not a total fabrication.</td></tr>
+<tr><td>9lNwy1vjD53PTSwt_2</td>
+  <td>0.20</td>
+  <td>claimed 'Platanus orientalis (Oriental Plane)' — the trees visible are Eucalyptus (tall, smooth bark, drooping leaves), not Plane trees.</td></tr>
+</tbody></table></details>
+<details><summary>regulatory, 5 flagged claims</summary>
+<table class="small-table"><thead><tr><th>Image</th><th data-sort="num">Score</th><th>Hallucinated claim</th></tr></thead><tbody>
+<tr><td>HF1MKwIFNCNb4FdM_3</td>
+  <td>0.50</td>
+  <td>The billboard text 'Vilabonita' and the general style of the utility poles and street lighting are consistent with Colombian infrastructure.</td></tr>
+<tr><td>HLDekf7z49ovS9Y8_1</td>
+  <td>0.50</td>
+  <td>The combination of unpaved dirt roads... is very common in Brazilian outskirts.</td></tr>
+<tr><td>JnTw9kl2nWPFaoUg_5</td>
+  <td>0.50</td>
+  <td>claimed 'white Toyota Hiace commuter vans with specific colorful decals... are extremely characteristic of Ugandan matatus' (decals are actually a Kenyan hallmark; Uganda uses plain or differently marked vans).</td></tr>
+<tr><td>KWr0ySMIaUQRvikA_3</td>
+  <td>0.50</td>
+  <td>regulatory agent: 'The combination of narrow asphalt, sandy shoulders, and specific wooden utility pole cross-arm style is common in rural Botswana.' (Speculative hallucination of infrastructure style.)</td></tr>
+<tr><td>QTmrnxW99iiyS2xS_3</td>
+  <td>0.50</td>
+  <td>The double yellow center lines are a quintessential road marking for the USA, whereas Turkey typically uses white lines for road separation.</td></tr>
+</tbody></table></details>
+<details><summary>meta, 5 flagged claims</summary>
+<table class="small-table"><thead><tr><th>Image</th><th data-sort="num">Score</th><th>Hallucinated claim</th></tr></thead><tbody>
+<tr><td>4UvmdTHySo6AXW4M_4</td>
+  <td>0.75</td>
+  <td>claimed 'concrete poles with a specific tapered design' are visible (poles are clearly wooden)</td></tr>
+<tr><td>4UvmdTHySo6AXW4M_4</td>
+  <td>0.75</td>
+  <td>claimed 'concrete poles' are standard in South Africa (they are wooden in the image)</td></tr>
+<tr><td>56Q4T4rpv9O9sCpP_2</td>
+  <td>0.75</td>
+  <td>The utility pole is a classic South African design: a concrete pole with a specific T-shaped cross-arm and insulator configuration common in rural areas.</td></tr>
+<tr><td>56Q4T4rpv9O9sCpP_5</td>
+  <td>1.00</td>
+  <td>The image shows a very distinct Google Street View camera artifact: the 'halo' or blur at the bottom of the frame is characteristic of the camera rig used in Botswana's coverage.</td></tr>
+<tr><td>56Q4T4rpv9O9sCpP_5</td>
+  <td>1.00</td>
+  <td>the specific camera blur at the bottom is less common for the standard South African coverage compared to Botswana.</td></tr>
+</tbody></table></details>
+
+</main>
+</div>
+
+<script>
+function toggleTheme() {
+  const r = document.documentElement;
+  r.dataset.theme = r.dataset.theme === "dark" ? "light" : "dark";
+}
+function expandAll(open) {
+  document.querySelectorAll("details").forEach(d => { d.open = open; });
+}
+// Sortable tables: any <th> click sorts column. data-sort="num" forces numeric.
+document.querySelectorAll("table").forEach(table => {
+  table.querySelectorAll("th").forEach((th, idx) => {
+    th.addEventListener("click", () => {
+      const tbody = table.tBodies[0];
+      if (!tbody) return;
+      const rows = Array.from(tbody.rows);
+      const numeric = th.dataset.sort === "num";
+      const asc = !th.classList.contains("sort-asc");
+      rows.sort((a, b) => {
+        const x = a.cells[idx]?.innerText || "";
+        const y = b.cells[idx]?.innerText || "";
+        if (numeric) {
+          const xn = parseFloat(x.replace(/[^\d.\-]/g, "")) || 0;
+          const yn = parseFloat(y.replace(/[^\d.\-]/g, "")) || 0;
+          return asc ? xn - yn : yn - xn;
+        }
+        return asc ? x.localeCompare(y) : y.localeCompare(x);
+      });
+      rows.forEach(r => tbody.appendChild(r));
+      table.querySelectorAll("th").forEach(t => t.classList.remove("sort-asc", "sort-desc"));
+      th.classList.toggle("sort-asc", asc);
+      th.classList.toggle("sort-desc", !asc);
+    });
+  });
+});
+// Scroll-spy: highlight active TOC entry
+const sections = Array.from(document.querySelectorAll("main h2"));
+const tocLinks = Array.from(document.querySelectorAll("nav.toc a"));
+function onScroll() {
+  let current = null;
+  for (const s of sections) {
+    if (s.getBoundingClientRect().top < 100) current = s.id;
+  }
+  tocLinks.forEach(a => a.classList.toggle("active",
+    a.getAttribute("href") === "#" + current));
+}
+window.addEventListener("scroll", onScroll, { passive: true });
+onScroll();
+</script>
+</body>
+</html>

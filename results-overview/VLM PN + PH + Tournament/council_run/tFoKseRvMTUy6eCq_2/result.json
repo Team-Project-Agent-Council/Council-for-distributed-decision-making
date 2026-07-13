@@ -1,0 +1,430 @@
+{
+  "image_path": "/pfs/data6/home/ma/ma_ma/ma_lweisssc/llm_council_agent_orchestration_tests/clean_images_GeoRC_500/tFoKseRvMTUy6eCq_2.png",
+  "model": "google/gemma-4-31B-it",
+  "judge_model": "google/gemma-4-31B-it",
+  "timing": {
+    "total_seconds": 63.2
+  },
+  "assessments": {
+    "linguistic": {
+      "agent_name": "linguistic",
+      "candidates": [],
+      "evidence": []
+    },
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Canada",
+          "confidence": "high",
+          "reasoning": "The extremely flat prairie landscape, combined with the specific style of wide-open agricultural fields and road shoulder composition, is highly characteristic of the Canadian Prairies (Saskatchewan/Alberta). The vegetation and sky pattern are consistent with high-latitude temperate grasslands."
+        },
+        {
+          "country": "United States",
+          "confidence": "high",
+          "reasoning": "The landscape is virtually identical to the Great Plains of the US (e.g., North Dakota, Kansas). The flat terrain and large-scale monoculture farming are indistinguishable from the Canadian Prairies without further infrastructure clues."
+        },
+        {
+          "country": "Russia",
+          "confidence": "medium",
+          "reasoning": "The vast, flat steppe regions of Southern Russia share this same environmental profile of endless horizons and agricultural plains. The soil and grass color are consistent with the Eurasian steppe."
+        },
+        {
+          "country": "Argentina",
+          "confidence": "low",
+          "reasoning": "The Pampas region provides a global analog with similar flat, fertile agricultural plains and a temperate climate. However, the specific road wear and vegetation hue are slightly more characteristic of Northern Hemisphere plains."
+        }
+      ],
+      "evidence": [
+        "extremely flat prairie terrain",
+        "large-scale agricultural monoculture",
+        "temperate grassland vegetation",
+        "wide open horizon with minimal topographic relief",
+        "asphalt road with gravel shoulders"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Canada",
+          "confidence": "medium",
+          "reasoning": "The vast, flat prairie landscape with large-scale cereal crop cultivation is highly characteristic of the Canadian Prairies (Saskatchewan/Alberta). The specific shade of green and the distant shelterbelts of deciduous trees are common in this region."
+        },
+        {
+          "country": "United States",
+          "confidence": "medium",
+          "reasoning": "The Great Plains of the US (e.g., North Dakota, Kansas) exhibit nearly identical agricultural patterns and vegetation to the Canadian Prairies, making it a primary candidate based on botanical evidence alone."
+        },
+        {
+          "country": "Russia",
+          "confidence": "low",
+          "reasoning": "The steppes of Southern Russia and Ukraine feature similar large-scale grain farming and flat horizons, though the specific tree composition in shelterbelts often differs slightly from North American varieties."
+        },
+        {
+          "country": "Argentina",
+          "confidence": "speculative",
+          "reasoning": "The Pampas region provides a global analog with similar flat, agricultural grasslands and large-scale crop production, though the seasonal growth patterns and specific grass species differ from the Northern Hemisphere."
+        }
+      ],
+      "evidence": [
+        "Large-scale cereal crops (likely wheat or barley)",
+        "Temperate grassland biome",
+        "Deciduous shelterbelts"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Canada",
+          "confidence": "medium",
+          "reasoning": "The road width, asphalt quality, and wide gravel shoulders are highly characteristic of the Canadian Prairies. The flat landscape combined with this specific rural road construction is common in provinces like Saskatchewan or Alberta."
+        },
+        {
+          "country": "United States",
+          "confidence": "medium",
+          "reasoning": "The infrastructure is virtually identical to rural roads in the American Midwest. The road width and shoulder treatment are standard for rural state highways in the US."
+        },
+        {
+          "country": "Argentina",
+          "confidence": "low",
+          "reasoning": "Following the global analog rule, the rural asphalt and wide gravel shoulders in the Pampas region can appear visually identical to North American rural roads."
+        },
+        {
+          "country": "Australia",
+          "confidence": "low",
+          "reasoning": "Following the global analog rule, rural highways in the wheat belt regions of Australia often feature similar asphalt quality and wide, unpaved shoulders."
+        }
+      ],
+      "evidence": [
+        "Wide gravel shoulders",
+        "Standard rural asphalt width",
+        "Absence of road signs, bollards, or utility poles in immediate view",
+        "Flat prairie-style terrain"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "Canada",
+          "confidence": "medium",
+          "reasoning": "The image quality and slight blur patterns are consistent with Gen 3/4 Google camera coverage common in the Canadian prairies. The road surface texture and wide, open shoulder style are highly characteristic of rural Saskatchewan or Alberta."
+        },
+        {
+          "country": "United States",
+          "confidence": "medium",
+          "reasoning": "The overall image quality and camera rig artifacts are nearly identical to those found in the US Midwest (e.g., North Dakota, Montana). Without specific bollards or poles, it is indistinguishable from Canada based on camera meta alone."
+        },
+        {
+          "country": "Australia",
+          "confidence": "low",
+          "reasoning": "The wide-open rural road and camera generation could potentially match parts of the Australian wheat belt, serving as a cross-continent analog for the general 'rural highway' meta."
+        }
+      ],
+      "evidence": [
+        "Google Street View camera generation (Gen 3/4)",
+        "Road surface texture and shoulder composition",
+        "Lack of distinctive roadside furniture (bollards/poles) suggesting a high-latitude rural plain"
+      ]
+    }
+  },
+  "progressive_narrowing": {
+    "region_consensus": false,
+    "confirmed_region": "North America",
+    "runner_up_region": "Oceania",
+    "surviving_regions": [
+      "North America",
+      "Oceania"
+    ],
+    "proposed_regions": [
+      "North America",
+      "Europe",
+      "South America",
+      "Oceania"
+    ],
+    "region_candidates": {
+      "North America": {
+        "Canada": 4,
+        "United States": 4
+      },
+      "Europe": {
+        "Russia": 2
+      },
+      "South America": {
+        "Argentina": 3
+      },
+      "Oceania": {
+        "Australia": 2
+      }
+    },
+    "region_decision_reasoning": "North America received the highest total score, with strong support from the meta agent regarding camera characteristics and support from the botanics agent regarding the agricultural landscape. Oceania is the runner-up due to support from the meta agent and a low-contradiction evaluation from the botanics agent.",
+    "path": "B"
+  },
+  "road_evidence": {
+    "outside_color": "white",
+    "inside_color": "yellow",
+    "driving_side": "UNCLEAR",
+    "driving_side_basis": "none"
+  },
+  "country_assessments": {
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Canada",
+          "confidence": "high",
+          "reasoning": "The extremely flat, vast prairie landscape with large-scale agricultural fields is characteristic of the Canadian Prairies (Alberta, Saskatchewan, Manitoba). The vegetation and sky pattern are highly consistent with the northern temperate grasslands of North America."
+        },
+        {
+          "country": "United States",
+          "confidence": "high",
+          "reasoning": "The terrain is nearly identical to the Great Plains of the US Midwest. The scale of the fields and the flat horizon make it geographically indistinguishable from Canada's prairies without further infrastructure clues."
+        },
+        {
+          "country": "Australia",
+          "confidence": "medium",
+          "reasoning": "The flat terrain and wide-open agricultural spaces are common in parts of the wheat belt in Southern or Western Australia. However, the specific shade of green and the cloud formations are more typical of northern temperate zones than the Australian interior."
+        }
+      ],
+      "evidence": [
+        "Extremely flat prairie/grassland terrain",
+        "Large-scale industrial agricultural field patterns",
+        "Temperate climate vegetation",
+        "Wide, straight asphalt road with minimal shoulder"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Canada",
+          "confidence": "medium",
+          "reasoning": "The vast, flat agricultural landscape with large-scale cereal crop fields is highly characteristic of the Canadian Prairies (Saskatchewan, Alberta, Manitoba). The specific shade of green and the distant windbreak tree lines are common in this region."
+        },
+        {
+          "country": "United States",
+          "confidence": "medium",
+          "reasoning": "The vegetation and land use are nearly identical to the Great Plains of the US (e.g., North Dakota, Kansas). It is botanically indistinguishable from the Canadian Prairies without seeing specific endemic species or infrastructure."
+        },
+        {
+          "country": "Australia",
+          "confidence": "low",
+          "reasoning": "The wheat belt of Western Australia or New South Wales features similar large-scale cereal agriculture and flat horizons. However, the specific lushness of the roadside grass suggests a more temperate/humid climate than typical Australian wheat belts."
+        }
+      ],
+      "evidence": [
+        "Cereal crops (likely wheat or barley)",
+        "Temperate grassland/prairie biome",
+        "Windbreak tree lines"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Canada",
+          "confidence": "medium",
+          "reasoning": "The road width, asphalt quality, and wide gravel shoulders are highly characteristic of the Canadian Prairies. The flat landscape and agricultural field layout are consistent with provinces like Saskatchewan or Alberta."
+        },
+        {
+          "country": "United States",
+          "confidence": "medium",
+          "reasoning": "The infrastructure is indistinguishable from rural roads in the American Midwest. The road width and shoulder treatment are standard for rural state highways in the US."
+        },
+        {
+          "country": "Australia",
+          "confidence": "low",
+          "reasoning": "Rural asphalt roads with wide gravel shoulders in the wheat belt regions of Australia can appear visually identical to North American rural roads. However, the vegetation and cloud patterns are slightly more characteristic of the Northern Hemisphere."
+        }
+      ],
+      "evidence": [
+        "wide gravel shoulders",
+        "rural asphalt road width",
+        "absence of road signs or bollards",
+        "flat agricultural landscape"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "Canada",
+          "confidence": "medium",
+          "reasoning": "The image quality and slight blur patterns are consistent with Gen 3 Google camera coverage common in the Canadian prairies. The road surface texture and the specific style of the shoulder transition are very typical for rural Saskatchewan or Alberta."
+        },
+        {
+          "country": "United States",
+          "confidence": "medium",
+          "reasoning": "The overall image quality and camera generation are nearly identical to those used in the US Midwest. Without specific bollards or utility poles, it is difficult to distinguish from the Great Plains of the USA."
+        },
+        {
+          "country": "Australia",
+          "confidence": "low",
+          "reasoning": "The wide, flat landscape and road quality could match rural parts of Australia, though the specific asphalt hue and camera artifacts are slightly more characteristic of North American coverage."
+        }
+      ],
+      "evidence": [
+        "Google Street View Gen 3 camera quality",
+        "Asphalt texture and shoulder wear patterns",
+        "Lack of distinctive roadside furniture"
+      ]
+    }
+  },
+  "hypothesis_evaluations": [
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_north_america",
+      "confidence": "support",
+      "reasoning": "The vast, flat agricultural landscape with large-scale monoculture cereal crops and temperate grassland margins is highly characteristic of the North American Great Plains (USA/Canada).",
+      "key_evidence": [
+        "large-scale cereal crop fields",
+        "temperate grassland margins"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_europe",
+      "confidence": "support",
+      "reasoning": "The vegetation is compatible with the temperate plains of Eastern Europe or Russia, though the scale of the fields and the specific grass composition are more typical of the Americas.",
+      "key_evidence": [
+        "temperate broadleaf/grassland biome"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_south_america",
+      "confidence": "low",
+      "reasoning": "While the Pampas of Argentina/Uruguay share this flat, grassy agricultural profile, the specific hue of the green crops and the distant tree line are more indicative of Northern Hemisphere temperate zones.",
+      "key_evidence": [
+        "temperate grassland analog"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_oceania",
+      "confidence": "low",
+      "reasoning": "Similar agricultural landscapes exist in the wheat belts of Australia, but the lushness of the green vegetation suggests a higher moisture regime than is common in most Australian grain-growing regions.",
+      "key_evidence": [
+        "temperate agricultural analog"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_north_america",
+      "confidence": "strongly_support",
+      "reasoning": "The image quality and the specific 'halo' or blur pattern at the bottom center of the frame are characteristic of the Google Street View camera generation commonly used in the US and Canada. The road surface texture and the wide, open rural layout are highly consistent with North American prairie regions.",
+      "key_evidence": [
+        "Google camera generation artifacts",
+        "Road surface texture"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_oceania",
+      "confidence": "support",
+      "reasoning": "The open landscape and road quality are compatible with rural Australia or New Zealand, and Google uses similar camera rigs globally, making it a plausible analog.",
+      "key_evidence": [
+        "Google camera generation artifacts"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_europe",
+      "confidence": "contradicts",
+      "reasoning": "The lack of any roadside delineators (bollards) or specific European-style utility poles in such a rural setting makes this less likely than North America.",
+      "key_evidence": [
+        "Absence of European bollards"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_south_america",
+      "confidence": "low",
+      "reasoning": "While possible, the specific image clarity and the lack of typical South American rural road degradation or specific utility pole styles make it less likely than North America.",
+      "key_evidence": [
+        "Google camera generation artifacts"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_canada",
+      "confidence": "support",
+      "reasoning": "The vast, flat agricultural landscape with large-scale cereal crop fields and distant shelterbelts of deciduous trees is highly characteristic of the Canadian Prairies (Saskatchewan, Alberta, Manitoba).",
+      "key_evidence": [
+        "large-scale cereal crops",
+        "prairie shelterbelts",
+        "temperate grassland biome"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_united_states",
+      "confidence": "support",
+      "reasoning": "The vegetation is virtually identical to the Great Plains of the US (e.g., North Dakota, Kansas), where similar industrial agriculture and temperate grassland biomes exist.",
+      "key_evidence": [
+        "large-scale cereal crops",
+        "temperate grassland biome"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_canada",
+      "confidence": "support",
+      "reasoning": "The image quality and camera generation are consistent with Google's coverage in the Canadian prairies. The road surface and shoulder style are common in rural Canada, though not unique.",
+      "key_evidence": [
+        "camera generation",
+        "road surface texture"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_united_states",
+      "confidence": "support",
+      "reasoning": "The visual meta is almost identical to rural areas of the US Midwest. The camera generation and image quality are compatible with US coverage, making it a strong analog to Canada.",
+      "key_evidence": [
+        "camera generation",
+        "road surface texture"
+      ]
+    }
+  ],
+  "candidate_pool": [
+    "Canada",
+    "United States"
+  ],
+  "rag_findings": [
+    {
+      "kind": "elim_road_marking",
+      "country": "Australia",
+      "detail": "observed outside=white, inside=yellow vs table='Outside: Yellow | Inside: White | Outside: White | Inside: White | Outside: Yellow | Inside: Yellow'"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "United States",
+      "detail": "The landscape is highly characteristic of the Canadian Prairies, specifically the flat agricultural plains and shelterbelts common in Saskatchewan. While similar to the US Great Plains, the specific combination of road shoulder style and field layout is very typical of rural Canada.",
+      "opponent": "Canada",
+      "winner": "Canada"
+    }
+  ],
+  "rag_refs_seen": [],
+  "road_filter_warnings": [],
+  "tournament_log": [
+    {
+      "round_label": "final",
+      "country_a": "Canada",
+      "country_b": "United States",
+      "pool_rank_a": 0,
+      "pool_rank_b": 1,
+      "winner": "Canada",
+      "reasoning": "The landscape is highly characteristic of the Canadian Prairies, specifically the flat agricultural plains and shelterbelts common in Saskatchewan. While similar to the US Great Plains, the specific combination of road shoulder style and field layout is very typical of rural Canada.",
+      "agreement": "agree"
+    }
+  ],
+  "country_result": "Country: Canada\nCoordinates: 51.5, -105.0\nReasoning: The landscape is highly characteristic of the Canadian Prairies, specifically the flat agricultural plains and shelterbelts common in Saskatchewan. While similar to the US Great Plains, the specific combination of road shoulder style and field layout is very typical of rural Canada.\n\nTournament:\n  final: Canada vs United States → Canada",
+  "coordinates": {
+    "lat": 51.5,
+    "lng": -105.0
+  },
+  "final_reasoning": "The landscape is highly characteristic of the Canadian Prairies, specifically the flat agricultural plains and shelterbelts common in Saskatchewan. While similar to the US Great Plains, the specific combination of road shoulder style and field layout is very typical of rural Canada."
+}

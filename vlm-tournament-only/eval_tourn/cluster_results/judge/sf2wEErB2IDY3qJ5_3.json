@@ -1,0 +1,101 @@
+{
+  "image_id": "sf2wEErB2IDY3qJ5_3",
+  "truth_country": "kenya",
+  "pred_country": "rwanda",
+  "is_correct": false,
+  "candidate_pool": [
+    "Rwanda",
+    "Brazil",
+    "Uganda",
+    "Ethiopia",
+    "Burundi",
+    "Kenya"
+  ],
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": false,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "role_adherence_notes": {
+      "linguistic": "The agent provided an empty candidate list and no evidence, failing to perform any linguistic analysis (scripts, languages, place names) despite the domain being relevant to the image.",
+      "landscape": "Stayed within terrain, soil, and climate analysis.",
+      "botanics": "Stayed within plant species and vegetation analysis.",
+      "regulatory": "Analyzed road infrastructure and drainage markers.",
+      "meta": "Synthesized cross-domain cues (camera generation, infrastructure style)."
+    },
+    "argumentative_quality": {
+      "linguistic": "very_weak",
+      "landscape": "strong",
+      "botanics": "strong",
+      "regulatory": "normal",
+      "meta": "normal"
+    },
+    "constructive_synthesis": false,
+    "overall_verdict_notes": "The pipeline failed because the specialist agents (and the meta-agent) relied on a hallucinated diagnostic marker ('15+212' as a Rwandan-specific code) to drive the tournament. The linguistic agent was completely absent. The final prediction (Rwanda) is incorrect.",
+    "role_adherence_score": {
+      "linguistic": 0.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.8,
+      "meta": 0.8
+    },
+    "argumentative_quality_score": {
+      "linguistic": 0.0,
+      "landscape": 0.8,
+      "botanics": 0.8,
+      "regulatory": 0.5,
+      "meta": 0.5
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.0,
+      "botanics": 0.0,
+      "regulatory": 0.75,
+      "meta": 0.75
+    },
+    "hallucination_examples": {
+      "linguistic": [],
+      "landscape": [],
+      "botanics": [],
+      "regulatory": [
+        "claimed 'specific style of the concrete culvert marker (15+212) is highly characteristic of Rwandan road infrastructure' \u2014 the number is a generic chainage marker, not a country-specific style."
+      ],
+      "meta": [
+        "claimed 'concrete culvert design with the specific numbering style (15+212) is highly characteristic of road infrastructure in Rwanda' \u2014 fabricated a specific diagnostic link."
+      ]
+    },
+    "visual_consistency_score": {
+      "linguistic": 0.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.8,
+      "meta": 0.8
+    },
+    "visual_consistency_notes": {
+      "linguistic": "No claims made.",
+      "landscape": "Accurately described red soil, hills, and vegetation.",
+      "botanics": "Accurately identified Eucalyptus and banana plants.",
+      "regulatory": "Accurately described the culvert and road markings, but misinterpreted the meaning of the text.",
+      "meta": "Accurately described image quality, but misinterpreted the text."
+    },
+    "confidence_calibration": {
+      "linguistic": 0.0,
+      "landscape": 0.2,
+      "botanics": 0.2,
+      "regulatory": 0.2,
+      "meta": 0.2
+    },
+    "tournament_failure": {
+      "truth_in_pool": true,
+      "truth_lost_to": "Rwanda",
+      "failure_match_round": "semi-1",
+      "failure_reason": "judge_misjudgment",
+      "failure_reasoning": "The judge relied on the hallucinated premise that the culvert marking '15+212' is a diagnostic marker for Rwanda. The specialists provided this false evidence, and the judge accepted it as a 'strong diagnostic marker' without verifying it against the image or general knowledge, leading to a defensible-on-paper but factually wrong decision.",
+      "counterfactual_winnable": true
+    }
+  }
+}

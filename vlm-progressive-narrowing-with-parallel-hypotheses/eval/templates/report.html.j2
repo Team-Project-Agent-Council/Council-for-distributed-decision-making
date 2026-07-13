@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VLM Council Progressive Narrowing + Parallel Hypotheses Evaluation Report</title>
+<style>
+  :root {
+    --bg: #FFFFFF; --fg: #222222; --muted: #666666; --border: #DDDDDD;
+    --accent: #4C72B0; --success: #55A868; --error: #C44E52;
+    --warning: #DD8452; --code-bg: #F4F4F4; --side-bg: #FAFAFA;
+  }
+  [data-theme="dark"] {
+    --bg: #1A1A1A; --fg: #E5E5E5; --muted: #999999; --border: #333333;
+    --accent: #6FA0D6; --success: #6FBE82; --error: #DA6B6E;
+    --warning: #E89A6E; --code-bg: #2A2A2A; --side-bg: #222222;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+         color: var(--fg); background: var(--bg); line-height: 1.55; }
+  .layout { display: flex; min-height: 100vh; }
+  nav.toc { width: 240px; flex: 0 0 240px; background: var(--side-bg);
+    border-right: 1px solid var(--border); padding: 1.2rem 1rem;
+    position: sticky; top: 0; height: 100vh; overflow-y: auto; font-size: 0.9rem; }
+  nav.toc h2 { font-size: 0.9rem; margin: 0 0 0.6rem; text-transform: uppercase;
+    letter-spacing: 0.05em; color: var(--muted); }
+  nav.toc ul { list-style: none; padding: 0; margin: 0; }
+  nav.toc li { margin: 0.2rem 0; }
+  nav.toc a { color: var(--fg); text-decoration: none; border-left: 2px solid transparent;
+    padding-left: 0.5rem; display: block; }
+  nav.toc a:hover, nav.toc a.active { border-left-color: var(--accent); color: var(--accent); }
+  main { flex: 1; max-width: 1100px; padding: 1.5rem 2rem 4rem; }
+  h1 { font-size: 1.8rem; margin-top: 0; }
+  h2 { font-size: 1.3rem; border-bottom: 1px solid var(--border);
+       padding-bottom: 0.3rem; margin-top: 2rem; }
+  h3 { font-size: 1.05rem; }
+  details { margin: 0.75rem 0; border: 1px solid var(--border); border-radius: 4px;
+    padding: 0.5rem 0.75rem; background: var(--side-bg); }
+  details > summary { cursor: pointer; font-weight: 600; margin: -0.5rem -0.75rem;
+    padding: 0.5rem 0.75rem; }
+  details[open] > summary { border-bottom: 1px solid var(--border); margin-bottom: 0.5rem; }
+  table { border-collapse: collapse; width: 100%; margin: 0.6rem 0; font-size: 0.92rem; }
+  th, td { border: 1px solid var(--border); padding: 0.45rem 0.6rem; text-align: left; }
+  th { background: var(--side-bg); cursor: pointer; user-select: none; }
+  th.sort-asc::after { content: " ▲"; color: var(--muted); }
+  th.sort-desc::after { content: " ▼"; color: var(--muted); }
+  img.figure { max-width: 100%; height: auto; margin: 0.6rem 0;
+    border: 1px solid var(--border); background: white; }
+  .caption { font-size: 0.85rem; color: var(--muted); font-style: italic; margin-bottom: 1rem; }
+  .headline-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 0.6rem; margin: 1rem 0; }
+  .stat { border: 1px solid var(--border); border-radius: 4px;
+    padding: 0.6rem 0.8rem; background: var(--side-bg); }
+  .stat .label { font-size: 0.78rem; color: var(--muted); text-transform: uppercase; }
+  .stat .value { font-size: 1.4rem; font-weight: 600; color: var(--accent); }
+  .badge { display: inline-block; padding: 0.1rem 0.5rem; border-radius: 3px;
+    font-size: 0.78rem; background: var(--code-bg); color: var(--fg); }
+  .badge.ok { background: var(--success); color: white; }
+  .badge.bad { background: var(--error); color: white; }
+  .badge.warn { background: var(--warning); color: white; }
+  blockquote { border-left: 3px solid var(--accent); margin: 0.8rem 0;
+    padding: 0.4rem 0.8rem; background: var(--code-bg); }
+  .controls { position: fixed; top: 0.6rem; right: 0.8rem;
+    display: flex; gap: 0.4rem; z-index: 100; }
+  .controls button { padding: 0.3rem 0.7rem; border: 1px solid var(--border);
+    background: var(--bg); color: var(--fg); cursor: pointer;
+    border-radius: 4px; font-size: 0.85rem; }
+  .controls button:hover { background: var(--side-bg); }
+  code { font-family: "SFMono-Regular", Menlo, monospace; font-size: 0.88rem;
+         background: var(--code-bg); padding: 0.05rem 0.3rem; border-radius: 2px; }
+  .meta { font-size: 0.85rem; color: var(--muted); }
+  .small-table { font-size: 0.85rem; }
+  details.example { background: var(--bg); }
+</style>
+</head>
+<body>
+<div class="controls">
+  <button onclick="toggleTheme()">🌓 theme</button>
+  <button onclick="expandAll(true)">expand all</button>
+  <button onclick="expandAll(false)">collapse all</button>
+</div>
+<div class="layout">
+<nav class="toc">
+  <h2>Sections</h2>
+  <ul>
+    <li><a href="#headline">Headline</a></li>
+    {% if geo or agents %}<li><a href="#gt-stats">1. Ground-truth statistics</a></li>{% endif %}
+    {% if funnel or dynamics %}<li><a href="#dynamics">2. Approach dynamics</a></li>{% endif %}
+    {% if judge %}<li><a href="#judge">3. LLM-as-judge verdicts</a></li>{% endif %}
+  </ul>
+  <p class="meta">
+    Progressive Narrowing + Parallel Hypotheses<br>
+    Generated {{ generated_at }}<br>
+    {{ run_metadata.n_images }} images
+  </p>
+</nav>
+
+<main>
+<h1 id="headline">VLM Council Progressive Narrowing + Parallel Hypotheses Evaluation Report</h1>
+
+<div class="headline-grid">
+  {% if geo %}
+  <div class="stat">
+    <div class="label">Country accuracy</div>
+    <div class="value">{{ pct(geo.country_accuracy) }}</div>
+  </div>
+  <div class="stat">
+    <div class="label">Median haversine</div>
+    <div class="value">{{ km(geo.haversine_km.median) }}</div>
+  </div>
+  <div class="stat">
+    <div class="label">Images</div>
+    <div class="value">{{ geo.n_total }}</div>
+  </div>
+  {% endif %}
+  {% if agents %}
+  <div class="stat">
+    <div class="label">Path A / Path B</div>
+    <div class="value">{{ agents.n_path_a }} / {{ agents.n_path_b }}</div>
+  </div>
+  {% endif %}
+  {% if judge %}
+  {% set rn_all = judge.region_narrowing_quality.all or {} %}
+  {% set hp_all = judge.hypothesis_pool_quality.all or {} %}
+  {% if rn_all.mean is not none %}
+  <div class="stat">
+    <div class="label">Region narrowing quality</div>
+    <div class="value">{{ "%.2f"|format(rn_all.mean) }}</div>
+  </div>
+  {% endif %}
+  {% if hp_all.mean is not none %}
+  <div class="stat">
+    <div class="label">Hypothesis pool quality</div>
+    <div class="value">{{ "%.2f"|format(hp_all.mean) }}</div>
+  </div>
+  {% endif %}
+  {% endif %}
+</div>
+
+{# ============================================================ #}
+{# 1. GROUND-TRUTH STATISTICS                                   #}
+{# ============================================================ #}
+{% if geo or agents %}
+<h2 id="gt-stats">1. Ground-truth statistics</h2>
+
+{% if geo %}
+<h3>Geographic bias</h3>
+<ul>
+  <li>North/south: {{ geo.north_bias_test.interpretation }}</li>
+  <li>East/west:   {{ geo.east_bias_test.interpretation }}</li>
+</ul>
+<img class="figure" src="plots/error_distribution.png" alt="Error distribution">
+<p class="caption">Fig 1: Lat / lng / haversine error distributions.</p>
+<img class="figure" src="plots/bearing_rose.png" alt="Bearing rose">
+<p class="caption">Fig 2: Direction of prediction errors.</p>
+<img class="figure" src="plots/confusion_matrix.png" alt="Confusion matrix">
+<p class="caption">Fig 3: Top confusion pairs (truth to predicted).</p>
+{% if geo.top_confusions %}
+<details><summary>Top confusion pairs ({{ geo.top_confusions|length }})</summary>
+<table class="small-table"><thead><tr>
+  <th>Truth</th><th>Predicted</th><th data-sort="num">Count</th>
+</tr></thead><tbody>
+{% for row in geo.top_confusions[:30] %}
+<tr><td>{{ row.truth }}</td><td>{{ row.predicted }}</td><td>{{ row.count }}</td></tr>
+{% endfor %}
+</tbody></table></details>
+{% endif %}
+{% if geo.asymmetric_confusion_pairs %}
+<details><summary>Asymmetric confusion pairs (A to B is not B to A)</summary>
+<table class="small-table"><thead><tr>
+  <th>Country A</th><th>Country B</th>
+  <th data-sort="num">A predicted as B</th><th data-sort="num">B predicted as A</th>
+  <th data-sort="num">Asymmetry</th>
+</tr></thead><tbody>
+{% for row in geo.asymmetric_confusion_pairs %}
+<tr><td>{{ row.country_a }}</td><td>{{ row.country_b }}</td>
+  <td>{{ row.a_predicted_as_b }}</td><td>{{ row.b_predicted_as_a }}</td>
+  <td>{{ "%+d"|format(row.asymmetry) }}</td></tr>
+{% endfor %}
+</tbody></table></details>
+{% endif %}
+{% endif %}
+
+{% if agents %}
+<h3>Per-agent accuracy (initial round)</h3>
+<table>
+  <thead><tr><th>Agent</th><th data-sort="num">n</th>
+    <th data-sort="num">Top-1</th><th data-sort="num">Top-3</th>
+    <th data-sort="num">Coverage</th></tr></thead>
+  <tbody>
+  {% for a in agent_names %}
+    {% set m = agents.initial_round.get(a) or {} %}
+    <tr><td>{{ a }}</td><td>{{ m.n or 0 }}</td>
+      <td>{{ pct(m.top1_accuracy) }}</td>
+      <td>{{ pct(m.top3_hit_rate) }}</td>
+      <td>{{ pct(m.coverage) }}</td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+<img class="figure" src="plots/agent_top1.png" alt="Agent top-1">
+<p class="caption">Fig 4: Per-agent top-1 accuracy (initial vs. Path B country round).</p>
+<img class="figure" src="plots/agent_calibration.png" alt="Agent calibration">
+<p class="caption">Fig 5: Confidence calibration by agent.</p>
+{% if agents.country_round_path_b %}
+<h3>Country round (Path B only)</h3>
+<table>
+  <thead><tr><th>Agent</th><th data-sort="num">n</th>
+    <th data-sort="num">Top-1</th><th data-sort="num">Top-3</th>
+    <th data-sort="num">Coverage</th></tr></thead>
+  <tbody>
+  {% for a in agent_names %}
+    {% set m = agents.country_round_path_b.get(a) or {} %}
+    <tr><td>{{ a }}</td><td>{{ m.n or 0 }}</td>
+      <td>{{ pct(m.top1_accuracy) }}</td>
+      <td>{{ pct(m.top3_hit_rate) }}</td>
+      <td>{{ pct(m.coverage) }}</td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endif %}
+{% endif %}
+
+{% if world_maps %}
+<h3>Geographic world maps</h3>
+{% if heatmap %}
+<p>Per-country accuracy across {{ heatmap.n_countries_with_truth }} countries with truth.
+Macro-averaged TPR: <strong>{{ pct(heatmap.macro_avg_tpr) }}</strong>.</p>
+{% endif %}
+{% for m in world_maps %}
+<img class="figure" src="{{ m.file }}" alt="{{ m.caption }}">
+<p class="caption"><em>{{ m.caption }}</em></p>
+{% endfor %}
+{% endif %}
+
+{% endif %}{# end ground-truth statistics #}
+
+{# ============================================================ #}
+{# 2. APPROACH DYNAMICS                                         #}
+{# ============================================================ #}
+{% if funnel or dynamics %}
+<h2 id="dynamics">2. Approach dynamics</h2>
+<p>Progressive Narrowing routes each image down Path A (region consensus, jump straight
+to the judge) or Path B (parallel hypotheses plus a country re-assessment inside the
+confirmed region). This section traces where the truth country survives or is lost.</p>
+
+{% if dynamics and not dynamics._error is defined %}
+{% set ps = dynamics.path_split or {} %}
+{% set rf = dynamics.region_funnel or {} %}
+{% set cf = dynamics.country_funnel or {} %}
+
+<h3>Path A / Path B split</h3>
+<div class="headline-grid">
+  <div class="stat">
+    <div class="label">Path A (region consensus)</div>
+    <div class="value">{{ ps.n_path_a or 0 }}</div>
+  </div>
+  <div class="stat">
+    <div class="label">Path B (no consensus)</div>
+    <div class="value">{{ ps.n_path_b or 0 }}</div>
+  </div>
+  <div class="stat">
+    <div class="label">Region consensus rate</div>
+    <div class="value">{{ pct(ps.region_consensus_rate) }}</div>
+  </div>
+</div>
+
+{% if rf.n %}
+<h3>Region narrowing funnel</h3>
+<p>Does the confirmed region actually contain the ground-truth country?</p>
+<table>
+  <thead><tr><th>Split</th><th data-sort="num">Region matches GT</th><th data-sort="num">n</th></tr></thead>
+  <tbody>
+    <tr><td>All</td><td>{{ pct(rf.match_rate) }}</td><td>{{ rf.n or 0 }}</td></tr>
+    <tr><td>Path A</td><td>{{ pct(rf.path_a.match_rate) }}</td><td>{{ rf.path_a.n or 0 }}</td></tr>
+    <tr><td>Path B</td><td>{{ pct(rf.path_b.match_rate) }}</td><td>{{ rf.path_b.n or 0 }}</td></tr>
+  </tbody>
+</table>
+{% endif %}
+
+{% if cf.counts %}
+{% set n_ai = cf.n_agent_images or 0 %}
+<h3>Country narrowing funnel (Path B initial to re-assessment)</h3>
+<p>Per-agent initial pick vs country re-assessment pick ({{ n_ai }} Path B agent images).</p>
+<table>
+  <thead><tr><th>Category</th><th data-sort="num">Count</th><th data-sort="num">Share</th></tr></thead>
+  <tbody>
+  {% set labels = {
+    "CONSTRUCTIVE": "Constructive (initial wrong, re-assessment moved onto GT)",
+    "DESTRUCTIVE": "Destructive (initial correct, re-assessment moved off GT)",
+    "STAYED_CORRECT": "Stayed correct (both on GT)",
+    "STAYED_WRONG": "Stayed wrong (both wrong, same country)",
+    "WRONG_TO_WRONG": "Lateral (both wrong, different countries)"
+  } %}
+  {% for key in ["CONSTRUCTIVE","DESTRUCTIVE","STAYED_CORRECT","STAYED_WRONG","WRONG_TO_WRONG"] %}
+  {% if key in cf.counts %}
+    <tr>
+      <td>{{ labels[key] }}</td>
+      <td>{{ cf.counts[key] }}</td>
+      <td>{% if n_ai %}{{ "%.1f"|format(cf.counts[key] / n_ai * 100) }}%{% else %}n/a{% endif %}</td>
+    </tr>
+  {% endif %}
+  {% endfor %}
+  </tbody>
+</table>
+{% endif %}
+{% endif %}
+
+{% if funnel %}
+{% set fn_data = funnel.funnel or {} %}
+{% set ceilings = funnel.oracle_ceilings or {} %}
+{% set agree = funnel.agreement_curve or {} %}
+{% set paths = funnel.path_comparison or {} %}
+{% set severity = funnel.severity or {} %}
+
+<h3>Pipeline funnel</h3>
+<p>Where does the truth country get lost in the Progressive Narrowing pipeline?</p>
+
+{% if fn_data.stages %}
+<table>
+  <thead><tr>
+    <th>Stage</th><th>Description</th>
+    <th data-sort="num">Cumul. survival</th>
+    <th data-sort="num">Conditional</th>
+  </tr></thead>
+  <tbody>
+  {% for s in fn_data.stages %}
+    {% set cum = s.cumulative_survival or {} %}
+    {% set cond = s.conditional_on_prev or {} %}
+    <tr>
+      <td><strong>{{ s.code }}</strong></td>
+      <td>{{ s.description }}</td>
+      <td>{{ pct(cum.rate) }} <span class="meta">({{ cum.correct }}/{{ cum.n }})</span></td>
+      <td>{{ pct(cond.rate) }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endif %}
+
+{% if fn_data.bottleneck %}
+{% set b = fn_data.bottleneck %}
+<blockquote>
+  <strong>Bottleneck:</strong> {{ b.stage_code }}, {{ b.description }}<br>
+  Conditional rate: <strong>{{ pct(b.conditional_rate) }}</strong>
+  (95% CI [{{ pct(b.ci_low) }}, {{ pct(b.ci_high) }}])
+</blockquote>
+{% endif %}
+
+<img class="figure" src="plots/funnel.png" alt="Pipeline funnel">
+<p class="caption">Cumulative truth-survival through the PN pipeline (Wilson 95% CI).</p>
+
+<h4>Oracle ceilings</h4>
+<p>Counterfactual accuracy if a given stage were perfect.</p>
+<table>
+  <thead><tr><th>Scenario</th><th data-sort="num">Accuracy</th><th data-sort="num">n</th></tr></thead>
+  <tbody>
+  {% for key, label in [
+    ("actual", "Actual"),
+    ("majority_vote_baseline", "Majority-vote baseline (initial round)"),
+    ("oracle_region", "Oracle region (perfect region step)"),
+    ("oracle_pool", "Oracle pool (truth always in hypothesis pool)"),
+    ("oracle_decision", "Oracle decision (perfect final judge)"),
+  ] %}
+    {% set blk = ceilings.get(key) or {} %}
+    <tr><td>{{ label }}</td><td>{{ pct(blk.rate) }}</td><td>{{ blk.n or 0 }}</td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+<img class="figure" src="plots/oracle_ceilings.png" alt="Oracle ceilings">
+<p class="caption">Oracle ceiling bars: the gap between actual and each ceiling is the recoverable headroom.</p>
+
+{% if agree.levels %}
+<h4>Agreement vs. accuracy</h4>
+<p>Final accuracy split by how many of the 5 agents agreed on the same top-1 country in the initial round.</p>
+<table>
+  <thead><tr>
+    <th>Agents agree</th><th data-sort="num">n</th>
+    <th data-sort="num">Accuracy</th>
+    <th data-sort="num">CI low</th><th data-sort="num">CI high</th>
+  </tr></thead>
+  <tbody>
+  {% for lv in agree.levels %}
+    <tr>
+      <td>{{ lv.agreement }}</td>
+      <td>{{ lv.n or 0 }}</td>
+      <td>{{ pct(lv.rate) }}</td>
+      <td>{{ pct(lv.ci_low) }}</td>
+      <td>{{ pct(lv.ci_high) }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+<img class="figure" src="plots/agreement_curve.png" alt="Agreement vs accuracy">
+<p class="caption">Higher initial agreement correlates strongly with final accuracy.</p>
+{% endif %}
+
+{% set pa = paths.path_a or {} %}
+{% set pb = paths.path_b or {} %}
+{% if pa.n or pb.n %}
+<h4>Path A vs. Path B</h4>
+<table>
+  <thead><tr>
+    <th>Metric</th>
+    <th data-sort="num">Path A (consensus)</th>
+    <th data-sort="num">Path B (no consensus)</th>
+  </tr></thead>
+  <tbody>
+    <tr><td>n</td><td>{{ pa.n or 0 }}</td><td>{{ pb.n or 0 }}</td></tr>
+    <tr><td>Accuracy</td><td>{{ pct(pa.rate) }}</td><td>{{ pct(pb.rate) }}</td></tr>
+    <tr><td>Median haversine</td><td>{{ km(pa.median_haversine_km) }}</td><td>{{ km(pb.median_haversine_km) }}</td></tr>
+    <tr><td>Truth in hypothesis pool</td><td>{{ pct(pa.truth_in_pool_rate) }}</td><td>{{ pct(pb.truth_in_pool_rate) }}</td></tr>
+  </tbody>
+</table>
+{% endif %}
+
+{% if severity.n_wrong %}
+<h4>Error severity</h4>
+<div class="headline-grid">
+  <div class="stat">
+    <div class="label">Near miss (&lt; 500 km)</div>
+    <div class="value">{{ severity.near_miss_count }}</div>
+  </div>
+  <div class="stat">
+    <div class="label">Same region, wrong country</div>
+    <div class="value">{{ severity.same_region_wrong_count }}</div>
+  </div>
+  <div class="stat">
+    <div class="label">Wrong region</div>
+    <div class="value">{{ severity.wrong_region_count }}</div>
+  </div>
+</div>
+
+{% if severity.near_miss_examples %}
+<details class="example"><summary>Near-miss examples ({{ severity.near_miss_count }})</summary>
+<table class="small-table"><thead><tr>
+  <th>Image</th><th>Truth</th><th>Predicted</th><th data-sort="num">Distance</th>
+</tr></thead><tbody>
+{% for ex in severity.near_miss_examples %}
+<tr><td>{{ ex.image_id }}</td><td>{{ ex.truth }}</td><td>{{ ex.pred }}</td>
+  <td>{{ ex.haversine_km }} km</td></tr>
+{% endfor %}
+</tbody></table></details>
+{% endif %}
+
+{% if severity.wrong_region_examples %}
+<details class="example"><summary>Wrong-region examples ({{ severity.wrong_region_count }})</summary>
+<table class="small-table"><thead><tr>
+  <th>Image</th><th>Truth</th><th>Predicted</th><th data-sort="num">Distance</th>
+</tr></thead><tbody>
+{% for ex in severity.wrong_region_examples %}
+<tr><td>{{ ex.image_id }}</td><td>{{ ex.truth }}</td><td>{{ ex.pred }}</td>
+  <td>{{ ex.haversine_km }} km</td></tr>
+{% endfor %}
+</tbody></table></details>
+{% endif %}
+{% endif %}
+{% endif %}{# end funnel block #}
+
+{% endif %}{# end approach dynamics #}
+
+{# ============================================================ #}
+{# 3. LLM-AS-JUDGE VERDICTS                                     #}
+{# ============================================================ #}
+{% if judge %}
+<h2 id="judge">3. LLM-as-judge verdicts</h2>
+<p>Verdicts: <strong>{{ judge.n_with_verdict }}</strong> / {{ judge.n_total_judge_files }} ·
+   Constructive synthesis: <strong>{{ pct(judge.constructive_synthesis_rate) }}</strong></p>
+
+<h3>Progressive Narrowing scores</h3>
+<p>Region narrowing quality: for Path A (consensus) this scores the consensus check;
+for Path B it scores the region-decision reasoning quality. Hypothesis pool quality
+scores whether the generated country hypotheses were the right set of plausible
+candidates, regardless of whether the truth country was in the pool.</p>
+{% set rn = judge.region_narrowing_quality or {} %}
+<table>
+  <thead><tr><th>Split</th><th data-sort="num">n</th>
+    <th data-sort="num">Mean</th><th data-sort="num">Median</th>
+    <th data-sort="num">Stdev</th></tr></thead>
+  <tbody>
+  {% for label, key in [("Region narrowing, all", "all"), ("Region narrowing, Path A", "path_a"), ("Region narrowing, Path B", "path_b")] %}
+    {% set st = rn.get(key) or {} %}
+    <tr><td>{{ label }}</td><td>{{ st.n or 0 }}</td>
+      <td>{{ "%.3f"|format(st.mean) if st.mean is not none else "n/a" }}</td>
+      <td>{{ "%.3f"|format(st.median) if st.median is not none else "n/a" }}</td>
+      <td>{{ "%.3f"|format(st.stdev) if st.stdev is not none else "n/a" }}</td></tr>
+  {% endfor %}
+  {% set hp = judge.hypothesis_pool_quality or {} %}
+  {% for label, key in [
+    ("Hypothesis pool, all", "all"),
+    ("Hypothesis pool, truth in pool", "when_truth_in_pool"),
+    ("Hypothesis pool, truth NOT in pool", "when_truth_not_in_pool")
+  ] %}
+    {% set st = hp.get(key) or {} %}
+    <tr><td>{{ label }}</td><td>{{ st.n or 0 }}</td>
+      <td>{{ "%.3f"|format(st.mean) if st.mean is not none else "n/a" }}</td>
+      <td>{{ "%.3f"|format(st.median) if st.median is not none else "n/a" }}</td>
+      <td>{{ "%.3f"|format(st.stdev) if st.stdev is not none else "n/a" }}</td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+<img class="figure" src="plots/judge_pn_scores.png" alt="PN scores">
+<p class="caption">Fig 6: Region narrowing quality (Path A vs B) and hypothesis pool quality.</p>
+
+<h3>Per-agent judge scores</h3>
+<table>
+  <thead><tr><th>Agent</th><th data-sort="num">n</th>
+    <th data-sort="num">Role adh.</th>
+    <th data-sort="num">Halluc. (down)</th>
+    <th data-sort="num">Visual cons. (up)</th>
+    <th data-sort="num">Conf. calib. (up)</th></tr></thead>
+  <tbody>
+  {% for a in agent_names %}
+    {% set m = judge.per_agent.get(a) or {} %}
+    <tr>
+      <td>{{ a }}</td>
+      <td>{{ m.n or 0 }}</td>
+      <td>{{ pct(m.role_adherence_rate) }}</td>
+      <td>{{ stat_or_dash(m, "hallucination_score") }}</td>
+      <td>{{ stat_or_dash(m, "visual_consistency_score") }}</td>
+      <td>{{ stat_or_dash(m, "confidence_calibration_score") }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+<img class="figure" src="plots/judge_role_adherence.png" alt="Role adherence">
+<p class="caption">Fig 7: Per-agent role adherence rate.</p>
+<img class="figure" src="plots/judge_quality.png" alt="Argumentative quality">
+<p class="caption">Fig 8: Argumentative quality histogram.</p>
+<img class="figure" src="plots/judge_hallucination.png" alt="Hallucination scores">
+<p class="caption">Fig 9: Per-agent hallucination score (0 = clean, 1 = severe).</p>
+<img class="figure" src="plots/judge_visual_consistency.png" alt="Visual consistency">
+<p class="caption">Fig 10: Per-agent visual consistency.</p>
+<img class="figure" src="plots/judge_confidence_calibration.png" alt="Calibration">
+<p class="caption">Fig 11: Per-agent confidence calibration.</p>
+
+{% if judge.per_agent %}
+<h3>Hallucination examples</h3>
+{% for a in agent_names %}
+{% set m = judge.per_agent.get(a) or {} %}
+{% if m.hallucination_examples %}
+<details><summary>{{ a }}: {{ m.hallucination_examples|length }} flagged claim(s)</summary>
+<table class="small-table"><thead><tr>
+  <th>Image</th><th data-sort="num">Score</th><th>Hallucinated claim</th>
+</tr></thead><tbody>
+{% for ex in m.hallucination_examples %}
+<tr><td>{{ ex.image_id }}</td>
+  <td>{{ "%.2f"|format(ex.score) if ex.score is not none else "n/a" }}</td>
+  <td>{{ ex.example }}</td></tr>
+{% endfor %}
+</tbody></table></details>
+{% endif %}
+{% endfor %}
+{% endif %}
+
+{% endif %}{# end judge block #}
+
+</main>
+</div>
+
+<script>
+function toggleTheme() {
+  const r = document.documentElement;
+  r.dataset.theme = r.dataset.theme === "dark" ? "light" : "dark";
+}
+function expandAll(open) {
+  document.querySelectorAll("details").forEach(d => { d.open = open; });
+}
+document.querySelectorAll("table").forEach(table => {
+  table.querySelectorAll("th").forEach((th, idx) => {
+    th.addEventListener("click", () => {
+      const tbody = table.tBodies[0];
+      if (!tbody) return;
+      const rows = Array.from(tbody.rows);
+      const numeric = th.dataset.sort === "num";
+      const asc = !th.classList.contains("sort-asc");
+      rows.sort((a, b) => {
+        const x = a.cells[idx]?.innerText || "";
+        const y = b.cells[idx]?.innerText || "";
+        if (numeric) {
+          const xn = parseFloat(x.replace(/[^\d.\-]/g, "")) || 0;
+          const yn = parseFloat(y.replace(/[^\d.\-]/g, "")) || 0;
+          return asc ? xn - yn : yn - xn;
+        }
+        return asc ? x.localeCompare(y) : y.localeCompare(x);
+      });
+      rows.forEach(r => tbody.appendChild(r));
+      table.querySelectorAll("th").forEach(t => t.classList.remove("sort-asc","sort-desc"));
+      th.classList.toggle("sort-asc", asc);
+      th.classList.toggle("sort-desc", !asc);
+    });
+  });
+});
+const sections = Array.from(document.querySelectorAll("main h2"));
+const tocLinks = Array.from(document.querySelectorAll("nav.toc a"));
+function onScroll() {
+  let current = null;
+  for (const s of sections) {
+    if (s.getBoundingClientRect().top < 100) current = s.id;
+  }
+  tocLinks.forEach(a => a.classList.toggle("active",
+    a.getAttribute("href") === "#" + current));
+}
+window.addEventListener("scroll", onScroll, { passive: true });
+onScroll();
+</script>
+</body>
+</html>

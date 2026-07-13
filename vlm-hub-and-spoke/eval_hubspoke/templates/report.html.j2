@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VLM Council Hub and Spoke Evaluation Report</title>
+<style>
+  :root {
+    --bg: #FFFFFF;
+    --fg: #222222;
+    --muted: #666666;
+    --border: #DDDDDD;
+    --accent: #4C72B0;
+    --success: #55A868;
+    --error: #C44E52;
+    --warning: #DD8452;
+    --code-bg: #F4F4F4;
+    --side-bg: #FAFAFA;
+  }
+  [data-theme="dark"] {
+    --bg: #1A1A1A;
+    --fg: #E5E5E5;
+    --muted: #999999;
+    --border: #333333;
+    --accent: #6FA0D6;
+    --success: #6FBE82;
+    --error: #DA6B6E;
+    --warning: #E89A6E;
+    --code-bg: #2A2A2A;
+    --side-bg: #222222;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                 "Helvetica Neue", Arial, sans-serif;
+    color: var(--fg);
+    background: var(--bg);
+    line-height: 1.55;
+  }
+  .layout { display: flex; min-height: 100vh; }
+  nav.toc {
+    width: 250px;
+    flex: 0 0 250px;
+    background: var(--side-bg);
+    border-right: 1px solid var(--border);
+    padding: 1.2rem 1rem;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    font-size: 0.9rem;
+  }
+  nav.toc h2 {
+    font-size: 0.95rem;
+    margin: 0 0 0.6rem 0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+  }
+  nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
+  nav.toc li { margin: 0.25rem 0; }
+  nav.toc a {
+    color: var(--fg);
+    text-decoration: none;
+    border-left: 2px solid transparent;
+    padding-left: 0.5rem;
+    display: block;
+  }
+  nav.toc a:hover { border-left-color: var(--accent); }
+  nav.toc a.active { border-left-color: var(--accent); color: var(--accent); }
+  main {
+    flex: 1;
+    max-width: 1100px;
+    padding: 1.5rem 2rem 4rem 2rem;
+  }
+  h1 { font-size: 1.8rem; margin-top: 0; }
+  h2 {
+    font-size: 1.35rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.3rem;
+    margin-top: 2rem;
+  }
+  h3 { font-size: 1.1rem; }
+  details {
+    margin: 0.75rem 0;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 0.5rem 0.75rem;
+    background: var(--side-bg);
+  }
+  details > summary {
+    cursor: pointer;
+    font-weight: 600;
+    margin: -0.5rem -0.75rem;
+    padding: 0.5rem 0.75rem;
+  }
+  details[open] > summary { border-bottom: 1px solid var(--border); margin-bottom: 0.5rem; }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 0.6rem 0;
+    font-size: 0.92rem;
+  }
+  th, td {
+    border: 1px solid var(--border);
+    padding: 0.45rem 0.6rem;
+    text-align: left;
+  }
+  th {
+    background: var(--side-bg);
+    cursor: pointer;
+    user-select: none;
+  }
+  th.sort-asc::after { content: " ▲"; color: var(--muted); }
+  th.sort-desc::after { content: " ▼"; color: var(--muted); }
+  img.figure {
+    max-width: 100%;
+    height: auto;
+    margin: 0.6rem 0;
+    border: 1px solid var(--border);
+    background: white;
+  }
+  .caption {
+    font-size: 0.85rem;
+    color: var(--muted);
+    font-style: italic;
+    margin-bottom: 1rem;
+  }
+  .headline-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 0.6rem;
+    margin: 1rem 0;
+  }
+  .stat {
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 0.6rem 0.8rem;
+    background: var(--side-bg);
+  }
+  .stat .label { font-size: 0.78rem; color: var(--muted); text-transform: uppercase; }
+  .stat .value { font-size: 1.4rem; font-weight: 600; color: var(--accent); }
+  .badge {
+    display: inline-block;
+    padding: 0.1rem 0.5rem;
+    border-radius: 3px;
+    font-size: 0.78rem;
+    background: var(--code-bg);
+    color: var(--fg);
+  }
+  .badge.ok { background: var(--success); color: white; }
+  .badge.bad { background: var(--error); color: white; }
+  .badge.warn { background: var(--warning); color: white; }
+  .controls {
+    position: fixed;
+    top: 0.6rem;
+    right: 0.8rem;
+    display: flex;
+    gap: 0.4rem;
+    z-index: 100;
+  }
+  .controls button {
+    padding: 0.3rem 0.7rem;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--fg);
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 0.85rem;
+  }
+  .controls button:hover { background: var(--side-bg); }
+  code { font-family: "SFMono-Regular", Menlo, monospace; font-size: 0.88rem;
+         background: var(--code-bg); padding: 0.05rem 0.3rem; border-radius: 2px; }
+  .meta { font-size: 0.85rem; color: var(--muted); }
+  .small-table { font-size: 0.85rem; }
+  details.example { background: var(--bg); }
+</style>
+</head>
+<body>
+<div class="controls">
+  <button onclick="toggleTheme()">&#127763; theme</button>
+  <button onclick="expandAll(true)">expand all</button>
+  <button onclick="expandAll(false)">collapse all</button>
+</div>
+<div class="layout">
+<nav class="toc">
+  <h2>Sections</h2>
+  <ul>
+    <li><a href="#headline">Headline</a></li>
+    {% if geo or agents %}<li><a href="#ground-truth">1. Ground-truth statistics</a></li>{% endif %}
+    {% if agents or dynamics %}<li><a href="#dynamics">2. Approach dynamics</a></li>{% endif %}
+    {% if judge %}<li><a href="#judge">3. LLM-as-judge verdicts</a></li>{% endif %}
+  </ul>
+  <p class="meta">Generated {{ generated_at }}</p>
+</nav>
+
+<main>
+<h1 id="headline">VLM Council Hub and Spoke Evaluation Report</h1>
+
+<div class="headline-grid">
+  {% if geo %}
+  <div class="stat">
+    <div class="label">Country accuracy</div>
+    <div class="value">{{ pct(geo.country_accuracy) }}</div>
+  </div>
+  <div class="stat">
+    <div class="label">Median haversine</div>
+    <div class="value">{{ km(geo.haversine_km.median) }}</div>
+  </div>
+  <div class="stat">
+    <div class="label">Images</div>
+    <div class="value">{{ geo.n_total }}</div>
+  </div>
+  {% endif %}
+  {% if agents %}
+  <div class="stat">
+    <div class="label">Mean discussion rounds</div>
+    <div class="value">{{ "%.2f"|format(agents.mean_discussion_rounds or 0) }}</div>
+  </div>
+  {% endif %}
+  {% if judge and judge.judge_strategy_score and judge.judge_strategy_score.n %}
+  <div class="stat">
+    <div class="label">Mean judge strategy</div>
+    <div class="value">{{ "%.2f"|format(judge.judge_strategy_score.mean) }}</div>
+  </div>
+  {% endif %}
+</div>
+
+{# ===== 1. GROUND-TRUTH STATISTICS ===== #}
+{% if geo or agents %}
+<h2 id="ground-truth">1. Ground-truth statistics</h2>
+
+{% if geo %}
+<h3>Geo-spatial bias</h3>
+<ul>
+  <li>North/south bias: {{ geo.north_bias_test.interpretation }}</li>
+  <li>East/west bias: {{ geo.east_bias_test.interpretation }}</li>
+  {% if geo.quadrants %}
+  <li>Error quadrants:
+    {% for k, v in geo.quadrants.items() %}{{ k }}={{ v }} {% endfor %}
+  </li>
+  {% endif %}
+</ul>
+<img class="figure" src="plots/error_distribution.png" alt="Error distribution">
+<p class="caption">Lat/lon error distributions and haversine distance.</p>
+<img class="figure" src="plots/bearing_rose.png" alt="Bearing rose">
+<p class="caption">Bearing of prediction errors (truth to prediction).</p>
+{% if geo.top_confusions %}
+<details><summary>Top confusion pairs ({{ geo.top_confusions|length }})</summary>
+<table class="small-table"><thead><tr>
+  <th>Truth</th><th>Predicted</th><th data-sort="num">Count</th>
+</tr></thead><tbody>
+{% for row in geo.top_confusions %}
+<tr><td>{{ row.truth }}</td><td>{{ row.predicted }}</td><td>{{ row.count }}</td></tr>
+{% endfor %}
+</tbody></table></details>
+<img class="figure" src="plots/confusion_matrix.png" alt="Confusion matrix">
+<p class="caption">Top country confusion pairs.</p>
+{% endif %}
+{% endif %}
+
+{% if agents %}
+<h3>Per-agent accuracy (initial round)</h3>
+<p><strong>Discussion rate</strong> = fraction of images where this agent was questioned by the judge hub.
+<strong>Update rate</strong> = fraction of times agent changed top-1 country when questioned.</p>
+<table>
+  <thead><tr>
+    <th>Agent</th><th data-sort="num">n</th>
+    <th data-sort="num">Top-1</th><th data-sort="num">Top-3</th>
+    <th data-sort="num">Coverage</th>
+    <th data-sort="num">Discussion rate</th>
+    <th data-sort="num">Update rate</th>
+  </tr></thead>
+  <tbody>
+  {% for a in agent_names %}
+    {% set m = (agents.initial_round or {}).get(a) or {} %}
+    <tr>
+      <td>{{ a }}</td>
+      <td>{{ m.n or 0 }}</td>
+      <td>{{ pct(m.top1_accuracy or 0) }}</td>
+      <td>{{ pct(m.top3_hit_rate or 0) }}</td>
+      <td>{{ pct(m.coverage or 0) }}</td>
+      <td>{{ pct(m.discussion_rate or 0) }}</td>
+      <td>{{ pct(m.response_update_rate or 0) }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+<img class="figure" src="plots/agent_initial_top1.png" alt="Agent top-1">
+<p class="caption">Per-agent initial top-1 accuracy with Wilson 95% CI.</p>
+{% endif %}
+
+{% if world_maps %}
+<h3>Geographic world maps</h3>
+{% if heatmap %}
+<p>Per-country accuracy across {{ heatmap.n_countries_with_truth }} countries with truth.
+Macro-averaged TPR: <strong>{{ pct(heatmap.macro_avg_tpr) }}</strong>.</p>
+{% endif %}
+{% for m in world_maps %}
+<img class="figure" src="{{ m.file }}" alt="{{ m.caption }}">
+<p class="caption"><em>{{ m.caption }}</em></p>
+{% endfor %}
+{% endif %}
+{% endif %}
+
+{# ===== 2. APPROACH DYNAMICS ===== #}
+{% if agents or dynamics %}
+<h2 id="dynamics">2. Approach dynamics</h2>
+<p>Hub and spoke topology: five agents give independent assessments, then the judge
+hub interrogates specific agents with targeted questions over up to three discussion
+rounds. This section covers discussion rounds, plurality convergence, and per agent
+update behaviour.</p>
+
+{% if agents %}
+<img class="figure" src="plots/agent_discussion_rate.png" alt="Agent discussion rate">
+<p class="caption">Per-agent discussion participation rate and top-1 update rate when questioned.</p>
+{% endif %}
+
+{% if dynamics and not dynamics._error is defined %}
+{% set disc = dynamics.discussion or {} %}
+{% set conv = dynamics.convergence or {} %}
+{% set gtp = dynamics.gt_plurality or {} %}
+{% set pau = dynamics.per_agent_update_behaviour or {} %}
+
+<h3>Discussion activation</h3>
+<div class="headline-grid">
+  <div class="stat">
+    <div class="label">Discussion rate</div>
+    <div class="value">{{ pct(disc.discussion_rate) }}</div>
+  </div>
+  <div class="stat">
+    <div class="label">No discussion</div>
+    <div class="value">{{ disc.n_no_discussion or 0 }}</div>
+  </div>
+  <div class="stat">
+    <div class="label">With discussion</div>
+    <div class="value">{{ disc.n_with_discussion or 0 }}</div>
+  </div>
+  <div class="stat">
+    <div class="label">Total questions</div>
+    <div class="value">{{ disc.total_questions or 0 }}</div>
+  </div>
+</div>
+
+{% if disc.rounds_distribution %}
+<h4>Discussion rounds distribution</h4>
+<table>
+  <thead><tr><th data-sort="num">Rounds</th><th data-sort="num">Count</th></tr></thead>
+  <tbody>
+  {% for k, v in disc.rounds_distribution.items() %}
+    <tr><td>{{ k }}</td><td>{{ v }}</td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endif %}
+
+<h3>Convergence (initial vs final plurality)</h3>
+<table>
+  <thead><tr><th>Metric</th><th data-sort="num">Value</th></tr></thead>
+  <tbody>
+    <tr><td>Initial plurality reached (&ge; 3/5)</td><td>{{ conv.init_plurality or 0 }}</td></tr>
+    <tr><td>Final plurality reached (&ge; 3/5)</td><td>{{ conv.final_plurality or 0 }}</td></tr>
+    <tr><td>Initial unanimous (5/5)</td><td>{{ conv.init_unanimous or 0 }}</td></tr>
+    <tr><td>Final unanimous (5/5)</td><td>{{ conv.final_unanimous or 0 }}</td></tr>
+    <tr><td>Same plurality top country in both phases</td><td>{{ conv.same_top_country or 0 }}</td></tr>
+  </tbody>
+</table>
+
+{% if gtp.n_images_with_gt %}
+<h4>Ground-truth plurality convergence</h4>
+<table>
+  <thead><tr><th>Category</th><th data-sort="num">Count</th></tr></thead>
+  <tbody>
+    <tr><td>Plurality on ground truth (correct)</td><td>{{ gtp.plurality_correct or 0 }}</td></tr>
+    <tr><td>Plurality on wrong country</td><td>{{ gtp.plurality_wrong or 0 }}</td></tr>
+    <tr><td>No plurality (top &le; 2/5)</td><td>{{ gtp.no_plurality or 0 }}</td></tr>
+  </tbody>
+</table>
+{% if gtp.landed_on_gt_rate is not none %}
+<p>Of the plurality-converged images, <strong>{{ pct(gtp.landed_on_gt_rate) }}</strong>
+landed on the ground truth.</p>
+{% endif %}
+{% endif %}
+
+{% if pau.per_agent %}
+<h4>Per-agent update behaviour ({{ pau.n_answered_queries or 0 }} answered queries with ground truth)</h4>
+<table>
+  <thead><tr>
+    <th>Agent</th><th data-sort="num">Answered</th>
+    <th data-sort="num">Constructive</th><th data-sort="num">Destructive</th>
+    <th data-sort="num">Stayed OK</th><th data-sort="num">Stayed wrong</th>
+    <th data-sort="num">Lateral</th><th data-sort="num">Net truth</th>
+  </tr></thead>
+  <tbody>
+  {% for a in agent_names %}
+    {% set m = (pau.per_agent or {}).get(a) or {} %}
+    <tr>
+      <td>{{ a }}</td>
+      <td>{{ m.n_answered or 0 }}</td>
+      <td>{{ m.constructive or 0 }}</td>
+      <td>{{ m.destructive or 0 }}</td>
+      <td>{{ m.stayed_correct or 0 }}</td>
+      <td>{{ m.stayed_wrong or 0 }}</td>
+      <td>{{ m.wrong_to_wrong or 0 }}</td>
+      <td>{{ m.net_truth if m.net_truth is defined else 0 }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+<p class="meta">Constructive = initial wrong, moved onto ground truth; Destructive = initial
+correct, moved away; Stayed OK = both equal ground truth; Stayed wrong = both wrong same
+country; Lateral = both wrong different countries; Net truth = constructive minus destructive.</p>
+{% endif %}
+{% endif %}
+{% endif %}
+
+{# ===== 3. LLM-AS-JUDGE VERDICTS ===== #}
+{% if judge %}
+<h2 id="judge">3. LLM-as-judge verdicts</h2>
+<p>
+  Verdicts: {{ judge.n_with_verdict }} / {{ judge.n_total_judge_files }}
+  {% if judge.errors %}
+  &middot; Errors: {% for k, v in judge.errors.items() %}{{ k }}={{ v }} {% endfor %}
+  {% endif %}
+</p>
+{% if judge.judge_strategy_score and judge.judge_strategy_score.n %}
+<p>
+  <strong>Judge question strategy score</strong>:
+  mean {{ "%.3f"|format(judge.judge_strategy_score.mean) }},
+  median {{ "%.3f"|format(judge.judge_strategy_score.median) }},
+  &sigma; {{ "%.3f"|format(judge.judge_strategy_score.stdev) }}
+  (n={{ judge.judge_strategy_score.n }})
+</p>
+{% endif %}
+{% if judge.judge_synthesis_quality and judge.judge_synthesis_quality.n %}
+<p>
+  <strong>Judge synthesis quality</strong>:
+  mean {{ "%.3f"|format(judge.judge_synthesis_quality.mean) }},
+  median {{ "%.3f"|format(judge.judge_synthesis_quality.median) }}
+  (n={{ judge.judge_synthesis_quality.n }})
+</p>
+{% endif %}
+
+<h3>Per-agent scores</h3>
+<table>
+  <thead><tr>
+    <th>Agent</th><th data-sort="num">n</th>
+    <th data-sort="num">Role adher.</th>
+    <th data-sort="num">Halluc. &#8595;</th>
+    <th data-sort="num">Visual cons. &#8593;</th>
+    <th data-sort="num">Calib. &#8593;</th>
+    <th data-sort="num">Q-relevance &#8593;</th>
+    <th data-sort="num">Resp. update &#8593;</th>
+  </tr></thead>
+  <tbody>
+  {% for a in agent_names %}
+    {% set m = (judge.per_agent or {}).get(a) or {} %}
+    <tr>
+      <td>{{ a }}</td>
+      <td>{{ m.n or 0 }}</td>
+      <td>{{ pct(m.role_adherence_rate or 0) }}</td>
+      <td>{{ stat_mean(m, "hallucination_score") }}</td>
+      <td>{{ stat_mean(m, "visual_consistency_score") }}</td>
+      <td>{{ stat_mean(m, "confidence_calibration_score") }}</td>
+      <td>{{ stat_mean(m, "question_relevance_score") }}</td>
+      <td>{{ stat_mean(m, "response_update_quality") }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+<img class="figure" src="plots/judge_role_adherence.png" alt="Role adherence">
+<p class="caption">Per-agent role adherence rate.</p>
+<img class="figure" src="plots/judge_hallucination.png" alt="Hallucination scores">
+<p class="caption">Per-agent mean hallucination score (0 = clean, 1 = severe).</p>
+<img class="figure" src="plots/judge_question_relevance.png" alt="Question relevance">
+<p class="caption">Per-agent question relevance score (how in-domain was the judge's question?).</p>
+<img class="figure" src="plots/judge_response_update.png" alt="Response update quality">
+<p class="caption">Per-agent response update quality (new information when questioned?).</p>
+<img class="figure" src="plots/judge_strategy.png" alt="Judge strategy histogram">
+<p class="caption">Distribution of judge question strategy scores per image.</p>
+
+{% if judge.per_agent %}
+<h3>Hallucination examples</h3>
+<p>Concrete claims the judge flagged as not supported by the image.</p>
+{% for a in agent_names %}
+  {% set m = (judge.per_agent or {}).get(a) or {} %}
+  {% if m.hallucination_examples %}
+  <details><summary>{{ a }} &middot; {{ m.hallucination_examples|length }} flagged claim(s)</summary>
+  <table class="small-table"><thead><tr>
+    <th>Image</th><th>Hallucinated claim</th>
+  </tr></thead><tbody>
+  {% for ex in m.hallucination_examples %}
+  <tr>
+    <td>{{ ex.image_id }}</td>
+    <td>{{ ex.example }}</td>
+  </tr>
+  {% endfor %}
+  </tbody></table></details>
+  {% endif %}
+{% endfor %}
+{% endif %}
+{% endif %}
+
+</main>
+</div>
+
+<script>
+function toggleTheme() {
+  const r = document.documentElement;
+  r.dataset.theme = r.dataset.theme === "dark" ? "light" : "dark";
+}
+function expandAll(open) {
+  document.querySelectorAll("details").forEach(d => { d.open = open; });
+}
+// Sortable tables
+document.querySelectorAll("table").forEach(table => {
+  table.querySelectorAll("th").forEach((th, idx) => {
+    th.addEventListener("click", () => {
+      const tbody = table.tBodies[0];
+      if (!tbody) return;
+      const rows = Array.from(tbody.rows);
+      const numeric = th.dataset.sort === "num";
+      const asc = !th.classList.contains("sort-asc");
+      rows.sort((a, b) => {
+        const x = a.cells[idx]?.innerText || "";
+        const y = b.cells[idx]?.innerText || "";
+        if (numeric) {
+          const xn = parseFloat(x.replace(/[^\d.\-]/g, "")) || 0;
+          const yn = parseFloat(y.replace(/[^\d.\-]/g, "")) || 0;
+          return asc ? xn - yn : yn - xn;
+        }
+        return asc ? x.localeCompare(y) : y.localeCompare(x);
+      });
+      rows.forEach(r => tbody.appendChild(r));
+      table.querySelectorAll("th").forEach(t => t.classList.remove("sort-asc", "sort-desc"));
+      th.classList.toggle("sort-asc", asc);
+      th.classList.toggle("sort-desc", !asc);
+    });
+  });
+});
+// Scroll-spy
+const sections = Array.from(document.querySelectorAll("main h2"));
+const tocLinks = Array.from(document.querySelectorAll("nav.toc a"));
+function onScroll() {
+  let current = null;
+  for (const s of sections) {
+    if (s.getBoundingClientRect().top < 100) current = s.id;
+  }
+  tocLinks.forEach(a => a.classList.toggle("active",
+    a.getAttribute("href") === "#" + current));
+}
+window.addEventListener("scroll", onScroll, { passive: true });
+onScroll();
+</script>
+</body>
+</html>

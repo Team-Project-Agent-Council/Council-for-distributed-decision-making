@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VLM Council Debate Evaluation Report</title>
+<style>
+  :root {
+    --bg: #FFFFFF;
+    --fg: #222222;
+    --muted: #666666;
+    --border: #DDDDDD;
+    --accent: #4C72B0;
+    --success: #55A868;
+    --error: #C44E52;
+    --warning: #DD8452;
+    --code-bg: #F4F4F4;
+    --side-bg: #FAFAFA;
+  }
+  [data-theme="dark"] {
+    --bg: #1A1A1A;
+    --fg: #E5E5E5;
+    --muted: #999999;
+    --border: #333333;
+    --accent: #6FA0D6;
+    --success: #6FBE82;
+    --error: #DA6B6E;
+    --warning: #E89A6E;
+    --code-bg: #2A2A2A;
+    --side-bg: #222222;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                 "Helvetica Neue", Arial, sans-serif;
+    color: var(--fg);
+    background: var(--bg);
+    line-height: 1.55;
+  }
+  .layout { display: flex; min-height: 100vh; }
+  nav.toc {
+    width: 250px;
+    flex: 0 0 250px;
+    background: var(--side-bg);
+    border-right: 1px solid var(--border);
+    padding: 1.2rem 1rem;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    font-size: 0.9rem;
+  }
+  nav.toc h2 {
+    font-size: 0.95rem;
+    margin: 0 0 0.6rem 0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+  }
+  nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
+  nav.toc li { margin: 0.25rem 0; }
+  nav.toc a {
+    color: var(--fg);
+    text-decoration: none;
+    border-left: 2px solid transparent;
+    padding-left: 0.5rem;
+    display: block;
+  }
+  nav.toc a:hover { border-left-color: var(--accent); }
+  nav.toc a.active { border-left-color: var(--accent); color: var(--accent); }
+  main {
+    flex: 1;
+    max-width: 1100px;
+    padding: 1.5rem 2rem 4rem 2rem;
+  }
+  h1 { font-size: 1.8rem; margin-top: 0; }
+  h2 {
+    font-size: 1.35rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.3rem;
+    margin-top: 2rem;
+  }
+  h3 { font-size: 1.1rem; }
+  details {
+    margin: 0.75rem 0;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 0.5rem 0.75rem;
+    background: var(--side-bg);
+  }
+  details > summary {
+    cursor: pointer;
+    font-weight: 600;
+    margin: -0.5rem -0.75rem;
+    padding: 0.5rem 0.75rem;
+  }
+  details[open] > summary { border-bottom: 1px solid var(--border); margin-bottom: 0.5rem; }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 0.6rem 0;
+    font-size: 0.92rem;
+  }
+  th, td {
+    border: 1px solid var(--border);
+    padding: 0.45rem 0.6rem;
+    text-align: left;
+  }
+  th {
+    background: var(--side-bg);
+    cursor: pointer;
+    user-select: none;
+  }
+  th.sort-asc::after { content: " ^"; color: var(--muted); }
+  th.sort-desc::after { content: " v"; color: var(--muted); }
+  img.figure {
+    max-width: 100%;
+    height: auto;
+    margin: 0.6rem 0;
+    border: 1px solid var(--border);
+    background: white;
+  }
+  .caption {
+    font-size: 0.85rem;
+    color: var(--muted);
+    font-style: italic;
+    margin-bottom: 1rem;
+  }
+  .headline-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 0.6rem;
+    margin: 1rem 0;
+  }
+  .stat {
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 0.6rem 0.8rem;
+    background: var(--side-bg);
+  }
+  .stat .label { font-size: 0.78rem; color: var(--muted); text-transform: uppercase; }
+  .stat .value { font-size: 1.4rem; font-weight: 600; color: var(--accent); }
+  .badge {
+    display: inline-block;
+    padding: 0.1rem 0.5rem;
+    border-radius: 3px;
+    font-size: 0.78rem;
+    background: var(--code-bg);
+    color: var(--fg);
+  }
+  .badge.ok { background: var(--success); color: white; }
+  .badge.bad { background: var(--error); color: white; }
+  .badge.warn { background: var(--warning); color: white; }
+  blockquote {
+    border-left: 3px solid var(--accent);
+    margin: 0.8rem 0;
+    padding: 0.4rem 0.8rem;
+    background: var(--code-bg);
+  }
+  .controls {
+    position: fixed;
+    top: 0.6rem;
+    right: 0.8rem;
+    display: flex;
+    gap: 0.4rem;
+    z-index: 100;
+  }
+  .controls button {
+    padding: 0.3rem 0.7rem;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--fg);
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 0.85rem;
+  }
+  .controls button:hover { background: var(--side-bg); }
+  code { font-family: "SFMono-Regular", Menlo, monospace; font-size: 0.88rem;
+         background: var(--code-bg); padding: 0.05rem 0.3rem; border-radius: 2px; }
+  .meta { font-size: 0.85rem; color: var(--muted); }
+  .small-table { font-size: 0.85rem; }
+  details.example { background: var(--bg); }
+</style>
+</head>
+<body>
+<div class="controls">
+  <button onclick="toggleTheme()">🌓 theme</button>
+  <button onclick="expandAll(true)">expand all</button>
+  <button onclick="expandAll(false)">collapse all</button>
+</div>
+<div class="layout">
+<nav class="toc">
+  <h2>Sections</h2>
+  <ul>
+    <li><a href="#headline">Headline metrics</a></li>
+    <li><a href="#geo">1. Ground-truth statistics</a></li>
+    <li><a href="#dynamics">2. Approach dynamics</a></li>
+    <li><a href="#judge">3. LLM-as-judge verdicts</a></li>
+  </ul>
+  <p class="meta">
+    Pairwise adversarial debate approach<br>
+    500 images
+  </p>
+</nav>
+
+<main>
+<h1 id="headline">VLM Council Debate Evaluation Report</h1>
+
+
+<div class="headline-grid">
+  
+  <div class="stat">
+    <div class="label">Country accuracy</div>
+    <div class="value">63.0%</div>
+  </div>
+  <div class="stat">
+    <div class="label">Median haversine</div>
+    <div class="value">435 km</div>
+  </div>
+  <div class="stat">
+    <div class="label">Images</div>
+    <div class="value">500</div>
+  </div>
+  
+  
+  <div class="stat">
+    <div class="label">Debate rate</div>
+    <div class="value">17.4%</div>
+  </div>
+  
+  
+  
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+  <div class="stat">
+    <div class="label">Mean argument quality</div>
+    <div class="value">0.72</div>
+  </div>
+  
+</div>
+
+
+
+<h2 id="geo">1. Ground-truth statistics</h2>
+<p>Country accuracy: <strong>63.0%</strong>
+  (95% CI 58.7% - 67.1%).</p>
+
+
+<h3>Haversine error (km)</h3>
+<table>
+  <thead><tr><th>Statistic</th><th data-sort="num">Value (km)</th></tr></thead>
+  <tbody>
+    <tr><td>Median</td><td>435</td></tr>
+    <tr><td>Mean</td><td>1,571</td></tr>
+    <tr><td>P25</td><td>188</td></tr>
+    <tr><td>P75</td><td>1,169</td></tr>
+  </tbody>
+</table>
+
+
+
+<h3>Directional bias tests</h3>
+<table>
+  <thead><tr><th>Test</th><th data-sort="num">Mean</th><th data-sort="num">p-value</th><th>Significant</th><th>Interpretation</th></tr></thead>
+  <tbody>
+  
+    <tr>
+      <td>North bias</td>
+      <td>1.9258</td>
+      <td>0.0003</td>
+      <td><span class="badge bad">yes</span></td>
+      <td>Significant north bias (p=0.0003, mean=+1.93°)</td>
+    </tr>
+  
+  
+    <tr>
+      <td>East bias</td>
+      <td>-0.6379</td>
+      <td>0.7061</td>
+      <td><span class="badge ok">no</span></td>
+      <td>No significant bias (p=0.7061, mean=-0.64°)</td>
+    </tr>
+  
+  </tbody>
+</table>
+
+
+<img class="figure" src="plots/error_distribution.png" alt="Error distribution">
+<p class="caption">Figure: lat/lng/haversine error distributions.</p>
+<img class="figure" src="plots/bearing_rose.png" alt="Bearing rose">
+<p class="caption">Figure: direction of prediction errors.</p>
+<img class="figure" src="plots/confusion_matrix.png" alt="Confusion matrix">
+<p class="caption">Figure: top confusion pairs (truth -> predicted).</p>
+
+
+<details>
+  <summary>Top confusion pairs (30)</summary>
+  <table class="small-table">
+    <thead><tr><th>Truth</th><th>Predicted</th><th data-sort="num">Count</th></tr></thead>
+    <tbody>
+    
+      <tr><td>South Africa</td><td>Botswana</td><td>6</td></tr>
+    
+      <tr><td>Indonesia</td><td>Malaysia</td><td>4</td></tr>
+    
+      <tr><td>South Africa</td><td>Namibia</td><td>3</td></tr>
+    
+      <tr><td>Australia</td><td>New Zealand</td><td>3</td></tr>
+    
+      <tr><td>Peru</td><td>Colombia</td><td>3</td></tr>
+    
+      <tr><td>Uruguay</td><td>Brazil</td><td>3</td></tr>
+    
+      <tr><td>Canada</td><td>USA</td><td>3</td></tr>
+    
+      <tr><td>Indonesia</td><td>Philippines</td><td>2</td></tr>
+    
+      <tr><td>Argentina</td><td>Mexico</td><td>2</td></tr>
+    
+      <tr><td>Norway</td><td>Sweden</td><td>2</td></tr>
+    
+      <tr><td>Czechia</td><td>Poland</td><td>2</td></tr>
+    
+      <tr><td>Bolivia, Plurinational State of</td><td>Brazil</td><td>2</td></tr>
+    
+      <tr><td>Mexico</td><td>USA</td><td>2</td></tr>
+    
+      <tr><td>Kenya</td><td>Ethiopia</td><td>2</td></tr>
+    
+      <tr><td>Canada</td><td>United States</td><td>2</td></tr>
+    
+      <tr><td>Panama</td><td>Puerto Rico</td><td>2</td></tr>
+    
+      <tr><td>Panama</td><td>Dominican Republic</td><td>2</td></tr>
+    
+      <tr><td>Mexico</td><td>Brazil</td><td>2</td></tr>
+    
+      <tr><td>Germany</td><td>Poland</td><td>2</td></tr>
+    
+      <tr><td>Latvia</td><td>Lithuania</td><td>2</td></tr>
+    
+      <tr><td>Türkiye</td><td>Spain</td><td>2</td></tr>
+    
+      <tr><td>Russian Federation</td><td>Ukraine</td><td>2</td></tr>
+    
+      <tr><td>Chile</td><td>Peru</td><td>2</td></tr>
+    
+      <tr><td>Botswana</td><td>Senegal</td><td>2</td></tr>
+    
+      <tr><td>Mexico</td><td>Thailand</td><td>2</td></tr>
+    
+      <tr><td>Kenya</td><td>Rwanda</td><td>2</td></tr>
+    
+      <tr><td>Kyrgyzstan</td><td>Azerbaijan</td><td>1</td></tr>
+    
+      <tr><td>Malaysia</td><td>Taiwan</td><td>1</td></tr>
+    
+      <tr><td>Serbia</td><td>Bosnia and Herzegovina</td><td>1</td></tr>
+    
+      <tr><td>Portugal</td><td>Spain</td><td>1</td></tr>
+    
+    </tbody>
+  </table>
+</details>
+
+
+
+
+
+<h2 id="agents">Per-agent metrics</h2>
+
+
+<h3>Initial round (R1) accuracy</h3>
+<table>
+  <thead><tr><th>Agent</th><th data-sort="num">Top-1</th><th data-sort="num">Top-3</th><th data-sort="num">Coverage</th><th data-sort="num">n</th></tr></thead>
+  <tbody>
+  
+  
+    <tr>
+      <td>linguistic</td>
+      <td>16.8%</td>
+      <td>18.2%</td>
+      <td>21.2%</td>
+      <td>500</td>
+    </tr>
+  
+  
+    <tr>
+      <td>landscape</td>
+      <td>63.2%</td>
+      <td>79.4%</td>
+      <td>100.0%</td>
+      <td>500</td>
+    </tr>
+  
+  
+    <tr>
+      <td>botanics</td>
+      <td>62.8%</td>
+      <td>77.0%</td>
+      <td>99.2%</td>
+      <td>500</td>
+    </tr>
+  
+  
+    <tr>
+      <td>regulatory</td>
+      <td>55.8%</td>
+      <td>68.4%</td>
+      <td>88.0%</td>
+      <td>500</td>
+    </tr>
+  
+  
+    <tr>
+      <td>meta</td>
+      <td>62.2%</td>
+      <td>73.0%</td>
+      <td>92.8%</td>
+      <td>500</td>
+    </tr>
+  
+  </tbody>
+</table>
+<img class="figure" src="plots/agent_top1.png" alt="Per-agent top-1">
+<p class="caption">Figure: per-agent initial round top-1 accuracy.</p>
+
+<h3>Debate participation</h3>
+<table>
+  <thead><tr>
+    <th>Agent</th><th data-sort="num">Debated</th><th data-sort="num">Revised</th><th data-sort="num">Won</th>
+    <th data-sort="num">Correct side</th><th data-sort="num">Wrong side</th>
+    <th data-sort="num">Rev. rate</th><th data-sort="num">Win rate</th>
+  </tr></thead>
+  <tbody>
+  
+  
+    <tr>
+      <td>linguistic</td>
+      <td>13</td>
+      <td>9</td>
+      <td>4</td>
+      <td>2</td>
+      <td>11</td>
+      <td>69.2%</td>
+      <td>30.8%</td>
+    </tr>
+  
+  
+    <tr>
+      <td>landscape</td>
+      <td>66</td>
+      <td>44</td>
+      <td>15</td>
+      <td>17</td>
+      <td>49</td>
+      <td>66.7%</td>
+      <td>22.7%</td>
+    </tr>
+  
+  
+    <tr>
+      <td>botanics</td>
+      <td>66</td>
+      <td>35</td>
+      <td>16</td>
+      <td>17</td>
+      <td>49</td>
+      <td>53.0%</td>
+      <td>24.2%</td>
+    </tr>
+  
+  
+    <tr>
+      <td>regulatory</td>
+      <td>118</td>
+      <td>19</td>
+      <td>80</td>
+      <td>39</td>
+      <td>79</td>
+      <td>16.1%</td>
+      <td>67.8%</td>
+    </tr>
+  
+  
+    <tr>
+      <td>meta</td>
+      <td>39</td>
+      <td>20</td>
+      <td>12</td>
+      <td>14</td>
+      <td>25</td>
+      <td>51.3%</td>
+      <td>30.8%</td>
+    </tr>
+  
+  </tbody>
+</table>
+
+
+<h3>Judge per-agent scores</h3>
+<table>
+  <thead><tr>
+    <th>Agent</th><th data-sort="num">n</th>
+    <th data-sort="num">Role adher.</th>
+    <th data-sort="num">Hallucination (lower is better)</th>
+    <th data-sort="num">Arg. quality (higher is better)</th>
+    <th data-sort="num">Rev. justification (higher is better)</th>
+    <th data-sort="num">Debate contrib. (higher is better)</th>
+  </tr></thead>
+  <tbody>
+  
+  
+    <tr>
+      <td>linguistic</td>
+      <td>500</td>
+      <td>98.6%</td>
+      <td><span class="badge ok">0.004</span></td>
+      <td>0.654</td>
+      <td>0.808</td>
+      <td>0.538</td>
+    </tr>
+  
+  
+    <tr>
+      <td>landscape</td>
+      <td>500</td>
+      <td>100.0%</td>
+      <td><span class="badge ok">0.037</span></td>
+      <td>0.750</td>
+      <td>0.828</td>
+      <td>0.623</td>
+    </tr>
+  
+  
+    <tr>
+      <td>botanics</td>
+      <td>500</td>
+      <td>100.0%</td>
+      <td><span class="badge ok">0.037</span></td>
+      <td>0.689</td>
+      <td>0.731</td>
+      <td>0.561</td>
+    </tr>
+  
+  
+    <tr>
+      <td>regulatory</td>
+      <td>500</td>
+      <td>100.0%</td>
+      <td><span class="badge ok">0.021</span></td>
+      <td>0.779</td>
+      <td>0.787</td>
+      <td>0.640</td>
+    </tr>
+  
+  
+    <tr>
+      <td>meta</td>
+      <td>500</td>
+      <td>100.0%</td>
+      <td><span class="badge ok">0.021</span></td>
+      <td>0.707</td>
+      <td>0.743</td>
+      <td>0.593</td>
+    </tr>
+  
+  </tbody>
+</table>
+<img class="figure" src="plots/judge_role_adherence.png" alt="Role adherence">
+<p class="caption">Figure: role adherence per agent.</p>
+<img class="figure" src="plots/judge_argument_quality.png" alt="Argument quality">
+<p class="caption">Figure: argument quality per agent.</p>
+<img class="figure" src="plots/judge_revision_justification.png" alt="Revision justification">
+<p class="caption">Figure: revision justification per agent.</p>
+<img class="figure" src="plots/judge_debate_contribution.png" alt="Debate contribution">
+<p class="caption">Figure: debate contribution per agent.</p>
+
+
+
+
+
+<h2 id="dynamics">2. Approach dynamics</h2>
+<p>Pairings are the adversarial exchanges triggered when agents disagree. Debate rate
+is the share of images that reached at least one debate round; revision rate is the
+share of pairings in which an agent revised its answer.</p>
+
+<div class="headline-grid">
+  <div class="stat">
+    <div class="label">Debate rate</div>
+    <div class="value">17.4%</div>
+  </div>
+  <div class="stat">
+    <div class="label">Revision rate (pairings)</div>
+    <div class="value">84.1%</div>
+  </div>
+  <div class="stat">
+    <div class="label">No debate</div>
+    <div class="value">413</div>
+  </div>
+  <div class="stat">
+    <div class="label">Debate 1+ round</div>
+    <div class="value">87</div>
+  </div>
+  <div class="stat">
+    <div class="label">Total pairings</div>
+    <div class="value">151</div>
+  </div>
+  <div class="stat">
+    <div class="label">Mean exchanges / pairing</div>
+    <div class="value">3.3</div>
+  </div>
+</div>
+
+
+<h3>Rounds distribution</h3>
+<table>
+  <thead><tr><th data-sort="num">Rounds</th><th data-sort="num">Count</th><th data-sort="num">Share</th></tr></thead>
+  <tbody>
+  
+  
+    <tr>
+      <td>0</td>
+      <td>413</td>
+      <td>82.6%</td>
+    </tr>
+  
+    <tr>
+      <td>1</td>
+      <td>66</td>
+      <td>13.2%</td>
+    </tr>
+  
+    <tr>
+      <td>2</td>
+      <td>16</td>
+      <td>3.2%</td>
+    </tr>
+  
+    <tr>
+      <td>3</td>
+      <td>5</td>
+      <td>1.0%</td>
+    </tr>
+  
+  </tbody>
+</table>
+
+
+
+<h3>Termination reasons</h3>
+<table>
+  <thead><tr><th>Reason</th><th data-sort="num">Count</th></tr></thead>
+  <tbody>
+  
+    <tr><td>consensus</td><td>442</td></tr>
+  
+    <tr><td>weak_dissent</td><td>24</td></tr>
+  
+    <tr><td>stalemate</td><td>15</td></tr>
+  
+    <tr><td>All agents with confidence &gt;= &#39;medium&#39; agree on the same top country.</td><td>7</td></tr>
+  
+    <tr><td>max_rounds_reached</td><td>5</td></tr>
+  
+    <tr><td>Only one agent disagrees and has &#39;low&#39; confidence.</td><td>3</td></tr>
+  
+    <tr><td>All agents have low or speculative confidence; no strong evidence exists to drive a debate.</td><td>1</td></tr>
+  
+    <tr><td>Only one agent disagrees (or in this case, is the sole provider of a specific lead) and all other agents have low or speculative confidence.</td><td>1</td></tr>
+  
+    <tr><td>Only one agent (or a group of agents) disagrees and has &#39;low&#39; or &#39;speculative&#39; confidence.</td><td>1</td></tr>
+  
+  </tbody>
+</table>
+
+
+<img class="figure" src="plots/agent_debate_stats.png" alt="Per-agent debate stats">
+<p class="caption">Figure: per-agent debate participation.</p>
+
+
+<h3>Convergence &amp; ground-truth effect</h3>
+<div class="headline-grid">
+  
+  <div class="stat">
+    <div class="label">Agents converged</div>
+    <div class="value">75.9%</div>
+  </div>
+  
+  
+  <div class="stat">
+    <div class="label">Final = Round-1 majority</div>
+    <div class="value">69.0%</div>
+  </div>
+  
+</div>
+
+
+<h4>Ground-truth pairing classification (151 debated pairings)</h4>
+<table>
+  <thead><tr><th>Category</th><th data-sort="num">Count</th><th data-sort="num">Share</th></tr></thead>
+  <tbody>
+  
+  
+  
+    <tr>
+      <td>Constructive (truth-bearer convinced the wrong agent)</td>
+      <td>37</td>
+      <td>24.5%</td>
+    </tr>
+  
+  
+  
+    <tr>
+      <td>Destructive (truth-bearer abandoned the truth)</td>
+      <td>37</td>
+      <td>24.5%</td>
+    </tr>
+  
+  
+  
+    <tr>
+      <td>Stand-correct (truth-bearer held the line)</td>
+      <td>15</td>
+      <td>9.9%</td>
+    </tr>
+  
+  
+  
+    <tr>
+      <td>Both wrong (no truth-bearer)</td>
+      <td>62</td>
+      <td>41.1%</td>
+    </tr>
+  
+  
+  
+  
+  </tbody>
+</table>
+
+
+
+
+
+
+<h2 id="judge">3. LLM-as-judge verdicts</h2>
+<p>Verdicts: 500 / 500.</p>
+
+<h3>System-level scores</h3>
+<table>
+  <thead><tr><th>Metric</th><th data-sort="num">Mean</th><th data-sort="num">Median</th><th data-sort="num">Stdev</th><th data-sort="num">n</th></tr></thead>
+  <tbody>
+  
+  
+    <tr>
+      <td>Judge synthesis quality</td>
+      <td>0.656</td>
+      <td>0.500</td>
+      <td>0.304</td>
+      <td>500</td>
+    </tr>
+  
+  
+  
+    <tr>
+      <td>Moderator pairing quality</td>
+      <td>0.768</td>
+      <td>1.000</td>
+      <td>0.251</td>
+      <td>500</td>
+    </tr>
+  
+  </tbody>
+</table>
+
+<img class="figure" src="plots/judge_synthesis_by_debate.png" alt="Synthesis by debate">
+<p class="caption">Figure: judge synthesis quality, debate vs. no-debate images.</p>
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+<h3>Hallucination examples</h3>
+
+
+
+<details class="example">
+  <summary>linguistic - 8 flagged claims</summary>
+  <table class="small-table">
+    <thead><tr><th>Image</th><th data-sort="num">Score</th><th>Hallucinated claim</th></tr></thead>
+    <tbody>
+    
+      <tr>
+        <td>HF1MKwIFNCNb4FdM_3</td>
+        <td>0.80</td>
+        <td>The text &#39;Vilabonita&#39; on the billboard is a specific residential project name located in Colombia.</td>
+      </tr>
+    
+      <tr>
+        <td>HF1MKwIFNCNb4FdM_3</td>
+        <td>0.80</td>
+        <td>Elegi confort y calidad de vida a solo 10 minutos de... Vilabonita</td>
+      </tr>
+    
+      <tr>
+        <td>IozkbMt8zbdH9XCv_5</td>
+        <td>0.00</td>
+        <td>The use of English in this specific institutional format is extremely common in India</td>
+      </tr>
+    
+      <tr>
+        <td>IozkbMt8zbdH9XCv_5</td>
+        <td>0.00</td>
+        <td>The term &#39;College of Engineering&#39; is a standard naming convention for Indian technical instit</td>
+      </tr>
+    
+      <tr>
+        <td>Y2QhKx7sks9MExvw_1</td>
+        <td>0.20</td>
+        <td>The wording on the yellow sign is in Italian</td>
+      </tr>
+    
+      <tr>
+        <td>z2mhsiTu4DYWixQf_5</td>
+        <td>1.00</td>
+        <td>The sign on the left contains the word &#39;سورية&#39; (Syria/Syrian)</td>
+      </tr>
+    
+      <tr>
+        <td>z2mhsiTu4DYWixQf_5</td>
+        <td>1.00</td>
+        <td>The sign on the left explicitly contains the word &#39;سورية&#39; (Syria)</td>
+      </tr>
+    
+      <tr>
+        <td>z2mhsiTu4DYWixQf_5</td>
+        <td>1.00</td>
+        <td>The sign on the left explicitly contains the word &#39;سورية&#39; (Syria), which serves as a hard linguistic constraint</td>
+      </tr>
+    
+    </tbody>
+  </table>
+</details>
+
+
+
+
+<details class="example">
+  <summary>landscape - 10 flagged claims</summary>
+  <table class="small-table">
+    <thead><tr><th>Image</th><th data-sort="num">Score</th><th>Hallucinated claim</th></tr></thead>
+    <tbody>
+    
+      <tr>
+        <td>4UvmdTHySo6AXW4M_5</td>
+        <td>0.50</td>
+        <td>The vegetation and crop patterns are consistent with the Indo-Gangetic Plain.</td>
+      </tr>
+    
+      <tr>
+        <td>6fGwHxCTvCbaK77Q_4</td>
+        <td>0.25</td>
+        <td>The combination of volcanic-looking slopes... is highly characteristic of the Azores archipelago.</td>
+      </tr>
+    
+      <tr>
+        <td>74bPHM081cMUaNKT_4</td>
+        <td>0.20</td>
+        <td>The vegetation is consistent with tropical montane forests/shrublands found in the A [...]</td>
+      </tr>
+    
+      <tr>
+        <td>74bPHM081cMUaNKT_5</td>
+        <td>0.25</td>
+        <td>The soil is dry and light-colored, consistent with the coastal or lowland regions of the Adriatic coast.</td>
+      </tr>
+    
+      <tr>
+        <td>DKGAIVKGYnLWmMy9_5</td>
+        <td>0.20</td>
+        <td>The road infrastructure is highly characteristic of rural Romania.</td>
+      </tr>
+    
+      <tr>
+        <td>EEI3fwu4iZvPT2zP_1</td>
+        <td>0.25</td>
+        <td>The combination of high-altitude plateau terrain, reddish-brown soil, and specific vernacular architecture with mud-plastered walls and corrugated metal roofs is highly characteristic of the Ethiopian Highlands.</td>
+      </tr>
+    
+      <tr>
+        <td>EEI3fwu4iZvPT2zP_3</td>
+        <td>0.25</td>
+        <td>The combination of reddish-brown oxisols (latosols), tropical vegetation including palm species, and the specific style of rural dirt roads and simple masonry housing with clay tile roofs is highly characteristic of the Brazilian interior or Northeast.</td>
+      </tr>
+    
+      <tr>
+        <td>EEI3fwu4iZvPT2zP_5</td>
+        <td>0.25</td>
+        <td>The soil appears sandy/loamy, typical of the North European Plain.</td>
+      </tr>
+    
+      <tr>
+        <td>HLDekf7z49ovS9Y8_2</td>
+        <td>0.25</td>
+        <td>The combination of lush tropical vegetation, hilly terrain, and the specific style of the red truck and haphazard electrical wiring is highly characteristic of the Western Ghats or Northeast India.</td>
+      </tr>
+    
+      <tr>
+        <td>HVBiwFr2gEcM1dze_5</td>
+        <td>0.80</td>
+        <td>The settlement pattern with distant industrial chimneys is common in the Delta re</td>
+      </tr>
+    
+    </tbody>
+  </table>
+</details>
+
+
+
+
+<details class="example">
+  <summary>botanics - 10 flagged claims</summary>
+  <table class="small-table">
+    <thead><tr><th>Image</th><th data-sort="num">Score</th><th>Hallucinated claim</th></tr></thead>
+    <tbody>
+    
+      <tr>
+        <td>3OuVMcpGjmm0tVfG_5</td>
+        <td>0.50</td>
+        <td>The combination of Washingtonia robusta (Mexican Fan Palm) and the arid-zone scrub vegetation is highly characteristic of Northern and Central Mexico.</td>
+      </tr>
+    
+      <tr>
+        <td>4UvmdTHySo6AXW4M_5</td>
+        <td>0.50</td>
+        <td>The combination of a young cereal crop (likely wheat) and the specific scrubby, thorny hedge vegetation is common in the Indo-Gangetic plains.</td>
+      </tr>
+    
+      <tr>
+        <td>6fGwHxCTvCbaK77Q_4</td>
+        <td>0.25</td>
+        <td>The combination of Cupressus macrocarpa (Monterey Cypress) hedges and Pinus radiata plantations on steep slopes is extremely characteristic of the Azores islands.</td>
+      </tr>
+    
+      <tr>
+        <td>74bPHM081cMUaNKT_2</td>
+        <td>0.25</td>
+        <td>The vegetation consists of extremely sparse, xeric bunchgrasses and a near-total absence of the succulent diversity (such as Aizoaceae or Euphorbia) typically found in the South African Karoo.</td>
+      </tr>
+    
+      <tr>
+        <td>74bPHM081cMUaNKT_4</td>
+        <td>0.20</td>
+        <td>The vegetation consists of dry savanna scrub and scattered broadleaf trees consistent with the Kenyan highlands or rift valley regions.</td>
+      </tr>
+    
+      <tr>
+        <td>EEI3fwu4iZvPT2zP_1</td>
+        <td>0.25</td>
+        <td>The vegetation consists of hardy, semi-arid highland scrub and broadleaf trees with a specific leaf density and growth habit characteristic of the Ethiopian Highlands.</td>
+      </tr>
+    
+      <tr>
+        <td>EEI3fwu4iZvPT2zP_3</td>
+        <td>0.25</td>
+        <td>The presence of fan palms (likely Sabal or Attalea species) used for fencing and the general tropical scrub vegetation are highly characteristic of the Brazilian Northeast (Sertão/Caatinga regions).</td>
+      </tr>
+    
+      <tr>
+        <td>G3aNW5xo5JUCnAhB_2</td>
+        <td>0.50</td>
+        <td>The presence of Delonix regia (Flamboyant tree) as a common urban ornamental is highly characteristic of Brazilian landscapes</td>
+      </tr>
+    
+      <tr>
+        <td>HLDekf7z49ovS9Y8_2</td>
+        <td>0.25</td>
+        <td>The combination of lush, tropical broadleaf vegetation and the specific growth habit of the large canopy trees is highly characteristic of the Western Ghats or Northeast India.</td>
+      </tr>
+    
+      <tr>
+        <td>HVBiwFr2gEcM1dze_5</td>
+        <td>0.90</td>
+        <td>The combination of intensive small-scale irrigation plots, reddish-brown alluvial soil, and the presence of date palms in the distance is highly characteristic of the Nile Delta or Valley.</td>
+      </tr>
+    
+    </tbody>
+  </table>
+</details>
+
+
+
+
+<details class="example">
+  <summary>regulatory - 10 flagged claims</summary>
+  <table class="small-table">
+    <thead><tr><th>Image</th><th data-sort="num">Score</th><th>Hallucinated claim</th></tr></thead>
+    <tbody>
+    
+      <tr>
+        <td>1NJsXTxIF9GGMDxC_1</td>
+        <td>0.50</td>
+        <td>The green fuel price totem displays &#39;A3C&#39;, which is a common designation for fuel types in Azerbaijan.</td>
+      </tr>
+    
+      <tr>
+        <td>3uP6lYo9pzx5Q0km_3</td>
+        <td>0.50</td>
+        <td>The white roadside delineator posts with a red reflector on the right side and a black reflector on the left are highly characteristic of Polish road standards.</td>
+      </tr>
+    
+      <tr>
+        <td>6fGwHxCTvCbaK77Q_4</td>
+        <td>0.25</td>
+        <td>The specific construction of the wooden fence posts on the left—specifically the height, spacing, and the way they are driven into the soft verge—is a standard rural [NZ] boundary.</td>
+      </tr>
+    
+      <tr>
+        <td>74bPHM081cMUaNKT_4</td>
+        <td>0.20</td>
+        <td>The combination of a single yellow center line and white edge lines on a rural paved road is highly characteristic of Ethiopia.</td>
+      </tr>
+    
+      <tr>
+        <td>74bPHM081cMUaNKT_5</td>
+        <td>0.25</td>
+        <td>The combination of concrete building styles, specific utility pole designs, and the general road quality is highly characteristic of urban outskirts in Albania.</td>
+      </tr>
+    
+      <tr>
+        <td>9NNxopqtafH8pTbN_3</td>
+        <td>0.30</td>
+        <td>The license plate on the white car appears to be a standard US-style rectangular plate</td>
+      </tr>
+    
+      <tr>
+        <td>EEI3fwu4iZvPT2zP_5</td>
+        <td>0.25</td>
+        <td>The specific combination of road quality, utility pole style, and the presence of small white delineator posts is highly characteristic of rural Lithuania.</td>
+      </tr>
+    
+      <tr>
+        <td>HLDekf7z49ovS9Y8_2</td>
+        <td>0.25</td>
+        <td>The truck&#39;s color scheme and body style are highly characteristic of Indian commercial vehicles.</td>
+      </tr>
+    
+      <tr>
+        <td>IozkbMt8zbdH9XCv_3</td>
+        <td>0.25</td>
+        <td>The blue and white painted curbs are a very common regulatory marking for parking restrictions in Iranian urban and residential areas.</td>
+      </tr>
+    
+      <tr>
+        <td>IozkbMt8zbdH9XCv_5</td>
+        <td>0.00</td>
+        <td>The use of green and white painted curbs is a very common infrastructure standard in India</td>
+      </tr>
+    
+    </tbody>
+  </table>
+</details>
+
+
+
+
+<details class="example">
+  <summary>meta - 10 flagged claims</summary>
+  <table class="small-table">
+    <thead><tr><th>Image</th><th data-sort="num">Score</th><th>Hallucinated claim</th></tr></thead>
+    <tbody>
+    
+      <tr>
+        <td>1NJsXTxIF9GGMDxC_1</td>
+        <td>0.50</td>
+        <td>The green fuel price totem is characteristic of SOCAR (State Oil Company of Azerbaijan Republic) stations.</td>
+      </tr>
+    
+      <tr>
+        <td>3I4ZtihbhZy5qZzQ_5</td>
+        <td>0.00</td>
+        <td>The combination of the specific white small truck (likely a Suzuki Carry or similar kei-style truck) and the prevalence of Mitsubishi pickups is very common in Thailand.</td>
+      </tr>
+    
+      <tr>
+        <td>3I4ZtihbhZy5qZzQ_5</td>
+        <td>0.00</td>
+        <td>The style of the concrete perimeter walls topped with chain-link fencing and barbed wire is a frequent sight in Thailand.</td>
+      </tr>
+    
+      <tr>
+        <td>3I4ZtihbhZy5qZzQ_5</td>
+        <td>0.00</td>
+        <td>The use of small utility trucks and the specific style of the blue metal gate and corrugated roofing are common in the Philippines.</td>
+      </tr>
+    
+      <tr>
+        <td>3uP6lYo9pzx5Q0km_3</td>
+        <td>0.50</td>
+        <td>The delineator posts are white with a small rectangular reflector (red on the right, white/black on the left) and a distinct black band near the bottom, which is a highly specific meta for Poland.</td>
+      </tr>
+    
+      <tr>
+        <td>6fGwHxCTvCbaK77Q_4</td>
+        <td>0.25</td>
+        <td>The specific asphalt texture... and the style of the wooden fence posts visible on the left... is highly characteristic of New Zealand.</td>
+      </tr>
+    
+      <tr>
+        <td>74bPHM081cMUaNKT_4</td>
+        <td>0.20</td>
+        <td>The use of simple, untreated wooden utility poles with minimal hardware and the specific style of corrugated metal fencing seen on the left are very common in rural Colombian highlands.</td>
+      </tr>
+    
+      <tr>
+        <td>EEI3fwu4iZvPT2zP_3</td>
+        <td>0.25</td>
+        <td>The combination of red clay roof tiles (telhas coloniais) and the specific style of concrete utility poles with a diagonal support brace is very common in rural Brazil.</td>
+      </tr>
+    
+      <tr>
+        <td>EEI3fwu4iZvPT2zP_5</td>
+        <td>0.25</td>
+        <td>The concrete utility poles with a specific tapered shape and the style of the wooden picket fences are very common in rural Lithuania.</td>
+      </tr>
+    
+      <tr>
+        <td>HLDekf7z49ovS9Y8_2</td>
+        <td>0.25</td>
+        <td>The truck design, specifically the colorful cab and chassis style, is highly characteristic of Indian commercial vehicles.</td>
+      </tr>
+    
+    </tbody>
+  </table>
+</details>
+
+
+
+
+
+
+<h2 id="world-maps">Geographic world maps</h2>
+
+<p>Per-country accuracy across 91 countries with truth.
+Macro-averaged TPR:
+<strong>51.3%</strong>.</p>
+
+
+<img class="figure" src="plots/world_map_accuracy.png" alt="Per-country true-positive rate (green) with false-positive outlines (red).">
+<p class="caption"><em>Per-country true-positive rate (green) with false-positive outlines (red).</em></p>
+
+<img class="figure" src="plots/world_map_f1.png" alt="Per-country F1, divergent around the run&#39;s macro-F1. Green = above average, red = below.">
+<p class="caption"><em>Per-country F1, divergent around the run&#39;s macro-F1. Green = above average, red = below.</em></p>
+
+<img class="figure" src="plots/world_map_error_bias.png" alt="Per-country error bias (FP-FN)/(FP+FN). Red = over-predicted, blue = missed.">
+<p class="caption"><em>Per-country error bias (FP-FN)/(FP+FN). Red = over-predicted, blue = missed.</em></p>
+
+
+
+</main>
+</div>
+
+<script>
+function toggleTheme() {
+  const r = document.documentElement;
+  r.dataset.theme = r.dataset.theme === "dark" ? "light" : "dark";
+}
+function expandAll(open) {
+  document.querySelectorAll("details").forEach(d => { d.open = open; });
+}
+// Sortable tables: any <th> click sorts column. data-sort="num" forces numeric.
+document.querySelectorAll("table").forEach(table => {
+  table.querySelectorAll("th").forEach((th, idx) => {
+    th.addEventListener("click", () => {
+      const tbody = table.tBodies[0];
+      if (!tbody) return;
+      const rows = Array.from(tbody.rows);
+      const numeric = th.dataset.sort === "num";
+      const asc = !th.classList.contains("sort-asc");
+      rows.sort((a, b) => {
+        const x = a.cells[idx]?.innerText || "";
+        const y = b.cells[idx]?.innerText || "";
+        if (numeric) {
+          const xn = parseFloat(x.replace(/[^\d.\-]/g, "")) || 0;
+          const yn = parseFloat(y.replace(/[^\d.\-]/g, "")) || 0;
+          return asc ? xn - yn : yn - xn;
+        }
+        return asc ? x.localeCompare(y) : y.localeCompare(x);
+      });
+      rows.forEach(r => tbody.appendChild(r));
+      table.querySelectorAll("th").forEach(t => t.classList.remove("sort-asc", "sort-desc"));
+      th.classList.toggle("sort-asc", asc);
+      th.classList.toggle("sort-desc", !asc);
+    });
+  });
+});
+// Scroll-spy: highlight active TOC entry
+const sections = Array.from(document.querySelectorAll("main h2"));
+const tocLinks = Array.from(document.querySelectorAll("nav.toc a"));
+function onScroll() {
+  let current = null;
+  for (const s of sections) {
+    if (s.getBoundingClientRect().top < 100) current = s.id;
+  }
+  tocLinks.forEach(a => a.classList.toggle("active",
+    a.getAttribute("href") === "#" + current));
+}
+window.addEventListener("scroll", onScroll, { passive: true });
+onScroll();
+</script>
+</body>
+</html>

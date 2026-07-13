@@ -1,0 +1,753 @@
+{
+  "image_path": "/pfs/data6/home/ma/ma_ma/ma_lweisssc/llm_council_agent_orchestration_tests/clean_images_GeoRC_500/mMZ8js56Rj2JtLlc_2.png",
+  "model": "google/gemma-4-31B-it",
+  "judge_model": "google/gemma-4-31B-it",
+  "timing": {
+    "total_seconds": 96.5
+  },
+  "assessments": {
+    "linguistic": {
+      "agent_name": "linguistic",
+      "candidates": [],
+      "evidence": []
+    },
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Romania",
+          "confidence": "medium",
+          "reasoning": "The combination of rolling Carpathian-style foothills, mixed deciduous and coniferous forests, and narrow paved rural roads is very characteristic of the Romanian countryside."
+        },
+        {
+          "country": "Bulgaria",
+          "confidence": "medium",
+          "reasoning": "The terrain and vegetation are nearly identical to Romania, featuring similar Balkan mountain foothills and temperate mixed forests with similar road infrastructure."
+        },
+        {
+          "country": "Slovakia",
+          "confidence": "medium",
+          "reasoning": "The landscape matches the Carpathian mountain range's lower slopes, with similar lush green meadows and dense forest cover typical of Central Europe."
+        },
+        {
+          "country": "United States",
+          "confidence": "speculative",
+          "reasoning": "The Appalachian region (e.g., West Virginia or Pennsylvania) features very similar temperate deciduous forests, rolling green hills, and narrow rural paved roads as a cross-continent analog."
+        }
+      ],
+      "evidence": [
+        "Temperate mixed forest (deciduous and coniferous)",
+        "Rolling foothills/low mountains",
+        "Narrow asphalt rural road with worn edges",
+        "Lush green grassland/meadows",
+        "Northern hemisphere sun angle based on shadow cast"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Poland",
+          "confidence": "medium",
+          "reasoning": "The combination of mixed temperate broadleaf forests and managed coniferous plantations on rolling hills is highly characteristic of the Polish highlands and foothills. The specific grass composition and forest edge structure are common in Central Europe."
+        },
+        {
+          "country": "Slovakia",
+          "confidence": "medium",
+          "reasoning": "The vegetation is nearly identical to that of southern Poland, featuring a mix of beech, hornbeam, and spruce/pine plantations typical of the Carpathian foothills."
+        },
+        {
+          "country": "Germany",
+          "confidence": "medium",
+          "reasoning": "The temperate mixed forest and managed grassland are consistent with the Central Uplands (Mittelgebirge) of Germany, where similar forestry practices are employed."
+        },
+        {
+          "country": "United States",
+          "confidence": "low",
+          "reasoning": "The Appalachian region of the Eastern United States hosts a similar temperate broadleaf and mixed forest biome, though the specific management of the coniferous stands differs from the European style seen here."
+        },
+        {
+          "country": "Japan",
+          "confidence": "speculative",
+          "reasoning": "Certain mountainous regions of Honshu feature similar temperate mixed forests and grassy valleys, though the species composition typically differs in leaf shape and density."
+        }
+      ],
+      "evidence": [
+        "Temperate mixed forest",
+        "Coniferous plantations (Pinus/Picea species)",
+        "Central European meadow grasses",
+        "Deciduous broadleaf canopy"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Romania",
+          "confidence": "low",
+          "reasoning": "The narrow asphalt road with rough, uncurbed edges and the specific style of utility poles in the distance are common in rural Carpathian regions."
+        },
+        {
+          "country": "Bulgaria",
+          "confidence": "low",
+          "reasoning": "Similar rural road infrastructure and vegetation patterns are found in the Balkan mountains, featuring basic asphalt and wooden/concrete utility poles."
+        },
+        {
+          "country": "United States",
+          "confidence": "speculative",
+          "reasoning": "Following the global analog rule, rural asphalt roads with gravel shoulders and basic utility poles are visually similar to those found in the Appalachian or New England regions."
+        },
+        {
+          "country": "Argentina",
+          "confidence": "speculative",
+          "reasoning": "Following the global analog rule, rural roads in temperate hilly regions of South America often share this basic asphalt and shoulder treatment."
+        }
+      ],
+      "evidence": [
+        "narrow asphalt road",
+        "rough gravel shoulders",
+        "distant utility poles",
+        "absence of road markings"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "Romania",
+          "confidence": "medium",
+          "reasoning": "The utility pole visible in the distance has a specific concrete design with a cross-arm configuration common in rural Romania. The image quality and slight blur patterns are consistent with Gen 3/4 coverage in Eastern Europe."
+        },
+        {
+          "country": "Bulgaria",
+          "confidence": "medium",
+          "reasoning": "The concrete utility pole style is very similar to those found in Romania and other Balkan nations. The rural road quality and general infrastructure meta are nearly identical to neighboring Romania."
+        },
+        {
+          "country": "Poland",
+          "confidence": "low",
+          "reasoning": "Similar concrete pole infrastructure is used in rural Poland, though the specific cross-arm shape is slightly more characteristic of the Balkans."
+        },
+        {
+          "country": "United States",
+          "confidence": "speculative",
+          "reasoning": "Following the global analog rule, rural paved roads with generic utility poles can appear in various North American regions, though the specific concrete pole design is less common than wooden poles in the US."
+        }
+      ],
+      "evidence": [
+        "concrete utility pole with cross-arm",
+        "Gen 3/4 camera image quality",
+        "rural asphalt road texture"
+      ]
+    }
+  },
+  "progressive_narrowing": {
+    "region_consensus": false,
+    "confirmed_region": "Europe",
+    "runner_up_region": "North America",
+    "surviving_regions": [
+      "Europe",
+      "North America"
+    ],
+    "proposed_regions": [
+      "Europe",
+      "North America",
+      "East Asia",
+      "South America"
+    ],
+    "region_candidates": {
+      "Europe": {
+        "Romania": 3,
+        "Bulgaria": 3,
+        "Slovakia": 2,
+        "Poland": 2,
+        "Germany": 1
+      },
+      "North America": {
+        "United States": 4
+      },
+      "East Asia": {
+        "Japan": 1
+      },
+      "South America": {
+        "Argentina": 1
+      }
+    },
+    "region_decision_reasoning": "Europe received the highest score due to strong support from the landscape agent and additional support from botanics and meta agents, specifically citing the narrow rural road style and temperate forest composition. North America is the runner-up as it is compatible with the vegetation and landscape, though the infrastructure is noted as less typical.",
+    "path": "B"
+  },
+  "road_evidence": {
+    "outside_color": "none",
+    "inside_color": "none",
+    "driving_side": "UNCLEAR",
+    "driving_side_basis": "none"
+  },
+  "country_assessments": {
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Romania",
+          "confidence": "medium",
+          "reasoning": "The combination of rolling Carpathian-style foothills, mixed deciduous and coniferous forests, and the specific style of narrow, weathered asphalt rural roads is very common in the Romanian countryside."
+        },
+        {
+          "country": "Bulgaria",
+          "confidence": "medium",
+          "reasoning": "The terrain and vegetation are nearly identical to Romania, featuring similar Balkan mountain foothills and temperate mixed forests with similar road infrastructure."
+        },
+        {
+          "country": "Slovakia",
+          "confidence": "medium",
+          "reasoning": "The landscape matches the foothills of the Carpathians, with a similar mix of grassy meadows and dense forest cover typical of Central Europe."
+        },
+        {
+          "country": "United States",
+          "confidence": "low",
+          "reasoning": "The Appalachian region (e.g., West Virginia or Pennsylvania) shares this temperate forest and rolling hill geography, though the road edge and vegetation density are more characteristic of Eastern Europe."
+        },
+        {
+          "country": "Canada",
+          "confidence": "low",
+          "reasoning": "Similar temperate mixed forests and rolling terrain can be found in the Maritime provinces or Southern Quebec, though the specific road wear is less common there."
+        }
+      ],
+      "evidence": [
+        "Temperate mixed forest (deciduous and coniferous)",
+        "Rolling foothills/low mountains",
+        "Narrow, weathered asphalt rural road with no shoulder",
+        "Lush green meadows with wild grasses",
+        "Northern hemisphere sun angle (shadows cast slightly north/east)"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Germany",
+          "confidence": "medium",
+          "reasoning": "The mix of temperate broadleaf forest and managed coniferous plantations on the slopes is highly characteristic of the Central European uplands (Mittelgebirge). The lush, managed grassland suggests a Central European agricultural pattern."
+        },
+        {
+          "country": "Austria",
+          "confidence": "medium",
+          "reasoning": "The topography and vegetation, specifically the transition from valley meadows to mixed beech and spruce forests, are typical of the Alpine foothills and lower mountain ranges."
+        },
+        {
+          "country": "France",
+          "confidence": "medium",
+          "reasoning": "Similar mixed forest compositions and meadow landscapes are found in the Massif Central or the Vosges mountains, sharing the same temperate broadleaf biome as Germany and Austria."
+        },
+        {
+          "country": "United States",
+          "confidence": "low",
+          "reasoning": "The Appalachian region of the Eastern US features similar temperate deciduous forests and rolling hills, though the specific management of the coniferous strips on the hillside is more typical of European forestry."
+        },
+        {
+          "country": "Canada",
+          "confidence": "low",
+          "reasoning": "Southern Ontario or Quebec could exhibit similar mixed forest and meadow landscapes, although the specific grass texture and tree density are more aligned with European temperate zones."
+        }
+      ],
+      "evidence": [
+        "Mixed temperate broadleaf and coniferous forest",
+        "Central European upland biome",
+        "Managed pasture/meadow"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "France",
+          "confidence": "low",
+          "reasoning": "The narrow asphalt road with rough, uncurbed edges and the style of the distant utility pole are common in rural French departments."
+        },
+        {
+          "country": "Germany",
+          "confidence": "low",
+          "reasoning": "The road width and the general appearance of the rural landscape and asphalt quality are consistent with secondary roads in Central Europe."
+        },
+        {
+          "country": "United States",
+          "confidence": "speculative",
+          "reasoning": "The rural asphalt road with gravel shoulders and the presence of wooden utility poles in the distance are visually similar to rural roads in the Appalachian or New England regions."
+        },
+        {
+          "country": "Canada",
+          "confidence": "speculative",
+          "reasoning": "The combination of narrow rural paving and the surrounding temperate forest/meadow landscape is common in rural parts of Eastern Canada."
+        }
+      ],
+      "evidence": [
+        "narrow asphalt road",
+        "rough gravel shoulders",
+        "distant wooden utility poles",
+        "absence of road markings"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "Romania",
+          "confidence": "medium",
+          "reasoning": "The utility pole visible in the distance has a specific concrete design with a cross-arm common in rural Romania. The image quality and slight blur patterns are consistent with Google's coverage in Eastern Europe."
+        },
+        {
+          "country": "Bulgaria",
+          "confidence": "medium",
+          "reasoning": "The concrete utility pole style is very similar to those found in Romania and Bulgaria, making it a strong candidate for this region of the Balkans."
+        },
+        {
+          "country": "United States",
+          "confidence": "low",
+          "reasoning": "The general road quality and rural setting could be found in the Appalachian region of the US, though the specific utility pole design is less common there than in Eastern Europe."
+        },
+        {
+          "country": "Canada",
+          "confidence": "low",
+          "reasoning": "Similar to the USA, rural paved roads in mountainous regions can look like this, serving as a North American analog to the European landscape."
+        }
+      ],
+      "evidence": [
+        "concrete utility pole with cross-arm",
+        "Google Street View image quality/generation",
+        "rural asphalt road texture"
+      ]
+    }
+  },
+  "hypothesis_evaluations": [
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "region_europe",
+      "confidence": "neutral",
+      "reasoning": "There is no visible text in the image to provide linguistic evidence for or against this region.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "region_north_america",
+      "confidence": "neutral",
+      "reasoning": "There is no visible text in the image to provide linguistic evidence for or against this region.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "region_east_asia",
+      "confidence": "neutral",
+      "reasoning": "There is no visible text in the image to provide linguistic evidence for or against this region.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "region_south_america",
+      "confidence": "neutral",
+      "reasoning": "There is no visible text in the image to provide linguistic evidence for or against this region.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_europe",
+      "confidence": "strongly_support",
+      "reasoning": "The combination of rolling temperate hills, mixed deciduous and coniferous forests, and the specific style of narrow, paved rural road is highly characteristic of Central or Eastern Europe (e.g., Balkans, Carpathians, or Central Highlands). The vegetation density and grass types are very typical for this region.",
+      "key_evidence": [
+        "temperate mixed forest",
+        "rolling hills",
+        "narrow paved rural road",
+        "deciduous tree species"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_north_america",
+      "confidence": "support",
+      "reasoning": "The landscape is compatible with the Appalachian region of the US or parts of Southern Canada/Northern US. However, the road width and the specific 'feel' of the rural settlement pattern are slightly more aligned with European standards.",
+      "key_evidence": [
+        "temperate forest",
+        "rolling terrain",
+        "green meadows"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_east_asia",
+      "confidence": "low",
+      "reasoning": "While temperate forests exist in Japan or Korea, the specific topography and the lack of characteristic East Asian mountain slopes or vegetation patterns make this less likely than Europe or North America.",
+      "key_evidence": [
+        "temperate climate",
+        "forested hills"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_south_america",
+      "confidence": "contradicts",
+      "reasoning": "The vegetation and light quality are consistent with the Northern Hemisphere. While some temperate zones in the Southern Cone (Chile/Argentina) have similar forests, the road infrastructure and overall landscape composition are not typical for those regions.",
+      "key_evidence": [
+        "northern hemisphere light/shadows",
+        "temperate flora"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_europe",
+      "confidence": "support",
+      "reasoning": "The combination of temperate broadleaf deciduous forests mixed with coniferous stands (likely Picea or Pinus) on the slopes is highly characteristic of Central and Eastern European highlands (e.g., Carpathians, Alps, or Balkans).",
+      "key_evidence": [
+        "temperate broadleaf forest",
+        "mixed coniferous slopes"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_north_america",
+      "confidence": "support",
+      "reasoning": "The vegetation is compatible with the Appalachian region or the Northeast US/Southeast Canada, which share similar temperate deciduous and mixed forest biomes with Europe.",
+      "key_evidence": [
+        "temperate broadleaf forest",
+        "mixed coniferous slopes"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_east_asia",
+      "confidence": "low",
+      "reasoning": "While temperate forests exist in Japan, Korea, and Northern China, the specific structure of the open grassland and forest edge is more typical of Atlantic/Continental European or North American landscapes.",
+      "key_evidence": [
+        "temperate broadleaf forest"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_south_america",
+      "confidence": "contradicts",
+      "reasoning": "The vegetation lacks the characteristic species of South American temperate zones (like the Araucaria or Nothofagus of the south) and is inconsistent with the tropical biomes of the north.",
+      "key_evidence": [
+        "absence of Neotropical or Southern Cone endemic flora"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_europe",
+      "confidence": "support",
+      "reasoning": "The image quality and camera generation are consistent with standard Google Street View coverage in Europe. The narrow, paved rural road without shoulders is very common in European countryside settings.",
+      "key_evidence": [
+        "camera generation",
+        "road width/style"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_north_america",
+      "confidence": "low",
+      "reasoning": "While rural roads exist in North America, the specific narrowness of this asphalt strip without a gravel shoulder or drainage ditch is less typical for US/Canada rural infrastructure.",
+      "key_evidence": [
+        "road width"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_east_asia",
+      "confidence": "low",
+      "reasoning": "The camera quality is compatible, but the specific style of rural road paving and the lack of typical East Asian utility pole markers (which are usually very dense) make this less likely.",
+      "key_evidence": [
+        "camera generation",
+        "lack of specific utility poles"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_south_america",
+      "confidence": "low",
+      "reasoning": "The image quality is compatible with Gen 3/4 coverage, but the road construction and general 'feel' of the rural infrastructure align more closely with European standards.",
+      "key_evidence": [
+        "camera generation",
+        "road construction"
+      ]
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "country_united_states",
+      "confidence": "neutral",
+      "reasoning": "No text is visible in the image to support or contradict this hypothesis.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "country_canada",
+      "confidence": "neutral",
+      "reasoning": "No text is visible in the image to support or contradict this hypothesis.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "country_romania",
+      "confidence": "neutral",
+      "reasoning": "No text is visible in the image to support or contradict this hypothesis.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "country_bulgaria",
+      "confidence": "neutral",
+      "reasoning": "No text is visible in the image to support or contradict this hypothesis.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "country_germany",
+      "confidence": "neutral",
+      "reasoning": "No text is visible in the image to support or contradict this hypothesis.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "country_france",
+      "confidence": "neutral",
+      "reasoning": "No text is visible in the image to support or contradict this hypothesis.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_romania",
+      "confidence": "strongly_support",
+      "reasoning": "The combination of rolling Carpathian-style foothills, mixed deciduous and coniferous forests, and the specific narrow, weathered asphalt road quality is highly characteristic of rural Romania. The lush green meadows and settlement pattern of open fields adjacent to dense forest are very common in the Transylvanian or Subcarpathian regions.",
+      "key_evidence": [
+        "Carpathian-style rolling hills",
+        "mixed forest composition",
+        "narrow rural asphalt road quality"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_bulgaria",
+      "confidence": "support",
+      "reasoning": "The terrain is very similar to the Balkan Mountains or the Rhodopes, featuring similar vegetation and temperate climate. It is geographically nearly indistinguishable from Romania in this specific rural landscape.",
+      "key_evidence": [
+        "Balkan temperate forest",
+        "rolling green terrain"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_germany",
+      "confidence": "support",
+      "reasoning": "The landscape is compatible with the Central Uplands (Mittelgebirge) of Germany, such as the Black Forest or Harz mountains, though the road maintenance often appears slightly more polished in Germany than seen here.",
+      "key_evidence": [
+        "Central European temperate forest",
+        "rolling hills"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_france",
+      "confidence": "support",
+      "reasoning": "Compatible with the Massif Central or the foothills of the Alps/Pyrenees, though the specific mix of wild grass and forest edge is more typical of Eastern Europe.",
+      "key_evidence": [
+        "Temperate European climate",
+        "rolling hills"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_canada",
+      "confidence": "neutral",
+      "reasoning": "While the vegetation is compatible with parts of Quebec or the Maritimes, the road style and the specific slope of the hills are more characteristic of European highlands than North American boreal or temperate zones.",
+      "key_evidence": [
+        "Temperate mixed forest"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_united_states",
+      "confidence": "neutral",
+      "reasoning": "Compatible with the Appalachian region (e.g., West Virginia or North Carolina), but the road width and the specific 'feel' of the landscape are more aligned with European rural infrastructure.",
+      "key_evidence": [
+        "Appalachian-style rolling hills"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_romania",
+      "confidence": "support",
+      "reasoning": "The mix of temperate broadleaf forests and coniferous plantations on the slopes is highly characteristic of the Carpathian region. The lush, unmanaged grassland is common in rural Romanian landscapes.",
+      "key_evidence": [
+        "temperate broadleaf forest",
+        "coniferous slope plantations",
+        "Carpathian-style meadow"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_bulgaria",
+      "confidence": "support",
+      "reasoning": "The vegetation is very similar to Romania, featuring a mix of deciduous trees and pine plantations typical of the Balkan mountains. It is botanically indistinguishable from the Romanian hypothesis based on this view.",
+      "key_evidence": [
+        "temperate broadleaf forest",
+        "coniferous slope plantations",
+        "Balkan mountain flora"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_germany",
+      "confidence": "support",
+      "reasoning": "The landscape is compatible with Central European temperate forests (e.g., the Black Forest or Harz mountains), where mixed deciduous and spruce/pine stands are common.",
+      "key_evidence": [
+        "temperate broadleaf forest",
+        "mixed coniferous stands"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_france",
+      "confidence": "support",
+      "reasoning": "Compatible with the temperate zones of central or eastern France, though the specific density of the slope forest is slightly more reminiscent of Eastern Europe.",
+      "key_evidence": [
+        "temperate broadleaf forest"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_canada",
+      "confidence": "low",
+      "reasoning": "While temperate forests exist in Southern Canada, the specific composition of the broadleaf trees and the structure of the grassland are more typical of European temperate zones than North American ones.",
+      "key_evidence": [
+        "temperate broadleaf forest"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_united_states",
+      "confidence": "low",
+      "reasoning": "Compatible with the Appalachian region, but the specific 'look' of the mixed forest and the meadow grass is more characteristic of the European temperate biome.",
+      "key_evidence": [
+        "temperate broadleaf forest"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_romania",
+      "confidence": "support",
+      "reasoning": "The image quality and slight blur patterns are consistent with Gen 3/4 coverage common in Eastern Europe. The utility pole visible in the distance is a simple concrete pole, which is extremely common in Romania and Bulgaria.",
+      "key_evidence": [
+        "concrete utility pole",
+        "camera generation"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_bulgaria",
+      "confidence": "support",
+      "reasoning": "Similar to Romania, Bulgaria utilizes these specific concrete utility poles and has similar Google Street View coverage characteristics in rural areas.",
+      "key_evidence": [
+        "concrete utility pole",
+        "camera generation"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_germany",
+      "confidence": "neutral",
+      "reasoning": "While the road quality is compatible, there are no specific German meta markers like distinctive bollards or specific street furniture visible to confirm or deny.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_france",
+      "confidence": "neutral",
+      "reasoning": "No specific French meta markers (like the distinctive red-banded bollards) are present in the scene.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_united_states",
+      "confidence": "contradicts",
+      "reasoning": "The utility pole in the distance is concrete; US rural roads almost exclusively use wooden poles. The road width and asphalt style are more characteristic of European rural lanes.",
+      "key_evidence": [
+        "concrete utility pole"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_canada",
+      "confidence": "contradicts",
+      "reasoning": "Similar to the US, the presence of a concrete utility pole in this rural setting is highly atypical for Canada, where wooden poles are the standard.",
+      "key_evidence": [
+        "concrete utility pole"
+      ]
+    }
+  ],
+  "candidate_pool": [
+    "United States",
+    "Canada",
+    "Romania",
+    "Bulgaria",
+    "Germany",
+    "France"
+  ],
+  "rag_findings": [
+    {
+      "kind": "tournament_match",
+      "country": "France",
+      "detail": "The landscape, featuring rolling foothills and a mix of deciduous and coniferous forests, strongly aligns with the Carpathian region of Romania. Additionally, the simple concrete utility pole visible in the distance is a highly characteristic infrastructure marker for rural Romania.",
+      "opponent": "Romania",
+      "winner": "Romania"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Germany",
+      "detail": "The landscape and vegetation are highly characteristic of the Balkan Mountains, and the specific concrete utility pole visible in the distance is a strong meta-marker for Bulgaria. While the landscape is compatible with Germany, the overall rural infrastructure and utility pole style align more closely with the specialist evidence for Bulgaria.",
+      "opponent": "Bulgaria",
+      "winner": "Bulgaria"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Bulgaria",
+      "detail": "The landscape specialist strongly supports Romania, noting that the specific combination of rolling Carpathian-style foothills, mixed forests, and the weathered asphalt road quality is highly characteristic of rural Romania. While Bulgaria is similar, the specific terrain and vegetation patterns align more closely with the Transylvanian or Subcarpathian regions.",
+      "opponent": "Romania",
+      "winner": "Romania"
+    }
+  ],
+  "rag_refs_seen": [],
+  "road_filter_warnings": [],
+  "tournament_log": [
+    {
+      "round_label": "semi-1",
+      "country_a": "Romania",
+      "country_b": "France",
+      "pool_rank_a": 0,
+      "pool_rank_b": 3,
+      "winner": "Romania",
+      "reasoning": "The landscape, featuring rolling foothills and a mix of deciduous and coniferous forests, strongly aligns with the Carpathian region of Romania. Additionally, the simple concrete utility pole visible in the distance is a highly characteristic infrastructure marker for rural Romania.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "semi-2",
+      "country_a": "Bulgaria",
+      "country_b": "Germany",
+      "pool_rank_a": 1,
+      "pool_rank_b": 2,
+      "winner": "Bulgaria",
+      "reasoning": "The landscape and vegetation are highly characteristic of the Balkan Mountains, and the specific concrete utility pole visible in the distance is a strong meta-marker for Bulgaria. While the landscape is compatible with Germany, the overall rural infrastructure and utility pole style align more closely with the specialist evidence for Bulgaria.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "final",
+      "country_a": "Romania",
+      "country_b": "Bulgaria",
+      "pool_rank_a": 0,
+      "pool_rank_b": 1,
+      "winner": "Romania",
+      "reasoning": "The landscape specialist strongly supports Romania, noting that the specific combination of rolling Carpathian-style foothills, mixed forests, and the weathered asphalt road quality is highly characteristic of rural Romania. While Bulgaria is similar, the specific terrain and vegetation patterns align more closely with the Transylvanian or Subcarpathian regions.",
+      "agreement": "agree"
+    }
+  ],
+  "country_result": "Country: Romania\nCoordinates: 45.65, 25.42\nReasoning: The landscape specialist strongly supports Romania, noting that the specific combination of rolling Carpathian-style foothills, mixed forests, and the weathered asphalt road quality is highly characteristic of rural Romania. While Bulgaria is similar, the specific terrain and vegetation patterns align more closely with the Transylvanian or Subcarpathian regions.\n\nTournament:\n  semi-1: Romania vs France → Romania\n  semi-2: Bulgaria vs Germany → Bulgaria\n  final: Romania vs Bulgaria → Romania",
+  "coordinates": {
+    "lat": 45.65,
+    "lng": 25.42
+  },
+  "final_reasoning": "The landscape specialist strongly supports Romania, noting that the specific combination of rolling Carpathian-style foothills, mixed forests, and the weathered asphalt road quality is highly characteristic of rural Romania. While Bulgaria is similar, the specific terrain and vegetation patterns align more closely with the Transylvanian or Subcarpathian regions."
+}

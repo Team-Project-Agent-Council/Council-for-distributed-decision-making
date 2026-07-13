@@ -1,0 +1,397 @@
+{
+  "image_path": "/pfs/data6/home/ma/ma_ma/ma_lweisssc/llm_council_agent_orchestration_tests/clean_images_GeoRC_500/qKKfsK89gK6yZii9_5.png",
+  "model": "google/gemma-4-31B-it",
+  "judge_model": "google/gemma-4-31B-it",
+  "timing": {
+    "total_seconds": 77.4
+  },
+  "assessments": {
+    "linguistic": {
+      "agent_name": "linguistic",
+      "candidates": [
+        {
+          "country": "Brazil",
+          "confidence": "high",
+          "reasoning": "The text 'AUTO POSTO', 'CONVENIENCIA', and 'À VISTA' is Portuguese. The term 'Auto Posto' is specifically used for gas stations in Brazil, and 'ROD.' is a common abbreviation for 'Rodovia' (highway) used in the Brazilian road system."
+        }
+      ],
+      "evidence": [
+        "AUTO POSTO",
+        "CONVENIENCIA",
+        "ETANOL",
+        "GASOLINA",
+        "DIESEL",
+        "À VISTA",
+        "ROD. 267 KM 122",
+        "Portuguese",
+        "Latin"
+      ]
+    },
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Brazil",
+          "confidence": "high",
+          "reasoning": "The combination of deep red latosol soil, flat plateau terrain (Cerrado), and specific road markings (double yellow center line) is highly characteristic of central Brazil. The vegetation consists of scattered scrub and open grasslands typical of the Brazilian highlands."
+        },
+        {
+          "country": "Paraguay",
+          "confidence": "medium",
+          "reasoning": "Shares very similar red soil and flat agricultural landscapes with Brazil, particularly in the eastern regions. The terrain is nearly indistinguishable from the Brazilian border regions without linguistic evidence."
+        },
+        {
+          "country": "Argentina",
+          "confidence": "low",
+          "reasoning": "The northern subtropical regions (Chaco/Misiones) feature similar red soils and flat terrain, though the road infrastructure and settlement patterns here are more aligned with Brazilian standards."
+        },
+        {
+          "country": "Australia",
+          "confidence": "speculative",
+          "reasoning": "Global analog: The red soil, flat horizon, and sparse scrubland are geographically similar to the Australian Outback or northern territories, though the specific vegetation density is slightly different."
+        }
+      ],
+      "evidence": [
+        "Deep red latosol soil",
+        "Flat plateau terrain",
+        "Tropical/Subtropical savanna vegetation",
+        "Double yellow center line road markings",
+        "High sun angle suggesting low latitude"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Brazil",
+          "confidence": "high",
+          "reasoning": "The landscape exhibits characteristics of the Cerrado biome, featuring scattered, twisted woody shrubs and open grasslands on highly oxidized red latosol soil. This specific combination of vegetation and soil is highly diagnostic for the Brazilian highlands, particularly in the Center-West region."
+        },
+        {
+          "country": "Paraguay",
+          "confidence": "medium",
+          "reasoning": "The vegetation is consistent with the Gran Chaco or Atlantic Forest transition zones, which share similar open savanna characteristics and red soils with southern Brazil. It is botanically indistinguishable from the Brazilian border regions without endemic species identification."
+        },
+        {
+          "country": "Australia",
+          "confidence": "low",
+          "reasoning": "The open savanna structure and red soil are a global analog to the Australian Outback or Northern Territory. However, the specific leaf morphology of the distant trees is more consistent with South American species than Eucalyptus or Acacia."
+        },
+        {
+          "country": "Zimbabwe",
+          "confidence": "speculative",
+          "reasoning": "The Miombo woodland/savanna biome presents a similar visual profile of scattered trees and open grass on reddish soils, serving as a cross-continent analog for this vegetation type."
+        }
+      ],
+      "evidence": [
+        "Cerrado savanna vegetation",
+        "Oxidized red latosol soil",
+        "Open grassland with scattered woody shrubs"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Brazil",
+          "confidence": "high",
+          "reasoning": "The gas station signage uses Portuguese ('AUTO POSTO', 'CONVENIENCIA', 'A VISTA') and specifically mentions 'ROD. 267 KM 122', which follows the Brazilian highway naming convention (Rodovia). The fuel types listed (Etanol, Gasolina, Diesel) are standard for Brazil."
+        },
+        {
+          "country": "Portugal",
+          "confidence": "low",
+          "reasoning": "The language on the signage is Portuguese, but the road infrastructure, wide open rural landscape, and specific highway numbering style are not typical for Portugal."
+        },
+        {
+          "country": "Angola",
+          "confidence": "speculative",
+          "reasoning": "Portuguese language is used, and rural road infrastructure with basic asphalt and dirt shoulders is common, though the specific highway naming 'ROD.' is more characteristic of Brazil."
+        }
+      ],
+      "evidence": [
+        "Portuguese text on commercial signage ('Auto Posto', 'Conveniencia')",
+        "Highway marker 'ROD. 267 KM 122'",
+        "Fuel price board listing Etanol, Gasolina, and Diesel",
+        "Rural asphalt road with basic concrete curbing at the junction"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "Brazil",
+          "confidence": "high",
+          "reasoning": "The gas station price board design is highly characteristic of rural Brazil, specifically the layout of fuel types (Etanol, Gasolina, Diesel) and the 'À Vista' (cash) pricing. The utility poles in the distance are standard Brazilian concrete poles with specific cross-arm configurations."
+        },
+        {
+          "country": "Mexico",
+          "confidence": "low",
+          "reasoning": "Similar rural road infrastructure and concrete utility poles are found in Mexico, though the specific style of the commercial signage is less common there."
+        }
+      ],
+      "evidence": [
+        "Gas station price board layout and fuel categories",
+        "Concrete utility pole design",
+        "Rural road shoulder and curb construction style"
+      ]
+    }
+  },
+  "progressive_narrowing": {
+    "region_consensus": null,
+    "confirmed_region": null,
+    "runner_up_region": null,
+    "surviving_regions": [],
+    "proposed_regions": [],
+    "region_candidates": {},
+    "region_decision_reasoning": "",
+    "path": "TOURNAMENT_ONLY"
+  },
+  "road_evidence": {},
+  "country_assessments": {},
+  "hypothesis_evaluations": [
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_brazil",
+      "confidence": "strongly_support",
+      "reasoning": "The vegetation is characteristic of the Cerrado biome, featuring scattered, twisted woody shrubs and open grasslands on highly oxidized red latosol soil. This specific combination of scrubland and soil color is highly diagnostic for the Brazilian highlands.",
+      "key_evidence": [
+        "Cerrado scrubland",
+        "Oxidized red latosol soil"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_paraguay",
+      "confidence": "support",
+      "reasoning": "The vegetation is compatible with the Gran Chaco or eastern regions of Paraguay, which share similar tropical savanna characteristics with Brazil, though the specific soil/scrub density is more typical of the Brazilian interior.",
+      "key_evidence": [
+        "Tropical savanna vegetation"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_argentina",
+      "confidence": "support",
+      "reasoning": "The northernmost regions of Argentina (Chaco) exhibit similar xeric scrub and savanna patterns, though the landscape here is more indicative of the Brazilian plateau.",
+      "key_evidence": [
+        "Xeric scrubland"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_australia",
+      "confidence": "low",
+      "reasoning": "While the open savanna and red soil are a global analog to the Australian Outback, the specific leaf structure and growth habit of the distant trees are more consistent with South American tropical flora than Eucalyptus-dominated landscapes.",
+      "key_evidence": [
+        "Red soil analog",
+        "Savanna biome"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_zimbabwe",
+      "confidence": "low",
+      "reasoning": "The Miombo woodlands of Zimbabwe share a similar open-canopy structure and tropical climate, but the specific soil hue and shrub morphology are less typical for this region.",
+      "key_evidence": [
+        "Tropical savanna biome"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_portugal",
+      "confidence": "contradicts",
+      "reasoning": "The vegetation and soil are characteristic of a tropical/subtropical savanna, which is inconsistent with the Mediterranean scrub (maquis/garrigue) and soil types found in Portugal.",
+      "key_evidence": [
+        "Tropical savanna vs Mediterranean biome"
+      ]
+    },
+    {
+      "agent_name": "regulatory",
+      "hypothesis_id": "country_brazil",
+      "confidence": "strongly_support",
+      "reasoning": "The gas station signage explicitly uses Portuguese ('AUTO POSTO', 'CONVENIENCIA', 'A VISTA') and references 'ROD. 267 KM 122', which matches the Brazilian highway naming convention (Rodovia). The fuel types listed (Etanol, Gasolina, Diesel) are standard for Brazil.",
+      "key_evidence": [
+        "Portuguese text on signage",
+        "Highway designation 'ROD. 267'",
+        "Fuel types (Etanol/Gasolina/Diesel)"
+      ]
+    },
+    {
+      "agent_name": "regulatory",
+      "hypothesis_id": "country_paraguay",
+      "confidence": "contradicts",
+      "reasoning": "The signage is in Portuguese, not Spanish, which is the primary language of Paraguay. The highway naming convention 'ROD.' is specific to Brazil.",
+      "key_evidence": [
+        "Language of signage"
+      ]
+    },
+    {
+      "agent_name": "regulatory",
+      "hypothesis_id": "country_australia",
+      "confidence": "contradicts",
+      "reasoning": "The signage is in Portuguese and the fuel pricing/naming conventions do not match Australian standards.",
+      "key_evidence": [
+        "Language of signage"
+      ]
+    },
+    {
+      "agent_name": "regulatory",
+      "hypothesis_id": "country_argentina",
+      "confidence": "contradicts",
+      "reasoning": "The signage is in Portuguese, not Spanish. The infrastructure and naming conventions ('ROD.') are Brazilian.",
+      "key_evidence": [
+        "Language of signage"
+      ]
+    },
+    {
+      "agent_name": "regulatory",
+      "hypothesis_id": "country_zimbabwe",
+      "confidence": "contradicts",
+      "reasoning": "The signage is in Portuguese and the overall infrastructure style (specifically the gas station branding and highway markers) is not consistent with Zimbabwe.",
+      "key_evidence": [
+        "Language of signage"
+      ]
+    },
+    {
+      "agent_name": "regulatory",
+      "hypothesis_id": "country_portugal",
+      "confidence": "contradicts",
+      "reasoning": "While the language is Portuguese, the landscape, the specific 'ROD.' highway designation, and the fuel types (specifically the prominence of Etanol) are characteristic of Brazil, not Portugal.",
+      "key_evidence": [
+        "Highway designation 'ROD.'",
+        "Fuel types"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_brazil",
+      "confidence": "strongly_support",
+      "reasoning": "The gas station price board layout and the specific 'Auto Posto' branding are extremely characteristic of Brazil. Additionally, the utility pole style (concrete with specific cross-arm configuration) and the general image quality/generation are consistent with Brazilian Street View coverage.",
+      "key_evidence": [
+        "Gas station price board design",
+        "Concrete utility pole style",
+        "Street View camera generation"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_paraguay",
+      "confidence": "support",
+      "reasoning": "Paraguay shares similar rural infrastructure and utility pole styles with Brazil, and the general landscape/road quality is compatible, though the specific gas station meta is more typical of Brazil.",
+      "key_evidence": [
+        "Concrete utility poles",
+        "Road surface quality"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_argentina",
+      "confidence": "support",
+      "reasoning": "Compatible with the general rural South American aesthetic and utility pole types, but lacks the specific regional markers found in Brazil.",
+      "key_evidence": [
+        "Concrete utility poles"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_australia",
+      "confidence": "contradicts",
+      "reasoning": "The utility pole design and the specific style of the commercial signage (gas station board) do not match Australian standards.",
+      "key_evidence": [
+        "Utility pole design",
+        "Commercial signage style"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_zimbabwe",
+      "confidence": "contradicts",
+      "reasoning": "The infrastructure quality, specifically the concrete utility poles and the modern gas station price board, is inconsistent with typical Zimbabwean rural meta.",
+      "key_evidence": [
+        "Utility pole material",
+        "Commercial signage"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_portugal",
+      "confidence": "contradicts",
+      "reasoning": "While Portuguese language is shared, the utility pole style and the specific design of the gas station price board are not characteristic of Portugal.",
+      "key_evidence": [
+        "Utility pole design",
+        "Commercial signage style"
+      ]
+    }
+  ],
+  "candidate_pool": [
+    "Brazil",
+    "Paraguay",
+    "Australia",
+    "Argentina",
+    "Zimbabwe",
+    "Portugal"
+  ],
+  "rag_findings": [
+    {
+      "kind": "tournament_match",
+      "country": "Australia",
+      "detail": "The gas station signage is written in Portuguese ('AUTO POSTO', 'CONVENIENCIA', 'A VISTA') and lists fuel types (Etanol, Gasolina) and a highway designation ('ROD. 267') that are characteristic of Brazil. The red soil and vegetation are also highly consistent with the Brazilian Cerrado biome.",
+      "opponent": "Brazil",
+      "winner": "Brazil"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Argentina",
+      "detail": "The streetview shows a landscape and infrastructure highly compatible with the border regions of Paraguay and Brazil. While the signage is in Portuguese (indicating Brazil), between the two candidates provided, Paraguay is a much closer match in terms of regional geography and rural infrastructure than Argentina.",
+      "opponent": "Paraguay",
+      "winner": "Paraguay"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Paraguay",
+      "detail": "The gas station signage is written in Portuguese ('AUTO POSTO', 'CONVENIENCIA', 'A VISTA') and references 'ROD. 267', which is a Brazilian highway naming convention. The fuel types listed (Etanol, Gasolina, Diesel) and the red latosol soil are highly characteristic of Brazil.",
+      "opponent": "Brazil",
+      "winner": "Brazil"
+    }
+  ],
+  "rag_refs_seen": [],
+  "road_filter_warnings": [],
+  "tournament_log": [
+    {
+      "round_label": "semi-1",
+      "country_a": "Brazil",
+      "country_b": "Australia",
+      "pool_rank_a": 0,
+      "pool_rank_b": 3,
+      "winner": "Brazil",
+      "reasoning": "The gas station signage is written in Portuguese ('AUTO POSTO', 'CONVENIENCIA', 'A VISTA') and lists fuel types (Etanol, Gasolina) and a highway designation ('ROD. 267') that are characteristic of Brazil. The red soil and vegetation are also highly consistent with the Brazilian Cerrado biome.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "semi-2",
+      "country_a": "Paraguay",
+      "country_b": "Argentina",
+      "pool_rank_a": 1,
+      "pool_rank_b": 2,
+      "winner": "Paraguay",
+      "reasoning": "The streetview shows a landscape and infrastructure highly compatible with the border regions of Paraguay and Brazil. While the signage is in Portuguese (indicating Brazil), between the two candidates provided, Paraguay is a much closer match in terms of regional geography and rural infrastructure than Argentina.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "final",
+      "country_a": "Brazil",
+      "country_b": "Paraguay",
+      "pool_rank_a": 0,
+      "pool_rank_b": 1,
+      "winner": "Brazil",
+      "reasoning": "The gas station signage is written in Portuguese ('AUTO POSTO', 'CONVENIENCIA', 'A VISTA') and references 'ROD. 267', which is a Brazilian highway naming convention. The fuel types listed (Etanol, Gasolina, Diesel) and the red latosol soil are highly characteristic of Brazil.",
+      "agreement": "agree"
+    }
+  ],
+  "country_result": "Country: Brazil\nCoordinates: -21.1234, -54.5678\nReasoning: The gas station signage is written in Portuguese ('AUTO POSTO', 'CONVENIENCIA', 'A VISTA') and references 'ROD. 267', which is a Brazilian highway naming convention. The fuel types listed (Etanol, Gasolina, Diesel) and the red latosol soil are highly characteristic of Brazil.\n\nTournament:\n  semi-1: Brazil vs Australia → Brazil\n  semi-2: Paraguay vs Argentina → Paraguay\n  final: Brazil vs Paraguay → Brazil",
+  "coordinates": {
+    "lat": -21.1234,
+    "lng": -54.5678
+  },
+  "final_reasoning": "The gas station signage is written in Portuguese ('AUTO POSTO', 'CONVENIENCIA', 'A VISTA') and references 'ROD. 267', which is a Brazilian highway naming convention. The fuel types listed (Etanol, Gasolina, Diesel) and the red latosol soil are highly characteristic of Brazil."
+}

@@ -1,0 +1,249 @@
+{
+  "image_path": "/pfs/data6/home/ma/ma_ma/ma_lweisssc/llm_council_agent_orchestration_tests/clean_images_GeoRC_500/cV9n1YpMOmaTJpG7_2.png",
+  "model": "google/gemma-4-31B-it",
+  "judge_model": "google/gemma-4-31B-it",
+  "timing": {
+    "total_seconds": 38.6
+  },
+  "assessments": {
+    "linguistic": {
+      "agent_name": "linguistic",
+      "candidates": [],
+      "evidence": []
+    },
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Australia",
+          "confidence": "high",
+          "reasoning": "The vegetation is dominated by Eucalyptus trees with characteristic thin, drooping leaves and pale bark. The combination of dry, golden grasslands and red-tinted soil is highly typical of the Australian interior or rural fringes."
+        },
+        {
+          "country": "South Africa",
+          "confidence": "medium",
+          "reasoning": "Certain regions of South Africa share similar semi-arid scrubland and open woodland patterns. However, the specific morphology of the trees is more indicative of Australian flora than African savanna species."
+        },
+        {
+          "country": "USA",
+          "confidence": "speculative",
+          "reasoning": "The arid, open landscape with scattered trees could resemble parts of the American Southwest or California's interior valleys, though the tree species do not match the native oaks or pines of those regions."
+        }
+      ],
+      "evidence": [
+        "Eucalyptus-style open woodland",
+        "Dry golden grassland",
+        "Reddish-brown soil",
+        "Flat to gently undulating terrain",
+        "High sun angle suggesting mid-latitude"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Australia",
+          "confidence": "high",
+          "reasoning": "The trees are highly characteristic of the genus Eucalyptus, specifically showing the sclerophyllous foliage, irregular branching, and olive-grey hue typical of the Australian interior. The combination of these trees with the dry, golden grassland is a diagnostic landscape for the Australian wheat-sheep belt."
+        },
+        {
+          "country": "South Africa",
+          "confidence": "low",
+          "reasoning": "Some Eucalyptus species have been introduced as commercial forestry or windbreaks in South Africa, which can create similar roadside vistas. However, the natural integration with the surrounding grassland is more typical of native Australian ranges."
+        },
+        {
+          "country": "California, USA",
+          "confidence": "speculative",
+          "reasoning": "Blue Gum (Eucalyptus globulus) is widespread in California and can appear in similar xeric, open-canopy environments. This is a cross-continent analog based on introduced species rather than native flora."
+        }
+      ],
+      "evidence": [
+        "Eucalyptus spp.",
+        "Sclerophyll forest/woodland",
+        "Dry temperate grassland"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Australia",
+          "confidence": "medium",
+          "reasoning": "The road width, asphalt quality, and gravel shoulder treatment are highly characteristic of rural Australian regional roads. The surrounding eucalyptus-style vegetation is a strong environmental indicator that aligns with this infrastructure style."
+        },
+        {
+          "country": "South Africa",
+          "confidence": "low",
+          "reasoning": "Rural road infrastructure in South Africa often features similar asphalt quality and wide gravel shoulders in semi-arid regions. The general road layout is a plausible analog."
+        },
+        {
+          "country": "USA",
+          "confidence": "speculative",
+          "reasoning": "Rural roads in the American West or Southwest can share this basic asphalt-to-gravel shoulder transition and open landscape, though the vegetation differs."
+        },
+        {
+          "country": "Argentina",
+          "confidence": "speculative",
+          "reasoning": "Rural pampas or regional roads often exhibit this same basic infrastructure: a simple two-lane asphalt strip with unpaved shoulders and minimal roadside furniture."
+        }
+      ],
+      "evidence": [
+        "Basic two-lane asphalt road",
+        "Unpaved gravel shoulders",
+        "Absence of visible road signs, bollards, or utility poles in immediate view",
+        "Standard rural road width class"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "Australia",
+          "confidence": "medium",
+          "reasoning": "The image quality and clarity are consistent with Gen 4 Google Street View coverage common in Australia. The road surface texture and the specific style of the white edge lines are highly characteristic of rural Australian highways."
+        },
+        {
+          "country": "South Africa",
+          "confidence": "low",
+          "reasoning": "South Africa shares similar road surface materials and Gen 4 camera quality in rural areas, serving as a cross-continent analog for this specific road meta."
+        }
+      ],
+      "evidence": [
+        "Gen 4 camera image quality",
+        "Road surface texture",
+        "White edge line style"
+      ]
+    }
+  },
+  "progressive_narrowing": {
+    "region_consensus": null,
+    "confirmed_region": null,
+    "runner_up_region": null,
+    "surviving_regions": [],
+    "proposed_regions": [],
+    "region_candidates": {},
+    "region_decision_reasoning": "",
+    "path": "TOURNAMENT_ONLY"
+  },
+  "road_evidence": {},
+  "country_assessments": {},
+  "hypothesis_evaluations": [
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_australia",
+      "confidence": "strongly_support",
+      "reasoning": "The image quality and clarity are consistent with the Gen 4 camera used extensively in Australia. The road surface texture and the specific style of the white edge lines are highly characteristic of Australian rural roads.",
+      "key_evidence": [
+        "Gen 4 camera image quality",
+        "Road surface texture",
+        "Edge line style"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_south_africa",
+      "confidence": "support",
+      "reasoning": "The general road quality and camera generation are compatible with South African coverage, though the specific edge line application is more typical of Australia.",
+      "key_evidence": [
+        "Gen 4 camera image quality"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_usa",
+      "confidence": "low",
+      "reasoning": "While the camera generation is compatible, the specific combination of road asphalt texture and the narrowness of the rural shoulder is less common for US highways.",
+      "key_evidence": [
+        "Gen 4 camera image quality"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_california,_usa",
+      "confidence": "low",
+      "reasoning": "Similar to the general USA hypothesis, the camera is compatible, but the road markings and shoulder style are more aligned with Australian standards.",
+      "key_evidence": [
+        "Gen 4 camera image quality"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_argentina",
+      "confidence": "low",
+      "reasoning": "The camera generation is compatible, but the road maintenance and marking style are less typical for rural Argentina compared to Australia.",
+      "key_evidence": [
+        "Gen 4 camera image quality"
+      ]
+    }
+  ],
+  "candidate_pool": [
+    "Australia",
+    "South Africa",
+    "USA",
+    "California, USA",
+    "Argentina"
+  ],
+  "rag_findings": [
+    {
+      "kind": "tournament_match",
+      "country": "California, USA",
+      "detail": "The vegetation, specifically the eucalyptus-style trees, and the road infrastructure (white edge lines and shoulder style) are highly characteristic of rural Australia. Specialist evidence further supports Australia based on the Gen 4 camera quality and road surface texture.",
+      "opponent": "Australia",
+      "winner": "Australia"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "USA",
+      "detail": "The road infrastructure, specifically the narrow shoulders and asphalt texture, is more consistent with South African rural roads than typical US highways. Specialist evidence notes that the camera generation and general road quality are compatible with South Africa, while the USA is rated as low probability due to the road's narrowness.",
+      "opponent": "South Africa",
+      "winner": "South Africa"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "South Africa",
+      "detail": "The landscape, specifically the eucalyptus trees and the dry, golden grass, is highly characteristic of rural Australia. The road surface and the crisp white edge lines align with the specialist evidence for Australian rural road infrastructure.",
+      "opponent": "Australia",
+      "winner": "Australia"
+    }
+  ],
+  "rag_refs_seen": [],
+  "road_filter_warnings": [],
+  "tournament_log": [
+    {
+      "round_label": "semi-1",
+      "country_a": "Australia",
+      "country_b": "California, USA",
+      "pool_rank_a": 0,
+      "pool_rank_b": 3,
+      "winner": "Australia",
+      "reasoning": "The vegetation, specifically the eucalyptus-style trees, and the road infrastructure (white edge lines and shoulder style) are highly characteristic of rural Australia. Specialist evidence further supports Australia based on the Gen 4 camera quality and road surface texture.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "semi-2",
+      "country_a": "South Africa",
+      "country_b": "USA",
+      "pool_rank_a": 1,
+      "pool_rank_b": 2,
+      "winner": "South Africa",
+      "reasoning": "The road infrastructure, specifically the narrow shoulders and asphalt texture, is more consistent with South African rural roads than typical US highways. Specialist evidence notes that the camera generation and general road quality are compatible with South Africa, while the USA is rated as low probability due to the road's narrowness.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "final",
+      "country_a": "Australia",
+      "country_b": "South Africa",
+      "pool_rank_a": 0,
+      "pool_rank_b": 1,
+      "winner": "Australia",
+      "reasoning": "The landscape, specifically the eucalyptus trees and the dry, golden grass, is highly characteristic of rural Australia. The road surface and the crisp white edge lines align with the specialist evidence for Australian rural road infrastructure.",
+      "agreement": "agree"
+    }
+  ],
+  "country_result": "Country: Australia\nCoordinates: -34.5, 140.5\nReasoning: The landscape, specifically the eucalyptus trees and the dry, golden grass, is highly characteristic of rural Australia. The road surface and the crisp white edge lines align with the specialist evidence for Australian rural road infrastructure.\n\nTournament:\n  semi-1: Australia vs California, USA → Australia\n  semi-2: South Africa vs USA → South Africa\n  final: Australia vs South Africa → Australia",
+  "coordinates": {
+    "lat": -34.5,
+    "lng": 140.5
+  },
+  "final_reasoning": "The landscape, specifically the eucalyptus trees and the dry, golden grass, is highly characteristic of rural Australia. The road surface and the crisp white edge lines align with the specialist evidence for Australian rural road infrastructure."
+}

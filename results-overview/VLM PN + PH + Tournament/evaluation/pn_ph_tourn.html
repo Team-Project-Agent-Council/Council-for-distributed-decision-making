@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VLM Council v12 - Evaluation Report</title>
+<style>
+  :root {
+    --bg: #FFFFFF;
+    --fg: #222222;
+    --muted: #666666;
+    --border: #DDDDDD;
+    --accent: #4C72B0;
+    --success: #55A868;
+    --error: #C44E52;
+    --warning: #DD8452;
+    --code-bg: #F4F4F4;
+    --side-bg: #FAFAFA;
+  }
+  [data-theme="dark"] {
+    --bg: #1A1A1A;
+    --fg: #E5E5E5;
+    --muted: #999999;
+    --border: #333333;
+    --accent: #6FA0D6;
+    --success: #6FBE82;
+    --error: #DA6B6E;
+    --warning: #E89A6E;
+    --code-bg: #2A2A2A;
+    --side-bg: #222222;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                 "Helvetica Neue", Arial, sans-serif;
+    color: var(--fg);
+    background: var(--bg);
+    line-height: 1.55;
+  }
+  .layout { display: flex; min-height: 100vh; }
+  nav.toc {
+    width: 250px;
+    flex: 0 0 250px;
+    background: var(--side-bg);
+    border-right: 1px solid var(--border);
+    padding: 1.2rem 1rem;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    font-size: 0.9rem;
+  }
+  nav.toc h2 {
+    font-size: 0.95rem;
+    margin: 0 0 0.6rem 0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+  }
+  nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
+  nav.toc li { margin: 0.25rem 0; }
+  nav.toc a {
+    color: var(--fg);
+    text-decoration: none;
+    border-left: 2px solid transparent;
+    padding-left: 0.5rem;
+    display: block;
+  }
+  nav.toc a:hover { border-left-color: var(--accent); }
+  nav.toc a.active { border-left-color: var(--accent); color: var(--accent); }
+  main {
+    flex: 1;
+    max-width: 1100px;
+    padding: 1.5rem 2rem 4rem 2rem;
+  }
+  h1 { font-size: 1.8rem; margin-top: 0; }
+  h2 {
+    font-size: 1.35rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.3rem;
+    margin-top: 2rem;
+  }
+  h3 { font-size: 1.1rem; }
+  details {
+    margin: 0.75rem 0;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 0.5rem 0.75rem;
+    background: var(--side-bg);
+  }
+  details > summary {
+    cursor: pointer;
+    font-weight: 600;
+    margin: -0.5rem -0.75rem;
+    padding: 0.5rem 0.75rem;
+  }
+  details[open] > summary { border-bottom: 1px solid var(--border); margin-bottom: 0.5rem; }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 0.6rem 0;
+    font-size: 0.92rem;
+  }
+  th, td {
+    border: 1px solid var(--border);
+    padding: 0.45rem 0.6rem;
+    text-align: left;
+  }
+  th {
+    background: var(--side-bg);
+    cursor: pointer;
+    user-select: none;
+  }
+  th.sort-asc::after { content: " ▲"; color: var(--muted); }
+  th.sort-desc::after { content: " ▼"; color: var(--muted); }
+  img.figure {
+    max-width: 100%;
+    height: auto;
+    margin: 0.6rem 0;
+    border: 1px solid var(--border);
+    background: white;
+  }
+  .caption {
+    font-size: 0.85rem;
+    color: var(--muted);
+    font-style: italic;
+    margin-bottom: 1rem;
+  }
+  .headline-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 0.6rem;
+    margin: 1rem 0;
+  }
+  .stat {
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 0.6rem 0.8rem;
+    background: var(--side-bg);
+  }
+  .stat .label { font-size: 0.78rem; color: var(--muted); text-transform: uppercase; }
+  .stat .value { font-size: 1.4rem; font-weight: 600; color: var(--accent); }
+  .badge {
+    display: inline-block;
+    padding: 0.1rem 0.5rem;
+    border-radius: 3px;
+    font-size: 0.78rem;
+    background: var(--code-bg);
+    color: var(--fg);
+  }
+  .badge.ok { background: var(--success); color: white; }
+  .badge.bad { background: var(--error); color: white; }
+  .badge.warn { background: var(--warning); color: white; }
+  blockquote {
+    border-left: 3px solid var(--accent);
+    margin: 0.8rem 0;
+    padding: 0.4rem 0.8rem;
+    background: var(--code-bg);
+  }
+  iframe.world-map {
+    width: 100%;
+    height: 600px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+  }
+  .controls {
+    position: fixed;
+    top: 0.6rem;
+    right: 0.8rem;
+    display: flex;
+    gap: 0.4rem;
+    z-index: 100;
+  }
+  .controls button {
+    padding: 0.3rem 0.7rem;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--fg);
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 0.85rem;
+  }
+  .controls button:hover { background: var(--side-bg); }
+  code { font-family: "SFMono-Regular", Menlo, monospace; font-size: 0.88rem;
+         background: var(--code-bg); padding: 0.05rem 0.3rem; border-radius: 2px; }
+  .meta { font-size: 0.85rem; color: var(--muted); }
+  .small-table { font-size: 0.85rem; }
+  details.example { background: var(--bg); }
+</style>
+</head>
+<body>
+<div class="controls">
+  <button onclick="toggleTheme()">🌓 theme</button>
+  <button onclick="expandAll(true)">expand all</button>
+  <button onclick="expandAll(false)">collapse all</button>
+</div>
+<div class="layout">
+<nav class="toc">
+  <h2>Sections</h2>
+  <ul>
+    <li><a href="#headline">Headline</a></li>
+<li><a href="#judge">Judge verdicts (v2)</a></li><li><a href="#judge-failure">Tournament failure attribution</a></li><li><a href="#judge-hallucination">Hallucination analysis</a></li>  </ul>
+  <p class="meta">
+    Generated 2026-07-05T18:51:33+00:00<br>
+    0 images
+  </p>
+</nav>
+
+<main>
+<h1 id="headline">VLM Council v12 - Evaluation Report</h1>
+
+<div class="headline-grid">
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="judge">LLM-as-judge verdicts (v2)</h2>
+<p>Verdicts: 500 / 500 ·
+   Constructive synthesis: 100.0%
+   (n=500)</p>
+<h3>Per-agent quantitative scores</h3>
+<table>
+  <thead><tr><th>Agent</th><th data-sort="num">n</th>
+    <th data-sort="num">Role adher.</th>
+    <th data-sort="num">Hallucination ↓</th>
+    <th data-sort="num">Visual cons. ↑</th>
+    <th data-sort="num">Calibration ↑</th></tr></thead>
+  <tbody>
+    <tr>
+      <td>linguistic</td>
+      <td>500</td>
+      <td>100.0%</td>
+      <td>0.01 ± 0.06</td>
+      <td>0.99 ± 0.07</td>
+      <td>0.57 ± 0.19</td>
+    </tr>
+    <tr>
+      <td>landscape</td>
+      <td>500</td>
+      <td>100.0%</td>
+      <td>0.01 ± 0.06</td>
+      <td>0.91 ± 0.04</td>
+      <td>0.68 ± 0.28</td>
+    </tr>
+    <tr>
+      <td>botanics</td>
+      <td>500</td>
+      <td>100.0%</td>
+      <td>0.02 ± 0.08</td>
+      <td>0.90 ± 0.07</td>
+      <td>0.66 ± 0.26</td>
+    </tr>
+    <tr>
+      <td>regulatory</td>
+      <td>500</td>
+      <td>100.0%</td>
+      <td>0.02 ± 0.10</td>
+      <td>0.91 ± 0.08</td>
+      <td>0.64 ± 0.26</td>
+    </tr>
+    <tr>
+      <td>meta</td>
+      <td>500</td>
+      <td>100.0%</td>
+      <td>0.06 ± 0.19</td>
+      <td>0.87 ± 0.16</td>
+      <td>0.68 ± 0.31</td>
+    </tr>
+  </tbody>
+</table>
+<img class="figure" src="plots/judge_role_adherence.png" alt="Role adherence">
+<p class="caption">Figure 14: Per-agent role adherence rate.</p>
+<img class="figure" src="plots/judge_hallucination.png" alt="Hallucination scores">
+<p class="caption">Figure 15: Per-agent mean hallucination score (0 = clean, 1 = severe).</p>
+<img class="figure" src="plots/judge_visual_consistency.png" alt="Visual consistency">
+<p class="caption">Figure 16: Per-agent mean visual consistency.</p>
+
+<h2 id="judge-failure">Tournament failure attribution</h2>
+<p>For matches where the truth was in the candidate pool but did not win, the judge
+classifies <em>why</em>. Counterfactual winnable rate:
+<strong>26.6%</strong>
+(173 attributable losses).</p>
+<table>
+  <thead><tr><th>Failure reason</th><th data-sort="num">Count</th></tr></thead>
+  <tbody>
+    <tr><td>agent_misled_in_tournament</td><td>58</td></tr>
+    <tr><td>ambiguous_evidence</td><td>32</td></tr>
+    <tr><td>not_applicable</td><td>327</td></tr>
+    <tr><td>judge_misjudgment</td><td>23</td></tr>
+    <tr><td>agent_misled_pre_pool</td><td>57</td></tr>
+    <tr><td>missing_rag_refs</td><td>3</td></tr>
+  </tbody>
+</table>
+<img class="figure" src="plots/judge_failure_reasons.png" alt="Failure attribution">
+<p class="caption">Figure 17: Tournament failure attribution histogram.</p>
+<details><summary>Failure examples (20)</summary>
+<details class="example"><summary>1NJsXTxIF9GGMDxC_1 -> agent_misled_in_tournament
+  (lost to Azerbaijan)</summary>
+<p><strong>Round:</strong> final ·
+   <strong>Counterfactual winnable:</strong>
+   <span class="badge ok">
+     yes</span></p>
+<p>The meta and regulatory agents hallucinated a strong link between the green totem and Azerbaijan (SOCAR), assigning 'strongly_support' to Azerbaijan while giving only 'support' to Kyrgyzstan. This misleading evidence caused the tournament to discard the correct country.</p></details>
+<details class="example"><summary>1NJsXTxIF9GGMDxC_2 -> agent_misled_in_tournament
+  (lost to Taiwan)</summary>
+<p><strong>Round:</strong> final ·
+   <strong>Counterfactual winnable:</strong>
+   <span class="badge bad">
+     no</span></p>
+<p>The specialists collectively hallucinated that the visible infrastructure (concrete gutters, guardrails) was a unique signature of Taiwan/Japan, assigning 'strongly_support' to Taiwan and 'support' to Japan while giving 'low' confidence to Malaysia (which was in the pool). This misleading evidence set the tournament up to fail, as the judge had no basis to prefer the correct country (Malaysia) over the incorrect one (Taiwan).</p></details>
+<details class="example"><summary>1NJsXTxIF9GGMDxC_3 -> ambiguous_evidence
+  (lost to Bosnia and Herzegovina)</summary>
+<p><strong>Round:</strong> final ·
+   <strong>Counterfactual winnable:</strong>
+   <span class="badge bad">
+     no</span></p>
+<p>The image features generic socialist-era architecture and standard European signage common to both Serbia and Bosnia. The agents correctly identified both as candidates but lacked specific visual differentiators (like unique text or distinct landmarks). The final decision was based on 'meta' cues (camera artifacts, building colors) which are ambiguous and insufficient to definitively rule out the ground truth.</p></details>
+<details class="example"><summary>2xnQdwiCve2rHWVt_1 -> judge_misjudgment
+  (lost to Brazil)</summary>
+<p><strong>Round:</strong> final ·
+   <strong>Counterfactual winnable:</strong>
+   <span class="badge ok">
+     yes</span></p>
+<p>The specialists unanimously and strongly supported Thailand (the truth) based on clear visual evidence (utility poles, vegetation). The judge ignored this overwhelming consensus and hallucinated a win for Brazil, which was explicitly contradicted by the regulatory and meta agents.</p></details>
+<details class="example"><summary>3I4ZtihbhZy5qZzQ_1 -> judge_misjudgment
+  (lost to India)</summary>
+<p><strong>Round:</strong> final ·
+   <strong>Counterfactual winnable:</strong>
+   <span class="badge ok">
+     yes</span></p>
+<p>The truth (Bangladesh) and the winner (India) were visually indistinguishable based on the provided evidence (landscape, botanics, regulatory). The meta-agent provided weak evidence favoring India based on 'image quality' and 'pole style' which are not reliable differentiators. The judge accepted this weak signal over the neutral/indistinguishable signal for Bangladesh, resulting in a misjudgment.</p></details>
+<details class="example"><summary>3I4ZtihbhZy5qZzQ_5 -> agent_misled_in_tournament
+  (lost to Colombia)</summary>
+<p><strong>Round:</strong> final ·
+   <strong>Counterfactual winnable:</strong>
+   <span class="badge ok">
+     yes</span></p>
+<p>The meta agent hallucinated a specific camera hood artifact ('grey/silver color... characteristic of Colombia') that was not visible in the image. This fabricated evidence was treated as a 'strongly_support' signal by the tournament judge, overriding the generic but accurate evidence for Panama.</p></details>
+<details class="example"><summary>3OuVMcpGjmm0tVfG_1 -> agent_misled_in_tournament
+  (lost to Philippines)</summary>
+<p><strong>Round:</strong> semi-1 ·
+   <strong>Counterfactual winnable:</strong>
+   <span class="badge ok">
+     yes</span></p>
+<p>The landscape agent assigned 'strongly_support' to the Philippines based on a specific, likely hallucinated claim about volcanic rock embankments being characteristic of the Philippines, while giving only 'support' to Indonesia. This biased the tournament judge to pick the wrong country.</p></details>
+<details class="example"><summary>3OuVMcpGjmm0tVfG_5 -> agent_misled_pre_pool
+  (lost to Mexico)</summary>
+<p><strong>Round:</strong> final ·
+   <strong>Counterfactual winnable:</strong>
+   <span class="badge bad">
+     no</span></p>
+<p>Argentina was not included in the candidate pool.</p></details>
+<details class="example"><summary>3uP6lYo9pzx5Q0km_2 -> judge_misjudgment
+  (lost to Sweden)</summary>
+<p><strong>Round:</strong> final ·
+   <strong>Counterfactual winnable:</strong>
+   <span class="badge ok">
+     yes</span></p>
+<p>The specialists provided comparable support for both Sweden and Norway (both 'support' or 'strongly_support'). The judge selected Sweden based on the claim that the terrain is 'more gently rolling than typical Norwegian landscapes,' which is a subjective visual judgment that contradicts the reality that such terrain is common in Norway. The judge had sufficient evidence to be uncertain but made a definitive, incorrect choice.</p></details>
+<details class="example"><summary>3uP6lYo9pzx5Q0km_4 -> judge_misjudgment
+  (lost to Thailand)</summary>
+<p><strong>Round:</strong> semi-1 ·
+   <strong>Counterfactual winnable:</strong>
+   <span class="badge ok">
+     yes</span></p>
+<p>The truth (Indonesia) and the winner (Thailand) were visually indistinguishable based on the provided evidence. The judge's reasoning ('slightly more typical of Thai rural infrastructure') was a subjective preference rather than a deduction from the image, as the specialists had rated both countries as 'support' with no decisive differentiator.</p></details>
+<details class="example"><summary>3uP6lYo9pzx5Q0km_5 -> agent_misled_pre_pool
+  (lost to Romania)</summary>
+<p><strong>Round:</strong> final ·
+   <strong>Counterfactual winnable:</strong>
+   <span class="badge bad">
+     no</span></p>
+<p>Montenegro was not in the candidate pool for the final tournament.</p></details>
+<details class="example"><summary>4UvmdTHySo6AXW4M_1 -> agent_misled_pre_pool
+  (lost to United Kingdom)</summary>
+<p><strong>Round:</strong> final ·
+   <strong>Counterfactual winnable:</strong>
+   <span class="badge bad">
+     no</span></p>
+<p>Luxembourg was not in the candidate pool. The agents correctly narrowed it to the British Isles/France/Belgium region but could not distinguish Luxembourg from the UK due to visual similarity.</p></details>
+<details class="example"><summary>4UvmdTHySo6AXW4M_5 -> agent_misled_in_tournament
+  (lost to India)</summary>
+<p><strong>Round:</strong> final ·
+   <strong>Counterfactual winnable:</strong>
+   <span class="badge bad">
+     no</span></p>
+<p>The landscape and botanics agents assigned 'high' confidence to India/Pakistan and 'low' to Cambodia/Thailand, effectively locking the region decision to South Asia. The meta agent gave Cambodia only 'low' confidence. The specialists collectively misled the judge away from the truth.</p></details>
+<details class="example"><summary>56Q4T4rpv9O9sCpP_2 -> ambiguous_evidence
+  (lost to Australia)</summary>
+<p><strong>Round:</strong> final ·
+   <strong>Counterfactual winnable:</strong>
+   <span class="badge bad">
+     no</span></p>
+<p>The image contains strong visual cues (Eucalyptus, red soil, rolling hills) that are ambiguous between Australia and South Africa. The agents correctly identified these features but lacked the specific regulatory or linguistic markers to disambiguate. The 'Eucalyptus = Australia' bias led to high confidence in the wrong country, but the evidence itself was genuinely under-determined.</p></details>
+<details class="example"><summary>56Q4T4rpv9O9sCpP_5 -> agent_misled_in_tournament
+  (lost to Botswana)</summary>
+<p><strong>Round:</strong> final ·
+   <strong>Counterfactual winnable:</strong>
+   <span class="badge bad">
+     no</span></p>
+<p>The meta agent hallucinated a 'circular blur' artifact as a specific indicator for Botswana. This false evidence was treated as a 'strong' signal by the tournament judge, overriding the visual reality and leading to the incorrect prediction.</p></details>
+<details class="example"><summary>5GS2RPgTrf85UZM5_3 -> agent_misled_pre_pool
+  (lost to Brazil)</summary>
+<p><strong>Round:</strong> final ·
+   <strong>Counterfactual winnable:</strong>
+   <span class="badge bad">
+     no</span></p>
+<p>Bolivia was not in the candidate pool for the final tournament.</p></details>
+<details class="example"><summary>5bPlIRT7eGN79a2E_3 -> agent_misled_in_tournament
+  (lost to Argentina)</summary>
+<p><strong>Round:</strong> semi-1 ·
+   <strong>Counterfactual winnable:</strong>
+   <span class="badge ok">
+     yes</span></p>
+<p>The 'meta' agent assigned 'strongly_support' to Argentina based on a hallucinated camera artifact, while assigning 'low' confidence to Mexico. This skewed the region decision and the final tournament bracket, effectively misleading the judge away from the truth.</p></details>
+<details class="example"><summary>5bPlIRT7eGN79a2E_5 -> agent_misled_in_tournament
+  (lost to Argentina)</summary>
+<p><strong>Round:</strong> final ·
+   <strong>Counterfactual winnable:</strong>
+   <span class="badge ok">
+     yes</span></p>
+<p>The meta agent hallucinated a specific visual feature (hood shape/color) and falsely associated it with Argentina. This fabricated evidence was weighted heavily in the final tournament, overriding the neutral/ambiguous visual evidence that actually supported Chile.</p></details>
+<details class="example"><summary>5l0GTCFZI877KxkV_1 -> agent_misled_in_tournament
+  (lost to Colombia)</summary>
+<p><strong>Round:</strong> semi-1 ·
+   <strong>Counterfactual winnable:</strong>
+   <span class="badge ok">
+     yes</span></p>
+<p>The 'meta' agent assigned 'low' confidence to Mexico and 'strongly_support' to Colombia based on the yellow curbs, despite the landscape agent strongly supporting Mexico. The regulatory agent also shifted to Colombia. The specialists collectively misled the judge away from the truth.</p></details>
+<details class="example"><summary>67gLC5CcGgkQIWEW_5 -> agent_misled_in_tournament
+  (lost to Cambodia)</summary>
+<p><strong>Round:</strong> semi-1 ·
+   <strong>Counterfactual winnable:</strong>
+   <span class="badge ok">
+     yes</span></p>
+<p>The meta-agent hallucinated specific diagnostic features (hood shape, pole style) for Cambodia and assigned 'strongly_support' to it while giving 'low' confidence to the Philippines. This biased the tournament setup, causing the judge to pick Cambodia over the truth.</p></details>
+</details>
+
+<h2 id="judge-hallucination">Hallucination examples</h2>
+<details><summary>linguistic - 5 flagged claims</summary>
+<table class="small-table"><thead><tr><th>Image</th><th data-sort="num">Score</th><th>Hallucinated claim</th></tr></thead><tbody>
+<tr><td>8Uo6ejwXYqmp9av3_2</td>
+  <td>0.50</td>
+  <td>claimed 'MURMESTER' is 'strongly indicative of Denmark' (it is a standard Norwegian term for bricklayer)</td></tr>
+<tr><td>JnTw9kl2nWPFaoUg_5</td>
+  <td>0.50</td>
+  <td>'Muki' is a common name/word in Luganda, the primary language of Uganda</td></tr>
+<tr><td>oIqmyQzBGtaIeI84_4</td>
+  <td>0.75</td>
+  <td>The text 'SOLGAS' refers to a gas distribution company that operates primarily in Colombia.</td></tr>
+<tr><td>oIqmyQzBGtaIeI84_4</td>
+  <td>0.75</td>
+  <td>The text 'SOLGAS' refers to a well-known LPG gas distribution company operating in Colombia.</td></tr>
+<tr><td>z2mhsiTu4DYWixQf_5</td>
+  <td>0.75</td>
+  <td>The sign on the left contains the word 'سورية' (Syria/Syrian)</td></tr>
+</tbody></table></details>
+<details><summary>landscape - 5 flagged claims</summary>
+<table class="small-table"><thead><tr><th>Image</th><th data-sort="num">Score</th><th>Hallucinated claim</th></tr></thead><tbody>
+<tr><td>1NJsXTxIF9GGMDxC_2</td>
+  <td>0.50</td>
+  <td>claimed concrete drainage gutters are 'very characteristic of Taiwan's central mountain ranges' (also common in Malaysia/Australia)</td></tr>
+<tr><td>3OuVMcpGjmm0tVfG_1</td>
+  <td>0.50</td>
+  <td>claimed 'volcanic-looking grey rocky embankments' are 'highly characteristic of the Philippine archipelago' (a specific, unsupported generalization used to bias the decision)</td></tr>
+<tr><td>3OuVMcpGjmm0tVfG_1</td>
+  <td>0.50</td>
+  <td>claimed 'volcanic rock roadside borders' are 'highly characteristic of the Philippine archipelago'</td></tr>
+<tr><td>3uP6lYo9pzx5Q0km_2</td>
+  <td>0.50</td>
+  <td>Claimed the terrain is 'more gently rolling than typical Norwegian landscapes' to justify Sweden over Norway; the image shows a gentle slope that is equally characteristic of coastal Norway.</td></tr>
+<tr><td>3uP6lYo9pzx5Q0km_2</td>
+  <td>0.50</td>
+  <td>Repeatedly cited 'exposed granite outcrops' as a strong indicator for Sweden, whereas the image shows generic rocky outcrops common to both countries.</td></tr>
+</tbody></table></details>
+<details><summary>botanics - 5 flagged claims</summary>
+<table class="small-table"><thead><tr><th>Image</th><th data-sort="num">Score</th><th>Hallucinated claim</th></tr></thead><tbody>
+<tr><td>1NJsXTxIF9GGMDxC_2</td>
+  <td>0.50</td>
+  <td>claimed fern abundance is 'highly characteristic of Taiwan's central mountain ranges' (generic to humid tropics)</td></tr>
+<tr><td>4UvmdTHySo6AXW4M_5</td>
+  <td>0.50</td>
+  <td>claimed 'Prosopis juliflora (mesquite)' visible in scrub - not identifiable from image</td></tr>
+<tr><td>4UvmdTHySo6AXW4M_5</td>
+  <td>0.50</td>
+  <td>claimed 'Triticum aestivum (Winter Wheat)' - crop is too distant to identify species</td></tr>
+<tr><td>5l0GTCFZI877KxkV_4</td>
+  <td>0.20</td>
+  <td>botanics agent cited 'terraced paddy fields' in Phase 1 evidence; the foreground field appears to be a harvested grassy plot or fallow field, not a flooded paddy.</td></tr>
+<tr><td>6ypQOh9cOoE7WaWH_3</td>
+  <td>0.25</td>
+  <td>claimed 'eucalyptus plantations' are visible - the background vegetation is generic montane forest/scrub, not clearly identifiable as eucalyptus.</td></tr>
+</tbody></table></details>
+<details><summary>regulatory - 5 flagged claims</summary>
+<table class="small-table"><thead><tr><th>Image</th><th data-sort="num">Score</th><th>Hallucinated claim</th></tr></thead><tbody>
+<tr><td>1NJsXTxIF9GGMDxC_1</td>
+  <td>0.50</td>
+  <td>The green fuel price totem displays 'AZS', which is the standard abbreviation for Azerbaijan Manat (AZN) fuel stations.</td></tr>
+<tr><td>1NJsXTxIF9GGMDxC_2</td>
+  <td>0.75</td>
+  <td>claimed concrete drainage gutter style is 'very common in mountainous regions of Taiwan' (implies exclusivity not supported by image)</td></tr>
+<tr><td>8Uo6ejwXYqmp9av3_2</td>
+  <td>0.50</td>
+  <td>claimed 'Murmester' terminology is 'strongly Danish' (misleading/incorrect)</td></tr>
+<tr><td>IozkbMt8zbdH9XCv_3</td>
+  <td>0.20</td>
+  <td>regulatory agent claimed 'blue and white painted curbs' are a 'frequent regulatory marker in Iranian cities' (unsupported generalization).</td></tr>
+<tr><td>JfPkjboMSjCsG1Qu_5</td>
+  <td>0.50</td>
+  <td>regulatory agent: 'blue rectangular informational sign with white border' (Image shows blue sign with yellow border)</td></tr>
+</tbody></table></details>
+<details><summary>meta - 5 flagged claims</summary>
+<table class="small-table"><thead><tr><th>Image</th><th data-sort="num">Score</th><th>Hallucinated claim</th></tr></thead><tbody>
+<tr><td>1NJsXTxIF9GGMDxC_1</td>
+  <td>0.50</td>
+  <td>The green fuel price totem is highly characteristic of SOCAR stations in Azerbaijan.</td></tr>
+<tr><td>1NJsXTxIF9GGMDxC_2</td>
+  <td>0.75</td>
+  <td>claimed concrete drainage gutter is a 'hallmark of infrastructure in Japan and Taiwan' (ignores other regions with similar infrastructure)</td></tr>
+<tr><td>3I4ZtihbhZy5qZzQ_5</td>
+  <td>0.75</td>
+  <td>The Google Street View camera car hood is visible and has a distinct grey/silver color and shape characteristic of the coverage in several South American countries, particularly Colombia.</td></tr>
+<tr><td>3I4ZtihbhZy5qZzQ_5</td>
+  <td>0.75</td>
+  <td>The specific Google car hood color (greyish-white) and the style of the concrete perimeter walls... is very common in Colombian urban/industrial areas.</td></tr>
+<tr><td>4UvmdTHySo6AXW4M_5</td>
+  <td>0.20</td>
+  <td>claimed 'specific blur patterns... consistent with Google Trekker' - generic artifacts cited as specific evidence</td></tr>
+</tbody></table></details>
+
+</main>
+</div>
+
+<script>
+function toggleTheme() {
+  const r = document.documentElement;
+  r.dataset.theme = r.dataset.theme === "dark" ? "light" : "dark";
+}
+function expandAll(open) {
+  document.querySelectorAll("details").forEach(d => { d.open = open; });
+}
+// Sortable tables: any <th> click sorts column. data-sort="num" forces numeric.
+document.querySelectorAll("table").forEach(table => {
+  table.querySelectorAll("th").forEach((th, idx) => {
+    th.addEventListener("click", () => {
+      const tbody = table.tBodies[0];
+      if (!tbody) return;
+      const rows = Array.from(tbody.rows);
+      const numeric = th.dataset.sort === "num";
+      const asc = !th.classList.contains("sort-asc");
+      rows.sort((a, b) => {
+        const x = a.cells[idx]?.innerText || "";
+        const y = b.cells[idx]?.innerText || "";
+        if (numeric) {
+          const xn = parseFloat(x.replace(/[^\d.\-]/g, "")) || 0;
+          const yn = parseFloat(y.replace(/[^\d.\-]/g, "")) || 0;
+          return asc ? xn - yn : yn - xn;
+        }
+        return asc ? x.localeCompare(y) : y.localeCompare(x);
+      });
+      rows.forEach(r => tbody.appendChild(r));
+      table.querySelectorAll("th").forEach(t => t.classList.remove("sort-asc", "sort-desc"));
+      th.classList.toggle("sort-asc", asc);
+      th.classList.toggle("sort-desc", !asc);
+    });
+  });
+});
+// Scroll-spy: highlight active TOC entry
+const sections = Array.from(document.querySelectorAll("main h2"));
+const tocLinks = Array.from(document.querySelectorAll("nav.toc a"));
+function onScroll() {
+  let current = null;
+  for (const s of sections) {
+    if (s.getBoundingClientRect().top < 100) current = s.id;
+  }
+  tocLinks.forEach(a => a.classList.toggle("active",
+    a.getAttribute("href") === "#" + current));
+}
+window.addEventListener("scroll", onScroll, { passive: true });
+onScroll();
+</script>
+</body>
+</html>

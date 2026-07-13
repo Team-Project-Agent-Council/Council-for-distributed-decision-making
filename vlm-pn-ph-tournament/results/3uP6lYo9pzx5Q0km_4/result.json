@@ -1,0 +1,733 @@
+{
+  "image_path": "/pfs/data6/home/ma/ma_ma/ma_lweisssc/llm_council_agent_orchestration_tests/clean_images_GeoRC_500/3uP6lYo9pzx5Q0km_4.png",
+  "model": "google/gemma-4-31B-it",
+  "judge_model": "google/gemma-4-31B-it",
+  "timing": {
+    "total_seconds": 91.4
+  },
+  "assessments": {
+    "linguistic": {
+      "agent_name": "linguistic",
+      "candidates": [],
+      "evidence": []
+    },
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Malaysia",
+          "confidence": "medium",
+          "reasoning": "The dense, humid tropical rainforest with a mix of broadleaf evergreens and banana-like plants is highly characteristic of Southeast Asia. The specific style of the concrete path and stone retaining wall is common in rural Malaysian highlands or park areas."
+        },
+        {
+          "country": "Indonesia",
+          "confidence": "medium",
+          "reasoning": "The vegetation and climate are virtually identical to Malaysia, featuring high-density tropical foliage and high humidity. The terrain and road infrastructure are consistent with rural Indonesian volcanic or highland regions."
+        },
+        {
+          "country": "Thailand",
+          "confidence": "medium",
+          "reasoning": "The lush, tropical greenery and the presence of broad-leafed plants are consistent with Southern Thailand. The concrete path construction is a common sight in rural Thai forest reserves or plantations."
+        },
+        {
+          "country": "Costa Rica",
+          "confidence": "low",
+          "reasoning": "As a cross-continent analog, the cloud forest or tropical rainforest terrain of Central America matches the density and moisture levels seen here. The vegetation is similar, though the specific masonry of the wall is slightly more characteristic of Asian infrastructure."
+        },
+        {
+          "country": "Brazil",
+          "confidence": "speculative",
+          "reasoning": "The Atlantic Forest regions of Brazil share this high-density, humid tropical profile with similar undergrowth and canopy structures."
+        }
+      ],
+      "evidence": [
+        "Dense tropical rainforest canopy",
+        "Broad-leafed tropical plants (Musaceae family)",
+        "High humidity indicated by moss/algae on stone walls",
+        "Concrete paved narrow road with stone retaining wall",
+        "Overcast sky typical of equatorial regions"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Malaysia",
+          "confidence": "medium",
+          "reasoning": "The combination of dense tropical rainforest, wild Musa (banana) species, and bamboo is highly characteristic of the Malay Peninsula. The lush, humid undergrowth and specific leaf morphology are consistent with Southeast Asian dipterocarp forests."
+        },
+        {
+          "country": "Indonesia",
+          "confidence": "medium",
+          "reasoning": "The vegetation is virtually identical to that of Malaysia, featuring the same tropical broadleaf species and wild banana plants. Without endemic species visible, it is indistinguishable from the Malay Peninsula botanically."
+        },
+        {
+          "country": "Thailand",
+          "confidence": "medium",
+          "reasoning": "The southern regions of Thailand share this exact tropical rainforest biome and plant composition, including the dense canopy and understory ferns."
+        },
+        {
+          "country": "Costa Rica",
+          "confidence": "low",
+          "reasoning": "This represents a cross-continent analog; the Neotropical rainforests of Central America exhibit similar density, humidity, and the presence of Musaceae, though the specific bamboo and broadleaf species differ slightly from Asian varieties."
+        },
+        {
+          "country": "Brazil",
+          "confidence": "low",
+          "reasoning": "The Atlantic Forest (Mata Atlântica) provides a similar botanical profile of dense, humid tropical vegetation and large-leafed understory plants, serving as a South American analog to the Southeast Asian rainforest."
+        }
+      ],
+      "evidence": [
+        "Musa (wild banana/plantain)",
+        "Bambusoideae (bamboo)",
+        "Tropical broadleaf evergreen canopy",
+        "Hygrophilous undergrowth"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Costa Rica",
+          "confidence": "low",
+          "reasoning": "The combination of narrow concrete paving, stone retaining walls, and dense tropical vegetation is common in rural mountainous regions of Central America."
+        },
+        {
+          "country": "Indonesia",
+          "confidence": "low",
+          "reasoning": "The narrow concrete road structure and specific tropical flora are highly consistent with rural village roads (jalan desa) in Southeast Asia."
+        },
+        {
+          "country": "Brazil",
+          "confidence": "speculative",
+          "reasoning": "Rural concrete paths with stone reinforcement are found in tropical highland regions of South America, serving as a cross-continent analog."
+        }
+      ],
+      "evidence": [
+        "narrow concrete road surface",
+        "stone masonry retaining wall",
+        "concrete drainage curb/edge",
+        "absence of road signs or utility poles"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "Costa Rica",
+          "confidence": "medium",
+          "reasoning": "The image quality and blur patterns are consistent with the Google Trekker (backpack) coverage often used in Costa Rica's national parks and remote trails. The concrete drainage channel and retaining wall style are common in Central American infrastructure."
+        },
+        {
+          "country": "Thailand",
+          "confidence": "medium",
+          "reasoning": "Thailand has extensive Trekker coverage in forested and mountainous areas. The specific style of the concrete curb/drainage edge is frequently seen on rural Thai paths."
+        },
+        {
+          "country": "Brazil",
+          "confidence": "low",
+          "reasoning": "The image quality matches Gen 4 camera characteristics often found in Brazil's rural areas, and the concrete retaining wall construction is a common regional building practice."
+        },
+        {
+          "country": "Indonesia",
+          "confidence": "low",
+          "reasoning": "Similar to Thailand, Indonesia uses Trekker for remote paths, and the concrete drainage infrastructure is a common global analog for tropical rural roads."
+        }
+      ],
+      "evidence": [
+        "Google Trekker camera artifacts (backpack coverage)",
+        "Concrete drainage channel design",
+        "Concrete retaining wall construction style"
+      ]
+    }
+  },
+  "progressive_narrowing": {
+    "region_consensus": false,
+    "confirmed_region": "Southeast Asia",
+    "runner_up_region": "Central America & Caribbean",
+    "surviving_regions": [
+      "Southeast Asia",
+      "Central America & Caribbean"
+    ],
+    "proposed_regions": [
+      "Southeast Asia",
+      "Central America & Caribbean",
+      "South America"
+    ],
+    "region_candidates": {
+      "Southeast Asia": {
+        "Malaysia": 2,
+        "Indonesia": 4,
+        "Thailand": 3
+      },
+      "Central America & Caribbean": {
+        "Costa Rica": 4
+      },
+      "South America": {
+        "Brazil": 4
+      }
+    },
+    "region_decision_reasoning": "Southeast Asia received the highest weighted score, including multiple 'strongly_support' ratings across landscape, regulatory, and meta agents who noted the specific combination of flora and rural concrete infrastructure. Central America & Caribbean and South America both received consistent 'support' ratings, but Central America is selected as the runner-up due to slightly higher alignment in the landscape evaluation.",
+    "path": "B"
+  },
+  "road_evidence": {
+    "outside_color": "none",
+    "inside_color": "none",
+    "driving_side": "UNCLEAR",
+    "driving_side_basis": "none"
+  },
+  "country_assessments": {
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Thailand",
+          "confidence": "medium",
+          "reasoning": "The combination of dense tropical broadleaf vegetation, banana plants, and the specific style of concrete drainage and stone retaining walls is very common in rural Thai highlands. The lush, humid environment is consistent with the region's tropical monsoon climate."
+        },
+        {
+          "country": "Vietnam",
+          "confidence": "medium",
+          "reasoning": "The terrain and vegetation are highly characteristic of the humid subtropical and tropical zones of Vietnam. The narrow concrete path and stone-reinforced embankments are typical of rural infrastructure in mountainous Vietnamese provinces."
+        },
+        {
+          "country": "Costa Rica",
+          "confidence": "low",
+          "reasoning": "The dense, multi-layered rainforest canopy and high humidity match the cloud forest or lowland rainforest regions of Costa Rica. The concrete path is a common feature in eco-tourism or rural residential areas."
+        },
+        {
+          "country": "Panama",
+          "confidence": "low",
+          "reasoning": "The tropical flora, including the large-leafed plants and dense undergrowth, is consistent with Panama's humid environment. The road construction style is similar to that found in rural Central American settlements."
+        }
+      ],
+      "evidence": [
+        "Dense tropical broadleaf forest with multi-layered canopy",
+        "Presence of Musaceae (banana/plantain) species",
+        "Concrete paved narrow road with integrated drainage channels",
+        "Stone-masonry retaining wall with moss and fern growth",
+        "High humidity indicated by lush green undergrowth and overcast sky"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Malaysia",
+          "confidence": "high",
+          "reasoning": "The combination of dense dipterocarp-style canopy, wild Musa (banana) species, and specific understory ferns is highly characteristic of the humid tropical rainforests of Peninsular Malaysia and Borneo. The lush, layered vegetation structure is typical of the region's high-precipitation zones."
+        },
+        {
+          "country": "Indonesia",
+          "confidence": "high",
+          "reasoning": "The vegetation is virtually identical to that found in the Indonesian archipelago, particularly Sumatra and Kalimantan. The presence of broad-leafed tropical evergreens and wild banana plants is a staple of the Indonesian rainforest landscape."
+        },
+        {
+          "country": "Thailand",
+          "confidence": "medium",
+          "reasoning": "Similar tropical rainforest biomes exist in Southern Thailand. However, the density and specific leaf morphology of the undergrowth are more indicative of the equatorial regions of Malaysia or Indonesia."
+        },
+        {
+          "country": "Costa Rica",
+          "confidence": "low",
+          "reasoning": "While the tropical rainforest biome is a global analog, the specific arrangement of the broad-leafed understory and the appearance of the wild Musa species are more common in Southeast Asia than the Neotropics."
+        },
+        {
+          "country": "Panama",
+          "confidence": "low",
+          "reasoning": "Similar to Costa Rica, the humid tropical forest structure is present, but the specific botanical composition leans more towards the Asian tropics based on the leaf shapes and density."
+        }
+      ],
+      "evidence": [
+        "Musa spp. (Wild Banana)",
+        "Tropical broadleaf evergreen canopy",
+        "Hygrophilous understory ferns",
+        "Equatorial rainforest biome"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Costa Rica",
+          "confidence": "low",
+          "reasoning": "The narrow concrete road with integrated concrete drainage gutters and stone retaining walls is common in rural mountainous regions of Central America. The lush tropical vegetation is consistent with the region's cloud forests."
+        },
+        {
+          "country": "Panama",
+          "confidence": "low",
+          "reasoning": "Similar to Costa Rica, the use of basic concrete paving for rural access roads and the specific style of the concrete curb/drainage edge are frequently seen in Panamanian rural infrastructure."
+        },
+        {
+          "country": "Thailand",
+          "confidence": "low",
+          "reasoning": "Rural concrete roads (cement roads) are extremely common in Thailand, often featuring similar narrow widths and simple concrete drainage channels along the edges in forested areas."
+        },
+        {
+          "country": "Vietnam",
+          "confidence": "low",
+          "reasoning": "The combination of a narrow concrete slab road and stone-reinforced embankments is a standard feature of rural village and forest roads in Vietnam."
+        }
+      ],
+      "evidence": [
+        "narrow concrete road surface",
+        "concrete drainage gutters/curbs",
+        "stone masonry retaining wall",
+        "absence of road signs or utility poles"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "Costa Rica",
+          "confidence": "medium",
+          "reasoning": "The image quality and slight blur patterns are consistent with Google's coverage in Central America. The specific style of the concrete drainage curb and the rough-hewn stone retaining wall are very common in rural Costa Rican mountainous regions."
+        },
+        {
+          "country": "Panama",
+          "confidence": "medium",
+          "reasoning": "Similar to Costa Rica, the concrete infrastructure (curbs/gutters) and the camera generation match Panama's rural road coverage. The construction of the stone wall is a regional style found across the Isthmus."
+        },
+        {
+          "country": "Thailand",
+          "confidence": "low",
+          "reasoning": "The concrete path and drainage style are seen in rural Thailand, though the specific stone wall masonry is slightly less common than the poured concrete walls often found there."
+        },
+        {
+          "country": "Malaysia",
+          "confidence": "low",
+          "reasoning": "The image quality and the presence of concrete drainage channels along narrow rural roads are consistent with Malaysian 'kampung' roads."
+        }
+      ],
+      "evidence": [
+        "Concrete drainage curb design",
+        "Rough-hewn stone retaining wall construction",
+        "Google Street View camera generation/image quality",
+        "Narrow paved rural path style"
+      ]
+    }
+  },
+  "hypothesis_evaluations": [
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_southeast_asia",
+      "confidence": "strongly_support",
+      "reasoning": "The combination of dense, multi-layered tropical rainforest, specific broad-leafed plants (resembling Musaceae/banana family), and the style of the concrete path with a stone-reinforced retaining wall is highly characteristic of humid tropical regions in Southeast Asia, particularly Indonesia, Malaysia, or Thailand.",
+      "key_evidence": [
+        "dense tropical canopy",
+        "broad-leafed tropical undergrowth",
+        "stone-reinforced retaining wall",
+        "high humidity vegetation density"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_central_america_and_caribbean",
+      "confidence": "support",
+      "reasoning": "The tropical rainforest environment is compatible with Central America or the Caribbean. However, the specific combination of the concrete path construction and the surrounding flora is slightly more typical of Asian tropical highlands than the Neotropics.",
+      "key_evidence": [
+        "tropical rainforest climate",
+        "lush green vegetation",
+        "concrete infrastructure in jungle"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_south_america",
+      "confidence": "support",
+      "reasoning": "The landscape is compatible with the humid tropical forests of South America (e.g., Colombia, Ecuador, Brazil). While the vegetation matches, the specific settlement pattern of the road and wall is less diagnostic for this region than for Southeast Asia.",
+      "key_evidence": [
+        "tropical jungle terrain",
+        "high precipitation indicators",
+        "dense foliage"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_southeast_asia",
+      "confidence": "support",
+      "reasoning": "The combination of dense tropical broadleaf forest, Musaceae (banana/plantain) species, and the specific structure of the undergrowth is highly characteristic of humid tropical regions in Southeast Asia, such as Thailand, Vietnam, or Malaysia.",
+      "key_evidence": [
+        "Musaceae",
+        "Tropical broadleaf evergreen forest",
+        "Humid tropical understory"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_central_america_and_caribbean",
+      "confidence": "support",
+      "reasoning": "The vegetation is compatible with the wet tropical forests of Central America. The presence of large-leafed tropical plants and dense canopy cover is common in this region, though it lacks specific endemic markers to distinguish it from Southeast Asia.",
+      "key_evidence": [
+        "Musaceae",
+        "Tropical rainforest biome"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_south_america",
+      "confidence": "support",
+      "reasoning": "The lush, humid tropical vegetation is consistent with the Atlantic Forest or Amazonian fringes. However, without identifying specific Neotropical endemics, it remains a general match for any tropical rainforest biome.",
+      "key_evidence": [
+        "Tropical broadleaf forest",
+        "Musaceae"
+      ]
+    },
+    {
+      "agent_name": "regulatory",
+      "hypothesis_id": "region_southeast_asia",
+      "confidence": "support",
+      "reasoning": "The narrow concrete road with integrated concrete drainage gutters and stone-reinforced retaining walls is very common in rural, mountainous areas of Southeast Asia (e.g., Thailand, Vietnam, Indonesia).",
+      "key_evidence": [
+        "concrete drainage gutters",
+        "stone retaining wall",
+        "narrow concrete road"
+      ]
+    },
+    {
+      "agent_name": "regulatory",
+      "hypothesis_id": "region_central_america_and_caribbean",
+      "confidence": "support",
+      "reasoning": "The basic concrete road construction and drainage style are compatible with rural infrastructure found in Central American tropical regions.",
+      "key_evidence": [
+        "concrete drainage gutters",
+        "narrow concrete road"
+      ]
+    },
+    {
+      "agent_name": "regulatory",
+      "hypothesis_id": "region_south_america",
+      "confidence": "support",
+      "reasoning": "Similar rural concrete road infrastructure and stone walling are found in tropical highland regions of South America (e.g., Colombia, Ecuador).",
+      "key_evidence": [
+        "concrete drainage gutters",
+        "stone retaining wall",
+        "narrow concrete road"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_southeast_asia",
+      "confidence": "strongly_support",
+      "reasoning": "The image shows a distinct 'trekker' or handheld camera perspective (indicated by the blur and perspective at the bottom of the frame), which is heavily utilized for narrow paths and rural areas in Southeast Asian countries like Thailand, Indonesia, and Malaysia. The concrete drainage channel and the specific style of the low concrete retaining wall are very common in rural infrastructure across this region.",
+      "key_evidence": [
+        "Google Trekker/handheld camera perspective",
+        "Concrete drainage channel style",
+        "Low concrete retaining wall construction"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_central_america_and_caribbean",
+      "confidence": "support",
+      "reasoning": "The concrete construction of the path and drainage is compatible with rural infrastructure in Central America, and the camera perspective could be a trekker, though it is less common in these specific jungle settings compared to SE Asia.",
+      "key_evidence": [
+        "Concrete path and drainage"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_south_america",
+      "confidence": "support",
+      "reasoning": "Similar to Central America, the concrete infrastructure is compatible, but the specific combination of the narrow concrete path and the camera artifact is more characteristic of SE Asian coverage patterns.",
+      "key_evidence": [
+        "Concrete path and drainage"
+      ]
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "country_thailand",
+      "confidence": "neutral",
+      "reasoning": "No text is visible in the image to support or contradict this hypothesis.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "country_costa_rica",
+      "confidence": "neutral",
+      "reasoning": "No text is visible in the image to support or contradict this hypothesis.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "country_panama",
+      "confidence": "neutral",
+      "reasoning": "No text is visible in the image to support or contradict this hypothesis.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "country_vietnam",
+      "confidence": "neutral",
+      "reasoning": "No text is visible in the image to support or contradict this hypothesis.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "country_malaysia",
+      "confidence": "neutral",
+      "reasoning": "No text is visible in the image to support or contradict this hypothesis.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "country_indonesia",
+      "confidence": "neutral",
+      "reasoning": "No text is visible in the image to support or contradict this hypothesis.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_thailand",
+      "confidence": "support",
+      "reasoning": "The lush, humid tropical forest with broad-leafed plants and banana-like foliage is highly consistent with Thailand's landscape. The concrete path and stone retaining wall are common in rural Thai hilly areas.",
+      "key_evidence": [
+        "tropical broad-leaf vegetation",
+        "humid climate indicators",
+        "concrete rural infrastructure"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_vietnam",
+      "confidence": "support",
+      "reasoning": "The dense, multi-layered tropical canopy and the specific style of the concrete drainage/pathway are very common in the highlands of Vietnam.",
+      "key_evidence": [
+        "dense tropical canopy",
+        "concrete path",
+        "humid environment"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_malaysia",
+      "confidence": "support",
+      "reasoning": "The vegetation is typical of Southeast Asian rainforests. The combination of steep terrain and concrete reinforcement is common in Peninsular Malaysia.",
+      "key_evidence": [
+        "rainforest flora",
+        "steep terrain",
+        "concrete retaining wall"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_indonesia",
+      "confidence": "support",
+      "reasoning": "The landscape is entirely compatible with the volcanic, humid tropical environments of Indonesia, particularly Java or Sumatra.",
+      "key_evidence": [
+        "tropical jungle",
+        "high humidity vegetation",
+        "concrete path"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_costa_rica",
+      "confidence": "support",
+      "reasoning": "The tropical rainforest environment and the use of concrete for road stabilization in hilly areas are consistent with Central American landscapes.",
+      "key_evidence": [
+        "tropical rainforest",
+        "concrete infrastructure",
+        "humid climate"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_panama",
+      "confidence": "support",
+      "reasoning": "The dense greenery and soil moisture levels are consistent with Panama's tropical climate and terrain.",
+      "key_evidence": [
+        "tropical vegetation",
+        "humid environment",
+        "concrete path"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_thailand",
+      "confidence": "support",
+      "reasoning": "The combination of Musa (banana) species, dense broadleaf tropical foliage, and bamboo-like undergrowth is highly characteristic of Southeast Asian humid tropical forests.",
+      "key_evidence": [
+        "Musa species",
+        "Tropical broadleaf forest",
+        "Bamboo"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_vietnam",
+      "confidence": "support",
+      "reasoning": "The vegetation is consistent with the moist tropical and subtropical forests of Vietnam, showing similar species composition to other SE Asian nations.",
+      "key_evidence": [
+        "Musa species",
+        "Tropical broadleaf forest"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_malaysia",
+      "confidence": "support",
+      "reasoning": "The high density of evergreen broadleaf plants and the presence of wild banana species are typical of the Malaysian rainforest margins.",
+      "key_evidence": [
+        "Musa species",
+        "Evergreen broadleaf foliage"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_indonesia",
+      "confidence": "support",
+      "reasoning": "The botanical profile matches the humid tropical environment of Indonesia, though no endemic species are visible to distinguish it from Malaysia or Thailand.",
+      "key_evidence": [
+        "Musa species",
+        "Tropical rainforest vegetation"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_costa_rica",
+      "confidence": "low",
+      "reasoning": "While the biome is a tropical rainforest (global analog), the specific leaf morphology and the arrangement of the understory are more typical of the Indomalayan realm than the Neotropical realm.",
+      "key_evidence": [
+        "Tropical rainforest biome"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_panama",
+      "confidence": "low",
+      "reasoning": "Similar to Costa Rica, the general biome is compatible, but the specific mix of vegetation lacks the distinct Neotropical markers usually seen in Central American rainforests.",
+      "key_evidence": [
+        "Tropical rainforest biome"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_thailand",
+      "confidence": "support",
+      "reasoning": "The image quality and the presence of a concrete path with low concrete curbs are common in rural Thai village roads. The camera generation is consistent with standard Google coverage in Southeast Asia.",
+      "key_evidence": [
+        "concrete path construction",
+        "camera generation"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_vietnam",
+      "confidence": "support",
+      "reasoning": "Similar to Thailand, Vietnam has extensive coverage of narrow concrete village roads with this specific style of low concrete edging and stone retaining walls.",
+      "key_evidence": [
+        "concrete path construction",
+        "stone retaining wall"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_malaysia",
+      "confidence": "support",
+      "reasoning": "The infrastructure (concrete path and drainage style) is compatible with rural Malaysian 'jalan kampung' roads.",
+      "key_evidence": [
+        "concrete path construction"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_indonesia",
+      "confidence": "support",
+      "reasoning": "The use of concrete for narrow rural paths is very common across the Indonesian archipelago, matching the visual meta of the road surface.",
+      "key_evidence": [
+        "concrete path construction"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_costa_rica",
+      "confidence": "low",
+      "reasoning": "While the environment is similar, the specific style of the concrete path and the low, rectangular concrete curbs are more characteristic of Southeast Asian rural infrastructure than Central American rural roads.",
+      "key_evidence": [
+        "concrete path construction"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_panama",
+      "confidence": "low",
+      "reasoning": "Similar to Costa Rica, the infrastructure is compatible but less typical than the patterns seen in the Southeast Asian candidates.",
+      "key_evidence": [
+        "concrete path construction"
+      ]
+    }
+  ],
+  "candidate_pool": [
+    "Thailand",
+    "Costa Rica",
+    "Panama",
+    "Vietnam",
+    "Malaysia",
+    "Indonesia"
+  ],
+  "rag_findings": [
+    {
+      "kind": "tournament_match",
+      "country": "Indonesia",
+      "detail": "The image shows a lush tropical environment with a concrete path and stone retaining wall, which is highly characteristic of rural hilly areas in Thailand. While the landscape is compatible with both, the specific combination of the concrete curb style and the dense broadleaf foliage is slightly more typical of Thai rural infrastructure as noted in the specialist meta evidence.",
+      "opponent": "Thailand",
+      "winner": "Thailand"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Malaysia",
+      "detail": "The image shows a narrow concrete path with a specific style of stone retaining wall and low concrete edging that is highly characteristic of rural and highland areas in Vietnam. While the vegetation is common to both, the specific combination of infrastructure and landscape is more strongly associated with Vietnamese village roads.",
+      "opponent": "Vietnam",
+      "winner": "Vietnam"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Vietnam",
+      "detail": "The lush tropical vegetation, including banana plants and dense broadleaf foliage, combined with the specific style of the concrete path and stone retaining wall, is highly characteristic of rural hilly regions in Thailand. While similar to Vietnam, the overall composition of the landscape and infrastructure aligns slightly more with common Thai rural road patterns.",
+      "opponent": "Thailand",
+      "winner": "Thailand"
+    }
+  ],
+  "rag_refs_seen": [],
+  "road_filter_warnings": [],
+  "tournament_log": [
+    {
+      "round_label": "semi-1",
+      "country_a": "Thailand",
+      "country_b": "Indonesia",
+      "pool_rank_a": 0,
+      "pool_rank_b": 3,
+      "winner": "Thailand",
+      "reasoning": "The image shows a lush tropical environment with a concrete path and stone retaining wall, which is highly characteristic of rural hilly areas in Thailand. While the landscape is compatible with both, the specific combination of the concrete curb style and the dense broadleaf foliage is slightly more typical of Thai rural infrastructure as noted in the specialist meta evidence.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "semi-2",
+      "country_a": "Vietnam",
+      "country_b": "Malaysia",
+      "pool_rank_a": 1,
+      "pool_rank_b": 2,
+      "winner": "Vietnam",
+      "reasoning": "The image shows a narrow concrete path with a specific style of stone retaining wall and low concrete edging that is highly characteristic of rural and highland areas in Vietnam. While the vegetation is common to both, the specific combination of infrastructure and landscape is more strongly associated with Vietnamese village roads.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "final",
+      "country_a": "Thailand",
+      "country_b": "Vietnam",
+      "pool_rank_a": 0,
+      "pool_rank_b": 1,
+      "winner": "Thailand",
+      "reasoning": "The lush tropical vegetation, including banana plants and dense broadleaf foliage, combined with the specific style of the concrete path and stone retaining wall, is highly characteristic of rural hilly regions in Thailand. While similar to Vietnam, the overall composition of the landscape and infrastructure aligns slightly more with common Thai rural road patterns.",
+      "agreement": "agree"
+    }
+  ],
+  "country_result": "Country: Thailand\nCoordinates: 18.7883, 98.9853\nReasoning: The lush tropical vegetation, including banana plants and dense broadleaf foliage, combined with the specific style of the concrete path and stone retaining wall, is highly characteristic of rural hilly regions in Thailand. While similar to Vietnam, the overall composition of the landscape and infrastructure aligns slightly more with common Thai rural road patterns.\n\nTournament:\n  semi-1: Thailand vs Indonesia → Thailand\n  semi-2: Vietnam vs Malaysia → Vietnam\n  final: Thailand vs Vietnam → Thailand",
+  "coordinates": {
+    "lat": 18.7883,
+    "lng": 98.9853
+  },
+  "final_reasoning": "The lush tropical vegetation, including banana plants and dense broadleaf foliage, combined with the specific style of the concrete path and stone retaining wall, is highly characteristic of rural hilly regions in Thailand. While similar to Vietnam, the overall composition of the landscape and infrastructure aligns slightly more with common Thai rural road patterns."
+}

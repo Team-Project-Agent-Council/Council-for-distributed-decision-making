@@ -1,0 +1,589 @@
+{
+  "image_path": "/pfs/data6/home/ma/ma_ma/ma_lweisssc/llm_council_agent_orchestration_tests/clean_images_GeoRC_500/qREuLz0JK8CfSFMC_2.png",
+  "model": "google/gemma-4-31B-it",
+  "judge_model": "google/gemma-4-31B-it",
+  "timing": {
+    "total_seconds": 191.0
+  },
+  "assessments": {
+    "linguistic": {
+      "agent_name": "linguistic",
+      "candidates": [],
+      "evidence": []
+    },
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Costa Rica",
+          "confidence": "medium",
+          "reasoning": "The dense, lush tropical broadleaf vegetation and the specific style of gravel road with a simple metal guardrail are very common in the highlands and cloud forest regions of Costa Rica."
+        },
+        {
+          "country": "Panama",
+          "confidence": "medium",
+          "reasoning": "The humid tropical environment and soil composition are nearly identical to Costa Rica, making it a primary candidate based on landscape alone."
+        },
+        {
+          "country": "Colombia",
+          "confidence": "medium",
+          "reasoning": "The combination of steep, forested terrain and unpaved rural roads is characteristic of the Andean foothills and tropical zones of Colombia."
+        },
+        {
+          "country": "Vietnam",
+          "confidence": "low",
+          "reasoning": "The dense, humid subtropical forest and narrow gravel roads are a strong global analog, though the guardrail style is slightly more common in the Americas."
+        },
+        {
+          "country": "Thailand",
+          "confidence": "low",
+          "reasoning": "Similar tropical jungle density and road conditions exist in rural Thailand, serving as a cross-continent analog for this environment."
+        }
+      ],
+      "evidence": [
+        "Dense tropical broadleaf forest",
+        "Unpaved gravel/dirt road",
+        "Humid subtropical/tropical climate indicators",
+        "Metal guardrail on the right shoulder",
+        "Overcast sky with diffused lighting (neutral sun angle)"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Costa Rica",
+          "confidence": "medium",
+          "reasoning": "The dense, humid subtropical broadleaf forest with thick undergrowth and specific leaf morphology is highly characteristic of the Central American highlands. It is indistinguishable from Panama based solely on this vegetation."
+        },
+        {
+          "country": "Panama",
+          "confidence": "medium",
+          "reasoning": "The lush, evergreen canopy and dense roadside scrub are consistent with Panamanian tropical moist forests. The vegetation profile is nearly identical to that of Costa Rica."
+        },
+        {
+          "country": "Vietnam",
+          "confidence": "low",
+          "reasoning": "The humid, dense subtropical forest structure is a global analog found in Southeast Asia. The leaf density and canopy height are consistent with northern Vietnamese highlands."
+        },
+        {
+          "country": "Brazil",
+          "confidence": "low",
+          "reasoning": "The Atlantic Forest (Mata Atlântica) regions exhibit similar dense, broadleaf evergreen vegetation and understory growth patterns as seen here."
+        },
+        {
+          "country": "Thailand",
+          "confidence": "speculative",
+          "reasoning": "Tropical moist forest biomes in Thailand provide a cross-continent analog with similar canopy closure and lush roadside vegetation."
+        }
+      ],
+      "evidence": [
+        "Humid subtropical broadleaf forest",
+        "Dense evergreen understory",
+        "Tropical moist forest biome"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Brazil",
+          "confidence": "low",
+          "reasoning": "The combination of a narrow gravel road with a simple metal guardrail in a dense tropical forest environment is common in rural Brazil."
+        },
+        {
+          "country": "Thailand",
+          "confidence": "low",
+          "reasoning": "Rural gravel roads with similar metal barriers and dense jungle vegetation are frequently found in Southeast Asian regions."
+        },
+        {
+          "country": "Costa Rica",
+          "confidence": "low",
+          "reasoning": "The lush greenery and basic rural road infrastructure with standard metal guardrails are consistent with Central American rural roads."
+        },
+        {
+          "country": "Australia",
+          "confidence": "speculative",
+          "reasoning": "Following the global analog rule, rural gravel roads with basic metal barriers in forested areas can appear similar to those in tropical or subtropical regions of Australia."
+        }
+      ],
+      "evidence": [
+        "unpaved gravel road surface",
+        "standard metal w-beam guardrail",
+        "absence of road signs",
+        "absence of utility poles",
+        "dense tropical/subtropical vegetation"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "Costa Rica",
+          "confidence": "medium",
+          "reasoning": "The image quality and slight blur patterns are consistent with Gen 3/4 coverage in Central America. The specific style of the weathered metal guardrail is very common on rural Costa Rican secondary roads."
+        },
+        {
+          "country": "Panama",
+          "confidence": "medium",
+          "reasoning": "Shares very similar rural road infrastructure and Google camera artifacts as Costa Rica, making it a primary candidate for this type of unpaved road coverage."
+        },
+        {
+          "country": "Malaysia",
+          "confidence": "low",
+          "reasoning": "Global analog: Southeast Asia often has similar unpaved rural roads with similar metal guardrail styles and Gen 3 camera quality, though the specific guardrail weathering differs slightly from Latin America."
+        },
+        {
+          "country": "Thailand",
+          "confidence": "low",
+          "reasoning": "Global analog: Similar rural road meta and camera generation are found here, though the lack of specific utility poles makes it harder to distinguish from Central American candidates."
+        }
+      ],
+      "evidence": [
+        "Gen 3/4 camera image quality",
+        "Weathered metal guardrail design",
+        "Unpaved road surface texture"
+      ]
+    }
+  },
+  "progressive_narrowing": {
+    "region_consensus": false,
+    "confirmed_region": "South America",
+    "runner_up_region": "Central America & Caribbean",
+    "surviving_regions": [
+      "South America",
+      "Central America & Caribbean"
+    ],
+    "proposed_regions": [
+      "Central America & Caribbean",
+      "South America",
+      "Southeast Asia",
+      "Oceania"
+    ],
+    "region_candidates": {
+      "Central America & Caribbean": {
+        "Costa Rica": 4,
+        "Panama": 3
+      },
+      "South America": {
+        "Colombia": 1,
+        "Brazil": 2
+      },
+      "Southeast Asia": {
+        "Vietnam": 2,
+        "Thailand": 4,
+        "Malaysia": 1
+      },
+      "Oceania": {
+        "Australia": 1
+      }
+    },
+    "region_decision_reasoning": "Both South America and Central America & Caribbean received strong support from botanics and meta agents, with South America slightly edging out due to the meta agent's specific observation regarding camera artifacts and guardrail prevalence. Southeast Asia and Oceania were supported by botanics but received lower confidence from the meta agent.",
+    "path": "B"
+  },
+  "road_evidence": {
+    "outside_color": "none",
+    "inside_color": "none",
+    "driving_side": "UNCLEAR",
+    "driving_side_basis": "none"
+  },
+  "country_assessments": {
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Costa Rica",
+          "confidence": "medium",
+          "reasoning": "The lush, dense tropical greenery and the specific style of the gravel road with a metal guardrail are very common in the highlands and cloud forest regions of Costa Rica."
+        },
+        {
+          "country": "Panama",
+          "confidence": "medium",
+          "reasoning": "The vegetation is consistent with the humid tropical forests of Panama. The road infrastructure and terrain are virtually indistinguishable from Costa Rica's interior."
+        },
+        {
+          "country": "Colombia",
+          "confidence": "low",
+          "reasoning": "The dense, multi-layered canopy and moist soil are characteristic of the Andean foothills or the Chocó region, though the road quality is more typical of Central American rural routes."
+        },
+        {
+          "country": "Ecuador",
+          "confidence": "low",
+          "reasoning": "Similar to Colombia, the cloud forest environment matches the eastern slopes of the Andes, featuring high humidity and dense broadleaf vegetation."
+        }
+      ],
+      "evidence": [
+        "Dense tropical broadleaf canopy",
+        "Unpaved gravel road with light-colored aggregate",
+        "Metal guardrail indicating a managed rural road",
+        "High humidity indicated by lush undergrowth and overcast sky"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Costa Rica",
+          "confidence": "medium",
+          "reasoning": "The dense, humid secondary growth forest with broad-leaved evergreen species is highly characteristic of the premontane wet forests found in the Central Valley and surrounding highlands. The leaf morphology and density are consistent with the Neotropical moist forest biome common here."
+        },
+        {
+          "country": "Panama",
+          "confidence": "medium",
+          "reasoning": "The vegetation is nearly identical to that of Costa Rica, featuring a mix of tropical broadleaf species and dense undergrowth typical of the Isthmus. It is botanically indistinguishable from Costa Rican secondary forests without a specific endemic species visible."
+        },
+        {
+          "country": "Colombia",
+          "confidence": "low",
+          "reasoning": "The lush, green canopy and understory are consistent with the Andean foothills or humid lowland forests. However, the specific density and leaf structure are more typical of the Central American corridor."
+        },
+        {
+          "country": "Ecuador",
+          "confidence": "low",
+          "reasoning": "Similar humid tropical forest characteristics are present in the western foothills of the Andes. The vegetation is consistent with the region's high precipitation and tropical climate."
+        }
+      ],
+      "evidence": [
+        "Tropical secondary growth forest",
+        "Broad-leaved evergreen species",
+        "Neotropical moist forest biome"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Costa Rica",
+          "confidence": "low",
+          "reasoning": "The combination of dense tropical foliage and a basic gravel road with a simple metal guardrail is common in rural Costa Rican highlands."
+        },
+        {
+          "country": "Colombia",
+          "confidence": "low",
+          "reasoning": "Rural tertiary roads in Colombia often feature this specific type of unpaved gravel surface and basic metal safety barriers in forested areas."
+        },
+        {
+          "country": "Panama",
+          "confidence": "low",
+          "reasoning": "The vegetation and road quality are consistent with rural interior roads in Panama, utilizing standard metal guardrails."
+        },
+        {
+          "country": "Brazil",
+          "confidence": "low",
+          "reasoning": "Similar rural unpaved roads with basic metal barriers are found throughout the Atlantic Forest regions of Brazil."
+        }
+      ],
+      "evidence": [
+        "unpaved gravel road surface",
+        "standard metal W-beam guardrail",
+        "absence of road signs",
+        "absence of utility poles"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "Costa Rica",
+          "confidence": "medium",
+          "reasoning": "The image quality and slight blur patterns are consistent with Gen 3/4 coverage common in rural Costa Rica. The specific style of the weathered metal guardrail is frequently seen on secondary roads in this region."
+        },
+        {
+          "country": "Panama",
+          "confidence": "medium",
+          "reasoning": "Panama shares very similar rural road infrastructure and guardrail styles with Costa Rica. The camera generation and image clarity are consistent with Panamanian rural coverage."
+        },
+        {
+          "country": "Colombia",
+          "confidence": "low",
+          "reasoning": "The road surface and guardrail are generic, but the image quality matches some of the rural coverage found in the Andean or coastal regions of Colombia."
+        },
+        {
+          "country": "Ecuador",
+          "confidence": "low",
+          "reasoning": "Similar to Colombia, the generic metal guardrail and camera quality are consistent with rural Ecuadorian coverage, though less distinctive than Central American patterns."
+        }
+      ],
+      "evidence": [
+        "Gen 3/4 camera quality",
+        "Weathered metal guardrail style",
+        "Rural gravel road surface"
+      ]
+    }
+  },
+  "hypothesis_evaluations": [
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "region_central_america_and_caribbean",
+      "confidence": "neutral",
+      "reasoning": "There is no visible text in the image to provide linguistic evidence for or against this region.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "region_south_america",
+      "confidence": "neutral",
+      "reasoning": "There is no visible text in the image to provide linguistic evidence for or against this region.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "region_southeast_asia",
+      "confidence": "neutral",
+      "reasoning": "There is no visible text in the image to provide linguistic evidence for or against this region.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "region_oceania",
+      "confidence": "neutral",
+      "reasoning": "There is no visible text in the image to provide linguistic evidence for or against this region.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_central_america_and_caribbean",
+      "confidence": "support",
+      "reasoning": "The dense, broadleaf evergreen vegetation and understory growth are highly characteristic of the humid tropical forests found in Central America and the Caribbean.",
+      "key_evidence": [
+        "broadleaf evergreen canopy",
+        "dense tropical undergrowth"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_south_america",
+      "confidence": "support",
+      "reasoning": "The vegetation is consistent with the tropical rainforests or cloud forests of the Andes or the Amazon basin, showing similar leaf morphology and density to Central American regions.",
+      "key_evidence": [
+        "tropical broadleaf species",
+        "humid forest structure"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_southeast_asia",
+      "confidence": "support",
+      "reasoning": "The lush, green, multi-layered canopy is typical of Southeast Asian tropical moist forests, though no specific endemic species are clearly visible to distinguish it from the Americas.",
+      "key_evidence": [
+        "tropical moist forest biome",
+        "dense foliage"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_oceania",
+      "confidence": "support",
+      "reasoning": "The vegetation is compatible with the tropical rainforests of Papua New Guinea or Northern Australia, following the global analog for humid tropical biomes.",
+      "key_evidence": [
+        "tropical broadleaf vegetation"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_south_america",
+      "confidence": "support",
+      "reasoning": "The image quality and the specific blur pattern at the bottom of the frame are consistent with Google Street View Gen 3 or Gen 4 coverage common in South American rural areas. The simple metal guardrail design is generic but highly prevalent in countries like Colombia or Brazil.",
+      "key_evidence": [
+        "camera generation blur",
+        "generic metal guardrail"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_central_america_and_caribbean",
+      "confidence": "support",
+      "reasoning": "The camera artifacts and road surface are compatible with coverage found in Costa Rica or Panama. The lack of specific markers makes it indistinguishable from South American rural meta at this resolution.",
+      "key_evidence": [
+        "camera generation blur",
+        "road surface texture"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_southeast_asia",
+      "confidence": "low",
+      "reasoning": "While the environment fits, the specific camera rig artifacts (the way the road blends into the bottom of the image) are less characteristic of the typical Trekker or car coverage seen in rural SE Asia compared to the Americas.",
+      "key_evidence": [
+        "camera rig artifacts"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_oceania",
+      "confidence": "low",
+      "reasoning": "The guardrail and road quality are compatible with some rural parts of Oceania, but the overall image processing and camera generation are more typical of the Western Hemisphere's rural coverage.",
+      "key_evidence": [
+        "camera generation blur"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_costa_rica",
+      "confidence": "support",
+      "reasoning": "The dense, humid tropical broadleaf vegetation and understory growth are highly characteristic of the Central American rainforests found in Costa Rica.",
+      "key_evidence": [
+        "tropical broadleaf forest",
+        "dense humid undergrowth"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_panama",
+      "confidence": "support",
+      "reasoning": "The vegetation is virtually identical to that of Costa Rica, as both share the same Isthmus biome of tropical moist forests.",
+      "key_evidence": [
+        "tropical broadleaf forest",
+        "dense humid undergrowth"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_colombia",
+      "confidence": "support",
+      "reasoning": "The lush, green canopy and leaf morphology are consistent with the lowland tropical forests of Colombia.",
+      "key_evidence": [
+        "tropical broadleaf forest",
+        "dense humid undergrowth"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_ecuador",
+      "confidence": "support",
+      "reasoning": "The botanical composition is compatible with the Amazonian or coastal tropical regions of Ecuador.",
+      "key_evidence": [
+        "tropical broadleaf forest",
+        "dense humid undergrowth"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_brazil",
+      "confidence": "support",
+      "reasoning": "The vegetation is consistent with the Atlantic Forest or Amazonian fringes, though the specific density of the roadside scrub is very common across all listed tropical regions.",
+      "key_evidence": [
+        "tropical broadleaf forest",
+        "dense humid undergrowth"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_costa_rica",
+      "confidence": "support",
+      "reasoning": "The image quality and camera generation are consistent with Google's coverage in Central America. The simple metal guardrail is common in rural Costa Rican roads.",
+      "key_evidence": [
+        "camera generation",
+        "guardrail style"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_panama",
+      "confidence": "support",
+      "reasoning": "The camera artifacts and road surface are compatible with Panamanian rural coverage. The guardrail design is generic and found across the region.",
+      "key_evidence": [
+        "camera generation",
+        "guardrail style"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_colombia",
+      "confidence": "support",
+      "reasoning": "The image quality is consistent with Colombian rural coverage. The lack of specific bollards or poles makes it indistinguishable from other Latin American rural roads based on meta alone.",
+      "key_evidence": [
+        "camera generation"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_ecuador",
+      "confidence": "support",
+      "reasoning": "The camera generation is compatible with Ecuador. The generic metal guardrail is a common feature in Andean rural roads.",
+      "key_evidence": [
+        "camera generation",
+        "guardrail style"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_brazil",
+      "confidence": "low",
+      "reasoning": "While the camera generation is compatible, Brazil often has more distinct road markers or specific utility pole styles even in rural areas, which are absent here.",
+      "key_evidence": [
+        "camera generation"
+      ]
+    }
+  ],
+  "candidate_pool": [
+    "Costa Rica",
+    "Panama",
+    "Colombia",
+    "Ecuador",
+    "Brazil"
+  ],
+  "rag_findings": [
+    {
+      "kind": "tournament_match",
+      "country": "Ecuador",
+      "detail": "The image shows a rural dirt road with dense tropical vegetation and a simple metal guardrail. While both countries are plausible, the specific combination of the lush, humid understory and the style of the rural road infrastructure is highly characteristic of Costa Rica's coverage.",
+      "opponent": "Costa Rica",
+      "winner": "Costa Rica"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Colombia",
+      "detail": "The image shows a rural gravel road with dense tropical vegetation and a specific guardrail style. While both countries are plausible, the botanics specialist notes the vegetation is virtually identical to the Isthmus biome shared by Panama and Costa Rica, and the meta specialist confirms the road surface and camera artifacts are highly compatible with Panamanian rural coverage.",
+      "opponent": "Panama",
+      "winner": "Panama"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Panama",
+      "detail": "The dense tropical broadleaf vegetation and the specific style of the rural metal guardrail are highly characteristic of Costa Rica's interior rainforest roads. While Panama is similar, the overall landscape and road composition align slightly more with Costa Rican rural coverage patterns.",
+      "opponent": "Costa Rica",
+      "winner": "Costa Rica"
+    }
+  ],
+  "rag_refs_seen": [],
+  "road_filter_warnings": [],
+  "tournament_log": [
+    {
+      "round_label": "semi-1",
+      "country_a": "Costa Rica",
+      "country_b": "Ecuador",
+      "pool_rank_a": 0,
+      "pool_rank_b": 3,
+      "winner": "Costa Rica",
+      "reasoning": "The image shows a rural dirt road with dense tropical vegetation and a simple metal guardrail. While both countries are plausible, the specific combination of the lush, humid understory and the style of the rural road infrastructure is highly characteristic of Costa Rica's coverage.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "semi-2",
+      "country_a": "Panama",
+      "country_b": "Colombia",
+      "pool_rank_a": 1,
+      "pool_rank_b": 2,
+      "winner": "Panama",
+      "reasoning": "The image shows a rural gravel road with dense tropical vegetation and a specific guardrail style. While both countries are plausible, the botanics specialist notes the vegetation is virtually identical to the Isthmus biome shared by Panama and Costa Rica, and the meta specialist confirms the road surface and camera artifacts are highly compatible with Panamanian rural coverage.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "final",
+      "country_a": "Costa Rica",
+      "country_b": "Panama",
+      "pool_rank_a": 0,
+      "pool_rank_b": 1,
+      "winner": "Costa Rica",
+      "reasoning": "The dense tropical broadleaf vegetation and the specific style of the rural metal guardrail are highly characteristic of Costa Rica's interior rainforest roads. While Panama is similar, the overall landscape and road composition align slightly more with Costa Rican rural coverage patterns.",
+      "agreement": "agree"
+    }
+  ],
+  "country_result": "Country: Costa Rica\nCoordinates: 10.1234, -84.1234\nReasoning: The dense tropical broadleaf vegetation and the specific style of the rural metal guardrail are highly characteristic of Costa Rica's interior rainforest roads. While Panama is similar, the overall landscape and road composition align slightly more with Costa Rican rural coverage patterns.\n\nTournament:\n  semi-1: Costa Rica vs Ecuador → Costa Rica\n  semi-2: Panama vs Colombia → Panama\n  final: Costa Rica vs Panama → Costa Rica",
+  "coordinates": {
+    "lat": 10.1234,
+    "lng": -84.1234
+  },
+  "final_reasoning": "The dense tropical broadleaf vegetation and the specific style of the rural metal guardrail are highly characteristic of Costa Rica's interior rainforest roads. While Panama is similar, the overall landscape and road composition align slightly more with Costa Rican rural coverage patterns."
+}

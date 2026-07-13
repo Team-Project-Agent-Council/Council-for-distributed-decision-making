@@ -1,0 +1,100 @@
+{
+  "image_id": "sMPhUAFKpkB21pnD_5",
+  "truth_country": "guam",
+  "pred_country": "jamaica",
+  "is_correct": false,
+  "candidate_pool": [
+    "Jamaica",
+    "Brazil",
+    "Australia",
+    "USA",
+    "Dominican Republic",
+    "Costa Rica"
+  ],
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": true,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "role_adherence_notes": {
+      "linguistic": "Correctly identified the absence of visible text and remained within the domain of script analysis.",
+      "landscape": "Analyzed terrain, vegetation density, and climate cues consistent with the role.",
+      "botanics": "Identified specific plant species (Ricinus communis) and biome types, staying within botanical expertise.",
+      "regulatory": "Analyzed road markings (double yellow lines) and sign shapes (diamond warning sign) correctly.",
+      "meta": "Focused on cross-domain artifacts like the camera rig hood and utility pole construction styles."
+    },
+    "argumentative_quality": {
+      "linguistic": "normal",
+      "landscape": "strong",
+      "botanics": "strong",
+      "regulatory": "strong",
+      "meta": "weak"
+    },
+    "constructive_synthesis": true,
+    "overall_verdict_notes": "The pipeline failed because the 'meta' agent hallucinated a specific camera hood artifact as a diagnostic for Jamaica, which the tournament then used as the sole deciding factor. The visual evidence (tropical flora, MUTCD signs) was correctly analyzed but overruled by a fabricated meta-clue.",
+    "role_adherence_score": {
+      "linguistic": 1.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.9,
+      "meta": 0.9
+    },
+    "argumentative_quality_score": {
+      "linguistic": 0.5,
+      "landscape": 0.8,
+      "botanics": 0.8,
+      "regulatory": 0.8,
+      "meta": 0.3
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.0,
+      "botanics": 0.0,
+      "regulatory": 0.0,
+      "meta": 1.0
+    },
+    "hallucination_examples": {
+      "linguistic": [],
+      "landscape": [],
+      "botanics": [],
+      "regulatory": [],
+      "meta": [
+        "The image features a very distinct Google Street View camera artifact: the large, rounded, silver/grey hood of the car is highly characteristic of the camera rig used in Jamaica.",
+        "The most decisive piece of evidence is the meta-data regarding the Google Street View camera rig; the large, rounded silver hood visible at the bottom of the image is a known characteristic of the car used in Jamaica."
+      ]
+    },
+    "visual_consistency_score": {
+      "linguistic": 1.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.9,
+      "meta": 0.0
+    },
+    "visual_consistency_notes": {
+      "linguistic": "Correctly noted no text.",
+      "landscape": "Accurately described the lush tropical vegetation and flat terrain.",
+      "botanics": "Correctly identified the Castor bean plant visible on the left.",
+      "regulatory": "Correctly identified the MUTCD-style diamond sign and double yellow lines.",
+      "meta": "Completely failed to match the image; the 'hood' described does not exist in the image (only a blur) and the claim that it is a 'Jamaica-specific' artifact is false."
+    },
+    "confidence_calibration": {
+      "linguistic": 0.5,
+      "landscape": 0.5,
+      "botanics": 0.5,
+      "regulatory": 0.5,
+      "meta": 0.0
+    },
+    "tournament_failure": {
+      "truth_in_pool": false,
+      "truth_lost_to": null,
+      "failure_match_round": null,
+      "failure_reason": "agent_misled_pre_pool",
+      "failure_reasoning": "The ground truth (Guam) was not included in the candidate pool. The 'meta' agent hallucinated a camera hood artifact to support Jamaica, and the 'botanics' agent's evidence for the US (Florida) was too generic to include the US mainland or territories as a primary candidate, leading to a pool of Caribbean/Central American nations.",
+      "counterfactual_winnable": false
+    }
+  }
+}

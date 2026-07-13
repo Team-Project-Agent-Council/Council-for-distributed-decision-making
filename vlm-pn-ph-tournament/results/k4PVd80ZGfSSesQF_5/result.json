@@ -1,0 +1,631 @@
+{
+  "image_path": "/pfs/data6/home/ma/ma_ma/ma_lweisssc/llm_council_agent_orchestration_tests/clean_images_GeoRC_500/k4PVd80ZGfSSesQF_5.png",
+  "model": "google/gemma-4-31B-it",
+  "judge_model": "google/gemma-4-31B-it",
+  "timing": {
+    "total_seconds": 205.9
+  },
+  "assessments": {
+    "linguistic": {
+      "agent_name": "linguistic",
+      "candidates": [],
+      "evidence": []
+    },
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Indonesia",
+          "confidence": "high",
+          "reasoning": "The combination of lush tropical rainforest, volcanic-looking reddish-brown soil, and the specific style of narrow paved rural road with an open concrete drainage ditch is highly characteristic of Java or Sumatra."
+        },
+        {
+          "country": "Malaysia",
+          "confidence": "high",
+          "reasoning": "The terrain and vegetation are nearly identical to Indonesia, featuring dense tropical greenery and similar rural infrastructure. It is geographically indistinguishable from Indonesia based on landscape alone."
+        },
+        {
+          "country": "Philippines",
+          "confidence": "medium",
+          "reasoning": "The tropical mountainous terrain and road style are consistent with the Philippine highlands, though the specific drainage ditch style is slightly more common in the Malay Archipelago."
+        },
+        {
+          "country": "Costa Rica",
+          "confidence": "low",
+          "reasoning": "Global analog: This represents a tropical humid highland environment. The dense greenery and road quality match Central American cloud forests or rainforests, though the soil hue is slightly different."
+        },
+        {
+          "country": "Colombia",
+          "confidence": "low",
+          "reasoning": "Global analog: The Andean foothills feature similar lush, steep tropical vegetation and narrow paved roads with drainage systems."
+        }
+      ],
+      "evidence": [
+        "Lush tropical rainforest vegetation",
+        "Reddish-brown volcanic soil",
+        "Narrow paved rural road",
+        "Open concrete drainage ditch",
+        "High humidity/cloudy sky",
+        "Steep hillside terrain"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Colombia",
+          "confidence": "high",
+          "reasoning": "The presence of wax palms (Ceroxylon sp.) on the hillside, combined with the lush, humid montane forest and typical Andean coffee-growing region vegetation, is highly characteristic of the Colombian Andes."
+        },
+        {
+          "country": "Ecuador",
+          "confidence": "medium",
+          "reasoning": "Shares very similar Andean cloud forest and montane vegetation with Colombia, including similar palm species and high-humidity broadleaf evergreens."
+        },
+        {
+          "country": "Vietnam",
+          "confidence": "low",
+          "reasoning": "The combination of tropical broadleaf forest, banana plants, and steep roadside drainage is common in the highlands of Southeast Asia, serving as a cross-continent analog for humid montane biomes."
+        },
+        {
+          "country": "Indonesia",
+          "confidence": "low",
+          "reasoning": "Similar tropical montane vegetation and agricultural integration (agroforestry) are found in the highlands of Java or Sumatra, though the specific palm morphology is more indicative of the Americas."
+        }
+      ],
+      "evidence": [
+        "Ceroxylon (Wax Palms)",
+        "Musa (Banana plants)",
+        "Andean montane cloud forest",
+        "Tropical broadleaf evergreen canopy"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Indonesia",
+          "confidence": "medium",
+          "reasoning": "The combination of narrow asphalt rural roads, concrete-lined drainage ditches, and tropical vegetation is very characteristic of rural Java or Sumatra."
+        },
+        {
+          "country": "Malaysia",
+          "confidence": "medium",
+          "reasoning": "Similar rural road infrastructure with concrete drainage and tropical rainforest environment is common in Peninsular Malaysia and Borneo."
+        },
+        {
+          "country": "Costa Rica",
+          "confidence": "low",
+          "reasoning": "Rural asphalt roads in tropical highlands often feature similar narrow widths and concrete drainage systems."
+        },
+        {
+          "country": "Colombia",
+          "confidence": "low",
+          "reasoning": "The mountainous tropical terrain and basic asphalt road construction with side ditches are consistent with rural Andean regions."
+        },
+        {
+          "country": "Vietnam",
+          "confidence": "speculative",
+          "reasoning": "Rural roads in tropical regions of Southeast Asia often share this basic asphalt and concrete ditch profile."
+        }
+      ],
+      "evidence": [
+        "narrow asphalt road",
+        "concrete-lined drainage ditch",
+        "absence of road signs",
+        "absence of utility poles in immediate view"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "Costa Rica",
+          "confidence": "medium",
+          "reasoning": "The image quality and slight blur patterns are consistent with Gen 3/4 coverage common in Central America. The concrete drainage ditch along the road is a very common infrastructure feature in rural Costa Rican highlands."
+        },
+        {
+          "country": "Colombia",
+          "confidence": "medium",
+          "reasoning": "The road surface quality and the specific style of the concrete-lined drainage channel are highly characteristic of rural Colombian Andean regions. The camera generation matches typical coverage in this region."
+        },
+        {
+          "country": "Indonesia",
+          "confidence": "low",
+          "reasoning": "As a global analog, Indonesia frequently features similar narrow asphalt roads with concrete drainage ditches in mountainous, tropical areas. The camera quality is consistent with Southeast Asian coverage."
+        },
+        {
+          "country": "Thailand",
+          "confidence": "low",
+          "reasoning": "Similar to Indonesia, Thailand has extensive rural road networks with this specific type of concrete guttering and camera generation, serving as a cross-continent analog."
+        }
+      ],
+      "evidence": [
+        "concrete-lined drainage ditch",
+        "Google Street View Gen 3/4 image quality",
+        "narrow asphalt road width"
+      ]
+    }
+  },
+  "progressive_narrowing": {
+    "region_consensus": false,
+    "confirmed_region": "Southeast Asia",
+    "runner_up_region": "Central America & Caribbean",
+    "surviving_regions": [
+      "Southeast Asia",
+      "Central America & Caribbean"
+    ],
+    "proposed_regions": [
+      "Southeast Asia",
+      "Central America & Caribbean",
+      "South America"
+    ],
+    "region_candidates": {
+      "Southeast Asia": {
+        "Indonesia": 4,
+        "Malaysia": 2,
+        "Philippines": 1,
+        "Vietnam": 2,
+        "Thailand": 1
+      },
+      "Central America & Caribbean": {
+        "Costa Rica": 3
+      },
+      "South America": {
+        "Colombia": 4,
+        "Ecuador": 1
+      }
+    },
+    "region_decision_reasoning": "Southeast Asia received the highest weighted score due to multiple 'strongly_support' ratings from the landscape and botanics agents, who noted specific infrastructure and vegetation patterns. Central America & Caribbean and South America both received consistent 'support' ratings, but Central America is selected as the runner-up based on the landscape agent's specific comparison.",
+    "path": "B"
+  },
+  "road_evidence": {
+    "outside_color": "none",
+    "inside_color": "none",
+    "driving_side": "UNCLEAR",
+    "driving_side_basis": "none"
+  },
+  "country_assessments": {
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Indonesia",
+          "confidence": "high",
+          "reasoning": "The combination of lush, volcanic-looking soil, dense tropical vegetation including palms and broadleaf trees, and the specific style of concrete-lined drainage ditches is very characteristic of rural Java or Sumatra. The terrain is hilly and humid, typical of the Indonesian archipelago's interior."
+        },
+        {
+          "country": "Malaysia",
+          "confidence": "high",
+          "reasoning": "The landscape is nearly identical to the highlands of Peninsular Malaysia or Borneo, featuring similar tropical rainforest density and road infrastructure. It is geographically indistinguishable from Indonesia in this specific rural setting."
+        },
+        {
+          "country": "Costa Rica",
+          "confidence": "medium",
+          "reasoning": "The cloud forest/rainforest transition and the narrow paved road with side drainage are common in the Central Valley or Talamanca regions. The vegetation density and humidity levels match the Caribbean slope of Costa Rica."
+        },
+        {
+          "country": "Panama",
+          "confidence": "medium",
+          "reasoning": "Similar to Costa Rica, the tropical moist forest and the style of rural road construction are consistent with the Panamanian highlands. The soil color and plant variety are typical for the region."
+        },
+        {
+          "country": "Vietnam",
+          "confidence": "low",
+          "reasoning": "The hilly, densely forested terrain is consistent with the Central Highlands, though the specific drainage ditch style is slightly more common in the Malay Archipelago."
+        }
+      ],
+      "evidence": [
+        "Lush tropical rainforest vegetation",
+        "Concrete-lined roadside drainage ditch",
+        "Hilly terrain with moist, dark soil",
+        "Narrow paved rural road",
+        "High humidity indicated by dense undergrowth and overcast sky"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Indonesia",
+          "confidence": "high",
+          "reasoning": "The combination of dense tropical rainforest, Musa (banana) species, and the specific morphology of the palms on the hillside is highly characteristic of the Indonesian archipelago, particularly Java or Sumatra. The lush, humid undergrowth and road-side drainage are common in these volcanic, high-rainfall regions."
+        },
+        {
+          "country": "Malaysia",
+          "confidence": "high",
+          "reasoning": "The vegetation is nearly identical to that of Indonesia, featuring a mix of dipterocarp-like canopy trees and understory palms. The humid tropical rainforest biome is shared across the Malay Peninsula and Borneo, making it botanically indistinguishable from Indonesia without endemic markers."
+        },
+        {
+          "country": "Costa Rica",
+          "confidence": "medium",
+          "reasoning": "The cloud forest/rainforest transition and the presence of Musaceae (bananas) are common in the highlands of Costa Rica. However, the specific palm structure and canopy density are more typical of Southeast Asian jungles than Central American ones."
+        },
+        {
+          "country": "Panama",
+          "confidence": "medium",
+          "reasoning": "Similar to Costa Rica, the tropical wet forest biome supports this type of dense, multi-layered vegetation and banana cultivation. The botanical profile is a strong analog to the Southeast Asian candidates provided in the constraints."
+        }
+      ],
+      "evidence": [
+        "Musa (Banana)",
+        "Tropical rainforest canopy",
+        "Arecaceae (Palms)",
+        "Humid tropical understory"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Indonesia",
+          "confidence": "medium",
+          "reasoning": "The narrow asphalt road with a concrete-lined drainage ditch is very characteristic of rural Indonesian village roads (jalan desa). The lush tropical vegetation and road width are consistent with the region."
+        },
+        {
+          "country": "Malaysia",
+          "confidence": "medium",
+          "reasoning": "Similar rural road infrastructure with concrete drainage channels is common in the highlands or rural areas of Malaysia. The asphalt quality and shoulder treatment are consistent."
+        },
+        {
+          "country": "Costa Rica",
+          "confidence": "low",
+          "reasoning": "Rural roads in mountainous tropical regions of Costa Rica often feature similar narrow asphalt paths and basic drainage systems to handle heavy rainfall."
+        },
+        {
+          "country": "Panama",
+          "confidence": "low",
+          "reasoning": "The combination of dense tropical foliage and a basic paved road with an open side-drain is common in rural Panamanian provinces."
+        }
+      ],
+      "evidence": [
+        "narrow asphalt road width",
+        "concrete-lined open drainage ditch",
+        "lack of road markings",
+        "absence of visible signage or utility poles"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "Costa Rica",
+          "confidence": "medium",
+          "reasoning": "The image quality and slight blur patterns are consistent with Google's Gen 3/4 coverage in Central America. The concrete drainage ditch along the road is a very common infrastructure feature in rural Costa Rican highlands."
+        },
+        {
+          "country": "Panama",
+          "confidence": "medium",
+          "reasoning": "Similar to Costa Rica, Panama utilizes these types of concrete-lined roadside ditches in mountainous regions. The camera generation and image clarity match the regional coverage style."
+        },
+        {
+          "country": "Indonesia",
+          "confidence": "low",
+          "reasoning": "The road surface and the presence of a concrete drainage channel are common in rural Java or Sumatra. However, the specific concrete casting of the ditch is slightly more characteristic of Central American standards."
+        },
+        {
+          "country": "Malaysia",
+          "confidence": "low",
+          "reasoning": "Rural roads in Malaysia often feature similar drainage systems and asphalt quality. The camera generation is consistent with Southeast Asian coverage."
+        }
+      ],
+      "evidence": [
+        "concrete drainage ditch design",
+        "Google Street View camera generation/image quality",
+        "asphalt texture and road edge wear"
+      ]
+    }
+  },
+  "hypothesis_evaluations": [
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_southeast_asia",
+      "confidence": "strongly_support",
+      "reasoning": "The combination of lush, humid tropical vegetation, steep hillside settlement patterns, and the specific style of the concrete drainage ditch alongside a narrow paved road is highly characteristic of the highlands in Southeast Asia, particularly Indonesia or Vietnam.",
+      "key_evidence": [
+        "concrete drainage ditch",
+        "tropical highland vegetation",
+        "steep slope road construction"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_central_america_and_caribbean",
+      "confidence": "support",
+      "reasoning": "The tropical rainforest environment and mountainous terrain are compatible with Central American highlands (e.g., Costa Rica or Panama), though the specific infrastructure style is slightly more reminiscent of Asian patterns.",
+      "key_evidence": [
+        "tropical rainforest",
+        "mountainous terrain"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_south_america",
+      "confidence": "support",
+      "reasoning": "The landscape is compatible with the Andean foothills or the Atlantic Forest regions of Brazil or Colombia, where similar humidity and vegetation density occur.",
+      "key_evidence": [
+        "dense tropical canopy",
+        "humid climate indicators"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_southeast_asia",
+      "confidence": "strongly_support",
+      "reasoning": "The combination of Musa (banana) species, various Arecaceae (palms), and the specific structure of the lush, humid tropical secondary forest is highly characteristic of Southeast Asia. The presence of what appears to be cultivated banana plants integrated into a steep, humid hillside is a very common agricultural pattern in countries like Indonesia, Malaysia, or Thailand.",
+      "key_evidence": [
+        "Musa species",
+        "Arecaceae",
+        "Tropical secondary forest"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_south_america",
+      "confidence": "support",
+      "reasoning": "The vegetation is compatible with the humid tropical forests of the Andes foothills or the Amazon basin. However, the specific arrangement of the roadside vegetation and the palm types are slightly more indicative of Asian tropical highlands than South American ones.",
+      "key_evidence": [
+        "Tropical broadleaf evergreen",
+        "Palms"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_central_america_and_caribbean",
+      "confidence": "support",
+      "reasoning": "The biome is compatible with the wet tropical forests of Central America. While the plant types are similar, the overall density and specific leaf morphology of the undergrowth are more typical of the Indo-Malayan realm.",
+      "key_evidence": [
+        "Tropical rainforest biome",
+        "Banana plants"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_southeast_asia",
+      "confidence": "support",
+      "reasoning": "The image quality and camera generation are consistent with Google Street View coverage in Southeast Asian countries like Thailand or Indonesia. The concrete drainage ditch along the road is a very common infrastructure feature in this region.",
+      "key_evidence": [
+        "concrete drainage ditch",
+        "camera generation/image quality"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_central_america_and_caribbean",
+      "confidence": "support",
+      "reasoning": "The road surface and general camera quality are compatible with coverage in Central America (e.g., Costa Rica). The presence of a concrete-lined ditch is also found here, though slightly less ubiquitous than in SE Asia.",
+      "key_evidence": [
+        "concrete drainage ditch",
+        "camera generation/image quality"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_south_america",
+      "confidence": "support",
+      "reasoning": "The image is compatible with rural coverage in South American countries like Colombia. The road construction and drainage style are common in mountainous tropical regions of the continent.",
+      "key_evidence": [
+        "concrete drainage ditch",
+        "camera generation/image quality"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_indonesia",
+      "confidence": "strongly_support",
+      "reasoning": "The combination of lush, humid tropical vegetation, steep volcanic-style slopes, and the specific style of concrete-lined drainage ditches is extremely characteristic of the Indonesian highlands (e.g., Java or Sumatra). The soil appears rich and moist, typical of volcanic regions.",
+      "key_evidence": [
+        "concrete-lined drainage ditch",
+        "steep tropical hillside",
+        "dense mixed tropical foliage"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_malaysia",
+      "confidence": "support",
+      "reasoning": "The landscape is geographically very similar to Indonesia, featuring the same tropical rainforest climate and terrain. It is highly compatible, though the specific drainage infrastructure is slightly more common in Indonesian rural road design.",
+      "key_evidence": [
+        "tropical rainforest climate",
+        "humid mountainous terrain"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_vietnam",
+      "confidence": "support",
+      "reasoning": "The humid, mountainous tropical environment and the presence of narrow paved roads with side drains are consistent with the highlands of Vietnam. However, the specific mix of palm and broadleaf species is slightly more indicative of the Malay Archipelago.",
+      "key_evidence": [
+        "humid tropical highlands",
+        "narrow paved rural road"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_costa_rica",
+      "confidence": "low",
+      "reasoning": "While the tropical greenery and humidity match, the specific settlement pattern and the style of the road-side ditch are less common in Central America compared to Southeast Asia.",
+      "key_evidence": [
+        "tropical vegetation",
+        "humid climate"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_panama",
+      "confidence": "low",
+      "reasoning": "Similar to Costa Rica, the climate and vegetation are compatible, but the overall 'feel' of the infrastructure and the specific slope of the terrain are more characteristic of the Southeast Asian volcanic arcs.",
+      "key_evidence": [
+        "tropical rainforest environment"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_indonesia",
+      "confidence": "support",
+      "reasoning": "The combination of dense tropical broadleaf forest, Musa species (banana), and the specific structure of the undergrowth is highly characteristic of the humid tropics of Southeast Asia, including Indonesia.",
+      "key_evidence": [
+        "Musa species",
+        "Tropical rainforest biome",
+        "Dense broadleaf understory"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_malaysia",
+      "confidence": "support",
+      "reasoning": "The vegetation is virtually identical to that of Indonesia, featuring the same tropical rainforest composition and agricultural integration common in the Malay Archipelago.",
+      "key_evidence": [
+        "Musa species",
+        "Tropical rainforest biome",
+        "Dense broadleaf understory"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_vietnam",
+      "confidence": "support",
+      "reasoning": "The lush, mountainous tropical vegetation and the presence of banana plants are consistent with the highlands of Vietnam, though it lacks specific endemic markers to distinguish it from Indonesia or Malaysia.",
+      "key_evidence": [
+        "Musa species",
+        "Tropical rainforest biome"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_costa_rica",
+      "confidence": "low",
+      "reasoning": "While the tropical rainforest biome is compatible, the specific arrangement of the palms and the undergrowth density is more typical of the Paleotropics (Asia) than the Neotropics (Central America).",
+      "key_evidence": [
+        "Tropical rainforest biome"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_panama",
+      "confidence": "low",
+      "reasoning": "Similar to Costa Rica, the general biome is compatible, but the botanical composition lacks the specific Neotropical markers usually seen in Panamanian roadside vegetation.",
+      "key_evidence": [
+        "Tropical rainforest biome"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_indonesia",
+      "confidence": "support",
+      "reasoning": "The image quality and camera generation are consistent with Google's coverage in Indonesia. The concrete drainage ditch along the road is a very common infrastructure feature in rural Indonesian villages (desa).",
+      "key_evidence": [
+        "concrete drainage ditch",
+        "camera generation"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_malaysia",
+      "confidence": "support",
+      "reasoning": "The road quality and the presence of concrete drainage channels are also common in rural Malaysia. The camera generation is compatible with Malaysian coverage.",
+      "key_evidence": [
+        "concrete drainage ditch",
+        "camera generation"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_vietnam",
+      "confidence": "support",
+      "reasoning": "Vietnam frequently uses these types of narrow paved roads with concrete side-drainage in mountainous or rural areas. The camera quality is consistent with regional coverage.",
+      "key_evidence": [
+        "concrete drainage ditch",
+        "camera generation"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_costa_rica",
+      "confidence": "low",
+      "reasoning": "While the environment is compatible, the specific style of the concrete drainage ditch is more characteristic of Southeast Asian infrastructure than Central American rural roads.",
+      "key_evidence": [
+        "concrete drainage ditch"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_panama",
+      "confidence": "low",
+      "reasoning": "Similar to Costa Rica, the infrastructure (specifically the drainage ditch) is less typical for Panama compared to the Southeast Asian candidates.",
+      "key_evidence": [
+        "concrete drainage ditch"
+      ]
+    }
+  ],
+  "candidate_pool": [
+    "Indonesia",
+    "Malaysia",
+    "Costa Rica",
+    "Panama",
+    "Vietnam"
+  ],
+  "rag_findings": [
+    {
+      "kind": "tournament_match",
+      "country": "Costa Rica",
+      "detail": "The landscape features, specifically the concrete-lined drainage ditch and the lush, humid tropical vegetation on steep slopes, are highly characteristic of rural Indonesian highlands. Specialist evidence strongly supports Indonesia over Costa Rica based on the infrastructure style and botanical composition typical of Southeast Asia.",
+      "opponent": "Indonesia",
+      "winner": "Indonesia"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Vietnam",
+      "detail": "The vegetation, specifically the mix of palm species and broadleaf tropical rainforest, is more characteristic of the Malay Archipelago than the Vietnamese highlands. The concrete drainage channel alongside a narrow paved road is a common infrastructure feature in rural Malaysia.",
+      "opponent": "Malaysia",
+      "winner": "Malaysia"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Malaysia",
+      "detail": "The landscape features lush, humid tropical vegetation and steep slopes combined with a specific style of concrete-lined drainage ditch that is highly characteristic of rural Indonesian highlands. While Malaysia is similar, the specific infrastructure and terrain combination strongly align with the specialist evidence for Indonesia.",
+      "opponent": "Indonesia",
+      "winner": "Indonesia"
+    }
+  ],
+  "rag_refs_seen": [],
+  "road_filter_warnings": [],
+  "tournament_log": [
+    {
+      "round_label": "semi-1",
+      "country_a": "Indonesia",
+      "country_b": "Costa Rica",
+      "pool_rank_a": 0,
+      "pool_rank_b": 3,
+      "winner": "Indonesia",
+      "reasoning": "The landscape features, specifically the concrete-lined drainage ditch and the lush, humid tropical vegetation on steep slopes, are highly characteristic of rural Indonesian highlands. Specialist evidence strongly supports Indonesia over Costa Rica based on the infrastructure style and botanical composition typical of Southeast Asia.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "semi-2",
+      "country_a": "Malaysia",
+      "country_b": "Vietnam",
+      "pool_rank_a": 1,
+      "pool_rank_b": 2,
+      "winner": "Malaysia",
+      "reasoning": "The vegetation, specifically the mix of palm species and broadleaf tropical rainforest, is more characteristic of the Malay Archipelago than the Vietnamese highlands. The concrete drainage channel alongside a narrow paved road is a common infrastructure feature in rural Malaysia.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "final",
+      "country_a": "Indonesia",
+      "country_b": "Malaysia",
+      "pool_rank_a": 0,
+      "pool_rank_b": 1,
+      "winner": "Indonesia",
+      "reasoning": "The landscape features lush, humid tropical vegetation and steep slopes combined with a specific style of concrete-lined drainage ditch that is highly characteristic of rural Indonesian highlands. While Malaysia is similar, the specific infrastructure and terrain combination strongly align with the specialist evidence for Indonesia.",
+      "agreement": "agree"
+    }
+  ],
+  "country_result": "Country: Indonesia\nCoordinates: -7.2504, 110.3695\nReasoning: The landscape features lush, humid tropical vegetation and steep slopes combined with a specific style of concrete-lined drainage ditch that is highly characteristic of rural Indonesian highlands. While Malaysia is similar, the specific infrastructure and terrain combination strongly align with the specialist evidence for Indonesia.\n\nTournament:\n  semi-1: Indonesia vs Costa Rica → Indonesia\n  semi-2: Malaysia vs Vietnam → Malaysia\n  final: Indonesia vs Malaysia → Indonesia",
+  "coordinates": {
+    "lat": -7.2504,
+    "lng": 110.3695
+  },
+  "final_reasoning": "The landscape features lush, humid tropical vegetation and steep slopes combined with a specific style of concrete-lined drainage ditch that is highly characteristic of rural Indonesian highlands. While Malaysia is similar, the specific infrastructure and terrain combination strongly align with the specialist evidence for Indonesia."
+}

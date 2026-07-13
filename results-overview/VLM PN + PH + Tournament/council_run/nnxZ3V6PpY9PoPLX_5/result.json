@@ -1,0 +1,686 @@
+{
+  "image_path": "/pfs/data6/home/ma/ma_ma/ma_lweisssc/llm_council_agent_orchestration_tests/clean_images_GeoRC_500/nnxZ3V6PpY9PoPLX_5.png",
+  "model": "google/gemma-4-31B-it",
+  "judge_model": "google/gemma-4-31B-it",
+  "timing": {
+    "total_seconds": 539.6
+  },
+  "assessments": {
+    "linguistic": {
+      "agent_name": "linguistic",
+      "candidates": [],
+      "evidence": []
+    },
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "United States",
+          "confidence": "high",
+          "reasoning": "The combination of pinyon-juniper woodland, light-colored rocky soil, and patchy snow is highly characteristic of the American Southwest (e.g., New Mexico, Arizona, Utah). The specific tree morphology and arid high-altitude environment are classic for this region."
+        },
+        {
+          "country": "Mexico",
+          "confidence": "medium",
+          "reasoning": "The northern highlands of Mexico share nearly identical pinyon-juniper ecosystems and terrain with the US Southwest, making it a strong geographic neighbor candidate."
+        },
+        {
+          "country": "Spain",
+          "confidence": "low",
+          "reasoning": "The central plateau (Meseta) and mountainous regions of Spain feature similar arid scrublands and juniper species, though the soil composition often differs slightly from the US Southwest."
+        },
+        {
+          "country": "Turkey",
+          "confidence": "speculative",
+          "reasoning": "The Anatolian plateau contains similar high-altitude, semi-arid landscapes with coniferous scrub and seasonal snow, serving as a cross-continent analog."
+        }
+      ],
+      "evidence": [
+        "Pinyon-juniper woodland vegetation",
+        "Light-colored, rocky/calcareous soil",
+        "Patchy seasonal snow cover",
+        "Semi-arid high-altitude climate",
+        "High sun angle suggesting mid-latitude"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "United States",
+          "confidence": "high",
+          "reasoning": "The vegetation is highly characteristic of the Pinyon-Juniper woodlands of the American Southwest (e.g., Pinus edulis and Juniperus monosperma). The growth habit, bark texture, and association with arid, rocky terrain and patchy snow are diagnostic for this region."
+        },
+        {
+          "country": "Mexico",
+          "confidence": "medium",
+          "reasoning": "The Pinyon-Juniper biome extends into the highlands of Northern Mexico. The botanical composition is nearly identical to the US Southwest, making it a strong candidate, though slightly less common in typical Street View samples of this specific density."
+        },
+        {
+          "country": "Spain",
+          "confidence": "low",
+          "reasoning": "Mediterranean highlands can feature similar Juniperus species (like Juniperus oxycedrus) and rocky, semi-arid landscapes. However, the specific architecture of these trees more closely matches North American species."
+        },
+        {
+          "country": "Kyrgyzstan",
+          "confidence": "speculative",
+          "reasoning": "Central Asian mountain steppes can exhibit similar xeric coniferous scrub and juniper-dominated landscapes with seasonal snow, serving as a cross-continent analog for this biome."
+        }
+      ],
+      "evidence": [
+        "Juniperus species (Juniper)",
+        "Pinus edulis (Pinyon Pine)",
+        "Pinyon-Juniper woodland biome"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "United States",
+          "confidence": "speculative",
+          "reasoning": "The landscape and vegetation are consistent with high-altitude arid regions of the American Southwest, though no specific road infrastructure is visible to confirm."
+        },
+        {
+          "country": "Mexico",
+          "confidence": "speculative",
+          "reasoning": "Similar high-altitude pine/juniper forests and rocky terrain are found in the Sierra Madre ranges."
+        },
+        {
+          "country": "Spain",
+          "confidence": "speculative",
+          "reasoning": "The arid, rocky terrain with scattered conifers is visually similar to parts of the Spanish interior highlands."
+        },
+        {
+          "country": "Kyrgyzstan",
+          "confidence": "speculative",
+          "reasoning": "High-altitude mountainous terrain with similar vegetation and snow patterns is common in Central Asia."
+        }
+      ],
+      "evidence": [
+        "no road signs visible",
+        "no license plates visible",
+        "no bollards visible",
+        "no utility poles visible",
+        "unpaved/natural ground surface"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "United States",
+          "confidence": "medium",
+          "reasoning": "The image quality and high-dynamic range are consistent with Gen 4 Google Street View coverage. The presence of a Trekker (backpack) blur at the bottom of the frame is common in US National Parks and wilderness areas."
+        },
+        {
+          "country": "Canada",
+          "confidence": "medium",
+          "reasoning": "Similar to the USA, Canada utilizes Gen 4 coverage and Trekker backpacks for remote trail mapping, resulting in identical image artifacts and quality."
+        },
+        {
+          "country": "Japan",
+          "confidence": "low",
+          "reasoning": "Japan has extensive Trekker coverage in mountainous and forested regions, which would produce the same bottom-frame blur and high-resolution Gen 4 quality."
+        },
+        {
+          "country": "Norway",
+          "confidence": "speculative",
+          "reasoning": "As a cross-continent analog, Norway uses Trekker for remote hiking trails, which matches the camera artifact seen at the bottom of the image."
+        }
+      ],
+      "evidence": [
+        "Google Trekker backpack blur (bottom of frame)",
+        "Gen 4 camera image quality/clarity"
+      ]
+    }
+  },
+  "progressive_narrowing": {
+    "region_consensus": false,
+    "confirmed_region": "North America",
+    "runner_up_region": "Europe",
+    "surviving_regions": [
+      "North America",
+      "Europe"
+    ],
+    "proposed_regions": [
+      "North America",
+      "Europe",
+      "Middle East",
+      "Central Asia",
+      "East Asia"
+    ],
+    "region_candidates": {
+      "North America": {
+        "United States": 4,
+        "Mexico": 3,
+        "Canada": 1
+      },
+      "Europe": {
+        "Spain": 3,
+        "Norway": 1
+      },
+      "Middle East": {
+        "Turkey": 1
+      },
+      "Central Asia": {
+        "Kyrgyzstan": 2
+      },
+      "East Asia": {
+        "Japan": 1
+      }
+    },
+    "region_decision_reasoning": "North America received three 'strongly_support' votes from landscape, botanics, and meta agents, totaling a score of +6. Europe followed with a score of +3, supported by landscape, botanics, and meta agents as a plausible but less likely alternative.",
+    "path": "B"
+  },
+  "road_evidence": {
+    "outside_color": "none",
+    "inside_color": "none",
+    "driving_side": "UNCLEAR",
+    "driving_side_basis": "none"
+  },
+  "country_assessments": {
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "United States",
+          "confidence": "high",
+          "reasoning": "The combination of pinyon-juniper woodland, rocky limestone-like soil, and patchy snow is highly characteristic of the American Southwest (e.g., New Mexico, Arizona, Colorado). The specific tree morphology and arid high-altitude environment are classic for the Colorado Plateau."
+        },
+        {
+          "country": "Mexico",
+          "confidence": "medium",
+          "reasoning": "The northern highlands of Mexico share nearly identical pinyon-juniper ecosystems and rocky terrain with the US Southwest. Geographically, the transition between the two is seamless in these high-altitude scrublands."
+        },
+        {
+          "country": "Spain",
+          "confidence": "low",
+          "reasoning": "Certain high-altitude regions of the Spanish interior (Meseta) feature similar arid scrubland and juniper species. However, the specific density and growth pattern of these trees are more typical of North American highlands."
+        }
+      ],
+      "evidence": [
+        "Pinyon-juniper woodland vegetation",
+        "Arid, rocky, light-colored soil with limestone characteristics",
+        "Patchy snow cover indicating a high-altitude semi-arid climate",
+        "High sun angle and sharp shadows suggesting a mid-latitude location"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "United States",
+          "confidence": "high",
+          "reasoning": "The vegetation is highly characteristic of the Pinyon-Juniper woodlands found in the Southwestern US (e.g., Colorado, New Mexico, Arizona). The combination of Juniperus species and the specific xeric, rocky soil with patchy snow is a diagnostic landscape for the American West."
+        },
+        {
+          "country": "Mexico",
+          "confidence": "medium",
+          "reasoning": "The Pinyon-Juniper biome extends into the high-altitude regions of Northern Mexico. The botanical composition is nearly identical to the Southwestern USA, making it a strong candidate based solely on vegetation."
+        },
+        {
+          "country": "Spain",
+          "confidence": "low",
+          "reasoning": "Certain high-altitude Mediterranean scrublands in Spain feature Juniperus species and similar rocky terrain. However, the specific growth habit and density of these trees are more typical of the North American interior."
+        }
+      ],
+      "evidence": [
+        "Juniperus (Juniper species)",
+        "Pinyon-Juniper woodland biome",
+        "Xeric high-altitude scrub"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "United States",
+          "confidence": "low",
+          "reasoning": "The landscape and vegetation are consistent with high-altitude arid regions of the Western US. No specific road infrastructure is visible to confirm, but the general environment is a common match."
+        },
+        {
+          "country": "Canada",
+          "confidence": "low",
+          "reasoning": "Similar high-altitude coniferous forest and snow patterns can be found in the Canadian Rockies. Lack of visible infrastructure makes this a generic candidate based on environment."
+        },
+        {
+          "country": "Spain",
+          "confidence": "speculative",
+          "reasoning": "Certain mountainous regions in Spain feature similar scrubby pine/juniper vegetation and rocky soil. This is a cross-continent analog based on rural landscape similarity."
+        },
+        {
+          "country": "Greece",
+          "confidence": "speculative",
+          "reasoning": "High altitude regions in Greece can exhibit similar rocky terrain and sparse coniferous growth. Listed as a speculative analog for rural mountainous infrastructure/terrain."
+        }
+      ],
+      "evidence": [
+        "no road signs visible",
+        "no license plates visible",
+        "no bollards visible",
+        "no utility poles visible"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "United States",
+          "confidence": "medium",
+          "reasoning": "The image quality and stitching patterns are consistent with Google's Gen 4 camera used extensively in North American rural and park areas. The lack of specific European street furniture or bollards in this wilderness setting makes the US a primary candidate for this type of coverage."
+        },
+        {
+          "country": "Canada",
+          "confidence": "medium",
+          "reasoning": "Similar to the USA, Canada uses the same Google camera generations and has vast areas of similar rural/wilderness coverage. Without specific road markers or poles, it is indistinguishable from the US based on camera meta alone."
+        },
+        {
+          "country": "Spain",
+          "confidence": "low",
+          "reasoning": "Certain high-altitude regions in Spain have similar coverage patterns and lighting, though the specific camera rig artifacts are more characteristic of North American rural deployments."
+        }
+      ],
+      "evidence": [
+        "Google Street View Gen 4 camera quality",
+        "Image stitching patterns",
+        "Lack of European-style delineators or utility poles"
+      ]
+    }
+  },
+  "hypothesis_evaluations": [
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "region_north_america",
+      "confidence": "neutral",
+      "reasoning": "There is no visible text in the image to provide linguistic evidence for or against this region.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "region_europe",
+      "confidence": "neutral",
+      "reasoning": "There is no visible text in the image to provide linguistic evidence for or against this region.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "region_middle_east",
+      "confidence": "neutral",
+      "reasoning": "There is no visible text in the image to provide linguistic evidence for or against this region.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "region_central_asia",
+      "confidence": "neutral",
+      "reasoning": "There is no visible text in the image to provide linguistic evidence for or against this region.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_north_america",
+      "confidence": "strongly_support",
+      "reasoning": "The combination of high-altitude semi-arid scrubland, specifically the presence of Juniperus species (Juniper/Pinyon) and the light-colored, rocky, calcareous soil with patchy snow, is highly characteristic of the American Southwest (e.g., New Mexico, Arizona, Utah). The sun angle and shadow direction are consistent with the Northern Hemisphere.",
+      "key_evidence": [
+        "Juniper/Pinyon woodland",
+        "Calcareous rocky soil",
+        "Semi-arid high altitude climate",
+        "Patchy winter snow"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_europe",
+      "confidence": "support",
+      "reasoning": "Similar high-altitude coniferous scrublands exist in the Mediterranean mountains (e.g., Spain or Greece), which can feature similar rocky terrain and winter snow. However, the specific density and growth habit of these trees are more typical of the North American interior.",
+      "key_evidence": [
+        "Mediterranean mountain scrub",
+        "Northern Hemisphere sun angle"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_central_asia",
+      "confidence": "support",
+      "reasoning": "The mountainous, arid terrain of Central Asia (e.g., Kyrgyzstan or Kazakhstan) can exhibit similar rocky soils and coniferous vegetation. However, the specific flora seen here is more diagnostic of the American West.",
+      "key_evidence": [
+        "Arid mountain terrain",
+        "Coniferous vegetation"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_middle_east",
+      "confidence": "contradicts",
+      "reasoning": "While some high-altitude regions in the Middle East (e.g., Lebanon or Iran) have snow and trees, the specific combination of this open woodland structure and soil composition is less common than in the other listed regions.",
+      "key_evidence": [
+        "Vegetation density",
+        "Soil type"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_north_america",
+      "confidence": "strongly_support",
+      "reasoning": "The vegetation is highly characteristic of the Southwestern United States, specifically a Juniper-Pinyon woodland. The growth habit, bark texture, and foliage of the Juniper species (likely Juniperus monosperma or Juniperus osteosperma) combined with the arid, rocky soil and patchy snow are diagnostic of the High Desert/Colorado Plateau region.",
+      "key_evidence": [
+        "Juniperus species",
+        "Pinyon-Juniper woodland biome",
+        "Xeric high-altitude scrub"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_europe",
+      "confidence": "support",
+      "reasoning": "Certain Mediterranean high-altitude regions in Spain or Greece have similar Juniper species and rocky terrain. However, the specific density and morphology of these trees are more typical of the North American interior west.",
+      "key_evidence": [
+        "Juniperus communis/oxycedrus analogs"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_central_asia",
+      "confidence": "support",
+      "reasoning": "The mountainous steppes of Central Asia (e.g., Kyrgyzstan or Kazakhstan) feature similar cold-arid conditions and hardy coniferous scrub, though the specific tree architecture here leans more towards North American species.",
+      "key_evidence": [
+        "Cold-arid coniferous scrub"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_middle_east",
+      "confidence": "low",
+      "reasoning": "While high-altitude regions of Iran or Turkey have Junipers, the overall landscape and the specific combination of soil color and vegetation density are less common here than in the American West.",
+      "key_evidence": [
+        "High-altitude Juniper scrub"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_north_america",
+      "confidence": "strongly_support",
+      "reasoning": "The image is a 'trekker' shot (person carrying the camera), indicated by the lack of a car hood and the specific blur/stitching pattern at the bottom of the frame. This specific style of high-resolution trekker coverage in rugged, snowy, high-altitude terrain is extremely common in US National Parks and wilderness areas.",
+      "key_evidence": [
+        "Google Trekker camera artifacts",
+        "image stitching pattern"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_europe",
+      "confidence": "support",
+      "reasoning": "Trekker coverage exists in European alpine regions and national parks, making this compatible, though the specific lighting and image quality are more characteristic of North American coverage.",
+      "key_evidence": [
+        "Google Trekker camera artifacts"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_middle_east",
+      "confidence": "neutral",
+      "reasoning": "While some mountainous regions in the Middle East have snow, there is very little to no Google Trekker coverage in these specific types of wilderness environments compared to NA/EU.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_central_asia",
+      "confidence": "neutral",
+      "reasoning": "Google Street View coverage in Central Asia is extremely limited and rarely includes Trekker paths in remote wilderness areas of this type.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "country_united_states",
+      "confidence": "neutral",
+      "reasoning": "There is no visible text in the image to provide linguistic evidence for or against this hypothesis.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "country_spain",
+      "confidence": "neutral",
+      "reasoning": "There is no visible text in the image to provide linguistic evidence for or against this hypothesis.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "country_mexico",
+      "confidence": "neutral",
+      "reasoning": "There is no visible text in the image to provide linguistic evidence for or against this hypothesis.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "country_canada",
+      "confidence": "neutral",
+      "reasoning": "There is no visible text in the image to provide linguistic evidence for or against this hypothesis.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "country_greece",
+      "confidence": "neutral",
+      "reasoning": "There is no visible text in the image to provide linguistic evidence for or against this hypothesis.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_united_states",
+      "confidence": "strongly_support",
+      "reasoning": "The combination of high-altitude arid scrubland, specifically the presence of Juniperus species (Juniper/Pinyon) and the light-colored, rocky, alkaline soil with patchy snow, is highly characteristic of the American Southwest (e.g., New Mexico, Arizona, Utah). The sun angle and vegetation density are very consistent with the Intermountain West.",
+      "key_evidence": [
+        "Juniper/Pinyon woodland",
+        "alkaline rocky soil",
+        "high-altitude arid climate",
+        "patchy winter snow"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_mexico",
+      "confidence": "support",
+      "reasoning": "The northern highlands of Mexico share very similar geography, soil, and vegetation (Juniper woodlands) with the US Southwest. It is geographically compatible, though the specific soil coloration is slightly more typical of the US plateau regions.",
+      "key_evidence": [
+        "Highland scrubland",
+        "coniferous vegetation",
+        "arid mountainous terrain"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_spain",
+      "confidence": "support",
+      "reasoning": "The interior plateaus (Meseta) and mountainous regions of Spain have similar arid, rocky landscapes and can experience this type of winter snow and scrub vegetation. However, the specific tree morphology is more reminiscent of North American species.",
+      "key_evidence": [
+        "Mediterranean highland climate",
+        "rocky terrain",
+        "winter snow"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_greece",
+      "confidence": "low",
+      "reasoning": "While Greece has mountainous regions with snow and scrub, the soil composition and the specific density/type of the evergreen trees seen here are less common than in the American West or Spanish interior.",
+      "key_evidence": [
+        "Mountainous terrain",
+        "coniferous trees"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_canada",
+      "confidence": "contradicts",
+      "reasoning": "The vegetation is too scrubby and the soil too arid/alkaline for most of Canada. Canada's snowy regions typically feature denser boreal forests (spruce/fir) and different soil profiles, rather than this high-desert juniper style.",
+      "key_evidence": [
+        "Lack of boreal forest characteristics",
+        "arid soil profile"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_united_states",
+      "confidence": "strongly_support",
+      "reasoning": "The vegetation is highly characteristic of the Southwestern US high-desert woodlands, specifically the Juniper-Pinyon woodland. The trees appear to be Juniperus monosperma or Juniperus osteosperma, which are endemic to the US and Northern Mexico.",
+      "key_evidence": [
+        "Juniperus species",
+        "Pinyon-Juniper woodland biome"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_mexico",
+      "confidence": "support",
+      "reasoning": "The Pinyon-Juniper woodland extends into the high altitudes of Northern Mexico. The botanical composition is nearly identical to the Southwestern US, making it a strong candidate, though slightly less common in the typical 'Street View' high-altitude snowy contexts compared to the US.",
+      "key_evidence": [
+        "Juniperus species",
+        "High-altitude xeric scrub"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_spain",
+      "confidence": "low",
+      "reasoning": "While Spain has Juniper species (e.g., Juniperus oxycedrus), the specific growth habit and the association with this particular rocky, snowy high-plateau landscape are more diagnostic of North American xeric woodlands than Mediterranean mountains.",
+      "key_evidence": [
+        "Juniperus species"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_greece",
+      "confidence": "low",
+      "reasoning": "Similar to Spain, Greece has Mediterranean conifers, but the open, sparse woodland structure seen here is more typical of the American West than the Greek highlands.",
+      "key_evidence": [
+        "Juniperus species"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_canada",
+      "confidence": "contradicts",
+      "reasoning": "The vegetation consists of xeric, drought-tolerant junipers. Canada's snowy regions are dominated by boreal forests (Picea, Abies, Pinus banksiana), which have a completely different morphology and density than the scrubby junipers seen here.",
+      "key_evidence": [
+        "Absence of boreal conifers",
+        "Presence of xeric junipers"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_united_states",
+      "confidence": "support",
+      "reasoning": "The image quality and perspective are consistent with Google's Trekker (backpack) or a specialized off-road camera rig often used in US National Parks. The lack of any European-style street furniture or specific international markers makes this a strong candidate for North American wilderness coverage.",
+      "key_evidence": [
+        "Google Trekker/off-road camera perspective"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_canada",
+      "confidence": "support",
+      "reasoning": "Similar to the US, Canada utilizes the Trekker rig for remote trail coverage. The image quality and lack of distinct regional meta make it equally compatible with US wilderness areas.",
+      "key_evidence": [
+        "Google Trekker/off-road camera perspective"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_mexico",
+      "confidence": "low",
+      "reasoning": "While Mexico has some remote coverage, the specific image clarity and the nature of the trail coverage are more characteristic of the high-budget Trekker deployments seen in the US and Canada.",
+      "key_evidence": [
+        "Google Trekker/off-road camera perspective"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_spain",
+      "confidence": "low",
+      "reasoning": "Spain has extensive Trekker coverage in mountainous regions, but the overall image profile and lack of any European-style trail markers (which are common in Spanish parks) make it less likely than North American options.",
+      "key_evidence": [
+        "Google Trekker/off-road camera perspective"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_greece",
+      "confidence": "low",
+      "reasoning": "Greece also uses Trekker for some areas, but the visual quality and environment are more typical of the high-altitude North American West.",
+      "key_evidence": [
+        "Google Trekker/off-road camera perspective"
+      ]
+    }
+  ],
+  "candidate_pool": [
+    "United States",
+    "Spain",
+    "Mexico",
+    "Canada",
+    "Greece"
+  ],
+  "rag_findings": [
+    {
+      "kind": "tournament_match",
+      "country": "Greece",
+      "detail": "The landscape and botany are strongly characteristic of the American Southwest, specifically the Juniper-Pinyon woodlands found in states like New Mexico or Arizona. Specialist evidence highlights that the specific tree species and alkaline, rocky soil are highly typical of the United States and less common in Greece.",
+      "opponent": "United States",
+      "winner": "United States"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Spain",
+      "detail": "The landscape and botanical evidence strongly favor Mexico, as the Pinyon-Juniper woodland and rocky soil are highly characteristic of the northern Mexican highlands. In contrast, the specialist evidence notes that the specific tree morphology and growth habit are less typical for Spain's Mediterranean mountains.",
+      "opponent": "Mexico",
+      "winner": "Mexico"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Mexico",
+      "detail": "The landscape features high-altitude arid scrubland with Juniper-Pinyon woodlands and light-colored alkaline soil, which is strongly characteristic of the American Southwest. Meta-evidence suggests the image was captured via a Trekker rig, which is more common in US National Parks and wilderness areas than in similar Mexican terrains.",
+      "opponent": "United States",
+      "winner": "United States"
+    }
+  ],
+  "rag_refs_seen": [],
+  "road_filter_warnings": [],
+  "tournament_log": [
+    {
+      "round_label": "semi-1",
+      "country_a": "United States",
+      "country_b": "Greece",
+      "pool_rank_a": 0,
+      "pool_rank_b": 3,
+      "winner": "United States",
+      "reasoning": "The landscape and botany are strongly characteristic of the American Southwest, specifically the Juniper-Pinyon woodlands found in states like New Mexico or Arizona. Specialist evidence highlights that the specific tree species and alkaline, rocky soil are highly typical of the United States and less common in Greece.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "semi-2",
+      "country_a": "Mexico",
+      "country_b": "Spain",
+      "pool_rank_a": 1,
+      "pool_rank_b": 2,
+      "winner": "Mexico",
+      "reasoning": "The landscape and botanical evidence strongly favor Mexico, as the Pinyon-Juniper woodland and rocky soil are highly characteristic of the northern Mexican highlands. In contrast, the specialist evidence notes that the specific tree morphology and growth habit are less typical for Spain's Mediterranean mountains.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "final",
+      "country_a": "United States",
+      "country_b": "Mexico",
+      "pool_rank_a": 0,
+      "pool_rank_b": 1,
+      "winner": "United States",
+      "reasoning": "The landscape features high-altitude arid scrubland with Juniper-Pinyon woodlands and light-colored alkaline soil, which is strongly characteristic of the American Southwest. Meta-evidence suggests the image was captured via a Trekker rig, which is more common in US National Parks and wilderness areas than in similar Mexican terrains.",
+      "agreement": "agree"
+    }
+  ],
+  "country_result": "Country: United States\nCoordinates: 36.0544, -106.6056\nReasoning: The landscape features high-altitude arid scrubland with Juniper-Pinyon woodlands and light-colored alkaline soil, which is strongly characteristic of the American Southwest. Meta-evidence suggests the image was captured via a Trekker rig, which is more common in US National Parks and wilderness areas than in similar Mexican terrains.\n\nTournament:\n  semi-1: United States vs Greece → United States\n  semi-2: Mexico vs Spain → Mexico\n  final: United States vs Mexico → United States",
+  "coordinates": {
+    "lat": 36.0544,
+    "lng": -106.6056
+  },
+  "final_reasoning": "The landscape features high-altitude arid scrubland with Juniper-Pinyon woodlands and light-colored alkaline soil, which is strongly characteristic of the American Southwest. Meta-evidence suggests the image was captured via a Trekker rig, which is more common in US National Parks and wilderness areas than in similar Mexican terrains."
+}

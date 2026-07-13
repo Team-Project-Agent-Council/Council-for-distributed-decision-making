@@ -1,0 +1,588 @@
+{
+  "image_path": "/pfs/data6/home/ma/ma_ma/ma_lweisssc/llm_council_agent_orchestration_tests/clean_images_GeoRC_500/w3MFlsmvpeCTNUcG_3.png",
+  "model": "google/gemma-4-31B-it",
+  "judge_model": "google/gemma-4-31B-it",
+  "timing": {
+    "total_seconds": 92.5
+  },
+  "assessments": {
+    "linguistic": {
+      "agent_name": "linguistic",
+      "candidates": [],
+      "evidence": []
+    },
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "United Kingdom",
+          "confidence": "medium",
+          "reasoning": "The combination of narrow paved lanes, dense hedgerows, and temperate grassland is highly characteristic of the English countryside. The vegetation and fence post style are common in Western Europe."
+        },
+        {
+          "country": "France",
+          "confidence": "medium",
+          "reasoning": "The landscape features temperate deciduous greenery and rural road layouts similar to those found in Northern France. It is geographically indistinguishable from the UK based on terrain alone."
+        },
+        {
+          "country": "Denmark",
+          "confidence": "low",
+          "reasoning": "The flat terrain and specific mix of scrubland and managed fields are consistent with the Danish landscape, though the hedgerows are more typical of the UK/France."
+        },
+        {
+          "country": "New Zealand",
+          "confidence": "speculative",
+          "reasoning": "As a global analog, New Zealand's temperate climate and colonial agricultural patterns often produce similar green pastures and narrow rural roads, though the specific flora may differ."
+        }
+      ],
+      "evidence": [
+        "temperate deciduous vegetation",
+        "dense rural hedgerows",
+        "flat to gently undulating terrain",
+        "narrow paved rural road",
+        "wooden post fencing"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "France",
+          "confidence": "medium",
+          "reasoning": "The combination of dense hedgerows (bocage) and temperate broadleaf trees is highly characteristic of the French countryside, particularly in the north and west. It is botanically indistinguishable from neighboring Belgium or the UK in this specific view."
+        },
+        {
+          "country": "United Kingdom",
+          "confidence": "medium",
+          "reasoning": "The presence of mixed deciduous scrub and typical temperate grassland along a narrow paved lane is very common in the English countryside. The vegetation structure matches the UK's temperate maritime climate."
+        },
+        {
+          "country": "Belgium",
+          "confidence": "medium",
+          "reasoning": "The temperate broadleaf forest edge and agricultural field margins are consistent with the Low Countries' vegetation patterns. It shares the same botanical profile as Northern France."
+        },
+        {
+          "country": "United States",
+          "confidence": "low",
+          "reasoning": "The temperate deciduous biome is mirrored in the Midwestern or Northeastern United States. However, the specific density and style of the roadside scrub are more typical of Western Europe."
+        },
+        {
+          "country": "New Zealand",
+          "confidence": "speculative",
+          "reasoning": "Certain rural areas in the North Island feature introduced European temperate grasses and deciduous trees that create a similar visual botanical profile, though the scrub density is less typical."
+        }
+      ],
+      "evidence": [
+        "Temperate broadleaf deciduous trees",
+        "Mixed hedgerow scrub",
+        "Temperate grassland",
+        "European temperate biome"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "France",
+          "confidence": "low",
+          "reasoning": "The narrow asphalt road with soft grass shoulders and simple wooden fence posts is common in rural French countryside."
+        },
+        {
+          "country": "United Kingdom",
+          "confidence": "low",
+          "reasoning": "The hedge-lined narrow rural road and wooden post fencing are highly characteristic of the British countryside."
+        },
+        {
+          "country": "United States",
+          "confidence": "speculative",
+          "reasoning": "Rural roads with simple asphalt and wooden utility/fence poles are common across North America, though the vegetation style is more European."
+        },
+        {
+          "country": "Argentina",
+          "confidence": "speculative",
+          "reasoning": "Following the global analog rule, rural asphalt roads with wooden posts and grass shoulders are visually similar in the Pampas region."
+        }
+      ],
+      "evidence": [
+        "narrow asphalt road",
+        "grass shoulders",
+        "wooden fence posts",
+        "overhead utility wire"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "France",
+          "confidence": "medium",
+          "reasoning": "The combination of the specific wooden fence post style and the narrow asphalt rural path is very common in the French countryside. The image quality and lack of distinct car artifacts suggest a Gen 3 camera, which is prevalent in France."
+        },
+        {
+          "country": "United Kingdom",
+          "confidence": "medium",
+          "reasoning": "The rustic wooden fencing and the style of the narrow rural lane are highly consistent with the UK. The overhead power line configuration is a common sight in rural British landscapes."
+        },
+        {
+          "country": "Poland",
+          "confidence": "low",
+          "reasoning": "Similar rural road textures and wooden fencing can be found in Eastern Europe, specifically Poland, though the lack of specific concrete poles makes this less certain than Western Europe."
+        },
+        {
+          "country": "Canada",
+          "confidence": "speculative",
+          "reasoning": "As a cross-continent analog, rural Canada often features similar narrow paved paths with simple wooden post fencing and overhead utility lines in agricultural areas."
+        }
+      ],
+      "evidence": [
+        "wooden fence posts",
+        "narrow asphalt rural path",
+        "overhead power line",
+        "Gen 3 camera quality"
+      ]
+    }
+  },
+  "progressive_narrowing": {
+    "region_consensus": false,
+    "confirmed_region": "Europe",
+    "runner_up_region": "North America",
+    "surviving_regions": [
+      "Europe",
+      "North America"
+    ],
+    "proposed_regions": [
+      "Europe",
+      "Oceania",
+      "North America",
+      "South America"
+    ],
+    "region_candidates": {
+      "Europe": {
+        "United Kingdom": 4,
+        "France": 4,
+        "Denmark": 1,
+        "Belgium": 1,
+        "Poland": 1
+      },
+      "Oceania": {
+        "New Zealand": 2
+      },
+      "North America": {
+        "United States": 2,
+        "Canada": 1
+      },
+      "South America": {
+        "Argentina": 1
+      }
+    },
+    "region_decision_reasoning": "Europe received the highest total score with support from both the botanics and meta agents, specifically citing the characteristic deciduous hedgerows and rural path styles. North America is the runner-up as it was supported by the botanics agent for its compatible temperate biome, although the meta agent found the path width less typical for the region.",
+    "path": "B"
+  },
+  "road_evidence": {
+    "outside_color": "none",
+    "inside_color": "none",
+    "driving_side": "UNCLEAR",
+    "driving_side_basis": "none"
+  },
+  "country_assessments": {
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "France",
+          "confidence": "medium",
+          "reasoning": "The combination of a narrow paved rural lane, dense hedgerows (bocage), and flat to gently undulating temperate terrain is very characteristic of northern and western France. The vegetation and field boundaries are consistent with French agricultural landscapes."
+        },
+        {
+          "country": "United Kingdom",
+          "confidence": "medium",
+          "reasoning": "The lush green grass, deciduous scrub, and the style of the wooden fence posts are highly typical of the English countryside. The flat terrain and overcast-bright lighting are common in the UK."
+        },
+        {
+          "country": "Belgium",
+          "confidence": "medium",
+          "reasoning": "The flat landscape and the specific mix of wild grasses and managed fields are common in the Flanders region. It shares very similar geographic characteristics with northern France."
+        },
+        {
+          "country": "United States",
+          "confidence": "low",
+          "reasoning": "Similar temperate grasslands and deciduous scrub can be found in the Midwest or Northeast. However, the narrowness of the paved path is more characteristic of European rural lanes than American county roads."
+        }
+      ],
+      "evidence": [
+        "Temperate deciduous vegetation and scrub",
+        "Flat to gently undulating terrain",
+        "Narrow paved rural access road",
+        "Wooden post fencing with wire",
+        "Northern hemisphere sun angle (shadows cast slightly to the side/front)"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "France",
+          "confidence": "medium",
+          "reasoning": "The combination of dense hedgerows (bocage) containing Crataegus (hawthorn) and Prunus species, alongside wild Apiaceae (white umbellifers) in the margins, is highly characteristic of the French countryside. This vegetation pattern is common across Northern and Central France."
+        },
+        {
+          "country": "United Kingdom",
+          "confidence": "medium",
+          "reasoning": "The landscape strongly resembles the English countryside, specifically the hedgerow systems of the Midlands or Southern England. The mix of deciduous scrub and opportunistic ruderal species in the field margins is typical for this temperate maritime climate."
+        },
+        {
+          "country": "Belgium",
+          "confidence": "medium",
+          "reasoning": "The flat terrain and the specific composition of the roadside vegetation, including common European shrubs and grasses, are consistent with the Flanders or Wallonia regions. It shares the same botanical profile as Northern France."
+        },
+        {
+          "country": "United States",
+          "confidence": "low",
+          "reasoning": "Similar temperate broadleaf vegetation and ruderal white-flowering plants (like Daucus carota) are found in the Midwestern or Northeastern US. However, the specific structure of the hedgerow is more characteristic of European agricultural land management."
+        }
+      ],
+      "evidence": [
+        "Crataegus monogyna (Common Hawthorn)",
+        "Apiaceae (Wild Carrot/Cow Parsley)",
+        "Temperate broadleaf deciduous scrub",
+        "European bocage landscape"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "France",
+          "confidence": "low",
+          "reasoning": "The narrow asphalt road with soft grass shoulders and simple wooden fence posts is common in rural French countryside."
+        },
+        {
+          "country": "United Kingdom",
+          "confidence": "low",
+          "reasoning": "The hedge-lined narrow lane and rustic wooden fencing are highly characteristic of rural English or Welsh landscapes."
+        },
+        {
+          "country": "Poland",
+          "confidence": "low",
+          "reasoning": "The road width and the style of rural utility infrastructure (overhead lines) are consistent with rural Eastern European landscapes."
+        },
+        {
+          "country": "United States",
+          "confidence": "speculative",
+          "reasoning": "Rural backroads in the Midwest or Northeast can feature similar narrow asphalt strips with wooden fence posts and overhead power lines."
+        },
+        {
+          "country": "Canada",
+          "confidence": "speculative",
+          "reasoning": "Similar rural infrastructure consisting of basic asphalt and wooden fencing is found in rural provinces."
+        }
+      ],
+      "evidence": [
+        "narrow asphalt road width",
+        "wooden fence posts",
+        "overhead utility lines",
+        "grass shoulders"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "Denmark",
+          "confidence": "medium",
+          "reasoning": "The combination of a narrow, well-maintained asphalt path and the specific style of simple wooden fence posts is very common in rural Denmark. The image quality and lack of distinct car artifacts are consistent with Gen 3 coverage in this region."
+        },
+        {
+          "country": "Netherlands",
+          "confidence": "medium",
+          "reasoning": "The narrow paved path through agricultural land is a hallmark of the Dutch countryside. The wooden fence posts are similar to those found in Denmark, making it a strong European candidate."
+        },
+        {
+          "country": "United Kingdom",
+          "confidence": "low",
+          "reasoning": "The rural lane and wooden fencing are common in the UK. However, the lack of typical UK road-edge wear and the specific asphalt texture lean slightly more towards Northern Europe."
+        },
+        {
+          "country": "United States",
+          "confidence": "speculative",
+          "reasoning": "Generic rural paved paths with wooden fence posts exist across North America. This is included as a cross-continent analog due to the lack of unique, country-specific bollards or poles."
+        }
+      ],
+      "evidence": [
+        "narrow asphalt path",
+        "simple wooden fence posts",
+        "Gen 3 camera quality",
+        "absence of road markings"
+      ]
+    }
+  },
+  "hypothesis_evaluations": [
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_europe",
+      "confidence": "support",
+      "reasoning": "The vegetation consists of temperate broadleaf deciduous trees and hedgerows featuring species consistent with European rural landscapes, such as Crataegus (hawthorn) and various Apiaceae (wild carrot/cow parsley) in the roadside verges.",
+      "key_evidence": [
+        "temperate broadleaf forest",
+        "hedgerow structure",
+        "Apiaceae roadside flora"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_north_america",
+      "confidence": "support",
+      "reasoning": "The biome is a temperate deciduous forest/grassland mosaic, which is highly compatible with the Midwestern or Northeastern United States and Southern Canada.",
+      "key_evidence": [
+        "temperate broadleaf forest",
+        "mixed grassland"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_oceania",
+      "confidence": "low",
+      "reasoning": "While some temperate regions of New Zealand or Southeastern Australia share this look due to introduced European species, the specific composition of the scrub and the lack of prominent Eucalyptus or native ferns make it less likely than the Northern Hemisphere.",
+      "key_evidence": [
+        "temperate grassland"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_south_america",
+      "confidence": "low",
+      "reasoning": "This vegetation is compatible with the Pampas or temperate zones of Southern Chile/Argentina, but the specific structure of the deciduous hedgerows is more characteristic of Northern Hemisphere agriculture.",
+      "key_evidence": [
+        "temperate grassland"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_europe",
+      "confidence": "support",
+      "reasoning": "The image quality and camera generation are consistent with early-to-mid 2010s European coverage. The style of the narrow paved path and the simple wooden fence posts are very common in rural European landscapes, particularly in Central or Northern Europe.",
+      "key_evidence": [
+        "camera generation",
+        "fence post style",
+        "pavement type"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_oceania",
+      "confidence": "low",
+      "reasoning": "While the rural setting is compatible, the specific quality of the asphalt and the style of the wooden fencing are more characteristic of European rural paths than typical Australian or New Zealand rural roads.",
+      "key_evidence": [
+        "pavement type",
+        "fence post style"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_north_america",
+      "confidence": "low",
+      "reasoning": "The narrowness of the paved path is less common for primary rural access in North America, though it could be a multi-use trail. The camera generation is compatible but less diagnostic for this region.",
+      "key_evidence": [
+        "pavement width",
+        "camera generation"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_south_america",
+      "confidence": "low",
+      "reasoning": "The image quality is compatible with some South American coverage, but the specific combination of the paved path and the fence style is less typical for the region compared to Europe.",
+      "key_evidence": [
+        "pavement type",
+        "fence post style"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_united_kingdom",
+      "confidence": "support",
+      "reasoning": "The combination of dense hedgerows containing Crataegus (hawthorn) and the presence of Apiaceae (likely Anthriscus sylvestris) in the roadside verges is highly characteristic of the British countryside.",
+      "key_evidence": [
+        "Crataegus (hawthorn) hedgerows",
+        "Anthriscus sylvestris (cow parsley)"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_france",
+      "confidence": "support",
+      "reasoning": "The temperate broadleaf vegetation and agricultural field margins are consistent with Northern and Central France, which shares similar flora with the UK and Benelux.",
+      "key_evidence": [
+        "Temperate broadleaf scrub",
+        "Apiaceae roadside flora"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_belgium",
+      "confidence": "support",
+      "reasoning": "The flat landscape with mixed deciduous scrub and managed field boundaries is very common in the Flemish and Walloon regions.",
+      "key_evidence": [
+        "Temperate broadleaf scrub",
+        "Managed field margins"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_poland",
+      "confidence": "support",
+      "reasoning": "The vegetation is compatible with Central European temperate zones, though the specific hedgerow structure is slightly more typical of Western Europe.",
+      "key_evidence": [
+        "Temperate broadleaf vegetation"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_united_states",
+      "confidence": "low",
+      "reasoning": "While similar temperate biomes exist in the US Northeast or Midwest, the specific composition of the roadside 'weeds' and the style of the hedgerow are more indicative of European agricultural patterns.",
+      "key_evidence": [
+        "Temperate broadleaf biome"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_canada",
+      "confidence": "low",
+      "reasoning": "Compatible with Southern Ontario or Quebec, but the specific botanical composition of the scrubland is more characteristic of the European Atlantic/Continental transition.",
+      "key_evidence": [
+        "Temperate broadleaf biome"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_united_kingdom",
+      "confidence": "support",
+      "reasoning": "The image quality and camera generation are consistent with UK coverage from the 2017 era. The simple wooden fence posts are common in rural UK landscapes.",
+      "key_evidence": [
+        "camera generation",
+        "wooden fence posts"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_france",
+      "confidence": "support",
+      "reasoning": "The camera quality and the style of the narrow rural paved path are compatible with French rural coverage. Wooden fence posts are common across Western Europe.",
+      "key_evidence": [
+        "camera generation",
+        "wooden fence posts"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_belgium",
+      "confidence": "support",
+      "reasoning": "The visual quality and the specific look of the rural road are compatible with Belgian coverage. It shares similar meta characteristics with France and the UK.",
+      "key_evidence": [
+        "camera generation",
+        "wooden fence posts"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_poland",
+      "confidence": "low",
+      "reasoning": "While the camera generation is compatible, the specific style of the fence posts and the road edge is more characteristic of Western Europe than the typical concrete or metal poles often seen in rural Poland.",
+      "key_evidence": [
+        "camera generation"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_united_states",
+      "confidence": "contradicts",
+      "reasoning": "The narrowness of the paved path and the specific style of the wooden fence posts are atypical for rural US road infrastructure, which tends to be wider or use different fencing standards.",
+      "key_evidence": [
+        "road width",
+        "fence post style"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_canada",
+      "confidence": "contradicts",
+      "reasoning": "Similar to the US, the road width and the specific rural infrastructure (fence posts and path style) do not align with typical Canadian rural road meta.",
+      "key_evidence": [
+        "road width",
+        "fence post style"
+      ]
+    }
+  ],
+  "candidate_pool": [
+    "United Kingdom",
+    "United States",
+    "France",
+    "Belgium",
+    "Poland",
+    "Canada"
+  ],
+  "rag_findings": [
+    {
+      "kind": "tournament_match",
+      "country": "Poland",
+      "detail": "The dense hedgerows and specific roadside vegetation (Apiaceae) are highly characteristic of the British countryside as noted in the botanics evidence. Additionally, the simple wooden fence posts and overall landscape are more typical of the UK than the infrastructure usually found in rural Poland.",
+      "opponent": "United Kingdom",
+      "winner": "United Kingdom"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Belgium",
+      "detail": "The image shows a narrow rural paved path and vegetation consistent with both candidates. However, the specific style of the rural road and the overall landscape are slightly more characteristic of the French countryside as noted in the meta and botanics evidence.",
+      "opponent": "France",
+      "winner": "France"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "France",
+      "detail": "The combination of dense, managed hedgerows and the specific roadside flora (Apiaceae) is highly characteristic of the British countryside. The simple wooden fence posts and the overall landscape composition strongly align with rural UK coverage from the 2017 era.",
+      "opponent": "United Kingdom",
+      "winner": "United Kingdom"
+    }
+  ],
+  "rag_refs_seen": [],
+  "road_filter_warnings": [],
+  "tournament_log": [
+    {
+      "round_label": "semi-1",
+      "country_a": "United Kingdom",
+      "country_b": "Poland",
+      "pool_rank_a": 0,
+      "pool_rank_b": 3,
+      "winner": "United Kingdom",
+      "reasoning": "The dense hedgerows and specific roadside vegetation (Apiaceae) are highly characteristic of the British countryside as noted in the botanics evidence. Additionally, the simple wooden fence posts and overall landscape are more typical of the UK than the infrastructure usually found in rural Poland.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "semi-2",
+      "country_a": "France",
+      "country_b": "Belgium",
+      "pool_rank_a": 1,
+      "pool_rank_b": 2,
+      "winner": "France",
+      "reasoning": "The image shows a narrow rural paved path and vegetation consistent with both candidates. However, the specific style of the rural road and the overall landscape are slightly more characteristic of the French countryside as noted in the meta and botanics evidence.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "final",
+      "country_a": "United Kingdom",
+      "country_b": "France",
+      "pool_rank_a": 0,
+      "pool_rank_b": 1,
+      "winner": "United Kingdom",
+      "reasoning": "The combination of dense, managed hedgerows and the specific roadside flora (Apiaceae) is highly characteristic of the British countryside. The simple wooden fence posts and the overall landscape composition strongly align with rural UK coverage from the 2017 era.",
+      "agreement": "agree"
+    }
+  ],
+  "country_result": "Country: United Kingdom\nCoordinates: 52.4862, -1.8904\nReasoning: The combination of dense, managed hedgerows and the specific roadside flora (Apiaceae) is highly characteristic of the British countryside. The simple wooden fence posts and the overall landscape composition strongly align with rural UK coverage from the 2017 era.\n\nTournament:\n  semi-1: United Kingdom vs Poland → United Kingdom\n  semi-2: France vs Belgium → France\n  final: United Kingdom vs France → United Kingdom",
+  "coordinates": {
+    "lat": 52.4862,
+    "lng": -1.8904
+  },
+  "final_reasoning": "The combination of dense, managed hedgerows and the specific roadside flora (Apiaceae) is highly characteristic of the British countryside. The simple wooden fence posts and the overall landscape composition strongly align with rural UK coverage from the 2017 era."
+}

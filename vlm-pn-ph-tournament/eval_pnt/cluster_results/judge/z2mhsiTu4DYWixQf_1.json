@@ -1,0 +1,95 @@
+{
+  "image_id": "z2mhsiTu4DYWixQf_1",
+  "truth_country": "panama",
+  "pred_country": "costa rica",
+  "is_correct": false,
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": true,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "role_adherence_notes": {
+      "linguistic": "Correctly identified lack of visible text; stayed within domain.",
+      "landscape": "Analyzed vegetation, terrain, and climate cues effectively.",
+      "botanics": "Identified specific plant species (Musa, Croton) and their regional prevalence.",
+      "regulatory": "Analyzed utility poles, road width, and infrastructure standards.",
+      "meta": "Synthesized cross-domain clues (camera artifacts, vehicle models) to distinguish regions."
+    },
+    "argumentative_quality": {
+      "linguistic": "normal",
+      "landscape": "strong",
+      "botanics": "strong",
+      "regulatory": "normal",
+      "meta": "very_strong"
+    },
+    "constructive_synthesis": true,
+    "overall_verdict_notes": "The pipeline correctly identified the region (Central America) and the specific visual markers (tropical flora, corrugated roofs, utility poles). However, the agents and the final judge were misled by a hallucinated 'meta' cue (the camera blur artifact), leading to an incorrect final prediction of Costa Rica over the ground truth, Panama.",
+    "assertiveness": null,
+    "assertiveness_score": {},
+    "overall_quality_score": null,
+    "role_adherence_score": {
+      "linguistic": 1.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.9,
+      "meta": 0.9
+    },
+    "argumentative_quality_score": {
+      "linguistic": 0.5,
+      "landscape": 0.8,
+      "botanics": 0.8,
+      "regulatory": 0.6,
+      "meta": 0.7
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.0,
+      "botanics": 0.0,
+      "regulatory": 0.0,
+      "meta": 0.75
+    },
+    "hallucination_examples": {
+      "linguistic": [],
+      "landscape": [],
+      "botanics": [],
+      "regulatory": [],
+      "meta": [
+        "Claimed the 'large, blurred green/brown smudge on the road' is a 'distinct Google Street View camera artifact... highly characteristic of Central American coverage' / 'known meta-characteristic of Google Street View coverage in Costa Rica'.",
+        "Asserted the blur pattern is 'more iconic for Costa Rican coverage' compared to Panama."
+      ]
+    },
+    "visual_consistency_score": {
+      "linguistic": 1.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.9,
+      "meta": 0.4
+    },
+    "visual_consistency_notes": {
+      "linguistic": "Accurately noted absence of text.",
+      "landscape": "Accurately described the lush vegetation and red roofs.",
+      "botanics": "Accurately identified banana and croton plants.",
+      "regulatory": "Accurately described the concrete poles and road width.",
+      "meta": "Described the road blur accurately but falsely attributed it to a country-specific camera artifact."
+    },
+    "confidence_calibration": {
+      "linguistic": 0.5,
+      "landscape": 0.5,
+      "botanics": 0.5,
+      "regulatory": 0.5,
+      "meta": 0.2
+    },
+    "tournament_failure": {
+      "truth_in_pool": true,
+      "truth_lost_to": "Costa Rica",
+      "failure_match_round": "final",
+      "failure_reason": "agent_misled",
+      "failure_reasoning": "The meta agent hallucinated a specific 'camera blur artifact' as a diagnostic feature for Costa Rica. This fabricated evidence was treated as a 'strongly_support' signal by the judge, overriding the more grounded visual evidence that was actually shared between the two candidates.",
+      "counterfactual_winnable": true
+    }
+  }
+}

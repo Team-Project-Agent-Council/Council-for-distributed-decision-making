@@ -1,0 +1,331 @@
+{
+  "image_path": "/pfs/data6/home/ma/ma_ma/ma_lweisssc/llm_council_agent_orchestration_tests/clean_images_GeoRC_500/Lz6IDBZmUTr5oPdV_4.png",
+  "model": "google/gemma-4-31B-it",
+  "judge_model": "google/gemma-4-31B-it",
+  "timing": {
+    "total_seconds": 617.1
+  },
+  "assessments": {
+    "linguistic": {
+      "agent_name": "linguistic",
+      "candidates": [],
+      "evidence": []
+    },
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Australia",
+          "confidence": "high",
+          "reasoning": "The combination of reddish-orange sandy soil, eucalyptus-style trees with sparse canopies, and wide-open pastoral land is highly characteristic of the Australian interior or wheat belt. The presence of yellow flowering crops (likely canola) in the background is common in southern and western Australian agricultural regions."
+        },
+        {
+          "country": "South Africa",
+          "confidence": "medium",
+          "reasoning": "The red soil and scrubby, open woodland are similar to the Highveld or Karoo regions. However, the specific tree morphology is more indicative of Australian flora than typical South African acacia or protea landscapes."
+        },
+        {
+          "country": "USA",
+          "confidence": "low",
+          "reasoning": "The red soil and open terrain could match parts of the American Southwest or Southeast, but the tree species and the specific combination of red dirt with lush green grass and yellow fields are less typical for those regions."
+        },
+        {
+          "country": "Brazil",
+          "confidence": "speculative",
+          "reasoning": "The Cerrado region features red soils (latosols) and open savanna-like woodlands that could visually mimic this environment, though the tree structure here is more consistent with temperate/semi-arid eucalyptus."
+        }
+      ],
+      "evidence": [
+        "Reddish-orange sandy soil",
+        "Eucalyptus-like open canopy trees",
+        "Yellow flowering agricultural fields",
+        "Flat to gently undulating terrain",
+        "Southern hemisphere sun angle based on shadow cast"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Australia",
+          "confidence": "high",
+          "reasoning": "The presence of Eucalyptus trees with characteristic open canopies and pale bark, combined with the bright yellow fields of Canola (Brassica napus) in the background, is highly diagnostic of the Australian wheat-sheep belt. The red sandy soil is also very common in southern and western Australian agricultural regions."
+        },
+        {
+          "country": "South Africa",
+          "confidence": "low",
+          "reasoning": "Eucalyptus species are widely naturalized and used for forestry in South Africa, and Canola is grown there. However, the specific combination of the open woodland structure and the red soil is more characteristic of the Australian interior."
+        },
+        {
+          "country": "Canada",
+          "confidence": "speculative",
+          "reasoning": "Canola is a primary crop in the Canadian prairies, which would explain the yellow fields. However, the Eucalyptus-like trees are not native to Canada and would not be found in this open-field landscape."
+        }
+      ],
+      "evidence": [
+        "Eucalyptus spp.",
+        "Brassica napus (Canola)",
+        "Sclerophyll woodland structure",
+        "Red sandy soil"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Australia",
+          "confidence": "medium",
+          "reasoning": "The reddish-orange soil, wide unpaved rural road, and specific eucalyptus-style tree canopy are highly characteristic of the Australian interior/rural areas."
+        },
+        {
+          "country": "South Africa",
+          "confidence": "low",
+          "reasoning": "Similar red soil and rural unpaved road infrastructure are common in various South African provinces, though the vegetation is slightly more characteristic of Oceania."
+        },
+        {
+          "country": "USA",
+          "confidence": "speculative",
+          "reasoning": "Rural dirt roads with similar soil colors and wide shoulders can be found in the Southwestern US, though the tree species do not match as closely."
+        },
+        {
+          "country": "Argentina",
+          "confidence": "speculative",
+          "reasoning": "Rural agricultural regions in Argentina often feature similar unpaved road widths and red-tinted earth."
+        }
+      ],
+      "evidence": [
+        "unpaved red-soil road",
+        "absence of road signs",
+        "absence of utility poles",
+        "absence of bollards",
+        "natural gravel/dirt shoulder treatment"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "Australia",
+          "confidence": "medium",
+          "reasoning": "The image quality and high sun position are consistent with Australian Street View coverage. The simple post-and-wire fencing seen on the left and right is extremely common in rural Australian properties."
+        },
+        {
+          "country": "South Africa",
+          "confidence": "low",
+          "reasoning": "Similar rural road quality and simple wire fencing are found in South Africa. This serves as a cross-continent analog due to similar colonial agricultural infrastructure."
+        },
+        {
+          "country": "USA",
+          "confidence": "speculative",
+          "reasoning": "Certain rural areas in the Southwest or Midwest use similar dirt road grading and basic wire fencing, though the overall image clarity is more typical of newer Gen 4 coverage found in Oceania."
+        }
+      ],
+      "evidence": [
+        "post-and-wire fencing",
+        "Google Street View image quality/clarity",
+        "dirt road grading style"
+      ]
+    }
+  },
+  "progressive_narrowing": {
+    "region_consensus": null,
+    "confirmed_region": null,
+    "runner_up_region": null,
+    "surviving_regions": [],
+    "proposed_regions": [],
+    "region_candidates": {},
+    "region_decision_reasoning": "",
+    "path": "TOURNAMENT_ONLY"
+  },
+  "road_evidence": {},
+  "country_assessments": {},
+  "hypothesis_evaluations": [
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_australia",
+      "confidence": "strongly_support",
+      "reasoning": "The trees are clearly Eucalyptus species, characterized by their distinct canopy structure, drooping foliage, and smooth, pale bark. Additionally, the bright yellow fields in the background are highly characteristic of Canola (Brassica napus) grown in the Australian wheat-belt regions.",
+      "key_evidence": [
+        "Eucalyptus species",
+        "Canola fields",
+        "Sclerophyll forest structure"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_south_africa",
+      "confidence": "low",
+      "reasoning": "While South Africa has a similar Mediterranean/semi-arid climate and some introduced Eucalyptus, the specific combination of these tree forms and the vast scale of the yellow crop fields is more diagnostic of Australia.",
+      "key_evidence": [
+        "Introduced Eucalyptus"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_usa",
+      "confidence": "low",
+      "reasoning": "Similar xeric shrubland and agricultural patterns exist in California, but the dominant tree morphology is distinctly Australian Eucalyptus rather than native North American species.",
+      "key_evidence": [
+        "Xeric shrubland analog"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_brazil",
+      "confidence": "contradicts",
+      "reasoning": "The vegetation is temperate/semi-arid sclerophyll, which does not match the tropical or subtropical biomes dominant in Brazil, and the crop pattern is inconsistent.",
+      "key_evidence": [
+        "Lack of tropical flora"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_canada",
+      "confidence": "strongly_contradicts",
+      "reasoning": "The presence of Eucalyptus and the red sandy soil are completely inconsistent with the boreal or temperate forests and soil profiles of Canada.",
+      "key_evidence": [
+        "Eucalyptus species",
+        "Red sandy soil"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_argentina",
+      "confidence": "low",
+      "reasoning": "Argentina has some similar semi-arid regions and introduced Eucalyptus, but the overall landscape and crop integration strongly favor Australia.",
+      "key_evidence": [
+        "Xeric shrubland analog"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_australia",
+      "confidence": "strongly_support",
+      "reasoning": "The image quality and lighting are consistent with the Google Street View Gen 4 camera used extensively in rural Australia. The specific combination of red dirt roads and the style of simple wooden post-and-wire fencing is highly characteristic of the Australian Outback/rural regions.",
+      "key_evidence": [
+        "Gen 4 camera quality",
+        "rural wooden post-and-wire fencing",
+        "red dirt road surface"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_south_africa",
+      "confidence": "support",
+      "reasoning": "South Africa shares similar red soil and rural road characteristics, and Google coverage exists there. However, the specific fence post style is more typical of Australian rural properties.",
+      "key_evidence": [
+        "red dirt road surface",
+        "rural fencing"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_brazil",
+      "confidence": "low",
+      "reasoning": "While Brazil has red soil and rural roads, the camera generation and the specific style of the wooden fence posts are less common than in Australia.",
+      "key_evidence": [
+        "red dirt road surface"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_argentina",
+      "confidence": "low",
+      "reasoning": "Argentina has similar rural dirt roads, but the overall image clarity and the specific fence construction are more aligned with Australian meta.",
+      "key_evidence": [
+        "red dirt road surface"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_usa",
+      "confidence": "contradicts",
+      "reasoning": "The specific hue of the red dirt and the style of the rural fencing do not match the common patterns found in the US rural road network covered by Google.",
+      "key_evidence": [
+        "fence post style",
+        "soil color"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_canada",
+      "confidence": "strongly_contradicts",
+      "reasoning": "The red dirt road and the specific style of rural fencing are completely inconsistent with Canadian rural infrastructure and soil types.",
+      "key_evidence": [
+        "soil color",
+        "fence post style"
+      ]
+    }
+  ],
+  "candidate_pool": [
+    "Australia",
+    "South Africa",
+    "USA",
+    "Brazil",
+    "Canada",
+    "Argentina"
+  ],
+  "rag_findings": [
+    {
+      "kind": "tournament_match",
+      "country": "USA",
+      "detail": "The vegetation is highly characteristic of Australia, specifically the Eucalyptus trees with their distinct pale bark and canopy, and the yellow canola fields. Additionally, the red dirt road and post-and-wire fencing are strongly associated with rural Australian landscapes as noted in the specialist evidence.",
+      "opponent": "Australia",
+      "winner": "Australia"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Argentina",
+      "detail": "The red soil and rural dirt road characteristics are noted as supportive for South Africa in the specialist evidence. While both candidates are described as having low botanical matches compared to Australia, South Africa is given more support regarding the road and soil characteristics than Argentina.",
+      "opponent": "South Africa",
+      "winner": "South Africa"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "South Africa",
+      "detail": "The landscape features Eucalyptus trees with characteristic pale bark and drooping foliage, combined with vast yellow canola fields, which are highly diagnostic of the Australian wheat-belt. The red dirt road and specific wooden post-and-wire fencing style further align with rural Australian environments as noted by the specialists.",
+      "opponent": "Australia",
+      "winner": "Australia"
+    }
+  ],
+  "rag_refs_seen": [],
+  "road_filter_warnings": [],
+  "tournament_log": [
+    {
+      "round_label": "semi-1",
+      "country_a": "Australia",
+      "country_b": "USA",
+      "pool_rank_a": 0,
+      "pool_rank_b": 3,
+      "winner": "Australia",
+      "reasoning": "The vegetation is highly characteristic of Australia, specifically the Eucalyptus trees with their distinct pale bark and canopy, and the yellow canola fields. Additionally, the red dirt road and post-and-wire fencing are strongly associated with rural Australian landscapes as noted in the specialist evidence.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "semi-2",
+      "country_a": "South Africa",
+      "country_b": "Argentina",
+      "pool_rank_a": 1,
+      "pool_rank_b": 2,
+      "winner": "South Africa",
+      "reasoning": "The red soil and rural dirt road characteristics are noted as supportive for South Africa in the specialist evidence. While both candidates are described as having low botanical matches compared to Australia, South Africa is given more support regarding the road and soil characteristics than Argentina.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "final",
+      "country_a": "Australia",
+      "country_b": "South Africa",
+      "pool_rank_a": 0,
+      "pool_rank_b": 1,
+      "winner": "Australia",
+      "reasoning": "The landscape features Eucalyptus trees with characteristic pale bark and drooping foliage, combined with vast yellow canola fields, which are highly diagnostic of the Australian wheat-belt. The red dirt road and specific wooden post-and-wire fencing style further align with rural Australian environments as noted by the specialists.",
+      "agreement": "agree"
+    }
+  ],
+  "country_result": "Country: Australia\nCoordinates: -34.5, 139.0\nReasoning: The landscape features Eucalyptus trees with characteristic pale bark and drooping foliage, combined with vast yellow canola fields, which are highly diagnostic of the Australian wheat-belt. The red dirt road and specific wooden post-and-wire fencing style further align with rural Australian environments as noted by the specialists.\n\nTournament:\n  semi-1: Australia vs USA → Australia\n  semi-2: South Africa vs Argentina → South Africa\n  final: Australia vs South Africa → Australia",
+  "coordinates": {
+    "lat": -34.5,
+    "lng": 139.0
+  },
+  "final_reasoning": "The landscape features Eucalyptus trees with characteristic pale bark and drooping foliage, combined with vast yellow canola fields, which are highly diagnostic of the Australian wheat-belt. The red dirt road and specific wooden post-and-wire fencing style further align with rural Australian environments as noted by the specialists."
+}

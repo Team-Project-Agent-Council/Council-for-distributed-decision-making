@@ -1,0 +1,412 @@
+==========================================================================
+  VLM Council - v12 (PN + Parallel Hypothesis + Tournament) Analysis
+==========================================================================
+  Total images: 500
+
+--------------------------------------------------------------------------
+  PIPELINE OVERVIEW
+--------------------------------------------------------------------------
+  High-level shape of the v12 pipeline on this dataset. `Region-
+  consensus` = agents agreed on one region at the PN vote (Path A,
+  direct to judge); the rest run the full stack (Path B: hypothesis
+  eval -> country reassessment -> tournament). The tournament shape
+  follows from the candidate-pool size: ≥4 -> full bracket, 3 ->
+  semi+final, 2 -> final-only, 1 -> walkover. A larger share of
+  degenerate shapes means PN eliminated most alternatives before the
+  tournament even started.
+
+  Region-consensus at PN gate (Path A):        0/500 (0.0%)
+  Region contested (Path B, runs full stack):  500/500 (100.0%)
+
+  Tournament-shape distribution:
+    full-bracket            405  ( 81.0%)
+    3-way (semi+final)       61  ( 12.2%)
+    final-only               20  (  4.0%)
+    walkover                 14  (  2.8%)
+
+  Candidate-pool size:   min 1, max 8, mean 4.65, median 5
+  Hypothesis evaluations per image: mean 24.2, median 24, max 50
+
+--------------------------------------------------------------------------
+  REGION-PROPOSAL BEHAVIOR (PN stage)
+--------------------------------------------------------------------------
+  Three funnel stages for every region: how often it was proposed by
+  at least one agent, how often it survived the PN vote (top-2 by
+  aggregate score), and how often it was finally confirmed. A high
+  proposed-count with a low confirmed-count means the region is a
+  common 'maybe' that rarely wins the vote (over-guessed). A high
+  confirmed-count relative to proposed means the region, once floated,
+  tends to stick - a signal that its evidence is decisive.
+
+
+  Proposed regions per image:   mean 3.55, median 3, max 8
+  Surviving regions per image:  mean 1.96, median 2, max 2
+
+  Region                             Proposed   Survived   Confirmed
+  ──────────────────────────────── ────────── ────────── ───────────
+  Europe                                  255        197         160
+  South America                           309        128          66
+  Southeast Asia                          147         91          54
+  North America                           353        212          53
+  Sub-Saharan Africa                      162         62          36
+  East Asia                                87         38          34
+  Oceania                                 216         87          29
+  South Asia                               48         35          22
+  Central America & Caribbean              90         57          20
+  Middle East                              47         33          15
+  Central Asia                             43         23           7
+  North Africa                             20         18           4
+
+  Proposed  = images where at least one agent proposed this region
+  Survived  = region survived the PN vote (top-2 by aggregate score)
+  Confirmed = region chosen as `confirmed_region` for this image
+
+--------------------------------------------------------------------------
+  HYPOTHESIS STANCE DISTRIBUTION (per agent, region + country hyps)
+--------------------------------------------------------------------------
+  How each agent votes on the hypotheses put in front of it - a
+  behavioral signature. Agents that stack support/strongly_support are
+  'assertive' (they commit even under moderate signal); agents with a
+  lot of contradicts/strongly_contradicts are 'sceptical' (they use
+  hard rules to kill candidates); agents with mostly neutral/low have
+  narrow expertise and stay silent unless they see their signal. This
+  is orthogonal to accuracy - an assertive wrong agent and a neutral
+  silent agent both fail to help, but for opposite reasons.
+
+
+  Agent         Total  Region  Country        s_supp          supp          neut           low        contra      s_contra
+  ──────────── ────── ─────── ──────── ───────────── ───────────── ───────────── ───────────── ───────────── ─────────────
+  linguistic     1175     517      658      6 ( 0.5%)      2 ( 0.2%)   1159 (98.6%)      0 ( 0.0%)      3 ( 0.3%)      5 ( 0.4%)
+  landscape      2157     983     1174    554 (25.7%)   1034 (47.9%)     54 ( 2.5%)    191 ( 8.9%)    280 (13.0%)     40 ( 1.9%)
+  botanics       3800    1598     2202    160 ( 4.2%)   2486 (65.4%)    149 ( 3.9%)    789 (20.8%)    165 ( 4.3%)     36 ( 0.9%)
+  regulatory      997     412      585    162 (16.2%)    422 (42.3%)     20 ( 2.0%)    140 (14.0%)    102 (10.2%)     83 ( 8.3%)
+  meta           3965    1648     2317    828 (20.9%)   1396 (35.2%)    151 ( 3.8%)    807 (20.4%)    532 (13.4%)    202 ( 5.1%)
+
+  Stance meaning (score):
+    strongly_support=+2  support=+1  neutral=0  low=0  contradicts=-1  strongly_contradicts=-2
+  `low` is the pipeline's 'not enough evidence' bucket (treated as 0 in scoring).
+
+--------------------------------------------------------------------------
+  CANDIDATE-POOL COMPOSITION
+--------------------------------------------------------------------------
+  The pool is the list of countries that enter the tournament. Its
+  size sets the bracket shape (previous section). The regional
+  composition tells us whether the pool respects the PN region
+  decision: countries inside the confirmed_region are the primary bet,
+  countries from the runner_up_region are a hedge, and countries
+  outside both regions are 'leaks' - candidates that survived despite
+  the PN gate deprioritising their region.
+
+
+  Pool-size distribution:
+    Size  Count   Share
+    ──── ────── ───────
+       1     14    2.8%
+       2     20    4.0%
+       3     61   12.2%
+       4    116   23.2%
+       5    133   26.6%
+       6    137   27.4%
+       7     17    3.4%
+       8      2    0.4%
+
+  Pool composition by region (2323 pool slots):
+    Inside confirmed_region:  1535/2323 (66.1%)
+    Inside runner_up_region:  749/2323 (32.2%)
+    Outside both regions:     39/2323 (1.7%)
+
+--------------------------------------------------------------------------
+  TOURNAMENT DYNAMICS (bracket ordering, upsets, agreement)
+--------------------------------------------------------------------------
+  Behavior of the 1v1 country matches. `Agreement` = the two spec-
+  agents defending each candidate and the judge all named the same
+  winner (consensus). `Disagreement` = the judge overruled at least
+  one specialist. `Upset` = a lower-seeded candidate (worse pool_rank)
+  beat a higher-seeded one - i.e. the tournament revised the PN
+  ordering. A high top-seed win rate + low upset rate means the
+  tournament mostly rubber-stamps the pool ranking; it adds value only
+  when it upsets, and later sections check whether those upsets move
+  toward or away from GT.
+
+
+  Total 1v1 matches:                1357
+    Agent agreement (judge==spec):  1339/1357 (98.7%)
+    Agent disagreement (judge overruled): 18/1357 (1.3%)
+    Bracket upsets (lower-seed beat higher-seed): 67/1357 (4.9%)
+
+  Finals played:                    486
+    Champion by original pool rank:
+      pool_rank 0:  473 ( 97.3%)
+      pool_rank 1:   11 (  2.3%)
+      pool_rank 2:    2 (  0.4%)
+    Top seed (pool_rank 0) wins:    473/486 (97.3%)
+
+--------------------------------------------------------------------------
+  INITIAL PLURALITY -> TOURNAMENT CHAMPION (agreement without GT)
+--------------------------------------------------------------------------
+  Compares the pre-PN plurality (≥2 out of 5 agents naming the same
+  country up front) with the tournament champion. A high match rate
+  means the pipeline mostly ratifies what the agents already agreed on
+  initially - the downstream stages didn't flip the answer. A low
+  match rate would mean PN + tournament regularly overturn initial
+  consensus, which is only good if GT-anchored metrics later show it
+  moved toward truth.
+
+
+  Images with initial plurality (≥2/5 same country): 498/500
+    Champion == initial plurality: 439/498 (88.2%)
+    Champion  ≠ initial plurality: 59/498 (11.8%)
+    No initial plurality:          2/500
+
+--------------------------------------------------------------------------
+  TIMING
+--------------------------------------------------------------------------
+  Wall-clock cost per image, split by bracket shape. Full-bracket
+  images spend the most time (semi + final matches all run); walkovers
+  are cheapest because the tournament is skipped. If later sections
+  show high accuracy on cheap shapes and low accuracy on full-bracket,
+  that means the pipeline is 'over-thinking' the hard cases without
+  actually resolving them.
+
+
+  Overall: avg 118.9s, median 91.7s, min 51.5s, max 771.1s
+  Total compute: 59445s (990.8 min)
+    full-bracket           n= 405  avg 126.3s  median 93.6s
+    3-way (semi+final)     n=  61  avg 95.8s  median 82.4s
+    final-only             n=  20  avg 81.2s  median 74.9s
+    walkover               n=  14  avg 58.5s  median 57.8s
+
+==========================================================================
+  GROUND-TRUTH-BASED v12 ANALYSIS
+==========================================================================
+
+--------------------------------------------------------------------------
+  PIPELINE ACCURACY LADDER (each gate, on GT)
+--------------------------------------------------------------------------
+  The core diagnostic: at each pipeline gate, is GT still on the
+  table? A gate that drops GT can never be recovered downstream, so
+  the numbers strictly decrease (this is a hard upper bound on final
+  accuracy at each stage). The gate-to-gate survival rates identify
+  where the pipeline is bleeding the most: a low survival rate between
+  two stages means that specific stage is the bottleneck. Compare the
+  ladder values to see whether the region gate, the pool construction,
+  or the tournament itself is the primary source of failure.
+
+  Images with GT: 500
+
+  Initial plurality (≥2/5) on GT                    324/500  ( 64.8%)
+  GT region ∈ proposed_regions                      483/500  ( 96.6%)
+  GT region ∈ surviving_regions                     463/500  ( 92.6%)
+  GT region == confirmed_region                     437/500  ( 87.4%)
+  GT region ∈ {confirmed, runner_up}                463/500  ( 92.6%)
+  GT country ∈ candidate_pool (any rank)            420/500  ( 84.0%)
+  GT country ∈ candidate_pool top-3                 378/500  ( 75.6%)
+  GT country == pool[0] (top seed)                  313/500  ( 62.6%)
+  GT country reached tournament FINAL               355/500  ( 71.0%)
+  GT country == tournament champion                 323/500  ( 64.6%)
+  Final judge country == GT                         323/500  ( 64.6%)
+
+  Gate-to-gate survival of GT:
+    proposed -> confirmed: 437/483 (90.5%)
+    confirmed -> in pool: 420/437 (96.1%)
+    in pool -> reached final: 355/420 (84.5%)
+    reached final -> won tournament: 323/355 (91.0%)
+    won tournament -> final judge = GT: 323/323 (100.0%)
+
+--------------------------------------------------------------------------
+  REGION GATE - where the pipeline commits geographically
+--------------------------------------------------------------------------
+  Focuses on the single hardest gate: PN region confirmation. Three
+  failure modes: (1) 'dropped before confirm' - GT region didn't
+  survive the vote at all (an agent-proposal problem); (2) 'reached
+  vote but lost' - GT region was in the top-2 but another region beat
+  it (a vote-scoring problem); (3) 'runner-up saves' - GT region
+  wasn't confirmed but was retained as runner-up, which still keeps
+  its countries in the pool. The confusion list at the bottom shows
+  which regions the pipeline routinely mixes up (e.g. Middle East ->
+  Europe).
+
+
+  GT-mapped images: 498
+
+  Confirmed region == GT region:                 437/498  (87.8%)
+  GT region dropped BEFORE confirm (not in surviving): 35/498  (7.0%)
+  GT region reached vote but lost (in surviving, not confirmed): 26/498  (5.2%)
+  Runner-up 'saves' GT region (confirmed≠GT reg but runner_up==GT reg): 26/498  (5.2%)
+
+  Top region confusions (GT region -> confirmed region):
+    Middle East                  -> Europe                          8
+    South America                -> Central America & Caribbean     5
+    North America                -> Central America & Caribbean     4
+    North America                -> South America                   3
+    East Asia                    -> Central Asia                    3
+    Oceania                      -> Central America & Caribbean     3
+    Southeast Asia               -> South Asia                      2
+    Sub-Saharan Africa           -> Oceania                         2
+    South Asia                   -> Southeast Asia                  2
+    Europe                       -> North America                   2
+
+--------------------------------------------------------------------------
+  HYPOTHESIS-STANCE CALIBRATION (are stances aligned with truth?)
+--------------------------------------------------------------------------
+  Do the agents' hypothesis stances actually track the truth? For each
+  image we sum stance scores per hypothesis (support=+1,
+  strongly_support=+2, contradicts=-1, etc.) and rank all hypotheses.
+  If the pipeline is well-calibrated, the GT country and GT region
+  should be ranked #1 with a positive aggregate score. 'Score > 0' =
+  at least net-supported (a plausibility floor); 'ranked #1' = beat
+  every other hypothesis on this image (the harder criterion). Per-
+  agent tables show which agents pull their weight on GT (many
+  s_supp/supp cells) vs which abstain or oppose it.
+
+
+  Images with GT: 500
+
+  ── COUNTRY hypotheses ──
+  Images where GT country was actually evaluated as a hypothesis: 420/500 (84.0%)
+    GT country hyp ranked #1 by aggregate stance: 323/420 (76.9%)
+    GT country hyp ranked in top 3: 393/420 (93.6%)
+    GT country hyp aggregate score > 0 (net supported): 414/420 (98.6%)
+    GT country hyp aggregate score < 0 (net contradicted): 2/420 (0.5%)
+    Mean rank of GT country hyp: 1.47 (median 1)
+    Mean aggregate score of GT country hyp: +4.00
+
+  ── REGION hypotheses ──
+  Images where GT region was evaluated as a hypothesis: 468/500 (93.6%)
+    GT region hyp ranked #1 by aggregate stance: 431/468 (92.1%)
+    GT region hyp ranked in top 3: 463/468 (98.9%)
+    GT region hyp aggregate score > 0: 462/468 (98.7%)
+    GT region hyp aggregate score < 0: 3/468 (0.6%)
+    Mean rank of GT region hyp: 1.12 (median 1)
+    Mean aggregate score of GT region hyp: +4.57
+
+  Per-agent stance on the GT COUNTRY hypothesis (across images where they voted on it):
+    Agent            N    s_supp      supp      neut       low    contra  s_contra
+    ──────────── ───── ───────── ───────── ───────── ───────── ───────── ─────────
+    linguistic     100         0         0       100         0         0         0
+    landscape      217       167        46         1         2         1         0
+    botanics       398        56       334         3         5         0         0
+    regulatory     122        61        58         0         2         0         0
+    meta           419       282       112         3        19         3         0
+
+  Per-agent stance on the GT REGION hypothesis:
+    Agent            N    s_supp      supp      neut       low    contra  s_contra
+    ──────────── ───── ───────── ───────── ───────── ───────── ───────── ─────────
+    linguistic     139         4         1       134         0         0         0
+    landscape      296       265        27         0         4         0         0
+    botanics       456        86       361         2         7         0         0
+    regulatory     141        81        59         0         1         0         0
+    meta           468       373        80         0         9         6         0
+
+--------------------------------------------------------------------------
+  TOURNAMENT vs GT - do upsets and finals move toward truth?
+--------------------------------------------------------------------------
+  Given the tournament matches, what fraction of decisions were
+  correct? 'Pool recall @k' = fraction of images where GT is in the
+  top-k of the pool (a ceiling - the tournament cannot pick GT if it
+  isn't in the pool). 'Toward truth' = the winner was GT; 'Away from
+  truth' = GT was in the match but lost; 'Both wrong' = GT wasn't in
+  the match at all (a pool-level failure, not a match-level one).
+  'Decisive matches' isolates only those where GT was on exactly one
+  side - the only cases the tournament can actually get right or
+  wrong. The upset breakdown checks whether the tournament's revisions
+  of the pool ordering actually help.
+
+
+  GT-anchored images: 500
+
+  Pool recall @1: 313/500 (62.6%)   @3: 378/500 (75.6%)   @any: 420/500 (84.0%)
+
+  Per-match outcome (1357 1v1 matches):
+    Toward truth (winner=GT, loser≠GT):    649/1357 (47.8%)
+    Away from truth (winner≠GT, loser=GT): 85/1357 (6.3%)
+    Both wrong (GT not in match):          623/1357 (45.9%)
+    Of decisive matches (exactly one side = GT): 649/734 (88.4%) toward truth
+
+  Upsets (lower-seed beat higher-seed): 67
+    Upsets that moved TOWARD GT: 10/67 (14.9%)
+    Upsets that moved AWAY from GT: 7/67 (10.4%)
+    (remainder = neither side was GT)
+
+  Finals played: 486    Finals won by GT: 315/486  (64.8%)
+  GT eliminated in a semi: 45
+    Top eliminators of GT (winner names):
+      Namibia                             4
+      United States                       4
+      Thailand                            3
+      Lithuania                           2
+      Botswana                            2
+
+--------------------------------------------------------------------------
+  PER-AGENT CALIBRATION - initial vs post-region-narrowing pick
+--------------------------------------------------------------------------
+  For each agent, does re-assessing inside the confirmed region
+  actually help? 'Init acc' = accuracy of the first pick (pre-PN);
+  'Reg acc' = accuracy of the pick made after the region is confirmed.
+  Δ tells you whether the region-narrowing step was a net win or loss
+  for that agent. Constructive shifts (init wrong -> reg pick correct)
+  are what you want; destructive shifts (init correct -> reg pick
+  wrong) mean the constrained region actually pushed the agent off the
+  truth. A near-zero Δ combined with a high StayOK means the agent is
+  already committed at initial-assessment time and re-assessment is
+  cosmetic.
+
+
+  Init pick   = agent's top pick pre-PN
+  Region pick = agent's top pick after region confirmed (country_assessment)
+
+  Agent            N   Init acc    Reg acc       Δ  Constr  Destr  StayOK  StayX
+  ──────────── ───── ────────── ────────── ─────── ─────── ────── ─────── ──────
+  linguistic     107 84/107(78.5%) 84/107(78.5%)  +0.0%       1      1      83     18
+  landscape      500 323/500(64.6%) 319/500(63.8%)  -0.8%       5      9     314    151
+  botanics       500 317/500(63.4%) 319/500(63.8%)  +0.4%      11      9     308    149
+  regulatory     500 323/500(64.6%) 313/500(62.6%)  -2.0%       9     19     304    142
+  meta           500 312/500(62.4%) 310/500(62.0%)  -0.4%       9     11     301    154
+
+  Constr = init wrong -> region pick correct
+  Destr  = init correct -> region pick wrong
+  StayOK = both equal GT
+  StayX  = both wrong, same country
+
+--------------------------------------------------------------------------
+  BRACKET SHAPE vs ACCURACY
+--------------------------------------------------------------------------
+  Final accuracy split by the bracket shape (i.e. by pool size after
+  PN). Degenerate shapes (final-only, walkover) correspond to images
+  where PN was decisive and shrank the pool to 1-2 candidates; higher
+  accuracy on those means PN made the right call. A large accuracy gap
+  between full-bracket and the degenerate shapes means the pipeline
+  knows when it's certain - the wide brackets are the genuinely hard
+  images.
+
+
+  Shape                        N   Correct   Accuracy
+  ──────────────────────── ───── ───────── ──────────
+  full-bracket               405       247      61.0%
+  3-way (semi+final)          61        50      82.0%
+  final-only                  20        18      90.0%
+  walkover                    14         8      57.1%
+
+  Bracket shape is determined by candidate_pool size after PN.
+  A walkover means only one country survived the pool filter.
+
+--------------------------------------------------------------------------
+  GEOGRAPHIC BIAS (final judge prediction vs GT)
+--------------------------------------------------------------------------
+  Systematic direction of error for the final coordinate prediction.
+  Mean N-S / W-E offsets in km reveal whether the council is biased in
+  a particular direction on the globe (e.g. predicting too far north
+  or too far west on average). Comparing mean vs median exposes long-
+  tail bias: a small median with a large mean means most predictions
+  are close but a handful of wild misses drag the average.
+
+
+  Images with parsed final coordinates: 500
+  Mean N-S offset: +133 km   (median +14 km)
+    predictions tend NORTH of GT
+  Mean W-E offset: -258 km   (median -24 km)
+    predictions tend WEST of GT
+
+  Sign convention: +Δlat = prediction north of GT, +Δlng = east of GT.
+  W-E km uses cos(lat_GT).
+

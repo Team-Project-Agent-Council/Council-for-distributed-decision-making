@@ -1,0 +1,107 @@
+{
+  "image_id": "KWr0ySMIaUQRvikA_3",
+  "truth_country": "argentina",
+  "pred_country": "senegal",
+  "is_correct": false,
+  "candidate_pool": [
+    "Australia",
+    "Senegal",
+    "Mali",
+    "Botswana",
+    "Niger",
+    "India"
+  ],
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": true,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "role_adherence_notes": {
+      "linguistic": "Correctly identified the absence of text and remained within the linguistic domain.",
+      "landscape": "Focused on terrain, soil color, and vegetation density.",
+      "botanics": "Analyzed plant types (acacia, scrub) and biome characteristics.",
+      "regulatory": "Analyzed road width, shoulder type, and utility pole infrastructure.",
+      "meta": "Synthesized cross-domain cues (pole style + road quality) to distinguish regions."
+    },
+    "argumentative_quality": {
+      "linguistic": "normal",
+      "landscape": "strong",
+      "botanics": "strong",
+      "regulatory": "normal",
+      "meta": "strong"
+    },
+    "constructive_synthesis": true,
+    "overall_verdict_notes": "The pipeline failed because the specialists collectively hallucinated a Sahelian (West African) landscape, ignoring the visual evidence of the Chaco region (Argentina). The tournament faithfully executed the flawed inputs, leading to a confident but incorrect prediction.",
+    "role_adherence_score": {
+      "linguistic": 1.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.9,
+      "meta": 0.9
+    },
+    "argumentative_quality_score": {
+      "linguistic": 0.5,
+      "landscape": 0.7,
+      "botanics": 0.7,
+      "regulatory": 0.5,
+      "meta": 0.7
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.75,
+      "botanics": 0.75,
+      "regulatory": 0.5,
+      "meta": 0.5
+    },
+    "hallucination_examples": {
+      "linguistic": [],
+      "landscape": [
+        "landscape agent: 'The combination of sandy red-brown soil and dense, low-lying scrubby green vegetation is highly characteristic of the Sahelian transition zone.' (The image shows a Chaco landscape, not the Sahel; the agents hallucinated the Sahel context.)",
+        "landscape agent: 'The flat terrain and road quality are consistent with rural Senegalese landscapes.' (Unsupported leap from image to specific country.)"
+      ],
+      "botanics": [
+        "botanics agent: 'The vegetation consists of dense, thorny scrub and acacia-like shrubs typical of the Sahelian transition zone.' (Misidentified the Chaco flora as Sahelian.)",
+        "botanics agent: 'This specific density of green scrub against sandy soil is highly characteristic of the Ferlo region or the peanut basin.' (Fabricated specific regional match.)"
+      ],
+      "regulatory": [
+        "regulatory agent: 'The combination of narrow asphalt, sandy shoulders, and specific wooden utility pole cross-arm style is common in rural Botswana.' (Speculative hallucination of infrastructure style.)"
+      ],
+      "meta": [
+        "meta agent: 'The utility pole design with a single concrete pillar and a simple horizontal cross-arm is very common in Senegal.' (Fabricated specific infrastructure match.)"
+      ]
+    },
+    "visual_consistency_score": {
+      "linguistic": 1.0,
+      "landscape": 0.3,
+      "botanics": 0.3,
+      "regulatory": 0.5,
+      "meta": 0.5
+    },
+    "visual_consistency_notes": {
+      "linguistic": "Correctly noted no text.",
+      "landscape": "Described soil and scrub, but the 'Sahelian' label is a misinterpretation of the visual data (Chaco).",
+      "botanics": "Described 'thorny scrub' which is visible, but the 'acacia/Sahel' classification is visually unsupported.",
+      "regulatory": "Described poles and road, but the 'Botswana' association is a hallucination.",
+      "meta": "Described poles, but the 'Senegal' association is a hallucination."
+    },
+    "confidence_calibration": {
+      "linguistic": 0.5,
+      "landscape": 0.0,
+      "botanics": 0.0,
+      "regulatory": 0.0,
+      "meta": 0.0
+    },
+    "tournament_failure": {
+      "truth_in_pool": false,
+      "truth_lost_to": null,
+      "failure_match_round": null,
+      "failure_reason": "agent_misled_pre_pool",
+      "failure_reasoning": "The ground truth (Argentina) was not included in the candidate pool. The landscape, botanics, and meta agents all hallucinated a Sahelian (West African) context, leading to the exclusion of Argentina and the inclusion of Senegal, Mali, and Niger.",
+      "counterfactual_winnable": false
+    }
+  }
+}

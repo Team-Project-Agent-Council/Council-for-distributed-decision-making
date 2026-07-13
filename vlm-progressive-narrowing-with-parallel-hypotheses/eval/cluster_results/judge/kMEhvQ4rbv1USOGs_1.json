@@ -1,0 +1,76 @@
+{
+  "image_id": "kMEhvQ4rbv1USOGs_1",
+  "truth_country": "indonesia",
+  "pred_country": "costa rica",
+  "is_correct": false,
+  "path": "",
+  "truth_in_hypothesis_pool": false,
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": true,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "role_adherence_notes": {
+      "linguistic": "Correctly identified lack of linguistic cues (no signs) and stayed within domain.",
+      "landscape": "Analyzed terrain, vegetation density, and climate cues consistent with role.",
+      "botanics": "Analyzed plant types (ferns, broadleaf) and biome structure.",
+      "regulatory": "Analyzed road markings (yellow center line) and driving side.",
+      "meta": "Synthesized camera generation and utility pole styles."
+    },
+    "argumentative_quality": {
+      "linguistic": "normal",
+      "landscape": "strong",
+      "botanics": "strong",
+      "regulatory": "strong",
+      "meta": "normal"
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.1,
+      "botanics": 0.1,
+      "regulatory": 0.0,
+      "meta": 0.2
+    },
+    "hallucination_examples": {
+      "linguistic": [],
+      "landscape": [],
+      "botanics": [],
+      "regulatory": [],
+      "meta": [
+        "Claimed 'slight blur patterns' are consistent with Gen 3 camera; image is sharp."
+      ]
+    },
+    "visual_consistency_score": {
+      "linguistic": 1.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 1.0,
+      "meta": 0.8
+    },
+    "visual_consistency_notes": {
+      "linguistic": "Correctly noted absence of text.",
+      "landscape": "Descriptions of rainforest and road match image.",
+      "botanics": "Descriptions of ferns and canopy match image.",
+      "regulatory": "Descriptions of yellow lines and shoulders match image.",
+      "meta": "Utility pole visible; blur claim is weak."
+    },
+    "confidence_calibration": {
+      "linguistic": 0.5,
+      "landscape": 0.2,
+      "botanics": 0.2,
+      "regulatory": 0.2,
+      "meta": 0.2
+    },
+    "constructive_synthesis": false,
+    "overall_verdict_notes": "The pipeline failed to identify the correct country (Indonesia) and instead predicted Costa Rica. The agents relied heavily on 'tropical' as a proxy for Central America, ignoring that the visual evidence (yellow lines, dense jungle) is equally or more common in Indonesia. The judge accepted the plurality vote without sufficient scrutiny of the 'tropical' ambiguity.",
+    "region_narrowing_quality": 0.25,
+    "region_narrowing_notes": "The judge failed to narrow the region effectively. The agents agreed on 'Tropical', which covers both SE Asia and Central America. The judge should have recognized this ambiguity and either requested more specific evidence (e.g., specific plant species or sign shapes) or included SE Asian countries in the hypothesis pool.",
+    "hypothesis_pool_quality": 0.25,
+    "hypothesis_pool_notes": "The pool (Costa Rica, Panama, Colombia, Ecuador) is completely implausible for the ground truth (Indonesia). It reflects a bias towards Central/South America for 'tropical' scenes, ignoring the equally valid Southeast Asian hypothesis."
+  },
+  "validation_error": "1 validation error for JudgeVerdict\nregion_narrowing_notes\n  String should have at most 300 characters [type=string_too_long, input_value=\"The judge failed to narr...in the hypothesis pool.\", input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_too_long"
+}

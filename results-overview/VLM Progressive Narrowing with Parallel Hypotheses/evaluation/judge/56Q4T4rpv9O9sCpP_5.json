@@ -1,0 +1,77 @@
+{
+  "image_id": "56Q4T4rpv9O9sCpP_5",
+  "truth_country": "south africa",
+  "pred_country": "botswana",
+  "is_correct": false,
+  "path": "",
+  "truth_in_hypothesis_pool": false,
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": true,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "role_adherence_notes": {
+      "linguistic": "Correctly identified lack of linguistic cues (no signs) and stayed within domain.",
+      "landscape": "Analyzed terrain, soil, and climate appropriately.",
+      "botanics": "Analyzed vegetation types (Acacia) and biome correctly.",
+      "regulatory": "Analyzed road markings and traffic rules correctly.",
+      "meta": "Attempted to synthesize infrastructure and camera artifacts, though the latter is a hallucination."
+    },
+    "argumentative_quality": {
+      "linguistic": "normal",
+      "landscape": "strong",
+      "botanics": "strong",
+      "regulatory": "strong",
+      "meta": "weak"
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.0,
+      "botanics": 0.0,
+      "regulatory": 0.0,
+      "meta": 0.75
+    },
+    "hallucination_examples": {
+      "linguistic": [],
+      "landscape": [],
+      "botanics": [],
+      "regulatory": [],
+      "meta": [
+        "claimed 'distinct Google Street View halo... characteristic of the camera rig used in Botswana'",
+        "claimed 'simple wooden poles... differs from the more reinforced concrete poles often seen in neighboring South Africa'"
+      ]
+    },
+    "visual_consistency_score": {
+      "linguistic": 1.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.9,
+      "meta": 0.3
+    },
+    "visual_consistency_notes": {
+      "linguistic": "Correctly noted absence of text.",
+      "landscape": "Accurately described the arid, flat terrain.",
+      "botanics": "Accurately described the scrubland vegetation.",
+      "regulatory": "Accurately described the yellow edge lines and white center lines.",
+      "meta": "The 'camera rig' claim is not a visual feature of the landscape; the pole claim is debatable but the primary evidence was fabricated."
+    },
+    "confidence_calibration": {
+      "linguistic": 0.5,
+      "landscape": 0.2,
+      "botanics": 0.2,
+      "regulatory": 0.2,
+      "meta": 0.0
+    },
+    "constructive_synthesis": false,
+    "overall_verdict_notes": "The pipeline failed to identify the correct country (South Africa) and instead confidently selected Botswana. The agents were heavily biased by the 'Kalahari' landscape and specific road markings (yellow edges), which are shared across Southern African nations. The Meta agent's hallucination regarding camera rigs and poles further misled the synthesis, which accepted the Botswana hypothesis without sufficient scrutiny of the regulatory evidence (which is also valid for South Africa).",
+    "region_narrowing_quality": 0.75,
+    "region_narrowing_notes": "The judge correctly identified the region as Southern Africa (Kalahari basin) based on the strong consensus from landscape, botanics, and regulatory agents. The reasoning was sound in narrowing the continent, even if the final country selection was wrong.",
+    "hypothesis_pool_quality": 0.25,
+    "hypothesis_pool_notes": "The pool (Botswana, Namibia, South Africa) was visually plausible for the region. However, the pool quality score is penalized because the 'truth' (South Africa) was not in the pool presented for evaluation, and the agents' failure to distinguish between these three neighbors suggests the pool was too narrow or the agents lacked the specific differentiating features needed."
+  },
+  "validation_error": "2 validation errors for JudgeVerdict\noverall_verdict_notes\n  String should have at most 400 characters [type=string_too_long, input_value=\"The pipeline failed to i...alid for South Africa).\", input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_too_long\nhypothesis_pool_notes\n  String should have at most 300 characters [type=string_too_long, input_value=\"The pool (Botswana, Nami...iating features needed.\", input_type=str]\n    For further information visit ht"
+}

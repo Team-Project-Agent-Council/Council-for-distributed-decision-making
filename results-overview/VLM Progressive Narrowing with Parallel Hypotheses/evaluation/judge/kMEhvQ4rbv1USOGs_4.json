@@ -1,0 +1,76 @@
+{
+  "image_id": "kMEhvQ4rbv1USOGs_4",
+  "truth_country": "argentina",
+  "pred_country": "mexico",
+  "is_correct": false,
+  "path": "",
+  "truth_in_hypothesis_pool": false,
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": true,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "role_adherence_notes": {
+      "linguistic": "Correctly identified the absence of linguistic cues (no signs) and remained silent.",
+      "landscape": "Analyzed terrain and climate, though incorrectly attributed the landscape to the Northern Hemisphere.",
+      "botanics": "Analyzed vegetation types, though incorrectly identified the biome as the Pampas.",
+      "regulatory": "Analyzed road markings and infrastructure, though misinterpreted the yellow line as a North American standard.",
+      "meta": "Synthesized infrastructure details, though the conclusion was factually incorrect."
+    },
+    "argumentative_quality": {
+      "linguistic": "normal",
+      "landscape": "weak",
+      "botanics": "weak",
+      "regulatory": "weak",
+      "meta": "weak"
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.1,
+      "botanics": 0.1,
+      "regulatory": 0.2,
+      "meta": 0.1
+    },
+    "hallucination_examples": {
+      "linguistic": [],
+      "landscape": [],
+      "botanics": [],
+      "regulatory": [
+        "Claimed yellow outer edge line is common on Mexican federal highways (it is not; yellow is for left-edge in Mexico)."
+      ],
+      "meta": []
+    },
+    "visual_consistency_score": {
+      "linguistic": 1.0,
+      "landscape": 0.8,
+      "botanics": 0.8,
+      "regulatory": 0.6,
+      "meta": 0.8
+    },
+    "visual_consistency_notes": {
+      "linguistic": "Correctly noted no signs.",
+      "landscape": "Correctly described flat terrain and vegetation, but misidentified the hemisphere.",
+      "botanics": "Correctly described vegetation density, but misidentified the biome.",
+      "regulatory": "Correctly described road surface and lines, but misinterpreted the regulatory meaning of the yellow line.",
+      "meta": "Correctly described infrastructure style."
+    },
+    "confidence_calibration": {
+      "linguistic": 1.0,
+      "landscape": 0.0,
+      "botanics": 0.0,
+      "regulatory": 0.0,
+      "meta": 0.0
+    },
+    "constructive_synthesis": false,
+    "overall_verdict_notes": "The pipeline failed due to a fundamental hemispheric error. The agents (and the judge) assumed the image was from the Northern Hemisphere (USA/Canada/Mexico) based on the sun angle and vegetation, leading to a hallucinated 'Mexican' hypothesis. The truth (Argentina) was in the initial pool but was discarded because the agents could not reconcile the visual evidence with a Southern Hemisphere location.",
+    "region_narrowing_quality": 0.0,
+    "region_narrowing_notes": "The judge failed to identify the region correctly. The agents proposed North America (USA/Canada/Mexico) and Southern Cone (Argentina/Uruguay/Brazil). The judge chose North America, ignoring the strong visual cues (like the lack of specific North American vegetation) that might have pointed to the Southern Hemisphere, and failed to resolve the conflict.",
+    "hypothesis_pool_quality": 0.25,
+    "hypothesis_pool_notes": "The final hypothesis pool (Mexico) was implausible given the visual evidence (yellow line on the right). The initial pool included the truth (Argentina), but the judge's region decision filtered it out."
+  },
+  "validation_error": "2 validation errors for JudgeVerdict\noverall_verdict_notes\n  String should have at most 400 characters [type=string_too_long, input_value=\"The pipeline failed due ...rn Hemisphere location.\", input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_too_long\nregion_narrowing_notes\n  String should have at most 300 characters [type=string_too_long, input_value='The judge failed to iden...o resolve the conflict.', input_type=str]\n    For further information visit h"
+}

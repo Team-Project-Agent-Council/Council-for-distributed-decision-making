@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VLM Council Global Context Reguess Evaluation Report</title>
+<style>
+  :root {
+    --bg: #FFFFFF;
+    --fg: #222222;
+    --muted: #666666;
+    --border: #DDDDDD;
+    --accent: #4C72B0;
+    --success: #55A868;
+    --error: #C44E52;
+    --warning: #DD8452;
+    --code-bg: #F4F4F4;
+    --side-bg: #FAFAFA;
+  }
+  [data-theme="dark"] {
+    --bg: #1A1A1A;
+    --fg: #E5E5E5;
+    --muted: #999999;
+    --border: #333333;
+    --accent: #6FA0D6;
+    --success: #6FBE82;
+    --error: #DA6B6E;
+    --warning: #E89A6E;
+    --code-bg: #2A2A2A;
+    --side-bg: #222222;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                 "Helvetica Neue", Arial, sans-serif;
+    color: var(--fg);
+    background: var(--bg);
+    line-height: 1.55;
+  }
+  .layout { display: flex; min-height: 100vh; }
+  nav.toc {
+    width: 240px;
+    flex: 0 0 240px;
+    background: var(--side-bg);
+    border-right: 1px solid var(--border);
+    padding: 1.2rem 1rem;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    font-size: 0.88rem;
+  }
+  nav.toc h2 {
+    font-size: 0.9rem;
+    margin: 0 0 0.6rem 0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+  }
+  nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
+  nav.toc li { margin: 0.2rem 0; }
+  nav.toc a {
+    color: var(--fg);
+    text-decoration: none;
+    border-left: 2px solid transparent;
+    padding-left: 0.5rem;
+    display: block;
+    padding-top: 0.15rem;
+    padding-bottom: 0.15rem;
+  }
+  nav.toc a:hover { border-left-color: var(--accent); }
+  nav.toc a.active { border-left-color: var(--accent); color: var(--accent); font-weight: 600; }
+  main {
+    flex: 1;
+    max-width: 1100px;
+    padding: 1.5rem 2rem 4rem 2rem;
+  }
+  h1 { font-size: 1.75rem; margin-top: 0; }
+  h2 {
+    font-size: 1.3rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.3rem;
+    margin-top: 2.2rem;
+  }
+  h3 { font-size: 1.05rem; margin-top: 1.5rem; }
+  details {
+    margin: 0.75rem 0;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 0.5rem 0.75rem;
+    background: var(--side-bg);
+  }
+  details > summary {
+    cursor: pointer;
+    font-weight: 600;
+    margin: -0.5rem -0.75rem;
+    padding: 0.5rem 0.75rem;
+  }
+  details[open] > summary { border-bottom: 1px solid var(--border); margin-bottom: 0.5rem; }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 0.6rem 0;
+    font-size: 0.9rem;
+  }
+  th, td {
+    border: 1px solid var(--border);
+    padding: 0.42rem 0.6rem;
+    text-align: left;
+  }
+  th {
+    background: var(--side-bg);
+    cursor: pointer;
+    user-select: none;
+  }
+  th.sort-asc::after { content: " \25B2"; color: var(--muted); font-size: 0.75rem; }
+  th.sort-desc::after { content: " \25BC"; color: var(--muted); font-size: 0.75rem; }
+  tr:hover td { background: var(--code-bg); }
+  img.figure {
+    max-width: 100%;
+    height: auto;
+    margin: 0.6rem 0;
+    border: 1px solid var(--border);
+    background: white;
+  }
+  .caption {
+    font-size: 0.82rem;
+    color: var(--muted);
+    font-style: italic;
+    margin-bottom: 1rem;
+  }
+  .headline-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 0.6rem;
+    margin: 1rem 0 1.5rem 0;
+  }
+  .stat {
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 0.65rem 0.9rem;
+    background: var(--side-bg);
+  }
+  .stat .label { font-size: 0.75rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.03em; }
+  .stat .value { font-size: 1.45rem; font-weight: 700; color: var(--accent); margin-top: 0.15rem; }
+  .controls {
+    position: fixed;
+    top: 0.5rem;
+    right: 0.8rem;
+    display: flex;
+    gap: 0.4rem;
+    z-index: 200;
+  }
+  .controls button {
+    padding: 0.28rem 0.7rem;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--fg);
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 0.82rem;
+  }
+  .controls button:hover { background: var(--side-bg); }
+  code {
+    font-family: "SFMono-Regular", Menlo, monospace;
+    font-size: 0.87rem;
+    background: var(--code-bg);
+    padding: 0.05rem 0.3rem;
+    border-radius: 2px;
+  }
+  .meta { font-size: 0.82rem; color: var(--muted); margin-top: 1.2rem; }
+  blockquote {
+    border-left: 3px solid var(--accent);
+    margin: 0.8rem 0;
+    padding: 0.4rem 0.8rem;
+    background: var(--code-bg);
+  }
+  details.example { background: var(--bg); }
+</style>
+</head>
+<body>
+<div class="controls">
+  <button onclick="toggleTheme()">&#127763; theme</button>
+  <button onclick="expandAll(true)">expand all</button>
+  <button onclick="expandAll(false)">collapse all</button>
+</div>
+
+<div class="layout">
+<nav class="toc">
+  <h2>Sections</h2>
+  <ul>
+    <li><a href="#headline">Summary</a></li>
+    {% if geo %}
+    <li><a href="#ground-truth">1. Ground-truth statistics</a></li>
+    {% endif %}
+    {% if agents or dynamics %}
+    <li><a href="#dynamics">2. Approach dynamics</a></li>
+    {% endif %}
+    {% if judge %}
+    <li><a href="#judge">3. LLM-as-judge verdicts</a></li>
+    {% endif %}
+  </ul>
+  <p class="meta">Generated {{ generated_at }}<br>{{ n_images }} images</p>
+</nav>
+
+<main>
+
+<h1 id="headline">VLM Council Global Context Reguess Evaluation Report</h1>
+
+{# Headline stat cards #}
+<div class="headline-grid">
+  {% if geo %}
+  <div class="stat">
+    <div class="label">Country Accuracy</div>
+    <div class="value">{{ pct(geo.country_accuracy) }}</div>
+  </div>
+  <div class="stat">
+    <div class="label">Median Haversine</div>
+    <div class="value">{{ km((geo.haversine_km or {}).median) }}</div>
+  </div>
+  <div class="stat">
+    <div class="label">Images</div>
+    <div class="value">{{ geo.n_total }}</div>
+  </div>
+  {% endif %}
+  {% if judge and judge.mean_round2_improvement is not none %}
+  <div class="stat">
+    <div class="label">Mean R2 Improvement</div>
+    <div class="value">{{ fmt_f(judge.mean_round2_improvement) }}</div>
+  </div>
+  {% endif %}
+</div>
+
+{# ===== 1. GROUND-TRUTH STATISTICS ===== #}
+{% if geo %}
+<h2 id="ground-truth">1. Ground-truth statistics</h2>
+
+<h3>Headline metrics</h3>
+<table>
+  <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+  <tbody>
+    <tr><td>Country accuracy</td><td>{{ pct(geo.country_accuracy) }}</td></tr>
+    <tr><td>Median haversine</td><td>{{ km((geo.haversine_km or {}).median) }}</td></tr>
+    <tr><td>Mean haversine</td><td>{{ km((geo.haversine_km or {}).mean) }}</td></tr>
+    <tr><td>N images</td><td>{{ geo.n_total }}</td></tr>
+  </tbody>
+</table>
+
+<h3>Geo-spatial bias</h3>
+{% set nb = geo.north_bias_test or {} %}
+{% set eb = geo.east_bias_test or {} %}
+<ul>
+  <li>North/south bias: {{ nb.interpretation or "n/a" }}</li>
+  <li>East/west bias: {{ eb.interpretation or "n/a" }}</li>
+  {% if geo.quadrants %}
+  <li>Error quadrants:
+    {% for k, v in (geo.quadrants or {}).items() %}{{ k }}={{ v }}{% if not loop.last %}, {% endif %}{% endfor %}
+  </li>
+  {% endif %}
+</ul>
+<img class="figure" src="plots/error_distribution.png" alt="Error distribution">
+<p class="caption">Figure: Latitude and longitude error and haversine distribution.</p>
+<img class="figure" src="plots/bearing_rose.png" alt="Bearing rose">
+<p class="caption">Figure: Bearing of prediction errors (truth to prediction).</p>
+
+{% if geo.top_confusions %}
+<h3>Top confusion pairs</h3>
+<table id="confusion-table">
+  <thead>
+    <tr>
+      <th onclick="sortTable('confusion-table',0)">Truth</th>
+      <th onclick="sortTable('confusion-table',1)">Predicted</th>
+      <th onclick="sortTable('confusion-table',2)">Count</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for row in (geo.top_confusions or [])[:15] %}
+    <tr>
+      <td>{{ row.truth }}</td>
+      <td>{{ row.predicted }}</td>
+      <td>{{ row.count }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+<img class="figure" src="plots/confusion_matrix.png" alt="Confusion matrix">
+<p class="caption">Figure: Top 15 confusion pairs (truth to predicted).</p>
+{% endif %}
+
+{% if agents and agents.round_1 %}
+<h3>Per-agent ground-truth accuracy (Round 1)</h3>
+<table id="agents-r1-table">
+  <thead>
+    <tr>
+      <th onclick="sortTable('agents-r1-table',0)">Agent</th>
+      <th onclick="sortTable('agents-r1-table',1)">n</th>
+      <th onclick="sortTable('agents-r1-table',2)">Top-1</th>
+      <th onclick="sortTable('agents-r1-table',3)">Top-3</th>
+      <th onclick="sortTable('agents-r1-table',4)">Coverage</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for a in agent_names %}
+    {% set m = (agents.round_1 or {})[a] or {} %}
+    <tr>
+      <td><code>{{ a }}</code></td>
+      <td>{{ m.n or 0 }}</td>
+      <td>{{ pct(m.top1_accuracy) }}</td>
+      <td>{{ pct(m.top3_hit_rate) }}</td>
+      <td>{{ pct(m.coverage) }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+<h3>Per-agent ground-truth accuracy (Round 2)</h3>
+<table id="agents-r2-table">
+  <thead>
+    <tr>
+      <th onclick="sortTable('agents-r2-table',0)">Agent</th>
+      <th onclick="sortTable('agents-r2-table',1)">n</th>
+      <th onclick="sortTable('agents-r2-table',2)">Top-1</th>
+      <th onclick="sortTable('agents-r2-table',3)">Top-3</th>
+      <th onclick="sortTable('agents-r2-table',4)">Coverage</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for a in agent_names %}
+    {% set m = (agents.round_2 or {})[a] or {} %}
+    <tr>
+      <td><code>{{ a }}</code></td>
+      <td>{{ m.n or 0 }}</td>
+      <td>{{ pct(m.top1_accuracy) }}</td>
+      <td>{{ pct(m.top3_hit_rate) }}</td>
+      <td>{{ pct(m.coverage) }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endif %}
+
+{% if world_maps %}
+<h3>Geographic world maps</h3>
+{% if heatmap %}
+<p>Per-country accuracy across {{ heatmap.n_countries_with_truth }} countries with truth.
+Macro-averaged TPR: <strong>{{ pct(heatmap.macro_avg_tpr) }}</strong>.</p>
+{% endif %}
+{% for m in world_maps %}
+<img class="figure" src="{{ m.file }}" alt="{{ m.caption }}">
+<p class="caption"><em>{{ m.caption }}</em></p>
+{% endfor %}
+{% endif %}
+{% endif %}
+
+{# ===== 2. APPROACH DYNAMICS ===== #}
+{% if agents or dynamics %}
+<h2 id="dynamics">2. Approach dynamics</h2>
+<p>Each image runs Round 1 (independent per-agent guesses) then Round 2 (each agent
+re-guesses with the full set of Round 1 assessments as global context). The metrics
+below track how that context shifted agents between the two rounds and whether the
+shifts moved the council toward or away from the ground truth.</p>
+
+{% if agents and agents.round_1 %}
+<h3>Agent round comparison</h3>
+<p>Per-agent top-1 accuracy in Round 1 vs Round 2.
+<strong>Change rate</strong> is the fraction of images where the top-1 country changed.
+<strong>Conf. shift</strong> is the fraction where Round 2 confidence was higher than Round 1.</p>
+<table id="round-table">
+  <thead>
+    <tr>
+      <th onclick="sortTable('round-table',0)">Agent</th>
+      <th onclick="sortTable('round-table',1)">R1 Top-1</th>
+      <th onclick="sortTable('round-table',2)">R2 Top-1</th>
+      <th onclick="sortTable('round-table',3)">Change rate</th>
+      <th onclick="sortTable('round-table',4)">Conf. shift</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for a in agent_names %}
+    {% set r1m = (agents.round_1 or {})[a] or {} %}
+    {% set r2m = (agents.round_2 or {})[a] or {} %}
+    {% set cm = (agents.change_metrics or {})[a] or {} %}
+    <tr>
+      <td><code>{{ a }}</code></td>
+      <td>{{ pct(r1m.top1_accuracy) }}</td>
+      <td>{{ pct(r2m.top1_accuracy) }}</td>
+      <td>{{ pct(cm.change_rate) }}</td>
+      <td>{{ pct(cm.confidence_shift_rate) }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+<img class="figure" src="plots/agent_top1_r1_vs_r2.png" alt="Agent R1 vs R2 top-1">
+<p class="caption">Figure: Per-agent top-1 accuracy in Round 1 vs Round 2.</p>
+{% endif %}
+
+{% if dynamics and not dynamics._error is defined %}
+{% set rm = dynamics.round_movement or {} %}
+{% set ad = dynamics.agreement_dynamics or {} %}
+{% set sc = dynamics.shift_classification or {} %}
+{% set pas = dynamics.per_agent_shift or {} %}
+{% set conv = dynamics.r2_convergence or {} %}
+
+{% if rm %}
+<h3>Round 1 to Round 2 movement</h3>
+<table>
+  <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+  <tbody>
+    <tr><td>Comparable agent-image pairs</td><td>{{ rm.comparable_pairs or 0 }}</td></tr>
+    <tr><td>Top pick changed in R2</td><td>{{ rm.changed or 0 }} ({{ pct(rm.change_rate) }})</td></tr>
+    <tr><td>Top pick unchanged in R2</td><td>{{ rm.stayed or 0 }}</td></tr>
+    <tr><td>Confidence up in R2</td><td>{{ rm.conf_up or 0 }}</td></tr>
+    <tr><td>Confidence down in R2</td><td>{{ rm.conf_down or 0 }}</td></tr>
+  </tbody>
+</table>
+{% endif %}
+
+{% if ad %}
+<h3>Agreement dynamics (R1 plurality vs R2 plurality)</h3>
+<table>
+  <thead><tr><th>Transition</th><th>Count</th></tr></thead>
+  <tbody>
+    <tr><td>R1 unanimous (5/5 same country)</td><td>{{ ad.r1_unanimous or 0 }}</td></tr>
+    <tr><td>R2 unanimous (5/5 same country)</td><td>{{ ad.r2_unanimous or 0 }}</td></tr>
+    <tr><td>R1 split to R2 unanimous (context built consensus)</td><td>{{ ad.became_unanimous or 0 }}</td></tr>
+    <tr><td>R1 unanimous to R2 split (context broke consensus)</td><td>{{ ad.lost_unanimous or 0 }}</td></tr>
+    <tr><td>R1 sub-plurality to R2 plurality (context built majority)</td><td>{{ ad.became_plurality or 0 }}</td></tr>
+    <tr><td>R1 plurality to R2 sub-plurality (context broke majority)</td><td>{{ ad.lost_plurality or 0 }}</td></tr>
+    <tr><td>Same plurality top country in both rounds</td><td>{{ ad.same_top_country or 0 }}</td></tr>
+  </tbody>
+</table>
+{% endif %}
+
+{% if sc.counts %}
+{% set labels = {"CONSTRUCTIVE":"Constructive (R1 wrong, R2 corrected onto GT)","DESTRUCTIVE":"Destructive (R1 correct, R2 moved away from GT)","STAYED_CORRECT":"Stayed correct (both rounds on GT)","STAYED_WRONG":"Stayed wrong (both rounds on the same wrong country)","WRONG_TO_WRONG":"Lateral (both rounds wrong, different countries)"} %}
+<h3>Constructive vs destructive R1 to R2 shifts ({{ sc.n_pairs }} pairs with ground truth)</h3>
+<table>
+  <thead><tr><th>Category</th><th>Count</th><th>Share</th></tr></thead>
+  <tbody>
+  {% for key in ["CONSTRUCTIVE","DESTRUCTIVE","STAYED_CORRECT","STAYED_WRONG","WRONG_TO_WRONG"] %}
+  {% if key in sc.counts %}
+    <tr>
+      <td>{{ labels[key] }}</td>
+      <td>{{ sc.counts[key] }}</td>
+      <td>{% if sc.n_pairs %}{{ "%.1f"|format(sc.counts[key] / sc.n_pairs * 100) }}%{% else %}n/a{% endif %}</td>
+    </tr>
+  {% endif %}
+  {% endfor %}
+  </tbody>
+</table>
+{% endif %}
+
+{% if pas %}
+<h3>Per-agent R1 to R2 shift matrix</h3>
+<p>Net truth is constructive minus destructive shifts. Positive means context pulled
+the agent toward the ground truth; negative means away.</p>
+<table id="shift-table">
+  <thead>
+    <tr>
+      <th onclick="sortTable('shift-table',0)">Agent</th>
+      <th onclick="sortTable('shift-table',1)">n</th>
+      <th onclick="sortTable('shift-table',2)">Constr</th>
+      <th onclick="sortTable('shift-table',3)">Destr</th>
+      <th onclick="sortTable('shift-table',4)">StayOK</th>
+      <th onclick="sortTable('shift-table',5)">StayX</th>
+      <th onclick="sortTable('shift-table',6)">Lateral</th>
+      <th onclick="sortTable('shift-table',7)">Net truth</th>
+      <th onclick="sortTable('shift-table',8)">R1 acc</th>
+      <th onclick="sortTable('shift-table',9)">R2 acc</th>
+      <th onclick="sortTable('shift-table',10)">Delta</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for a in agent_names %}
+    {% set m = (pas or {})[a] or {} %}
+    <tr>
+      <td><code>{{ a }}</code></td>
+      <td>{{ m.n or 0 }}</td>
+      <td>{{ m.constructive or 0 }}</td>
+      <td>{{ m.destructive or 0 }}</td>
+      <td>{{ m.stayed_correct or 0 }}</td>
+      <td>{{ m.stayed_wrong or 0 }}</td>
+      <td>{{ m.wrong_shift or 0 }}</td>
+      <td>{{ "%+d"|format(m.net_truth or 0) }}</td>
+      <td>{{ pct(m.r1_accuracy) }}</td>
+      <td>{{ pct(m.r2_accuracy) }}</td>
+      <td>{{ pct(m.accuracy_delta) }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endif %}
+
+{% if conv and conv.n_images %}
+<h3>Round 2 convergence (per image, plurality at least 3/5)</h3>
+<table>
+  <thead><tr><th>Outcome</th><th>Count</th><th>Share</th></tr></thead>
+  <tbody>
+    <tr><td>Plurality on GT (correct)</td><td>{{ conv.plurality_correct or 0 }}</td><td>{{ pct(conv.plurality_correct_rate) }}</td></tr>
+    <tr><td>Plurality on wrong country</td><td>{{ conv.plurality_wrong or 0 }}</td><td>{% if conv.n_images %}{{ "%.1f"|format((conv.plurality_wrong or 0) / conv.n_images * 100) }}%{% else %}n/a{% endif %}</td></tr>
+    <tr><td>No plurality (top at most 2/5)</td><td>{{ conv.no_plurality or 0 }}</td><td>{% if conv.n_images %}{{ "%.1f"|format((conv.no_plurality or 0) / conv.n_images * 100) }}%{% else %}n/a{% endif %}</td></tr>
+  </tbody>
+</table>
+{% endif %}
+{% endif %}
+{% endif %}
+
+{# ===== 3. LLM-AS-JUDGE VERDICTS ===== #}
+{% if judge %}
+<h2 id="judge">3. LLM-as-judge verdicts</h2>
+<p>
+  Verdicts: <strong>{{ judge.n_with_verdict or 0 }} / {{ judge.n_total or 0 }}</strong>
+  {% if judge.errors %}
+  &nbsp;Errors: {% for k, v in (judge.errors or {}).items() %}{{ k }}={{ v }}{% if not loop.last %}, {% endif %}{% endfor %}
+  {% endif %}
+</p>
+{% if judge.mean_round2_improvement is not none %}
+<blockquote>
+  <strong>Mean Round 2 improvement:</strong> {{ fmt_f(judge.mean_round2_improvement) }}
+  &nbsp;(1.0 genuine synthesis, 0.5 acknowledged but unchanged, 0.0 rubber-stamp)
+</blockquote>
+{% endif %}
+
+{% if judge.per_agent %}
+<h3>Per-agent scores</h3>
+<table id="judge-table">
+  <thead>
+    <tr>
+      <th onclick="sortTable('judge-table',0)">Agent</th>
+      <th onclick="sortTable('judge-table',1)">n</th>
+      <th onclick="sortTable('judge-table',2)">Role adher.</th>
+      <th onclick="sortTable('judge-table',3)">Hallucination &#8595;</th>
+      <th onclick="sortTable('judge-table',4)">Visual cons. &#8593;</th>
+      <th onclick="sortTable('judge-table',5)">Calibration &#8593;</th>
+      <th onclick="sortTable('judge-table',6)">R2 improvement &#8593;</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for a in agent_names %}
+    {% set m = (judge.per_agent or {})[a] or {} %}
+    <tr>
+      <td><code>{{ a }}</code></td>
+      <td>{{ m.n or 0 }}</td>
+      <td>{{ pct(m.role_adherence_rate) }}</td>
+      <td>{{ stat_mean(m.hallucination_score) }}</td>
+      <td>{{ stat_mean(m.visual_consistency_score) }}</td>
+      <td>{{ stat_mean(m.confidence_calibration_score) }}</td>
+      <td>{{ stat_mean(m.round2_improvement) }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endif %}
+
+{% if judge.judge_synthesis_quality and judge.judge_synthesis_quality.n %}
+{% set jsq = judge.judge_synthesis_quality %}
+<h3>Judge synthesis quality</h3>
+<p>n={{ jsq.n }}&nbsp; mean=<strong>{{ fmt_f(jsq.mean) }}</strong>&nbsp; median={{ fmt_f(jsq.median) }}&nbsp; stdev={{ fmt_f(jsq.stdev) }}</p>
+{% endif %}
+
+<img class="figure" src="plots/judge_role_adherence.png" alt="Role adherence">
+<p class="caption">Figure: Per-agent role adherence rate.</p>
+<img class="figure" src="plots/judge_hallucination.png" alt="Hallucination">
+<p class="caption">Figure: Per-agent mean hallucination score (0 clean, 1 severe).</p>
+<img class="figure" src="plots/judge_round2_improvement.png" alt="Round 2 improvement">
+<p class="caption">Figure: Per-agent Round 2 improvement score (reference line at 0.5).</p>
+<img class="figure" src="plots/judge_synthesis.png" alt="Judge synthesis">
+<p class="caption">Figure: Judge synthesis quality distribution.</p>
+
+{% if judge.per_agent %}
+{% set has_examples = namespace(value=false) %}
+{% for a in agent_names %}
+  {% if (judge.per_agent or {})[a] and (judge.per_agent or {})[a].hallucination_examples %}
+    {% set has_examples.value = true %}
+  {% endif %}
+{% endfor %}
+{% if has_examples.value %}
+<h3>Hallucination examples</h3>
+<p>Concrete claims flagged by the judge as not supported by the image. Up to 10 examples per agent.</p>
+{% for a in agent_names %}
+  {% set examples = ((judge.per_agent or {})[a] or {}).hallucination_examples or [] %}
+  {% if examples %}
+  <details class="example">
+    <summary>{{ a }} ({{ examples | length }} example(s))</summary>
+    <table>
+      <thead><tr><th>Image</th><th>Score</th><th>Hallucinated claim</th></tr></thead>
+      <tbody>
+      {% for ex in examples %}
+        <tr>
+          <td><code>{{ ex.image_id or "?" }}</code></td>
+          <td>{{ "%.2f" | format(ex.score) if ex.score is not none else "n/a" }}</td>
+          <td>{{ ex.example or "" }}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </details>
+  {% endif %}
+{% endfor %}
+{% endif %}
+{% endif %}
+{% endif %}
+
+</main>
+</div>
+
+<script>
+function toggleTheme() {
+  const html = document.documentElement;
+  html.setAttribute('data-theme', html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+}
+
+function expandAll(open) {
+  document.querySelectorAll('details').forEach(d => { d.open = open; });
+}
+
+// Scroll-spy
+(function () {
+  const links = document.querySelectorAll('nav.toc a');
+  const sections = [];
+  links.forEach(a => {
+    const target = document.getElementById(a.getAttribute('href').slice(1));
+    if (target) sections.push({ el: target, link: a });
+  });
+  function onScroll() {
+    let active = null;
+    sections.forEach(({ el, link }) => {
+      if (el.getBoundingClientRect().top <= 80) active = link;
+    });
+    links.forEach(a => a.classList.remove('active'));
+    if (active) active.classList.add('active');
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+
+// Sortable tables
+function sortTable(tableId, colIdx) {
+  const table = document.getElementById(tableId);
+  if (!table) return;
+  const th = table.querySelectorAll('th')[colIdx];
+  const asc = !th.classList.contains('sort-asc');
+  table.querySelectorAll('th').forEach(t => t.classList.remove('sort-asc', 'sort-desc'));
+  th.classList.add(asc ? 'sort-asc' : 'sort-desc');
+  const tbody = table.querySelector('tbody');
+  const rows = Array.from(tbody.querySelectorAll('tr'));
+  rows.sort((a, b) => {
+    const av = a.querySelectorAll('td')[colIdx]?.textContent?.trim() ?? '';
+    const bv = b.querySelectorAll('td')[colIdx]?.textContent?.trim() ?? '';
+    const an = parseFloat(av.replace('%', '').replace(',', ''));
+    const bn = parseFloat(bv.replace('%', '').replace(',', ''));
+    if (!isNaN(an) && !isNaN(bn)) return asc ? an - bn : bn - an;
+    return asc ? av.localeCompare(bv) : bv.localeCompare(av);
+  });
+  rows.forEach(r => tbody.appendChild(r));
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+{
+  "image_id": "z5NxwG2Ul6PVWSaj_5",
+  "truth_country": "kenya",
+  "pred_country": "rwanda",
+  "is_correct": false,
+  "candidate_pool": [
+    "Rwanda",
+    "Brazil",
+    "Colombia",
+    "Burundi",
+    "Kenya",
+    "Uganda"
+  ],
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": false,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "role_adherence_notes": {
+      "linguistic": "The agent provided no candidates and no evidence, effectively failing to perform its role.",
+      "landscape": "Focused on terrain, soil, and vegetation as expected.",
+      "botanics": "Focused on plant species (Eucalyptus, ferns) and soil types.",
+      "regulatory": "Focused on road infrastructure (poles, road surface) as expected.",
+      "meta": "Focused on camera artifacts and coverage patterns."
+    },
+    "argumentative_quality": {
+      "linguistic": "very_weak",
+      "landscape": "strong",
+      "botanics": "strong",
+      "regulatory": "normal",
+      "meta": "strong"
+    },
+    "constructive_synthesis": true,
+    "overall_verdict_notes": "The pipeline failed to identify the correct country (Kenya) because the linguistic agent was completely absent, and the meta agent relied on a hallucinated 'camera rig artifact' to distinguish Rwanda from Kenya. The tournament logic was internally consistent but based on flawed premises.",
+    "role_adherence_score": {
+      "linguistic": 0.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.8,
+      "meta": 0.8
+    },
+    "argumentative_quality_score": {
+      "linguistic": 0.0,
+      "landscape": 0.8,
+      "botanics": 0.8,
+      "regulatory": 0.6,
+      "meta": 0.7
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.0,
+      "botanics": 0.0,
+      "regulatory": 0.0,
+      "meta": 0.75
+    },
+    "hallucination_examples": {
+      "linguistic": [],
+      "landscape": [],
+      "botanics": [],
+      "regulatory": [],
+      "meta": [
+        "claimed 'distinct Google Street View camera artifact: the halo or blurred brown/grey strip... characteristic of the camera rig used for Rwanda's coverage'",
+        "claimed 'specific blur pattern at the bottom of the image is more strongly associated with the Rwanda rig'"
+      ]
+    },
+    "visual_consistency_score": {
+      "linguistic": 0.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.9,
+      "meta": 0.2
+    },
+    "visual_consistency_notes": {
+      "linguistic": "N/A",
+      "landscape": "Descriptions of red soil and vegetation match the image.",
+      "botanics": "Descriptions of ferns and trees match the image.",
+      "regulatory": "Descriptions of poles and road match the image.",
+      "meta": "The 'camera artifact' is a standard Google Street View blur present in all images, not a specific Rwanda marker."
+    },
+    "confidence_calibration": {
+      "linguistic": 0.0,
+      "landscape": 0.5,
+      "botanics": 0.5,
+      "regulatory": 0.5,
+      "meta": 0.0
+    },
+    "tournament_failure": {
+      "truth_in_pool": true,
+      "truth_lost_to": "Rwanda",
+      "failure_match_round": "final",
+      "failure_reason": "judge_misjudgment",
+      "failure_reasoning": "The meta agent hallucinated a specific 'camera rig artifact' to distinguish Rwanda from Kenya. The tournament judge accepted this fabricated evidence as a 'strongly_support' cue, leading to the incorrect final decision despite Kenya being in the pool.",
+      "counterfactual_winnable": true
+    }
+  }
+}

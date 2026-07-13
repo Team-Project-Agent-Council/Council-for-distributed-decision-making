@@ -1,0 +1,86 @@
+{
+  "image_id": "mMZ8js56Rj2JtLlc_5",
+  "truth_country": "czechia",
+  "pred_country": "france",
+  "is_correct": false,
+  "discussion_rounds": 2,
+  "was_questioned": {
+    "linguistic": true,
+    "landscape": false,
+    "botanics": false,
+    "regulatory": true,
+    "meta": true
+  },
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": true,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.25,
+      "botanics": 0.25,
+      "regulatory": 0.75,
+      "meta": 0.75
+    },
+    "visual_consistency_score": {
+      "linguistic": 1.0,
+      "landscape": 0.75,
+      "botanics": 0.75,
+      "regulatory": 0.25,
+      "meta": 0.25
+    },
+    "confidence_calibration_score": {
+      "linguistic": 0.5,
+      "landscape": 0.5,
+      "botanics": 0.5,
+      "regulatory": 0.25,
+      "meta": 0.25
+    },
+    "question_relevance_score": {
+      "linguistic": 1.0,
+      "regulatory": 1.0,
+      "meta": 1.0
+    },
+    "question_relevance_notes": {
+      "linguistic": "Judge asked for text/script, squarely in linguistic domain.",
+      "regulatory": "Judge asked for road marking details, squarely in regulatory domain.",
+      "meta": "Judge asked for camera artifacts, squarely in meta domain."
+    },
+    "response_update_quality": {
+      "linguistic": 1.0,
+      "regulatory": 0.5,
+      "meta": 0.5
+    },
+    "response_update_notes": {
+      "linguistic": "Agent correctly reported no text found.",
+      "regulatory": "Agent restated initial claims (France vs Belgium) without adding new visual evidence to distinguish them.",
+      "meta": "Agent restated initial claims (Gen 4, post height) without adding new visual evidence."
+    },
+    "targeted_agent_addressed_question": {
+      "linguistic": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "hallucination_examples": {
+      "regulatory": [
+        "The delineator posts are white with a small, separate rectangular reflector, which is the standard French 'borne' design.",
+        "The specific width of the paved shoulder relative to the lane is highly typical of French rural standards."
+      ],
+      "meta": [
+        "The image shows a distinct 'Gen 4' camera quality with high dynamic range and a lack of the haloing common in Gen 3.",
+        "The delineator posts are the classic French style: white, slender, with a small red reflector positioned high on the post"
+      ]
+    },
+    "judge_question_strategy_score": 0.5,
+    "judge_question_strategy_notes": "The judge correctly targeted the agents for the specific details (posts, text) that could resolve the ambiguity. However, the questions were framed with a strong bias towards France (e.g., asking if the posts were 'French style'), and the judge failed to consider that the visual evidence (corn, flat plains, generic posts) is actually highly consistent with the Czech Republic (Moravia), leading to a false positive.",
+    "judge_synthesis_quality": 0.25,
+    "judge_synthesis_notes": "The judge synthesized the agents' hallucinated 'French' evidence into a confident but incorrect conclusion. The judge failed to recognize that the 'French' features cited (posts, road width) are generic to Central Europe and that the landscape (corn) is also very typical of the Czech Republic.",
+    "discussion_convergence_score": 0.5,
+    "discussion_convergence_notes": "The discussion converged on France, but this was a convergence on a hallucination. The agents reinforced each other's errors rather than critically evaluating the evidence against the full set of candidates (including Czechia)."
+  }
+}

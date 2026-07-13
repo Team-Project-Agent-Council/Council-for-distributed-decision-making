@@ -1,0 +1,105 @@
+{
+  "image_id": "e1zn5HV7y0bMjzQL_1",
+  "truth_country": "oman",
+  "pred_country": "senegal",
+  "is_correct": false,
+  "candidate_pool": [
+    "Senegal",
+    "Mali",
+    "Australia",
+    "Mauritania",
+    "Namibia",
+    "Mexico"
+  ],
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": true,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "role_adherence_notes": {
+      "linguistic": "Correctly identified the absence of text and remained within the domain.",
+      "landscape": "Analyzed terrain, soil, and vegetation density consistent with the role.",
+      "botanics": "Analyzed plant types (Acacia, scrub) and biome consistency.",
+      "regulatory": "Analyzed road infrastructure (pylons, poles, road surface).",
+      "meta": "Synthesized cross-domain cues (pylon style, camera generation) to distinguish candidates."
+    },
+    "argumentative_quality": {
+      "linguistic": "normal",
+      "landscape": "strong",
+      "botanics": "strong",
+      "regulatory": "normal",
+      "meta": "strong"
+    },
+    "constructive_synthesis": true,
+    "overall_verdict_notes": "The pipeline failed because the agents hallucinated a specific visual feature (red-and-white pylons) that is not present in the image (pylons are yellow/red). This led to a candidate pool of Sahelian countries (Senegal, Mali, Mauritania) and a final prediction of Senegal, missing the correct answer (Oman). The hallucination was the primary failure mode.",
+    "role_adherence_score": {
+      "linguistic": 1.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.9,
+      "meta": 0.9
+    },
+    "argumentative_quality_score": {
+      "linguistic": 0.5,
+      "landscape": 0.8,
+      "botanics": 0.8,
+      "regulatory": 0.5,
+      "meta": 0.8
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.5,
+      "botanics": 0.5,
+      "regulatory": 0.75,
+      "meta": 0.75
+    },
+    "hallucination_examples": {
+      "linguistic": [],
+      "landscape": [
+        "claimed 'red-and-white painted high-voltage electricity pylons' are visible"
+      ],
+      "botanics": [
+        "claimed 'Acacia-like trees' are visible"
+      ],
+      "regulatory": [
+        "claimed 'red-and-white painted lattice electricity pylons' are visible"
+      ],
+      "meta": [
+        "claimed 'red and white painted lattice power pylons' are a strong indicator"
+      ]
+    },
+    "visual_consistency_score": {
+      "linguistic": 1.0,
+      "landscape": 0.5,
+      "botanics": 0.5,
+      "regulatory": 0.25,
+      "meta": 0.25
+    },
+    "visual_consistency_notes": {
+      "linguistic": "Correctly noted no text.",
+      "landscape": "Described the arid terrain correctly, but the key visual cue (pylons) was hallucinated.",
+      "botanics": "Described scrub correctly, but the specific tree type was hallucinated.",
+      "regulatory": "Described the road and wooden poles correctly, but the pylon color was hallucinated.",
+      "meta": "Relied entirely on the hallucinated pylon color for the strongest evidence."
+    },
+    "confidence_calibration": {
+      "linguistic": 0.5,
+      "landscape": 0.25,
+      "botanics": 0.25,
+      "regulatory": 0.25,
+      "meta": 0.0
+    },
+    "tournament_failure": {
+      "truth_in_pool": false,
+      "truth_lost_to": null,
+      "failure_match_round": null,
+      "failure_reason": "agent_misled_pre_pool",
+      "failure_reasoning": "The landscape, botanics, regulatory, and meta agents all hallucinated the presence of 'red-and-white painted pylons' (the image shows yellow/red pylons). This specific hallucination strongly biased the candidate pool towards West African Sahel countries (Senegal, Mali, Mauritania) and excluded the correct answer (Oman), which shares similar arid landscapes but lacks that specific infrastructure marker.",
+      "counterfactual_winnable": false
+    }
+  }
+}

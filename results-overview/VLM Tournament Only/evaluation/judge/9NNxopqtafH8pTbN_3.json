@@ -1,0 +1,96 @@
+{
+  "image_id": "9NNxopqtafH8pTbN_3",
+  "truth_country": "panama",
+  "pred_country": "puerto rico",
+  "is_correct": false,
+  "candidate_pool": [
+    "Puerto Rico",
+    "Dominican Republic",
+    "Philippines",
+    "Costa Rica"
+  ],
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": false,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "role_adherence_notes": {
+      "linguistic": "The agent provided an empty candidate list and no evidence, failing to perform its role.",
+      "landscape": "Focused on terrain, vegetation, and climate cues as expected.",
+      "botanics": "Focused on plant species (palms, shrubs) and biome characteristics.",
+      "regulatory": "Focused on infrastructure standards (utility poles, road layout, fencing).",
+      "meta": "Synthesized cross-domain features (architecture, infrastructure) to distinguish regions."
+    },
+    "argumentative_quality": {
+      "linguistic": "very_weak",
+      "landscape": "strong",
+      "botanics": "strong",
+      "regulatory": "strong",
+      "meta": "very_strong"
+    },
+    "constructive_synthesis": true,
+    "overall_verdict_notes": "The pipeline failed because the linguistic agent was inactive, and the remaining agents (landscape, botanics, regulatory, meta) all converged on Puerto Rico based on strong but non-discriminatory visual cues (tropical vegetation, concrete walls, utility poles) that are also present in Panama. The tournament correctly followed the specialists' lead but lacked the linguistic evidence (e.g., Spanish vs. English signage) that would have distinguished Panama from Puerto Rico.",
+    "role_adherence_score": {
+      "linguistic": 0.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.9,
+      "meta": 0.9
+    },
+    "argumentative_quality_score": {
+      "linguistic": 0.0,
+      "landscape": 0.8,
+      "botanics": 0.8,
+      "regulatory": 0.8,
+      "meta": 0.9
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.0,
+      "botanics": 0.0,
+      "regulatory": 0.0,
+      "meta": 0.0
+    },
+    "hallucination_examples": {
+      "linguistic": [],
+      "landscape": [],
+      "botanics": [],
+      "regulatory": [],
+      "meta": []
+    },
+    "visual_consistency_score": {
+      "linguistic": 0.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.9,
+      "meta": 0.9
+    },
+    "visual_consistency_notes": {
+      "linguistic": "No claims made.",
+      "landscape": "Accurately described tropical vegetation, flat terrain, and concrete walls.",
+      "botanics": "Accurately identified coconut palms and broadleaf shrubs.",
+      "regulatory": "Accurately described the wooden utility pole, transformer, and iron fencing.",
+      "meta": "Accurately described the blue concrete house and ornate metal fencing."
+    },
+    "confidence_calibration": {
+      "linguistic": 0.0,
+      "landscape": 0.2,
+      "botanics": 0.2,
+      "regulatory": 0.2,
+      "meta": 0.2
+    },
+    "tournament_failure": {
+      "truth_in_pool": false,
+      "truth_lost_to": null,
+      "failure_match_round": null,
+      "failure_reason": "agent_misled_pre_pool",
+      "failure_reasoning": "The ground truth (Panama) was not included in the candidate pool. The landscape, botanics, regulatory, and meta agents all failed to nominate Panama, instead converging on Puerto Rico and the Dominican Republic. They missed the visual cue that the specific combination of infrastructure (e.g., the specific style of the wooden pole and transformer) and architecture (blue concrete block house) is also common in Panama, or they failed to consider Central American countries broadly enough beyond Costa Rica.",
+      "counterfactual_winnable": false
+    }
+  },
+  "validation_error": "1 validation error for JudgeVerdict\noverall_verdict_notes\n  String should have at most 400 characters [type=string_too_long, input_value=\"The pipeline failed beca...anama from Puerto Rico.\", input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_too_long"
+}

@@ -1,0 +1,82 @@
+{
+  "image_id": "kMEhvQ4rbv1USOGs_4",
+  "truth_country": "argentina",
+  "pred_country": "mexico",
+  "is_correct": false,
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": true,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.25,
+      "botanics": 0.25,
+      "regulatory": 0.25,
+      "meta": 0.25
+    },
+    "visual_consistency_score": {
+      "linguistic": 1.0,
+      "landscape": 0.75,
+      "botanics": 0.75,
+      "regulatory": 0.75,
+      "meta": 0.75
+    },
+    "confidence_calibration_score": {
+      "linguistic": 1.0,
+      "landscape": 0.25,
+      "botanics": 0.25,
+      "regulatory": 0.25,
+      "meta": 0.25
+    },
+    "round2_improvement": {
+      "linguistic": 0.0,
+      "landscape": 0.5,
+      "botanics": 0.5,
+      "regulatory": 0.5,
+      "meta": 0.5
+    },
+    "round2_improvement_notes": {
+      "linguistic": "Agent provided no output; no improvement possible.",
+      "landscape": "Acknowledged other agents' infrastructure evidence and shifted hypothesis to Mexico, but failed to verify the 'concrete poles' claim against the image.",
+      "botanics": "Shifted hypothesis to Mexico based on infrastructure evidence from other agents, but the botanical evidence (scrub/grass) is consistent with the ground truth (Argentina) and was downweighted incorrectly.",
+      "regulatory": "Shifted to Mexico based on 'concrete poles' and 'yellow edge lines'. The yellow line is visible, but the pole claim is a hallucination.",
+      "meta": "Shifted to Mexico based on 'concrete poles' and 'yellow edge lines'. The pole claim is a hallucination."
+    },
+    "role_leakage_score": {
+      "linguistic": 0.0,
+      "landscape": 0.5,
+      "botanics": 0.5,
+      "regulatory": 0.5,
+      "meta": 0.5
+    },
+    "role_leakage_notes": {
+      "linguistic": "none",
+      "landscape": "Leaked regulatory evidence (road markings, pole material) into landscape reasoning.",
+      "botanics": "Leaked regulatory evidence (road markings, pole material) into botanics reasoning.",
+      "regulatory": "Leaked meta evidence (pole design) into regulatory reasoning.",
+      "meta": "Leaked regulatory evidence (road markings) into meta reasoning."
+    },
+    "hallucination_examples": {
+      "linguistic": [],
+      "landscape": [
+        "The simple concrete utility poles noted by the Meta Agent are more typical of rural Mexico than the wooden poles usually found in the US/Canadian prairies."
+      ],
+      "botanics": [
+        "This botanical profile aligns with the strong infrastructure evidence provided by the Regulatory and Meta agents regarding the specific concrete slab sealant and utility poles."
+      ],
+      "regulatory": [
+        "This infrastructure, combined with the simple concrete utility poles noted by the Meta Agent, strongly distinguishes it from US/Canadian standards where wooden poles are more prevalent in such rural setting"
+      ],
+      "meta": [
+        "The combination of concrete road slabs with dark sealant and the specific simple concrete utility poles is a strong meta-signature for Mexico."
+      ]
+    },
+    "judge_synthesis_quality": 0.25,
+    "judge_synthesis_notes": "The judge failed to perform a critical visual verification of the utility poles, which are clearly wooden in the image. By accepting the hallucinated 'concrete pole' evidence from the other agents, the judge incorrectly weighted the evidence towards Mexico and dismissed Argentina. The synthesis was circular, relying on the agents' shared hallucination rather than the ground truth image."
+  }
+}

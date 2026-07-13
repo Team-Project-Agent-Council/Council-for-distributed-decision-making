@@ -1,0 +1,99 @@
+{
+  "image_id": "JnTw9kl2nWPFaoUg_1",
+  "truth_country": "oman",
+  "pred_country": "saudi arabia",
+  "is_correct": false,
+  "candidate_pool": [
+    "Mexico",
+    "Saudi Arabia",
+    "United Arab Emirates",
+    "Oman",
+    "Australia",
+    "Tunisia"
+  ],
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": true,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "role_adherence_notes": {
+      "linguistic": "Correctly identified the absence of visible text and remained within script/language analysis.",
+      "landscape": "Analyzed terrain, soil, and vegetation consistent with the domain.",
+      "botanics": "Focused on plant species (Phoenix dactylifera) and biome characteristics.",
+      "regulatory": "Analyzed road surface and infrastructure (walls, lack of signs) appropriate to the domain.",
+      "meta": "Analyzed the Google car rig and construction styles, which falls under cross-domain distinguishing features."
+    },
+    "argumentative_quality": {
+      "linguistic": "normal",
+      "landscape": "strong",
+      "botanics": "strong",
+      "regulatory": "normal",
+      "meta": "strong"
+    },
+    "constructive_synthesis": true,
+    "overall_verdict_notes": "The pipeline correctly identified the region (Arabian Peninsula) but failed to distinguish the specific country (Oman) from Saudi Arabia. The failure was driven by the 'meta' agent's reliance on a hallucinated visual cue (Google car rig shape) to break the tie, leading to a confident but incorrect prediction.",
+    "role_adherence_score": {
+      "linguistic": 1.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.9,
+      "meta": 0.9
+    },
+    "argumentative_quality_score": {
+      "linguistic": 0.5,
+      "landscape": 0.8,
+      "botanics": 0.8,
+      "regulatory": 0.5,
+      "meta": 0.7
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.0,
+      "botanics": 0.0,
+      "regulatory": 0.0,
+      "meta": 0.75
+    },
+    "hallucination_examples": {
+      "linguistic": [],
+      "landscape": [],
+      "botanics": [],
+      "regulatory": [],
+      "meta": [
+        "The specific shape and reflection pattern of the white Google Street View car hood are highly characteristic of the rigs used in that country."
+      ]
+    },
+    "visual_consistency_score": {
+      "linguistic": 1.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.9,
+      "meta": 0.3
+    },
+    "visual_consistency_notes": {
+      "linguistic": "Accurately noted lack of text.",
+      "landscape": "Accurately described the arid, rocky terrain and vegetation.",
+      "botanics": "Accurately identified the date palm.",
+      "regulatory": "Accurately described the unpaved road and walls.",
+      "meta": "The claim about the car hood shape being a specific Saudi rig indicator is not supported by the image; the hood is generic and the reflection is an artifact of the sun."
+    },
+    "confidence_calibration": {
+      "linguistic": 0.5,
+      "landscape": 0.5,
+      "botanics": 0.5,
+      "regulatory": 0.5,
+      "meta": 0.25
+    },
+    "tournament_failure": {
+      "truth_in_pool": true,
+      "truth_lost_to": "Saudi Arabia",
+      "failure_match_round": "final",
+      "failure_reason": "agent_misled_in_tournament",
+      "failure_reasoning": "The 'meta' agent assigned 'strongly_support' to Saudi Arabia based on a hallucinated visual cue (car rig shape) and 'support' to Oman. This skewed the specialist confidence heavily toward the wrong country, causing the tournament judge to select Saudi Arabia over the true country (Oman) despite the visual evidence being nearly identical for both.",
+      "counterfactual_winnable": false
+    }
+  }
+}

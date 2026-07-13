@@ -1,0 +1,97 @@
+{
+  "image_id": "STQGgl6Uh9muExNb_4",
+  "truth_country": "france",
+  "pred_country": "united states",
+  "is_correct": false,
+  "candidate_pool": [
+    "Australia",
+    "USA",
+    "Brazil",
+    "South Africa",
+    "United States",
+    "Thailand"
+  ],
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": true,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "role_adherence_notes": {
+      "linguistic": "Correctly identified lack of visible text; stayed within domain.",
+      "landscape": "Analyzed terrain (volcanic rock) and climate cues (tropical/subtropical) correctly.",
+      "botanics": "Analyzed vegetation types (broadleaf, palms) and biome consistency.",
+      "regulatory": "Analyzed road infrastructure (guardrails, markings) and driving side.",
+      "meta": "Synthesized cross-domain cues (camera generation, vehicle models) to support the US hypothesis."
+    },
+    "argumentative_quality": {
+      "linguistic": "normal",
+      "landscape": "strong",
+      "botanics": "strong",
+      "regulatory": "strong",
+      "meta": "very_strong"
+    },
+    "constructive_synthesis": true,
+    "overall_verdict_notes": "The pipeline failed because the ground truth (France/Reunion) was not in the candidate pool. The agents correctly identified tropical/subtropical cues but defaulted to the USA due to strong regulatory/meta biases (W-beam guardrails, Google Street View artifacts) that are shared by Reunion. The tournament then correctly selected the USA from the pool, but the pool itself was flawed.",
+    "role_adherence_score": {
+      "linguistic": 1.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.9,
+      "meta": 0.95
+    },
+    "argumentative_quality_score": {
+      "linguistic": 0.5,
+      "landscape": 0.8,
+      "botanics": 0.8,
+      "regulatory": 0.8,
+      "meta": 0.9
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.0,
+      "botanics": 0.0,
+      "regulatory": 0.0,
+      "meta": 0.0
+    },
+    "hallucination_examples": {
+      "linguistic": [],
+      "landscape": [],
+      "botanics": [],
+      "regulatory": [],
+      "meta": []
+    },
+    "visual_consistency_score": {
+      "linguistic": 1.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.9,
+      "meta": 0.9
+    },
+    "visual_consistency_notes": {
+      "linguistic": "Accurately noted absence of text.",
+      "landscape": "Accurately described volcanic rock and tropical vegetation.",
+      "botanics": "Accurately described broadleaf trees and palms.",
+      "regulatory": "Accurately described W-beam guardrails and road markings.",
+      "meta": "Accurately described vehicle models and camera artifacts."
+    },
+    "confidence_calibration": {
+      "linguistic": 0.5,
+      "landscape": 0.2,
+      "botanics": 0.2,
+      "regulatory": 0.2,
+      "meta": 0.2
+    },
+    "tournament_failure": {
+      "truth_in_pool": false,
+      "truth_lost_to": null,
+      "failure_match_round": null,
+      "failure_reason": "agent_misled_pre_pool",
+      "failure_reasoning": "The ground truth (France/Reunion) was not included in the candidate pool. The landscape, botanics, and regulatory agents all focused on the USA as the primary candidate due to shared visual features (tropical vegetation, W-beam guardrails, right-hand traffic) and failed to consider Reunion as a French territory with similar infrastructure.",
+      "counterfactual_winnable": false
+    }
+  }
+}

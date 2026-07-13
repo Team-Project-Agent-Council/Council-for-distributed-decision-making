@@ -1,0 +1,103 @@
+{
+  "image_id": "4UvmdTHySo6AXW4M_4",
+  "truth_country": "united states",
+  "pred_country": "south africa",
+  "is_correct": false,
+  "candidate_pool": [
+    "Australia",
+    "Namibia",
+    "South Africa",
+    "Botswana",
+    "USA",
+    "United States"
+  ],
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": true,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "role_adherence_notes": {
+      "linguistic": "The agent provided no candidates or evidence, effectively failing its domain.",
+      "landscape": "Stayed within terrain and vegetation analysis, correctly identifying arid scrubland and red soil.",
+      "botanics": "Stayed within plant morphology and biome analysis, though it hallucinated specific species.",
+      "regulatory": "Stayed within infrastructure analysis, focusing on road width and poles.",
+      "meta": "Stayed within cross-domain synthesis, focusing on utility pole styles and image quality."
+    },
+    "argumentative_quality": {
+      "linguistic": "very_weak",
+      "landscape": "strong",
+      "botanics": "normal",
+      "regulatory": "normal",
+      "meta": "normal"
+    },
+    "constructive_synthesis": true,
+    "overall_verdict_notes": "The pipeline failed because the agents hallucinated a key visual feature (concrete poles) that was not present in the image (poles are wooden). This led to a confident but incorrect prediction of South Africa. The linguistic agent was completely absent.",
+    "role_adherence_score": {
+      "linguistic": 0.0,
+      "landscape": 0.9,
+      "botanics": 0.8,
+      "regulatory": 0.8,
+      "meta": 0.8
+    },
+    "argumentative_quality_score": {
+      "linguistic": 0.0,
+      "landscape": 0.8,
+      "botanics": 0.5,
+      "regulatory": 0.6,
+      "meta": 0.6
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.0,
+      "botanics": 0.5,
+      "regulatory": 0.0,
+      "meta": 0.75
+    },
+    "hallucination_examples": {
+      "linguistic": [],
+      "landscape": [],
+      "botanics": [
+        "claimed 'Saguaro' is a common North American desert indicator (it is not native to the region shown)",
+        "claimed 'Creosote bush' is a distinct visual indicator present/absent in the scrub"
+      ],
+      "regulatory": [],
+      "meta": [
+        "claimed 'concrete poles with a specific tapered design' are visible (poles are clearly wooden)",
+        "claimed 'concrete poles' are standard in South Africa (they are wooden in the image)"
+      ]
+    },
+    "visual_consistency_score": {
+      "linguistic": 0.0,
+      "landscape": 0.9,
+      "botanics": 0.4,
+      "regulatory": 0.9,
+      "meta": 0.2
+    },
+    "visual_consistency_notes": {
+      "linguistic": "No claims made.",
+      "landscape": "Accurately described the red soil, scrub, and mesas.",
+      "botanics": "Described the general scrub correctly but misidentified specific species types.",
+      "regulatory": "Correctly identified wooden poles and gravel shoulders.",
+      "meta": "Failed to describe the poles correctly, claiming they were concrete."
+    },
+    "confidence_calibration": {
+      "linguistic": 0.0,
+      "landscape": 0.5,
+      "botanics": 0.2,
+      "regulatory": 0.5,
+      "meta": 0.0
+    },
+    "tournament_failure": {
+      "truth_in_pool": true,
+      "truth_lost_to": "South Africa",
+      "failure_match_round": "final",
+      "failure_reason": "agent_misled_in_tournament",
+      "failure_reasoning": "The meta agent hallucinated that the utility poles were concrete and tapered (claiming they were 'concrete poles with a specific tapered design'), whereas the image clearly shows wooden poles. This hallucinated evidence was used to strongly support South Africa and contradict the USA, leading the tournament to reject the correct answer.",
+      "counterfactual_winnable": false
+    }
+  }
+}

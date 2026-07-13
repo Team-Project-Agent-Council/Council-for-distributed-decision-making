@@ -1,0 +1,82 @@
+{
+  "image_id": "nnxZ3V6PpY9PoPLX_3",
+  "truth_country": "kenya",
+  "pred_country": "ethiopia",
+  "is_correct": false,
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": true,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.25,
+      "botanics": 0.5,
+      "regulatory": 0.75,
+      "meta": 0.25
+    },
+    "visual_consistency_score": {
+      "linguistic": 1.0,
+      "landscape": 0.75,
+      "botanics": 0.5,
+      "regulatory": 0.25,
+      "meta": 0.75
+    },
+    "confidence_calibration_score": {
+      "linguistic": 0.5,
+      "landscape": 0.25,
+      "botanics": 0.25,
+      "regulatory": 0.0,
+      "meta": 0.25
+    },
+    "round2_improvement": {
+      "linguistic": 0.0,
+      "landscape": 0.5,
+      "botanics": 0.5,
+      "regulatory": 0.5,
+      "meta": 0.5
+    },
+    "round2_improvement_notes": {
+      "linguistic": "Agent provided no output in either round; no improvement possible.",
+      "landscape": "Acknowledged cross-agent evidence (RHT) and downgraded Kenya, but failed to verify the RHT claim visually.",
+      "botanics": "Incorporated regulatory evidence to eliminate Kenya, but did not substantively change its own botanical reasoning.",
+      "regulatory": "Incorporated meta evidence to strengthen Ethiopia, but the core regulatory claim (RHT) was visually incorrect.",
+      "meta": "Incorporated regulatory evidence to eliminate Kenya, but the core meta evidence (pole style) is not unique to Ethiopia."
+    },
+    "role_leakage_score": {
+      "linguistic": 0.0,
+      "landscape": 0.5,
+      "botanics": 0.5,
+      "regulatory": 0.5,
+      "meta": 0.5
+    },
+    "role_leakage_notes": {
+      "linguistic": "none",
+      "landscape": "Referenced 'right-hand traffic' (regulatory domain) to eliminate Kenya.",
+      "botanics": "Referenced 'right-hand traffic' (regulatory domain) and 'utility poles' (meta domain) to eliminate Kenya.",
+      "regulatory": "Referenced 'utility pole style' (meta domain) to reinforce Ethiopia.",
+      "meta": "Referenced 'right-hand traffic' (regulatory domain) to eliminate Kenya."
+    },
+    "hallucination_examples": {
+      "linguistic": [],
+      "landscape": [
+        "The specific style of residential architecture with corrugated metal roofing and perimeter walls is highly characteristic of the Ethiopian Highlands."
+      ],
+      "botanics": [
+        "The combination of highland vegetation, including the presence of Cupressus lusitanica (Mexican Cypress) and Eucalyptus globulus, is extremely characteristic of the Ethiopian Highlands."
+      ],
+      "regulatory": [
+        "The road features right-hand traffic (RHT) with a yellow dashed center line, which is a common standard in Ethiopia."
+      ],
+      "meta": [
+        "The utility pole is a classic Ethiopian style: a rough-hewn wooden pole with a specific transformer mounting and wiring configuration."
+      ]
+    },
+    "judge_synthesis_quality": 0.25,
+    "judge_synthesis_notes": "The judge's reasoning is fundamentally flawed and circular. It accepts the agents' incorrect premise that the traffic is Right-Handed (RHT) and uses this to eliminate Kenya (the correct answer). The judge fails to perform basic visual verification of the traffic direction, instead relying entirely on the hallucinated evidence of the specialist agents. The synthesis is weak because it validates a chain of errors rather than correcting them."
+  }
+}

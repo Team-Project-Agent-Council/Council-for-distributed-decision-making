@@ -1,0 +1,76 @@
+{
+  "image_id": "iF7CiuoojlFChTQ9_4",
+  "truth_country": "bhutan",
+  "pred_country": "taiwan",
+  "is_correct": false,
+  "path": "",
+  "truth_in_hypothesis_pool": false,
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": true,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "role_adherence_notes": {
+      "linguistic": "Correctly identified lack of linguistic cues (no signs).",
+      "landscape": "Stayed within terrain/vegetation analysis.",
+      "botanics": "Stayed within plant species analysis.",
+      "regulatory": "Correctly identified lack of regulatory cues.",
+      "meta": "Attempted synthesis but relied on a weak heuristic (hood visibility)."
+    },
+    "argumentative_quality": {
+      "linguistic": "normal",
+      "landscape": "strong",
+      "botanics": "strong",
+      "regulatory": "normal",
+      "meta": "weak"
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.1,
+      "botanics": 0.2,
+      "regulatory": 0.0,
+      "meta": 0.0
+    },
+    "hallucination_examples": {
+      "linguistic": [],
+      "landscape": [],
+      "botanics": [
+        "Identified specific pine species (P. massoniana) which is a reasonable guess but not definitively visible."
+      ],
+      "regulatory": [],
+      "meta": []
+    },
+    "visual_consistency_score": {
+      "linguistic": 1.0,
+      "landscape": 0.9,
+      "botanics": 0.8,
+      "regulatory": 1.0,
+      "meta": 0.9
+    },
+    "visual_consistency_notes": {
+      "linguistic": "Accurately noted absence of text.",
+      "landscape": "Accurately described the steep, lush, paved road environment.",
+      "botanics": "Accurately described the forest density and types.",
+      "regulatory": "Accurately noted absence of signs/markings.",
+      "meta": "Accurately noted the hood, but the inference was weak."
+    },
+    "confidence_calibration": {
+      "linguistic": 0.5,
+      "landscape": 0.2,
+      "botanics": 0.2,
+      "regulatory": 0.5,
+      "meta": 0.2
+    },
+    "constructive_synthesis": false,
+    "overall_verdict_notes": "The pipeline failed to identify the correct region (South Asia) due to a lack of distinctive regulatory or linguistic cues. The agents defaulted to East Asia (Taiwan/Japan) based on generic 'mountainous forest' features. The meta agent's hallucination of a 'Trekker hood' heuristic was a significant error that did not help narrow the region. The final decision was a guess within the incorrect region.",
+    "region_narrowing_quality": 0.25,
+    "region_narrowing_notes": "The judge failed to narrow the region correctly. The agents had no consensus, and the judge's 'Path B' reasoning was weak, accepting the East Asia hypothesis (Taiwan) despite the lack of specific evidence (like specific road signs or scripts) and the presence of a misleading meta-heuristic.",
+    "hypothesis_pool_quality": 0.25,
+    "hypothesis_pool_notes": "The pool (Taiwan, Japan, South Korea) is visually plausible for a generic mountain road but completely misses the actual region (South Asia/Bhutan). A knowledgeable human would likely have included Nepal or Northern India as alternatives given the lack of East Asian specific markers."
+  },
+  "validation_error": "1 validation error for JudgeVerdict\noverall_verdict_notes\n  String should have at most 400 characters [type=string_too_long, input_value=\"The pipeline failed to i...n the incorrect region.\", input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_too_long"
+}

@@ -1,0 +1,92 @@
+{
+  "image_id": "HF1MKwIFNCNb4FdM_3",
+  "truth_country": "argentina",
+  "pred_country": "colombia",
+  "is_correct": false,
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": true,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "role_adherence_notes": {
+      "linguistic": "Analyzed Spanish text and place names ('Vilabonita') exclusively.",
+      "landscape": "Focused on terrain, vegetation, and climate cues.",
+      "botanics": "Identified specific plant species (Queen Palm) and their ranges.",
+      "regulatory": "Analyzed road markings (yellow curbs), concrete slabs, and utility poles.",
+      "meta": "Synthesized infrastructure and image quality to distinguish regions."
+    },
+    "argumentative_quality": {
+      "linguistic": "weak",
+      "landscape": "normal",
+      "botanics": "normal",
+      "regulatory": "strong",
+      "meta": "strong"
+    },
+    "constructive_synthesis": true,
+    "overall_verdict_notes": "The pipeline failed to identify the ground truth (Argentina) because the agents relied on a 'yellow curb' heuristic that is strongly associated with Colombia in their training data, despite the image actually being from Argentina. The agents were internally consistent but factually misled by a shared visual bias.",
+    "assertiveness": null,
+    "assertiveness_score": {},
+    "overall_quality_score": null,
+    "role_adherence_score": {
+      "linguistic": 1.0,
+      "landscape": 1.0,
+      "botanics": 1.0,
+      "regulatory": 1.0,
+      "meta": 1.0
+    },
+    "argumentative_quality_score": {
+      "linguistic": 0.3,
+      "landscape": 0.6,
+      "botanics": 0.6,
+      "regulatory": 0.8,
+      "meta": 0.8
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.0,
+      "botanics": 0.0,
+      "regulatory": 0.0,
+      "meta": 0.0
+    },
+    "hallucination_examples": {
+      "linguistic": [],
+      "landscape": [],
+      "botanics": [],
+      "regulatory": [],
+      "meta": []
+    },
+    "visual_consistency_score": {
+      "linguistic": 1.0,
+      "landscape": 1.0,
+      "botanics": 1.0,
+      "regulatory": 1.0,
+      "meta": 1.0
+    },
+    "visual_consistency_notes": {
+      "linguistic": "Correctly read the Spanish billboard.",
+      "landscape": "Correctly described the tropical vegetation and mountains.",
+      "botanics": "Correctly identified the palm species.",
+      "regulatory": "Correctly observed the yellow curbs and concrete poles.",
+      "meta": "Correctly observed the infrastructure style."
+    },
+    "confidence_calibration": {
+      "linguistic": 0.0,
+      "landscape": 0.0,
+      "botanics": 0.0,
+      "regulatory": 0.0,
+      "meta": 0.0
+    },
+    "tournament_failure": {
+      "truth_in_pool": true,
+      "truth_lost_to": "Colombia",
+      "failure_match_round": "final",
+      "failure_reason": "agent_misled",
+      "failure_reasoning": "The agents collectively assigned 'strongly_support' to Colombia based on the yellow curbs and utility poles, while Argentina received no specific support or was treated as a generic Spanish-speaking option. The specialists were misled by a visual feature (yellow curbs) that is common in Argentina but strongly biased towards Colombia in their internal models.",
+      "counterfactual_winnable": false
+    }
+  }
+}

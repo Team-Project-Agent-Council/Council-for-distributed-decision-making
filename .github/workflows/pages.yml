@@ -1,0 +1,88 @@
+name: Deploy monorepo site to GitHub Pages
+
+# Builds a single GitHub Pages site for the whole monorepo:
+#   /            -> the evaluation navigation page (results-overview)
+#   /demo/       -> the interactive GeoBench demo (Next.js static export)
+# Both are assembled into one `_site/` artifact and deployed together.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # --- Evaluation navigation page (Python static generator) ---
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Build evaluation navigation site
+        working-directory: results-overview
+        run: python3 scripts/build_site.py
+
+      # --- Interactive demo (Next.js static export) ---
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: demo/geobench-frontend/package-lock.json
+
+      - name: Install demo dependencies
+        working-directory: demo/geobench-frontend
+        run: npm ci
+
+      - name: Sync council metadata into the static fixture
+        working-directory: demo/geobench-frontend
+        run: cp ../geobench-backend/data/council_config.json public/demo-fixture/council.json
+
+      - name: Build demo static site
+        working-directory: demo/geobench-frontend
+        env:
+          NEXT_PUBLIC_STATIC_DEMO: "true"
+          # The demo is served from /<repo>/demo/ inside the monorepo Pages site.
+          NEXT_PUBLIC_BASE_PATH: "/${{ github.event.repository.name }}/demo"
+          NEXT_PUBLIC_API_BASE_URL: ""
+          NEXT_PUBLIC_USE_MOCK_API: "false"
+        run: npm run build
+
+      # --- Assemble one site: navigation page at root, demo under /demo ---
+      - name: Assemble combined site
+        run: |
+          mkdir -p _site
+          cp -R results-overview/site/. _site/
+          mkdir -p _site/demo
+          cp -R demo/geobench-frontend/out/. _site/demo/
+          touch _site/.nojekyll
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

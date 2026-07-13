@@ -1,0 +1,76 @@
+{
+  "image_id": "e1zn5HV7y0bMjzQL_3",
+  "truth_country": "belgium",
+  "pred_country": "ireland",
+  "is_correct": false,
+  "path": "",
+  "truth_in_hypothesis_pool": false,
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": true,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "role_adherence_notes": {
+      "linguistic": "Correctly identified lack of linguistic cues (no signs) and stayed silent.",
+      "landscape": "Analyzed terrain, vegetation, and climate consistent with the role.",
+      "botanics": "Analyzed plant species (maize, grass) and vegetation types.",
+      "regulatory": "Analyzed road infrastructure and markings (or lack thereof).",
+      "meta": "Attempted to synthesize infrastructure and image quality, though drifted into specific country claims."
+    },
+    "argumentative_quality": {
+      "linguistic": "normal",
+      "landscape": "strong",
+      "botanics": "strong",
+      "regulatory": "weak",
+      "meta": "weak"
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.0,
+      "botanics": 0.0,
+      "regulatory": 0.0,
+      "meta": 0.2
+    },
+    "hallucination_examples": {
+      "linguistic": [],
+      "landscape": [],
+      "botanics": [],
+      "regulatory": [],
+      "meta": [
+        "Claimed 'specific insulator placement' on the utility pole is common in Denmark; the image resolution is too low to verify this detail."
+      ]
+    },
+    "visual_consistency_score": {
+      "linguistic": 1.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 1.0,
+      "meta": 0.8
+    },
+    "visual_consistency_notes": {
+      "linguistic": "Accurately noted absence of text.",
+      "landscape": "Descriptions of green hills and overcast sky match the image perfectly.",
+      "botanics": "Maize and pasture descriptions are accurate.",
+      "regulatory": "Correctly noted the lack of markings.",
+      "meta": "General description of the pole and road is accurate, though specific details are inferred."
+    },
+    "confidence_calibration": {
+      "linguistic": 0.5,
+      "landscape": 0.2,
+      "botanics": 0.2,
+      "regulatory": 0.5,
+      "meta": 0.2
+    },
+    "constructive_synthesis": false,
+    "overall_verdict_notes": "The pipeline failed to identify the correct country (Belgium) and instead predicted Ireland. The agents correctly identified the region as Western Europe but lacked the specific regulatory or linguistic cues to narrow it down further. The meta agent's hallucination regarding specific pole details led to a distraction towards Scandinavia. The judge failed to synthesize the strong 'Western Europe' signal from landscape/botany into a plausible pool (e.g., France, Belgium, Netherlands) and instead accepted the outlier Scandinavian hypothesis or defaulted to the UK/Ireland consensus.",
+    "region_narrowing_quality": 0.25,
+    "region_narrowing_notes": "The region consensus was effectively 'Western Europe' (UK, Ireland, France, Belgium). The judge's path was unclear, but the final pool and decision drifted towards the British Isles/Ireland, missing the continental European candidates (Belgium, France) that were actually proposed by the agents. The reasoning did not effectively weigh the 'maize/pasture' evidence which strongly supports the Low Countries/Northern France.",
+    "hypothesis_pool_quality": 0.25,
+    "hypothesis_pool_notes": "The final prediction was Ireland. The pool of candidates seems to have been dominated by the UK/Ireland consensus from the landscape/botany agents, while ignoring the 'France' and 'Belgium' candidates proposed in Phase 1. A plausible pool for this image should have included Belgium, France, Netherlands, and UK. The absence of Belgium (the truth) and France from the final consideration is a significant failure."
+  },
+  "validation_error": "3 validation errors for JudgeVerdict\noverall_verdict_notes\n  String should have at most 400 characters [type=string_too_long, input_value=\"The pipeline failed to i...e UK/Ireland consensus.\", input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_too_long\nregion_narrowing_notes\n  String should have at most 300 characters [type=string_too_long, input_value=\"The region consensus was...ntries/Northern France.\", input_type=str]\n    For further information visit h"
+}

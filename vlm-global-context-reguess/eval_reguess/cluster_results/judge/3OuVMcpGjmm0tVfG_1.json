@@ -1,0 +1,82 @@
+{
+  "image_id": "3OuVMcpGjmm0tVfG_1",
+  "truth_country": "indonesia",
+  "pred_country": "philippines",
+  "is_correct": false,
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": true,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.25,
+      "botanics": 0.25,
+      "regulatory": 0.5,
+      "meta": 0.5
+    },
+    "visual_consistency_score": {
+      "linguistic": 1.0,
+      "landscape": 0.75,
+      "botanics": 0.75,
+      "regulatory": 0.5,
+      "meta": 0.5
+    },
+    "confidence_calibration_score": {
+      "linguistic": 1.0,
+      "landscape": 0.25,
+      "botanics": 0.25,
+      "regulatory": 0.25,
+      "meta": 0.25
+    },
+    "round2_improvement": {
+      "linguistic": 1.0,
+      "landscape": 0.5,
+      "botanics": 0.5,
+      "regulatory": 0.5,
+      "meta": 0.5
+    },
+    "round2_improvement_notes": {
+      "linguistic": "Correctly maintained null stance; no hallucination of evidence.",
+      "landscape": "Acknowledged other agents' findings but used them to reinforce a pre-existing bias rather than re-evaluating the visual evidence.",
+      "botanics": "Acknowledged other agents' findings but used them to reinforce a pre-existing bias rather than re-evaluating the visual evidence.",
+      "regulatory": "Adopted the Meta agent's infrastructure claims as its own regulatory evidence, showing a lack of independent visual analysis.",
+      "meta": "Adopted the Landscape agent's geological claims as its own meta evidence, showing a lack of independent visual analysis."
+    },
+    "role_leakage_score": {
+      "linguistic": 0.0,
+      "landscape": 0.5,
+      "botanics": 0.5,
+      "regulatory": 1.0,
+      "meta": 1.0
+    },
+    "role_leakage_notes": {
+      "linguistic": "none",
+      "landscape": "Leaked Botanics evidence (cassava/banana) and Meta evidence (utility poles) into its reasoning.",
+      "botanics": "Leaked Landscape evidence (volcanic rock) and Meta evidence (utility poles) into its reasoning.",
+      "regulatory": "Heavily leaked Meta evidence (utility poles, elevated housing) into its regulatory analysis, failing to identify any regulatory-specific visual cues.",
+      "meta": "Heavily leaked Landscape evidence (volcanic rock embankments) into its meta analysis."
+    },
+    "hallucination_examples": {
+      "linguistic": [],
+      "landscape": [
+        "The specific style of unpaved rural roads and volcanic-looking rock embankments is highly characteristic of the Philippine archipelago."
+      ],
+      "botanics": [
+        "The combination of Musa (banana) and Manihot esculenta (cassava) in a small-scale home garden setting is extremely common in rural Philippines."
+      ],
+      "regulatory": [
+        "the concrete utility pole design and the specific style of elevated rural housing mentioned by the Meta Agent are consistent with Philippine rural infrastructure."
+      ],
+      "meta": [
+        "The utility pole construction (slender concrete poles with specific cross-arm mounting) and the style of the small, elevated residential structures in the background are highly characteristic of rural Philippines."
+      ]
+    },
+    "judge_synthesis_quality": 0.25,
+    "judge_synthesis_notes": "The Judge failed to identify the hallucination in the Meta and Regulatory agents' claims about 'elevated rural housing' (the houses visible are on ground level or very low stilts, not the distinct elevated style of the Philippines). The Judge also failed to recognize that the 'volcanic rock' and 'utility pole' evidence was being circularly reinforced by agents leaking each other's domains. The final decision was based on a flawed consensus of hallucinated evidence."
+  }
+}

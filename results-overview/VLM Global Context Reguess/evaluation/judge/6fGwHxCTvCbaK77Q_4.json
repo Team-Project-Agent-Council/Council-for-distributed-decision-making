@@ -1,0 +1,82 @@
+{
+  "image_id": "6fGwHxCTvCbaK77Q_4",
+  "truth_country": "new zealand",
+  "pred_country": "portugal",
+  "is_correct": false,
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": true,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.5,
+      "botanics": 0.5,
+      "regulatory": 0.5,
+      "meta": 0.5
+    },
+    "visual_consistency_score": {
+      "linguistic": 1.0,
+      "landscape": 0.5,
+      "botanics": 0.5,
+      "regulatory": 0.5,
+      "meta": 0.5
+    },
+    "confidence_calibration_score": {
+      "linguistic": 1.0,
+      "landscape": 0.25,
+      "botanics": 0.25,
+      "regulatory": 0.25,
+      "meta": 0.25
+    },
+    "round2_improvement": {
+      "linguistic": 0.0,
+      "landscape": 0.0,
+      "botanics": 0.0,
+      "regulatory": 0.5,
+      "meta": 0.0
+    },
+    "round2_improvement_notes": {
+      "linguistic": "Agent provided no output; cannot be evaluated for improvement.",
+      "landscape": "Agent did not substantively change reasoning; simply reinforced the initial incorrect hypothesis with cross-agent confirmation.",
+      "botanics": "Agent did not substantively change reasoning; simply reinforced the initial incorrect hypothesis with cross-agent confirmation.",
+      "regulatory": "Agent updated its top candidate from New Zealand to Portugal in Round 2 based on the Meta agent's evidence, showing a change in reasoning.",
+      "meta": "Agent did not substantively change reasoning; simply reinforced the initial incorrect hypothesis with cross-agent confirmation."
+    },
+    "role_leakage_score": {
+      "linguistic": 0.0,
+      "landscape": 0.5,
+      "botanics": 0.5,
+      "regulatory": 1.0,
+      "meta": 0.5
+    },
+    "role_leakage_notes": {
+      "linguistic": "none",
+      "landscape": "Leaked regulatory evidence by citing the 'concrete utility pole' (identified by Meta) as a primary supporting factor.",
+      "botanics": "Leaked regulatory evidence by citing the 'concrete utility pole' (identified by Meta) as a primary supporting factor.",
+      "regulatory": "Heavy leakage: The agent's entire Round 2 reasoning for switching to Portugal was based on the 'concrete utility pole' evidence provided by the Meta agent, rather than its own domain analysis.",
+      "meta": "Leaked botanics/landscape evidence by citing 'Azores-specific flora' and 'lushness' to confirm its infrastructure-based hypothesis."
+    },
+    "hallucination_examples": {
+      "linguistic": [],
+      "landscape": [
+        "The specific presence of Cupressus macrocarpa hedges strongly points to the Azores."
+      ],
+      "botanics": [
+        "The botanical evidence of Cupressus macrocarpa hedges and Pinus radiata plantations... strongly points to the Azores."
+      ],
+      "regulatory": [
+        "the concrete utility pole identified by the Meta Agent is highly characteristic of rural Portugal."
+      ],
+      "meta": [
+        "The Gen 3 camera quality and concrete utility pole design strongly align with Portuguese rural infrastructure."
+      ]
+    },
+    "judge_synthesis_quality": 0.25,
+    "judge_synthesis_notes": "The judge's reasoning is weak and circular. It relies entirely on the hallucinated evidence of the other agents (specifically the 'concrete utility pole' and 'Cupressus macrocarpa') to confirm the incorrect prediction of Portugal. The judge fails to critically evaluate the visual evidence against the ground truth (New Zealand), instead accepting the agents' shared hallucination as fact."
+  }
+}

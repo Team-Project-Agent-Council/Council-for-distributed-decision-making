@@ -1,0 +1,495 @@
+{
+  "funnel": {
+    "n_total": 500,
+    "stages": [
+      {
+        "code": "S0",
+        "description": "Truth in any initial-round top-K",
+        "stage_only_rate": {
+          "n": 500,
+          "correct": 438,
+          "rate": 0.876,
+          "ci_low": 0.8442125871122163,
+          "ci_high": 0.9020539088606966
+        },
+        "cumulative_survival": {
+          "n": 500,
+          "correct": 438,
+          "rate": 0.876,
+          "ci_low": 0.8442125871122163,
+          "ci_high": 0.9020539088606966
+        },
+        "conditional_on_prev": {
+          "n": 500,
+          "correct": 438,
+          "rate": 0.876,
+          "ci_low": 0.8442125871122163,
+          "ci_high": 0.9020539088606966
+        }
+      },
+      {
+        "code": "S1",
+        "description": "Confirmed/proposed region matches truth",
+        "stage_only_rate": {
+          "n": 500,
+          "correct": 0,
+          "rate": 0.0,
+          "ci_low": 4.336808689942018e-19,
+          "ci_high": 0.007624340461552241
+        },
+        "cumulative_survival": {
+          "n": 500,
+          "correct": 0,
+          "rate": 0.0,
+          "ci_low": 4.336808689942018e-19,
+          "ci_high": 0.007624340461552241
+        },
+        "conditional_on_prev": {
+          "n": 438,
+          "correct": 0,
+          "rate": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.008694201831913302
+        }
+      },
+      {
+        "code": "S2",
+        "description": "Truth in country-round top-K (Path B) / region OK (Path A)",
+        "stage_only_rate": {
+          "n": 500,
+          "correct": 0,
+          "rate": 0.0,
+          "ci_low": 4.336808689942018e-19,
+          "ci_high": 0.007624340461552241
+        },
+        "cumulative_survival": {
+          "n": 500,
+          "correct": 0,
+          "rate": 0.0,
+          "ci_low": 4.336808689942018e-19,
+          "ci_high": 0.007624340461552241
+        },
+        "conditional_on_prev": {
+          "n": 0,
+          "correct": 0,
+          "rate": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.0
+        }
+      },
+      {
+        "code": "S3",
+        "description": "Truth in candidate pool",
+        "stage_only_rate": {
+          "n": 500,
+          "correct": 429,
+          "rate": 0.858,
+          "ci_low": 0.8246703326752246,
+          "ci_high": 0.885870639554304
+        },
+        "cumulative_survival": {
+          "n": 500,
+          "correct": 0,
+          "rate": 0.0,
+          "ci_low": 4.336808689942018e-19,
+          "ci_high": 0.007624340461552241
+        },
+        "conditional_on_prev": {
+          "n": 0,
+          "correct": 0,
+          "rate": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.0
+        }
+      },
+      {
+        "code": "S4",
+        "description": "Truth wins the tournament final",
+        "stage_only_rate": {
+          "n": 500,
+          "correct": 339,
+          "rate": 0.678,
+          "ci_low": 0.6358218272211889,
+          "ci_high": 0.7174639075744986
+        },
+        "cumulative_survival": {
+          "n": 500,
+          "correct": 0,
+          "rate": 0.0,
+          "ci_low": 4.336808689942018e-19,
+          "ci_high": 0.007624340461552241
+        },
+        "conditional_on_prev": {
+          "n": 0,
+          "correct": 0,
+          "rate": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.0
+        }
+      },
+      {
+        "code": "S5",
+        "description": "Final predicted country matches truth",
+        "stage_only_rate": {
+          "n": 500,
+          "correct": 339,
+          "rate": 0.678,
+          "ci_low": 0.6358218272211889,
+          "ci_high": 0.7174639075744986
+        },
+        "cumulative_survival": {
+          "n": 500,
+          "correct": 339,
+          "rate": 0.678,
+          "ci_low": 0.6358218272211889,
+          "ci_high": 0.7174639075744986
+        },
+        "conditional_on_prev": {
+          "n": 0,
+          "correct": 0,
+          "rate": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.0
+        }
+      }
+    ],
+    "bottleneck": {
+      "stage_code": "S1",
+      "description": "Confirmed/proposed region matches truth",
+      "conditional_rate": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.008694201831913302
+    },
+    "monotone": true
+  },
+  "oracle_ceilings": {
+    "n_total": 500,
+    "actual": {
+      "n": 500,
+      "correct": 339,
+      "rate": 0.678,
+      "ci_low": 0.6358218272211889,
+      "ci_high": 0.7174639075744986
+    },
+    "oracle_region": {
+      "n": 500,
+      "correct": 339,
+      "rate": 0.678,
+      "ci_low": 0.6358218272211889,
+      "ci_high": 0.7174639075744986
+    },
+    "oracle_pool": {
+      "n": 500,
+      "correct": 439,
+      "rate": 0.878,
+      "ci_low": 0.8463952769261602,
+      "ci_high": 0.9038407216849063
+    },
+    "oracle_tournament": {
+      "n": 500,
+      "correct": 429,
+      "rate": 0.858,
+      "ci_low": 0.8246703326752246,
+      "ci_high": 0.885870639554304
+    },
+    "majority_vote_baseline": {
+      "n": 500,
+      "correct": 325,
+      "rate": 0.65,
+      "ci_low": 0.6071928710061952,
+      "ci_high": 0.6905198268553391
+    }
+  },
+  "tournament_diagnostics": {
+    "n_matches": 1500,
+    "agreement_distribution": {
+      "agree": {
+        "n": 1500,
+        "correct": 1469,
+        "rate": 0.9793333333333333,
+        "ci_low": 0.9708150932498304,
+        "ci_high": 0.985402725833089
+      },
+      "forward_only": {
+        "n": 1500,
+        "correct": 0,
+        "rate": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.002554430720181488
+      },
+      "reverse_only": {
+        "n": 1500,
+        "correct": 0,
+        "rate": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.002554430720181488
+      },
+      "disagree": {
+        "n": 1500,
+        "correct": 31,
+        "rate": 0.020666666666666667,
+        "ci_low": 0.014597274166911008,
+        "ci_high": 0.029184906750169652
+      },
+      "both_empty": {
+        "n": 1500,
+        "correct": 0,
+        "rate": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.002554430720181488
+      },
+      "unknown": {
+        "n": 1500,
+        "correct": 0,
+        "rate": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.002554430720181488
+      }
+    },
+    "tiebreak": {
+      "n": 1500,
+      "correct": 31,
+      "rate": 0.020666666666666667,
+      "ci_low": 0.014597274166911008,
+      "ci_high": 0.029184906750169652
+    },
+    "pool_seed_bias": {
+      "n": 1500,
+      "correct": 1416,
+      "rate": 0.944,
+      "ci_low": 0.9311900560871688,
+      "ci_high": 0.95454160943331
+    },
+    "n_seed_comparable_matches": 1500,
+    "truth_match_win_rate": {
+      "n": 816,
+      "correct": 737,
+      "rate": 0.9031862745098039,
+      "ci_low": 0.8809677431354535,
+      "ci_high": 0.9216264571462742
+    },
+    "n_truth_matches": 816,
+    "truth_outcomes_by_agreement": {
+      "agree": {
+        "n": 813,
+        "won": 735,
+        "win_rate": 0.9040590405904059
+      },
+      "disagree": {
+        "n": 3,
+        "won": 2,
+        "win_rate": 0.6666666666666666
+      }
+    },
+    "specific_pair_failures": [
+      {
+        "truth": "South Africa",
+        "lost_to": "Namibia",
+        "count": 5
+      },
+      {
+        "truth": "Indonesia",
+        "lost_to": "Philippines",
+        "count": 2
+      },
+      {
+        "truth": "Norway",
+        "lost_to": "Sweden",
+        "count": 2
+      },
+      {
+        "truth": "Canada",
+        "lost_to": "United States",
+        "count": 2
+      },
+      {
+        "truth": "Botswana",
+        "lost_to": "Namibia",
+        "count": 2
+      },
+      {
+        "truth": "Sweden",
+        "lost_to": "Finland",
+        "count": 2
+      },
+      {
+        "truth": "Canada",
+        "lost_to": "USA",
+        "count": 2
+      },
+      {
+        "truth": "Russia",
+        "lost_to": "Ukraine",
+        "count": 2
+      },
+      {
+        "truth": "Chile",
+        "lost_to": "Peru",
+        "count": 2
+      },
+      {
+        "truth": "Kenya",
+        "lost_to": "Rwanda",
+        "count": 2
+      },
+      {
+        "truth": "Indonesia",
+        "lost_to": "Malaysia",
+        "count": 2
+      }
+    ]
+  },
+  "agreement_curve": {
+    "levels": [
+      {
+        "agreement": "5/5",
+        "n": 91,
+        "correct": 83,
+        "rate": 0.9120879120879121,
+        "ci_low": 0.8360136111636226,
+        "ci_high": 0.954779792191696
+      },
+      {
+        "agreement": "4/5",
+        "n": 280,
+        "correct": 209,
+        "rate": 0.7464285714285714,
+        "ci_low": 0.6923715736998843,
+        "ci_high": 0.7938153299799484
+      },
+      {
+        "agreement": "3/5",
+        "n": 77,
+        "correct": 26,
+        "rate": 0.33766233766233766,
+        "ci_low": 0.24199921857053475,
+        "ci_high": 0.44875351691077503
+      },
+      {
+        "agreement": "2/5",
+        "n": 51,
+        "correct": 21,
+        "rate": 0.4117647058823529,
+        "ci_low": 0.2875439520458094,
+        "ci_high": 0.5483466279362843
+      },
+      {
+        "agreement": "1/5",
+        "n": 1,
+        "correct": 0,
+        "rate": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.7934506856227626
+      }
+    ]
+  },
+  "path_comparison": {
+    "path_a": {
+      "n": 0
+    },
+    "path_b": {
+      "n": 0
+    }
+  },
+  "severity": {
+    "n_total": 500,
+    "n_wrong": 161,
+    "near_miss_count": 32,
+    "same_region_wrong_count": 0,
+    "wrong_region_count": 0,
+    "near_miss_examples": [
+      {
+        "image_id": "1NJsXTxIF9GGMDxC_3",
+        "truth": "serbia",
+        "pred": "bosnia and herzegovina",
+        "haversine_km": 130.0
+      },
+      {
+        "image_id": "3I4ZtihbhZy5qZzQ_1",
+        "truth": "bangladesh",
+        "pred": "india",
+        "haversine_km": 77.0
+      },
+      {
+        "image_id": "3uP6lYo9pzx5Q0km_2",
+        "truth": "norway",
+        "pred": "sweden",
+        "haversine_km": 207.0
+      },
+      {
+        "image_id": "3uP6lYo9pzx5Q0km_5",
+        "truth": "montenegro",
+        "pred": "bulgaria",
+        "haversine_km": 446.0
+      },
+      {
+        "image_id": "5GS2RPgTrf85UZM5_1",
+        "truth": "bulgaria",
+        "pred": "romania",
+        "haversine_km": 327.0
+      },
+      {
+        "image_id": "6ypQOh9cOoE7WaWH_1",
+        "truth": "montenegro",
+        "pred": "bosnia and herzegovina",
+        "haversine_km": 129.0
+      },
+      {
+        "image_id": "8Uo6ejwXYqmp9av3_2",
+        "truth": "norway",
+        "pred": "denmark",
+        "haversine_km": 421.0
+      },
+      {
+        "image_id": "DKGAIVKGYnLWmMy9_1",
+        "truth": "montenegro",
+        "pred": "croatia",
+        "haversine_km": 323.0
+      },
+      {
+        "image_id": "DKGAIVKGYnLWmMy9_5",
+        "truth": "serbia",
+        "pred": "romania",
+        "haversine_km": 427.0
+      },
+      {
+        "image_id": "JnTw9kl2nWPFaoUg_2",
+        "truth": "france",
+        "pred": "belgium",
+        "haversine_km": 84.0
+      },
+      {
+        "image_id": "Lz6IDBZmUTr5oPdV_1",
+        "truth": "hungary",
+        "pred": "poland",
+        "haversine_km": 484.0
+      },
+      {
+        "image_id": "QTmrnxW99iiyS2xS_5",
+        "truth": "sweden",
+        "pred": "norway",
+        "haversine_km": 252.0
+      },
+      {
+        "image_id": "SkFHwlV4Z2q9fUje_3",
+        "truth": "montenegro",
+        "pred": "croatia",
+        "haversine_km": 221.0
+      },
+      {
+        "image_id": "VpFDohrcFkP6vSIB_3",
+        "truth": "germany",
+        "pred": "netherlands",
+        "haversine_km": 161.0
+      },
+      {
+        "image_id": "Xf8Xjx82sajsyJdw_5",
+        "truth": "curacao",
+        "pred": "aruba",
+        "haversine_km": 119.0
+      }
+    ],
+    "same_region_wrong_examples": [],
+    "wrong_region_examples": []
+  }
+}

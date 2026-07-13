@@ -1,0 +1,636 @@
+{
+  "image_path": "/pfs/data6/home/ma/ma_ma/ma_lweisssc/llm_council_agent_orchestration_tests/clean_images_GeoRC_500/KqjXykSvjIJYNXY8_5.png",
+  "model": "google/gemma-4-31B-it",
+  "judge_model": "google/gemma-4-31B-it",
+  "timing": {
+    "total_seconds": 202.6
+  },
+  "assessments": {
+    "linguistic": {
+      "agent_name": "linguistic",
+      "candidates": [],
+      "evidence": []
+    },
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Thailand",
+          "confidence": "medium",
+          "reasoning": "The combination of lush, tropical broadleaf vegetation, hilly terrain, and the specific style of narrow, weathered concrete road with a concrete drainage gutter is very common in rural Thailand."
+        },
+        {
+          "country": "Vietnam",
+          "confidence": "medium",
+          "reasoning": "The humid tropical forest and hilly landscape are consistent with Northern or Central Vietnam, where similar narrow concrete roads are used in mountainous regions."
+        },
+        {
+          "country": "Laos",
+          "confidence": "medium",
+          "reasoning": "The terrain and vegetation are nearly identical to Thailand and Vietnam, sharing the same Indochinese tropical forest characteristics and rural infrastructure style."
+        },
+        {
+          "country": "Brazil",
+          "confidence": "low",
+          "reasoning": "The dense green foliage and hilly topography are consistent with the Atlantic Forest or interior highlands, though the road construction style is slightly more characteristic of Southeast Asia."
+        },
+        {
+          "country": "Costa Rica",
+          "confidence": "speculative",
+          "reasoning": "As a cross-continent analog, the tropical moist forest and hilly terrain match the Central American highlands, though the specific road shoulder design is less common here."
+        }
+      ],
+      "evidence": [
+        "Lush tropical broadleaf forest",
+        "Hilly/undulating terrain",
+        "Narrow weathered concrete road",
+        "Concrete drainage gutter/curb",
+        "High humidity indicated by vegetation density",
+        "Diffuse sunlight suggesting tropical latitude"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Thailand",
+          "confidence": "medium",
+          "reasoning": "The mix of broadleaf tropical deciduous forest and secondary scrub is highly characteristic of the Indochinese region. The specific leaf density and canopy structure are common in the highlands of Northern or Central Thailand."
+        },
+        {
+          "country": "Vietnam",
+          "confidence": "medium",
+          "reasoning": "The vegetation is consistent with the tropical and subtropical moist broadleaf forests of Southeast Asia. It is botanically indistinguishable from Thailand in this specific view without endemic species visible."
+        },
+        {
+          "country": "Laos",
+          "confidence": "medium",
+          "reasoning": "The forest composition and undergrowth are typical for the Mekong river basin region, sharing the same floral characteristics as neighboring Thailand and Vietnam."
+        },
+        {
+          "country": "Brazil",
+          "confidence": "low",
+          "reasoning": "Global Analog: The Atlantic Forest or Cerrado transition zones can exhibit similar lush, secondary growth and broadleaf canopy structures, though the specific leaf morphology here leans more Asian."
+        },
+        {
+          "country": "Mexico",
+          "confidence": "low",
+          "reasoning": "Global Analog: Tropical deciduous forests in southern Mexico can present similar greenery and road-side scrub, though the species composition typically differs in leaf shape."
+        }
+      ],
+      "evidence": [
+        "Tropical broadleaf deciduous forest",
+        "Secondary growth scrub",
+        "Indochinese floral region"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Costa Rica",
+          "confidence": "low",
+          "reasoning": "The narrow, weathered asphalt road with concrete drainage gutters on the side is common in rural Central American highlands."
+        },
+        {
+          "country": "Thailand",
+          "confidence": "low",
+          "reasoning": "The road width and the style of the concrete edge curbing are consistent with rural secondary roads in Southeast Asia."
+        },
+        {
+          "country": "Brazil",
+          "confidence": "speculative",
+          "reasoning": "Rural asphalt roads with basic concrete drainage and similar tropical vegetation are found across various Brazilian states."
+        },
+        {
+          "country": "Vietnam",
+          "confidence": "speculative",
+          "reasoning": "The narrow road profile and the specific way the concrete gutter is integrated into the shoulder are seen in rural Vietnamese provinces."
+        }
+      ],
+      "evidence": [
+        "Narrow asphalt road width",
+        "Concrete drainage gutter/curbing on the left shoulder",
+        "Lack of road markings",
+        "No visible road signs, license plates, or utility poles"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "Costa Rica",
+          "confidence": "medium",
+          "reasoning": "The image quality and slight blur patterns are consistent with Gen 3/4 coverage often found in Central America. The specific style of the concrete drainage ditch on the left is very common in rural Costa Rican road construction."
+        },
+        {
+          "country": "Panama",
+          "confidence": "medium",
+          "reasoning": "Shares very similar rural infrastructure patterns with Costa Rica, including the concrete guttering and the general image quality of the Google Street View capture in this region."
+        },
+        {
+          "country": "Thailand",
+          "confidence": "low",
+          "reasoning": "Global analog: Rural paved paths with similar concrete drainage systems are common in Southeast Asia. The camera generation and image clarity are consistent with coverage in this region."
+        },
+        {
+          "country": "Brazil",
+          "confidence": "speculative",
+          "reasoning": "Global analog: The general road texture and the presence of simple concrete drainage in rural areas can be found in various parts of South America, though the specific gutter style is less distinctive here than in Central America."
+        }
+      ],
+      "evidence": [
+        "concrete drainage ditch style",
+        "Google Street View image quality/generation",
+        "road surface texture"
+      ]
+    }
+  },
+  "progressive_narrowing": {
+    "region_consensus": false,
+    "confirmed_region": "Southeast Asia",
+    "runner_up_region": "Central America & Caribbean",
+    "surviving_regions": [
+      "Southeast Asia",
+      "Central America & Caribbean"
+    ],
+    "proposed_regions": [
+      "Southeast Asia",
+      "South America",
+      "Central America & Caribbean"
+    ],
+    "region_candidates": {
+      "Southeast Asia": {
+        "Thailand": 4,
+        "Vietnam": 3,
+        "Laos": 2
+      },
+      "South America": {
+        "Brazil": 4
+      },
+      "Central America & Caribbean": {
+        "Costa Rica": 3,
+        "Mexico": 1,
+        "Panama": 1
+      }
+    },
+    "region_decision_reasoning": "Southeast Asia received the highest weighted score due to strong support from the landscape agent and consistent support from botanics and meta agents. Central America & Caribbean follows as the runner-up with consistent support across landscape, botanics, and meta evaluations.",
+    "path": "B"
+  },
+  "road_evidence": {
+    "outside_color": "none",
+    "inside_color": "none",
+    "driving_side": "UNCLEAR",
+    "driving_side_basis": "none"
+  },
+  "country_assessments": {
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Thailand",
+          "confidence": "medium",
+          "reasoning": "The lush, tropical deciduous forest and the specific style of narrow, weathered concrete road with concrete drainage gutters are very common in rural Thai highlands. The vegetation density and soil color are consistent with the Indochinese peninsula."
+        },
+        {
+          "country": "Vietnam",
+          "confidence": "medium",
+          "reasoning": "The hilly terrain and dense tropical greenery match the landscapes of northern or central Vietnam. The road construction style is similar to rural infrastructure found in Southeast Asian highlands."
+        },
+        {
+          "country": "Costa Rica",
+          "confidence": "low",
+          "reasoning": "The humid tropical forest and volcanic-looking greyish soil are consistent with Central American highlands. However, the specific concrete guttering is slightly more characteristic of Southeast Asian rural engineering."
+        },
+        {
+          "country": "Panama",
+          "confidence": "low",
+          "reasoning": "The terrain and vegetation are highly similar to Costa Rica, featuring dense tropical scrub and secondary growth forests typical of the Isthmus."
+        }
+      ],
+      "evidence": [
+        "Lush tropical deciduous vegetation",
+        "Narrow weathered concrete road with integrated concrete drainage channel",
+        "Greyish-brown rocky soil",
+        "Hilly/mountainous terrain",
+        "High sun angle suggesting tropical latitudes"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Thailand",
+          "confidence": "medium",
+          "reasoning": "The mix of secondary growth tropical deciduous forest and broadleaf evergreen species is highly characteristic of the hilly regions of Northern or Central Thailand. The density and leaf structure of the roadside scrub are common in Thai monsoon forests."
+        },
+        {
+          "country": "Vietnam",
+          "confidence": "medium",
+          "reasoning": "The vegetation pattern is consistent with the humid subtropical and tropical monsoon forests found in the highlands of Vietnam. It shares similar botanical profiles with Thailand, making it a strong regional candidate."
+        },
+        {
+          "country": "Costa Rica",
+          "confidence": "low",
+          "reasoning": "The lush, dense green undergrowth and broadleaf canopy are consistent with the premontane wet forests of Central America. However, the specific leaf morphology of the roadside shrubs is more typical of Southeast Asian secondary forests."
+        },
+        {
+          "country": "Panama",
+          "confidence": "low",
+          "reasoning": "The tropical moist forest biome here is a strong analog to the Southeast Asian candidates. The vegetation is consistent with Panamanian secondary growth, though it lacks specific endemic markers to distinguish it from the other regions."
+        }
+      ],
+      "evidence": [
+        "Tropical monsoon forest",
+        "Secondary growth broadleaf scrub",
+        "Humid tropical biome"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Thailand",
+          "confidence": "low",
+          "reasoning": "The narrow, weathered asphalt road with concrete drainage gutters on the side is common in rural Thai provinces. The lush, tropical vegetation is consistent with the region."
+        },
+        {
+          "country": "Costa Rica",
+          "confidence": "low",
+          "reasoning": "The road quality and the presence of a concrete drainage channel are typical for rural secondary roads in Central America. The dense tropical foliage matches the landscape."
+        },
+        {
+          "country": "Vietnam",
+          "confidence": "low",
+          "reasoning": "Rural paved paths with basic concrete edge reinforcement are frequently seen in hilly or forested regions of Vietnam."
+        },
+        {
+          "country": "Panama",
+          "confidence": "low",
+          "reasoning": "The infrastructure style, specifically the narrow asphalt strip and concrete guttering, is consistent with rural Panamanian road construction."
+        }
+      ],
+      "evidence": [
+        "narrow asphalt road width",
+        "concrete drainage gutter/channel",
+        "lack of road markings",
+        "tropical vegetation"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "Costa Rica",
+          "confidence": "medium",
+          "reasoning": "The image quality and slight blur patterns are consistent with Gen 4 coverage common in Central America. The concrete drainage ditch on the left is a very common infrastructure style in rural Costa Rican roads."
+        },
+        {
+          "country": "Panama",
+          "confidence": "medium",
+          "reasoning": "Similar to Costa Rica, Panama utilizes this specific style of open concrete drainage channels along rural paved roads. The camera generation and image clarity match regional coverage patterns."
+        },
+        {
+          "country": "Thailand",
+          "confidence": "low",
+          "reasoning": "The road surface and general image quality are consistent with Southeast Asian coverage, though the lack of specific utility poles makes it harder to distinguish from Central American counterparts."
+        },
+        {
+          "country": "Malaysia",
+          "confidence": "low",
+          "reasoning": "The asphalt texture and the way the road edges blend into the shoulder are common in rural Malaysian secondary roads, though it lacks distinctive regional bollards."
+        }
+      ],
+      "evidence": [
+        "concrete drainage ditch style",
+        "Gen 4 camera image quality",
+        "asphalt texture"
+      ]
+    }
+  },
+  "hypothesis_evaluations": [
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "region_southeast_asia",
+      "confidence": "neutral",
+      "reasoning": "There is no visible text in the image to provide linguistic evidence for or against this region.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "region_south_america",
+      "confidence": "neutral",
+      "reasoning": "There is no visible text in the image to provide linguistic evidence for or against this region.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "region_central_america_and_caribbean",
+      "confidence": "neutral",
+      "reasoning": "There is no visible text in the image to provide linguistic evidence for or against this region.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_southeast_asia",
+      "confidence": "strongly_support",
+      "reasoning": "The combination of lush, broad-leafed tropical vegetation, the specific shade of green in the scrubland, and the narrow, weathered concrete road with a concrete drainage gutter is highly characteristic of rural Southeast Asia (e.g., Thailand, Vietnam, or Malaysia). The soil appears to be a moist, greyish-brown loam common in these humid tropical zones.",
+      "key_evidence": [
+        "tropical broad-leaf vegetation",
+        "concrete drainage gutter",
+        "weathered narrow concrete road"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_central_america_and_caribbean",
+      "confidence": "support",
+      "reasoning": "The tropical climate and dense green foliage are compatible with Central America. However, the specific style of the concrete road shoulder and drainage is slightly more typical of Asian infrastructure than the more varied road styles found in the Caribbean or Central America.",
+      "key_evidence": [
+        "tropical climate",
+        "dense green foliage"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_south_america",
+      "confidence": "support",
+      "reasoning": "The landscape is compatible with the humid tropical regions of South America (e.g., Colombia or Brazil). However, the vegetation density and road construction style are less diagnostic for this region compared to Southeast Asia.",
+      "key_evidence": [
+        "humid tropical vegetation",
+        "undulating terrain"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_southeast_asia",
+      "confidence": "support",
+      "reasoning": "The dense, broadleaf evergreen vegetation and the specific structure of the secondary growth scrub are highly characteristic of humid tropical regions in Southeast Asia, such as Thailand or Vietnam.",
+      "key_evidence": [
+        "Tropical broadleaf evergreen forest",
+        "Secondary growth scrub"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_south_america",
+      "confidence": "support",
+      "reasoning": "The vegetation is compatible with the tropical moist forests of South America (e.g., Brazil or Colombia), as the general biome of tropical rainforest/secondary forest is globally similar.",
+      "key_evidence": [
+        "Tropical broadleaf evergreen forest"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_central_america_and_caribbean",
+      "confidence": "support",
+      "reasoning": "The lush, green, humid tropical vegetation is consistent with the rainforests and cloud forests found in Central America, though no endemic species are visible to distinguish it from other tropical regions.",
+      "key_evidence": [
+        "Tropical broadleaf evergreen forest"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_southeast_asia",
+      "confidence": "support",
+      "reasoning": "The image quality and camera generation are consistent with Gen 4 coverage common in Southeast Asian countries like Thailand or Indonesia. The narrow, weathered concrete road surface is a very common infrastructure style in rural areas of this region.",
+      "key_evidence": [
+        "Gen 4 camera quality",
+        "narrow concrete road construction"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_central_america_and_caribbean",
+      "confidence": "support",
+      "reasoning": "The camera generation is compatible with coverage found in Central America (e.g., Costa Rica or Panama). The concrete roading and drainage style are similar to those found in rural tropical regions of this area.",
+      "key_evidence": [
+        "Gen 4 camera quality",
+        "concrete roading"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_south_america",
+      "confidence": "low",
+      "reasoning": "While the camera generation is globally available, the specific style of the narrow concrete path and the lack of typical South American rural road markers make it less likely than the other two regions, though still possible in countries like Colombia.",
+      "key_evidence": [
+        "Gen 4 camera quality"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_thailand",
+      "confidence": "strongly_support",
+      "reasoning": "The combination of lush, broad-leaf tropical vegetation, the specific greyish-brown soil composition, and the style of the narrow concrete road with a concrete drainage gutter is highly characteristic of rural Thai highlands or foothills.",
+      "key_evidence": [
+        "concrete drainage gutter",
+        "tropical broad-leaf forest",
+        "greyish-brown soil"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_vietnam",
+      "confidence": "support",
+      "reasoning": "The tropical humid climate and hilly terrain are very similar to Thailand, though the specific road construction style is slightly more common in Thai rural infrastructure.",
+      "key_evidence": [
+        "tropical humid climate",
+        "hilly terrain"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_malaysia",
+      "confidence": "support",
+      "reasoning": "The vegetation is consistent with Southeast Asian rainforest margins, but the soil and road shoulder appearance are slightly more typical of mainland SE Asia than the Malaysian peninsula.",
+      "key_evidence": [
+        "tropical vegetation",
+        "humid environment"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_costa_rica",
+      "confidence": "low",
+      "reasoning": "While the tropical greenery is compatible, the specific combination of the concrete gutter and the road surface texture is less common in rural Costa Rican highlands compared to SE Asia.",
+      "key_evidence": [
+        "tropical greenery"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_panama",
+      "confidence": "low",
+      "reasoning": "The landscape is compatible with Central American tropical forests, but the infrastructure style (concrete drainage) leans more towards Asian settlement patterns.",
+      "key_evidence": [
+        "tropical forest"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_thailand",
+      "confidence": "support",
+      "reasoning": "The vegetation consists of a mix of tropical broadleaf trees and opportunistic scrub common in Southeast Asian monsoon forests. The density and leaf structure are highly compatible with Thailand's rural landscapes.",
+      "key_evidence": [
+        "Tropical broadleaf forest",
+        "Monsoon-type scrub"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_vietnam",
+      "confidence": "support",
+      "reasoning": "The lush, humid tropical vegetation and the specific structure of the secondary growth along the roadside are very similar to those found in Vietnam's highlands or rural provinces.",
+      "key_evidence": [
+        "Tropical broadleaf forest",
+        "Secondary growth scrub"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_malaysia",
+      "confidence": "support",
+      "reasoning": "The evergreen nature of the canopy and the undergrowth are consistent with the tropical rainforest biomes of Malaysia, though the lack of distinct dipterocarps makes it less specific.",
+      "key_evidence": [
+        "Evergreen tropical canopy"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_costa_rica",
+      "confidence": "low",
+      "reasoning": "While the biome is a tropical moist forest which exists in Costa Rica, the specific leaf morphology and growth patterns of the roadside shrubs are more characteristic of Asian tropical regions than Neotropical ones.",
+      "key_evidence": [
+        "Tropical moist forest biome"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_panama",
+      "confidence": "low",
+      "reasoning": "Similar to Costa Rica, the general biome is compatible, but the specific composition of the secondary vegetation lacks the diagnostic Neotropical species typically seen in Panamanian roadside scrub.",
+      "key_evidence": [
+        "Tropical moist forest biome"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_thailand",
+      "confidence": "support",
+      "reasoning": "The image quality and camera generation are consistent with Google's coverage in Thailand. The narrow, weathered asphalt path with concrete drainage edges is a common sight in rural Thai provinces.",
+      "key_evidence": [
+        "camera generation",
+        "concrete drainage edge"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_costa_rica",
+      "confidence": "support",
+      "reasoning": "The camera generation is compatible with Central American coverage. The style of the road edge and the general image clarity match typical Costa Rican rural paths.",
+      "key_evidence": [
+        "camera generation",
+        "road construction style"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_panama",
+      "confidence": "support",
+      "reasoning": "Similar to Costa Rica, the camera generation and the type of rural road infrastructure are compatible with Panama's coverage patterns.",
+      "key_evidence": [
+        "camera generation",
+        "road construction style"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_vietnam",
+      "confidence": "low",
+      "reasoning": "While the environment is compatible, the specific camera generation and the lack of typical Vietnamese rural utility poles (which are very distinct) make this less likely than Thailand.",
+      "key_evidence": [
+        "camera generation"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_malaysia",
+      "confidence": "low",
+      "reasoning": "The camera generation is compatible, but the specific style of the concrete gutter/edge is less characteristic of Malaysian rural roads compared to Thailand.",
+      "key_evidence": [
+        "camera generation"
+      ]
+    }
+  ],
+  "candidate_pool": [
+    "Thailand",
+    "Costa Rica",
+    "Panama",
+    "Vietnam",
+    "Malaysia"
+  ],
+  "rag_findings": [
+    {
+      "kind": "tournament_match",
+      "country": "Costa Rica",
+      "detail": "The combination of the narrow concrete road and the specific style of the concrete drainage gutter is highly characteristic of rural Thailand. Specialist evidence for landscape and botanics strongly supports Thailand over Costa Rica based on the vegetation and infrastructure patterns.",
+      "opponent": "Thailand",
+      "winner": "Thailand"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Malaysia",
+      "detail": "The lush, humid tropical vegetation and the specific structure of the secondary growth along the roadside are highly consistent with Vietnam's rural highlands. While both countries are plausible, the specialist evidence for Vietnam's botanics and landscape is slightly more supportive of this specific rural road environment.",
+      "opponent": "Vietnam",
+      "winner": "Vietnam"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Vietnam",
+      "detail": "The landscape specialist strongly supports Thailand based on the specific combination of lush tropical vegetation and the narrow concrete road with a concrete drainage gutter, which is highly characteristic of rural Thai infrastructure. Additionally, the meta evidence notes that the camera generation and the absence of distinct Vietnamese utility poles make Thailand a more likely candidate.",
+      "opponent": "Thailand",
+      "winner": "Thailand"
+    }
+  ],
+  "rag_refs_seen": [],
+  "road_filter_warnings": [],
+  "tournament_log": [
+    {
+      "round_label": "semi-1",
+      "country_a": "Thailand",
+      "country_b": "Costa Rica",
+      "pool_rank_a": 0,
+      "pool_rank_b": 3,
+      "winner": "Thailand",
+      "reasoning": "The combination of the narrow concrete road and the specific style of the concrete drainage gutter is highly characteristic of rural Thailand. Specialist evidence for landscape and botanics strongly supports Thailand over Costa Rica based on the vegetation and infrastructure patterns.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "semi-2",
+      "country_a": "Vietnam",
+      "country_b": "Malaysia",
+      "pool_rank_a": 1,
+      "pool_rank_b": 2,
+      "winner": "Vietnam",
+      "reasoning": "The lush, humid tropical vegetation and the specific structure of the secondary growth along the roadside are highly consistent with Vietnam's rural highlands. While both countries are plausible, the specialist evidence for Vietnam's botanics and landscape is slightly more supportive of this specific rural road environment.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "final",
+      "country_a": "Thailand",
+      "country_b": "Vietnam",
+      "pool_rank_a": 0,
+      "pool_rank_b": 1,
+      "winner": "Thailand",
+      "reasoning": "The landscape specialist strongly supports Thailand based on the specific combination of lush tropical vegetation and the narrow concrete road with a concrete drainage gutter, which is highly characteristic of rural Thai infrastructure. Additionally, the meta evidence notes that the camera generation and the absence of distinct Vietnamese utility poles make Thailand a more likely candidate.",
+      "agreement": "agree"
+    }
+  ],
+  "country_result": "Country: Thailand\nCoordinates: 15.421, 100.123\nReasoning: The landscape specialist strongly supports Thailand based on the specific combination of lush tropical vegetation and the narrow concrete road with a concrete drainage gutter, which is highly characteristic of rural Thai infrastructure. Additionally, the meta evidence notes that the camera generation and the absence of distinct Vietnamese utility poles make Thailand a more likely candidate.\n\nTournament:\n  semi-1: Thailand vs Costa Rica → Thailand\n  semi-2: Vietnam vs Malaysia → Vietnam\n  final: Thailand vs Vietnam → Thailand",
+  "coordinates": {
+    "lat": 15.421,
+    "lng": 100.123
+  },
+  "final_reasoning": "The landscape specialist strongly supports Thailand based on the specific combination of lush tropical vegetation and the narrow concrete road with a concrete drainage gutter, which is highly characteristic of rural Thai infrastructure. Additionally, the meta evidence notes that the camera generation and the absence of distinct Vietnamese utility poles make Thailand a more likely candidate."
+}

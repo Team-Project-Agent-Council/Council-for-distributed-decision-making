@@ -1,0 +1,646 @@
+{
+  "image_path": "/pfs/data6/home/ma/ma_ma/ma_lweisssc/llm_council_agent_orchestration_tests/clean_images_GeoRC_500/e1zn5HV7y0bMjzQL_5.png",
+  "model": "google/gemma-4-31B-it",
+  "judge_model": "google/gemma-4-31B-it",
+  "timing": {
+    "total_seconds": 77.0
+  },
+  "assessments": {
+    "linguistic": {
+      "agent_name": "linguistic",
+      "candidates": [],
+      "evidence": []
+    },
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Laos",
+          "confidence": "high",
+          "reasoning": "The combination of steep, lush tropical mountains, unpaved limestone-based roads, and the specific style of white concrete road markers is highly characteristic of the Laotian highlands. The vegetation and soil color match the Indochinese peninsula's humid subtropical climate."
+        },
+        {
+          "country": "Vietnam",
+          "confidence": "high",
+          "reasoning": "The terrain is nearly identical to the northern highlands of Vietnam. The steep slopes, tropical greenery, and similar road infrastructure make it geographically indistinguishable from Laos in this specific environment."
+        },
+        {
+          "country": "Myanmar",
+          "confidence": "medium",
+          "reasoning": "The mountainous terrain and road conditions are consistent with the hilly regions of Myanmar, though the specific style of road markers is slightly more common in Laos/Vietnam."
+        },
+        {
+          "country": "Colombia",
+          "confidence": "speculative",
+          "reasoning": "As a cross-continent analog, the Andean highlands feature similar steep, green slopes and unpaved mountain roads with concrete barriers, though the specific tree species differ from Southeast Asia."
+        }
+      ],
+      "evidence": [
+        "Steep tropical mountainous terrain",
+        "Unpaved light-colored gravel/limestone road",
+        "White concrete block road delineators",
+        "Humid subtropical vegetation",
+        "High-altitude cloud cover/mist"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Nepal",
+          "confidence": "high",
+          "reasoning": "The combination of subtropical broadleaf forest on steep Himalayan foothills and the specific density of opportunistic scrub on road embankments is highly characteristic of the Mid-Hills region. The vegetation transition from dense canopy to open slope is typical for this altitude in the Himalayas."
+        },
+        {
+          "country": "Bhutan",
+          "confidence": "high",
+          "reasoning": "The botanical profile is nearly identical to Nepal, featuring similar subtropical montane forests and slope vegetation. Without endemic species visible, it is indistinguishable from the neighboring Himalayan foothills of Nepal."
+        },
+        {
+          "country": "India",
+          "confidence": "medium",
+          "reasoning": "The vegetation is consistent with the foothills of the Himalayas in states like Sikkim or Himachal Pradesh. However, the specific slope ecology is more common in the eastern/central Himalayan range."
+        },
+        {
+          "country": "Vietnam",
+          "confidence": "low",
+          "reasoning": "The humid subtropical montane forest and steep terrain are a global analog to the Himalayas. The lush, dense green canopy on the ridge is similar to the highlands of Northern Vietnam."
+        },
+        {
+          "country": "Colombia",
+          "confidence": "speculative",
+          "reasoning": "The Andean cloud forest and subtropical montane vegetation provide a cross-continent analog with similar leaf density and slope colonization patterns."
+        }
+      ],
+      "evidence": [
+        "Subtropical montane broadleaf forest",
+        "Himalayan foothill scrub",
+        "Humid subtropical biome"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Nepal",
+          "confidence": "medium",
+          "reasoning": "The combination of white-painted concrete block barriers on a mountainous dirt road is very characteristic of Himalayan road infrastructure. The stone masonry retaining wall on the left is also common in this region."
+        },
+        {
+          "country": "Bhutan",
+          "confidence": "medium",
+          "reasoning": "Similar to Nepal, Bhutan utilizes these specific white-painted concrete block markers along steep mountain passes and rural roads."
+        },
+        {
+          "country": "India",
+          "confidence": "low",
+          "reasoning": "Certain mountainous regions in Northern India use similar concrete block barriers and stone retaining walls for landslide prevention."
+        },
+        {
+          "country": "Peru",
+          "confidence": "speculative",
+          "reasoning": "Following the global analog rule, rural Andean mountain roads often feature similar unpaved surfaces, stone retaining walls, and basic concrete barriers."
+        }
+      ],
+      "evidence": [
+        "White-painted concrete block barriers",
+        "Dry stone masonry retaining wall",
+        "Unpaved/gravel road surface",
+        "Mountainous terrain infrastructure"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "Nepal",
+          "confidence": "high",
+          "reasoning": "The white concrete block barriers along the road edge are highly characteristic of rural mountain roads in Nepal. The presence of a small, boxy multi-purpose vehicle (MPV) common in South Asia further supports this location."
+        },
+        {
+          "country": "Bhutan",
+          "confidence": "medium",
+          "reasoning": "Bhutan shares very similar road infrastructure, including the use of white-painted concrete blocks for safety barriers in mountainous terrain, and similar vehicle types."
+        },
+        {
+          "country": "Colombia",
+          "confidence": "low",
+          "reasoning": "As a global analog, Colombia has similar mountainous dirt roads with white concrete barriers in certain rural regions, though the vehicle styles are less typical for the Andes."
+        }
+      ],
+      "evidence": [
+        "white concrete block road barriers",
+        "boxy MPV vehicle style",
+        "Google car hood visible (standard Gen 4/5 appearance)"
+      ]
+    }
+  },
+  "progressive_narrowing": {
+    "region_consensus": false,
+    "confirmed_region": "South Asia",
+    "runner_up_region": "Southeast Asia",
+    "surviving_regions": [
+      "South Asia",
+      "Southeast Asia"
+    ],
+    "proposed_regions": [
+      "Southeast Asia",
+      "South America",
+      "South Asia"
+    ],
+    "region_candidates": {
+      "Southeast Asia": {
+        "Laos": 1,
+        "Vietnam": 2,
+        "Myanmar": 1
+      },
+      "South America": {
+        "Colombia": 3,
+        "Peru": 1
+      },
+      "South Asia": {
+        "Nepal": 3,
+        "Bhutan": 3,
+        "India": 2
+      }
+    },
+    "region_decision_reasoning": "South Asia received the highest score due to multiple 'strongly_support' ratings from the landscape and meta agents, specifically citing the Himalayan foothills and Nepal's road infrastructure. Southeast Asia is the runner-up as it was consistently supported across landscape, botanics, and regulatory agents, though with less intensity than South Asia.",
+    "path": "B"
+  },
+  "road_evidence": {
+    "outside_color": "none",
+    "inside_color": "none",
+    "driving_side": "LEFT",
+    "driving_side_basis": "oncoming_traffic"
+  },
+  "country_assessments": {
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Nepal",
+          "confidence": "high",
+          "reasoning": "The combination of steep, unstable mountainous terrain, dry gravel roads, and specific stone-masonry retaining walls is highly characteristic of the mid-hills of Nepal. The vegetation and soil color are consistent with the Himalayan foothills."
+        },
+        {
+          "country": "Bhutan",
+          "confidence": "medium",
+          "reasoning": "Bhutan shares very similar mountainous geography, climate, and road construction styles with Nepal. The lush green slopes and steep valley topography are nearly identical to the Nepalese mid-hills."
+        },
+        {
+          "country": "India",
+          "confidence": "medium",
+          "reasoning": "The landscape is consistent with the Himachal Pradesh or Uttarakhand regions of Northern India. These areas feature similar road conditions and mountainous vegetation as Nepal and Bhutan."
+        },
+        {
+          "country": "Myanmar",
+          "confidence": "low",
+          "reasoning": "Certain highland regions in Myanmar feature similar steep terrain and unpaved roads, though the specific style of the white concrete road markers is less common there than in the Himalayas."
+        }
+      ],
+      "evidence": [
+        "Steep mountainous terrain with high erosion",
+        "Unpaved gravel road with stone-masonry retaining walls",
+        "Lush temperate/subtropical hillside vegetation",
+        "White concrete roadside markers",
+        "Overcast sky with diffused lighting suggesting a high-altitude environment"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Nepal",
+          "confidence": "high",
+          "reasoning": "The combination of subtropical broadleaf forest and the specific slope vegetation is highly characteristic of the Mid-Hills region. The presence of mixed deciduous trees and dense undergrowth on steep, unstable terrain is typical of the Himalayan foothills."
+        },
+        {
+          "country": "Bhutan",
+          "confidence": "high",
+          "reasoning": "The botanical profile is nearly identical to Nepal, featuring similar subtropical montane forests and slope vegetation. Both countries share this specific ecological zone along the Himalayan range."
+        },
+        {
+          "country": "India",
+          "confidence": "medium",
+          "reasoning": "Similar vegetation is found in the Northeast states (e.g., Sikkim, Arunachal Pradesh) and the Himachal/Uttarakhand regions. However, the specific density and species mix are more indicative of the central Himalayan foothills."
+        },
+        {
+          "country": "Myanmar",
+          "confidence": "low",
+          "reasoning": "The northern highlands of Myanmar share some similarities in subtropical forest composition, though the specific slope morphology and vegetation density are slightly different from the Himalayan examples."
+        }
+      ],
+      "evidence": [
+        "Subtropical broadleaf forest",
+        "Himalayan mid-hill vegetation",
+        "Mixed deciduous montane species"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "India",
+          "confidence": "medium",
+          "reasoning": "The white concrete block barriers along the cliff edge are very common in mountainous regions of India (e.g., Himachal Pradesh or Uttarakhand). The stone masonry retaining wall on the left is a standard rural construction style in the Himalayas."
+        },
+        {
+          "country": "Nepal",
+          "confidence": "medium",
+          "reasoning": "The combination of unpaved mountain roads, white concrete safety blocks, and dry-stone retaining walls is highly characteristic of the mid-hill regions of Nepal."
+        },
+        {
+          "country": "Bhutan",
+          "confidence": "low",
+          "reasoning": "Similar mountainous terrain and basic infrastructure including concrete edge blocks and stone walls are found in Bhutan's rural road network."
+        },
+        {
+          "country": "Laos",
+          "confidence": "low",
+          "reasoning": "Rural mountain roads in Laos often feature similar unpaved surfaces and basic concrete markers, though the specific block style is more common in South Asia."
+        }
+      ],
+      "evidence": [
+        "white concrete block edge barriers",
+        "dry-stone masonry retaining wall",
+        "unpaved/gravel road surface",
+        "mountainous rural road width"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "Nepal",
+          "confidence": "high",
+          "reasoning": "The white concrete block delineators along the road edge are extremely characteristic of mountainous regions in Nepal. The presence of a small, boxy multi-purpose vehicle (MPV) is very common in this region for rugged terrain."
+        },
+        {
+          "country": "Bhutan",
+          "confidence": "medium",
+          "reasoning": "Bhutan shares similar mountainous road infrastructure and the use of white concrete blocks for road safety. However, the specific style of the road-side walling is more frequently seen in Nepal."
+        },
+        {
+          "country": "India",
+          "confidence": "low",
+          "reasoning": "Similar concrete blocks can be found in the Himalayan states of India (like Himachal Pradesh or Uttarakhand), but the overall combination of the vehicle type and the specific block shape is more typical of Nepal."
+        }
+      ],
+      "evidence": [
+        "White concrete block road delineators",
+        "Boxy MPV vehicle type",
+        "Dry stone retaining wall construction",
+        "Google car hood visible (standard Gen 4/Gen 3 appearance)"
+      ]
+    }
+  },
+  "hypothesis_evaluations": [
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "region_southeast_asia",
+      "confidence": "neutral",
+      "reasoning": "There is no visible text in the image to support or contradict this hypothesis.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "region_south_america",
+      "confidence": "neutral",
+      "reasoning": "There is no visible text in the image to support or contradict this hypothesis.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "region_south_asia",
+      "confidence": "neutral",
+      "reasoning": "There is no visible text in the image to support or contradict this hypothesis.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_south_asia",
+      "confidence": "strongly_support",
+      "reasoning": "The combination of steep, lush green hillsides, the specific style of dry-stone retaining walls, and the light-colored, dusty mountain road is highly characteristic of the Himalayan foothills or the Western Ghats. The vegetation density and soil color are very consistent with the monsoon-influenced climates of India, Nepal, or Bhutan.",
+      "key_evidence": [
+        "steep lush green slopes",
+        "dry-stone retaining walls",
+        "dusty light-colored mountain road"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_southeast_asia",
+      "confidence": "support",
+      "reasoning": "The tropical, mountainous terrain and humid climate are compatible with regions like Northern Thailand, Laos, or Vietnam. However, the specific road construction and stone walling style are slightly more typical of South Asian mountain infrastructure.",
+      "key_evidence": [
+        "tropical mountain vegetation",
+        "humid climate indicators"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_south_america",
+      "confidence": "low",
+      "reasoning": "While the Andes have similar mountainous terrain and greenery in the cloud forest regions, the specific combination of the road's white concrete markers and the stone walling style is less common here than in Asia.",
+      "key_evidence": [
+        "mountainous terrain",
+        "green slopes"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_south_asia",
+      "confidence": "support",
+      "reasoning": "The combination of subtropical broadleaf forest and the specific structure of the hillside vegetation is highly consistent with the Himalayan foothills or the Western Ghats. The presence of certain canopy trees with spreading crowns is common in the moist deciduous forests of India, Nepal, and Bhutan.",
+      "key_evidence": [
+        "subtropical broadleaf forest",
+        "moist deciduous canopy"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_southeast_asia",
+      "confidence": "support",
+      "reasoning": "The lush, humid tropical vegetation and the density of the undergrowth are compatible with the highlands of Southeast Asia (e.g., Vietnam, Laos, Myanmar). The biome is very similar to South Asia, making it difficult to distinguish based on vegetation alone without a visible endemic species.",
+      "key_evidence": [
+        "tropical montane vegetation",
+        "dense humid undergrowth"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_south_america",
+      "confidence": "low",
+      "reasoning": "While the general biome (tropical/subtropical montane) exists in the Andes, the specific leaf morphology and growth patterns of the visible trees are more characteristic of the Indo-Malayan realm than the Neotropical realm. It is a global analog but less likely.",
+      "key_evidence": [
+        "tropical montane biome analog"
+      ]
+    },
+    {
+      "agent_name": "regulatory",
+      "hypothesis_id": "region_southeast_asia",
+      "confidence": "support",
+      "reasoning": "The white concrete block barriers and the general style of the unpaved mountain road are common in rural Southeast Asian highlands (e.g., Laos, Vietnam, Myanmar).",
+      "key_evidence": [
+        "white concrete block barriers",
+        "unpaved mountain road"
+      ]
+    },
+    {
+      "agent_name": "regulatory",
+      "hypothesis_id": "region_south_asia",
+      "confidence": "support",
+      "reasoning": "The combination of stone retaining walls and white-painted concrete edge markers is very characteristic of hill roads in South Asia, particularly in Nepal or Northern India.",
+      "key_evidence": [
+        "stone retaining walls",
+        "white concrete block barriers"
+      ]
+    },
+    {
+      "agent_name": "regulatory",
+      "hypothesis_id": "region_south_america",
+      "confidence": "speculative",
+      "reasoning": "While the rural mountain infrastructure (gravel road, basic barriers) is visually similar to some Andean regions, the specific style of the concrete blocks is less typical than in Asia.",
+      "key_evidence": [
+        "unpaved mountain road",
+        "basic concrete barriers"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_south_asia",
+      "confidence": "strongly_support",
+      "reasoning": "The presence of the Google Street View car hood (visible at the bottom) in a region with this specific road quality and the style of the white concrete road-edge blocks is highly characteristic of coverage in Nepal. The vehicle types (small multi-purpose vans/SUVs) are extremely common in the Himalayan foothills of South Asia.",
+      "key_evidence": [
+        "Google car hood visibility",
+        "White concrete road-edge blocks",
+        "Vehicle types (small MPVs)"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_southeast_asia",
+      "confidence": "support",
+      "reasoning": "The general road infrastructure and vehicle types are compatible with rural areas of Southeast Asia (e.g., Laos or Vietnam), but the specific combination of the Google car hood and the concrete block style is more diagnostic of South Asian coverage.",
+      "key_evidence": [
+        "Vehicle types",
+        "Road construction materials"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_south_america",
+      "confidence": "low",
+      "reasoning": "While mountainous dirt roads exist in South America, the specific style of the white concrete delineators and the vehicle models seen are less common than in Asia. Additionally, the Google car hood pattern seen here is more typical of Asian coverage regions.",
+      "key_evidence": [
+        "Google car hood",
+        "Concrete block style"
+      ]
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "country_nepal",
+      "confidence": "neutral",
+      "reasoning": "There is no visible text in the image to provide linguistic evidence for or against this hypothesis.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "country_bhutan",
+      "confidence": "neutral",
+      "reasoning": "There is no visible text in the image to provide linguistic evidence for or against this hypothesis.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "country_india",
+      "confidence": "neutral",
+      "reasoning": "There is no visible text in the image to provide linguistic evidence for or against this hypothesis.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_nepal",
+      "confidence": "strongly_support",
+      "reasoning": "The combination of steep, unstable slopes with significant erosion, the specific style of dry-stone retaining walls, and the high-altitude subtropical vegetation is highly characteristic of the mid-hills of Nepal. The road construction style (unpaved, carved into a steep hillside with white concrete markers) is a common sight in the Himalayan foothills of Nepal.",
+      "key_evidence": [
+        "steep eroded slopes",
+        "dry-stone retaining walls",
+        "high-altitude subtropical vegetation",
+        "hillside road carving"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_india",
+      "confidence": "support",
+      "reasoning": "The terrain is very similar to the Indian states of Himachal Pradesh or Uttarakhand. However, the specific combination of the road's edge markers and the vegetation density is slightly more typical of the Nepalese mid-hills than the more developed hill stations of India.",
+      "key_evidence": [
+        "Himalayan foothills terrain",
+        "subtropical mountain climate"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_bhutan",
+      "confidence": "support",
+      "reasoning": "Bhutan shares the same general geography and climate as Nepal and India in this region. While the terrain is compatible, the specific road infrastructure seen here is more frequently documented in Nepal.",
+      "key_evidence": [
+        "mountainous terrain",
+        "similar vegetation patterns"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_nepal",
+      "confidence": "support",
+      "reasoning": "The vegetation consists of subtropical broadleaf forests and hillside scrub typical of the mid-hills (Pahad) region of Nepal. The mix of deciduous trees and opportunistic grasses on steep, eroded slopes is highly characteristic of the Himalayan foothills.",
+      "key_evidence": [
+        "subtropical broadleaf forest",
+        "hillside scrub",
+        "Himalayan foothill vegetation"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_bhutan",
+      "confidence": "support",
+      "reasoning": "The botanical composition is nearly identical to Nepal, featuring similar montane subtropical forests and slope vegetation. There are no visible endemic species in this image to distinguish Bhutan from Nepal or Northeast India.",
+      "key_evidence": [
+        "montane subtropical forest",
+        "slope vegetation"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_india",
+      "confidence": "support",
+      "reasoning": "This vegetation is entirely consistent with the hilly regions of Northeast India (e.g., Sikkim, Arunachal Pradesh) or the Himachal/Uttarakhand regions. The broadleaf canopy and undergrowth are common across the entire Eastern Himalayan belt.",
+      "key_evidence": [
+        "Eastern Himalayan broadleaf forest",
+        "subtropical scrub"
+      ]
+    },
+    {
+      "agent_name": "regulatory",
+      "hypothesis_id": "country_nepal",
+      "confidence": "strongly_support",
+      "reasoning": "The white concrete block barriers (bollards) with small yellow/black markers are highly characteristic of mountain road infrastructure in Nepal. The combination of rough asphalt/gravel road, stone masonry retaining walls, and the specific style of these safety blocks is a strong match for Nepalese hill roads.",
+      "key_evidence": [
+        "white concrete block barriers",
+        "stone masonry retaining walls",
+        "road width and surface quality"
+      ]
+    },
+    {
+      "agent_name": "regulatory",
+      "hypothesis_id": "country_india",
+      "confidence": "support",
+      "reasoning": "The infrastructure is compatible with rural mountain regions of India (e.g., Himachal Pradesh or Uttarakhand), which share similar stone walling and basic road construction. However, the specific style of the concrete block barriers is more ubiquitous in Nepal.",
+      "key_evidence": [
+        "stone masonry retaining walls",
+        "rural mountain road style"
+      ]
+    },
+    {
+      "agent_name": "regulatory",
+      "hypothesis_id": "country_bhutan",
+      "confidence": "support",
+      "reasoning": "Bhutan has similar mountainous terrain and basic road infrastructure, including stone walls. However, Bhutanese roads often feature more consistent painting or different barrier styles compared to the specific blocks seen here.",
+      "key_evidence": [
+        "stone masonry retaining walls",
+        "rural mountain road style"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_nepal",
+      "confidence": "strongly_support",
+      "reasoning": "The Google Street View car hood is visible and has a distinct dark grey/black metallic finish and shape characteristic of the Trekker/off-road coverage used extensively in Nepal. The white concrete block barriers along the cliff edge are a very common infrastructure style in the Nepalese highlands.",
+      "key_evidence": [
+        "Google car hood color and shape (Trekker/off-road style)",
+        "White concrete block road barriers"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_india",
+      "confidence": "support",
+      "reasoning": "The vehicle types (small multi-purpose vehicles/SUVs) are common in India, and similar concrete barriers can be found in Himalayan regions of India. However, the specific Google car hood meta is more strongly associated with Nepal's recent mountain coverage.",
+      "key_evidence": [
+        "Vehicle types",
+        "Concrete road barriers"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_bhutan",
+      "confidence": "low",
+      "reasoning": "While the terrain and infrastructure are compatible, Bhutan has very limited Google Street View coverage compared to Nepal and India, and the specific car hood meta is less characteristic of known Bhutanese coverage.",
+      "key_evidence": [
+        "Concrete road barriers"
+      ]
+    }
+  ],
+  "candidate_pool": [
+    "Nepal",
+    "Bhutan",
+    "India"
+  ],
+  "rag_findings": [
+    {
+      "kind": "elim_driving",
+      "country": "Myanmar",
+      "detail": "right-hand-traffic country contradicts observed LEFT-hand traffic"
+    },
+    {
+      "kind": "elim_driving",
+      "country": "Laos",
+      "detail": "right-hand-traffic country contradicts observed LEFT-hand traffic"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "India",
+      "detail": "The white concrete block barriers along the cliff edge and the specific style of dry-stone retaining walls are highly characteristic of Nepalese mountain road infrastructure. Additionally, the Google car hood meta and the landscape of steep, eroded mid-hills strongly support Nepal over India.",
+      "opponent": "Nepal",
+      "winner": "Nepal"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Bhutan",
+      "detail": "The white concrete block barriers along the cliff edge and the dry-stone retaining walls are highly characteristic of road infrastructure in the mid-hills of Nepal. Additionally, the specific car hood visible in the streetview is consistent with the off-road coverage used extensively in Nepal, whereas Bhutan has very limited coverage.",
+      "opponent": "Nepal",
+      "winner": "Nepal"
+    }
+  ],
+  "rag_refs_seen": [],
+  "road_filter_warnings": [],
+  "tournament_log": [
+    {
+      "round_label": "semi",
+      "country_a": "Nepal",
+      "country_b": "India",
+      "pool_rank_a": 0,
+      "pool_rank_b": 1,
+      "winner": "Nepal",
+      "reasoning": "The white concrete block barriers along the cliff edge and the specific style of dry-stone retaining walls are highly characteristic of Nepalese mountain road infrastructure. Additionally, the Google car hood meta and the landscape of steep, eroded mid-hills strongly support Nepal over India.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "final",
+      "country_a": "Nepal",
+      "country_b": "Bhutan",
+      "pool_rank_a": 0,
+      "pool_rank_b": 2,
+      "winner": "Nepal",
+      "reasoning": "The white concrete block barriers along the cliff edge and the dry-stone retaining walls are highly characteristic of road infrastructure in the mid-hills of Nepal. Additionally, the specific car hood visible in the streetview is consistent with the off-road coverage used extensively in Nepal, whereas Bhutan has very limited coverage.",
+      "agreement": "agree"
+    }
+  ],
+  "country_result": "Country: Nepal\nCoordinates: 27.7172, 85.324\nReasoning: The white concrete block barriers along the cliff edge and the dry-stone retaining walls are highly characteristic of road infrastructure in the mid-hills of Nepal. Additionally, the specific car hood visible in the streetview is consistent with the off-road coverage used extensively in Nepal, whereas Bhutan has very limited coverage.\n\nTournament:\n  semi: Nepal vs India → Nepal\n  final: Nepal vs Bhutan → Nepal",
+  "coordinates": {
+    "lat": 27.7172,
+    "lng": 85.324
+  },
+  "final_reasoning": "The white concrete block barriers along the cliff edge and the dry-stone retaining walls are highly characteristic of road infrastructure in the mid-hills of Nepal. Additionally, the specific car hood visible in the streetview is consistent with the off-road coverage used extensively in Nepal, whereas Bhutan has very limited coverage."
+}

@@ -1,0 +1,68 @@
+{
+  "image_id": "mMZ8js56Rj2JtLlc_2",
+  "truth_country": "slovakia",
+  "pred_country": "romania",
+  "is_correct": false,
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": true,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.25,
+      "botanics": 0.25,
+      "regulatory": 0.25,
+      "meta": 0.25
+    },
+    "visual_consistency_score": {
+      "linguistic": 1.0,
+      "landscape": 0.75,
+      "botanics": 0.75,
+      "regulatory": 0.75,
+      "meta": 0.75
+    },
+    "confidence_calibration_score": {
+      "linguistic": 1.0,
+      "landscape": 0.25,
+      "botanics": 0.25,
+      "regulatory": 0.25,
+      "meta": 0.25
+    },
+    "round2_improvement": {
+      "linguistic": 0.0,
+      "landscape": 0.5,
+      "botanics": 0.5,
+      "regulatory": 0.5,
+      "meta": 0.5
+    },
+    "round2_improvement_notes": {
+      "linguistic": "Agent provided no output in either round.",
+      "landscape": "Acknowledged other agents' evidence (utility poles) and updated confidence, but did not substantively change the primary candidate.",
+      "botanics": "Shifted primary candidate from Poland to Romania based on cross-agent infrastructure evidence, but the botanical reasoning remained generic.",
+      "regulatory": "Generated candidates in Round 2 based on infrastructure cues; improved by synthesizing with other agents.",
+      "meta": "Maintained consistent reasoning; acknowledged landscape evidence but did not refine the specific geographic identification."
+    },
+    "role_leakage_score": {
+      "linguistic": 0.0,
+      "landscape": 1.0,
+      "botanics": 1.0,
+      "regulatory": 1.0,
+      "meta": 0.5
+    },
+    "role_leakage_notes": {
+      "linguistic": "No output.",
+      "landscape": "Heavy leakage: R2 reasoning relies primarily on the Meta Agent's identification of the utility pole design, a regulatory/infrastructure cue.",
+      "botanics": "Heavy leakage: R2 reasoning explicitly defers to the Meta and Landscape agents' infrastructure evidence to override botanical probabilities.",
+      "regulatory": "Heavy leakage: R2 reasoning relies on the Meta Agent's utility pole identification to support the regulatory assessment.",
+      "meta": "Minor leakage: R2 references the Landscape Agent's terrain description to support the meta-marker identification."
+    },
+    "hallucination_examples": {},
+    "judge_synthesis_quality": 0.25,
+    "judge_synthesis_notes": "The judge's reasoning is weak and circular. It accepts the agents' incorrect identification of the utility pole as a 'strong marker' for Romania/Bulgaria without verifying if this infrastructure is actually exclusive to those regions (it is common in Slovakia too). The judge fails to eliminate Slovakia despite the ground truth being Slovakia, and the reasoning provided ('weathered rural asphalt') is not diagnostic enough to distinguish between the two."
+  }
+}

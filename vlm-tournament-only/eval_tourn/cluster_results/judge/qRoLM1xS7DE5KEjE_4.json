@@ -1,0 +1,98 @@
+{
+  "image_id": "qRoLM1xS7DE5KEjE_4",
+  "truth_country": "russian federation",
+  "pred_country": "estonia",
+  "is_correct": false,
+  "candidate_pool": [
+    "Estonia",
+    "Canada",
+    "Latvia",
+    "Lithuania",
+    "Russia",
+    "Finland"
+  ],
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": true,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "role_adherence_notes": {
+      "linguistic": "Correctly identified lack of visible text and remained neutral.",
+      "landscape": "Focused on terrain, vegetation, and climate cues appropriate for the domain.",
+      "botanics": "Analyzed plant species (spruce/pine) and forest management styles.",
+      "regulatory": "Analyzed road markings, delineator posts, and infrastructure standards.",
+      "meta": "Synthesized cross-domain cues (camera artifacts, general road furniture) to distinguish regions."
+    },
+    "argumentative_quality": {
+      "linguistic": "normal",
+      "landscape": "strong",
+      "botanics": "strong",
+      "regulatory": "strong",
+      "meta": "strong"
+    },
+    "constructive_synthesis": true,
+    "overall_verdict_notes": "The pipeline failed because the specialists collectively misidentified the country as Estonia based on a visual feature (delineator posts) that is not unique to Estonia and is also common in Russia. The agents failed to consider the Russian Federation as a primary candidate, leading to a pool where the truth was a low-confidence underdog. The tournament then correctly followed the specialists' biased evidence to pick Estonia.",
+    "role_adherence_score": {
+      "linguistic": 1.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.9,
+      "meta": 0.9
+    },
+    "argumentative_quality_score": {
+      "linguistic": 0.5,
+      "landscape": 0.8,
+      "botanics": 0.8,
+      "regulatory": 0.8,
+      "meta": 0.8
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.0,
+      "botanics": 0.0,
+      "regulatory": 0.0,
+      "meta": 0.0
+    },
+    "hallucination_examples": {
+      "linguistic": [],
+      "landscape": [],
+      "botanics": [],
+      "regulatory": [],
+      "meta": []
+    },
+    "visual_consistency_score": {
+      "linguistic": 1.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.9,
+      "meta": 0.9
+    },
+    "visual_consistency_notes": {
+      "linguistic": "Accurately noted absence of text.",
+      "landscape": "Accurately described flat terrain and coniferous forests.",
+      "botanics": "Accurately identified spruce and pine.",
+      "regulatory": "Accurately described the white delineator posts and road markings.",
+      "meta": "Accurately described the camera artifacts and general road style."
+    },
+    "confidence_calibration": {
+      "linguistic": 0.5,
+      "landscape": 0.2,
+      "botanics": 0.2,
+      "regulatory": 0.2,
+      "meta": 0.2
+    },
+    "tournament_failure": {
+      "truth_in_pool": true,
+      "truth_lost_to": "Estonia",
+      "failure_match_round": "semi-1",
+      "failure_reason": "agent_misled_in_tournament",
+      "failure_reasoning": "The specialists collectively assigned 'strongly_support' to Estonia and 'low' confidence to Russia based on the delineator posts. The tournament judge followed this evidence, causing Russia to lose in the first round. The agents failed to recognize that the visual cue (white posts) is not exclusive to Estonia and is also standard in Russia.",
+      "counterfactual_winnable": false
+    }
+  },
+  "validation_error": "1 validation error for JudgeVerdict\noverall_verdict_notes\n  String should have at most 400 characters [type=string_too_long, input_value=\"The pipeline failed beca...idence to pick Estonia.\", input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_too_long"
+}

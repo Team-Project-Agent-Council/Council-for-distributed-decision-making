@@ -1,0 +1,94 @@
+{
+  "image_id": "5bPlIRT7eGN79a2E_3",
+  "truth_country": "mexico",
+  "pred_country": "argentina",
+  "is_correct": false,
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": true,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "role_adherence_notes": {
+      "linguistic": "Correctly identified the absence of linguistic cues (no signs) and stayed within domain.",
+      "landscape": "Focused on terrain, soil, and vegetation patterns consistent with arid steppes.",
+      "botanics": "Analyzed plant types (xeric shrubland, bunchgrasses) and biome distribution.",
+      "regulatory": "Evaluated road width, shoulder type, and fence styles.",
+      "meta": "Relied on camera artifacts and cross-domain synthesis, which is its declared expertise."
+    },
+    "argumentative_quality": {
+      "linguistic": "normal",
+      "landscape": "strong",
+      "botanics": "strong",
+      "regulatory": "normal",
+      "meta": "weak"
+    },
+    "constructive_synthesis": true,
+    "overall_verdict_notes": "The pipeline failed to identify the correct country (Mexico) due to a strong bias towards South American candidates (Argentina/Chile) driven by the 'meta' agent's reliance on camera artifacts and the 'landscape'/'botanics' agents' failure to distinguish the Chihuahuan Desert from the Patagonian/Argentine Monte. The final decision was a rubber-stamp of the meta agent's flawed hypothesis.",
+    "assertiveness": null,
+    "assertiveness_score": {},
+    "overall_quality_score": null,
+    "role_adherence_score": {
+      "linguistic": 1.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.9,
+      "meta": 0.9
+    },
+    "argumentative_quality_score": {
+      "linguistic": 0.5,
+      "landscape": 0.75,
+      "botanics": 0.75,
+      "regulatory": 0.5,
+      "meta": 0.3
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.0,
+      "botanics": 0.0,
+      "regulatory": 0.0,
+      "meta": 0.5
+    },
+    "hallucination_examples": {
+      "linguistic": [],
+      "landscape": [],
+      "botanics": [],
+      "regulatory": [],
+      "meta": [
+        "Meta agent claimed the 'halo' blur is a 'distinct' artifact of Gen 4 cameras in Argentina, which is a fabricated technical specificity not supported by the image or general knowledge."
+      ]
+    },
+    "visual_consistency_score": {
+      "linguistic": 1.0,
+      "landscape": 0.8,
+      "botanics": 0.8,
+      "regulatory": 0.8,
+      "meta": 0.4
+    },
+    "visual_consistency_notes": {
+      "linguistic": "Accurately noted lack of text.",
+      "landscape": "Correctly described the arid, flat terrain.",
+      "botanics": "Correctly identified xeric scrub and grasses.",
+      "regulatory": "Correctly described the road and fence.",
+      "meta": "Invented a visual artifact ('halo') to support a specific country."
+    },
+    "confidence_calibration": {
+      "linguistic": 0.5,
+      "landscape": 0.2,
+      "botanics": 0.2,
+      "regulatory": 0.2,
+      "meta": 0.0
+    },
+    "tournament_failure": {
+      "truth_in_pool": true,
+      "truth_lost_to": "Argentina",
+      "failure_match_round": "semi-1",
+      "failure_reason": "agent_misled",
+      "failure_reasoning": "The 'meta' agent assigned 'strongly_support' to Argentina based on a hallucinated camera artifact, while assigning 'low' confidence to Mexico. This skewed the region decision and the final tournament bracket, effectively misleading the judge away from the truth.",
+      "counterfactual_winnable": true
+    }
+  }
+}

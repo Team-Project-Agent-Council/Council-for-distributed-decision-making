@@ -1,0 +1,98 @@
+{
+  "image_id": "N4EN1CWspaIlcCYq_5",
+  "truth_country": "russian federation",
+  "pred_country": "ukraine",
+  "is_correct": false,
+  "candidate_pool": [
+    "Ukraine",
+    "Russia",
+    "Kazakhstan",
+    "USA",
+    "Argentina",
+    "Canada"
+  ],
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": false,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "role_adherence_notes": {
+      "linguistic": "The agent provided an empty candidate list and no evidence, failing to perform its declared function of analyzing scripts, languages, or place names.",
+      "landscape": "Stayed within terrain, soil, and climate analysis.",
+      "botanics": "Stayed within plant species and agricultural patterns.",
+      "regulatory": "Stayed within road infrastructure and markings.",
+      "meta": "Stayed within cross-domain synthesis and camera generation artifacts."
+    },
+    "argumentative_quality": {
+      "linguistic": "very_weak",
+      "landscape": "strong",
+      "botanics": "strong",
+      "regulatory": "normal",
+      "meta": "strong"
+    },
+    "constructive_synthesis": false,
+    "overall_verdict_notes": "The pipeline failed to identify the correct country (Russia) because the linguistic agent provided no input, leaving the decision to landscape/botanical cues that are visually identical in Ukraine and Russia. The tournament judge then relied on a subjective preference for 'Ukrainian steppe' over 'Russian steppe' despite the evidence being nearly identical, leading to a hallucinated distinction in road quality.",
+    "role_adherence_score": {
+      "linguistic": 0.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.8,
+      "meta": 0.85
+    },
+    "argumentative_quality_score": {
+      "linguistic": 0.0,
+      "landscape": 0.8,
+      "botanics": 0.8,
+      "regulatory": 0.6,
+      "meta": 0.8
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.0,
+      "botanics": 0.0,
+      "regulatory": 0.0,
+      "meta": 0.0
+    },
+    "hallucination_examples": {
+      "linguistic": [],
+      "landscape": [],
+      "botanics": [],
+      "regulatory": [],
+      "meta": []
+    },
+    "visual_consistency_score": {
+      "linguistic": 0.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.8,
+      "meta": 0.85
+    },
+    "visual_consistency_notes": {
+      "linguistic": "No claims made.",
+      "landscape": "Accurately described the chernozem soil and flat terrain.",
+      "botanics": "Accurately described the crops and tree lines.",
+      "regulatory": "Accurately described the cracked asphalt and lack of markings.",
+      "meta": "Accurately described the image quality and road texture."
+    },
+    "confidence_calibration": {
+      "linguistic": 0.0,
+      "landscape": 0.25,
+      "botanics": 0.25,
+      "regulatory": 0.25,
+      "meta": 0.25
+    },
+    "tournament_failure": {
+      "truth_in_pool": true,
+      "truth_lost_to": "Ukraine",
+      "failure_match_round": "final",
+      "failure_reason": "judge_misjudgment",
+      "failure_reasoning": "The final match (Russia vs Ukraine) had comparable RAG evidence and specialist support for both sides. The judge's reasoning ('specific combination of road quality and landscape is highly representative of rural Ukraine') contradicts the visual evidence, which shows a generic rural road and steppe landscape common to both countries. The judge hallucinated a distinction in road quality to favor Ukraine.",
+      "counterfactual_winnable": true
+    }
+  },
+  "validation_error": "1 validation error for JudgeVerdict\noverall_verdict_notes\n  String should have at most 400 characters [type=string_too_long, input_value=\"The pipeline failed to i...nction in road quality.\", input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_too_long"
+}

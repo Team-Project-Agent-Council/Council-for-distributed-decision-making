@@ -1,0 +1,74 @@
+{
+  "image_id": "9NNxopqtafH8pTbN_4",
+  "truth_country": "indonesia",
+  "pred_country": "philippines",
+  "is_correct": false,
+  "path": "",
+  "truth_in_hypothesis_pool": false,
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": true,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "role_adherence_notes": {
+      "linguistic": "Agent provided no assessment, but did not violate its domain.",
+      "landscape": "Focused on terrain, vegetation, and climate.",
+      "botanics": "Focused on plant species identification.",
+      "regulatory": "Focused on road rules and infrastructure.",
+      "meta": "Synthesized cross-domain cues (architecture, utility poles)."
+    },
+    "argumentative_quality": {
+      "linguistic": "very_weak",
+      "landscape": "strong",
+      "botanics": "strong",
+      "regulatory": "normal",
+      "meta": "strong"
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.0,
+      "botanics": 0.0,
+      "regulatory": 0.0,
+      "meta": 0.0
+    },
+    "hallucination_examples": {
+      "linguistic": [],
+      "landscape": [],
+      "botanics": [],
+      "regulatory": [],
+      "meta": []
+    },
+    "visual_consistency_score": {
+      "linguistic": 1.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.8,
+      "meta": 0.9
+    },
+    "visual_consistency_notes": {
+      "linguistic": "N/A (no claims made)",
+      "landscape": "Vegetation and road features match image.",
+      "botanics": "Banana and palm species match image.",
+      "regulatory": "Driving side and pole style match image.",
+      "meta": "Water tank and pole design match image."
+    },
+    "confidence_calibration": {
+      "linguistic": 0.5,
+      "landscape": 0.2,
+      "botanics": 0.2,
+      "regulatory": 0.2,
+      "meta": 0.2
+    },
+    "constructive_synthesis": false,
+    "overall_verdict_notes": "The pipeline failed to identify the ground truth (Indonesia) because the agents exhibited a strong 'Philippines bias' based on superficial similarities (tropical vegetation, concrete construction). The linguistic agent was completely absent. The judge failed to synthesize the evidence to distinguish between the two archipelagos, accepting the plurality vote for the Philippines despite the image being from Indonesia.",
+    "region_narrowing_quality": 0.75,
+    "region_narrowing_notes": "The judge correctly identified Southeast Asia as the region based on the strong consensus among the active agents. However, the reasoning was shallow as it did not attempt to resolve the specific country-level ambiguity.",
+    "hypothesis_pool_quality": 0.25,
+    "hypothesis_pool_notes": "The pool was heavily skewed towards the Philippines and Thailand, with Indonesia (the truth) completely absent. This indicates a failure in the hypothesis generation step to consider the most plausible candidate given the visual evidence."
+  },
+  "validation_error": "1 validation error for JudgeVerdict\noverall_verdict_notes\n  String should have at most 400 characters [type=string_too_long, input_value=\"The pipeline failed to i...e being from Indonesia.\", input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_too_long"
+}

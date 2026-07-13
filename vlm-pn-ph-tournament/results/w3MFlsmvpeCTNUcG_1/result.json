@@ -1,0 +1,556 @@
+{
+  "image_path": "/pfs/data6/home/ma/ma_ma/ma_lweisssc/llm_council_agent_orchestration_tests/clean_images_GeoRC_500/w3MFlsmvpeCTNUcG_1.png",
+  "model": "google/gemma-4-31B-it",
+  "judge_model": "google/gemma-4-31B-it",
+  "timing": {
+    "total_seconds": 86.3
+  },
+  "assessments": {
+    "linguistic": {
+      "agent_name": "linguistic",
+      "candidates": [],
+      "evidence": []
+    },
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Ukraine",
+          "confidence": "medium",
+          "reasoning": "The vast, flat steppe landscape with rich, dark chernozem soil is highly characteristic of the Ukrainian plains. The road quality and settlement patterns (distant tree lines) are common in this region."
+        },
+        {
+          "country": "Russia",
+          "confidence": "medium",
+          "reasoning": "The southern regions of Russia share the same steppe geography and soil composition as Ukraine, making it visually indistinguishable based on terrain alone."
+        },
+        {
+          "country": "Kazakhstan",
+          "confidence": "low",
+          "reasoning": "The northern plains of Kazakhstan feature similar flat, agricultural landscapes and soil types, though often with slightly more arid characteristics than seen here."
+        },
+        {
+          "country": "United States",
+          "confidence": "speculative",
+          "reasoning": "The Great Plains of the US Midwest offer a global analog with similar flat terrain, large-scale agricultural fields, and wide-open horizons."
+        }
+      ],
+      "evidence": [
+        "Flat steppe terrain",
+        "Dark, fertile soil (chernozem)",
+        "Distant deciduous tree lines",
+        "Northern hemisphere sun angle (shadows cast slightly north/forward)"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Ukraine",
+          "confidence": "medium",
+          "reasoning": "The vast, flat landscape of chernozem (black soil) combined with large-scale industrial cereal farming is highly characteristic of the Ukrainian steppe. The distant line of deciduous riparian forest is common along river basins in this region."
+        },
+        {
+          "country": "Russia",
+          "confidence": "medium",
+          "reasoning": "The southern regions of Russia share the same steppe biome and agricultural patterns as Ukraine, making it botanically indistinguishable from the Ukrainian plains without endemic species visible."
+        },
+        {
+          "country": "Kazakhstan",
+          "confidence": "low",
+          "reasoning": "The northern agricultural zones of Kazakhstan feature similar vast wheat/grain fields and flat horizons, though the soil color can vary slightly from the deep black of the Pontic-Caspian steppe."
+        },
+        {
+          "country": "United States",
+          "confidence": "speculative",
+          "reasoning": "The Great Plains (e.g., Kansas or Nebraska) represent a global analog with similar large-scale monoculture cereal farming and flat topography, though the specific tree line composition differs slightly from Eurasian steppes."
+        },
+        {
+          "country": "Argentina",
+          "confidence": "speculative",
+          "reasoning": "The Pampas region is a cross-continent analog featuring similar flat, fertile grasslands converted to industrial agriculture, though the distant tree species would likely be different."
+        }
+      ],
+      "evidence": [
+        "Chernozem (black soil)",
+        "Industrial cereal monoculture",
+        "Temperate steppe biome",
+        "Riparian deciduous forest line"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Ukraine",
+          "confidence": "low",
+          "reasoning": "The road surface quality with specific patching patterns and the style of the narrow grass shoulders are common in rural Eastern European plains."
+        },
+        {
+          "country": "Russia",
+          "confidence": "low",
+          "reasoning": "The vast, flat agricultural landscape combined with this specific asphalt wear and shoulder treatment is highly characteristic of rural Russian regions."
+        },
+        {
+          "country": "Kazakhstan",
+          "confidence": "low",
+          "reasoning": "Similar to Russia and Ukraine, the wide-open steppe landscape and basic rural road infrastructure match this visual profile."
+        },
+        {
+          "country": "Argentina",
+          "confidence": "speculative",
+          "reasoning": "Following the global analog rule, the flat pampas landscape with basic rural asphalt and grass shoulders is visually similar to the Eurasian steppes."
+        },
+        {
+          "country": "United States",
+          "confidence": "speculative",
+          "reasoning": "Following the global analog rule, rural agricultural roads in the Midwest can exhibit similar flat topography and basic asphalt infrastructure."
+        }
+      ],
+      "evidence": [
+        "Basic rural asphalt with visible patching and wear",
+        "Narrow grass shoulders without paved edges",
+        "Absence of visible road signs, bollards, or utility poles in immediate vicinity",
+        "Flat agricultural landscape"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "Russia",
+          "confidence": "medium",
+          "reasoning": "The Google Street View car shadow shows a distinct roof rack/rig shape common in Russian coverage. The road quality and the specific style of the white delineator posts in the distance are highly characteristic of rural Russian roads."
+        },
+        {
+          "country": "Ukraine",
+          "confidence": "medium",
+          "reasoning": "Shares very similar road infrastructure, delineator post styles, and Google camera rig artifacts with Russia, making it a primary candidate for this rural landscape."
+        },
+        {
+          "country": "Kazakhstan",
+          "confidence": "low",
+          "reasoning": "Similar road quality and camera rig artifacts are found in Kazakhstan, though the flat agricultural landscape is slightly more typical of the European plains."
+        },
+        {
+          "country": "Argentina",
+          "confidence": "speculative",
+          "reasoning": "Following the global analog rule, some rural Argentinian roads share similar flat horizons and generic asphalt quality, though the specific rig shadow is less common there."
+        }
+      ],
+      "evidence": [
+        "Google car rig shadow on the road",
+        "White delineator posts in the distance",
+        "Asphalt texture and wear patterns"
+      ]
+    }
+  },
+  "progressive_narrowing": {
+    "region_consensus": false,
+    "confirmed_region": "Europe",
+    "runner_up_region": "Central Asia",
+    "surviving_regions": [
+      "Europe",
+      "Central Asia"
+    ],
+    "proposed_regions": [
+      "Europe",
+      "Central Asia",
+      "North America",
+      "South America"
+    ],
+    "region_candidates": {
+      "Europe": {
+        "Ukraine": 4,
+        "Russia": 4
+      },
+      "Central Asia": {
+        "Kazakhstan": 4
+      },
+      "North America": {
+        "United States": 3
+      },
+      "South America": {
+        "Argentina": 3
+      }
+    },
+    "region_decision_reasoning": "Europe received the highest score due to strong support from the meta agent regarding specific Google Street View artifacts and delineator styles, combined with botanical support. Central Asia is the runner-up as it shares similar landscape and infrastructure characteristics with Eastern Europe.",
+    "path": "B"
+  },
+  "road_evidence": {
+    "outside_color": "white",
+    "inside_color": "white",
+    "driving_side": "UNCLEAR",
+    "driving_side_basis": "none"
+  },
+  "country_assessments": {
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Ukraine",
+          "confidence": "high",
+          "reasoning": "The extremely flat, vast steppe landscape with rich, dark chernozem soil is characteristic of the Ukrainian plains. The scale of the agricultural fields and the specific road wear patterns are very common in this region."
+        },
+        {
+          "country": "Russia",
+          "confidence": "high",
+          "reasoning": "The southern European part of Russia shares the same steppe geography and soil composition as Ukraine. The flat horizon and agricultural land use are virtually identical to the Ukrainian plains."
+        },
+        {
+          "country": "Kazakhstan",
+          "confidence": "medium",
+          "reasoning": "The northern regions of Kazakhstan feature similar vast, flat grasslands and agricultural plains. However, the vegetation line in the distance is slightly more characteristic of the Pontic-Caspian steppe."
+        },
+        {
+          "country": "Romania",
+          "confidence": "low",
+          "reasoning": "The Wallachian Plain in southern Romania offers similar flat agricultural terrain and soil, though the field scale is often smaller than in the East European Plain."
+        }
+      ],
+      "evidence": [
+        "Flat steppe terrain",
+        "Dark, fertile chernozem soil",
+        "Vast agricultural field patterns",
+        "Northern hemisphere sun angle (shadows cast slightly forward/right)",
+        "Deciduous tree line on the horizon"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Russia",
+          "confidence": "medium",
+          "reasoning": "The road quality with characteristic longitudinal cracking and patching is common in rural Russian regions. The wide, flat agricultural landscape and basic asphalt shoulder treatment are consistent with the steppes of Southern Russia."
+        },
+        {
+          "country": "Ukraine",
+          "confidence": "medium",
+          "reasoning": "The infrastructure is nearly identical to Russia, featuring similar asphalt degradation and rural road width. The flat, open farmland is highly characteristic of the Ukrainian steppe."
+        },
+        {
+          "country": "Kazakhstan",
+          "confidence": "low",
+          "reasoning": "The vast, open horizon and basic road infrastructure match the rural highways of Kazakhstan. The lack of roadside furniture is common in these expansive agricultural zones."
+        }
+      ],
+      "evidence": [
+        "basic asphalt road width",
+        "longitudinal road cracking and patching",
+        "lack of roadside bollards or guardrails",
+        "flat agricultural landscape"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "Russia",
+          "confidence": "medium",
+          "reasoning": "The Google car rig shadow is very prominent and consistent with the Gen 3 camera used extensively in Russia. The road quality and the specific style of the white delineator posts in the distance are common across the Russian steppe."
+        },
+        {
+          "country": "Ukraine",
+          "confidence": "medium",
+          "reasoning": "The camera generation and rig shadow are nearly identical to those found in Russia. The road surface degradation and the simple white delineator posts are highly characteristic of rural Ukrainian highways."
+        },
+        {
+          "country": "Kazakhstan",
+          "confidence": "low",
+          "reasoning": "The vast, flat landscape combined with the Gen 3 camera artifacts is consistent with Kazakh coverage. However, the specific road markings and post styles are slightly more typical of the European side of the region."
+        }
+      ],
+      "evidence": [
+        "Gen 3 Google camera rig shadow",
+        "White delineator posts",
+        "Road surface wear patterns"
+      ]
+    }
+  },
+  "hypothesis_evaluations": [
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "region_europe",
+      "confidence": "neutral",
+      "reasoning": "There is no visible text in the image to provide linguistic evidence for or against this region.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "region_central_asia",
+      "confidence": "neutral",
+      "reasoning": "There is no visible text in the image to provide linguistic evidence for or against this region.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "region_north_america",
+      "confidence": "neutral",
+      "reasoning": "There is no visible text in the image to provide linguistic evidence for or against this region.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "region_south_america",
+      "confidence": "neutral",
+      "reasoning": "There is no visible text in the image to provide linguistic evidence for or against this region.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_europe",
+      "confidence": "support",
+      "reasoning": "The landscape consists of large-scale temperate agricultural fields and a distant line of deciduous broadleaf trees, which is highly characteristic of the European Plain (e.g., Ukraine, Russia, France).",
+      "key_evidence": [
+        "temperate deciduous forest line",
+        "large-scale cereal crop fields"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_central_asia",
+      "confidence": "support",
+      "reasoning": "The flat, open steppe landscape with sparse, distant tree lines is consistent with the agricultural regions of Kazakhstan or Southern Russia.",
+      "key_evidence": [
+        "steppe vegetation",
+        "temperate agricultural land"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_north_america",
+      "confidence": "support",
+      "reasoning": "This biome is a global analog to the North American Great Plains (e.g., US Midwest or Canadian Prairies), featuring similar industrial agriculture and temperate grasslands.",
+      "key_evidence": [
+        "temperate grassland biome",
+        "industrial crop fields"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_south_america",
+      "confidence": "low",
+      "reasoning": "While the Pampas of Argentina/Uruguay share this flat, agricultural profile, the specific appearance of the distant deciduous tree line is more typical of Northern Hemisphere temperate zones.",
+      "key_evidence": [
+        "temperate grassland biome"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_europe",
+      "confidence": "strongly_support",
+      "reasoning": "The image shows a very distinct Google Street View camera artifact: the 'halo' or 'blur' pattern at the bottom of the frame combined with the specific rig shadow is highly characteristic of Gen 3/Gen 4 coverage in Eastern Europe, particularly Ukraine or Russia. The white delineator posts visible in the distance are common European styles.",
+      "key_evidence": [
+        "Google camera rig shadow",
+        "Gen 3/4 image quality/blur",
+        "European style delineator posts"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_central_asia",
+      "confidence": "support",
+      "reasoning": "The road quality and the general appearance of the landscape are compatible with Central Asian countries (like Kazakhstan), which often share similar Soviet-era infrastructure and Google coverage patterns with Eastern Europe.",
+      "key_evidence": [
+        "Road surface quality",
+        "Generic delineator posts"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_north_america",
+      "confidence": "contradicts",
+      "reasoning": "The camera rig shadow and the specific blur pattern at the bottom of the image do not match the standard Google camera setups typically used in North America. Additionally, the style of the road edge and delineators is not typical for the US or Canada.",
+      "key_evidence": [
+        "Camera rig shadow",
+        "Delineator style"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_south_america",
+      "confidence": "contradicts",
+      "reasoning": "The image quality and the specific camera artifacts are inconsistent with the coverage patterns seen in South America. The road infrastructure and delineators do not match regional standards.",
+      "key_evidence": [
+        "Camera rig shadow",
+        "Delineator style"
+      ]
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "country_ukraine",
+      "confidence": "neutral",
+      "reasoning": "There is no visible text in the image to provide linguistic evidence for or against this hypothesis.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "country_russia",
+      "confidence": "neutral",
+      "reasoning": "There is no visible text in the image to provide linguistic evidence for or against this hypothesis.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "country_kazakhstan",
+      "confidence": "neutral",
+      "reasoning": "There is no visible text in the image to provide linguistic evidence for or against this hypothesis.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "country_romania",
+      "confidence": "neutral",
+      "reasoning": "There is no visible text in the image to provide linguistic evidence for or against this hypothesis.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_ukraine",
+      "confidence": "support",
+      "reasoning": "The landscape shows vast, flat agricultural plains with chernozem-like dark soil and a distant line of temperate deciduous shelterbelts, which is highly characteristic of the Ukrainian steppe.",
+      "key_evidence": [
+        "dark fertile soil",
+        "temperate deciduous shelterbelts",
+        "steppe agriculture"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_russia",
+      "confidence": "support",
+      "reasoning": "The vegetation and soil patterns are virtually identical to those found in Southern Russia (e.g., Krasnodar or Rostov regions), making it botanically indistinguishable from Ukraine.",
+      "key_evidence": [
+        "dark fertile soil",
+        "temperate deciduous shelterbelts",
+        "steppe agriculture"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_kazakhstan",
+      "confidence": "medium",
+      "reasoning": "While compatible with Northern Kazakhstan, the density and type of the distant tree line suggest a slightly more humid temperate zone than the typical arid Kazakh steppe.",
+      "key_evidence": [
+        "temperate deciduous trees",
+        "agricultural plains"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_romania",
+      "confidence": "low",
+      "reasoning": "While Romania has similar agricultural plains, the extreme flatness and specific scale of the open fields are more typical of the East European Plain than the Romanian Plain.",
+      "key_evidence": [
+        "temperate deciduous trees",
+        "agricultural plains"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_ukraine",
+      "confidence": "strongly_support",
+      "reasoning": "The image shows a very distinct Google Street View camera artifact: the 'halo' or 'blur' pattern at the bottom of the frame combined with the specific rig shadow is highly characteristic of the Gen 3 camera used extensively in Ukraine. The road quality and the specific style of the white delineator posts in the distance are consistent with Ukrainian rural roads.",
+      "key_evidence": [
+        "Google camera rig shadow",
+        "Gen 3 camera blur pattern",
+        "white delineator post style"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_russia",
+      "confidence": "support",
+      "reasoning": "The general road infrastructure and the presence of similar white delineator posts are compatible with Russia, but the specific camera artifacts are more strongly associated with the Ukrainian coverage patterns of this era.",
+      "key_evidence": [
+        "white delineator posts"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_kazakhstan",
+      "confidence": "support",
+      "reasoning": "While the flat landscape and road style are compatible, the specific camera generation and rig shadow are less common for the primary Kazakhstan coverage compared to Ukraine.",
+      "key_evidence": [
+        "white delineator posts"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_romania",
+      "confidence": "neutral",
+      "reasoning": "While Romania has similar rural roads, the specific camera rig shadow and the style of the delineator posts seen in the distance do not match the typical Romanian meta as closely as the Eastern European/CIS patterns.",
+      "key_evidence": []
+    }
+  ],
+  "candidate_pool": [
+    "Ukraine",
+    "Russia",
+    "Kazakhstan",
+    "Romania"
+  ],
+  "rag_findings": [
+    {
+      "kind": "tournament_match",
+      "country": "Romania",
+      "detail": "The landscape features vast, flat agricultural plains with dark soil and shelterbelts highly characteristic of the Ukrainian steppe. Additionally, the specific camera rig shadow and the style of the white delineator posts in the distance strongly align with the meta and infrastructure patterns of Ukraine.",
+      "opponent": "Ukraine",
+      "winner": "Ukraine"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Kazakhstan",
+      "detail": "The landscape, soil, and vegetation are highly characteristic of Southern Russia, and the road infrastructure, including the white delineator posts, is consistent with Russian standards. Specialist evidence suggests the environment is more compatible with the humid temperate zones of Russia than the typically more arid Kazakh steppe.",
+      "opponent": "Russia",
+      "winner": "Russia"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Russia",
+      "detail": "The image features a landscape of vast agricultural plains and dark soil characteristic of the Ukrainian steppe. Furthermore, the specific Google Street View camera artifacts and the style of the white delineator posts are strongly associated with the Gen 3 camera coverage in Ukraine.",
+      "opponent": "Ukraine",
+      "winner": "Ukraine"
+    }
+  ],
+  "rag_refs_seen": [],
+  "road_filter_warnings": [],
+  "tournament_log": [
+    {
+      "round_label": "semi-1",
+      "country_a": "Ukraine",
+      "country_b": "Romania",
+      "pool_rank_a": 0,
+      "pool_rank_b": 3,
+      "winner": "Ukraine",
+      "reasoning": "The landscape features vast, flat agricultural plains with dark soil and shelterbelts highly characteristic of the Ukrainian steppe. Additionally, the specific camera rig shadow and the style of the white delineator posts in the distance strongly align with the meta and infrastructure patterns of Ukraine.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "semi-2",
+      "country_a": "Russia",
+      "country_b": "Kazakhstan",
+      "pool_rank_a": 1,
+      "pool_rank_b": 2,
+      "winner": "Russia",
+      "reasoning": "The landscape, soil, and vegetation are highly characteristic of Southern Russia, and the road infrastructure, including the white delineator posts, is consistent with Russian standards. Specialist evidence suggests the environment is more compatible with the humid temperate zones of Russia than the typically more arid Kazakh steppe.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "final",
+      "country_a": "Ukraine",
+      "country_b": "Russia",
+      "pool_rank_a": 0,
+      "pool_rank_b": 1,
+      "winner": "Ukraine",
+      "reasoning": "The image features a landscape of vast agricultural plains and dark soil characteristic of the Ukrainian steppe. Furthermore, the specific Google Street View camera artifacts and the style of the white delineator posts are strongly associated with the Gen 3 camera coverage in Ukraine.",
+      "agreement": "agree"
+    }
+  ],
+  "country_result": "Country: Ukraine\nCoordinates: 48.4667, 33.4833\nReasoning: The image features a landscape of vast agricultural plains and dark soil characteristic of the Ukrainian steppe. Furthermore, the specific Google Street View camera artifacts and the style of the white delineator posts are strongly associated with the Gen 3 camera coverage in Ukraine.\n\nTournament:\n  semi-1: Ukraine vs Romania → Ukraine\n  semi-2: Russia vs Kazakhstan → Russia\n  final: Ukraine vs Russia → Ukraine",
+  "coordinates": {
+    "lat": 48.4667,
+    "lng": 33.4833
+  },
+  "final_reasoning": "The image features a landscape of vast agricultural plains and dark soil characteristic of the Ukrainian steppe. Furthermore, the specific Google Street View camera artifacts and the style of the white delineator posts are strongly associated with the Gen 3 camera coverage in Ukraine."
+}

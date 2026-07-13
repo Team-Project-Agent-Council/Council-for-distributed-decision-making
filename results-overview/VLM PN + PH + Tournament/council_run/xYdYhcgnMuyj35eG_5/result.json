@@ -1,0 +1,576 @@
+{
+  "image_path": "/pfs/data6/home/ma/ma_ma/ma_lweisssc/llm_council_agent_orchestration_tests/clean_images_GeoRC_500/xYdYhcgnMuyj35eG_5.png",
+  "model": "google/gemma-4-31B-it",
+  "judge_model": "google/gemma-4-31B-it",
+  "timing": {
+    "total_seconds": 93.9
+  },
+  "assessments": {
+    "linguistic": {
+      "agent_name": "linguistic",
+      "candidates": [],
+      "evidence": []
+    },
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Denmark",
+          "confidence": "high",
+          "reasoning": "The extremely flat terrain, combination of corn and wheat fields, and the presence of a wind turbine in the distance are highly characteristic of the Danish landscape. The road quality and field drainage patterns are typical for Northern Europe."
+        },
+        {
+          "country": "Germany",
+          "confidence": "medium",
+          "reasoning": "Northern Germany shares the same flat, agricultural plains and crop types as Denmark. The landscape is virtually indistinguishable from the Danish border regions."
+        },
+        {
+          "country": "Poland",
+          "confidence": "medium",
+          "reasoning": "The northern plains of Poland feature similar large-scale cereal and corn farming on flat terrain, though the road infrastructure often differs slightly from the Danish model."
+        },
+        {
+          "country": "Canada",
+          "confidence": "speculative",
+          "reasoning": "The prairie provinces (Saskatchewan/Manitoba) feature similar flat horizons and large-scale grain farming, serving as a North American analog to the European plains."
+        }
+      ],
+      "evidence": [
+        "extremely flat terrain",
+        "mixed cereal and corn agriculture",
+        "distant wind turbine",
+        "temperate maritime climate vegetation",
+        "paved narrow rural road without shoulders"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Denmark",
+          "confidence": "medium",
+          "reasoning": "The combination of intensive maize (corn) and wheat cultivation in a flat, low-lying landscape is highly characteristic of Danish agriculture. The specific lushness of the roadside grasses and the distant deciduous tree line are consistent with Northern European temperate zones."
+        },
+        {
+          "country": "Germany",
+          "confidence": "medium",
+          "reasoning": "Northern Germany shares the same agricultural profile and climate as Denmark, with similar large-scale wheat and maize production. It is botanically indistinguishable from Denmark in this specific rural setting."
+        },
+        {
+          "country": "Poland",
+          "confidence": "medium",
+          "reasoning": "The agricultural landscape of western Poland features similar crop rotations of maize and cereals in a temperate broadleaf biome, making it a strong candidate."
+        },
+        {
+          "country": "United States",
+          "confidence": "low",
+          "reasoning": "The Midwestern United States (Corn Belt) features identical crops (maize and wheat) and flat topography. However, the specific variety of roadside weeds and the structure of the distant tree line are more typical of Europe."
+        },
+        {
+          "country": "Canada",
+          "confidence": "low",
+          "reasoning": "The Prairie provinces exhibit similar large-scale cereal and maize cultivation, though the vegetation density along the road shoulder is typically lower than seen here."
+        }
+      ],
+      "evidence": [
+        "Zea mays (Maize/Corn)",
+        "Triticum (Wheat)",
+        "Temperate broadleaf deciduous trees",
+        "European roadside ruderal vegetation"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Denmark",
+          "confidence": "low",
+          "reasoning": "The flat landscape, specific agricultural field patterns, and the style of the distant utility poles are common in rural Denmark."
+        },
+        {
+          "country": "Germany",
+          "confidence": "low",
+          "reasoning": "The narrow asphalt road with grass shoulders and the style of the electrical infrastructure in the distance are consistent with rural Northern Germany."
+        },
+        {
+          "country": "France",
+          "confidence": "low",
+          "reasoning": "The road width and the presence of simple utility poles in a flat agricultural region are typical of rural French plains."
+        },
+        {
+          "country": "Canada",
+          "confidence": "speculative",
+          "reasoning": "Following the global analog rule, rural asphalt roads with grass shoulders and distant utility poles in flat farmland are visually similar to the Canadian Prairies."
+        },
+        {
+          "country": "Argentina",
+          "confidence": "speculative",
+          "reasoning": "Following the global analog rule, the combination of a narrow paved rural road and flat agricultural horizons is common in the Pampas region."
+        }
+      ],
+      "evidence": [
+        "Narrow asphalt road with no shoulder treatment",
+        "Simple wooden/concrete utility poles in the distance",
+        "Lack of road signs or bollards in immediate view",
+        "Flat agricultural landscape with mixed crop fields"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "Denmark",
+          "confidence": "medium",
+          "reasoning": "The utility poles in the distance are simple wooden poles with a specific cross-arm configuration common in rural Denmark. The overall image quality and lack of distinct car artifacts suggest a Gen 3 or Gen 4 camera common in Northern Europe."
+        },
+        {
+          "country": "Germany",
+          "confidence": "medium",
+          "reasoning": "The rural road infrastructure and the style of the wooden utility poles are very similar to those found in Northern Germany, making it a strong neighbor candidate."
+        },
+        {
+          "country": "Poland",
+          "confidence": "low",
+          "reasoning": "Similar rural utility pole styles and agricultural fencing are found in Poland, though the specific pole head design is slightly more characteristic of Scandinavia/North Germany."
+        },
+        {
+          "country": "Canada",
+          "confidence": "speculative",
+          "reasoning": "Following the global analog rule, rural roads in the Canadian prairies often feature similar generic wooden utility poles and wide-open agricultural landscapes with similar camera quality."
+        }
+      ],
+      "evidence": [
+        "wooden utility poles with specific cross-arm style",
+        "wire mesh agricultural fencing",
+        "Gen 3/4 Google camera image quality"
+      ]
+    }
+  },
+  "progressive_narrowing": {
+    "region_consensus": false,
+    "confirmed_region": "Europe",
+    "runner_up_region": "North America",
+    "surviving_regions": [
+      "Europe",
+      "North America"
+    ],
+    "proposed_regions": [
+      "Europe",
+      "North America",
+      "South America"
+    ],
+    "region_candidates": {
+      "Europe": {
+        "Denmark": 4,
+        "Germany": 4,
+        "Poland": 3,
+        "France": 1
+      },
+      "North America": {
+        "Canada": 4,
+        "United States": 1
+      },
+      "South America": {
+        "Argentina": 1
+      }
+    },
+    "region_decision_reasoning": "Europe received the highest score due to strong support from both botanics and meta agents, specifically citing utility pole design and road infrastructure. North America is the runner-up as it is botanically similar, although the meta agent noted infrastructure contradictions.",
+    "path": "B"
+  },
+  "road_evidence": {
+    "outside_color": "none",
+    "inside_color": "none",
+    "driving_side": "UNCLEAR",
+    "driving_side_basis": "none"
+  },
+  "country_assessments": {
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Denmark",
+          "confidence": "high",
+          "reasoning": "The extremely flat terrain, combination of corn and wheat fields, and the presence of a wind turbine in the distance are highly characteristic of the Danish landscape. The narrow, well-maintained asphalt road without shoulders is typical for rural Denmark."
+        },
+        {
+          "country": "Germany",
+          "confidence": "medium",
+          "reasoning": "Northern Germany shares the same flat, agricultural plains and crop types as Denmark. The landscape is nearly identical, though the specific road style and openness are slightly more indicative of the Danish lowlands."
+        },
+        {
+          "country": "Poland",
+          "confidence": "medium",
+          "reasoning": "The northern plains of Poland feature similar large-scale cereal and corn farming on flat terrain. The soil and vegetation patterns are consistent with Central/Northern European temperate zones."
+        },
+        {
+          "country": "United States",
+          "confidence": "low",
+          "reasoning": "The Midwest (e.g., Iowa or Illinois) features similar flat agricultural vistas with corn and wheat. However, the road width and the specific style of the utility poles/wind turbine are more characteristic of Europe."
+        },
+        {
+          "country": "Canada",
+          "confidence": "low",
+          "reasoning": "The Prairie provinces offer similar flat, expansive farmland. However, the vegetation density along the roadside and the road construction style lean more towards a European temperate climate."
+        }
+      ],
+      "evidence": [
+        "Extremely flat topography",
+        "Mixed agricultural land (corn and wheat/barley)",
+        "Northern European temperate vegetation",
+        "Narrow asphalt rural road without shoulders",
+        "Wind turbine on the horizon",
+        "Diffuse sunlight suggesting a high latitude"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Germany",
+          "confidence": "medium",
+          "reasoning": "The combination of intensive maize (corn) and winter wheat/barley in a flat, temperate landscape is highly characteristic of Central European agricultural belts. The specific density and height of the maize alongside small-scale field divisions are common in Germany."
+        },
+        {
+          "country": "France",
+          "confidence": "medium",
+          "reasoning": "Similar to Germany, the northern plains of France utilize this exact crop rotation of maize and cereal grains. The vegetation profile is indistinguishable from neighboring Central European agricultural zones without endemic species."
+        },
+        {
+          "country": "Poland",
+          "confidence": "medium",
+          "reasoning": "The flat topography and the prevalence of these specific cereal and maize crops are consistent with the Polish lowlands. The botanical composition is typical for the North European Plain."
+        },
+        {
+          "country": "United States",
+          "confidence": "low",
+          "reasoning": "The Midwest 'Corn Belt' features these same crops on a massive scale. However, the field scale and the specific appearance of the roadside verge vegetation are more typical of European agricultural management than North American industrial farming."
+        }
+      ],
+      "evidence": [
+        "Zea mays (Maize)",
+        "Triticum/Hordeum (Wheat/Barley)",
+        "Temperate agricultural biome",
+        "North European Plain / US Midwest distribution"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Denmark",
+          "confidence": "medium",
+          "reasoning": "The flat landscape, specific style of utility poles in the distance, and the narrow, well-maintained asphalt rural road without shoulders are very characteristic of the Danish countryside."
+        },
+        {
+          "country": "Germany",
+          "confidence": "low",
+          "reasoning": "The agricultural landscape and road quality are consistent with Northern Germany, though the lack of specific signage or bollards makes it less certain."
+        },
+        {
+          "country": "France",
+          "confidence": "low",
+          "reasoning": "Similar rural road infrastructure and agricultural fields are found in Northern France, though the utility pole style is more typical of Northern Europe."
+        },
+        {
+          "country": "United States",
+          "confidence": "speculative",
+          "reasoning": "Rural asphalt roads with grass shoulders and corn/grain fields are common in the Midwest, though the utility pole design is less typical for the US."
+        },
+        {
+          "country": "Canada",
+          "confidence": "speculative",
+          "reasoning": "The prairie-style agricultural landscape and basic rural road infrastructure are visually similar to parts of the Canadian provinces."
+        }
+      ],
+      "evidence": [
+        "narrow asphalt road without defined shoulders",
+        "distant utility poles with cross-arms",
+        "absence of road signs or bollards",
+        "rural agricultural landscape"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "Denmark",
+          "confidence": "medium",
+          "reasoning": "The utility poles in the distance are simple wooden poles with a specific cross-arm configuration common in rural Denmark. The flat landscape combined with the specific style of the distant red-roofed farm buildings is highly characteristic of the Danish countryside."
+        },
+        {
+          "country": "Germany",
+          "confidence": "low",
+          "reasoning": "Northern Germany shares very similar agricultural landscapes and wooden utility pole styles with Denmark. However, the specific lack of road markings on this narrow rural path is slightly more common in Danish 'village roads'."
+        },
+        {
+          "country": "Poland",
+          "confidence": "low",
+          "reasoning": "Rural Poland uses similar wooden utility poles and has similar agricultural fields, though the specific roof style of the distant building is more typical of Northern Europe/Scandinavia."
+        },
+        {
+          "country": "United States",
+          "confidence": "speculative",
+          "reasoning": "The general appearance of the rural road and wooden poles is a global analog for the Midwest USA, though the specific architecture of the distant red building is more European in style."
+        }
+      ],
+      "evidence": [
+        "wooden utility poles with simple cross-arms",
+        "distant red-roofed farm building architecture",
+        "Google Street View Gen 3 camera quality/color balance"
+      ]
+    }
+  },
+  "hypothesis_evaluations": [
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_europe",
+      "confidence": "support",
+      "reasoning": "The combination of maize (Zea mays) and winter wheat/barley in a temperate, flat landscape is highly characteristic of Central and Northern European agricultural belts (e.g., Germany, France, Poland). The roadside vegetation consists of common temperate ruderal species.",
+      "key_evidence": [
+        "Zea mays",
+        "Triticum/Hordeum",
+        "temperate broadleaf forest in background"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_north_america",
+      "confidence": "support",
+      "reasoning": "The crop composition (corn and wheat) is extremely common in the US Midwest and Canadian Prairies. The biome is a global analog to the European temperate agricultural zone, making it botanically indistinguishable without endemic species.",
+      "key_evidence": [
+        "Zea mays",
+        "Triticum",
+        "temperate grassland/agricultural biome"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_south_america",
+      "confidence": "low",
+      "reasoning": "While corn and wheat are grown in the Pampas region of Argentina or Southern Brazil, the specific combination of the temperate deciduous tree line in the background and the overall vegetation density is more typical of Northern Hemisphere temperate zones.",
+      "key_evidence": [
+        "Zea mays",
+        "Triticum"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_europe",
+      "confidence": "strongly_support",
+      "reasoning": "The utility poles in the distance are typical European concrete/metal hybrid designs. The road quality and the specific style of the wire fencing on the left are highly characteristic of Northern or Central European agricultural landscapes (e.g., Denmark, Germany, Poland).",
+      "key_evidence": [
+        "utility pole design",
+        "wire fence style",
+        "road surface texture"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_north_america",
+      "confidence": "contradicts",
+      "reasoning": "The utility poles lack the typical wooden cross-arm construction common in rural North America. The road width and the specific style of the field fencing are inconsistent with standard US/Canadian rural infrastructure.",
+      "key_evidence": [
+        "utility pole construction",
+        "fence type"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_south_america",
+      "confidence": "contradicts",
+      "reasoning": "The infrastructure, specifically the utility poles and the high-quality asphalt on a narrow rural road, does not match the common rural meta found in South American countries.",
+      "key_evidence": [
+        "utility pole design",
+        "road quality"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_germany",
+      "confidence": "support",
+      "reasoning": "The combination of maize (corn) and winter wheat/barley in a temperate mixed-farming landscape is highly characteristic of Central European agriculture, particularly in Germany.",
+      "key_evidence": [
+        "Zea mays",
+        "Triticum aestivum"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_denmark",
+      "confidence": "support",
+      "reasoning": "The flat terrain and the specific mix of cereal crops and maize are very common in the Danish agricultural landscape, which mirrors Northern Germany.",
+      "key_evidence": [
+        "Zea mays",
+        "Triticum aestivum"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_poland",
+      "confidence": "support",
+      "reasoning": "The vegetation and crop types are fully compatible with the temperate plains of Poland, though the field scale is more typical of Western/Central Europe.",
+      "key_evidence": [
+        "Zea mays",
+        "Triticum aestivum"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_france",
+      "confidence": "support",
+      "reasoning": "The agricultural profile is compatible with Northern France, where maize and wheat are primary crops in a similar temperate climate.",
+      "key_evidence": [
+        "Zea mays",
+        "Triticum aestivum"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_united_states",
+      "confidence": "low",
+      "reasoning": "While maize and wheat are grown in the US Midwest, the specific scale of the fields, the roadside vegetation (including the white wildflowers), and the overall landscape structure are more indicative of European agricultural patterns.",
+      "key_evidence": [
+        "Zea mays",
+        "Triticum aestivum"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_canada",
+      "confidence": "low",
+      "reasoning": "Similar to the US, while these crops exist in the Prairies, the botanical composition of the road verge and the field layout are less typical for Canadian agricultural zones.",
+      "key_evidence": [
+        "Zea mays",
+        "Triticum aestivum"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_denmark",
+      "confidence": "support",
+      "reasoning": "The utility poles in the distance are simple, slender poles common in Northern Europe. The overall image quality and lack of distinct camera artifacts are consistent with Gen 4 coverage common in Denmark.",
+      "key_evidence": [
+        "utility pole style",
+        "camera generation"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_germany",
+      "confidence": "support",
+      "reasoning": "The utility poles and the general road surface quality are compatible with rural Germany. However, there are no specific German bollards or unique pole cross-arms visible to elevate this above other European candidates.",
+      "key_evidence": [
+        "utility pole style"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_poland",
+      "confidence": "support",
+      "reasoning": "The rural road and utility pole style are compatible with Poland, though Polish rural areas often feature more concrete poles than the ones seen here.",
+      "key_evidence": [
+        "utility pole style"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_france",
+      "confidence": "support",
+      "reasoning": "The scene is compatible with rural France, but the lack of specific French street furniture or distinctive pole designs makes it a generic European candidate.",
+      "key_evidence": [
+        "utility pole style"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_united_states",
+      "confidence": "contradicts",
+      "reasoning": "The utility poles are too slender and lack the heavy cross-arms and transformer configurations typical of rural US infrastructure. The road width and edge style are more characteristic of European rural lanes.",
+      "key_evidence": [
+        "utility pole style",
+        "road width"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_canada",
+      "confidence": "contradicts",
+      "reasoning": "Similar to the US, the utility pole design and the narrow, seamless asphalt road without wide gravel shoulders are inconsistent with typical rural Canadian infrastructure.",
+      "key_evidence": [
+        "utility pole style",
+        "road width"
+      ]
+    }
+  ],
+  "candidate_pool": [
+    "Germany",
+    "United States",
+    "Denmark",
+    "Poland",
+    "Canada",
+    "France"
+  ],
+  "rag_findings": [
+    {
+      "kind": "tournament_match",
+      "country": "France",
+      "detail": "The landscape features a combination of maize and winter wheat/barley that is highly characteristic of Central European agriculture, specifically Germany. While compatible with France, the utility pole style and road surface quality align slightly more closely with rural German infrastructure profiles.",
+      "opponent": "Germany",
+      "winner": "Germany"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Poland",
+      "detail": "The flat terrain, specific crop mix, and slender utility poles are highly characteristic of the Danish agricultural landscape. Specialist evidence notes that the field scale and pole style are more typical of Northern Europe/Denmark than the concrete poles often found in rural Poland.",
+      "opponent": "Denmark",
+      "winner": "Denmark"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Germany",
+      "detail": "The extremely flat terrain, the specific combination of cereal crops and maize, and the slender utility poles are highly characteristic of the Danish agricultural landscape. The overall image quality and landscape composition are more consistent with Gen 4 coverage typical of rural Denmark.",
+      "opponent": "Denmark",
+      "winner": "Denmark"
+    }
+  ],
+  "rag_refs_seen": [],
+  "road_filter_warnings": [],
+  "tournament_log": [
+    {
+      "round_label": "semi-1",
+      "country_a": "Germany",
+      "country_b": "France",
+      "pool_rank_a": 0,
+      "pool_rank_b": 3,
+      "winner": "Germany",
+      "reasoning": "The landscape features a combination of maize and winter wheat/barley that is highly characteristic of Central European agriculture, specifically Germany. While compatible with France, the utility pole style and road surface quality align slightly more closely with rural German infrastructure profiles.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "semi-2",
+      "country_a": "Denmark",
+      "country_b": "Poland",
+      "pool_rank_a": 1,
+      "pool_rank_b": 2,
+      "winner": "Denmark",
+      "reasoning": "The flat terrain, specific crop mix, and slender utility poles are highly characteristic of the Danish agricultural landscape. Specialist evidence notes that the field scale and pole style are more typical of Northern Europe/Denmark than the concrete poles often found in rural Poland.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "final",
+      "country_a": "Germany",
+      "country_b": "Denmark",
+      "pool_rank_a": 0,
+      "pool_rank_b": 1,
+      "winner": "Denmark",
+      "reasoning": "The extremely flat terrain, the specific combination of cereal crops and maize, and the slender utility poles are highly characteristic of the Danish agricultural landscape. The overall image quality and landscape composition are more consistent with Gen 4 coverage typical of rural Denmark.",
+      "agreement": "agree"
+    }
+  ],
+  "country_result": "Country: Denmark\nCoordinates: 55.6761, 12.5683\nReasoning: The extremely flat terrain, the specific combination of cereal crops and maize, and the slender utility poles are highly characteristic of the Danish agricultural landscape. The overall image quality and landscape composition are more consistent with Gen 4 coverage typical of rural Denmark.\n\nTournament:\n  semi-1: Germany vs France → Germany\n  semi-2: Denmark vs Poland → Denmark\n  final: Germany vs Denmark → Denmark",
+  "coordinates": {
+    "lat": 55.6761,
+    "lng": 12.5683
+  },
+  "final_reasoning": "The extremely flat terrain, the specific combination of cereal crops and maize, and the slender utility poles are highly characteristic of the Danish agricultural landscape. The overall image quality and landscape composition are more consistent with Gen 4 coverage typical of rural Denmark."
+}

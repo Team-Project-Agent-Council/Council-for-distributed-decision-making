@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VLM Council Progressive Narrowing + Parallel Hypotheses Evaluation Report</title>
+<style>
+  :root {
+    --bg: #FFFFFF; --fg: #222222; --muted: #666666; --border: #DDDDDD;
+    --accent: #4C72B0; --success: #55A868; --error: #C44E52;
+    --warning: #DD8452; --code-bg: #F4F4F4; --side-bg: #FAFAFA;
+  }
+  [data-theme="dark"] {
+    --bg: #1A1A1A; --fg: #E5E5E5; --muted: #999999; --border: #333333;
+    --accent: #6FA0D6; --success: #6FBE82; --error: #DA6B6E;
+    --warning: #E89A6E; --code-bg: #2A2A2A; --side-bg: #222222;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+         color: var(--fg); background: var(--bg); line-height: 1.55; }
+  .layout { display: flex; min-height: 100vh; }
+  nav.toc { width: 240px; flex: 0 0 240px; background: var(--side-bg);
+    border-right: 1px solid var(--border); padding: 1.2rem 1rem;
+    position: sticky; top: 0; height: 100vh; overflow-y: auto; font-size: 0.9rem; }
+  nav.toc h2 { font-size: 0.9rem; margin: 0 0 0.6rem; text-transform: uppercase;
+    letter-spacing: 0.05em; color: var(--muted); }
+  nav.toc ul { list-style: none; padding: 0; margin: 0; }
+  nav.toc li { margin: 0.2rem 0; }
+  nav.toc a { color: var(--fg); text-decoration: none; border-left: 2px solid transparent;
+    padding-left: 0.5rem; display: block; }
+  nav.toc a:hover, nav.toc a.active { border-left-color: var(--accent); color: var(--accent); }
+  main { flex: 1; max-width: 1100px; padding: 1.5rem 2rem 4rem; }
+  h1 { font-size: 1.8rem; margin-top: 0; }
+  h2 { font-size: 1.3rem; border-bottom: 1px solid var(--border);
+       padding-bottom: 0.3rem; margin-top: 2rem; }
+  h3 { font-size: 1.05rem; }
+  details { margin: 0.75rem 0; border: 1px solid var(--border); border-radius: 4px;
+    padding: 0.5rem 0.75rem; background: var(--side-bg); }
+  details > summary { cursor: pointer; font-weight: 600; margin: -0.5rem -0.75rem;
+    padding: 0.5rem 0.75rem; }
+  details[open] > summary { border-bottom: 1px solid var(--border); margin-bottom: 0.5rem; }
+  table { border-collapse: collapse; width: 100%; margin: 0.6rem 0; font-size: 0.92rem; }
+  th, td { border: 1px solid var(--border); padding: 0.45rem 0.6rem; text-align: left; }
+  th { background: var(--side-bg); cursor: pointer; user-select: none; }
+  th.sort-asc::after { content: " ▲"; color: var(--muted); }
+  th.sort-desc::after { content: " ▼"; color: var(--muted); }
+  img.figure { max-width: 100%; height: auto; margin: 0.6rem 0;
+    border: 1px solid var(--border); background: white; }
+  .caption { font-size: 0.85rem; color: var(--muted); font-style: italic; margin-bottom: 1rem; }
+  .headline-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 0.6rem; margin: 1rem 0; }
+  .stat { border: 1px solid var(--border); border-radius: 4px;
+    padding: 0.6rem 0.8rem; background: var(--side-bg); }
+  .stat .label { font-size: 0.78rem; color: var(--muted); text-transform: uppercase; }
+  .stat .value { font-size: 1.4rem; font-weight: 600; color: var(--accent); }
+  .badge { display: inline-block; padding: 0.1rem 0.5rem; border-radius: 3px;
+    font-size: 0.78rem; background: var(--code-bg); color: var(--fg); }
+  .badge.ok { background: var(--success); color: white; }
+  .badge.bad { background: var(--error); color: white; }
+  .badge.warn { background: var(--warning); color: white; }
+  blockquote { border-left: 3px solid var(--accent); margin: 0.8rem 0;
+    padding: 0.4rem 0.8rem; background: var(--code-bg); }
+  .controls { position: fixed; top: 0.6rem; right: 0.8rem;
+    display: flex; gap: 0.4rem; z-index: 100; }
+  .controls button { padding: 0.3rem 0.7rem; border: 1px solid var(--border);
+    background: var(--bg); color: var(--fg); cursor: pointer;
+    border-radius: 4px; font-size: 0.85rem; }
+  .controls button:hover { background: var(--side-bg); }
+  code { font-family: "SFMono-Regular", Menlo, monospace; font-size: 0.88rem;
+         background: var(--code-bg); padding: 0.05rem 0.3rem; border-radius: 2px; }
+  .meta { font-size: 0.85rem; color: var(--muted); }
+  .small-table { font-size: 0.85rem; }
+  details.example { background: var(--bg); }
+</style>
+</head>
+<body>
+<div class="controls">
+  <button onclick="toggleTheme()">🌓 theme</button>
+  <button onclick="expandAll(true)">expand all</button>
+  <button onclick="expandAll(false)">collapse all</button>
+</div>
+<div class="layout">
+<nav class="toc">
+  <h2>Sections</h2>
+  <ul>
+    <li><a href="#headline">Headline</a></li>
+<li><a href="#gt-stats">1. Ground-truth statistics</a></li><li><a href="#dynamics">2. Approach dynamics</a></li><li><a href="#judge">3. LLM-as-judge verdicts</a></li>  </ul>
+  <p class="meta">
+    Progressive Narrowing + Parallel Hypotheses<br>
+    Generated 2026-07-12T15:01:37+00:00<br>
+    500 images
+  </p>
+</nav>
+
+<main>
+<h1 id="headline">VLM Council Progressive Narrowing + Parallel Hypotheses Evaluation Report</h1>
+
+<div class="headline-grid">
+  <div class="stat">
+    <div class="label">Country accuracy</div>
+    <div class="value">64.0%</div>
+  </div>
+  <div class="stat">
+    <div class="label">Median haversine</div>
+    <div class="value">439 km</div>
+  </div>
+  <div class="stat">
+    <div class="label">Images</div>
+    <div class="value">500</div>
+  </div>
+  <div class="stat">
+    <div class="label">Path A / Path B</div>
+    <div class="value">315 / 185</div>
+  </div>
+  <div class="stat">
+    <div class="label">Region narrowing quality</div>
+    <div class="value">0.71</div>
+  </div>
+  <div class="stat">
+    <div class="label">Hypothesis pool quality</div>
+    <div class="value">0.43</div>
+  </div>
+</div>
+
+<h2 id="gt-stats">1. Ground-truth statistics</h2>
+
+<h3>Geographic bias</h3>
+<ul>
+  <li>North/south: strong north bias (p=0.0067)</li>
+  <li>East/west:   no significant bias (p=0.8476)</li>
+</ul>
+<img class="figure" src="plots/error_distribution.png" alt="Error distribution">
+<p class="caption">Fig 1: Lat / lng / haversine error distributions.</p>
+<img class="figure" src="plots/bearing_rose.png" alt="Bearing rose">
+<p class="caption">Fig 2: Direction of prediction errors.</p>
+<img class="figure" src="plots/confusion_matrix.png" alt="Confusion matrix">
+<p class="caption">Fig 3: Top confusion pairs (truth to predicted).</p>
+<details><summary>Top confusion pairs (20)</summary>
+<table class="small-table"><thead><tr>
+  <th>Truth</th><th>Predicted</th><th data-sort="num">Count</th>
+</tr></thead><tbody>
+<tr><td>canada</td><td>united states</td><td>5</td></tr>
+<tr><td>south africa</td><td>botswana</td><td>4</td></tr>
+<tr><td>panama</td><td>puerto rico</td><td>4</td></tr>
+<tr><td>argentina</td><td>colombia</td><td>3</td></tr>
+<tr><td>czechia</td><td>poland</td><td>3</td></tr>
+<tr><td>south africa</td><td>namibia</td><td>3</td></tr>
+<tr><td>australia</td><td>new zealand</td><td>3</td></tr>
+<tr><td>poland</td><td>lithuania</td><td>2</td></tr>
+<tr><td>south africa</td><td>australia</td><td>2</td></tr>
+<tr><td>bolivia</td><td>brazil</td><td>2</td></tr>
+<tr><td>mexico</td><td>argentina</td><td>2</td></tr>
+<tr><td>botswana</td><td>namibia</td><td>2</td></tr>
+<tr><td>peru</td><td>costa rica</td><td>2</td></tr>
+<tr><td>kenya</td><td>uganda</td><td>2</td></tr>
+<tr><td>latvia</td><td>lithuania</td><td>2</td></tr>
+<tr><td>indonesia</td><td>thailand</td><td>2</td></tr>
+<tr><td>turkey</td><td>greece</td><td>2</td></tr>
+<tr><td>russia</td><td>ukraine</td><td>2</td></tr>
+<tr><td>france</td><td>united states</td><td>2</td></tr>
+<tr><td>chile</td><td>peru</td><td>2</td></tr>
+</tbody></table></details>
+<details><summary>Asymmetric confusion pairs (A to B is not B to A)</summary>
+<table class="small-table"><thead><tr>
+  <th>Country A</th><th>Country B</th>
+  <th data-sort="num">A predicted as B</th><th data-sort="num">B predicted as A</th>
+  <th data-sort="num">Asymmetry</th>
+</tr></thead><tbody>
+<tr><td>south africa</td><td>botswana</td>
+  <td>4</td><td>0</td>
+  <td>+4</td></tr>
+<tr><td>panama</td><td>puerto rico</td>
+  <td>4</td><td>0</td>
+  <td>+4</td></tr>
+<tr><td>canada</td><td>united states</td>
+  <td>5</td><td>1</td>
+  <td>+4</td></tr>
+<tr><td>argentina</td><td>colombia</td>
+  <td>3</td><td>0</td>
+  <td>+3</td></tr>
+<tr><td>czechia</td><td>poland</td>
+  <td>3</td><td>0</td>
+  <td>+3</td></tr>
+<tr><td>south africa</td><td>namibia</td>
+  <td>3</td><td>0</td>
+  <td>+3</td></tr>
+<tr><td>australia</td><td>new zealand</td>
+  <td>3</td><td>0</td>
+  <td>+3</td></tr>
+<tr><td>poland</td><td>lithuania</td>
+  <td>2</td><td>0</td>
+  <td>+2</td></tr>
+<tr><td>south africa</td><td>australia</td>
+  <td>2</td><td>0</td>
+  <td>+2</td></tr>
+<tr><td>bolivia</td><td>brazil</td>
+  <td>2</td><td>0</td>
+  <td>+2</td></tr>
+<tr><td>mexico</td><td>argentina</td>
+  <td>2</td><td>0</td>
+  <td>+2</td></tr>
+<tr><td>botswana</td><td>namibia</td>
+  <td>2</td><td>0</td>
+  <td>+2</td></tr>
+<tr><td>peru</td><td>costa rica</td>
+  <td>2</td><td>0</td>
+  <td>+2</td></tr>
+<tr><td>kenya</td><td>uganda</td>
+  <td>2</td><td>0</td>
+  <td>+2</td></tr>
+<tr><td>latvia</td><td>lithuania</td>
+  <td>2</td><td>0</td>
+  <td>+2</td></tr>
+</tbody></table></details>
+
+<h3>Per-agent accuracy (initial round)</h3>
+<table>
+  <thead><tr><th>Agent</th><th data-sort="num">n</th>
+    <th data-sort="num">Top-1</th><th data-sort="num">Top-3</th>
+    <th data-sort="num">Coverage</th></tr></thead>
+  <tbody>
+    <tr><td>linguistic</td><td>107</td>
+      <td>78.5%</td>
+      <td>86.0%</td>
+      <td>91.6%</td></tr>
+    <tr><td>landscape</td><td>500</td>
+      <td>63.4%</td>
+      <td>79.6%</td>
+      <td>81.4%</td></tr>
+    <tr><td>botanics</td><td>499</td>
+      <td>63.1%</td>
+      <td>78.4%</td>
+      <td>79.4%</td></tr>
+    <tr><td>regulatory</td><td>443</td>
+      <td>64.6%</td>
+      <td>77.4%</td>
+      <td>78.3%</td></tr>
+    <tr><td>meta</td><td>499</td>
+      <td>62.5%</td>
+      <td>74.5%</td>
+      <td>74.5%</td></tr>
+  </tbody>
+</table>
+<img class="figure" src="plots/agent_top1.png" alt="Agent top-1">
+<p class="caption">Fig 4: Per-agent top-1 accuracy (initial vs. Path B country round).</p>
+<img class="figure" src="plots/agent_calibration.png" alt="Agent calibration">
+<p class="caption">Fig 5: Confidence calibration by agent.</p>
+<h3>Country round (Path B only)</h3>
+<table>
+  <thead><tr><th>Agent</th><th data-sort="num">n</th>
+    <th data-sort="num">Top-1</th><th data-sort="num">Top-3</th>
+    <th data-sort="num">Coverage</th></tr></thead>
+  <tbody>
+    <tr><td>linguistic</td><td>35</td>
+      <td>57.1%</td>
+      <td>71.4%</td>
+      <td>74.3%</td></tr>
+    <tr><td>landscape</td><td>185</td>
+      <td>49.2%</td>
+      <td>61.6%</td>
+      <td>62.2%</td></tr>
+    <tr><td>botanics</td><td>185</td>
+      <td>47.6%</td>
+      <td>60.0%</td>
+      <td>60.5%</td></tr>
+    <tr><td>regulatory</td><td>184</td>
+      <td>47.8%</td>
+      <td>60.3%</td>
+      <td>61.4%</td></tr>
+    <tr><td>meta</td><td>185</td>
+      <td>47.0%</td>
+      <td>55.1%</td>
+      <td>55.1%</td></tr>
+  </tbody>
+</table>
+
+<h3>Geographic world maps</h3>
+<p>Per-country accuracy across 91 countries with truth.
+Macro-averaged TPR: <strong>55.0%</strong>.</p>
+<img class="figure" src="plots/world_map_accuracy.png" alt="Per-country true-positive rate (green) with false-positive outlines (red).">
+<p class="caption"><em>Per-country true-positive rate (green) with false-positive outlines (red).</em></p>
+<img class="figure" src="plots/world_map_f1.png" alt="Per-country F1, divergent around the run's macro-F1. Green = above average, red = below.">
+<p class="caption"><em>Per-country F1, divergent around the run's macro-F1. Green = above average, red = below.</em></p>
+<img class="figure" src="plots/world_map_error_bias.png" alt="Per-country error bias (FP-FN)/(FP+FN). Red = over-predicted, blue = missed.">
+<p class="caption"><em>Per-country error bias (FP-FN)/(FP+FN). Red = over-predicted, blue = missed.</em></p>
+
+
+<h2 id="dynamics">2. Approach dynamics</h2>
+<p>Progressive Narrowing routes each image down Path A (region consensus, jump straight
+to the judge) or Path B (parallel hypotheses plus a country re-assessment inside the
+confirmed region). This section traces where the truth country survives or is lost.</p>
+
+
+<h3>Path A / Path B split</h3>
+<div class="headline-grid">
+  <div class="stat">
+    <div class="label">Path A (region consensus)</div>
+    <div class="value">315</div>
+  </div>
+  <div class="stat">
+    <div class="label">Path B (no consensus)</div>
+    <div class="value">185</div>
+  </div>
+  <div class="stat">
+    <div class="label">Region consensus rate</div>
+    <div class="value">63.0%</div>
+  </div>
+</div>
+
+<h3>Region narrowing funnel</h3>
+<p>Does the confirmed region actually contain the ground-truth country?</p>
+<table>
+  <thead><tr><th>Split</th><th data-sort="num">Region matches GT</th><th data-sort="num">n</th></tr></thead>
+  <tbody>
+    <tr><td>All</td><td>86.7%</td><td>498</td></tr>
+    <tr><td>Path A</td><td>95.2%</td><td>315</td></tr>
+    <tr><td>Path B</td><td>72.1%</td><td>183</td></tr>
+  </tbody>
+</table>
+
+<h3>Country narrowing funnel (Path B initial to re-assessment)</h3>
+<p>Per-agent initial pick vs country re-assessment pick (745 Path B agent images).</p>
+<table>
+  <thead><tr><th>Category</th><th data-sort="num">Count</th><th data-sort="num">Share</th></tr></thead>
+  <tbody>
+    <tr>
+      <td>Constructive (initial wrong, re-assessment moved onto GT)</td>
+      <td>35</td>
+      <td>4.7%</td>
+    </tr>
+    <tr>
+      <td>Destructive (initial correct, re-assessment moved off GT)</td>
+      <td>43</td>
+      <td>5.8%</td>
+    </tr>
+    <tr>
+      <td>Stayed correct (both on GT)</td>
+      <td>329</td>
+      <td>44.2%</td>
+    </tr>
+    <tr>
+      <td>Stayed wrong (both wrong, same country)</td>
+      <td>225</td>
+      <td>30.2%</td>
+    </tr>
+    <tr>
+      <td>Lateral (both wrong, different countries)</td>
+      <td>113</td>
+      <td>15.2%</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<h3>Pipeline funnel</h3>
+<p>Where does the truth country get lost in the Progressive Narrowing pipeline?</p>
+
+<table>
+  <thead><tr>
+    <th>Stage</th><th>Description</th>
+    <th data-sort="num">Cumul. survival</th>
+    <th data-sort="num">Conditional</th>
+  </tr></thead>
+  <tbody>
+    <tr>
+      <td><strong>S0</strong></td>
+      <td>Truth in any agent's initial top-K</td>
+      <td>86.6% <span class="meta">(433/500)</span></td>
+      <td>86.6%</td>
+    </tr>
+    <tr>
+      <td><strong>S1</strong></td>
+      <td>Confirmed/proposed region matches truth's region</td>
+      <td>85.2% <span class="meta">(426/500)</span></td>
+      <td>98.4%</td>
+    </tr>
+    <tr>
+      <td><strong>S2</strong></td>
+      <td>Truth in country-round top-K (Path B) / region OK (Path A)</td>
+      <td>80.6% <span class="meta">(403/500)</span></td>
+      <td>94.6%</td>
+    </tr>
+    <tr>
+      <td><strong>S3</strong></td>
+      <td>Truth in country hypothesis pool</td>
+      <td>80.0% <span class="meta">(400/500)</span></td>
+      <td>99.3%</td>
+    </tr>
+    <tr>
+      <td><strong>S4</strong></td>
+      <td>Final prediction matches truth</td>
+      <td>64.0% <span class="meta">(320/500)</span></td>
+      <td>80.0%</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <strong>Bottleneck:</strong> S4, Final prediction matches truth<br>
+  Conditional rate: <strong>80.0%</strong>
+  (95% CI [75.8%, 83.6%])
+</blockquote>
+
+<img class="figure" src="plots/funnel.png" alt="Pipeline funnel">
+<p class="caption">Cumulative truth-survival through the PN pipeline (Wilson 95% CI).</p>
+
+<h4>Oracle ceilings</h4>
+<p>Counterfactual accuracy if a given stage were perfect.</p>
+<table>
+  <thead><tr><th>Scenario</th><th data-sort="num">Accuracy</th><th data-sort="num">n</th></tr></thead>
+  <tbody>
+    <tr><td>Actual</td><td>64.0%</td><td>500</td></tr>
+    <tr><td>Majority-vote baseline (initial round)</td><td>63.6%</td><td>500</td></tr>
+    <tr><td>Oracle region (perfect region step)</td><td>88.0%</td><td>500</td></tr>
+    <tr><td>Oracle pool (truth always in hypothesis pool)</td><td>88.2%</td><td>500</td></tr>
+    <tr><td>Oracle decision (perfect final judge)</td><td>82.2%</td><td>500</td></tr>
+  </tbody>
+</table>
+<img class="figure" src="plots/oracle_ceilings.png" alt="Oracle ceilings">
+<p class="caption">Oracle ceiling bars: the gap between actual and each ceiling is the recoverable headroom.</p>
+
+<h4>Agreement vs. accuracy</h4>
+<p>Final accuracy split by how many of the 5 agents agreed on the same top-1 country in the initial round.</p>
+<table>
+  <thead><tr>
+    <th>Agents agree</th><th data-sort="num">n</th>
+    <th data-sort="num">Accuracy</th>
+    <th data-sort="num">CI low</th><th data-sort="num">CI high</th>
+  </tr></thead>
+  <tbody>
+    <tr>
+      <td>5/5</td>
+      <td>90</td>
+      <td>88.9%</td>
+      <td>80.7%</td>
+      <td>93.9%</td>
+    </tr>
+    <tr>
+      <td>4/5</td>
+      <td>238</td>
+      <td>76.1%</td>
+      <td>70.2%</td>
+      <td>81.0%</td>
+    </tr>
+    <tr>
+      <td>3/5</td>
+      <td>103</td>
+      <td>42.7%</td>
+      <td>33.6%</td>
+      <td>52.4%</td>
+    </tr>
+    <tr>
+      <td>2/5</td>
+      <td>64</td>
+      <td>21.9%</td>
+      <td>13.5%</td>
+      <td>33.4%</td>
+    </tr>
+    <tr>
+      <td>1/5</td>
+      <td>5</td>
+      <td>20.0%</td>
+      <td>3.6%</td>
+      <td>62.4%</td>
+    </tr>
+  </tbody>
+</table>
+<img class="figure" src="plots/agreement_curve.png" alt="Agreement vs accuracy">
+<p class="caption">Higher initial agreement correlates strongly with final accuracy.</p>
+
+<h4>Path A vs. Path B</h4>
+<table>
+  <thead><tr>
+    <th>Metric</th>
+    <th data-sort="num">Path A (consensus)</th>
+    <th data-sort="num">Path B (no consensus)</th>
+  </tr></thead>
+  <tbody>
+    <tr><td>n</td><td>315</td><td>185</td></tr>
+    <tr><td>Accuracy</td><td>73.0%</td><td>48.6%</td></tr>
+    <tr><td>Median haversine</td><td>323 km</td><td>936 km</td></tr>
+    <tr><td>Truth in hypothesis pool</td><td>91.4%</td><td>66.5%</td></tr>
+  </tbody>
+</table>
+
+<h4>Error severity</h4>
+<div class="headline-grid">
+  <div class="stat">
+    <div class="label">Near miss (&lt; 500 km)</div>
+    <div class="value">41</div>
+  </div>
+  <div class="stat">
+    <div class="label">Same region, wrong country</div>
+    <div class="value">114</div>
+  </div>
+  <div class="stat">
+    <div class="label">Wrong region</div>
+    <div class="value">58</div>
+  </div>
+</div>
+
+<details class="example"><summary>Near-miss examples (41)</summary>
+<table class="small-table"><thead><tr>
+  <th>Image</th><th>Truth</th><th>Predicted</th><th data-sort="num">Distance</th>
+</tr></thead><tbody>
+<tr><td>1NJsXTxIF9GGMDxC_1</td><td>kyrgyzstan</td><td>uzbekistan</td>
+  <td>212 km</td></tr>
+<tr><td>1NJsXTxIF9GGMDxC_5</td><td>south africa</td><td>botswana</td>
+  <td>479 km</td></tr>
+<tr><td>4UvmdTHySo6AXW4M_3</td><td>poland</td><td>lithuania</td>
+  <td>291 km</td></tr>
+<tr><td>5bPlIRT7eGN79a2E_5</td><td>chile</td><td>argentina</td>
+  <td>434 km</td></tr>
+<tr><td>67gLC5CcGgkQIWEW_1</td><td>ukraine</td><td>moldova</td>
+  <td>436 km</td></tr>
+<tr><td>8Uo6ejwXYqmp9av3_2</td><td>norway</td><td>denmark</td>
+  <td>421 km</td></tr>
+<tr><td>AVKTblAzBqaYrcKe_2</td><td>senegal</td><td>the gambia</td>
+  <td>143 km</td></tr>
+<tr><td>DKGAIVKGYnLWmMy9_3</td><td>czechia</td><td>poland</td>
+  <td>469 km</td></tr>
+<tr><td>DKGAIVKGYnLWmMy9_4</td><td>canada</td><td>united states</td>
+  <td>441 km</td></tr>
+<tr><td>DKGAIVKGYnLWmMy9_5</td><td>serbia</td><td>romania</td>
+  <td>409 km</td></tr>
+<tr><td>HLDekf7z49ovS9Y8_2</td><td>bhutan</td><td>india</td>
+  <td>248 km</td></tr>
+<tr><td>JnTw9kl2nWPFaoUg_2</td><td>france</td><td>belgium</td>
+  <td>77 km</td></tr>
+<tr><td>KTKKKeKESyntpGnS_1</td><td>austria</td><td>germany</td>
+  <td>491 km</td></tr>
+<tr><td>KZ2f6LqzJRyChcg8_2</td><td>latvia</td><td>lithuania</td>
+  <td>268 km</td></tr>
+<tr><td>Lz6IDBZmUTr5oPdV_1</td><td>hungary</td><td>poland</td>
+  <td>484 km</td></tr>
+</tbody></table></details>
+
+<details class="example"><summary>Wrong-region examples (58)</summary>
+<table class="small-table"><thead><tr>
+  <th>Image</th><th>Truth</th><th>Predicted</th><th data-sort="num">Distance</th>
+</tr></thead><tbody>
+<tr><td>4UvmdTHySo6AXW4M_4</td><td>united states</td><td>namibia</td>
+  <td>14583 km</td></tr>
+<tr><td>4UvmdTHySo6AXW4M_5</td><td>cambodia</td><td>india</td>
+  <td>3255 km</td></tr>
+<tr><td>56Q4T4rpv9O9sCpP_2</td><td>south africa</td><td>australia</td>
+  <td>10484 km</td></tr>
+<tr><td>5bPlIRT7eGN79a2E_3</td><td>mexico</td><td>argentina</td>
+  <td>9156 km</td></tr>
+<tr><td>74bPHM081cMUaNKT_4</td><td>kenya</td><td>honduras</td>
+  <td>13417 km</td></tr>
+<tr><td>74bPHM081cMUaNKT_5</td><td>turkey</td><td>albania</td>
+  <td>1061 km</td></tr>
+<tr><td>9oZfZYQEl9GWjZPu_3</td><td>south africa</td><td>australia</td>
+  <td>10368 km</td></tr>
+<tr><td>9oZfZYQEl9GWjZPu_4</td><td>peru</td><td>costa rica</td>
+  <td>1772 km</td></tr>
+<tr><td>EEI3fwu4iZvPT2zP_2</td><td>peru</td><td>panama</td>
+  <td>1850 km</td></tr>
+<tr><td>EEI3fwu4iZvPT2zP_3</td><td>sri lanka</td><td>brazil</td>
+  <td>13758 km</td></tr>
+<tr><td>HF1MKwIFNCNb4FdM_5</td><td>sri lanka</td><td>indonesia</td>
+  <td>3855 km</td></tr>
+<tr><td>IozkbMt8zbdH9XCv_3</td><td>argentina</td><td>iraq</td>
+  <td>13911 km</td></tr>
+<tr><td>IozkbMt8zbdH9XCv_5</td><td>nigeria</td><td>india</td>
+  <td>7826 km</td></tr>
+<tr><td>JfPkjboMSjCsG1Qu_4</td><td>colombia</td><td>dominican republic</td>
+  <td>947 km</td></tr>
+<tr><td>KTKKKeKESyntpGnS_5</td><td>brazil</td><td>mexico</td>
+  <td>7032 km</td></tr>
+</tbody></table></details>
+
+
+<h2 id="judge">3. LLM-as-judge verdicts</h2>
+<p>Verdicts: <strong>500</strong> / 500 ·
+   Constructive synthesis: <strong>69.4%</strong></p>
+
+<h3>Progressive Narrowing scores</h3>
+<p>Region narrowing quality: for Path A (consensus) this scores the consensus check;
+for Path B it scores the region-decision reasoning quality. Hypothesis pool quality
+scores whether the generated country hypotheses were the right set of plausible
+candidates, regardless of whether the truth country was in the pool.</p>
+<table>
+  <thead><tr><th>Split</th><th data-sort="num">n</th>
+    <th data-sort="num">Mean</th><th data-sort="num">Median</th>
+    <th data-sort="num">Stdev</th></tr></thead>
+  <tbody>
+    <tr><td>Region narrowing, all</td><td>500</td>
+      <td>0.709</td>
+      <td>0.750</td>
+      <td>0.312</td></tr>
+    <tr><td>Region narrowing, Path A</td><td>0</td>
+      <td>n/a</td>
+      <td>n/a</td>
+      <td>n/a</td></tr>
+    <tr><td>Region narrowing, Path B</td><td>0</td>
+      <td>n/a</td>
+      <td>n/a</td>
+      <td>n/a</td></tr>
+    <tr><td>Hypothesis pool, all</td><td>500</td>
+      <td>0.435</td>
+      <td>0.500</td>
+      <td>0.279</td></tr>
+    <tr><td>Hypothesis pool, truth in pool</td><td>0</td>
+      <td>n/a</td>
+      <td>n/a</td>
+      <td>n/a</td></tr>
+    <tr><td>Hypothesis pool, truth NOT in pool</td><td>500</td>
+      <td>0.435</td>
+      <td>0.500</td>
+      <td>0.279</td></tr>
+  </tbody>
+</table>
+<img class="figure" src="plots/judge_pn_scores.png" alt="PN scores">
+<p class="caption">Fig 6: Region narrowing quality (Path A vs B) and hypothesis pool quality.</p>
+
+<h3>Per-agent judge scores</h3>
+<table>
+  <thead><tr><th>Agent</th><th data-sort="num">n</th>
+    <th data-sort="num">Role adh.</th>
+    <th data-sort="num">Halluc. (down)</th>
+    <th data-sort="num">Visual cons. (up)</th>
+    <th data-sort="num">Conf. calib. (up)</th></tr></thead>
+  <tbody>
+    <tr>
+      <td>linguistic</td>
+      <td>500</td>
+      <td>100.0%</td>
+      <td>0.00 ± 0.00</td>
+      <td>0.89 ± 0.32</td>
+      <td>0.49 ± 0.28</td>
+    </tr>
+    <tr>
+      <td>landscape</td>
+      <td>500</td>
+      <td>100.0%</td>
+      <td>0.02 ± 0.06</td>
+      <td>0.93 ± 0.07</td>
+      <td>0.56 ± 0.34</td>
+    </tr>
+    <tr>
+      <td>botanics</td>
+      <td>500</td>
+      <td>100.0%</td>
+      <td>0.03 ± 0.10</td>
+      <td>0.90 ± 0.10</td>
+      <td>0.54 ± 0.32</td>
+    </tr>
+    <tr>
+      <td>regulatory</td>
+      <td>500</td>
+      <td>100.0%</td>
+      <td>0.01 ± 0.03</td>
+      <td>0.94 ± 0.07</td>
+      <td>0.55 ± 0.30</td>
+    </tr>
+    <tr>
+      <td>meta</td>
+      <td>500</td>
+      <td>100.0%</td>
+      <td>0.02 ± 0.08</td>
+      <td>0.90 ± 0.10</td>
+      <td>0.55 ± 0.34</td>
+    </tr>
+  </tbody>
+</table>
+<img class="figure" src="plots/judge_role_adherence.png" alt="Role adherence">
+<p class="caption">Fig 7: Per-agent role adherence rate.</p>
+<img class="figure" src="plots/judge_quality.png" alt="Argumentative quality">
+<p class="caption">Fig 8: Argumentative quality histogram.</p>
+<img class="figure" src="plots/judge_hallucination.png" alt="Hallucination scores">
+<p class="caption">Fig 9: Per-agent hallucination score (0 = clean, 1 = severe).</p>
+<img class="figure" src="plots/judge_visual_consistency.png" alt="Visual consistency">
+<p class="caption">Fig 10: Per-agent visual consistency.</p>
+<img class="figure" src="plots/judge_confidence_calibration.png" alt="Calibration">
+<p class="caption">Fig 11: Per-agent confidence calibration.</p>
+
+<h3>Hallucination examples</h3>
+<details><summary>landscape: 5 flagged claim(s)</summary>
+<table class="small-table"><thead><tr>
+  <th>Image</th><th data-sort="num">Score</th><th>Hallucinated claim</th>
+</tr></thead><tbody>
+<tr><td>1NJsXTxIF9GGMDxC_1</td>
+  <td>0.75</td>
+  <td>claimed 'semi-arid vegetation... typical of the South Caucasus'</td></tr>
+<tr><td>1NJsXTxIF9GGMDxC_1</td>
+  <td>0.75</td>
+  <td>claimed 'specific style of road infrastructure... characteristic of rural Azerbaijan'</td></tr>
+<tr><td>9lNwy1vjD53PTSwt_1</td>
+  <td>0.10</td>
+  <td>claimed 'dark, fertile chernozem' is visible (soil is not visible under grass)</td></tr>
+<tr><td>JfPkjboMSjCsG1Qu_4</td>
+  <td>0.20</td>
+  <td>claimed 'calcareous/light-colored soil visible' — soil is not clearly visible under vegetation</td></tr>
+<tr><td>NqhvwHTYOTtGmZgm_1</td>
+  <td>0.50</td>
+  <td>claimed 'volcanic basaltic soil' — the ground is clearly grey gravel/sand, not black basalt.</td></tr>
+</tbody></table></details>
+<details><summary>botanics: 5 flagged claim(s)</summary>
+<table class="small-table"><thead><tr>
+  <th>Image</th><th data-sort="num">Score</th><th>Hallucinated claim</th>
+</tr></thead><tbody>
+<tr><td>1NJsXTxIF9GGMDxC_1</td>
+  <td>0.75</td>
+  <td>claimed 'South Caucasus regional flora'</td></tr>
+<tr><td>1NJsXTxIF9GGMDxC_1</td>
+  <td>0.75</td>
+  <td>claimed 'vegetation is typical of the lowland plains... of Azerbaijan'</td></tr>
+<tr><td>3uP6lYo9pzx5Q0km_5</td>
+  <td>0.30</td>
+  <td>Identified Castanea sativa (Sweet Chestnut) — while plausible, the image resolution is insufficient to confirm this specific species.</td></tr>
+<tr><td>6ypQOh9cOoE7WaWH_3</td>
+  <td>0.20</td>
+  <td>claimed 'eucalyptus plantations' are visible in the background hills</td></tr>
+<tr><td>74bPHM081cMUaNKT_2</td>
+  <td>0.20</td>
+  <td>claimed 'Arctic-alpine tundra' — image shows arid scrubland, not tundra.</td></tr>
+</tbody></table></details>
+<details><summary>regulatory: 5 flagged claim(s)</summary>
+<table class="small-table"><thead><tr>
+  <th>Image</th><th data-sort="num">Score</th><th>Hallucinated claim</th>
+</tr></thead><tbody>
+<tr><td>1NJsXTxIF9GGMDxC_1</td>
+  <td>0.50</td>
+  <td>claimed 'green fuel price totem displays A3C'</td></tr>
+<tr><td>9lNwy1vjD53PTSwt_5</td>
+  <td>0.20</td>
+  <td>claimed 'left-hand driving' based on vehicle position, which is ambiguous in a POV shot.</td></tr>
+<tr><td>JfPkjboMSjCsG1Qu_5</td>
+  <td>0.20</td>
+  <td>claimed 'specific symbol' on the blue sign — the sign is a generic bus stop symbol, not a specific regional marker.</td></tr>
+<tr><td>Y2QhKx7sks9MExvw_5</td>
+  <td>0.10</td>
+  <td>claimed 'right-hand traffic' — vehicle is driving away, no clear lane position</td></tr>
+<tr><td>ZMSyLdPt9G7MhcHC_4</td>
+  <td>0.20</td>
+  <td>claimed red/green curbs are a 'common regulatory marking in Guatemala'</td></tr>
+</tbody></table></details>
+<details><summary>meta: 5 flagged claim(s)</summary>
+<table class="small-table"><thead><tr>
+  <th>Image</th><th data-sort="num">Score</th><th>Hallucinated claim</th>
+</tr></thead><tbody>
+<tr><td>1NJsXTxIF9GGMDxC_1</td>
+  <td>0.50</td>
+  <td>claimed 'green fuel price totem is characteristic of SOCAR stations in Azerbaijan'</td></tr>
+<tr><td>3uP6lYo9pzx5Q0km_4</td>
+  <td>0.80</td>
+  <td>Claimed 'Google Trekker camera blur' is visible at the bottom of the image.</td></tr>
+<tr><td>3uP6lYo9pzx5Q0km_4</td>
+  <td>0.80</td>
+  <td>Claimed 'Trekker camera' is common in Costa Rican forest paths.</td></tr>
+<tr><td>56Q4T4rpv9O9sCpP_5</td>
+  <td>0.75</td>
+  <td>claimed 'distinct Google Street View halo... characteristic of the camera rig used in Botswana'</td></tr>
+<tr><td>56Q4T4rpv9O9sCpP_5</td>
+  <td>0.75</td>
+  <td>claimed 'simple wooden poles... differs from the more reinforced concrete poles often seen in neighboring South Africa'</td></tr>
+</tbody></table></details>
+
+
+</main>
+</div>
+
+<script>
+function toggleTheme() {
+  const r = document.documentElement;
+  r.dataset.theme = r.dataset.theme === "dark" ? "light" : "dark";
+}
+function expandAll(open) {
+  document.querySelectorAll("details").forEach(d => { d.open = open; });
+}
+document.querySelectorAll("table").forEach(table => {
+  table.querySelectorAll("th").forEach((th, idx) => {
+    th.addEventListener("click", () => {
+      const tbody = table.tBodies[0];
+      if (!tbody) return;
+      const rows = Array.from(tbody.rows);
+      const numeric = th.dataset.sort === "num";
+      const asc = !th.classList.contains("sort-asc");
+      rows.sort((a, b) => {
+        const x = a.cells[idx]?.innerText || "";
+        const y = b.cells[idx]?.innerText || "";
+        if (numeric) {
+          const xn = parseFloat(x.replace(/[^\d.\-]/g, "")) || 0;
+          const yn = parseFloat(y.replace(/[^\d.\-]/g, "")) || 0;
+          return asc ? xn - yn : yn - xn;
+        }
+        return asc ? x.localeCompare(y) : y.localeCompare(x);
+      });
+      rows.forEach(r => tbody.appendChild(r));
+      table.querySelectorAll("th").forEach(t => t.classList.remove("sort-asc","sort-desc"));
+      th.classList.toggle("sort-asc", asc);
+      th.classList.toggle("sort-desc", !asc);
+    });
+  });
+});
+const sections = Array.from(document.querySelectorAll("main h2"));
+const tocLinks = Array.from(document.querySelectorAll("nav.toc a"));
+function onScroll() {
+  let current = null;
+  for (const s of sections) {
+    if (s.getBoundingClientRect().top < 100) current = s.id;
+  }
+  tocLinks.forEach(a => a.classList.toggle("active",
+    a.getAttribute("href") === "#" + current));
+}
+window.addEventListener("scroll", onScroll, { passive: true });
+onScroll();
+</script>
+</body>
+</html>

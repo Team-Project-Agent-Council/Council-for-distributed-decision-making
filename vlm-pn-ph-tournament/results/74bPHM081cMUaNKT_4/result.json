@@ -1,0 +1,636 @@
+{
+  "image_path": "/pfs/data6/home/ma/ma_ma/ma_lweisssc/llm_council_agent_orchestration_tests/clean_images_GeoRC_500/74bPHM081cMUaNKT_4.png",
+  "model": "google/gemma-4-31B-it",
+  "judge_model": "google/gemma-4-31B-it",
+  "timing": {
+    "total_seconds": 105.3
+  },
+  "assessments": {
+    "linguistic": {
+      "agent_name": "linguistic",
+      "candidates": [],
+      "evidence": []
+    },
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Colombia",
+          "confidence": "medium",
+          "reasoning": "The combination of Andean-style rolling hills, tropical scrub vegetation, and the specific road marking style (yellow center line, white edge line) is very common in the Colombian highlands. The soil composition and utility pole style are consistent with rural Colombian infrastructure."
+        },
+        {
+          "country": "Ecuador",
+          "confidence": "medium",
+          "reasoning": "The terrain and climate are nearly identical to Colombia, featuring high-altitude tropical landscapes and similar soil erosion patterns on the hillsides. It is geographically indistinguishable from southern Colombia based on landscape alone."
+        },
+        {
+          "country": "Guatemala",
+          "confidence": "low",
+          "reasoning": "The volcanic soil and hilly terrain match the highlands of Central America. The vegetation is consistent with the subtropical dry forest found in various regions of Guatemala."
+        },
+        {
+          "country": "Ethiopia",
+          "confidence": "speculative",
+          "reasoning": "As a cross-continent analog, the Ethiopian Highlands feature similar high-altitude plateaus, rolling green hills, and arid scrubland patches with similar soil colors and road conditions."
+        }
+      ],
+      "evidence": [
+        "Rolling hills with tropical scrub vegetation",
+        "Light-colored, eroded soil on embankments",
+        "Yellow center line and white outer line road markings",
+        "Wooden utility poles with simple cross-arms",
+        "High-altitude tropical climate indicated by vegetation and cloud patterns"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Ethiopia",
+          "confidence": "medium",
+          "reasoning": "The combination of high-altitude tropical scrub, scattered Acacia-like trees, and the specific rolling highland topography is highly characteristic of the Ethiopian Highlands. The vegetation pattern is consistent with the Afromontane biome."
+        },
+        {
+          "country": "Kenya",
+          "confidence": "medium",
+          "reasoning": "The landscape shows a similar mix of savanna-scrub and highland vegetation found in the Kenyan highlands. It is botanically indistinguishable from southern Ethiopia without seeing specific endemic species."
+        },
+        {
+          "country": "Colombia",
+          "confidence": "low",
+          "reasoning": "The rolling hills and mixed scrubland are reminiscent of the Andean foothills or the Altiplano. The vegetation is a tropical highland analog to the East African highlands."
+        },
+        {
+          "country": "Vietnam",
+          "confidence": "speculative",
+          "reasoning": "Certain highland regions in Southeast Asia exhibit similar scrubby, degraded hillside vegetation and tropical broadleaf clusters, though the overall biome is less typical than the African candidates."
+        }
+      ],
+      "evidence": [
+        "Tropical highland scrub",
+        "Acacia-type canopy trees",
+        "Afromontane/Andean analog vegetation",
+        "Degraded hillside grasslands"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Ethiopia",
+          "confidence": "low",
+          "reasoning": "The combination of rough-hewn wooden utility poles, basic asphalt quality, and the specific hilly terrain with sparse vegetation is common in the Ethiopian highlands."
+        },
+        {
+          "country": "Colombia",
+          "confidence": "low",
+          "reasoning": "The road width, shoulder treatment, and the style of wooden electrical poles are consistent with rural Andean road infrastructure."
+        },
+        {
+          "country": "Kenya",
+          "confidence": "low",
+          "reasoning": "Rural asphalt roads with simple wooden poles and gravel shoulders are standard across East African highlands."
+        },
+        {
+          "country": "Mexico",
+          "confidence": "speculative",
+          "reasoning": "Cross-continent analog: Rural Mexican roads often feature similar wooden utility poles and basic asphalt with unpaved shoulders in mountainous regions."
+        }
+      ],
+      "evidence": [
+        "Rough-hewn wooden utility poles",
+        "Basic asphalt road surface",
+        "Unpaved gravel shoulders",
+        "No visible road signs or license plates"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "Colombia",
+          "confidence": "medium",
+          "reasoning": "The utility poles are simple, untreated wooden poles without cross-arms, which is very common in rural Colombian highlands. The image quality and slight blur are consistent with Gen 3/4 coverage found in the region."
+        },
+        {
+          "country": "Guatemala",
+          "confidence": "medium",
+          "reasoning": "Similar rural infrastructure with basic wooden poles and asphalt quality. The lack of standardized concrete poles in this specific rural stretch is common in Central American highlands."
+        },
+        {
+          "country": "Ethiopia",
+          "confidence": "low",
+          "reasoning": "Global analog from a different continent. Rural Ethiopia often features similar simple wooden utility poles and road quality in highland regions, though the camera generation differs slightly from Latin American coverage."
+        },
+        {
+          "country": "Kenya",
+          "confidence": "low",
+          "reasoning": "Global analog. Rural Kenyan roads often utilize these basic wooden poles for power distribution in remote areas, matching the general meta profile of the image."
+        }
+      ],
+      "evidence": [
+        "untreated wooden utility poles without cross-arms",
+        "Gen 3/4 Google Street View image quality",
+        "basic asphalt road surface without shoulder curbing"
+      ]
+    }
+  },
+  "progressive_narrowing": {
+    "region_consensus": false,
+    "confirmed_region": "Central America & Caribbean",
+    "runner_up_region": "South America",
+    "surviving_regions": [
+      "Central America & Caribbean",
+      "South America"
+    ],
+    "proposed_regions": [
+      "South America",
+      "Central America & Caribbean",
+      "Sub-Saharan Africa",
+      "Southeast Asia"
+    ],
+    "region_candidates": {
+      "South America": {
+        "Colombia": 4
+      },
+      "Central America & Caribbean": {
+        "Guatemala": 2,
+        "Mexico": 1
+      },
+      "Sub-Saharan Africa": {
+        "Ethiopia": 4,
+        "Kenya": 3
+      },
+      "Southeast Asia": {
+        "Vietnam": 1
+      }
+    },
+    "region_decision_reasoning": "Central America & Caribbean received the highest total score, including a 'strongly_support' from the landscape agent and consistent support across botanics and meta agents. South America follows closely with consistent 'support' across all three categories, making it the most plausible runner-up.",
+    "path": "B"
+  },
+  "road_evidence": {
+    "outside_color": "white",
+    "inside_color": "yellow",
+    "driving_side": "UNCLEAR",
+    "driving_side_basis": "none"
+  },
+  "country_assessments": {
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Colombia",
+          "confidence": "high",
+          "reasoning": "The combination of rolling Andean foothills, specific tropical scrub vegetation, and the style of road markings (yellow center line, white edge) is very characteristic of the Colombian interior. The soil composition and the presence of rough-hewn wooden utility poles are common in rural Colombian departments."
+        },
+        {
+          "country": "Ecuador",
+          "confidence": "medium",
+          "reasoning": "The terrain and climate are very similar to the Colombian highlands, featuring similar volcanic-influenced soils and mixed tropical scrub. It is geographically indistinguishable from southern Colombia in this specific landscape view."
+        },
+        {
+          "country": "Guatemala",
+          "confidence": "low",
+          "reasoning": "The hilly terrain and vegetation patterns match the highlands of Central America. However, the road quality and specific utility pole style are slightly more indicative of the northern Andean region."
+        }
+      ],
+      "evidence": [
+        "Rolling tropical highland terrain",
+        "Yellow center line with white shoulder markings",
+        "Rough-hewn wooden utility poles",
+        "Mixed scrubland and deciduous tropical vegetation",
+        "Light-colored, rocky soil exposure on the right embankment"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Colombia",
+          "confidence": "medium",
+          "reasoning": "The combination of Andean foothills vegetation, including scrubby secondary growth and scattered broadleaf trees, is highly characteristic of the Colombian interior. The specific mix of xeric-leaning shrubs and lush green patches suggests a transitional altitude common in the Colombian highlands."
+        },
+        {
+          "country": "Ecuador",
+          "confidence": "medium",
+          "reasoning": "The landscape mirrors the inter-Andean valleys of Ecuador, where similar scrubland and fragmented forest patches occur along road cuts. The vegetation is nearly indistinguishable from that of southern Colombia in these specific ecological zones."
+        },
+        {
+          "country": "Venezuela",
+          "confidence": "low",
+          "reasoning": "The dry-forest transition and scrubby hillsides are consistent with the Venezuelan Andes or the coastal range. However, the specific density of the green undergrowth is slightly more typical of the more humid Andean regions to the south."
+        },
+        {
+          "country": "Guatemala",
+          "confidence": "low",
+          "reasoning": "The highland scrub and volcanic soil indicators (suggested by the road cut) are consistent with the Guatemalan Altiplano. The vegetation patterns of secondary growth are similar to those found in the Central American highlands."
+        }
+      ],
+      "evidence": [
+        "Andean scrubland",
+        "Secondary growth broadleaf forest",
+        "Xeric-transition shrubs"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Colombia",
+          "confidence": "medium",
+          "reasoning": "The style of the rough-hewn wooden utility poles and the specific quality of the asphalt with narrow, unpaved shoulders is very common in rural Andean regions of Colombia."
+        },
+        {
+          "country": "Ecuador",
+          "confidence": "medium",
+          "reasoning": "The infrastructure is consistent with rural Ecuadorian highways, featuring similar wooden pole construction and road width characteristics."
+        },
+        {
+          "country": "Guatemala",
+          "confidence": "low",
+          "reasoning": "The rural road layout and the use of basic wooden utility poles are seen in the highlands of Guatemala, though the terrain is a generic match."
+        },
+        {
+          "country": "Peru",
+          "confidence": "low",
+          "reasoning": "Similar rural road infrastructure with basic asphalt and wooden poles is found in various Peruvian regions, though no specific markers are present."
+        }
+      ],
+      "evidence": [
+        "rough-hewn wooden utility poles",
+        "narrow asphalt road with gravel/dirt shoulders",
+        "absence of formal bollards or guardrails",
+        "basic electrical wiring mounting"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "Colombia",
+          "confidence": "medium",
+          "reasoning": "The use of simple, untreated wooden utility poles with minimal hardware is very common in rural Colombian highlands. The image quality and camera generation are consistent with Colombia's extensive rural coverage."
+        },
+        {
+          "country": "Ecuador",
+          "confidence": "medium",
+          "reasoning": "Rural Ecuador frequently utilizes similar wooden pole infrastructure and has a similar Google Street View camera generation and image clarity in mountainous regions."
+        },
+        {
+          "country": "Guatemala",
+          "confidence": "low",
+          "reasoning": "The wooden pole style and general road quality are seen in rural Guatemala, though the specific pole taper is slightly more characteristic of the Andean region."
+        },
+        {
+          "country": "Peru",
+          "confidence": "low",
+          "reasoning": "Similar wooden utility poles are used in the Peruvian highlands, though the lack of specific concrete reinforcements on the poles makes it less certain than Colombia or Ecuador."
+        }
+      ],
+      "evidence": [
+        "Untreated wooden utility poles",
+        "Simple wire attachments without complex cross-arms",
+        "Google Street View camera generation/image quality"
+      ]
+    }
+  },
+  "hypothesis_evaluations": [
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_central_america_and_caribbean",
+      "confidence": "strongly_support",
+      "reasoning": "The combination of rolling volcanic-style hills, specific scrubby tropical vegetation, and the light-colored, weathered sedimentary/volcanic road cuts is highly characteristic of the highlands in Central America (e.g., Guatemala, Honduras, Costa Rica). The sun angle suggests a tropical latitude.",
+      "key_evidence": [
+        "light-colored weathered road cuts",
+        "tropical scrub vegetation",
+        "rolling highland terrain"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_south_america",
+      "confidence": "support",
+      "reasoning": "The landscape is compatible with the Andean foothills or the highlands of Colombia and Ecuador, which share similar climate and terrain profiles with Central America.",
+      "key_evidence": [
+        "rolling hills",
+        "tropical climate indicators"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_sub-saharan_africa",
+      "confidence": "support",
+      "reasoning": "The arid-tropical scrubland and hilly terrain are found in East African highlands (e.g., Ethiopia, Kenya), though the specific soil color and road cut appearance are slightly more typical of the Americas.",
+      "key_evidence": [
+        "savanna-like scrub",
+        "hilly terrain"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_southeast_asia",
+      "confidence": "contradicts",
+      "reasoning": "While hilly regions exist in SE Asia, the vegetation density and the specific dry, pale soil composition seen in the road cuts are less common than the lush, deep-red laterite soils typically found in that region's highlands.",
+      "key_evidence": [
+        "pale soil color",
+        "vegetation type"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_south_america",
+      "confidence": "support",
+      "reasoning": "The vegetation consists of a mix of tropical dry forest and scrubland typical of the Andean foothills or the Cerrado/Caatinga transition zones. The presence of scattered broadleaf trees and xeric-adapted shrubs is highly compatible with regions like Colombia or Ecuador.",
+      "key_evidence": [
+        "tropical dry forest scrub",
+        "broadleaf evergreen trees"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_central_america_and_caribbean",
+      "confidence": "support",
+      "reasoning": "The landscape and vegetation are very similar to the dry corridors of Central America (e.g., Guatemala, Honduras, Nicaragua). The mix of opportunistic shrubs and scattered canopy trees is a common sight in these tropical seasonal forests.",
+      "key_evidence": [
+        "tropical seasonal forest",
+        "xeric scrub"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_sub-saharan_africa",
+      "confidence": "support",
+      "reasoning": "This biome is a global analog to the African savanna or Sahelian transition zones. The sparse, scrubby vegetation and scattered trees are consistent with East African highlands or West African savanna landscapes.",
+      "key_evidence": [
+        "savanna-like scrub",
+        "tropical dry forest"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_southeast_asia",
+      "confidence": "low",
+      "reasoning": "While Southeast Asia has dry forests (e.g., in Thailand or Myanmar), the specific structure of the scrub and the open, rolling hill vegetation seen here is less characteristic of the typical dense tropical or monsoon forest patterns of that region.",
+      "key_evidence": [
+        "open scrubland"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_central_america_and_caribbean",
+      "confidence": "support",
+      "reasoning": "The use of simple, untreated wooden utility poles without cross-arms, combined with the specific asphalt quality and the presence of a small corrugated metal fence/structure, is very common in Central American rural areas (e.g., Costa Rica, Panama, Guatemala).",
+      "key_evidence": [
+        "untreated wooden utility poles",
+        "corrugated metal fencing"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_south_america",
+      "confidence": "support",
+      "reasoning": "The utility pole style and general road infrastructure are highly compatible with rural Andean or tropical regions of South America (e.g., Colombia, Ecuador). It is nearly indistinguishable from Central American meta in this specific rural context.",
+      "key_evidence": [
+        "untreated wooden utility poles",
+        "road surface quality"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_sub-saharan_africa",
+      "confidence": "low",
+      "reasoning": "While wooden poles are used in Africa, the specific way the wires are strung and the overall 'cleanliness' of the road shoulder are slightly more characteristic of the Americas. However, it remains a plausible analog.",
+      "key_evidence": [
+        "wooden utility poles"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_southeast_asia",
+      "confidence": "contradicts",
+      "reasoning": "Southeast Asian rural roads typically utilize concrete utility poles or very specific types of reinforced wooden poles. The lack of concrete poles in this landscape makes this region unlikely.",
+      "key_evidence": [
+        "absence of concrete utility poles"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_colombia",
+      "confidence": "strongly_support",
+      "reasoning": "The combination of rolling Andean foothills, specific light-colored sedimentary rock outcrops on the right, and the lush but scrubby tropical highland vegetation is highly characteristic of the Colombian interior. The road quality and settlement pattern (scattered small structures on hillsides) are very common in the Colombian coffee axis or Andean regions.",
+      "key_evidence": [
+        "Andean foothill topography",
+        "light-colored sedimentary rock cuts",
+        "tropical highland scrub vegetation"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_ecuador",
+      "confidence": "support",
+      "reasoning": "The terrain is very similar to the Colombian Andes, featuring similar elevation and vegetation. However, the specific soil color and rock composition seen in the road cut are slightly more typical of Colombian geological formations than the volcanic soils more prevalent in the Ecuadorian highlands.",
+      "key_evidence": [
+        "Andean topography",
+        "tropical highland climate"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_peru",
+      "confidence": "support",
+      "reasoning": "The landscape is compatible with the Peruvian highlands (Sierra), but the vegetation here appears slightly more humid and lush than the typical high-altitude Altiplano or dry Andean valleys of Peru.",
+      "key_evidence": [
+        "Mountainous terrain",
+        "tropical highland vegetation"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_guatemala",
+      "confidence": "support",
+      "reasoning": "The rolling hills and vegetation are compatible with the Central American highlands. However, the scale of the landscape and the specific road-cut geology are more reminiscent of the South American Andes.",
+      "key_evidence": [
+        "Highland topography",
+        "tropical scrub"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_venezuela",
+      "confidence": "support",
+      "reasoning": "The landscape is compatible with the Venezuelan Andes or coastal ranges, though the specific combination of soil and vegetation is slightly more characteristic of the northern Andean countries.",
+      "key_evidence": [
+        "Mountainous terrain",
+        "tropical climate"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_colombia",
+      "confidence": "support",
+      "reasoning": "The vegetation consists of a mix of tropical dry forest and secondary scrubland typical of the Andean foothills or the Inter-Andean valleys of Colombia. The presence of scattered broadleaf trees and low-lying xeric shrubs is highly compatible with Colombian landscapes.",
+      "key_evidence": [
+        "tropical dry forest scrub",
+        "Andean foothill vegetation"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_ecuador",
+      "confidence": "support",
+      "reasoning": "The botanical composition is very similar to the inter-Andean valleys of Ecuador. The mix of opportunistic shrubs and sparse tree cover on rocky slopes is a common sight in the Ecuadorian highlands.",
+      "key_evidence": [
+        "inter-Andean valley scrub",
+        "tropical secondary growth"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_guatemala",
+      "confidence": "support",
+      "reasoning": "The dry, scrubby vegetation and the specific appearance of the deciduous trees in the background are consistent with the highlands of Guatemala, particularly in the drier rain-shadow regions.",
+      "key_evidence": [
+        "Central American highland scrub",
+        "deciduous tropical trees"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_peru",
+      "confidence": "support",
+      "reasoning": "The vegetation is compatible with the Peruvian sierra or the foothills of the Andes, where similar xeric-influenced tropical scrubland occurs on slopes.",
+      "key_evidence": [
+        "Andean scrubland",
+        "tropical dry forest"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_venezuela",
+      "confidence": "support",
+      "reasoning": "The landscape is botanically consistent with the Venezuelan Llanos transition zones or the coastal range foothills, featuring similar hardy, drought-resistant tropical shrubs.",
+      "key_evidence": [
+        "tropical savanna transition vegetation",
+        "xeric scrub"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_colombia",
+      "confidence": "support",
+      "reasoning": "The wooden utility poles are very common in rural Colombia, and the image quality/camera generation is consistent with Colombian coverage. However, these poles are generic and shared with other Andean nations.",
+      "key_evidence": [
+        "wooden utility poles",
+        "camera generation"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_ecuador",
+      "confidence": "support",
+      "reasoning": "The simple wooden poles and the general road quality are compatible with rural Ecuador. There are no unique markers to distinguish it from Colombia or Peru based solely on meta.",
+      "key_evidence": [
+        "wooden utility poles"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_guatemala",
+      "confidence": "support",
+      "reasoning": "The utility pole style and the presence of simple corrugated metal fencing in the background are common in Central American rural areas, including Guatemala.",
+      "key_evidence": [
+        "wooden utility poles",
+        "corrugated metal fencing"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_peru",
+      "confidence": "support",
+      "reasoning": "The wooden poles and the general infrastructure are compatible with the Peruvian highlands/rural areas. No unique Peruvian meta (like specific concrete pole types) is visible here.",
+      "key_evidence": [
+        "wooden utility poles"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_venezuela",
+      "confidence": "low",
+      "reasoning": "While the poles are compatible, Venezuela has very limited and outdated Google Street View coverage compared to the other listed countries, making it a less likely candidate for this specific image quality.",
+      "key_evidence": [
+        "camera generation/coverage date"
+      ]
+    }
+  ],
+  "candidate_pool": [
+    "Colombia",
+    "Ecuador",
+    "Guatemala",
+    "Peru",
+    "Venezuela"
+  ],
+  "rag_findings": [
+    {
+      "kind": "tournament_match",
+      "country": "Peru",
+      "detail": "The landscape, featuring rolling Andean foothills and specific light-colored sedimentary rock outcrops, is strongly supported as being characteristic of the Colombian interior. While both countries are compatible, the vegetation is more consistent with the humid tropical highland scrub found in Colombia than the typically drier Peruvian sierra.",
+      "opponent": "Colombia",
+      "winner": "Colombia"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Guatemala",
+      "detail": "The landscape, specifically the combination of rolling hills and the specific botanical composition of opportunistic shrubs and sparse tree cover, strongly aligns with the inter-Andean valleys of Ecuador. The road-cut geology and overall terrain are more characteristic of the South American Andes than the Central American highlands.",
+      "opponent": "Ecuador",
+      "winner": "Ecuador"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Ecuador",
+      "detail": "The landscape specialist strongly supports Colombia, noting that the specific light-colored sedimentary rock outcrops and the combination of rolling Andean foothills and scrubby tropical highland vegetation are highly characteristic of the Colombian interior. While Ecuador is similar, the geological formations in the road cut are more typical of Colombia than the volcanic soils common in Ecuador.",
+      "opponent": "Colombia",
+      "winner": "Colombia"
+    }
+  ],
+  "rag_refs_seen": [],
+  "road_filter_warnings": [],
+  "tournament_log": [
+    {
+      "round_label": "semi-1",
+      "country_a": "Colombia",
+      "country_b": "Peru",
+      "pool_rank_a": 0,
+      "pool_rank_b": 3,
+      "winner": "Colombia",
+      "reasoning": "The landscape, featuring rolling Andean foothills and specific light-colored sedimentary rock outcrops, is strongly supported as being characteristic of the Colombian interior. While both countries are compatible, the vegetation is more consistent with the humid tropical highland scrub found in Colombia than the typically drier Peruvian sierra.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "semi-2",
+      "country_a": "Ecuador",
+      "country_b": "Guatemala",
+      "pool_rank_a": 1,
+      "pool_rank_b": 2,
+      "winner": "Ecuador",
+      "reasoning": "The landscape, specifically the combination of rolling hills and the specific botanical composition of opportunistic shrubs and sparse tree cover, strongly aligns with the inter-Andean valleys of Ecuador. The road-cut geology and overall terrain are more characteristic of the South American Andes than the Central American highlands.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "final",
+      "country_a": "Colombia",
+      "country_b": "Ecuador",
+      "pool_rank_a": 0,
+      "pool_rank_b": 1,
+      "winner": "Colombia",
+      "reasoning": "The landscape specialist strongly supports Colombia, noting that the specific light-colored sedimentary rock outcrops and the combination of rolling Andean foothills and scrubby tropical highland vegetation are highly characteristic of the Colombian interior. While Ecuador is similar, the geological formations in the road cut are more typical of Colombia than the volcanic soils common in Ecuador.",
+      "agreement": "agree"
+    }
+  ],
+  "country_result": "Country: Colombia\nCoordinates: 4.65, -74.25\nReasoning: The landscape specialist strongly supports Colombia, noting that the specific light-colored sedimentary rock outcrops and the combination of rolling Andean foothills and scrubby tropical highland vegetation are highly characteristic of the Colombian interior. While Ecuador is similar, the geological formations in the road cut are more typical of Colombia than the volcanic soils common in Ecuador.\n\nTournament:\n  semi-1: Colombia vs Peru → Colombia\n  semi-2: Ecuador vs Guatemala → Ecuador\n  final: Colombia vs Ecuador → Colombia",
+  "coordinates": {
+    "lat": 4.65,
+    "lng": -74.25
+  },
+  "final_reasoning": "The landscape specialist strongly supports Colombia, noting that the specific light-colored sedimentary rock outcrops and the combination of rolling Andean foothills and scrubby tropical highland vegetation are highly characteristic of the Colombian interior. While Ecuador is similar, the geological formations in the road cut are more typical of Colombia than the volcanic soils common in Ecuador."
+}

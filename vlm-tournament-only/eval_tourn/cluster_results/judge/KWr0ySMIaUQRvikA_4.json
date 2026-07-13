@@ -1,0 +1,99 @@
+{
+  "image_id": "KWr0ySMIaUQRvikA_4",
+  "truth_country": "canada",
+  "pred_country": "united states",
+  "is_correct": false,
+  "candidate_pool": [
+    "USA",
+    "Canada",
+    "Australia",
+    "Argentina",
+    "Kazakhstan"
+  ],
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": true,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "role_adherence_notes": {
+      "linguistic": "Correctly identified as having no relevant evidence (no text visible).",
+      "landscape": "Stayed within terrain/climate analysis, correctly identifying the prairie/plains biome.",
+      "botanics": "Stayed within vegetation analysis, correctly identifying cereal crops and grassland types.",
+      "regulatory": "Stayed within infrastructure analysis, noting the gravel road and utility poles.",
+      "meta": "Stayed within cross-domain knowledge, using camera artifacts and building styles as differentiators."
+    },
+    "argumentative_quality": {
+      "linguistic": "very_weak",
+      "landscape": "strong",
+      "botanics": "strong",
+      "regulatory": "normal",
+      "meta": "strong"
+    },
+    "constructive_synthesis": false,
+    "overall_verdict_notes": "The pipeline failed because the 'meta' agent hallucinated a specific camera artifact ('Gen 4 car hood') that was not present in the image. This hallucination was treated as a verified fact by the tournament judge, leading to the incorrect elimination of the true country (Canada).",
+    "role_adherence_score": {
+      "linguistic": 1.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.9,
+      "meta": 0.9
+    },
+    "argumentative_quality_score": {
+      "linguistic": 0.5,
+      "landscape": 0.8,
+      "botanics": 0.8,
+      "regulatory": 0.6,
+      "meta": 0.3
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.0,
+      "botanics": 0.0,
+      "regulatory": 0.0,
+      "meta": 1.0
+    },
+    "hallucination_examples": {
+      "linguistic": [],
+      "landscape": [],
+      "botanics": [],
+      "regulatory": [],
+      "meta": [
+        "The image shows a very distinct Google Street View 'car hood' artifact at the bottom center",
+        "The specific hood artifact and landscape are slightly more characteristic of US coverage patterns"
+      ]
+    },
+    "visual_consistency_score": {
+      "linguistic": 1.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.9,
+      "meta": 0.0
+    },
+    "visual_consistency_notes": {
+      "linguistic": "Correctly noted absence of text.",
+      "landscape": "Accurately described the plains and mountains.",
+      "botanics": "Accurately described the crops and grasses.",
+      "regulatory": "Accurately described the road and poles.",
+      "meta": "Completely failed to describe the image accurately; invented a visual element (hood) to drive the decision."
+    },
+    "confidence_calibration": {
+      "linguistic": 0.5,
+      "landscape": 0.5,
+      "botanics": 0.5,
+      "regulatory": 0.5,
+      "meta": 0.0
+    },
+    "tournament_failure": {
+      "truth_in_pool": true,
+      "truth_lost_to": "USA",
+      "failure_match_round": "final",
+      "failure_reason": "judge_misjudgment",
+      "failure_reasoning": "The tournament judge relied on the hallucinated 'Gen 4 car hood' evidence provided by the meta agent to select the USA over Canada. This evidence was not present in the image, and the judge failed to weigh the valid landscape/botanical evidence that supported Canada.",
+      "counterfactual_winnable": true
+    }
+  }
+}

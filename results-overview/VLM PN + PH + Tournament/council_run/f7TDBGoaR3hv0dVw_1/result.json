@@ -1,0 +1,644 @@
+{
+  "image_path": "/pfs/data6/home/ma/ma_ma/ma_lweisssc/llm_council_agent_orchestration_tests/clean_images_GeoRC_500/f7TDBGoaR3hv0dVw_1.png",
+  "model": "google/gemma-4-31B-it",
+  "judge_model": "google/gemma-4-31B-it",
+  "timing": {
+    "total_seconds": 89.2
+  },
+  "assessments": {
+    "linguistic": {
+      "agent_name": "linguistic",
+      "candidates": [],
+      "evidence": []
+    },
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Russia",
+          "confidence": "medium",
+          "reasoning": "The combination of deciduous broadleaf trees, flat terrain, and the specific style of asphalt road with a single white edge line is very common in the European part of Russia. The vegetation suggests a temperate continental climate."
+        },
+        {
+          "country": "Ukraine",
+          "confidence": "medium",
+          "reasoning": "The landscape is nearly identical to southern and central Russia, featuring the same flat steppe-forest transition and similar road infrastructure. It is geographically indistinguishable from Russia based on terrain alone."
+        },
+        {
+          "country": "Kazakhstan",
+          "confidence": "low",
+          "reasoning": "The northern regions of Kazakhstan share this temperate forest-steppe landscape and similar road quality, though it is slightly less common than in the aforementioned countries."
+        },
+        {
+          "country": "United States",
+          "confidence": "speculative",
+          "reasoning": "The Midwest or Northeast US can have similar temperate deciduous forests and flat rural roads, serving as a cross-continent analog for this specific biome."
+        }
+      ],
+      "evidence": [
+        "Flat terrain",
+        "Temperate deciduous forest",
+        "Single white edge line on asphalt road",
+        "Sun position suggests Northern Hemisphere",
+        "Continental climate vegetation"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Russia",
+          "confidence": "medium",
+          "reasoning": "The presence of Populus species (poplars) and Betula (birch) in a temperate broadleaf forest setting is highly characteristic of the Russian plains and Eurasian steppe-forest transition zones."
+        },
+        {
+          "country": "Ukraine",
+          "confidence": "medium",
+          "reasoning": "The vegetation is virtually identical to that of Southern Russia, featuring the same mix of deciduous poplars and riparian scrub common in the Dnieper or Don river basins."
+        },
+        {
+          "country": "Kazakhstan",
+          "confidence": "medium",
+          "reasoning": "The combination of open grassland/steppe with clusters of deciduous trees along roadsides or watercourses is typical of Northern Kazakhstan."
+        },
+        {
+          "country": "Canada",
+          "confidence": "low",
+          "reasoning": "The temperate deciduous forest biome with similar poplar and birch species exists in the southern provinces, though the road shoulder vegetation differs slightly from typical North American prairie margins."
+        },
+        {
+          "country": "United States",
+          "confidence": "low",
+          "reasoning": "Similar broadleaf deciduous forests and riparian corridors are found in the Midwest (e.g., Nebraska or Kansas), serving as a cross-continent biome analog."
+        }
+      ],
+      "evidence": [
+        "Populus (Poplar)",
+        "Betula (Birch)",
+        "Temperate broadleaf forest/steppe transition"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Russia",
+          "confidence": "medium",
+          "reasoning": "The guardrail style and the specific texture of the asphalt with rough, uncurbed gravel shoulders are very common in rural Russian regions. The surrounding vegetation and tree types are consistent with Eastern Europe/Northern Asia."
+        },
+        {
+          "country": "Ukraine",
+          "confidence": "medium",
+          "reasoning": "The road infrastructure, specifically the simple metal guardrail and the rural road width/shoulder treatment, is nearly identical to that found in Russia."
+        },
+        {
+          "country": "Canada",
+          "confidence": "low",
+          "reasoning": "Rural roads in provinces like Saskatchewan or Manitoba often feature similar asphalt quality, simple metal guardrails, and similar deciduous tree lines."
+        },
+        {
+          "country": "Argentina",
+          "confidence": "speculative",
+          "reasoning": "Following the global analog rule, rural asphalt roads with basic metal barriers and gravel shoulders in the Pampas region can appear visually similar to Eastern European rural infrastructure."
+        }
+      ],
+      "evidence": [
+        "Simple galvanized steel W-beam guardrail",
+        "Uncurbed gravel shoulders",
+        "Rural two-lane asphalt road width",
+        "No visible road signs, license plates, or utility poles"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "Russia",
+          "confidence": "medium",
+          "reasoning": "The guardrail design (W-beam with specific post spacing) and the general image quality/color grading are highly consistent with Russian rural road coverage. The lack of distinct shoulder markings and the specific asphalt texture are common in regional Russian roads."
+        },
+        {
+          "country": "Ukraine",
+          "confidence": "medium",
+          "reasoning": "Shares very similar infrastructure meta with Russia, including the guardrail style and road surface quality. Without specific bollards or poles, it is visually indistinguishable from Russian rural roads in this specific shot."
+        },
+        {
+          "country": "Kazakhstan",
+          "confidence": "low",
+          "reasoning": "Similar Soviet-era infrastructure standards for guardrails and road construction are found here, though the vegetation density is slightly higher than typical steppe regions."
+        },
+        {
+          "country": "Canada",
+          "confidence": "speculative",
+          "reasoning": "Global analog: Rural roads in provinces like Saskatchewan or Manitoba can feature similar generic W-beam guardrails and asphalt quality, though the specific lighting and camera generation lean more towards Eastern Europe/Asia."
+        }
+      ],
+      "evidence": [
+        "W-beam guardrail design",
+        "Asphalt texture and wear patterns",
+        "Google Street View camera generation/color profile"
+      ]
+    }
+  },
+  "progressive_narrowing": {
+    "region_consensus": false,
+    "confirmed_region": "Central Asia",
+    "runner_up_region": "Europe",
+    "surviving_regions": [
+      "Central Asia",
+      "Europe"
+    ],
+    "proposed_regions": [
+      "Europe",
+      "Central Asia",
+      "North America",
+      "South America"
+    ],
+    "region_candidates": {
+      "Europe": {
+        "Russia": 4,
+        "Ukraine": 4
+      },
+      "Central Asia": {
+        "Kazakhstan": 3
+      },
+      "North America": {
+        "United States": 2,
+        "Canada": 3
+      },
+      "South America": {
+        "Argentina": 1
+      }
+    },
+    "region_decision_reasoning": "Central Asia received the highest total score, bolstered by a 'strongly_support' vote from the meta agent regarding specific guardrail designs and camera artifacts. Europe follows as the runner-up with consistent support across landscape, botanics, and meta evaluations.",
+    "path": "B"
+  },
+  "road_evidence": {
+    "outside_color": "none",
+    "inside_color": "white",
+    "driving_side": "UNCLEAR",
+    "driving_side_basis": "none"
+  },
+  "country_assessments": {
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Russia",
+          "confidence": "high",
+          "reasoning": "The combination of birch-like deciduous trees, flat steppe-like terrain, and the specific style of asphalt road with a single white edge line is highly characteristic of rural European Russia. The vegetation density and soil color are consistent with the Russian plains."
+        },
+        {
+          "country": "Kazakhstan",
+          "confidence": "medium",
+          "reasoning": "The open, flat landscape and the presence of scrubby deciduous trees are common in the northern regions of Kazakhstan. It shares very similar geography and road infrastructure with southern Russia."
+        },
+        {
+          "country": "Ukraine",
+          "confidence": "medium",
+          "reasoning": "The fertile, flat plains and temperate deciduous forest patches are typical of the Ukrainian steppe. The road quality and guardrail style are consistent with rural Eastern European infrastructure."
+        },
+        {
+          "country": "Belarus",
+          "confidence": "low",
+          "reasoning": "The flat terrain and abundance of deciduous greenery match the Belarusian landscape, though the openness of the horizon is more characteristic of the steppe regions further east."
+        }
+      ],
+      "evidence": [
+        "Flat steppe/plain terrain",
+        "Temperate deciduous vegetation including birch-like trees",
+        "Asphalt road with single white edge line and standard metal guardrail",
+        "High sun angle suggesting Northern Hemisphere summer/early autumn",
+        "Dry, light-brown soil and scrubland on road shoulders"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Kazakhstan",
+          "confidence": "medium",
+          "reasoning": "The presence of Populus species (poplars) along a roadside in a semi-arid, open landscape is highly characteristic of the Kazakh steppe and riverine corridors. The vegetation transition from dense riparian trees to open grassland is a common sight in Central Asian landscapes."
+        },
+        {
+          "country": "Russia",
+          "confidence": "medium",
+          "reasoning": "The combination of temperate deciduous trees and open plains is consistent with Southern Russia and the Volga region. The species composition is nearly identical to Kazakhstan, making it a strong botanical candidate."
+        },
+        {
+          "country": "Ukraine",
+          "confidence": "low",
+          "reasoning": "The steppe-forest transition seen here is common in Southern Ukraine. However, the specific density and type of roadside poplars are slightly more indicative of the deeper Central Asian interior."
+        },
+        {
+          "country": "Uzbekistan",
+          "confidence": "low",
+          "reasoning": "The use of poplars for windbreaks and roadside shading is ubiquitous in Uzbekistan. The surrounding arid grassland matches the botanical profile of the region's outskirts."
+        }
+      ],
+      "evidence": [
+        "Populus (Poplar)",
+        "Temperate steppe grassland",
+        "Riparian deciduous forest"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Russia",
+          "confidence": "medium",
+          "reasoning": "The guardrail style and the specific texture of the asphalt with rough, weathered edges are very common in rural Russian regions. The general road width and lack of formal shoulders are typical for regional roads in this area."
+        },
+        {
+          "country": "Kazakhstan",
+          "confidence": "medium",
+          "reasoning": "The infrastructure is nearly identical to Russia's, featuring the same standard galvanized steel guardrails and rural road construction. The landscape and vegetation are consistent with northern Kazakhstan."
+        },
+        {
+          "country": "Ukraine",
+          "confidence": "low",
+          "reasoning": "The road quality and guardrail design are consistent with rural Ukrainian regional roads. However, there are no specific markers to distinguish it from other CIS countries."
+        },
+        {
+          "country": "Belarus",
+          "confidence": "low",
+          "reasoning": "The combination of dense deciduous trees and the specific style of the metal barrier is common across Belarus. The road surface quality is typical for the region."
+        }
+      ],
+      "evidence": [
+        "Galvanized steel W-beam guardrail",
+        "Rough-edged rural asphalt",
+        "Lack of paved shoulders",
+        "No visible road signs or utility poles"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "Russia",
+          "confidence": "medium",
+          "reasoning": "The guardrail design and the specific quality of the asphalt and road shoulder are very common in rural Russian regions. The camera generation and image clarity are consistent with widespread Russian coverage."
+        },
+        {
+          "country": "Kazakhstan",
+          "confidence": "medium",
+          "reasoning": "The road infrastructure, specifically the simple metal guardrail and the wide, open rural road style, is highly characteristic of Kazakhstan. It shares many meta-visual similarities with Russia due to shared Soviet-era infrastructure standards."
+        },
+        {
+          "country": "Ukraine",
+          "confidence": "low",
+          "reasoning": "The general road quality and the style of the metal guardrail are seen in rural Ukraine, though the lack of specific bollards makes it harder to distinguish from other CIS countries."
+        }
+      ],
+      "evidence": [
+        "metal guardrail design",
+        "road shoulder composition",
+        "Google Street View camera generation/image quality"
+      ]
+    }
+  },
+  "hypothesis_evaluations": [
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_europe",
+      "confidence": "support",
+      "reasoning": "The temperate deciduous forest, flat to gently rolling terrain, and road infrastructure are highly consistent with Eastern or Central Europe. The vegetation and light quality are typical for this region.",
+      "key_evidence": [
+        "temperate deciduous trees",
+        "flat terrain",
+        "standard European-style guardrail"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_central_asia",
+      "confidence": "support",
+      "reasoning": "The landscape is compatible with the river valleys or steppe-forest transitions found in Kazakhstan or Kyrgyzstan, where similar deciduous greenery exists alongside arid plains.",
+      "key_evidence": [
+        "riparian-style vegetation",
+        "flat horizon",
+        "dry grass margins"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_north_america",
+      "confidence": "support",
+      "reasoning": "The terrain and flora are very similar to the Midwestern United States or Southern Canada, specifically the temperate broadleaf forest zones.",
+      "key_evidence": [
+        "deciduous forest",
+        "flat plains",
+        "asphalt road quality"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_south_america",
+      "confidence": "contradicts",
+      "reasoning": "The specific combination of deciduous tree species and the light angle/quality is less consistent with South American temperate zones (like the Pampas or Southern Cone) compared to the Northern Hemisphere candidates.",
+      "key_evidence": [
+        "vegetation type",
+        "sun angle suggesting Northern Hemisphere"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_europe",
+      "confidence": "support",
+      "reasoning": "The presence of temperate deciduous trees, likely Populus species (poplars) and common broadleaf shrubs, is highly consistent with the riparian or roadside vegetation found across Central and Eastern Europe.",
+      "key_evidence": [
+        "Populus species",
+        "temperate deciduous forest"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_central_asia",
+      "confidence": "support",
+      "reasoning": "The combination of Populus species (often planted as windbreaks or found along irrigation canals) and the surrounding arid-looking grassland is very characteristic of the steppe regions of Kazakhstan or Uzbekistan.",
+      "key_evidence": [
+        "Populus species",
+        "steppe grassland"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_north_america",
+      "confidence": "support",
+      "reasoning": "The vegetation is compatible with the temperate zones of North America, specifically the Midwest or Canadian prairies where similar deciduous trees and grasses are common.",
+      "key_evidence": [
+        "temperate deciduous trees",
+        "prairie grasses"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_south_america",
+      "confidence": "contradicts",
+      "reasoning": "The specific morphology of the deciduous trees and the overall temperate biome seen here are inconsistent with the dominant tropical or subtropical vegetation of most of South America, excluding the far south (Patagonia/Chile), which typically has different forest compositions.",
+      "key_evidence": [
+        "absence of tropical flora",
+        "temperate deciduous morphology"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_central_asia",
+      "confidence": "strongly_support",
+      "reasoning": "The image quality and specific blur patterns are highly characteristic of the Google Street View coverage in Central Asian countries (like Kyrgyzstan or Kazakhstan). The guardrail design is a standard galvanized steel W-beam common in former Soviet territories.",
+      "key_evidence": [
+        "camera generation/image quality",
+        "guardrail design"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_europe",
+      "confidence": "support",
+      "reasoning": "The road surface and guardrail style are compatible with many Eastern European countries, though the specific camera artifacts are more typical of the Central Asian coverage patterns.",
+      "key_evidence": [
+        "guardrail design",
+        "asphalt quality"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_north_america",
+      "confidence": "contradicts",
+      "reasoning": "The specific style of the guardrail mounting and the overall image processing/camera generation do not match the standard North American Google Street View fleet.",
+      "key_evidence": [
+        "camera generation",
+        "guardrail mounting"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_south_america",
+      "confidence": "contradicts",
+      "reasoning": "The image lacks the typical camera artifacts (such as specific haloing or color grading) and infrastructure styles common in South American coverage.",
+      "key_evidence": [
+        "camera generation",
+        "infrastructure style"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_russia",
+      "confidence": "strongly_support",
+      "reasoning": "The combination of deciduous birch-like trees, flat steppe-forest transition terrain, and the specific style of road shoulder and guardrail is highly characteristic of the European part of Russia. The vegetation density and leaf color suggest a temperate continental climate typical of the Russian plains.",
+      "key_evidence": [
+        "birch-like deciduous trees",
+        "flat continental terrain",
+        "temperate forest-steppe transition"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_ukraine",
+      "confidence": "support",
+      "reasoning": "The landscape is very similar to the Russian plains, featuring flat terrain and similar temperate vegetation. It is geographically compatible, though the specific tree density is slightly more reminiscent of the Russian interior.",
+      "key_evidence": [
+        "flat plains",
+        "temperate deciduous vegetation"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_belarus",
+      "confidence": "support",
+      "reasoning": "The flat terrain and temperate forest are compatible with Belarus, although the open, slightly more arid look of the grass in the foreground is more typical of the steppe regions further east.",
+      "key_evidence": [
+        "flat terrain",
+        "temperate forest"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_kazakhstan",
+      "confidence": "neutral",
+      "reasoning": "While the flat terrain matches, the density and type of lush deciduous trees seen here are more common in the northernmost regions of Kazakhstan or further west in Russia/Ukraine.",
+      "key_evidence": [
+        "flat terrain"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_uzbekistan",
+      "confidence": "contradicts",
+      "reasoning": "The lush, temperate deciduous forest and the specific green of the undergrowth are inconsistent with the predominantly arid and semi-arid landscapes of Uzbekistan.",
+      "key_evidence": [
+        "excessive vegetation density",
+        "temperate forest type"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_russia",
+      "confidence": "support",
+      "reasoning": "The presence of Populus species (poplars) and temperate broadleaf deciduous trees is highly characteristic of the Russian steppe and forest-steppe zones. This vegetation is common across the European part of Russia.",
+      "key_evidence": [
+        "Populus",
+        "temperate broadleaf forest"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_kazakhstan",
+      "confidence": "support",
+      "reasoning": "The combination of riparian poplars and open grassland/steppe is very common in Northern Kazakhstan. The vegetation is nearly identical to that of Southern Russia.",
+      "key_evidence": [
+        "Populus",
+        "steppe grassland"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_ukraine",
+      "confidence": "support",
+      "reasoning": "The flora is consistent with the Ukrainian forest-steppe region, featuring similar deciduous tree compositions and roadside scrub common in Eastern Europe.",
+      "key_evidence": [
+        "temperate deciduous trees",
+        "roadside scrub"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_belarus",
+      "confidence": "support",
+      "reasoning": "While Belarus is generally more forested, the specific tree types seen here are compatible with the Belarusian landscape, though the open nature of the terrain is slightly more characteristic of the steppe regions.",
+      "key_evidence": [
+        "temperate broadleaf forest"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_uzbekistan",
+      "confidence": "low",
+      "reasoning": "While poplars are used extensively in Uzbekistan for windbreaks and along roads, the surrounding lushness of the undergrowth and the specific shade of green in the deciduous canopy are more typical of temperate zones than the arid climate of Uzbekistan.",
+      "key_evidence": [
+        "Populus",
+        "temperate undergrowth"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_russia",
+      "confidence": "support",
+      "reasoning": "The guardrail design and the general quality of the asphalt are very common in rural Russia. The camera generation is consistent with widespread Russian coverage.",
+      "key_evidence": [
+        "guardrail style",
+        "asphalt texture",
+        "camera generation"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_kazakhstan",
+      "confidence": "support",
+      "reasoning": "The infrastructure, specifically the simple metal guardrail and the road shoulder style, is highly compatible with rural Kazakhstan, which often shares meta with Russia.",
+      "key_evidence": [
+        "guardrail style",
+        "road shoulder"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_ukraine",
+      "confidence": "support",
+      "reasoning": "The road construction and guardrail are compatible with Ukrainian rural roads, though less diagnostic than specific bollards which are absent here.",
+      "key_evidence": [
+        "guardrail style"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_belarus",
+      "confidence": "support",
+      "reasoning": "The general road meta is compatible with Belarus, as it shares many infrastructure standards with Russia and Ukraine.",
+      "key_evidence": [
+        "guardrail style"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_uzbekistan",
+      "confidence": "low",
+      "reasoning": "While possible, the specific combination of road wear and guardrail style is slightly more characteristic of the Slavic/Central Asian steppe regions like Russia or Kazakhstan.",
+      "key_evidence": [
+        "guardrail style"
+      ]
+    }
+  ],
+  "candidate_pool": [
+    "Russia",
+    "Kazakhstan",
+    "Ukraine",
+    "Belarus",
+    "Uzbekistan"
+  ],
+  "rag_findings": [
+    {
+      "kind": "tournament_match",
+      "country": "Kazakhstan",
+      "detail": "The landscape, featuring a combination of deciduous birch-like trees and flat steppe-forest transition terrain, is strongly characteristic of the European part of Russia. Specialist evidence highlights that the specific vegetation density and the style of the road shoulder and guardrail are highly typical of the Russian plains.",
+      "opponent": "Russia",
+      "winner": "Russia"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Belarus",
+      "detail": "The landscape features open, slightly more arid grass in the foreground and a forest-steppe appearance that is more characteristic of Ukraine than the typically denser, more humid forests of Belarus. The road infrastructure and vegetation are consistent with the Ukrainian forest-steppe region as noted in the specialist evidence.",
+      "opponent": "Ukraine",
+      "winner": "Ukraine"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Ukraine",
+      "detail": "The landscape features a combination of flat steppe-forest transition terrain and deciduous birch-like trees that are highly characteristic of the European part of Russia. The specific style of the road shoulder and guardrail, combined with the vegetation density, strongly aligns with the Russian interior as noted by the landscape and meta specialists.",
+      "opponent": "Russia",
+      "winner": "Russia"
+    }
+  ],
+  "rag_refs_seen": [],
+  "road_filter_warnings": [],
+  "tournament_log": [
+    {
+      "round_label": "semi-1",
+      "country_a": "Russia",
+      "country_b": "Kazakhstan",
+      "pool_rank_a": 0,
+      "pool_rank_b": 3,
+      "winner": "Russia",
+      "reasoning": "The landscape, featuring a combination of deciduous birch-like trees and flat steppe-forest transition terrain, is strongly characteristic of the European part of Russia. Specialist evidence highlights that the specific vegetation density and the style of the road shoulder and guardrail are highly typical of the Russian plains.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "semi-2",
+      "country_a": "Ukraine",
+      "country_b": "Belarus",
+      "pool_rank_a": 1,
+      "pool_rank_b": 2,
+      "winner": "Ukraine",
+      "reasoning": "The landscape features open, slightly more arid grass in the foreground and a forest-steppe appearance that is more characteristic of Ukraine than the typically denser, more humid forests of Belarus. The road infrastructure and vegetation are consistent with the Ukrainian forest-steppe region as noted in the specialist evidence.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "final",
+      "country_a": "Russia",
+      "country_b": "Ukraine",
+      "pool_rank_a": 0,
+      "pool_rank_b": 1,
+      "winner": "Russia",
+      "reasoning": "The landscape features a combination of flat steppe-forest transition terrain and deciduous birch-like trees that are highly characteristic of the European part of Russia. The specific style of the road shoulder and guardrail, combined with the vegetation density, strongly aligns with the Russian interior as noted by the landscape and meta specialists.",
+      "agreement": "agree"
+    }
+  ],
+  "country_result": "Country: Russia\nCoordinates: 55.7558, 37.6173\nReasoning: The landscape features a combination of flat steppe-forest transition terrain and deciduous birch-like trees that are highly characteristic of the European part of Russia. The specific style of the road shoulder and guardrail, combined with the vegetation density, strongly aligns with the Russian interior as noted by the landscape and meta specialists.\n\nTournament:\n  semi-1: Russia vs Kazakhstan → Russia\n  semi-2: Ukraine vs Belarus → Ukraine\n  final: Russia vs Ukraine → Russia",
+  "coordinates": {
+    "lat": 55.7558,
+    "lng": 37.6173
+  },
+  "final_reasoning": "The landscape features a combination of flat steppe-forest transition terrain and deciduous birch-like trees that are highly characteristic of the European part of Russia. The specific style of the road shoulder and guardrail, combined with the vegetation density, strongly aligns with the Russian interior as noted by the landscape and meta specialists."
+}

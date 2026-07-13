@@ -1,0 +1,101 @@
+{
+  "image_id": "JnTw9kl2nWPFaoUg_5",
+  "truth_country": "kenya",
+  "pred_country": "uganda",
+  "is_correct": false,
+  "candidate_pool": [
+    "Uganda",
+    "Kenya",
+    "Tanzania",
+    "Brazil",
+    "Rwanda",
+    "Thailand"
+  ],
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": true,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "role_adherence_notes": {
+      "linguistic": "Focused on script (Latin) and place-name etymology ('Muki' in Luganda).",
+      "landscape": "Analyzed soil color (red laterite), vegetation, and settlement density.",
+      "botanics": "Discussed tropical broadleaf trees and scrub types.",
+      "regulatory": "Analyzed road infrastructure, vehicle types (Hiace), and utility poles.",
+      "meta": "Synthesized cross-domain cues (vehicle decals, pole styles) to distinguish regional variants."
+    },
+    "argumentative_quality": {
+      "linguistic": "strong",
+      "landscape": "normal",
+      "botanics": "normal",
+      "regulatory": "strong",
+      "meta": "strong"
+    },
+    "constructive_synthesis": true,
+    "overall_verdict_notes": "The pipeline failed because the specialists (and the meta-agent) relied on a heuristic ('colorful decals = Uganda') that is factually inverted for this region (where Kenya is the primary user of such decals). The agents were visually consistent but hallucinated the diagnostic value of the decals, leading the tournament to a confident but incorrect conclusion.",
+    "role_adherence_score": {
+      "linguistic": 1.0,
+      "landscape": 1.0,
+      "botanics": 1.0,
+      "regulatory": 1.0,
+      "meta": 1.0
+    },
+    "argumentative_quality_score": {
+      "linguistic": 0.8,
+      "landscape": 0.6,
+      "botanics": 0.6,
+      "regulatory": 0.7,
+      "meta": 0.7
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.0,
+      "botanics": 0.0,
+      "regulatory": 0.5,
+      "meta": 0.5
+    },
+    "hallucination_examples": {
+      "linguistic": [],
+      "landscape": [],
+      "botanics": [],
+      "regulatory": [
+        "claimed 'white Toyota Hiace commuter vans with specific colorful decals... are extremely characteristic of Ugandan matatus' (decals are actually a Kenyan hallmark; Uganda uses plain or differently marked vans)."
+      ],
+      "meta": [
+        "claimed 'specific style of the van decals... lean slightly more towards Uganda' (misidentified the visual cue's origin)."
+      ]
+    },
+    "visual_consistency_score": {
+      "linguistic": 1.0,
+      "landscape": 1.0,
+      "botanics": 1.0,
+      "regulatory": 0.5,
+      "meta": 0.5
+    },
+    "visual_consistency_notes": {
+      "linguistic": "Correctly identified Latin script and 'Muki Cafe'.",
+      "landscape": "Correctly identified red soil and tropical environment.",
+      "botanics": "Correctly identified tropical vegetation.",
+      "regulatory": "Correctly saw the vans and poles, but misinterpreted their regulatory/cultural significance.",
+      "meta": "Correctly saw the vans and poles, but misinterpreted their regional origin."
+    },
+    "confidence_calibration": {
+      "linguistic": 0.25,
+      "landscape": 0.25,
+      "botanics": 0.25,
+      "regulatory": 0.0,
+      "meta": 0.0
+    },
+    "tournament_failure": {
+      "truth_in_pool": true,
+      "truth_lost_to": "Uganda",
+      "failure_match_round": "final",
+      "failure_reason": "agent_misled_in_tournament",
+      "failure_reasoning": "The specialists collectively assigned 'strongly_support' to Uganda and only 'support' to Kenya, driven by the hallucinated belief that the colorful van decals were a Ugandan trait. This skewed the tournament judge's weighting against the true country.",
+      "counterfactual_winnable": false
+    }
+  }
+}

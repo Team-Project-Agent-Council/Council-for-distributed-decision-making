@@ -1,0 +1,558 @@
+{
+  "image_path": "/pfs/data6/home/ma/ma_ma/ma_lweisssc/llm_council_agent_orchestration_tests/clean_images_GeoRC_500/JfPkjboMSjCsG1Qu_4.png",
+  "model": "google/gemma-4-31B-it",
+  "judge_model": "google/gemma-4-31B-it",
+  "timing": {
+    "total_seconds": 79.6
+  },
+  "assessments": {
+    "linguistic": {
+      "agent_name": "linguistic",
+      "candidates": [],
+      "evidence": []
+    },
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Mexico",
+          "confidence": "medium",
+          "reasoning": "The combination of flat terrain, tropical scrubland, and the specific style of road markings (yellow center line, white edges) is very common in the Yucatán Peninsula. The vegetation is consistent with lowland tropical dry forests found in this region."
+        },
+        {
+          "country": "Guatemala",
+          "confidence": "medium",
+          "reasoning": "The landscape and vegetation are nearly identical to the northern lowlands of Guatemala, which share the same limestone-based soil and tropical scrub as the Mexican Yucatán. The road quality and environment are highly similar."
+        },
+        {
+          "country": "Belize",
+          "confidence": "medium",
+          "reasoning": "The flat, lush tropical environment and road infrastructure are consistent with the coastal and inland highways of Belize, which mirror the geography of neighboring Mexico and Guatemala."
+        },
+        {
+          "country": "Thailand",
+          "confidence": "low",
+          "reasoning": "As a cross-continent analog, Thailand features similar flat, tropical landscapes with dense green scrub and similar road layouts in rural provinces, though the specific vegetation species may differ."
+        },
+        {
+          "country": "Australia",
+          "confidence": "speculative",
+          "reasoning": "Certain coastal regions of Northern Australia (Queensland/Northern Territory) feature similar flat terrain and tropical greenery, though the road markings and specific foliage density are less typical than in Central America."
+        }
+      ],
+      "evidence": [
+        "Flat lowland terrain",
+        "Tropical scrubland/dry forest vegetation",
+        "Asphalt road with yellow center line and white shoulder lines",
+        "High sun angle suggesting a tropical or subtropical latitude"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Mexico",
+          "confidence": "medium",
+          "reasoning": "The combination of low-lying tropical scrub and the presence of Opuntia (prickly pear) cacti in the mid-ground is highly characteristic of the Yucatán Peninsula's lowland forests. This vegetation is distinct from the denser rainforests of Central America."
+        },
+        {
+          "country": "Guatemala",
+          "confidence": "medium",
+          "reasoning": "The tropical dry forest/scrub biome is consistent with the northern lowlands of Guatemala, which share a botanical border and similar species composition with the Yucatán region of Mexico."
+        },
+        {
+          "country": "Australia",
+          "confidence": "low",
+          "reasoning": "The general appearance of the scrubland and road-side vegetation is a global analog to the tropical savannas or coastal scrub of Northern Australia, though the specific cactus morphology is less common there."
+        },
+        {
+          "country": "Brazil",
+          "confidence": "low",
+          "reasoning": "The vegetation resembles the Caatinga or Cerrado biomes in terms of shrub density and leaf structure, providing a cross-continent analog for this type of xeric tropical scrub."
+        }
+      ],
+      "evidence": [
+        "Opuntia (Prickly Pear Cactus)",
+        "Tropical lowland scrub",
+        "Xeric shrubland biome"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Mexico",
+          "confidence": "medium",
+          "reasoning": "The road width, asphalt quality, and general rural highway layout are consistent with Mexican federal highways. The vegetation and flat terrain are common in several Mexican states."
+        },
+        {
+          "country": "Brazil",
+          "confidence": "low",
+          "reasoning": "The rural road infrastructure, including the shoulder treatment and asphalt wear, is similar to many regional highways in Brazil."
+        },
+        {
+          "country": "Australia",
+          "confidence": "speculative",
+          "reasoning": "Following the global analog rule, this rural asphalt road with grass shoulders and similar vegetation could be found in northern Australia."
+        },
+        {
+          "country": "United States",
+          "confidence": "speculative",
+          "reasoning": "The general road profile and shoulder style are consistent with rural highways in the southern United States (e.g., Florida or Texas)."
+        }
+      ],
+      "evidence": [
+        "Basic rural asphalt road",
+        "Grass shoulders without curbing",
+        "No visible road signs, bollards, or utility poles in immediate proximity",
+        "Standard two-lane highway width"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "Mexico",
+          "confidence": "medium",
+          "reasoning": "The image quality and the specific blur pattern at the bottom of the frame are consistent with Google's Gen 4 camera used extensively in Mexico. The road surface texture and the style of the distant truck are common in North American regions."
+        },
+        {
+          "country": "Brazil",
+          "confidence": "low",
+          "reasoning": "Brazil has extensive coverage with similar camera generations and road quality. The general appearance of the asphalt and the lack of specific European-style bollards make it a plausible South American analog."
+        },
+        {
+          "country": "Thailand",
+          "confidence": "speculative",
+          "reasoning": "Certain rural roads in Southeast Asia share this specific image clarity and road-edge wear, serving as a cross-continent analog for the general 'rural highway' meta."
+        }
+      ],
+      "evidence": [
+        "Google Street View Gen 4 camera artifacts",
+        "Bottom-frame blur pattern",
+        "Asphalt texture and wear",
+        "Truck silhouette"
+      ]
+    }
+  },
+  "progressive_narrowing": {
+    "region_consensus": false,
+    "confirmed_region": "Central America & Caribbean",
+    "runner_up_region": "South America",
+    "surviving_regions": [
+      "Central America & Caribbean",
+      "South America"
+    ],
+    "proposed_regions": [
+      "Central America & Caribbean",
+      "Southeast Asia",
+      "Oceania",
+      "South America",
+      "North America"
+    ],
+    "region_candidates": {
+      "Central America & Caribbean": {
+        "Mexico": 4,
+        "Guatemala": 2,
+        "Belize": 1
+      },
+      "Southeast Asia": {
+        "Thailand": 2
+      },
+      "Oceania": {
+        "Australia": 3
+      },
+      "South America": {
+        "Brazil": 3
+      },
+      "North America": {
+        "United States": 1
+      }
+    },
+    "region_decision_reasoning": "Both Central America & Caribbean and South America received support from both the botanics and meta agents, resulting in the highest tied scores. Central America & Caribbean is selected as the primary region due to the botanics agent's specific highlighting of the tropical scrub as highly characteristic of that region.",
+    "path": "B"
+  },
+  "road_evidence": {
+    "outside_color": "white",
+    "inside_color": "yellow",
+    "driving_side": "RIGHT",
+    "driving_side_basis": "oncoming_traffic"
+  },
+  "country_assessments": {
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Mexico",
+          "confidence": "medium",
+          "reasoning": "The flat terrain with dense, low-lying tropical scrub and the specific road marking style (yellow center line, white edges) are very common in the Yucatán Peninsula. The vegetation is consistent with the limestone-based soil of the region."
+        },
+        {
+          "country": "Guatemala",
+          "confidence": "medium",
+          "reasoning": "The coastal lowlands of Guatemala feature similar flat topography and lush, green tropical vegetation. The road quality and surrounding scrubland are consistent with highways in the Petén or coastal regions."
+        },
+        {
+          "country": "Belize",
+          "confidence": "medium",
+          "reasoning": "The landscape is highly characteristic of the flat, tropical terrain found throughout Belize. The density of the green canopy and the road infrastructure match the regional standard."
+        },
+        {
+          "country": "Colombia",
+          "confidence": "low",
+          "reasoning": "The Caribbean coastal plains of Colombia exhibit similar flat terrain and tropical greenery. However, the road markings and shoulder style are slightly more characteristic of the Mesoamerican region."
+        },
+        {
+          "country": "Brazil",
+          "confidence": "speculative",
+          "reasoning": "The coastal regions or the interior Cerrado/savanna transitions can have similar flat horizons and scrubby vegetation, though the specific shade of green and road layout are less typical than the Central American candidates."
+        }
+      ],
+      "evidence": [
+        "Flat tropical lowland terrain",
+        "Dense green scrubland/low canopy vegetation",
+        "Asphalt road with yellow center line and white outer lines",
+        "High sun angle suggesting a tropical/equatorial latitude"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Mexico",
+          "confidence": "medium",
+          "reasoning": "The combination of low-lying tropical scrub and the presence of Opuntia-like cacti in the mid-ground is highly characteristic of the Yucatán Peninsula's lowland forests. This vegetation is distinct from the denser rainforests of Central America."
+        },
+        {
+          "country": "Guatemala",
+          "confidence": "medium",
+          "reasoning": "The northern lowland regions of Guatemala share a very similar botanical profile to the Yucatán, featuring similar tropical dry forest scrub and opportunistic roadside greenery."
+        },
+        {
+          "country": "Belize",
+          "confidence": "medium",
+          "reasoning": "The coastal and lowland scrub vegetation seen here is consistent with the Belizean landscape, which blends Caribbean coastal flora with Central American tropical dry forest elements."
+        },
+        {
+          "country": "Colombia",
+          "confidence": "low",
+          "reasoning": "Certain coastal lowland regions in Colombia exhibit similar tropical scrub and opportunistic greenery, though the specific density of the shrubbery is more typical of the Mesoamerican corridor."
+        }
+      ],
+      "evidence": [
+        "Tropical dry forest scrub",
+        "Opuntia (Prickly Pear) species",
+        "Lowland tropical broadleaf shrubs"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Mexico",
+          "confidence": "medium",
+          "reasoning": "The road width, asphalt quality, and the style of the distant truck silhouettes are common in Mexican federal highways. The lack of shoulder curbing and the transition to scrubland are typical for the Yucatan or coastal regions."
+        },
+        {
+          "country": "Colombia",
+          "confidence": "low",
+          "reasoning": "The general road infrastructure and vegetation are consistent with lowland coastal regions of Colombia. The asphalt wear and shoulder treatment are common for secondary national routes."
+        },
+        {
+          "country": "Brazil",
+          "confidence": "low",
+          "reasoning": "The wide, open road layout and the specific type of dense green scrubland are seen in various Brazilian states. The road surface quality is consistent with regional highways."
+        },
+        {
+          "country": "Panama",
+          "confidence": "speculative",
+          "reasoning": "The flat terrain and lush tropical vegetation combined with a well-maintained asphalt road are characteristic of the Pan-American highway sections in Panama."
+        }
+      ],
+      "evidence": [
+        "wide asphalt road with gravel shoulders",
+        "absence of roadside bollards or guardrails",
+        "dense tropical scrub vegetation",
+        "no visible utility poles or signage in immediate vicinity"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "Mexico",
+          "confidence": "medium",
+          "reasoning": "The image quality and the specific blur pattern at the bottom of the frame are consistent with Gen 4 camera coverage common in Mexico. The road surface texture and the style of the distant truck are frequently seen in Mexican highway coverage."
+        },
+        {
+          "country": "Colombia",
+          "confidence": "low",
+          "reasoning": "Colombia has extensive Gen 4 coverage with similar image clarity and road quality. The general appearance of the road shoulder and the lack of specific delineators are common in rural Colombian regions."
+        },
+        {
+          "country": "Brazil",
+          "confidence": "low",
+          "reasoning": "Brazil uses similar Google camera generations and has vast stretches of rural highways with this specific asphalt wear and shoulder style."
+        }
+      ],
+      "evidence": [
+        "Gen 4 camera image quality",
+        "Bottom-frame camera blur pattern",
+        "Asphalt texture and wear patterns",
+        "Truck silhouette/design"
+      ]
+    }
+  },
+  "hypothesis_evaluations": [
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_central_america_and_caribbean",
+      "confidence": "support",
+      "reasoning": "The low-lying, dense tropical scrub and broadleaf evergreen vegetation are highly characteristic of coastal regions in Central America and the Caribbean. The presence of opportunistic vines and thicket-like growth is common in these humid tropical zones.",
+      "key_evidence": [
+        "tropical scrub",
+        "broadleaf evergreen thickets"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_south_america",
+      "confidence": "support",
+      "reasoning": "The vegetation is consistent with tropical lowland biomes found in northern South America (e.g., Colombia, Venezuela). It is botanically indistinguishable from the Central American hypothesis without a specific endemic species visible.",
+      "key_evidence": [
+        "tropical lowland vegetation",
+        "dense green scrub"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_southeast_asia",
+      "confidence": "low",
+      "reasoning": "While the tropical climate is compatible, the specific structure of the roadside scrub and the lack of characteristic palms or bamboo common in SE Asian road margins make it less likely than the Americas.",
+      "key_evidence": [
+        "tropical broadleaf vegetation"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_oceania",
+      "confidence": "low",
+      "reasoning": "The biome is compatible with some Pacific islands or coastal Queensland, but the specific density and leaf morphology of the scrub are more typical of the Neotropics.",
+      "key_evidence": [
+        "tropical scrub"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_central_america_and_caribbean",
+      "confidence": "support",
+      "reasoning": "The image quality and camera generation are consistent with Google's coverage in Central America. The road surface and lack of specific high-tech street furniture are common in this region.",
+      "key_evidence": [
+        "camera generation",
+        "road surface quality"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_south_america",
+      "confidence": "support",
+      "reasoning": "The camera generation and general road infrastructure are compatible with several South American countries. The lack of distinctive European or Asian meta markers makes this a viable candidate.",
+      "key_evidence": [
+        "camera generation",
+        "road surface quality"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_southeast_asia",
+      "confidence": "neutral",
+      "reasoning": "While the environment is compatible, there are no specific Southeast Asian meta markers visible, such as distinctive utility poles or common regional vehicle types (e.g., specific tuk-tuks or bike styles).",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_oceania",
+      "confidence": "neutral",
+      "reasoning": "The image lacks the specific high-quality road markings or distinctive bollards often found in Australia or New Zealand, though it doesn't explicitly contradict the region.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_mexico",
+      "confidence": "support",
+      "reasoning": "The vegetation consists of low-lying tropical scrub and dense broadleaf thickets typical of the Yucatán Peninsula's lowland forests. The presence of Opuntia-like cacti in the mid-ground is highly characteristic of the Mexican scrublands.",
+      "key_evidence": [
+        "tropical scrub",
+        "Opuntia cacti",
+        "lowland broadleaf thickets"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_belize",
+      "confidence": "support",
+      "reasoning": "The botanical profile is nearly identical to the Yucatán region of Mexico, featuring similar tropical lowland scrub and dense green undergrowth common in Central American coastal plains.",
+      "key_evidence": [
+        "tropical lowland scrub",
+        "dense broadleaf vegetation"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_guatemala",
+      "confidence": "support",
+      "reasoning": "The vegetation is compatible with the lowland tropical regions of Guatemala, though the flat terrain and specific scrub density are more reminiscent of the northern peninsula.",
+      "key_evidence": [
+        "tropical scrub",
+        "broadleaf thickets"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_panama",
+      "confidence": "support",
+      "reasoning": "The lush, green, low-canopy vegetation is compatible with Panamanian tropical dry forests or coastal scrub, though it lacks specific diagnostic endemics.",
+      "key_evidence": [
+        "tropical lowland vegetation"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_colombia",
+      "confidence": "neutral",
+      "reasoning": "While Colombia has tropical lowlands, the specific combination of flat terrain and this particular scrub density is less diagnostic than the Central American candidates.",
+      "key_evidence": [
+        "generic tropical vegetation"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_brazil",
+      "confidence": "neutral",
+      "reasoning": "The vegetation is broadly compatible with some Cerrado or coastal Atlantic forest edges, but the specific scrub morphology is more typical of the Mesoamerican corridor.",
+      "key_evidence": [
+        "generic tropical scrub"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_mexico",
+      "confidence": "support",
+      "reasoning": "The image quality and camera generation are consistent with Mexico's extensive coverage. The road surface and general infrastructure are compatible, though no unique Mexican-specific bollards or poles are visible in this specific frame.",
+      "key_evidence": [
+        "camera generation",
+        "road surface quality"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_colombia",
+      "confidence": "support",
+      "reasoning": "The camera generation and image clarity are compatible with Colombian coverage. The lack of specific utility poles or street furniture makes it indistinguishable from other Latin American regions in this shot.",
+      "key_evidence": [
+        "camera generation"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_brazil",
+      "confidence": "support",
+      "reasoning": "The image quality is compatible with Brazil's coverage. However, the absence of the common Brazilian 'concrete pole' style or specific road markers makes it a general support rather than a strong one.",
+      "key_evidence": [
+        "camera generation"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_guatemala",
+      "confidence": "neutral",
+      "reasoning": "While compatible with the general region, there are no specific Guatemalan meta-markers (like specific pole types or camera artifacts) to distinguish it from other Central American countries.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_panama",
+      "confidence": "neutral",
+      "reasoning": "No specific Panamanian meta-details are visible. The image is generic enough to be any number of countries in the region.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_belize",
+      "confidence": "neutral",
+      "reasoning": "No specific Belizean meta-details are visible. Coverage in Belize is more limited, and this high-quality road stretch is less characteristic of its typical rural coverage.",
+      "key_evidence": []
+    }
+  ],
+  "candidate_pool": [
+    "Colombia",
+    "Brazil",
+    "Guatemala",
+    "Belize",
+    "Panama",
+    "Mexico"
+  ],
+  "rag_findings": [
+    {
+      "kind": "tournament_match",
+      "country": "Guatemala",
+      "detail": "The flat terrain and specific low-lying tropical scrub, including the presence of Opuntia-like cacti, are highly characteristic of the Yucatán Peninsula in Mexico. Specialist evidence notes that while the vegetation is compatible with Guatemala, the specific density and landscape are more reminiscent of Mexico.",
+      "opponent": "Mexico",
+      "winner": "Mexico"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Brazil",
+      "detail": "The road markings, specifically the yellow center line and white outer lines, are highly characteristic of Colombian highways. While both countries have similar vegetation, the road infrastructure layout is more consistent with Colombian standards than the typical Brazilian highway markers.",
+      "opponent": "Colombia",
+      "winner": "Colombia"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Colombia",
+      "detail": "The flat terrain and specific low-lying tropical scrub, combined with the presence of Opuntia-like cacti, are highly characteristic of the Yucatán Peninsula in Mexico as noted by the botanics specialist. The road infrastructure and general landscape are more consistent with the Mexican scrublands than the Colombian lowlands.",
+      "opponent": "Mexico",
+      "winner": "Mexico"
+    }
+  ],
+  "rag_refs_seen": [],
+  "road_filter_warnings": [],
+  "tournament_log": [
+    {
+      "round_label": "semi-1",
+      "country_a": "Mexico",
+      "country_b": "Guatemala",
+      "pool_rank_a": 0,
+      "pool_rank_b": 3,
+      "winner": "Mexico",
+      "reasoning": "The flat terrain and specific low-lying tropical scrub, including the presence of Opuntia-like cacti, are highly characteristic of the Yucatán Peninsula in Mexico. Specialist evidence notes that while the vegetation is compatible with Guatemala, the specific density and landscape are more reminiscent of Mexico.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "semi-2",
+      "country_a": "Colombia",
+      "country_b": "Brazil",
+      "pool_rank_a": 1,
+      "pool_rank_b": 2,
+      "winner": "Colombia",
+      "reasoning": "The road markings, specifically the yellow center line and white outer lines, are highly characteristic of Colombian highways. While both countries have similar vegetation, the road infrastructure layout is more consistent with Colombian standards than the typical Brazilian highway markers.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "final",
+      "country_a": "Mexico",
+      "country_b": "Colombia",
+      "pool_rank_a": 0,
+      "pool_rank_b": 1,
+      "winner": "Mexico",
+      "reasoning": "The flat terrain and specific low-lying tropical scrub, combined with the presence of Opuntia-like cacti, are highly characteristic of the Yucatán Peninsula in Mexico as noted by the botanics specialist. The road infrastructure and general landscape are more consistent with the Mexican scrublands than the Colombian lowlands.",
+      "agreement": "agree"
+    }
+  ],
+  "country_result": "Country: Mexico\nCoordinates: 20.5, -89.0\nReasoning: The flat terrain and specific low-lying tropical scrub, combined with the presence of Opuntia-like cacti, are highly characteristic of the Yucatán Peninsula in Mexico as noted by the botanics specialist. The road infrastructure and general landscape are more consistent with the Mexican scrublands than the Colombian lowlands.\n\nTournament:\n  semi-1: Mexico vs Guatemala → Mexico\n  semi-2: Colombia vs Brazil → Colombia\n  final: Mexico vs Colombia → Mexico",
+  "coordinates": {
+    "lat": 20.5,
+    "lng": -89.0
+  },
+  "final_reasoning": "The flat terrain and specific low-lying tropical scrub, combined with the presence of Opuntia-like cacti, are highly characteristic of the Yucatán Peninsula in Mexico as noted by the botanics specialist. The road infrastructure and general landscape are more consistent with the Mexican scrublands than the Colombian lowlands."
+}

@@ -1,0 +1,527 @@
+{
+  "image_path": "/pfs/data6/home/ma/ma_ma/ma_lweisssc/llm_council_agent_orchestration_tests/clean_images_GeoRC_500/5bPlIRT7eGN79a2E_2.png",
+  "model": "google/gemma-4-31B-it",
+  "judge_model": "google/gemma-4-31B-it",
+  "timing": {
+    "total_seconds": 209.3
+  },
+  "assessments": {
+    "linguistic": {
+      "agent_name": "linguistic",
+      "candidates": [],
+      "evidence": []
+    },
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Canada",
+          "confidence": "high",
+          "reasoning": "The combination of mixed coniferous and deciduous forests, flat to gently rolling terrain, and specific utility pole construction is highly characteristic of rural Ontario or the Maritimes. The vegetation and road style are consistent with North American temperate zones."
+        },
+        {
+          "country": "United States",
+          "confidence": "high",
+          "reasoning": "The landscape is virtually identical to the Great Lakes region or the Northeast US. The road markings (double yellow lines) and the presence of spruce/pine trees mixed with broadleaf greenery are common across the US-Canada border region."
+        },
+        {
+          "country": "Russia",
+          "confidence": "low",
+          "reasoning": "The boreal forest elements and flat terrain are similar to Western Russia or Siberia. However, the road quality and utility pole style are less typical for these regions compared to North America."
+        },
+        {
+          "country": "Sweden",
+          "confidence": "speculative",
+          "reasoning": "The temperate coniferous forest and flat landscape are a global analog to the Scandinavian interior. While the vegetation matches, the road markings and infrastructure are more typical of North America."
+        }
+      ],
+      "evidence": [
+        "Mixed coniferous (spruce/pine) and deciduous forest",
+        "Flat to gently undulating terrain",
+        "Temperate climate indicated by lush green grass and tree types",
+        "North American style utility poles and double yellow road markings",
+        "Northern hemisphere sun angle based on shadow cast"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Canada",
+          "confidence": "medium",
+          "reasoning": "The presence of Picea glauca (White Spruce) or Picea rubens (Red Spruce) combined with mixed temperate deciduous foliage is highly characteristic of the Canadian boreal-temperate transition zone. The specific growth habit of the conifers is very common in Ontario and Quebec."
+        },
+        {
+          "country": "United States",
+          "confidence": "medium",
+          "reasoning": "The vegetation is consistent with the Northeastern US (New England/Great Lakes region), where the same spruce and mixed hardwood species are native. It is botanically indistinguishable from Southern Canada in this specific biome."
+        },
+        {
+          "country": "Russia",
+          "confidence": "low",
+          "reasoning": "The taiga/mixed forest biome of European Russia features similar Picea species and temperate deciduous trees. However, the specific combination of managed grassland and tree spacing is more typical of North American rural landscapes."
+        },
+        {
+          "country": "Sweden",
+          "confidence": "low",
+          "reasoning": "Scandinavian landscapes feature similar spruce-dominated mixed forests. While the species are analogous, the specific foliage density and grass types are more characteristic of the Nearctic region."
+        }
+      ],
+      "evidence": [
+        "Picea (Spruce)",
+        "Mixed temperate deciduous forest",
+        "Managed temperate grassland"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Canada",
+          "confidence": "medium",
+          "reasoning": "The wooden utility pole design with specific cross-arm configurations and the style of the small green street name sign are very common in rural North American regions, particularly Canada."
+        },
+        {
+          "country": "United States",
+          "confidence": "medium",
+          "reasoning": "The infrastructure is nearly identical to Canada, featuring standard North American wooden utility poles, rural asphalt road quality, and similar street signage styles."
+        },
+        {
+          "country": "Argentina",
+          "confidence": "speculative",
+          "reasoning": "Following the global analog rule, rural areas in Argentina often feature similar wooden utility poles and basic asphalt roads with gravel shoulders."
+        },
+        {
+          "country": "Australia",
+          "confidence": "speculative",
+          "reasoning": "Rural Australian roads frequently utilize similar wooden pole infrastructure and basic road surfaces in agricultural regions."
+        }
+      ],
+      "evidence": [
+        "Wooden utility poles with horizontal cross-arms",
+        "Small green rectangular street name sign on a wooden post",
+        "Rural asphalt road with unpaved/gravel shoulders",
+        "Lack of formal curbing or concrete drainage"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "Canada",
+          "confidence": "medium",
+          "reasoning": "The wooden utility pole with a specific cross-arm configuration and the style of the street sign post are very common in rural Canada. The overall image quality and camera generation are consistent with Canadian rural coverage."
+        },
+        {
+          "country": "United States",
+          "confidence": "medium",
+          "reasoning": "The utility pole design and general rural infrastructure are nearly identical to those found in the Northern US. Without more specific street furniture, it is difficult to distinguish from Canada."
+        },
+        {
+          "country": "Russia",
+          "confidence": "speculative",
+          "reasoning": "Generic wooden utility poles and rural asphalt quality can occasionally mirror this look in certain regions, though the specific cross-arm hardware is less common there."
+        }
+      ],
+      "evidence": [
+        "wooden utility pole with specific cross-arm hardware",
+        "street sign mounting post style",
+        "Google Street View camera generation/image quality"
+      ]
+    }
+  },
+  "progressive_narrowing": {
+    "region_consensus": false,
+    "confirmed_region": "North America",
+    "runner_up_region": "Europe",
+    "surviving_regions": [
+      "North America",
+      "Europe"
+    ],
+    "proposed_regions": [
+      "North America",
+      "Europe",
+      "South America",
+      "Oceania"
+    ],
+    "region_candidates": {
+      "North America": {
+        "Canada": 4,
+        "United States": 4
+      },
+      "Europe": {
+        "Russia": 3,
+        "Sweden": 2
+      },
+      "South America": {
+        "Argentina": 1
+      },
+      "Oceania": {
+        "Australia": 1
+      }
+    },
+    "region_decision_reasoning": "North America received the highest score due to strong support from the meta agent regarding utility pole design and camera artifacts, combined with support from the botanics agent. Europe is the runner-up as it was supported by the botanics agent, although it was contradicted by the meta agent.",
+    "path": "B"
+  },
+  "road_evidence": {
+    "outside_color": "none",
+    "inside_color": "yellow",
+    "driving_side": "UNCLEAR",
+    "driving_side_basis": "none"
+  },
+  "country_assessments": {
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Canada",
+          "confidence": "high",
+          "reasoning": "The combination of mixed coniferous and deciduous forests, flat to gently rolling terrain, and specific utility pole construction is highly characteristic of rural Ontario or the Maritimes. The wide, paved rural roads with yellow center lines are standard for North American rural infrastructure."
+        },
+        {
+          "country": "United States",
+          "confidence": "high",
+          "reasoning": "The landscape is virtually identical to the Upper Midwest or Northeast US (e.g., Michigan, Maine). The vegetation, road markings, and settlement patterns are indistinguishable from Canada's southern regions without further signage."
+        },
+        {
+          "country": "Sweden",
+          "confidence": "low",
+          "reasoning": "The boreal forest mix and flat terrain are geographically similar to southern Sweden. However, the road markings (double yellow lines) are not standard for Swedish rural roads, making this less likely than North America."
+        },
+        {
+          "country": "Finland",
+          "confidence": "low",
+          "reasoning": "Similar to Sweden, the vegetation and climate zone match the Finnish landscape. However, the infrastructure and road paint colors strongly suggest a North American environment over a Nordic one."
+        }
+      ],
+      "evidence": [
+        "Mixed coniferous (spruce/pine) and deciduous forest",
+        "Flat to gently undulating terrain",
+        "Double yellow center line road markings",
+        "Wooden utility poles with cross-arm configuration",
+        "Temperate humid climate indicated by lush green grass and cloud cover"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Canada",
+          "confidence": "high",
+          "reasoning": "The presence of Picea glauca (White Spruce) or Picea rubens (Red Spruce) with this specific conical growth habit is highly characteristic of the Canadian boreal and mixed forest transition zones. The combination of these conifers with temperate deciduous undergrowth is typical of Ontario or Quebec."
+        },
+        {
+          "country": "United States",
+          "confidence": "high",
+          "reasoning": "The vegetation is consistent with the Great Lakes region or the Northeast (New England), where spruce and fir species mix with deciduous hardwoods. It is botanically indistinguishable from Southern Canada in these border regions."
+        },
+        {
+          "country": "Russia",
+          "confidence": "low",
+          "reasoning": "The boreal forest composition (Taiga) featuring spruce and mixed deciduous trees is similar to Western Russia, though the specific landscape management seen here is more typical of North America."
+        },
+        {
+          "country": "Sweden",
+          "confidence": "low",
+          "reasoning": "The mix of Picea abies (Norway Spruce) and deciduous trees in a rural landscape is common across Scandinavia, providing a European analog to the North American boreal mix."
+        }
+      ],
+      "evidence": [
+        "Picea species (Spruce)",
+        "Boreal/Mixed Forest Biome",
+        "Temperate deciduous hardwoods"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Canada",
+          "confidence": "medium",
+          "reasoning": "The wooden utility pole design with specific cross-arm configurations and the style of the small green street name sign are very common in rural Canadian provinces. The road width and shoulder treatment are consistent with rural North American standards."
+        },
+        {
+          "country": "United States",
+          "confidence": "medium",
+          "reasoning": "The infrastructure is nearly identical to rural Canada, featuring standard wooden utility poles and a similar road surface quality. The small green street sign is a common MUTCD-style variant used across many US states."
+        },
+        {
+          "country": "Finland",
+          "confidence": "low",
+          "reasoning": "The combination of coniferous trees, flat landscape, and simple asphalt roads with wooden poles can appear similar to rural Nordic regions. However, the specific utility pole hardware is more characteristic of North America."
+        }
+      ],
+      "evidence": [
+        "Wooden utility poles with multiple cross-arms",
+        "Small green rectangular street name sign",
+        "Rural asphalt road with gravel shoulders",
+        "Lack of formal curbing or drainage infrastructure"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "Canada",
+          "confidence": "high",
+          "reasoning": "The utility pole design with the specific wooden cross-arm and insulator configuration is highly characteristic of rural Canada. The combination of the pole style and the general image quality/generation is very common in Canadian provinces."
+        },
+        {
+          "country": "United States",
+          "confidence": "medium",
+          "reasoning": "Wooden utility poles with similar cross-arms are used extensively across the US. However, the specific proportions and the way the wires are braced are slightly more typical of Canadian rural infrastructure."
+        }
+      ],
+      "evidence": [
+        "Wooden utility pole with specific cross-arm and insulator arrangement",
+        "Google Street View camera generation (image quality and blur patterns)",
+        "Rural road surface texture and asphalt wear"
+      ]
+    }
+  },
+  "hypothesis_evaluations": [
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_north_america",
+      "confidence": "support",
+      "reasoning": "The combination of Picea (spruce) and Pinus species alongside temperate deciduous trees is highly characteristic of the Northern US and Canada. The specific growth habit of the conical conifers is very common in the Great Lakes or Northeastern regions.",
+      "key_evidence": [
+        "Picea (spruce)",
+        "temperate mixed forest"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_europe",
+      "confidence": "support",
+      "reasoning": "The vegetation is compatible with Northern or Central Europe (e.g., Scandinavia, Baltic states, or Germany), where similar mixed coniferous and deciduous forests occur in temperate climates.",
+      "key_evidence": [
+        "temperate mixed forest",
+        "coniferous trees"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_south_america",
+      "confidence": "contradicts",
+      "reasoning": "The dominant vegetation consists of Northern Hemisphere temperate conifers and deciduous trees, which are not native to the vast majority of South America, except for very specific high-altitude or southern Patagonian zones that do not match this landscape.",
+      "key_evidence": [
+        "Northern temperate conifers"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_oceania",
+      "confidence": "contradicts",
+      "reasoning": "The presence of large, conical Northern Hemisphere spruce/pine types is inconsistent with the native flora of Australia or New Zealand, which are dominated by Eucalyptus or Podocarps.",
+      "key_evidence": [
+        "Northern temperate conifers"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_north_america",
+      "confidence": "strongly_support",
+      "reasoning": "The utility pole design is highly characteristic of North America, specifically the wooden pole with a single cross-arm and specific insulator configuration common in Canada and the US. Additionally, the Google Street View camera generation (Gen 3/4) and the specific blur pattern on the road surface are consistent with North American coverage.",
+      "key_evidence": [
+        "wooden utility pole with specific cross-arm configuration",
+        "Google Street View camera generation/blur pattern",
+        "road surface texture and wear patterns"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_europe",
+      "confidence": "contradicts",
+      "reasoning": "The utility pole style is not typical for European rural areas, which more frequently use concrete or metal poles, or different wooden arm configurations. The overall infrastructure aesthetic is distinctly non-European.",
+      "key_evidence": [
+        "utility pole design"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_south_america",
+      "confidence": "low",
+      "reasoning": "While some wooden poles are used in South America, the specific hardware and the overall quality/style of the road and utility infrastructure are more aligned with North American standards.",
+      "key_evidence": [
+        "utility pole hardware"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_oceania",
+      "confidence": "low",
+      "reasoning": "Similar to South America, while wooden poles exist, the specific configuration of the power lines and the camera artifacts are more typical of the North American Google fleet.",
+      "key_evidence": [
+        "utility pole configuration",
+        "camera artifacts"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_canada",
+      "confidence": "support",
+      "reasoning": "The presence of Picea (spruce) and Pinus (pine) mixed with temperate deciduous trees is highly characteristic of the Canadian boreal-temperate transition zone. The specific growth habit of the spruce trees is very common in Eastern Canada.",
+      "key_evidence": [
+        "Picea (spruce)",
+        "temperate mixed forest"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_united_states",
+      "confidence": "support",
+      "reasoning": "The vegetation is virtually identical to that found in the Northern US (e.g., New England, Great Lakes region). The mix of conifers and deciduous hardwoods is a standard North American temperate forest profile.",
+      "key_evidence": [
+        "Picea (spruce)",
+        "temperate mixed forest"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_sweden",
+      "confidence": "low",
+      "reasoning": "While the coniferous species are compatible with Scandinavian forests, the specific composition of the undergrowth and the broadleaf mix is more typical of North American temperate zones than the Fennoscandian taiga.",
+      "key_evidence": [
+        "Coniferous trees"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_finland",
+      "confidence": "low",
+      "reasoning": "Similar to Sweden, the presence of spruce is compatible, but the overall landscape vegetation pattern is less diagnostic for Finland than for North American temperate regions.",
+      "key_evidence": [
+        "Coniferous trees"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_russia",
+      "confidence": "low",
+      "reasoning": "The vegetation is compatible with Western Russia's mixed forests, but lacks any specific diagnostic species that would prioritize it over North American candidates.",
+      "key_evidence": [
+        "Coniferous trees"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_canada",
+      "confidence": "strongly_support",
+      "reasoning": "The utility pole design is highly characteristic of rural Canada, specifically the wooden pole with a single cross-arm and the specific arrangement of insulators. The Google camera generation (Gen 3/4) and the overall image quality are consistent with Canadian rural coverage.",
+      "key_evidence": [
+        "wooden utility pole design",
+        "insulator configuration",
+        "Google camera generation"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_united_states",
+      "confidence": "support",
+      "reasoning": "The utility poles and general rural infrastructure are very similar to those found in the US, making it a strong analog. However, the specific pole hardware is slightly more typical of Canadian rural standards.",
+      "key_evidence": [
+        "wooden utility poles",
+        "rural infrastructure style"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_sweden",
+      "confidence": "contradicts",
+      "reasoning": "Sweden typically uses different utility pole designs (often concrete or different wooden styles) and the general street furniture/infrastructure does not match Swedish rural standards.",
+      "key_evidence": [
+        "utility pole style"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_finland",
+      "confidence": "contradicts",
+      "reasoning": "Finland's rural utility poles and general infrastructure layout differ significantly from the North American style seen here.",
+      "key_evidence": [
+        "utility pole style"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_russia",
+      "confidence": "strongly_contradicts",
+      "reasoning": "The utility pole construction, the style of the road surface, and the Google camera artifacts are entirely inconsistent with Russian rural coverage.",
+      "key_evidence": [
+        "utility pole design",
+        "camera generation"
+      ]
+    }
+  ],
+  "candidate_pool": [
+    "Canada",
+    "United States",
+    "Sweden",
+    "Finland",
+    "Russia"
+  ],
+  "rag_findings": [
+    {
+      "kind": "tournament_match",
+      "country": "Finland",
+      "detail": "The utility pole design, featuring a wooden pole with a single cross-arm and specific insulator arrangement, is highly characteristic of rural Canada and contradicts the infrastructure typically found in Finland. Additionally, the vegetation and overall landscape are strongly consistent with the Canadian boreal-temperate transition zone.",
+      "opponent": "Canada",
+      "winner": "Canada"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Sweden",
+      "detail": "The rural infrastructure, specifically the wooden utility poles and the double yellow center lines, is highly characteristic of North American roads and contradicts Swedish standards. Specialist evidence further supports the United States based on the temperate forest vegetation profile and general infrastructure style.",
+      "opponent": "United States",
+      "winner": "United States"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "United States",
+      "detail": "The utility pole design, specifically the wooden pole with the single cross-arm and insulator arrangement, is identified as highly characteristic of rural Canada by the meta specialist. The vegetation, featuring a mix of spruce and deciduous trees, is consistent with the Canadian boreal-temperate transition zone.",
+      "opponent": "Canada",
+      "winner": "Canada"
+    }
+  ],
+  "rag_refs_seen": [],
+  "road_filter_warnings": [],
+  "tournament_log": [
+    {
+      "round_label": "semi-1",
+      "country_a": "Canada",
+      "country_b": "Finland",
+      "pool_rank_a": 0,
+      "pool_rank_b": 3,
+      "winner": "Canada",
+      "reasoning": "The utility pole design, featuring a wooden pole with a single cross-arm and specific insulator arrangement, is highly characteristic of rural Canada and contradicts the infrastructure typically found in Finland. Additionally, the vegetation and overall landscape are strongly consistent with the Canadian boreal-temperate transition zone.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "semi-2",
+      "country_a": "United States",
+      "country_b": "Sweden",
+      "pool_rank_a": 1,
+      "pool_rank_b": 2,
+      "winner": "United States",
+      "reasoning": "The rural infrastructure, specifically the wooden utility poles and the double yellow center lines, is highly characteristic of North American roads and contradicts Swedish standards. Specialist evidence further supports the United States based on the temperate forest vegetation profile and general infrastructure style.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "final",
+      "country_a": "Canada",
+      "country_b": "United States",
+      "pool_rank_a": 0,
+      "pool_rank_b": 1,
+      "winner": "Canada",
+      "reasoning": "The utility pole design, specifically the wooden pole with the single cross-arm and insulator arrangement, is identified as highly characteristic of rural Canada by the meta specialist. The vegetation, featuring a mix of spruce and deciduous trees, is consistent with the Canadian boreal-temperate transition zone.",
+      "agreement": "agree"
+    }
+  ],
+  "country_result": "Country: Canada\nCoordinates: 45.4215, -75.6972\nReasoning: The utility pole design, specifically the wooden pole with the single cross-arm and insulator arrangement, is identified as highly characteristic of rural Canada by the meta specialist. The vegetation, featuring a mix of spruce and deciduous trees, is consistent with the Canadian boreal-temperate transition zone.\n\nTournament:\n  semi-1: Canada vs Finland → Canada\n  semi-2: United States vs Sweden → United States\n  final: Canada vs United States → Canada",
+  "coordinates": {
+    "lat": 45.4215,
+    "lng": -75.6972
+  },
+  "final_reasoning": "The utility pole design, specifically the wooden pole with the single cross-arm and insulator arrangement, is identified as highly characteristic of rural Canada by the meta specialist. The vegetation, featuring a mix of spruce and deciduous trees, is consistent with the Canadian boreal-temperate transition zone."
+}

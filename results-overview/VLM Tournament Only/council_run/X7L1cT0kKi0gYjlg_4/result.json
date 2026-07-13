@@ -1,0 +1,262 @@
+{
+  "image_path": "/pfs/data6/home/ma/ma_ma/ma_lweisssc/llm_council_agent_orchestration_tests/clean_images_GeoRC_500/X7L1cT0kKi0gYjlg_4.png",
+  "model": "google/gemma-4-31B-it",
+  "judge_model": "google/gemma-4-31B-it",
+  "timing": {
+    "total_seconds": 123.5
+  },
+  "assessments": {
+    "linguistic": {
+      "agent_name": "linguistic",
+      "candidates": [],
+      "evidence": []
+    },
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Australia",
+          "confidence": "high",
+          "reasoning": "The vegetation is highly characteristic of Eucalyptus species, specifically the silver-grey foliage and growth patterns common in the Australian interior or coastal plains. The flat terrain and specific grass-to-scrub transition are typical of the Australian rural landscape."
+        },
+        {
+          "country": "South Africa",
+          "confidence": "medium",
+          "reasoning": "Certain regions of South Africa share similar semi-arid grassland and scrubland characteristics with scattered hardy trees. The soil color and road shoulder composition are consistent with some South African rural provinces."
+        },
+        {
+          "country": "USA",
+          "confidence": "low",
+          "reasoning": "The open plains and road style could resemble parts of the American Southwest or California's Central Valley, though the specific tree morphology is less common there than in Oceania."
+        },
+        {
+          "country": "Chile",
+          "confidence": "speculative",
+          "reasoning": "The central valley of Chile features similar Mediterranean-style climates with open grasslands and scattered hardy trees, serving as a cross-continent analog for this type of temperate scrubland."
+        }
+      ],
+      "evidence": [
+        "Eucalyptus-like silver-grey foliage",
+        "Flat alluvial plain terrain",
+        "Arid-temperate grassland",
+        "Light-colored sandy/gravelly road shoulders",
+        "Sun angle suggests mid-latitude"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Australia",
+          "confidence": "high",
+          "reasoning": "The dominant trees are Eucalyptus species, characterized by their distinct sclerophyllous foliage, irregular crown shapes, and pale, mottled bark. This specific combination of open woodland and grassy plains is highly characteristic of the Australian interior or temperate regions."
+        },
+        {
+          "country": "South Africa",
+          "confidence": "low",
+          "reasoning": "Certain Eucalyptus species have been widely introduced as commercial forestry or windbreaks in South Africa, creating similar visual landscapes in rural areas."
+        },
+        {
+          "country": "United States",
+          "confidence": "speculative",
+          "reasoning": "The landscape resembles the Mediterranean climate of California, where non-native Eucalyptus trees are common along roadsides and in rural pastures."
+        }
+      ],
+      "evidence": [
+        "Eucalyptus spp.",
+        "Sclerophyll forest/woodland",
+        "Temperate grassland"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Australia",
+          "confidence": "medium",
+          "reasoning": "The combination of narrow asphalt road with wide, unsealed gravel shoulders and the specific eucalyptus-style vegetation is highly characteristic of rural Australian roads."
+        },
+        {
+          "country": "South Africa",
+          "confidence": "low",
+          "reasoning": "Rural road infrastructure with similar asphalt quality and gravel shoulders is common in South Africa, and the vegetation can appear similar in certain provinces."
+        },
+        {
+          "country": "Argentina",
+          "confidence": "speculative",
+          "reasoning": "Following the global analog rule, rural asphalt roads with basic gravel shoulders and open grasslands are visually similar to those found in the Pampas region of Argentina."
+        },
+        {
+          "country": "USA",
+          "confidence": "speculative",
+          "reasoning": "Basic rural road construction with gravel shoulders is common across many US states, though the tree species are less typical for the majority of the US."
+        }
+      ],
+      "evidence": [
+        "narrow asphalt road",
+        "wide unsealed gravel shoulders",
+        "absence of road signs",
+        "absence of bollards",
+        "absence of utility poles in immediate view"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "Australia",
+          "confidence": "medium",
+          "reasoning": "The Google Street View car hood is visible and has a distinct grey/silver matte finish common in Australian coverage. The road surface and shoulder transition are typical for rural Australian regional roads."
+        },
+        {
+          "country": "South Africa",
+          "confidence": "low",
+          "reasoning": "Similar rural road infrastructure and Google car hood appearance can be found in South African coverage, serving as a cross-continent analog for this specific meta."
+        }
+      ],
+      "evidence": [
+        "Google car hood color/material (grey/silver matte)"
+      ]
+    }
+  },
+  "progressive_narrowing": {
+    "region_consensus": null,
+    "confirmed_region": null,
+    "runner_up_region": null,
+    "surviving_regions": [],
+    "proposed_regions": [],
+    "region_candidates": {},
+    "region_decision_reasoning": "",
+    "path": "TOURNAMENT_ONLY"
+  },
+  "road_evidence": {},
+  "country_assessments": {},
+  "hypothesis_evaluations": [
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_australia",
+      "confidence": "strongly_support",
+      "reasoning": "The image shows a very distinct Google Street View camera artifact: the 'halo' or 'blur' at the bottom of the frame is characteristic of the Gen 4 camera used extensively in Australia. Additionally, the road surface quality and the specific style of the narrow, paved rural road with gravel shoulders are highly typical of Australian regional coverage.",
+      "key_evidence": [
+        "Google Gen 4 camera blur/halo",
+        "Rural road paving style"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_south_africa",
+      "confidence": "support",
+      "reasoning": "South Africa uses similar Google camera generations and has similar rural road infrastructure, making it a plausible analog, though the specific blur pattern is more common in Australian rural sets.",
+      "key_evidence": [
+        "Google camera generation"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_usa",
+      "confidence": "low",
+      "reasoning": "While the USA has vast rural roads, the specific camera artifact at the bottom of the image is less common for the typical US rural coverage patterns compared to Australia.",
+      "key_evidence": [
+        "Google camera generation"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_united_states",
+      "confidence": "low",
+      "reasoning": "Duplicate of country_usa; the meta evidence is less diagnostic for the US than for Australia.",
+      "key_evidence": [
+        "Google camera generation"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_chile",
+      "confidence": "low",
+      "reasoning": "Chile has some similar rural road styles, but the camera rig shadow and blur are not as characteristic of Chilean coverage as they are of Australian coverage.",
+      "key_evidence": [
+        "Google camera generation"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_argentina",
+      "confidence": "low",
+      "reasoning": "Argentina's rural coverage often differs in image quality and camera artifacts compared to the high-definition Gen 4 look seen here.",
+      "key_evidence": [
+        "Google camera generation"
+      ]
+    }
+  ],
+  "candidate_pool": [
+    "Australia",
+    "South Africa",
+    "USA",
+    "Chile",
+    "United States",
+    "Argentina"
+  ],
+  "rag_findings": [
+    {
+      "kind": "tournament_match",
+      "country": "Chile",
+      "detail": "The image features a narrow paved rural road with gravel shoulders and vegetation highly characteristic of the Australian landscape. Furthermore, the specific camera blur/artifact at the bottom of the frame is a strong indicator of the Gen 4 camera rig used extensively in Australia.",
+      "opponent": "Australia",
+      "winner": "Australia"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "USA",
+      "detail": "The specialist evidence indicates that the rural road infrastructure and Google camera generation are more consistent with South Africa than the USA. The USA is rated as low probability due to the specific camera artifacts seen at the bottom of the image.",
+      "opponent": "South Africa",
+      "winner": "South Africa"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "South Africa",
+      "detail": "The image features a narrow paved rural road with gravel shoulders and vegetation highly characteristic of the Australian countryside. The specific camera blur at the bottom of the frame is a known artifact of the Gen 4 camera used extensively in Australia.",
+      "opponent": "Australia",
+      "winner": "Australia"
+    }
+  ],
+  "rag_refs_seen": [],
+  "road_filter_warnings": [],
+  "tournament_log": [
+    {
+      "round_label": "semi-1",
+      "country_a": "Australia",
+      "country_b": "Chile",
+      "pool_rank_a": 0,
+      "pool_rank_b": 3,
+      "winner": "Australia",
+      "reasoning": "The image features a narrow paved rural road with gravel shoulders and vegetation highly characteristic of the Australian landscape. Furthermore, the specific camera blur/artifact at the bottom of the frame is a strong indicator of the Gen 4 camera rig used extensively in Australia.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "semi-2",
+      "country_a": "South Africa",
+      "country_b": "USA",
+      "pool_rank_a": 1,
+      "pool_rank_b": 2,
+      "winner": "South Africa",
+      "reasoning": "The specialist evidence indicates that the rural road infrastructure and Google camera generation are more consistent with South Africa than the USA. The USA is rated as low probability due to the specific camera artifacts seen at the bottom of the image.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "final",
+      "country_a": "Australia",
+      "country_b": "South Africa",
+      "pool_rank_a": 0,
+      "pool_rank_b": 1,
+      "winner": "Australia",
+      "reasoning": "The image features a narrow paved rural road with gravel shoulders and vegetation highly characteristic of the Australian countryside. The specific camera blur at the bottom of the frame is a known artifact of the Gen 4 camera used extensively in Australia.",
+      "agreement": "agree"
+    }
+  ],
+  "country_result": "Country: Australia\nCoordinates: -34.5, 145.2\nReasoning: The image features a narrow paved rural road with gravel shoulders and vegetation highly characteristic of the Australian countryside. The specific camera blur at the bottom of the frame is a known artifact of the Gen 4 camera used extensively in Australia.\n\nTournament:\n  semi-1: Australia vs Chile → Australia\n  semi-2: South Africa vs USA → South Africa\n  final: Australia vs South Africa → Australia",
+  "coordinates": {
+    "lat": -34.5,
+    "lng": 145.2
+  },
+  "final_reasoning": "The image features a narrow paved rural road with gravel shoulders and vegetation highly characteristic of the Australian countryside. The specific camera blur at the bottom of the frame is a known artifact of the Gen 4 camera used extensively in Australia."
+}

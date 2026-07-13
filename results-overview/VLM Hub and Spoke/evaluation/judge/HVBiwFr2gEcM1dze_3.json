@@ -1,0 +1,94 @@
+{
+  "image_id": "HVBiwFr2gEcM1dze_3",
+  "truth_country": "sweden",
+  "pred_country": "russia",
+  "is_correct": false,
+  "discussion_rounds": 3,
+  "was_questioned": {
+    "linguistic": false,
+    "landscape": false,
+    "botanics": false,
+    "regulatory": true,
+    "meta": true
+  },
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": true,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.0,
+      "botanics": 0.0,
+      "regulatory": 0.0,
+      "meta": 0.5
+    },
+    "visual_consistency_score": {
+      "linguistic": 1.0,
+      "landscape": 1.0,
+      "botanics": 1.0,
+      "regulatory": 1.0,
+      "meta": 0.5
+    },
+    "confidence_calibration_score": {
+      "linguistic": 0.5,
+      "landscape": 0.75,
+      "botanics": 0.75,
+      "regulatory": 0.75,
+      "meta": 0.25
+    },
+    "question_relevance_score": {
+      "linguistic": 0.5,
+      "landscape": 0.5,
+      "botanics": 0.5,
+      "regulatory": 1.0,
+      "meta": 1.0
+    },
+    "question_relevance_notes": {
+      "linguistic": "Agent was not questioned.",
+      "landscape": "Agent was not questioned.",
+      "botanics": "Agent was not questioned.",
+      "regulatory": "Judge asked about road markers and utility poles, which is squarely in the regulatory domain.",
+      "meta": "Judge asked about camera generation and delineator visibility, which is squarely in the meta domain."
+    },
+    "response_update_quality": {
+      "linguistic": 0.5,
+      "landscape": 0.5,
+      "botanics": 0.5,
+      "regulatory": 0.5,
+      "meta": 0.5
+    },
+    "response_update_notes": {
+      "linguistic": "Agent was not questioned.",
+      "landscape": "Agent was not questioned.",
+      "botanics": "Agent was not questioned.",
+      "regulatory": "Agent restated initial assessment without adding new visual evidence.",
+      "meta": "Agent restated initial assessment without adding new visual evidence."
+    },
+    "targeted_agent_addressed_question": {
+      "regulatory": true,
+      "meta": true
+    },
+    "hallucination_examples": {
+      "linguistic": [],
+      "landscape": [],
+      "botanics": [],
+      "regulatory": [],
+      "meta": [
+        "The image quality and the specific 'soft' blur pattern are characteristic of the Gen 3 camera used in Russia's 2010s coverage.",
+        "The image quality and specific blur patterns are highly characteristic of the 2017-era coverage in Russia.",
+        "The image exhibits a specific 'halo' blur and low-contrast color grading typical of the older Google Street View camera rigs used in Russia."
+      ]
+    },
+    "judge_question_strategy_score": 0.5,
+    "judge_question_strategy_notes": "The judge correctly targeted the meta and regulatory agents to look for distinguishing infrastructure, but the questions were somewhat generic. The judge failed to identify that the 'meta' agent's evidence (camera blur) was hallucinated and should have been challenged more aggressively or ignored.",
+    "judge_synthesis_quality": 0.25,
+    "judge_synthesis_notes": "The judge's final reasoning relied entirely on the hallucinated 'Gen 3 camera' and 'halo blur' claims from the meta agent. The judge accepted these fabricated visual cues as definitive proof for Russia, leading to an incorrect final prediction despite the landscape and botanics agents correctly identifying Sweden as a top candidate.",
+    "discussion_convergence_score": 0.0,
+    "discussion_convergence_notes": "The discussion did not converge on the truth. Instead, the judge was misled by the hallucinated meta-agent evidence, causing the pipeline to converge on the wrong country (Russia) rather than the correct one (Sweden)."
+  }
+}

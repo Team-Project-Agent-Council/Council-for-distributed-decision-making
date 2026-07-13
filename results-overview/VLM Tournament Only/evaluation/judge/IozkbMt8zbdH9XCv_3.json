@@ -1,0 +1,101 @@
+{
+  "image_id": "IozkbMt8zbdH9XCv_3",
+  "truth_country": "argentina",
+  "pred_country": "iran",
+  "is_correct": false,
+  "candidate_pool": [
+    "Iran",
+    "Turkey",
+    "Mexico",
+    "Afghanistan",
+    "Spain",
+    "Central Asia (Uzbekistan/Tajikistan)"
+  ],
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": true,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "role_adherence_notes": {
+      "linguistic": "Agent correctly identified the absence of visible text and remained within its domain.",
+      "landscape": "Agent analyzed terrain, vegetation, and climate cues consistent with its expertise.",
+      "botanics": "Agent focused on tree species (Populus) and soil conditions, staying within its domain.",
+      "regulatory": "Agent analyzed road infrastructure and building styles, which fits the regulatory/infrastructure scope.",
+      "meta": "Agent synthesized cross-domain cues (utility poles, curb painting) to distinguish regions."
+    },
+    "argumentative_quality": {
+      "linguistic": "normal",
+      "landscape": "strong",
+      "botanics": "strong",
+      "regulatory": "normal",
+      "meta": "strong"
+    },
+    "constructive_synthesis": true,
+    "overall_verdict_notes": "The pipeline failed because the agents hallucinated a specific visual cue (blue/white curbs) that is not present in the image. This hallucination was then amplified by the RAG system and the tournament judge, leading to a confident but incorrect prediction of Iran instead of the ground truth, Argentina.",
+    "role_adherence_score": {
+      "linguistic": 1.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.9,
+      "meta": 0.9
+    },
+    "argumentative_quality_score": {
+      "linguistic": 0.5,
+      "landscape": 0.8,
+      "botanics": 0.8,
+      "regulatory": 0.5,
+      "meta": 0.8
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.0,
+      "botanics": 0.0,
+      "regulatory": 0.0,
+      "meta": 1.0
+    },
+    "hallucination_examples": {
+      "linguistic": [],
+      "landscape": [],
+      "botanics": [],
+      "regulatory": [],
+      "meta": [
+        "claimed 'blue and white painted curbs' are visible (image shows unpainted concrete curbs)",
+        "claimed 'specific style of residential perimeter walls' characteristic of Armenia/Kyrgyzstan (generic)",
+        "claimed 'blue-and-white painted curbs' in hypothesis evaluation for Iran (hallucination)"
+      ]
+    },
+    "visual_consistency_score": {
+      "linguistic": 1.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.9,
+      "meta": 0.0
+    },
+    "visual_consistency_notes": {
+      "linguistic": "Correctly noted no text.",
+      "landscape": "Accurately described the arid landscape and trees.",
+      "botanics": "Accurately identified the trees and soil.",
+      "regulatory": "Accurately described the road and walls.",
+      "meta": "Completely failed to describe the image accurately regarding the curbs, inventing a key distinguishing feature."
+    },
+    "confidence_calibration": {
+      "linguistic": 0.5,
+      "landscape": 0.5,
+      "botanics": 0.5,
+      "regulatory": 0.5,
+      "meta": 0.0
+    },
+    "tournament_failure": {
+      "truth_in_pool": false,
+      "truth_lost_to": null,
+      "failure_match_round": null,
+      "failure_reason": "agent_misled_pre_pool",
+      "failure_reasoning": "The ground truth (Argentina) was not included in the candidate pool. The agents failed to identify it, likely due to the hallucination of 'blue/white curbs' by the meta agent (which pointed to Iran/Caucasus) and the landscape/botanics agents pointing to the Middle East/Central Asia. The regulatory agent was the only one to mention Argentina but with 'speculative' confidence, which was insufficient to seed the pool.",
+      "counterfactual_winnable": false
+    }
+  }
+}

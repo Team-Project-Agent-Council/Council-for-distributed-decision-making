@@ -1,0 +1,99 @@
+{
+  "image_id": "QTmrnxW99iiyS2xS_3",
+  "truth_country": "greece",
+  "pred_country": "united states",
+  "is_correct": false,
+  "candidate_pool": [
+    "USA",
+    "Mexico",
+    "Australia",
+    "Canada",
+    "Turkey",
+    "Italy"
+  ],
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": false,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "role_adherence_notes": {
+      "linguistic": "The agent provided no candidates and no evidence, effectively failing to perform its role.",
+      "landscape": "Analyzed terrain, soil, and forest type correctly within domain.",
+      "botanics": "Analyzed vegetation types (oak/pine) and biome correctly within domain.",
+      "regulatory": "Analyzed road markings and infrastructure standards correctly within domain.",
+      "meta": "Analyzed camera generation artifacts and cross-domain consistency correctly within domain."
+    },
+    "argumentative_quality": {
+      "linguistic": "very_weak",
+      "landscape": "strong",
+      "botanics": "strong",
+      "regulatory": "normal",
+      "meta": "normal"
+    },
+    "constructive_synthesis": false,
+    "overall_verdict_notes": "The pipeline failed because the linguistic agent was silent, leaving no script evidence to counter the visual bias. The regulatory and landscape agents heavily favored the USA based on the double yellow line, a feature that is actually a hallucination of specificity (it is a generic double yellow line, not a US-specific one). The tournament judge accepted this bias, leading to a wrong prediction.",
+    "role_adherence_score": {
+      "linguistic": 0.0,
+      "landscape": 0.8,
+      "botanics": 0.8,
+      "regulatory": 0.8,
+      "meta": 0.8
+    },
+    "argumentative_quality_score": {
+      "linguistic": 0.0,
+      "landscape": 0.7,
+      "botanics": 0.7,
+      "regulatory": 0.5,
+      "meta": 0.5
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.1,
+      "botanics": 0.1,
+      "regulatory": 0.5,
+      "meta": 0.0
+    },
+    "hallucination_examples": {
+      "linguistic": [],
+      "landscape": [],
+      "botanics": [],
+      "regulatory": [
+        "The double yellow center lines are a quintessential road marking for the USA, whereas Turkey typically uses white lines for road separation."
+      ],
+      "meta": []
+    },
+    "visual_consistency_score": {
+      "linguistic": 0.0,
+      "landscape": 0.8,
+      "botanics": 0.8,
+      "regulatory": 0.5,
+      "meta": 0.8
+    },
+    "visual_consistency_notes": {
+      "linguistic": "No claims made.",
+      "landscape": "Descriptions of forest and soil match the image.",
+      "botanics": "Descriptions of vegetation match the image.",
+      "regulatory": "The agent correctly saw the double yellow line but hallucinated its regulatory exclusivity to the USA.",
+      "meta": "Descriptions of image quality match."
+    },
+    "confidence_calibration": {
+      "linguistic": 0.0,
+      "landscape": 0.2,
+      "botanics": 0.2,
+      "regulatory": 0.2,
+      "meta": 0.2
+    },
+    "tournament_failure": {
+      "truth_in_pool": false,
+      "truth_lost_to": null,
+      "failure_match_round": null,
+      "failure_reason": "agent_misled_pre_pool",
+      "failure_reasoning": "The linguistic agent failed to provide any candidates or evidence. The regulatory and landscape agents incorrectly identified the double yellow line as a 'quintessential' US marker, ignoring that Greece also uses double yellow lines. The truth (Greece) was never in the candidate pool.",
+      "counterfactual_winnable": false
+    }
+  }
+}

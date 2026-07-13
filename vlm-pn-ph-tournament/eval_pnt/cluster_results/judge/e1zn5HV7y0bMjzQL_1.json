@@ -1,0 +1,96 @@
+{
+  "image_id": "e1zn5HV7y0bMjzQL_1",
+  "truth_country": "oman",
+  "pred_country": "senegal",
+  "is_correct": false,
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": true,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "role_adherence_notes": {
+      "linguistic": "Correctly identified the absence of text and remained neutral.",
+      "landscape": "Focused on terrain, soil, and climate cues (Sahelian scrub).",
+      "botanics": "Analyzed vegetation types (xeric shrubs, Acacia) and biome.",
+      "regulatory": "Analyzed infrastructure standards (pylons, street lamps, road quality).",
+      "meta": "Synthesized cross-domain cues (infrastructure aesthetics, camera generation) to distinguish regions."
+    },
+    "argumentative_quality": {
+      "linguistic": "normal",
+      "landscape": "strong",
+      "botanics": "strong",
+      "regulatory": "strong",
+      "meta": "strong"
+    },
+    "constructive_synthesis": true,
+    "overall_verdict_notes": "The pipeline executed a coherent, domain-specific analysis that correctly identified the visual features (Sahelian landscape, red-and-white pylons). However, the agents suffered from a strong regional bias (West Africa), leading to a hallucination of the pylon color's diagnostic value and a failure to consider the Middle East (Oman), which shares these exact visual traits. The final prediction was incorrect.",
+    "role_adherence_score": {
+      "linguistic": 1.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.9,
+      "meta": 0.9
+    },
+    "argumentative_quality_score": {
+      "linguistic": 0.5,
+      "landscape": 0.8,
+      "botanics": 0.8,
+      "regulatory": 0.8,
+      "meta": 0.8
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.1,
+      "botanics": 0.1,
+      "regulatory": 0.5,
+      "meta": 0.5
+    },
+    "hallucination_examples": {
+      "linguistic": [],
+      "landscape": [],
+      "botanics": [],
+      "regulatory": [
+        "claimed red-and-white painted pylons are a 'very common and distinctive feature of the electrical grid in Senegal' (over-generalization; these are common in Oman and other Middle Eastern nations too)",
+        "claimed the pylon coloring 'strongly supports Senegal over Mali' (unsupported leap; color is not a reliable differentiator here)"
+      ],
+      "meta": [
+        "claimed the pylon style is 'highly characteristic of ur [...] (Senegal)' (unsupported inference)",
+        "claimed the pylon style is 'less common' in India/Mexico (unsupported negative claim)"
+      ]
+    },
+    "visual_consistency_score": {
+      "linguistic": 1.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.8,
+      "meta": 0.8
+    },
+    "visual_consistency_notes": {
+      "linguistic": "Accurately noted no text.",
+      "landscape": "Accurately described the arid, sandy terrain.",
+      "botanics": "Accurately described the sparse scrub vegetation.",
+      "regulatory": "Accurately described the pylons and lamp, but misinterpreted their diagnostic value.",
+      "meta": "Accurately described the infrastructure but misattributed its origin."
+    },
+    "confidence_calibration": {
+      "linguistic": 0.5,
+      "landscape": 0.2,
+      "botanics": 0.2,
+      "regulatory": 0.2,
+      "meta": 0.2
+    },
+    "tournament_failure": {
+      "truth_in_pool": false,
+      "truth_lost_to": "Senegal",
+      "failure_match_round": "final",
+      "failure_reason": "not_applicable",
+      "failure_reasoning": "Oman was not in the candidate pool. The failure is due to the agents' regional bias (Sub-Saharan Africa) and failure to consider the Middle East, not a tournament logic error.",
+      "counterfactual_winnable": false
+    }
+  },
+  "validation_error": "1 validation error for JudgeVerdict\noverall_verdict_notes\n  String should have at most 400 characters [type=string_too_long, input_value=\"The pipeline executed a ...ediction was incorrect.\", input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_too_long"
+}

@@ -1,0 +1,82 @@
+{
+  "image_id": "SwSJB5DW8YXOSLn2_1",
+  "truth_country": "italy",
+  "pred_country": "united kingdom",
+  "is_correct": false,
+  "path": "",
+  "truth_in_hypothesis_pool": false,
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": true,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "role_adherence_notes": {
+      "linguistic": "Correctly identified lack of linguistic cues (no signs) and remained silent.",
+      "landscape": "Stayed within terrain/vegetation analysis, though misidentified the biome.",
+      "botanics": "Stayed within plant species analysis, though misidentified the species.",
+      "regulatory": "Correctly identified lack of regulatory cues (no road markings) and remained silent.",
+      "meta": "Stayed within cross-domain synthesis, focusing on infrastructure style."
+    },
+    "argumentative_quality": {
+      "linguistic": "normal",
+      "landscape": "weak",
+      "botanics": "weak",
+      "regulatory": "normal",
+      "meta": "weak"
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.5,
+      "botanics": 0.5,
+      "regulatory": 0.0,
+      "meta": 0.25
+    },
+    "hallucination_examples": {
+      "linguistic": [],
+      "landscape": [
+        "claimed 'gorse' visible (not present)",
+        "claimed 'sandy' soil (image shows gravel/stone)"
+      ],
+      "botanics": [
+        "claimed 'Calluna vulgaris' visible (not present)",
+        "claimed 'Ulex europaeus' visible (not present)"
+      ],
+      "regulatory": [],
+      "meta": [
+        "claimed 'wire fence' visible (fence is barely visible/indistinct)"
+      ]
+    },
+    "visual_consistency_score": {
+      "linguistic": 1.0,
+      "landscape": 0.3,
+      "botanics": 0.3,
+      "regulatory": 1.0,
+      "meta": 0.5
+    },
+    "visual_consistency_notes": {
+      "linguistic": "Correctly noted absence of text.",
+      "landscape": "Described a UK heathland which is visually inconsistent with the Mediterranean scrub shown.",
+      "botanics": "Described species not present in the image.",
+      "regulatory": "Correctly noted absence of road markings.",
+      "meta": "Fence description is a stretch given the image quality."
+    },
+    "confidence_calibration": {
+      "linguistic": 0.5,
+      "landscape": 0.0,
+      "botanics": 0.0,
+      "regulatory": 0.5,
+      "meta": 0.0
+    },
+    "constructive_synthesis": false,
+    "overall_verdict_notes": "The pipeline failed to localize the image, predicting the UK instead of Italy. The failure was driven by hallucinated visual evidence (gorse, heather) by the landscape and botanics agents, which led the meta agent to reinforce the incorrect UK hypothesis. The linguistic and regulatory agents correctly identified the lack of evidence but were overruled by the confident, hallucinated positive evidence from the other agents.",
+    "region_narrowing_quality": 0.25,
+    "region_narrowing_notes": "The judge failed to identify the region correctly (likely Europe, but specifically Southern Europe/Mediterranean). It accepted the hallucinated 'Atlantic/UK' signal from the landscape/botanics agents and ignored the 'lack of evidence' signal from the linguistic/regulatory agents, which should have been a stronger cue for a non-urban, non-signage environment.",
+    "hypothesis_pool_quality": 0.0,
+    "hypothesis_pool_notes": "The pool (UK, Ireland, France) is completely implausible for the image. The image shows Mediterranean scrub (maquis/garrigue) typical of Sardinia, not the temperate heathland of the UK or Brittany. The pool missed the correct region entirely."
+  },
+  "validation_error": "2 validation errors for JudgeVerdict\noverall_verdict_notes\n  String should have at most 400 characters [type=string_too_long, input_value='The pipeline failed to l... from the other agents.', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_too_long\nregion_narrowing_notes\n  String should have at most 300 characters [type=string_too_long, input_value=\"The judge failed to iden...on-signage environment.\", input_type=str]\n    For further information visit h"
+}

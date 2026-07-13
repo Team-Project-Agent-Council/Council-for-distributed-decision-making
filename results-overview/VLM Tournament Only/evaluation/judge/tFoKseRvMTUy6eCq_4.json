@@ -1,0 +1,99 @@
+{
+  "image_id": "tFoKseRvMTUy6eCq_4",
+  "truth_country": "united states",
+  "pred_country": "france",
+  "is_correct": false,
+  "candidate_pool": [
+    "France",
+    "United Kingdom",
+    "Belgium",
+    "USA",
+    "Japan",
+    "Germany"
+  ],
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": false,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "role_adherence_notes": {
+      "linguistic": "The agent provided no candidates and no evidence, failing to perform its role.",
+      "landscape": "Stayed within terrain, vegetation, and climate analysis.",
+      "botanics": "Stayed within plant species and biome analysis.",
+      "regulatory": "Stayed within road width, markings, and infrastructure analysis.",
+      "meta": "Analyzed camera artifacts and rig types, which fits the cross-domain role."
+    },
+    "argumentative_quality": {
+      "linguistic": "very_weak",
+      "landscape": "strong",
+      "botanics": "strong",
+      "regulatory": "normal",
+      "meta": "weak"
+    },
+    "constructive_synthesis": false,
+    "overall_verdict_notes": "The pipeline failed because the linguistic agent was completely absent, and the remaining agents (landscape, botanics, meta) relied on generic European stereotypes (hedgerows, Gen 3 blur) that were visually consistent but geographically misleading. The tournament simply rubber-stamped the landscape agent's preference for France.",
+    "role_adherence_score": {
+      "linguistic": 0.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.8,
+      "meta": 0.7
+    },
+    "argumentative_quality_score": {
+      "linguistic": 0.0,
+      "landscape": 0.8,
+      "botanics": 0.8,
+      "regulatory": 0.6,
+      "meta": 0.4
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.0,
+      "botanics": 0.0,
+      "regulatory": 0.0,
+      "meta": 0.5
+    },
+    "hallucination_examples": {
+      "linguistic": [],
+      "landscape": [],
+      "botanics": [],
+      "regulatory": [],
+      "meta": [
+        "claimed 'Gen 3 camera coverage common in rural France' \u2014 this is a fabricated correlation between image artifacts and a specific country."
+      ]
+    },
+    "visual_consistency_score": {
+      "linguistic": 0.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.8,
+      "meta": 0.5
+    },
+    "visual_consistency_notes": {
+      "linguistic": "No claims made.",
+      "landscape": "Accurately described the hedgerows, road width, and forest type.",
+      "botanics": "Accurately described the deciduous nature of the vegetation.",
+      "regulatory": "Accurately noted the lack of markings and shoulders.",
+      "meta": "Correctly identified the blur artifact, but the visual consistency of the artifact does not prove the location."
+    },
+    "confidence_calibration": {
+      "linguistic": 0.0,
+      "landscape": 0.2,
+      "botanics": 0.2,
+      "regulatory": 0.2,
+      "meta": 0.2
+    },
+    "tournament_failure": {
+      "truth_in_pool": true,
+      "truth_lost_to": "France",
+      "failure_match_round": "semi-1",
+      "failure_reason": "agent_misled_in_tournament",
+      "failure_reasoning": "The landscape, botanics, and meta agents collectively assigned 'low' confidence to the USA (the truth) while assigning 'strongly_support' or 'support' to France. The tournament judge followed this misleading specialist consensus, failing to recognize that the visual evidence (narrow road, hedgerows) was ambiguous and not exclusive to France.",
+      "counterfactual_winnable": false
+    }
+  }
+}

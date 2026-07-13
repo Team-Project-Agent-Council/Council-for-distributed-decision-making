@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VLM Council Global Context Reguess Evaluation Report</title>
+<style>
+  :root {
+    --bg: #FFFFFF;
+    --fg: #222222;
+    --muted: #666666;
+    --border: #DDDDDD;
+    --accent: #4C72B0;
+    --success: #55A868;
+    --error: #C44E52;
+    --warning: #DD8452;
+    --code-bg: #F4F4F4;
+    --side-bg: #FAFAFA;
+  }
+  [data-theme="dark"] {
+    --bg: #1A1A1A;
+    --fg: #E5E5E5;
+    --muted: #999999;
+    --border: #333333;
+    --accent: #6FA0D6;
+    --success: #6FBE82;
+    --error: #DA6B6E;
+    --warning: #E89A6E;
+    --code-bg: #2A2A2A;
+    --side-bg: #222222;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                 "Helvetica Neue", Arial, sans-serif;
+    color: var(--fg);
+    background: var(--bg);
+    line-height: 1.55;
+  }
+  .layout { display: flex; min-height: 100vh; }
+  nav.toc {
+    width: 240px;
+    flex: 0 0 240px;
+    background: var(--side-bg);
+    border-right: 1px solid var(--border);
+    padding: 1.2rem 1rem;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    font-size: 0.88rem;
+  }
+  nav.toc h2 {
+    font-size: 0.9rem;
+    margin: 0 0 0.6rem 0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+  }
+  nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
+  nav.toc li { margin: 0.2rem 0; }
+  nav.toc a {
+    color: var(--fg);
+    text-decoration: none;
+    border-left: 2px solid transparent;
+    padding-left: 0.5rem;
+    display: block;
+    padding-top: 0.15rem;
+    padding-bottom: 0.15rem;
+  }
+  nav.toc a:hover { border-left-color: var(--accent); }
+  nav.toc a.active { border-left-color: var(--accent); color: var(--accent); font-weight: 600; }
+  main {
+    flex: 1;
+    max-width: 1100px;
+    padding: 1.5rem 2rem 4rem 2rem;
+  }
+  h1 { font-size: 1.75rem; margin-top: 0; }
+  h2 {
+    font-size: 1.3rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.3rem;
+    margin-top: 2.2rem;
+  }
+  h3 { font-size: 1.05rem; margin-top: 1.5rem; }
+  details {
+    margin: 0.75rem 0;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 0.5rem 0.75rem;
+    background: var(--side-bg);
+  }
+  details > summary {
+    cursor: pointer;
+    font-weight: 600;
+    margin: -0.5rem -0.75rem;
+    padding: 0.5rem 0.75rem;
+  }
+  details[open] > summary { border-bottom: 1px solid var(--border); margin-bottom: 0.5rem; }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 0.6rem 0;
+    font-size: 0.9rem;
+  }
+  th, td {
+    border: 1px solid var(--border);
+    padding: 0.42rem 0.6rem;
+    text-align: left;
+  }
+  th {
+    background: var(--side-bg);
+    cursor: pointer;
+    user-select: none;
+  }
+  th.sort-asc::after { content: " \25B2"; color: var(--muted); font-size: 0.75rem; }
+  th.sort-desc::after { content: " \25BC"; color: var(--muted); font-size: 0.75rem; }
+  tr:hover td { background: var(--code-bg); }
+  img.figure {
+    max-width: 100%;
+    height: auto;
+    margin: 0.6rem 0;
+    border: 1px solid var(--border);
+    background: white;
+  }
+  .caption {
+    font-size: 0.82rem;
+    color: var(--muted);
+    font-style: italic;
+    margin-bottom: 1rem;
+  }
+  .headline-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 0.6rem;
+    margin: 1rem 0 1.5rem 0;
+  }
+  .stat {
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 0.65rem 0.9rem;
+    background: var(--side-bg);
+  }
+  .stat .label { font-size: 0.75rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.03em; }
+  .stat .value { font-size: 1.45rem; font-weight: 700; color: var(--accent); margin-top: 0.15rem; }
+  .controls {
+    position: fixed;
+    top: 0.5rem;
+    right: 0.8rem;
+    display: flex;
+    gap: 0.4rem;
+    z-index: 200;
+  }
+  .controls button {
+    padding: 0.28rem 0.7rem;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--fg);
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 0.82rem;
+  }
+  .controls button:hover { background: var(--side-bg); }
+  code {
+    font-family: "SFMono-Regular", Menlo, monospace;
+    font-size: 0.87rem;
+    background: var(--code-bg);
+    padding: 0.05rem 0.3rem;
+    border-radius: 2px;
+  }
+  .meta { font-size: 0.82rem; color: var(--muted); margin-top: 1.2rem; }
+  blockquote {
+    border-left: 3px solid var(--accent);
+    margin: 0.8rem 0;
+    padding: 0.4rem 0.8rem;
+    background: var(--code-bg);
+  }
+  details.example { background: var(--bg); }
+</style>
+</head>
+<body>
+<div class="controls">
+  <button onclick="toggleTheme()">&#127763; theme</button>
+  <button onclick="expandAll(true)">expand all</button>
+  <button onclick="expandAll(false)">collapse all</button>
+</div>
+
+<div class="layout">
+<nav class="toc">
+  <h2>Sections</h2>
+  <ul>
+    <li><a href="#headline">Summary</a></li>
+    <li><a href="#ground-truth">1. Ground-truth statistics</a></li>
+    <li><a href="#dynamics">2. Approach dynamics</a></li>
+    <li><a href="#judge">3. LLM-as-judge verdicts</a></li>
+  </ul>
+  <p class="meta">Generated 2026-07-12T16:44:19+00:00<br>500 images</p>
+</nav>
+
+<main>
+
+<h1 id="headline">VLM Council Global Context Reguess Evaluation Report</h1>
+
+<div class="headline-grid">
+  <div class="stat">
+    <div class="label">Country Accuracy</div>
+    <div class="value">65.0%</div>
+  </div>
+  <div class="stat">
+    <div class="label">Median Haversine</div>
+    <div class="value">410 km</div>
+  </div>
+  <div class="stat">
+    <div class="label">Images</div>
+    <div class="value">500</div>
+  </div>
+  <div class="stat">
+    <div class="label">Mean R2 Improvement</div>
+    <div class="value">0.51</div>
+  </div>
+</div>
+
+<h2 id="ground-truth">1. Ground-truth statistics</h2>
+
+<h3>Headline metrics</h3>
+<table>
+  <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+  <tbody>
+    <tr><td>Country accuracy</td><td>65.0%</td></tr>
+    <tr><td>Median haversine</td><td>410 km</td></tr>
+    <tr><td>Mean haversine</td><td>1,546 km</td></tr>
+    <tr><td>N images</td><td>500</td></tr>
+  </tbody>
+</table>
+
+<h3>Geo-spatial bias</h3>
+<ul>
+  <li>North/south bias: strong north bias (p=0.0001)</li>
+  <li>East/west bias: no significant bias (p=0.9309)</li>
+  <li>Error quadrants:
+SW=125, NE=138, NW=137, SE=100  </li>
+</ul>
+<img class="figure" src="plots/error_distribution.png" alt="Error distribution">
+<p class="caption">Figure: Latitude and longitude error and haversine distribution.</p>
+<img class="figure" src="plots/bearing_rose.png" alt="Bearing rose">
+<p class="caption">Figure: Bearing of prediction errors (truth to prediction).</p>
+
+<h3>Top confusion pairs</h3>
+<table id="confusion-table">
+  <thead>
+    <tr>
+      <th onclick="sortTable('confusion-table',0)">Truth</th>
+      <th onclick="sortTable('confusion-table',1)">Predicted</th>
+      <th onclick="sortTable('confusion-table',2)">Count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>canada</td>
+      <td>united states</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>south africa</td>
+      <td>botswana</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>argentina</td>
+      <td>mexico</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>south africa</td>
+      <td>namibia</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>panama</td>
+      <td>puerto rico</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>peru</td>
+      <td>colombia</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>uruguay</td>
+      <td>brazil</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>indonesia</td>
+      <td>philippines</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>czechia</td>
+      <td>poland</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>montenegro</td>
+      <td>georgia</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>poland</td>
+      <td>lithuania</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>bulgaria</td>
+      <td>moldova</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>bolivia</td>
+      <td>brazil</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>kenya</td>
+      <td>ethiopia</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>germany</td>
+      <td>poland</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+<img class="figure" src="plots/confusion_matrix.png" alt="Confusion matrix">
+<p class="caption">Figure: Top 15 confusion pairs (truth to predicted).</p>
+
+<h3>Per-agent ground-truth accuracy (Round 1)</h3>
+<table id="agents-r1-table">
+  <thead>
+    <tr>
+      <th onclick="sortTable('agents-r1-table',0)">Agent</th>
+      <th onclick="sortTable('agents-r1-table',1)">n</th>
+      <th onclick="sortTable('agents-r1-table',2)">Top-1</th>
+      <th onclick="sortTable('agents-r1-table',3)">Top-3</th>
+      <th onclick="sortTable('agents-r1-table',4)">Coverage</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>linguistic</code></td>
+      <td>107</td>
+      <td>79.4%</td>
+      <td>86.0%</td>
+      <td>90.7%</td>
+    </tr>
+    <tr>
+      <td><code>landscape</code></td>
+      <td>500</td>
+      <td>63.4%</td>
+      <td>80.0%</td>
+      <td>82.0%</td>
+    </tr>
+    <tr>
+      <td><code>botanics</code></td>
+      <td>499</td>
+      <td>63.7%</td>
+      <td>79.4%</td>
+      <td>80.2%</td>
+    </tr>
+    <tr>
+      <td><code>regulatory</code></td>
+      <td>443</td>
+      <td>64.3%</td>
+      <td>77.7%</td>
+      <td>78.6%</td>
+    </tr>
+    <tr>
+      <td><code>meta</code></td>
+      <td>499</td>
+      <td>62.5%</td>
+      <td>75.2%</td>
+      <td>75.2%</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Per-agent ground-truth accuracy (Round 2)</h3>
+<table id="agents-r2-table">
+  <thead>
+    <tr>
+      <th onclick="sortTable('agents-r2-table',0)">Agent</th>
+      <th onclick="sortTable('agents-r2-table',1)">n</th>
+      <th onclick="sortTable('agents-r2-table',2)">Top-1</th>
+      <th onclick="sortTable('agents-r2-table',3)">Top-3</th>
+      <th onclick="sortTable('agents-r2-table',4)">Coverage</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>linguistic</code></td>
+      <td>134</td>
+      <td>82.8%</td>
+      <td>91.0%</td>
+      <td>91.8%</td>
+    </tr>
+    <tr>
+      <td><code>landscape</code></td>
+      <td>500</td>
+      <td>65.0%</td>
+      <td>80.2%</td>
+      <td>82.4%</td>
+    </tr>
+    <tr>
+      <td><code>botanics</code></td>
+      <td>500</td>
+      <td>64.6%</td>
+      <td>81.0%</td>
+      <td>82.0%</td>
+    </tr>
+    <tr>
+      <td><code>regulatory</code></td>
+      <td>500</td>
+      <td>64.6%</td>
+      <td>80.6%</td>
+      <td>82.4%</td>
+    </tr>
+    <tr>
+      <td><code>meta</code></td>
+      <td>500</td>
+      <td>64.6%</td>
+      <td>79.0%</td>
+      <td>79.8%</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Geographic world maps</h3>
+<p>Per-country accuracy across 91 countries with truth.
+Macro-averaged TPR: <strong>53.1%</strong>.</p>
+<img class="figure" src="plots/world_map_accuracy.png" alt="Per-country true-positive rate (green) with false-positive outlines (red).">
+<p class="caption"><em>Per-country true-positive rate (green) with false-positive outlines (red).</em></p>
+<img class="figure" src="plots/world_map_f1.png" alt="Per-country F1, divergent around the run's macro-F1. Green = above average, red = below.">
+<p class="caption"><em>Per-country F1, divergent around the run's macro-F1. Green = above average, red = below.</em></p>
+<img class="figure" src="plots/world_map_error_bias.png" alt="Per-country error bias (FP-FN)/(FP+FN). Red = over-predicted, blue = missed.">
+<p class="caption"><em>Per-country error bias (FP-FN)/(FP+FN). Red = over-predicted, blue = missed.</em></p>
+
+<h2 id="dynamics">2. Approach dynamics</h2>
+<p>Each image runs Round 1 (independent per-agent guesses) then Round 2 (each agent
+re-guesses with the full set of Round 1 assessments as global context). The metrics
+below track how that context shifted agents between the two rounds and whether the
+shifts moved the council toward or away from the ground truth.</p>
+
+<h3>Agent round comparison</h3>
+<p>Per-agent top-1 accuracy in Round 1 vs Round 2.
+<strong>Change rate</strong> is the fraction of images where the top-1 country changed.
+<strong>Conf. shift</strong> is the fraction where Round 2 confidence was higher than Round 1.</p>
+<table id="round-table">
+  <thead>
+    <tr>
+      <th onclick="sortTable('round-table',0)">Agent</th>
+      <th onclick="sortTable('round-table',1)">R1 Top-1</th>
+      <th onclick="sortTable('round-table',2)">R2 Top-1</th>
+      <th onclick="sortTable('round-table',3)">Change rate</th>
+      <th onclick="sortTable('round-table',4)">Conf. shift</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>linguistic</code></td>
+      <td>79.4%</td>
+      <td>82.8%</td>
+      <td>10.3%</td>
+      <td>17.8%</td>
+    </tr>
+    <tr>
+      <td><code>landscape</code></td>
+      <td>63.4%</td>
+      <td>65.0%</td>
+      <td>8.8%</td>
+      <td>16.2%</td>
+    </tr>
+    <tr>
+      <td><code>botanics</code></td>
+      <td>63.7%</td>
+      <td>64.6%</td>
+      <td>11.6%</td>
+      <td>40.3%</td>
+    </tr>
+    <tr>
+      <td><code>regulatory</code></td>
+      <td>64.3%</td>
+      <td>64.6%</td>
+      <td>15.6%</td>
+      <td>52.4%</td>
+    </tr>
+    <tr>
+      <td><code>meta</code></td>
+      <td>62.5%</td>
+      <td>64.6%</td>
+      <td>9.4%</td>
+      <td>30.9%</td>
+    </tr>
+  </tbody>
+</table>
+<img class="figure" src="plots/agent_top1_r1_vs_r2.png" alt="Agent R1 vs R2 top-1">
+<p class="caption">Figure: Per-agent top-1 accuracy in Round 1 vs Round 2.</p>
+
+
+<h3>Round 1 to Round 2 movement</h3>
+<table>
+  <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+  <tbody>
+    <tr><td>Comparable agent-image pairs</td><td>2048</td></tr>
+    <tr><td>Top pick changed in R2</td><td>229 (11.2%)</td></tr>
+    <tr><td>Top pick unchanged in R2</td><td>1819</td></tr>
+    <tr><td>Confidence up in R2</td><td>687</td></tr>
+    <tr><td>Confidence down in R2</td><td>2</td></tr>
+  </tbody>
+</table>
+
+<h3>Agreement dynamics (R1 plurality vs R2 plurality)</h3>
+<table>
+  <thead><tr><th>Transition</th><th>Count</th></tr></thead>
+  <tbody>
+    <tr><td>R1 unanimous (5/5 same country)</td><td>84</td></tr>
+    <tr><td>R2 unanimous (5/5 same country)</td><td>124</td></tr>
+    <tr><td>R1 split to R2 unanimous (context built consensus)</td><td>40</td></tr>
+    <tr><td>R1 unanimous to R2 split (context broke consensus)</td><td>0</td></tr>
+    <tr><td>R1 sub-plurality to R2 plurality (context built majority)</td><td>64</td></tr>
+    <tr><td>R1 plurality to R2 sub-plurality (context broke majority)</td><td>2</td></tr>
+    <tr><td>Same plurality top country in both rounds</td><td>468</td></tr>
+  </tbody>
+</table>
+
+<h3>Constructive vs destructive R1 to R2 shifts (2048 pairs with ground truth)</h3>
+<table>
+  <thead><tr><th>Category</th><th>Count</th><th>Share</th></tr></thead>
+  <tbody>
+    <tr>
+      <td>Constructive (R1 wrong, R2 corrected onto GT)</td>
+      <td>64</td>
+      <td>3.1%</td>
+    </tr>
+    <tr>
+      <td>Destructive (R1 correct, R2 moved away from GT)</td>
+      <td>26</td>
+      <td>1.3%</td>
+    </tr>
+    <tr>
+      <td>Stayed correct (both rounds on GT)</td>
+      <td>1291</td>
+      <td>63.0%</td>
+    </tr>
+    <tr>
+      <td>Stayed wrong (both rounds on the same wrong country)</td>
+      <td>528</td>
+      <td>25.8%</td>
+    </tr>
+    <tr>
+      <td>Lateral (both rounds wrong, different countries)</td>
+      <td>139</td>
+      <td>6.8%</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Per-agent R1 to R2 shift matrix</h3>
+<p>Net truth is constructive minus destructive shifts. Positive means context pulled
+the agent toward the ground truth; negative means away.</p>
+<table id="shift-table">
+  <thead>
+    <tr>
+      <th onclick="sortTable('shift-table',0)">Agent</th>
+      <th onclick="sortTable('shift-table',1)">n</th>
+      <th onclick="sortTable('shift-table',2)">Constr</th>
+      <th onclick="sortTable('shift-table',3)">Destr</th>
+      <th onclick="sortTable('shift-table',4)">StayOK</th>
+      <th onclick="sortTable('shift-table',5)">StayX</th>
+      <th onclick="sortTable('shift-table',6)">Lateral</th>
+      <th onclick="sortTable('shift-table',7)">Net truth</th>
+      <th onclick="sortTable('shift-table',8)">R1 acc</th>
+      <th onclick="sortTable('shift-table',9)">R2 acc</th>
+      <th onclick="sortTable('shift-table',10)">Delta</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>linguistic</code></td>
+      <td>107</td>
+      <td>5</td>
+      <td>1</td>
+      <td>84</td>
+      <td>12</td>
+      <td>5</td>
+      <td>+4</td>
+      <td>79.4%</td>
+      <td>83.2%</td>
+      <td>3.7%</td>
+    </tr>
+    <tr>
+      <td><code>landscape</code></td>
+      <td>500</td>
+      <td>14</td>
+      <td>6</td>
+      <td>311</td>
+      <td>145</td>
+      <td>24</td>
+      <td>+8</td>
+      <td>63.4%</td>
+      <td>65.0%</td>
+      <td>1.6%</td>
+    </tr>
+    <tr>
+      <td><code>botanics</code></td>
+      <td>499</td>
+      <td>10</td>
+      <td>6</td>
+      <td>312</td>
+      <td>129</td>
+      <td>42</td>
+      <td>+4</td>
+      <td>63.7%</td>
+      <td>64.5%</td>
+      <td>0.8%</td>
+    </tr>
+    <tr>
+      <td><code>regulatory</code></td>
+      <td>443</td>
+      <td>20</td>
+      <td>9</td>
+      <td>276</td>
+      <td>98</td>
+      <td>40</td>
+      <td>+11</td>
+      <td>64.3%</td>
+      <td>66.8%</td>
+      <td>2.5%</td>
+    </tr>
+    <tr>
+      <td><code>meta</code></td>
+      <td>499</td>
+      <td>15</td>
+      <td>4</td>
+      <td>308</td>
+      <td>144</td>
+      <td>28</td>
+      <td>+11</td>
+      <td>62.5%</td>
+      <td>64.7%</td>
+      <td>2.2%</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Round 2 convergence (per image, plurality at least 3/5)</h3>
+<table>
+  <thead><tr><th>Outcome</th><th>Count</th><th>Share</th></tr></thead>
+  <tbody>
+    <tr><td>Plurality on GT (correct)</td><td>317</td><td>63.4%</td></tr>
+    <tr><td>Plurality on wrong country</td><td>166</td><td>33.2%</td></tr>
+    <tr><td>No plurality (top at most 2/5)</td><td>17</td><td>3.4%</td></tr>
+  </tbody>
+</table>
+
+<h2 id="judge">3. LLM-as-judge verdicts</h2>
+<p>
+  Verdicts: <strong>500 / 500</strong>
+</p>
+<blockquote>
+  <strong>Mean Round 2 improvement:</strong> 0.51
+  &nbsp;(1.0 genuine synthesis, 0.5 acknowledged but unchanged, 0.0 rubber-stamp)
+</blockquote>
+
+<h3>Per-agent scores</h3>
+<table id="judge-table">
+  <thead>
+    <tr>
+      <th onclick="sortTable('judge-table',0)">Agent</th>
+      <th onclick="sortTable('judge-table',1)">n</th>
+      <th onclick="sortTable('judge-table',2)">Role adher.</th>
+      <th onclick="sortTable('judge-table',3)">Hallucination &#8595;</th>
+      <th onclick="sortTable('judge-table',4)">Visual cons. &#8593;</th>
+      <th onclick="sortTable('judge-table',5)">Calibration &#8593;</th>
+      <th onclick="sortTable('judge-table',6)">R2 improvement &#8593;</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>linguistic</code></td>
+      <td>500</td>
+      <td>97.0%</td>
+      <td>0.00</td>
+      <td>1.00</td>
+      <td>0.77</td>
+      <td>0.23</td>
+    </tr>
+    <tr>
+      <td><code>landscape</code></td>
+      <td>500</td>
+      <td>100.0%</td>
+      <td>0.03</td>
+      <td>0.96</td>
+      <td>0.74</td>
+      <td>0.57</td>
+    </tr>
+    <tr>
+      <td><code>botanics</code></td>
+      <td>500</td>
+      <td>100.0%</td>
+      <td>0.04</td>
+      <td>0.95</td>
+      <td>0.74</td>
+      <td>0.58</td>
+    </tr>
+    <tr>
+      <td><code>regulatory</code></td>
+      <td>500</td>
+      <td>100.0%</td>
+      <td>0.02</td>
+      <td>0.97</td>
+      <td>0.74</td>
+      <td>0.58</td>
+    </tr>
+    <tr>
+      <td><code>meta</code></td>
+      <td>500</td>
+      <td>100.0%</td>
+      <td>0.03</td>
+      <td>0.97</td>
+      <td>0.74</td>
+      <td>0.58</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Judge synthesis quality</h3>
+<p>n=500&nbsp; mean=<strong>0.68</strong>&nbsp; median=0.75&nbsp; stdev=0.32</p>
+
+<img class="figure" src="plots/judge_role_adherence.png" alt="Role adherence">
+<p class="caption">Figure: Per-agent role adherence rate.</p>
+<img class="figure" src="plots/judge_hallucination.png" alt="Hallucination">
+<p class="caption">Figure: Per-agent mean hallucination score (0 clean, 1 severe).</p>
+<img class="figure" src="plots/judge_round2_improvement.png" alt="Round 2 improvement">
+<p class="caption">Figure: Per-agent Round 2 improvement score (reference line at 0.5).</p>
+<img class="figure" src="plots/judge_synthesis.png" alt="Judge synthesis">
+<p class="caption">Figure: Judge synthesis quality distribution.</p>
+
+<h3>Hallucination examples</h3>
+<p>Concrete claims flagged by the judge as not supported by the image. Up to 10 examples per agent.</p>
+  <details class="example">
+    <summary>linguistic (4 example(s))</summary>
+    <table>
+      <thead><tr><th>Image</th><th>Score</th><th>Hallucinated claim</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><code>HF1MKwIFNCNb4FdM_3</code></td>
+          <td>1.00</td>
+          <td>The text 'Vilabonita' on the billboard is a specific real estate development located in Colombia.</td>
+        </tr>
+        <tr>
+          <td><code>HF1MKwIFNCNb4FdM_3</code></td>
+          <td>1.00</td>
+          <td>The text 'Vilabonita' refers to a specific real estate development in Colombia.</td>
+        </tr>
+        <tr>
+          <td><code>IozkbMt8zbdH9XCv_5</code></td>
+          <td>0.00</td>
+          <td>the Meta Agent's identification of the red car roof as a specific Google Street View signature for Ghana is a critical technical clue.</td>
+        </tr>
+        <tr>
+          <td><code>oIqmyQzBGtaIeI84_4</code></td>
+          <td>0.50</td>
+          <td>The text 'SOLGAS' refers to a gas distribution company that operates primarily in Colombia.</td>
+        </tr>
+      </tbody>
+    </table>
+  </details>
+  <details class="example">
+    <summary>landscape (10 example(s))</summary>
+    <table>
+      <thead><tr><th>Image</th><th>Score</th><th>Hallucinated claim</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><code>3OuVMcpGjmm0tVfG_1</code></td>
+          <td>0.25</td>
+          <td>The specific style of unpaved rural roads and volcanic-looking rock embankments is highly characteristic of the Philippine archipelago.</td>
+        </tr>
+        <tr>
+          <td><code>4UvmdTHySo6AXW4M_3</code></td>
+          <td>0.25</td>
+          <td>The mix of Scots pine and birch trees is highly characteristic of the North European Plain, specifically the sandy soils of Poland.</td>
+        </tr>
+        <tr>
+          <td><code>56Q4T4rpv9O9sCpP_5</code></td>
+          <td>0.25</td>
+          <td>The road quality and marking style are consistent with Botswana's main arterial roads through rural areas.</td>
+        </tr>
+        <tr>
+          <td><code>5GS2RPgTrf85UZM5_3</code></td>
+          <td>0.25</td>
+          <td>The combination of deep red latosol soil, Brachiaria grasses, and tropical scrub is a signature of the Brazilian Cerrado.</td>
+        </tr>
+        <tr>
+          <td><code>67gLC5CcGgkQIWEW_1</code></td>
+          <td>0.25</td>
+          <td>The vegetation and soil appear consistent with the fertile chernozem regions of Eastern Europe.</td>
+        </tr>
+        <tr>
+          <td><code>67gLC5CcGgkQIWEW_5</code></td>
+          <td>0.25</td>
+          <td>The combination of flat terrain, red sandy soil, and the specific mix of coconut palms and banana trees is highly characteristic of rural Cambodia.</td>
+        </tr>
+        <tr>
+          <td><code>6fGwHxCTvCbaK77Q_4</code></td>
+          <td>0.50</td>
+          <td>The specific presence of Cupressus macrocarpa hedges strongly points to the Azores.</td>
+        </tr>
+        <tr>
+          <td><code>74bPHM081cMUaNKT_4</code></td>
+          <td>0.25</td>
+          <td>The vegetation and road infrastructure are nearly identical [to Ecuador]</td>
+        </tr>
+        <tr>
+          <td><code>74bPHM081cMUaNKT_5</code></td>
+          <td>0.25</td>
+          <td>This is strongly reinforced by the Meta Agent's identification of specific Albanian electrical boxes and construction fencing</td>
+        </tr>
+        <tr>
+          <td><code>9lNwy1vjD53PTSwt_1</code></td>
+          <td>0.25</td>
+          <td>The soil appears to be a dark, fertile chernozem typical of this region.</td>
+        </tr>
+      </tbody>
+    </table>
+  </details>
+  <details class="example">
+    <summary>botanics (10 example(s))</summary>
+    <table>
+      <thead><tr><th>Image</th><th>Score</th><th>Hallucinated claim</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><code>3OuVMcpGjmm0tVfG_1</code></td>
+          <td>0.25</td>
+          <td>The combination of Musa (banana) and Manihot esculenta (cassava) in a small-scale home garden setting is extremely common in rural Philippines.</td>
+        </tr>
+        <tr>
+          <td><code>3uP6lYo9pzx5Q0km_5</code></td>
+          <td>0.50</td>
+          <td>The dense, mixed broadleaf forest featuring species consistent with Colchic rainforests (such as Castanea sativa and various Fagus species)</td>
+        </tr>
+        <tr>
+          <td><code>3uP6lYo9pzx5Q0km_5</code></td>
+          <td>0.50</td>
+          <td>Fagus sylvatica (European Beech)</td>
+        </tr>
+        <tr>
+          <td><code>3uP6lYo9pzx5Q0km_5</code></td>
+          <td>0.50</td>
+          <td>Castanea sativa (Sweet Chestnut)</td>
+        </tr>
+        <tr>
+          <td><code>4UvmdTHySo6AXW4M_3</code></td>
+          <td>0.25</td>
+          <td>The combination of Pinus sylvestris (Scots Pine) and Betula pendula (Silver Birch) is highly characteristic of the lowland mixed forests of Central Europe, particularly Poland.</td>
+        </tr>
+        <tr>
+          <td><code>4UvmdTHySo6AXW4M_5</code></td>
+          <td>0.50</td>
+          <td>The combination of a lush green winter cereal crop (likely wheat) and the specific structure of the scrubby, thorny hedgerows is very common in the Indo-Gangetic plains.</td>
+        </tr>
+        <tr>
+          <td><code>4UvmdTHySo6AXW4M_5</code></td>
+          <td>0.50</td>
+          <td>The agricultural landscape, specifically the winter wheat cultivation and the arid soil of the dirt road, is nearly identical to that of Northern India.</td>
+        </tr>
+        <tr>
+          <td><code>56Q4T4rpv9O9sCpP_5</code></td>
+          <td>0.25</td>
+          <td>The vegetation density and flat terrain are highly characteristic of the Botswana interior Kalahari basin.</td>
+        </tr>
+        <tr>
+          <td><code>5GS2RPgTrf85UZM5_3</code></td>
+          <td>0.25</td>
+          <td>The botanical evidence of Brachiaria grasses and Cerrado-style tropical scrub... creates a highly consistent profile for the Brazilian interior.</td>
+        </tr>
+        <tr>
+          <td><code>67gLC5CcGgkQIWEW_1</code></td>
+          <td>0.25</td>
+          <td>The mix of deciduous fruit trees and garden vegetation is highly characteristic of rural residential plots in the Pontic-Caspian steppe and forest-steppe zones.</td>
+        </tr>
+      </tbody>
+    </table>
+  </details>
+  <details class="example">
+    <summary>regulatory (10 example(s))</summary>
+    <table>
+      <thead><tr><th>Image</th><th>Score</th><th>Hallucinated claim</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><code>3OuVMcpGjmm0tVfG_1</code></td>
+          <td>0.50</td>
+          <td>the concrete utility pole design and the specific style of elevated rural housing mentioned by the Meta Agent are consistent with Philippine rural infrastructure.</td>
+        </tr>
+        <tr>
+          <td><code>4UvmdTHySo6AXW4M_3</code></td>
+          <td>0.25</td>
+          <td>rural roads in Poland often have more consistent edge markings than seen here.</td>
+        </tr>
+        <tr>
+          <td><code>56Q4T4rpv9O9sCpP_5</code></td>
+          <td>0.25</td>
+          <td>Namibia typically uses white edge lines more frequently than the distinct yellow edge lines seen here</td>
+        </tr>
+        <tr>
+          <td><code>5bPlIRT7eGN79a2E_3</code></td>
+          <td>0.00</td>
+          <td>The image shows left-hand traffic (LHT) with a yellow center line and white edge lines, which is standard for South African national roads.</td>
+        </tr>
+        <tr>
+          <td><code>6fGwHxCTvCbaK77Q_4</code></td>
+          <td>0.50</td>
+          <td>the concrete utility pole identified by the Meta Agent is highly characteristic of rural Portugal.</td>
+        </tr>
+        <tr>
+          <td><code>74bPHM081cMUaNKT_5</code></td>
+          <td>0.25</td>
+          <td>The specific combination of concrete utility poles, the style of the white electrical box on the sidewalk, and the corrugated metal construction fencing are highly diagnostic of Albanian urban infrastructure</td>
+        </tr>
+        <tr>
+          <td><code>EEI3fwu4iZvPT2zP_5</code></td>
+          <td>0.25</td>
+          <td>The specific combination of road quality, utility pole design, and the style of the roadside markers is highly characteristic of rural Lithuania.</td>
+        </tr>
+        <tr>
+          <td><code>HF1MKwIFNCNb4FdM_3</code></td>
+          <td>0.50</td>
+          <td>The combination of right-hand traffic, concrete road surfaces with specific expansion joints, and highly diagnostic yellow-painted curbs is a standard in Colombian urban infrastructure.</td>
+        </tr>
+        <tr>
+          <td><code>IozkbMt8zbdH9XCv_3</code></td>
+          <td>0.25</td>
+          <td>The blue and white painted curbs are a very common regulatory marking used in Iranian urban areas</td>
+        </tr>
+        <tr>
+          <td><code>IozkbMt8zbdH9XCv_5</code></td>
+          <td>0.00</td>
+          <td>The red car roof is a critical meta-signature for Google Street View in Ghana.</td>
+        </tr>
+      </tbody>
+    </table>
+  </details>
+  <details class="example">
+    <summary>meta (10 example(s))</summary>
+    <table>
+      <thead><tr><th>Image</th><th>Score</th><th>Hallucinated claim</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><code>3OuVMcpGjmm0tVfG_1</code></td>
+          <td>0.50</td>
+          <td>The utility pole construction (slender concrete poles with specific cross-arm mounting) and the style of the small, elevated residential structures in the background are highly characteristic of rural Philippines.</td>
+        </tr>
+        <tr>
+          <td><code>4UvmdTHySo6AXW4M_3</code></td>
+          <td>0.25</td>
+          <td>The image quality and slight blur patterns are consistent with Gen 3 Google Street View coverage common in the Baltics.</td>
+        </tr>
+        <tr>
+          <td><code>4UvmdTHySo6AXW4M_5</code></td>
+          <td>0.25</td>
+          <td>The image quality, specifically the high-saturation greens and the distinct 'halo' blur at the bottom of the frame, is highly characteristic of Google's Gen 4 camera used extensively in rural India.</td>
+        </tr>
+        <tr>
+          <td><code>56Q4T4rpv9O9sCpP_5</code></td>
+          <td>0.50</td>
+          <td>The image shows a distinct Google Street View 'halo' or blur at the bottom of the frame, which is characteristic of the Trekker/backpack or specific early car rigs used in Botswana.</td>
+        </tr>
+        <tr>
+          <td><code>5GS2RPgTrf85UZM5_3</code></td>
+          <td>0.25</td>
+          <td>The concrete utility pole with a simple cross-arm is a hallmark of rural Brazilian infrastructure.</td>
+        </tr>
+        <tr>
+          <td><code>67gLC5CcGgkQIWEW_5</code></td>
+          <td>0.00</td>
+          <td>The presence of the distinct Google Street View 'car hood' (the rounded, light-colored protrusion at the bottom) is a strong meta indicator for Cambodia</td>
+        </tr>
+        <tr>
+          <td><code>6fGwHxCTvCbaK77Q_4</code></td>
+          <td>0.50</td>
+          <td>The Gen 3 camera quality and concrete utility pole design strongly align with Portuguese rural infrastructure.</td>
+        </tr>
+        <tr>
+          <td><code>74bPHM081cMUaNKT_5</code></td>
+          <td>0.25</td>
+          <td>The specific design of the white electrical box on the sidewalk is also a strong match for Albanian urban infrastructure.</td>
+        </tr>
+        <tr>
+          <td><code>EEI3fwu4iZvPT2zP_5</code></td>
+          <td>0.25</td>
+          <td>The wooden picket fences with brick pillars are very characteristic of rural Lithuanian residential areas, distinguishing it from similar styles in Poland or Latvia.</td>
+        </tr>
+        <tr>
+          <td><code>HF1MKwIFNCNb4FdM_3</code></td>
+          <td>0.50</td>
+          <td>The meta evidence of concrete utility poles with specific cross-arms and yellow-painted curbs is strongly reinforced by the linguistic agent's identification of 'Vilabonita'...</td>
+        </tr>
+      </tbody>
+    </table>
+  </details>
+
+</main>
+</div>
+
+<script>
+function toggleTheme() {
+  const html = document.documentElement;
+  html.setAttribute('data-theme', html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+}
+
+function expandAll(open) {
+  document.querySelectorAll('details').forEach(d => { d.open = open; });
+}
+
+// Scroll-spy
+(function () {
+  const links = document.querySelectorAll('nav.toc a');
+  const sections = [];
+  links.forEach(a => {
+    const target = document.getElementById(a.getAttribute('href').slice(1));
+    if (target) sections.push({ el: target, link: a });
+  });
+  function onScroll() {
+    let active = null;
+    sections.forEach(({ el, link }) => {
+      if (el.getBoundingClientRect().top <= 80) active = link;
+    });
+    links.forEach(a => a.classList.remove('active'));
+    if (active) active.classList.add('active');
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+
+// Sortable tables
+function sortTable(tableId, colIdx) {
+  const table = document.getElementById(tableId);
+  if (!table) return;
+  const th = table.querySelectorAll('th')[colIdx];
+  const asc = !th.classList.contains('sort-asc');
+  table.querySelectorAll('th').forEach(t => t.classList.remove('sort-asc', 'sort-desc'));
+  th.classList.add(asc ? 'sort-asc' : 'sort-desc');
+  const tbody = table.querySelector('tbody');
+  const rows = Array.from(tbody.querySelectorAll('tr'));
+  rows.sort((a, b) => {
+    const av = a.querySelectorAll('td')[colIdx]?.textContent?.trim() ?? '';
+    const bv = b.querySelectorAll('td')[colIdx]?.textContent?.trim() ?? '';
+    const an = parseFloat(av.replace('%', '').replace(',', ''));
+    const bn = parseFloat(bv.replace('%', '').replace(',', ''));
+    if (!isNaN(an) && !isNaN(bn)) return asc ? an - bn : bn - an;
+    return asc ? av.localeCompare(bv) : bv.localeCompare(av);
+  });
+  rows.forEach(r => tbody.appendChild(r));
+}
+</script>
+</body>
+</html>

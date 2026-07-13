@@ -1,0 +1,95 @@
+{
+  "image_id": "KTKKKeKESyntpGnS_1",
+  "truth_country": "austria",
+  "pred_country": "france",
+  "is_correct": false,
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": true,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "role_adherence_notes": {
+      "linguistic": "Correctly identified lack of linguistic evidence (no signs).",
+      "landscape": "Focused on terrain, vegetation, and agricultural patterns.",
+      "botanics": "Identified maize and deciduous trees, stayed within domain.",
+      "regulatory": "Analyzed road markings, bollards, and path infrastructure.",
+      "meta": "Synthesized cross-domain cues (bollard style, camera quality) to distinguish countries."
+    },
+    "argumentative_quality": {
+      "linguistic": "normal",
+      "landscape": "strong",
+      "botanics": "strong",
+      "regulatory": "strong",
+      "meta": "strong"
+    },
+    "constructive_synthesis": true,
+    "overall_verdict_notes": "The pipeline correctly identified the region (Europe) and the country (France) as a strong candidate, but the final decision was incorrect due to a hallucinated visual detail (red reflector) that overrode the correct visual evidence (black top).",
+    "assertiveness": null,
+    "assertiveness_score": {},
+    "overall_quality_score": null,
+    "role_adherence_score": {
+      "linguistic": 1.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.9,
+      "meta": 0.9
+    },
+    "argumentative_quality_score": {
+      "linguistic": 0.5,
+      "landscape": 0.8,
+      "botanics": 0.8,
+      "regulatory": 0.8,
+      "meta": 0.7
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.0,
+      "botanics": 0.0,
+      "regulatory": 0.0,
+      "meta": 0.75
+    },
+    "hallucination_examples": {
+      "linguistic": [],
+      "landscape": [],
+      "botanics": [],
+      "regulatory": [],
+      "meta": [
+        "claimed 'white plastic with a small black band and a red reflector' (Image shows black top, no red reflector)",
+        "claimed 'red reflector on the right side of the road' (Not visible in image)"
+      ]
+    },
+    "visual_consistency_score": {
+      "linguistic": 1.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.9,
+      "meta": 0.25
+    },
+    "visual_consistency_notes": {
+      "linguistic": "Accurately noted absence of text.",
+      "landscape": "Accurately described fields and trees.",
+      "botanics": "Accurately described crops.",
+      "regulatory": "Accurately described bollard shape and path.",
+      "meta": "Failed to accurately describe the reflector color, hallucinating a red reflector to support a specific country."
+    },
+    "confidence_calibration": {
+      "linguistic": 0.5,
+      "landscape": 0.5,
+      "botanics": 0.5,
+      "regulatory": 0.5,
+      "meta": 0.25
+    },
+    "tournament_failure": {
+      "truth_in_pool": true,
+      "truth_lost_to": "France",
+      "failure_match_round": "semi-1",
+      "failure_reason": "agent_misled",
+      "failure_reasoning": "The meta agent hallucinated a 'red reflector' on the bollards, which is a diagnostic feature for France. This hallucination caused the meta agent to strongly support France and contradict Austria (the truth). The tournament judge relied on this flawed meta-evidence to eliminate Austria before the final round.",
+      "counterfactual_winnable": true
+    }
+  }
+}

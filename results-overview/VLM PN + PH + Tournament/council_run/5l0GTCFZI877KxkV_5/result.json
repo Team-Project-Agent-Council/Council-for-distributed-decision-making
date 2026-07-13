@@ -1,0 +1,543 @@
+{
+  "image_path": "/pfs/data6/home/ma/ma_ma/ma_lweisssc/llm_council_agent_orchestration_tests/clean_images_GeoRC_500/5l0GTCFZI877KxkV_5.png",
+  "model": "google/gemma-4-31B-it",
+  "judge_model": "google/gemma-4-31B-it",
+  "timing": {
+    "total_seconds": 87.9
+  },
+  "assessments": {
+    "linguistic": {
+      "agent_name": "linguistic",
+      "candidates": [],
+      "evidence": []
+    },
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Norway",
+          "confidence": "high",
+          "reasoning": "The combination of boreal forest (birch and pine), overcast sky, and the specific yellow center line with white outer lines is highly characteristic of Norwegian rural roads. The terrain is undulating with distant low mountains, typical of the Scandinavian landscape."
+        },
+        {
+          "country": "Sweden",
+          "confidence": "high",
+          "reasoning": "The landscape is virtually identical to Norway, featuring the same taiga biome and road infrastructure. Both countries share this specific boreal environment and similar road marking standards in rural areas."
+        },
+        {
+          "country": "Finland",
+          "confidence": "medium",
+          "reasoning": "The dense mix of birch and coniferous trees is very common in Finland. However, the terrain appears slightly more mountainous in the distance than the typical Finnish plateau, though it remains a strong candidate."
+        },
+        {
+          "country": "Canada",
+          "confidence": "low",
+          "reasoning": "The boreal forest and road quality are a strong global analog to the Canadian Shield or provinces like Quebec and Ontario. The vegetation and climate match, though road markings differ slightly from the Nordic standard."
+        },
+        {
+          "country": "Russia",
+          "confidence": "low",
+          "reasoning": "The taiga landscape of Northern Russia matches the tree species and overcast climate perfectly. It is a primary global analog for this specific environmental profile."
+        }
+      ],
+      "evidence": [
+        "Boreal forest (birch and pine mix)",
+        "Yellow center line with white edge lines",
+        "Overcast, high-latitude lighting",
+        "Undulating terrain with distant low mountains",
+        "Damp, dark asphalt road surface"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Norway",
+          "confidence": "high",
+          "reasoning": "The combination of Betula pubescens (downy birch) and Picea abies (Norway spruce) in a subalpine transition zone is highly characteristic of the Scandinavian highlands. The specific density and growth habit of the birch forests alongside the spruce are typical for the Norwegian interior."
+        },
+        {
+          "country": "Sweden",
+          "confidence": "high",
+          "reasoning": "The vegetation is virtually identical to Norway, consisting of a boreal mix of birch and spruce. Without endemic species visible, the botanical profile of the Swedish taiga/subalpine region is indistinguishable from Norway's."
+        },
+        {
+          "country": "Finland",
+          "confidence": "high",
+          "reasoning": "The boreal forest composition of Betula and Picea is the dominant landscape of Finland. The transition from deciduous birch to coniferous spruce is a hallmark of the Finnish landscape."
+        },
+        {
+          "country": "Canada",
+          "confidence": "low",
+          "reasoning": "The boreal forest biome (taiga) in Canada features similar spruce and birch species. However, the specific proportions and the appearance of the undergrowth are more characteristic of Northern Europe than North America."
+        },
+        {
+          "country": "Russia",
+          "confidence": "low",
+          "reasoning": "The vast Siberian taiga shares the same botanical composition of birch and spruce. It is a global analog for the Northern European boreal forest."
+        }
+      ],
+      "evidence": [
+        "Betula pubescens (Downy Birch)",
+        "Picea abies (Norway Spruce)",
+        "Boreal forest/Taiga biome"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Norway",
+          "confidence": "medium",
+          "reasoning": "The road width, asphalt quality, and the specific style of the rectangular metal sign backing are very common in Nordic rural regions. The surrounding boreal forest and terrain are highly characteristic of the Norwegian highlands."
+        },
+        {
+          "country": "Sweden",
+          "confidence": "medium",
+          "reasoning": "The infrastructure is nearly identical to Norway, featuring similar road construction standards and sign mounting styles in a similar boreal environment."
+        },
+        {
+          "country": "Canada",
+          "confidence": "low",
+          "reasoning": "The rural asphalt road and surrounding coniferous forest are visually similar to northern Canadian provinces. The sign post structure is a plausible match for rural North American standards."
+        },
+        {
+          "country": "Russia",
+          "confidence": "speculative",
+          "reasoning": "The boreal landscape and basic rural road infrastructure with gravel shoulders are common across Northern Russia, though the paint quality is higher than typical rural Russian roads."
+        }
+      ],
+      "evidence": [
+        "Rectangular metal sign backing on two grey metal posts",
+        "High-quality asphalt with clean edge treatment",
+        "Gravel/grass shoulders",
+        "Absence of utility poles in immediate vicinity"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "Norway",
+          "confidence": "high",
+          "reasoning": "The yellow center line is a primary meta indicator for Norway in this specific road environment. The image quality and camera generation are consistent with Norwegian coverage, and the lack of specific bollards here doesn't rule it out as it's a rural stretch."
+        },
+        {
+          "country": "Sweden",
+          "confidence": "low",
+          "reasoning": "Sweden shares similar road quality and camera generation, but typically uses white center lines rather than yellow, making it a less likely candidate than Norway."
+        },
+        {
+          "country": "Canada",
+          "confidence": "speculative",
+          "reasoning": "Following the global analog rule, Canada uses yellow center lines and has similar rural road infrastructure and camera quality in northern regions, though the specific asphalt texture and shoulder style are more characteristic of Northern Europe."
+        }
+      ],
+      "evidence": [
+        "yellow center line",
+        "Google Street View camera generation/image quality"
+      ]
+    }
+  },
+  "progressive_narrowing": {
+    "region_consensus": false,
+    "confirmed_region": "Europe",
+    "runner_up_region": "North America",
+    "surviving_regions": [
+      "Europe",
+      "North America"
+    ],
+    "proposed_regions": [
+      "Europe",
+      "North America",
+      "East Asia"
+    ],
+    "region_candidates": {
+      "Europe": {
+        "Norway": 4,
+        "Sweden": 4,
+        "Finland": 2
+      },
+      "North America": {
+        "Canada": 4
+      },
+      "East Asia": {
+        "Russia": 3
+      }
+    },
+    "region_decision_reasoning": "Europe received the highest score due to strong support from the meta agent regarding infrastructure and camera artifacts, combined with botanical support. North America is the runner-up as it is botanically compatible, though the meta agent noted the infrastructure is less typical for that region.",
+    "path": "B"
+  },
+  "road_evidence": {
+    "outside_color": "white",
+    "inside_color": "yellow",
+    "driving_side": "UNCLEAR",
+    "driving_side_basis": "none"
+  },
+  "country_assessments": {
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Norway",
+          "confidence": "high",
+          "reasoning": "The combination of boreal forest (birch and pine), the specific yellow center line on a grey asphalt road, and the overcast, high-latitude lighting is highly characteristic of the Norwegian interior. The terrain is gently undulating with distant low mountains, typical of the Scandinavian plateau."
+        },
+        {
+          "country": "Sweden",
+          "confidence": "high",
+          "reasoning": "The landscape is virtually identical to Norway's boreal regions, featuring the same mix of deciduous birch and coniferous trees. The road markings and general environmental conditions are consistent with northern Swedish provinces."
+        },
+        {
+          "country": "Finland",
+          "confidence": "medium",
+          "reasoning": "The flat to rolling terrain and dense boreal forest match the Finnish landscape. However, the road infrastructure and specific vegetation density are slightly more reminiscent of the Scandinavian peninsula."
+        },
+        {
+          "country": "Canada",
+          "confidence": "low",
+          "reasoning": "The boreal forest and overcast sky are consistent with the Canadian Shield or provinces like Quebec and Ontario. However, the road shoulder and signage post style are more typical of European standards."
+        },
+        {
+          "country": "Russia",
+          "confidence": "low",
+          "reasoning": "The taiga landscape and birch forests are a perfect match for European Russia. The road quality and markings are the primary limiting factors compared to Nordic candidates."
+        }
+      ],
+      "evidence": [
+        "Boreal forest composition (Betula and Pinus species)",
+        "Yellow center line road marking",
+        "Overcast, diffused high-latitude lighting",
+        "Low-relief mountainous horizon",
+        "Damp, acidic-looking soil with brown/yellow autumn grasses"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Norway",
+          "confidence": "high",
+          "reasoning": "The combination of Betula pubescens (downy birch) and Picea abies (Norway spruce) in a subalpine transition zone is highly characteristic of the Scandinavian highlands. The stunted growth and density of the birch forests are typical of the Norwegian boreal landscape."
+        },
+        {
+          "country": "Sweden",
+          "confidence": "high",
+          "reasoning": "The vegetation is virtually identical to Norway, featuring the same boreal mix of birch and spruce. Without specific endemic markers, the botanical profile of the Swedish taiga is indistinguishable from the Norwegian side of the Scandinavian peninsula."
+        },
+        {
+          "country": "Finland",
+          "confidence": "medium",
+          "reasoning": "The boreal forest composition of birch and spruce is common across Finland. However, the topography visible in the distance suggests a more mountainous terrain than is typical for most of Finland, though it remains a botanical possibility."
+        },
+        {
+          "country": "Canada",
+          "confidence": "low",
+          "reasoning": "The boreal forest (taiga) of Canada features similar species of spruce and birch. However, the specific morphology of the deciduous trees and the undergrowth pattern are more aligned with European boreal forests."
+        },
+        {
+          "country": "Russia",
+          "confidence": "low",
+          "reasoning": "The European part of Russia shares the same boreal flora (Betula and Picea). The vegetation is consistent with the taiga biome found across Northern Eurasia."
+        }
+      ],
+      "evidence": [
+        "Betula pubescens (Downy Birch)",
+        "Picea abies (Norway Spruce)",
+        "Boreal forest/Taiga biome",
+        "Subalpine transition vegetation"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Norway",
+          "confidence": "high",
+          "reasoning": "The road width, asphalt quality, and the specific style of the rectangular grey metal sign backing are highly characteristic of Norwegian rural highways. The surrounding boreal forest and terrain are consistent with Nordic landscapes."
+        },
+        {
+          "country": "Sweden",
+          "confidence": "medium",
+          "reasoning": "The infrastructure is very similar to Norway, featuring high-quality asphalt and similar rural road layouts in boreal regions. The sign post style is common across Scandinavia."
+        },
+        {
+          "country": "Canada",
+          "confidence": "low",
+          "reasoning": "The boreal forest and rural road quality are consistent with northern Canadian provinces. However, the specific sign mounting style is less common than in Northern Europe."
+        },
+        {
+          "country": "United States",
+          "confidence": "low",
+          "reasoning": "Rural roads in Alaska or the Pacific Northwest share similar vegetation and basic asphalt infrastructure. The sign backing is a generic metal style that could appear in remote North American regions."
+        }
+      ],
+      "evidence": [
+        "Rectangular grey metal sign backing on two posts",
+        "High-quality asphalt with clean edge treatment",
+        "Boreal forest environment",
+        "Lack of visible bollards or guardrails in this segment"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "Norway",
+          "confidence": "high",
+          "reasoning": "The combination of the specific yellow center line and the high-quality Gen 4 camera imagery is highly characteristic of Norway. The road surface and the style of the roadside signage support (the grey metal posts) are consistent with Norwegian rural highways."
+        },
+        {
+          "country": "Sweden",
+          "confidence": "medium",
+          "reasoning": "Sweden shares very similar road infrastructure and camera quality. However, the specific shade of yellow and the road shoulder treatment are slightly more typical of Norway, though Sweden remains a strong candidate due to the regional similarity."
+        },
+        {
+          "country": "Canada",
+          "confidence": "low",
+          "reasoning": "Canada uses yellow center lines in many provinces and has similar boreal forest landscapes. However, the specific quality of the Google camera rig and the style of the sign support posts are more aligned with European standards."
+        }
+      ],
+      "evidence": [
+        "yellow center line",
+        "Gen 4 camera quality",
+        "grey metal sign support posts"
+      ]
+    }
+  },
+  "hypothesis_evaluations": [
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_europe",
+      "confidence": "support",
+      "reasoning": "The combination of Betula (birch) and Picea (spruce) in a boreal forest setting is highly characteristic of Northern Europe, particularly Scandinavia. The specific density and growth habit of the birch understory are very common in Norway and Sweden.",
+      "key_evidence": [
+        "Betula (birch)",
+        "Picea (spruce)",
+        "Boreal forest biome"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_north_america",
+      "confidence": "support",
+      "reasoning": "The vegetation is compatible with the taiga/boreal forests of Canada and Alaska, which share the same dominant species (birch and spruce) as Northern Europe. Without endemic species visible, it is botanically indistinguishable from the European boreal zone.",
+      "key_evidence": [
+        "Betula (birch)",
+        "Picea (spruce)",
+        "Boreal forest biome"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_east_asia",
+      "confidence": "low",
+      "reasoning": "While boreal forests exist in Russia and Northeast Asia, the specific composition and appearance of the deciduous-coniferous mix here is more typical of the Atlantic/North European or North American boreal zones than the East Asian variants.",
+      "key_evidence": [
+        "Boreal forest biome"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_europe",
+      "confidence": "strongly_support",
+      "reasoning": "The image quality and the specific blur pattern at the bottom of the frame are characteristic of the Google Street View camera generation used extensively in Northern Europe. The road surface texture and the specific style of the metal sign support structure are highly consistent with Nordic countries, particularly Norway.",
+      "key_evidence": [
+        "Google camera generation/blur pattern",
+        "Sign support structure design"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_north_america",
+      "confidence": "support",
+      "reasoning": "While the general road appearance is compatible with rural North America, the specific camera artifacts and the design of the sign posts are less common there compared to the European standard seen here.",
+      "key_evidence": [
+        "General road surface"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_east_asia",
+      "confidence": "contradicts",
+      "reasoning": "The camera generation and the specific style of the roadside infrastructure (sign posts) do not match the typical patterns found in East Asian Google Street View coverage.",
+      "key_evidence": [
+        "Camera generation",
+        "Infrastructure style"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_norway",
+      "confidence": "support",
+      "reasoning": "The combination of Betula pubescens (downy birch) and Picea abies (Norway spruce) in a subarctic/boreal transition zone is highly characteristic of the Scandinavian highlands and northern regions.",
+      "key_evidence": [
+        "Betula pubescens",
+        "Picea abies",
+        "Boreal forest transition"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_finland",
+      "confidence": "support",
+      "reasoning": "The vegetation is nearly identical to Norway, featuring the same mix of birch and spruce typical of the Fennoscandian taiga.",
+      "key_evidence": [
+        "Betula pubescens",
+        "Picea abies",
+        "Taiga biome"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_russia",
+      "confidence": "support",
+      "reasoning": "The European part of Russia shares the same boreal forest composition (birch and spruce) as Scandinavia.",
+      "key_evidence": [
+        "Boreal forest",
+        "Betula species",
+        "Picea species"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_canada",
+      "confidence": "low",
+      "reasoning": "While Canada has boreal forests, the specific morphology of the birch and the density of the spruce here are more characteristic of Eurasian boreal forests than North American ones, though it remains a global analog.",
+      "key_evidence": [
+        "Boreal forest analog"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_united_states",
+      "confidence": "low",
+      "reasoning": "Similar to Canada, Alaska possesses this biome, but the specific vegetation structure is more aligned with Northern Europe.",
+      "key_evidence": [
+        "Boreal forest analog"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_norway",
+      "confidence": "strongly_support",
+      "reasoning": "The yellow center line is a highly distinctive meta feature for Norway in this specific environment. While other countries use yellow, the combination of the specific asphalt texture and the Google camera generation (Gen 4) in this boreal setting is classic for Norwegian rural roads.",
+      "key_evidence": [
+        "yellow center line",
+        "Google Gen 4 camera quality"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_canada",
+      "confidence": "support",
+      "reasoning": "Canada uses yellow center lines and has similar boreal landscapes. However, the specific road edge marking and the lack of typical North American road shoulder characteristics make it less likely than Norway.",
+      "key_evidence": [
+        "yellow center line"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_united_states",
+      "confidence": "support",
+      "reasoning": "Similar to Canada, the yellow center line is standard. However, the road width and the style of the roadside signage backing are more characteristic of European standards.",
+      "key_evidence": [
+        "yellow center line"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_finland",
+      "confidence": "contradicts",
+      "reasoning": "Finland typically uses white center lines for rural roads. A yellow center line in this specific boreal context strongly points away from Finland and toward Norway.",
+      "key_evidence": [
+        "yellow center line"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_russia",
+      "confidence": "contradicts",
+      "reasoning": "Russia uses white center lines. Additionally, the image quality and camera rig artifacts are consistent with Google's official coverage, which is extremely limited/non-existent in the rural areas of Russia that look like this.",
+      "key_evidence": [
+        "yellow center line",
+        "Google camera generation"
+      ]
+    }
+  ],
+  "candidate_pool": [
+    "Norway",
+    "Canada",
+    "Finland",
+    "Russia",
+    "United States"
+  ],
+  "rag_findings": [
+    {
+      "kind": "elim_road_marking",
+      "country": "Sweden",
+      "detail": "observed outside=white, inside=yellow vs table='Outside: White | Inside: White'"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Finland",
+      "detail": "The streetview features a yellow center line on a rural road in a boreal environment, which is a highly distinctive characteristic of Norway. Specialist evidence notes that Finland typically uses white center lines for rural roads, making the yellow line a strong indicator for Norway.",
+      "opponent": "Norway",
+      "winner": "Norway"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "United States",
+      "detail": "The streetview features a yellow center line, which is a standard road marking in Canada and the United States, but not in most of Europe. Between the two candidates, Canada's vast boreal forest landscapes are a closer match for this specific environment than the United States, and the road layout is consistent with Canadian rural highways.",
+      "opponent": "Canada",
+      "winner": "Canada"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Canada",
+      "detail": "The yellow center line combined with the specific boreal forest composition (downy birch and Norway spruce) is highly characteristic of rural Norway. Meta-analysis of the road markings and asphalt texture strongly supports Norway over Canada in this specific subarctic environment.",
+      "opponent": "Norway",
+      "winner": "Norway"
+    }
+  ],
+  "rag_refs_seen": [],
+  "road_filter_warnings": [],
+  "tournament_log": [
+    {
+      "round_label": "semi-1",
+      "country_a": "Norway",
+      "country_b": "Finland",
+      "pool_rank_a": 0,
+      "pool_rank_b": 3,
+      "winner": "Norway",
+      "reasoning": "The streetview features a yellow center line on a rural road in a boreal environment, which is a highly distinctive characteristic of Norway. Specialist evidence notes that Finland typically uses white center lines for rural roads, making the yellow line a strong indicator for Norway.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "semi-2",
+      "country_a": "Canada",
+      "country_b": "United States",
+      "pool_rank_a": 1,
+      "pool_rank_b": 2,
+      "winner": "Canada",
+      "reasoning": "The streetview features a yellow center line, which is a standard road marking in Canada and the United States, but not in most of Europe. Between the two candidates, Canada's vast boreal forest landscapes are a closer match for this specific environment than the United States, and the road layout is consistent with Canadian rural highways.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "final",
+      "country_a": "Norway",
+      "country_b": "Canada",
+      "pool_rank_a": 0,
+      "pool_rank_b": 1,
+      "winner": "Norway",
+      "reasoning": "The yellow center line combined with the specific boreal forest composition (downy birch and Norway spruce) is highly characteristic of rural Norway. Meta-analysis of the road markings and asphalt texture strongly supports Norway over Canada in this specific subarctic environment.",
+      "agreement": "agree"
+    }
+  ],
+  "country_result": "Country: Norway\nCoordinates: 68.35, 20.21\nReasoning: The yellow center line combined with the specific boreal forest composition (downy birch and Norway spruce) is highly characteristic of rural Norway. Meta-analysis of the road markings and asphalt texture strongly supports Norway over Canada in this specific subarctic environment.\n\nTournament:\n  semi-1: Norway vs Finland → Norway\n  semi-2: Canada vs United States → Canada\n  final: Norway vs Canada → Norway",
+  "coordinates": {
+    "lat": 68.35,
+    "lng": 20.21
+  },
+  "final_reasoning": "The yellow center line combined with the specific boreal forest composition (downy birch and Norway spruce) is highly characteristic of rural Norway. Meta-analysis of the road markings and asphalt texture strongly supports Norway over Canada in this specific subarctic environment."
+}

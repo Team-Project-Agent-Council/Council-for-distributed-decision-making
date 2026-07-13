@@ -1,0 +1,74 @@
+{
+  "image_id": "QhbT3Koc9Mxo6EdL_2",
+  "truth_country": "canada",
+  "pred_country": "canada",
+  "is_correct": true,
+  "path": "",
+  "truth_in_hypothesis_pool": false,
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": true,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "role_adherence_notes": {
+      "linguistic": "Correctly identified the absence of linguistic markers (signs, scripts) and refrained from hallucinating them.",
+      "landscape": "Stayed within terrain and vegetation analysis, correctly identifying the biome.",
+      "botanics": "Stayed within plant species analysis (Picea/Abies), correctly identifying the forest type.",
+      "regulatory": "Stayed within road marking analysis, correctly identifying the North American standard.",
+      "meta": "Stayed within cross-domain synthesis, correctly identifying camera artifacts and infrastructure style."
+    },
+    "argumentative_quality": {
+      "linguistic": "normal",
+      "landscape": "strong",
+      "botanics": "strong",
+      "regulatory": "strong",
+      "meta": "strong"
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.0,
+      "botanics": 0.0,
+      "regulatory": 0.0,
+      "meta": 0.0
+    },
+    "hallucination_examples": {
+      "linguistic": [],
+      "landscape": [],
+      "botanics": [],
+      "regulatory": [],
+      "meta": []
+    },
+    "visual_consistency_score": {
+      "linguistic": 1.0,
+      "landscape": 0.95,
+      "botanics": 0.95,
+      "regulatory": 0.95,
+      "meta": 0.95
+    },
+    "visual_consistency_notes": {
+      "linguistic": "Accurately reported no visible text.",
+      "landscape": "Accurately described the mixed forest and road shoulders.",
+      "botanics": "Accurately described the coniferous/deciduous mix.",
+      "regulatory": "Accurately described the yellow center line and white edge lines.",
+      "meta": "Accurately described the image quality and lack of specific markers."
+    },
+    "confidence_calibration": {
+      "linguistic": 0.5,
+      "landscape": 0.75,
+      "botanics": 0.75,
+      "regulatory": 0.75,
+      "meta": 0.75
+    },
+    "constructive_synthesis": true,
+    "overall_verdict_notes": "The agents correctly identified the image as North American (Canada/US) but failed to distinguish between the two due to a lack of specific markers. The judge correctly synthesized the evidence to select Canada, despite the agents' inability to rule out the US.",
+    "region_narrowing_quality": 0.75,
+    "region_narrowing_notes": "The judge correctly identified North America as the consensus region based on the strong agreement from landscape, botanics, and regulatory agents. The linguistic agent's lack of evidence was handled correctly by relying on the other four.",
+    "hypothesis_pool_quality": 0.5,
+    "hypothesis_pool_notes": "The pool included Canada and the US, which are the only two plausible candidates given the visual evidence. However, the pool was limited to these two, missing the nuance that the image is actually from a specific province (Nova Scotia) which might have been a better candidate if the pool was more granular. The pool is plausible but not exhaustive of the 'North American' region."
+  },
+  "validation_error": "1 validation error for JudgeVerdict\nhypothesis_pool_notes\n  String should have at most 300 characters [type=string_too_long, input_value=\"The pool included Canada...North American' region.\", input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_too_long"
+}

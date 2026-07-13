@@ -1,0 +1,98 @@
+{
+  "image_id": "G3aNW5xo5JUCnAhB_2",
+  "truth_country": "uruguay",
+  "pred_country": "brazil",
+  "is_correct": false,
+  "candidate_pool": [
+    "Brazil",
+    "Argentina",
+    "South Africa",
+    "Australia",
+    "Paraguay",
+    "India"
+  ],
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": true,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "role_adherence_notes": {
+      "linguistic": "Correctly identified lack of visible text; stayed within domain.",
+      "landscape": "Analyzed terrain, soil color, and vegetation types consistent with landscape expertise.",
+      "botanics": "Identified specific tree species (Delonix regia) and grass types, fitting the domain.",
+      "regulatory": "Analyzed road infrastructure (curbs, poles, asphalt) and driving context.",
+      "meta": "Synthesized cross-domain cues (pole design, image quality) to distinguish regions."
+    },
+    "argumentative_quality": {
+      "linguistic": "normal",
+      "landscape": "strong",
+      "botanics": "strong",
+      "regulatory": "strong",
+      "meta": "very_strong"
+    },
+    "constructive_synthesis": true,
+    "overall_verdict_notes": "The pipeline failed because the correct country (Uruguay) was omitted from the candidate pool. The agents relied heavily on 'red soil' and 'tropical trees' to argue for Brazil, ignoring that these features are also common in Uruguay (e.g., Canelones/Montevideo departments). The tournament then correctly followed the specialist consensus to pick Brazil over Argentina, but the error was structural (pool construction) rather than a tournament failure.",
+    "role_adherence_score": {
+      "linguistic": 1.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.9,
+      "meta": 0.95
+    },
+    "argumentative_quality_score": {
+      "linguistic": 0.5,
+      "landscape": 0.8,
+      "botanics": 0.8,
+      "regulatory": 0.8,
+      "meta": 0.9
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.0,
+      "botanics": 0.0,
+      "regulatory": 0.0,
+      "meta": 0.0
+    },
+    "hallucination_examples": {
+      "linguistic": [],
+      "landscape": [],
+      "botanics": [],
+      "regulatory": [],
+      "meta": []
+    },
+    "visual_consistency_score": {
+      "linguistic": 1.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.9,
+      "meta": 0.9
+    },
+    "visual_consistency_notes": {
+      "linguistic": "Accurately noted absence of text.",
+      "landscape": "Accurately described red soil, flat terrain, and deciduous trees.",
+      "botanics": "Accurately identified the Flamboyant tree visible on the right.",
+      "regulatory": "Accurately described the concrete curbs and utility poles.",
+      "meta": "Accurately described the pole design and image quality."
+    },
+    "confidence_calibration": {
+      "linguistic": 0.5,
+      "landscape": 0.2,
+      "botanics": 0.2,
+      "regulatory": 0.2,
+      "meta": 0.2
+    },
+    "tournament_failure": {
+      "truth_in_pool": false,
+      "truth_lost_to": null,
+      "failure_match_round": null,
+      "failure_reason": "agent_misled_pre_pool",
+      "failure_reasoning": "The ground truth (Uruguay) was not included in the candidate pool. Specialists focused on 'red soil' and 'tropical trees' to nominate Brazil, Argentina, and Paraguay, failing to consider Uruguay which shares these exact geographic and botanical features (e.g., Canelones region).",
+      "counterfactual_winnable": false
+    }
+  },
+  "validation_error": "1 validation error for JudgeVerdict\noverall_verdict_notes\n  String should have at most 400 characters [type=string_too_long, input_value=\"The pipeline failed beca...n a tournament failure.\", input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_too_long"
+}

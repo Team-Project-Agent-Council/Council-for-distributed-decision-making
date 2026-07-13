@@ -1,0 +1,572 @@
+{
+  "image_path": "/pfs/data6/home/ma/ma_ma/ma_lweisssc/llm_council_agent_orchestration_tests/clean_images_GeoRC_500/N2IFsQAIIcXPuNKn_2.png",
+  "model": "google/gemma-4-31B-it",
+  "judge_model": "google/gemma-4-31B-it",
+  "timing": {
+    "total_seconds": 92.6
+  },
+  "assessments": {
+    "linguistic": {
+      "agent_name": "linguistic",
+      "candidates": [],
+      "evidence": []
+    },
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Georgia",
+          "confidence": "medium",
+          "reasoning": "The combination of steep, lush green mountains, deciduous forest cover, and the specific style of weathered asphalt with white dashed center lines is very common in the Caucasus region. The terrain matches the foothills of the Greater Caucasus."
+        },
+        {
+          "country": "Turkey",
+          "confidence": "medium",
+          "reasoning": "The Black Sea region of Turkey features nearly identical temperate rainforest/mountainous terrain and road infrastructure. It is geographically indistinguishable from the Caucasus without further signage or architectural clues."
+        },
+        {
+          "country": "Romania",
+          "confidence": "low",
+          "reasoning": "The Carpathian Mountains offer similar mixed deciduous forests and winding mountain roads with similar pavement degradation and marking styles."
+        },
+        {
+          "country": "Japan",
+          "confidence": "speculative",
+          "reasoning": "As a cross-continent analog, the mountainous, heavily forested regions of Honshu feature similar steep slopes, lush greenery, and well-maintained but weathered mountain roads."
+        }
+      ],
+      "evidence": [
+        "Steep mountainous terrain with deep valleys",
+        "Temperate deciduous forest cover",
+        "Weathered asphalt road with white dashed center line",
+        "Northern hemisphere sun angle based on shadow cast towards the road from the right-side foliage"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Georgia",
+          "confidence": "medium",
+          "reasoning": "The combination of temperate broadleaf forests on steep mountain slopes and the specific density of the undergrowth is highly characteristic of the Caucasus region. It shares this botanical profile with neighboring Armenia and Azerbaijan."
+        },
+        {
+          "country": "Armenia",
+          "confidence": "medium",
+          "reasoning": "The montane vegetation and mixed deciduous forest types are consistent with the Armenian highlands, though slightly more arid regions are common there."
+        },
+        {
+          "country": "Azerbaijan",
+          "confidence": "medium",
+          "reasoning": "The lush, green mountain slopes with temperate deciduous trees are typical of the Greater Caucasus range extending into Azerbaijan."
+        },
+        {
+          "country": "Italy",
+          "confidence": "low",
+          "reasoning": "The Apennines feature similar temperate broadleaf forests and mountain road vegetation, though the specific leaf density and slope profile are more indicative of the Caucasus."
+        },
+        {
+          "country": "United States",
+          "confidence": "speculative",
+          "reasoning": "The Appalachian Mountains in the Eastern US host a similar temperate broadleaf biome with similar green density and slope vegetation, serving as a cross-continent analog."
+        }
+      ],
+      "evidence": [
+        "Temperate broadleaf forest",
+        "Montane deciduous vegetation",
+        "Caucasus-type mountain scrub"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Georgia",
+          "confidence": "low",
+          "reasoning": "The combination of mountainous terrain, asphalt quality with longitudinal cracking, and the specific style of the narrow rural road is common in the Caucasus region."
+        },
+        {
+          "country": "Spain",
+          "confidence": "low",
+          "reasoning": "The road width, shoulder treatment, and vegetation are consistent with rural mountain passes in Northern Spain."
+        },
+        {
+          "country": "United States",
+          "confidence": "speculative",
+          "reasoning": "Following the global analog rule, rural asphalt roads with similar weathering and mountain surroundings can be found in the Appalachian or Rocky Mountain regions."
+        },
+        {
+          "country": "Argentina",
+          "confidence": "speculative",
+          "reasoning": "Following the global analog rule, rural mountain infrastructure in the Andes often mirrors this basic asphalt and shoulder style."
+        }
+      ],
+      "evidence": [
+        "No road signs visible",
+        "No license plates visible",
+        "No bollards visible",
+        "Narrow rural asphalt road with significant surface cracking",
+        "No defined shoulder/curb treatment"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "Spain",
+          "confidence": "medium",
+          "reasoning": "The image quality and slight blur patterns are consistent with Gen 3 Google camera coverage common in rural Spain. The road surface texture and cracking patterns are frequently seen in the mountainous regions of the Iberian Peninsula."
+        },
+        {
+          "country": "Italy",
+          "confidence": "medium",
+          "reasoning": "The camera generation and image clarity match Italian rural coverage. The specific style of asphalt wear and the way the road edge meets the shoulder are common in the Apennines or Alps."
+        },
+        {
+          "country": "Mexico",
+          "confidence": "low",
+          "reasoning": "As a cross-continent analog, Mexico has similar rural road textures and Gen 3 camera coverage in mountainous regions, though the lack of specific roadside furniture makes this speculative."
+        }
+      ],
+      "evidence": [
+        "Google Street View Gen 3 camera quality",
+        "Asphalt cracking and wear patterns",
+        "Lack of distinctive roadside bollards or poles"
+      ]
+    }
+  },
+  "progressive_narrowing": {
+    "region_consensus": false,
+    "confirmed_region": "Europe",
+    "runner_up_region": "East Asia",
+    "surviving_regions": [
+      "Europe",
+      "East Asia"
+    ],
+    "proposed_regions": [
+      "Europe",
+      "East Asia",
+      "North America",
+      "South America"
+    ],
+    "region_candidates": {
+      "Europe": {
+        "Georgia": 3,
+        "Turkey": 1,
+        "Romania": 1,
+        "Italy": 2,
+        "Spain": 2
+      },
+      "East Asia": {
+        "Japan": 1
+      },
+      "North America": {
+        "United States": 2,
+        "Mexico": 1
+      },
+      "South America": {
+        "Argentina": 1
+      },
+      "Central Asia": {
+        "Armenia": 1,
+        "Azerbaijan": 1
+      }
+    },
+    "region_decision_reasoning": "Europe received the highest total score with support from both the botanics and meta agents, specifically citing road markings and vegetation. East Asia follows as the runner-up due to botanical compatibility, though it received a neutral rating from the meta agent.",
+    "path": "B"
+  },
+  "road_evidence": {
+    "outside_color": "white",
+    "inside_color": "white",
+    "driving_side": "UNCLEAR",
+    "driving_side_basis": "none"
+  },
+  "country_assessments": {
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Georgia",
+          "confidence": "medium",
+          "reasoning": "The combination of steep, lush green mountains, deciduous forest cover, and the specific style of weathered asphalt with white dashed center lines is very common in the Caucasus region. The terrain matches the foothills of the Greater Caucasus."
+        },
+        {
+          "country": "Turkey",
+          "confidence": "medium",
+          "reasoning": "The Black Sea region of Turkey features nearly identical temperate rainforests and steep mountainous terrain. The road quality and vegetation density are consistent with the Pontic Mountains."
+        },
+        {
+          "country": "Japan",
+          "confidence": "low",
+          "reasoning": "The steep, densely forested mountains and road markings are consistent with rural Japanese highlands. However, the specific vegetation texture and road wear are slightly more characteristic of the Eurasian interior."
+        },
+        {
+          "country": "Bulgaria",
+          "confidence": "low",
+          "reasoning": "The Balkan Mountains offer similar temperate deciduous forests and winding mountain roads. The landscape is geographically similar to the Caucasus and Pontic regions."
+        }
+      ],
+      "evidence": [
+        "Steep mountainous terrain with dense deciduous forest cover",
+        "Temperate climate indicated by lush green foliage and atmospheric haze",
+        "Weathered asphalt road with longitudinal cracking and white dashed center lines",
+        "Northern hemisphere sun position based on shadow casting and light angle"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Georgia",
+          "confidence": "medium",
+          "reasoning": "The combination of temperate broadleaf forests on steep mountain slopes and the specific density of the undergrowth is highly characteristic of the Caucasus region. The vegetation is consistent with the Colchic or mixed mountain forests found in the Georgian highlands."
+        },
+        {
+          "country": "Turkey",
+          "confidence": "medium",
+          "reasoning": "The Pontic Mountains in northern Turkey exhibit very similar temperate deciduous forest cover and mountainous topography. The species composition of the roadside scrub and canopy is nearly identical to that of the Caucasus."
+        },
+        {
+          "country": "Japan",
+          "confidence": "low",
+          "reasoning": "The lush, dense temperate broadleaf forests on steep slopes are common in the Japanese highlands. However, the specific leaf structure of the roadside shrubs is more indicative of Eurasian continental mountain ranges."
+        },
+        {
+          "country": "South Korea",
+          "confidence": "low",
+          "reasoning": "Similar to Japan, the mountainous terrain and deciduous forest cover match the general biome of the Korean peninsula, though the specific species density is less diagnostic than in the Caucasus."
+        }
+      ],
+      "evidence": [
+        "Temperate broadleaf deciduous forest",
+        "Montane scrubland",
+        "Caucasus/Pontic mountain vegetation"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Georgia",
+          "confidence": "medium",
+          "reasoning": "The road surface quality with characteristic longitudinal cracking and the specific mountain topography are common in the Caucasus region. The lack of advanced safety barriers on a steep mountain pass is typical for rural Georgian secondary roads."
+        },
+        {
+          "country": "Turkey",
+          "confidence": "medium",
+          "reasoning": "The asphalt texture and the style of the rural road shoulder are consistent with the Pontic mountains or eastern Anatolian highlands. The vegetation and road width are typical for regional Turkish mountain routes."
+        },
+        {
+          "country": "Japan",
+          "confidence": "low",
+          "reasoning": "The narrow, well-maintained but aging asphalt in a mountainous, forested environment is common in rural Japan. However, the lack of specific Japanese guardrails or reflective markers makes this less certain."
+        },
+        {
+          "country": "Bulgaria",
+          "confidence": "low",
+          "reasoning": "The combination of dense deciduous forest, mountain terrain, and basic asphalt infrastructure is consistent with the Balkan mountains."
+        }
+      ],
+      "evidence": [
+        "cracked asphalt surface",
+        "narrow road width class",
+        "absence of guardrails on mountain slope",
+        "unimproved gravel/dirt shoulders"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "Georgia",
+          "confidence": "medium",
+          "reasoning": "The image quality and slight blur patterns are consistent with Google's coverage in the Caucasus region. The road surface degradation and lack of shoulder infrastructure are common in rural Georgian mountain passes."
+        },
+        {
+          "country": "Turkey",
+          "confidence": "low",
+          "reasoning": "The camera generation and image clarity match Turkey's rural coverage. The asphalt quality and general road wear are similar to those found in the Black Sea mountain regions."
+        },
+        {
+          "country": "Japan",
+          "confidence": "speculative",
+          "reasoning": "While the road quality is generally higher in Japan, some remote mountain prefectures exhibit similar narrow, winding roads with this specific camera generation's color profile."
+        }
+      ],
+      "evidence": [
+        "Google Street View camera generation (Gen 3/4 transition quality)",
+        "Asphalt wear and cracking patterns",
+        "Lack of roadside delineators/bollards in a mountainous rural setting"
+      ]
+    }
+  },
+  "hypothesis_evaluations": [
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_europe",
+      "confidence": "support",
+      "reasoning": "The temperate broadleaf forest composition, featuring a mix of deciduous trees and scrubby undergrowth, is highly characteristic of European mountain ranges such as the Pyrenees, Alps, or Balkans.",
+      "key_evidence": [
+        "temperate broadleaf forest",
+        "deciduous scrub"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_east_asia",
+      "confidence": "support",
+      "reasoning": "The vegetation is compatible with temperate mountainous regions of Japan, Korea, or Northern China, which share similar broadleaf deciduous biomes with Europe.",
+      "key_evidence": [
+        "temperate broadleaf forest"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_north_america",
+      "confidence": "support",
+      "reasoning": "This vegetation pattern is consistent with the Appalachian or Rocky Mountain foothills, though the specific density and leaf structure are very similar to Eurasian temperate forests.",
+      "key_evidence": [
+        "temperate broadleaf forest"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_south_america",
+      "confidence": "contradicts",
+      "reasoning": "The dominant vegetation consists of temperate deciduous broadleaf trees, which are not characteristic of the primary mountainous regions of South America (which are typically tropical, cloud forest, or high-altitude Andean scrub/puna).",
+      "key_evidence": [
+        "absence of tropical/subtropical indicators",
+        "temperate deciduous dominance"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_europe",
+      "confidence": "support",
+      "reasoning": "The image quality and camera generation are consistent with Google's European coverage from the mid-2010s. The road surface quality and the specific style of the white edge line are very common in Southern and Eastern European mountainous regions.",
+      "key_evidence": [
+        "camera generation",
+        "road surface quality",
+        "edge line style"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_east_asia",
+      "confidence": "neutral",
+      "reasoning": "While some mountainous roads in Japan or Korea share similar asphalt quality, the specific camera blur and lighting artifacts are more characteristic of European or American coverage.",
+      "key_evidence": [
+        "camera artifacts"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_north_america",
+      "confidence": "low",
+      "reasoning": "The road width and the lack of a shoulder are less common for primary paved roads in North America, though possible in remote areas. The camera generation is compatible but less distinctive than the European match.",
+      "key_evidence": [
+        "road width",
+        "camera generation"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_south_america",
+      "confidence": "low",
+      "reasoning": "The image quality is compatible with some South American coverage, but the specific combination of road markings and the 'clean' look of the asphalt is more typical of European standards.",
+      "key_evidence": [
+        "road markings",
+        "asphalt quality"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_bulgaria",
+      "confidence": "strongly_support",
+      "reasoning": "The combination of temperate deciduous forest, rolling Balkan-style mountains, and the specific asphalt degradation (cracked surface with white dashed center lines) is highly characteristic of the Rhodope or Balkan mountains. The vegetation density and mountain profile are very consistent with Southern Europe.",
+      "key_evidence": [
+        "temperate deciduous forest",
+        "Balkan mountain morphology",
+        "European road marking style"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_georgia",
+      "confidence": "support",
+      "reasoning": "The Caucasus mountains offer similar high-altitude temperate forests and steep valley terrain. While compatible, the specific road quality and vegetation hue are slightly more typical of the Balkans, but Georgia remains a strong geographic match.",
+      "key_evidence": [
+        "mountainous terrain",
+        "temperate climate",
+        "steep valley slopes"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_japan",
+      "confidence": "contradicts",
+      "reasoning": "While Japan is mountainous and forested, the specific species of broadleaf trees and the lack of typical Japanese roadside infrastructure (like specific guardrails or drainage patterns) make this less likely. The mountain silhouettes are softer than typical Japanese volcanic peaks.",
+      "key_evidence": [
+        "vegetation type",
+        "mountain silhouette",
+        "roadside infrastructure"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_south_korea",
+      "confidence": "contradicts",
+      "reasoning": "Similar to Japan, while the terrain is mountainous, the specific combination of road wear and the particular shade of green in the deciduous canopy is more characteristic of the European temperate zone than East Asia.",
+      "key_evidence": [
+        "vegetation hue",
+        "road surface condition"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_bulgaria",
+      "confidence": "support",
+      "reasoning": "The temperate broadleaf and mixed forest composition, featuring dense deciduous canopies and scrubby roadside vegetation, is highly characteristic of the Balkan mountains. The specific shade of green and leaf density are consistent with European beech and oak forests.",
+      "key_evidence": [
+        "temperate broadleaf forest",
+        "deciduous scrub"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_georgia",
+      "confidence": "support",
+      "reasoning": "The vegetation is compatible with the Caucasus mountain range, where similar mixed deciduous forests and mountain scrub are prevalent. It is botanically indistinguishable from the Bulgarian hypothesis based on the visible species.",
+      "key_evidence": [
+        "mountainous mixed forest",
+        "temperate deciduous vegetation"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_japan",
+      "confidence": "neutral",
+      "reasoning": "While Japan has temperate forests, the specific structure of the roadside scrub and the lack of characteristic East Asian evergreen broadleaf species or specific bamboo undergrowth make it less diagnostic than the European/Caucasian options.",
+      "key_evidence": [
+        "generic temperate forest"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_south_korea",
+      "confidence": "neutral",
+      "reasoning": "Similar to Japan, the vegetation is broadly compatible with a temperate climate, but lacks the specific botanical markers (such as certain Acer species or understory patterns) typically seen in Korean mountain roads.",
+      "key_evidence": [
+        "generic temperate forest"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_bulgaria",
+      "confidence": "support",
+      "reasoning": "The image quality and the specific 'halo' effect around the sun are consistent with Gen 3 camera coverage common in Eastern Europe. The road surface degradation (cracking patterns) is typical for rural Bulgarian mountain roads.",
+      "key_evidence": [
+        "Gen 3 camera quality",
+        "road surface wear"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_georgia",
+      "confidence": "support",
+      "reasoning": "The camera generation and image quality are compatible with Georgia's coverage. The lack of specific roadside furniture makes it hard to distinguish from Bulgaria, but the general meta is consistent with the region.",
+      "key_evidence": [
+        "Gen 3 camera quality"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_japan",
+      "confidence": "contradicts",
+      "reasoning": "The image lacks the characteristic high-quality Gen 4 coverage or the specific camera artifacts (like the distinct roof rack or car color) typically seen in Japanese rural mountain roads. The road wear is also inconsistent with Japanese maintenance standards.",
+      "key_evidence": [
+        "camera generation",
+        "road maintenance quality"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_south_korea",
+      "confidence": "contradicts",
+      "reasoning": "South Korea typically has very distinct, high-quality road markings and specific camera artifacts not present here. The general image quality and road texture do not match South Korean Street View meta.",
+      "key_evidence": [
+        "camera generation",
+        "road surface quality"
+      ]
+    }
+  ],
+  "candidate_pool": [
+    "Japan",
+    "Bulgaria",
+    "South Korea",
+    "Georgia"
+  ],
+  "rag_findings": [
+    {
+      "kind": "tournament_match",
+      "country": "South Korea",
+      "detail": "The landscape, featuring rolling mountains and temperate deciduous forests, is highly characteristic of the Balkan mountains in Bulgaria. Furthermore, the specific asphalt degradation and road surface cracking are consistent with rural Bulgarian infrastructure, whereas the image quality and road texture contradict the high-standard infrastructure typically seen in South Korea.",
+      "opponent": "Bulgaria",
+      "winner": "Bulgaria"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Japan",
+      "detail": "The landscape and vegetation are highly consistent with the Caucasus mountains of Georgia, whereas the mountain silhouettes and lack of typical Japanese roadside infrastructure contradict a Japan location. Additionally, the road wear and image quality are more consistent with Georgia's coverage than Japan's high maintenance standards and specific camera artifacts.",
+      "opponent": "Georgia",
+      "winner": "Georgia"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Georgia",
+      "detail": "The landscape, specifically the rolling mountain profiles and the temperate deciduous forest, strongly aligns with the Balkan mountains. The specific pattern of asphalt degradation and the white dashed center lines are highly characteristic of rural Bulgarian mountain roads as noted by the landscape and meta specialists.",
+      "opponent": "Bulgaria",
+      "winner": "Bulgaria"
+    }
+  ],
+  "rag_refs_seen": [],
+  "road_filter_warnings": [],
+  "tournament_log": [
+    {
+      "round_label": "semi-1",
+      "country_a": "Bulgaria",
+      "country_b": "South Korea",
+      "pool_rank_a": 0,
+      "pool_rank_b": 3,
+      "winner": "Bulgaria",
+      "reasoning": "The landscape, featuring rolling mountains and temperate deciduous forests, is highly characteristic of the Balkan mountains in Bulgaria. Furthermore, the specific asphalt degradation and road surface cracking are consistent with rural Bulgarian infrastructure, whereas the image quality and road texture contradict the high-standard infrastructure typically seen in South Korea.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "semi-2",
+      "country_a": "Georgia",
+      "country_b": "Japan",
+      "pool_rank_a": 1,
+      "pool_rank_b": 2,
+      "winner": "Georgia",
+      "reasoning": "The landscape and vegetation are highly consistent with the Caucasus mountains of Georgia, whereas the mountain silhouettes and lack of typical Japanese roadside infrastructure contradict a Japan location. Additionally, the road wear and image quality are more consistent with Georgia's coverage than Japan's high maintenance standards and specific camera artifacts.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "final",
+      "country_a": "Bulgaria",
+      "country_b": "Georgia",
+      "pool_rank_a": 0,
+      "pool_rank_b": 1,
+      "winner": "Bulgaria",
+      "reasoning": "The landscape, specifically the rolling mountain profiles and the temperate deciduous forest, strongly aligns with the Balkan mountains. The specific pattern of asphalt degradation and the white dashed center lines are highly characteristic of rural Bulgarian mountain roads as noted by the landscape and meta specialists.",
+      "agreement": "agree"
+    }
+  ],
+  "country_result": "Country: Bulgaria\nCoordinates: 42.15, 24.65\nReasoning: The landscape, specifically the rolling mountain profiles and the temperate deciduous forest, strongly aligns with the Balkan mountains. The specific pattern of asphalt degradation and the white dashed center lines are highly characteristic of rural Bulgarian mountain roads as noted by the landscape and meta specialists.\n\nTournament:\n  semi-1: Bulgaria vs South Korea → Bulgaria\n  semi-2: Georgia vs Japan → Georgia\n  final: Bulgaria vs Georgia → Bulgaria",
+  "coordinates": {
+    "lat": 42.15,
+    "lng": 24.65
+  },
+  "final_reasoning": "The landscape, specifically the rolling mountain profiles and the temperate deciduous forest, strongly aligns with the Balkan mountains. The specific pattern of asphalt degradation and the white dashed center lines are highly characteristic of rural Bulgarian mountain roads as noted by the landscape and meta specialists."
+}

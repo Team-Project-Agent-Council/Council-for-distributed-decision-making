@@ -1,0 +1,648 @@
+{
+  "image_path": "/pfs/data6/home/ma/ma_ma/ma_lweisssc/llm_council_agent_orchestration_tests/clean_images_GeoRC_500/HVBiwFr2gEcM1dze_3.png",
+  "model": "google/gemma-4-31B-it",
+  "judge_model": "google/gemma-4-31B-it",
+  "timing": {
+    "total_seconds": 246.3
+  },
+  "assessments": {
+    "linguistic": {
+      "agent_name": "linguistic",
+      "candidates": [],
+      "evidence": []
+    },
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Finland",
+          "confidence": "high",
+          "reasoning": "The landscape features a classic boreal forest (taiga) dominated by Scots pine and spruce, with flat to gently undulating terrain and heavy snow cover typical of the Nordic region. The road maintenance style and forest density are highly characteristic of Finnish rural landscapes."
+        },
+        {
+          "country": "Sweden",
+          "confidence": "high",
+          "reasoning": "The geography is virtually identical to Finland, featuring the same boreal forest composition and snow-covered plains. Without specific road markings or signage, it is geographically indistinguishable from eastern Sweden."
+        },
+        {
+          "country": "Russia",
+          "confidence": "medium",
+          "reasoning": "The vast taiga regions of Northwest Russia share this exact environmental profile, including the same tree species and winter climate. The road quality is slightly higher than typical remote Siberian roads, suggesting a more developed region like Karelia."
+        },
+        {
+          "country": "Canada",
+          "confidence": "low",
+          "reasoning": "The boreal forests of Canada (e.g., Ontario or Quebec) provide a strong global analog with similar coniferous tree types and heavy winter snow. However, the specific spacing and growth pattern of these pines are more typical of Northern Europe."
+        },
+        {
+          "country": "United States",
+          "confidence": "low",
+          "reasoning": "Alaska presents a similar high-latitude boreal environment with heavy snow and coniferous forests, serving as a North American analog to the Nordic taiga."
+        }
+      ],
+      "evidence": [
+        "Boreal forest (taiga) with Scots pine and spruce",
+        "Heavy snow cover with packed snow/ice road surface",
+        "Flat to gently undulating terrain",
+        "Low sun angle suggesting high northern latitude",
+        "Northern hemisphere shadows"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Finland",
+          "confidence": "high",
+          "reasoning": "The landscape is dominated by Pinus sylvestris (Scots Pine) in a typical boreal taiga formation with sparse undergrowth and sandy soil indicators. This specific density and growth habit are highly characteristic of the Finnish interior."
+        },
+        {
+          "country": "Sweden",
+          "confidence": "high",
+          "reasoning": "The vegetation is virtually identical to that of Finland, as both share the same boreal forest biome. Without endemic species visible, Sweden is equally likely based on the prevalence of Scots Pine and spruce."
+        },
+        {
+          "country": "Russia",
+          "confidence": "high",
+          "reasoning": "The taiga belt extending across Northwest Russia features the same dominant Pinus sylvestris and Picea species. The botanical composition is indistinguishable from the Fennoscandian region."
+        },
+        {
+          "country": "Canada",
+          "confidence": "low",
+          "reasoning": "The boreal forest of Canada contains similar coniferous compositions (Pinus banksiana/sylvestris analogs). This is a cross-continent biome analog with similar cold-climate needle-leaf evergreen dominance."
+        }
+      ],
+      "evidence": [
+        "Pinus sylvestris (Scots Pine)",
+        "Boreal Taiga biome",
+        "Coniferous forest"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Finland",
+          "confidence": "medium",
+          "reasoning": "The combination of dense pine forests, snow-covered rural road shoulders, and the specific quality of the asphalt under the snow is highly characteristic of Finnish rural infrastructure."
+        },
+        {
+          "country": "Sweden",
+          "confidence": "medium",
+          "reasoning": "The boreal forest landscape and rural road construction are virtually indistinguishable from Finland in this environment."
+        },
+        {
+          "country": "Russia",
+          "confidence": "medium",
+          "reasoning": "The vast pine forests and snow-packed rural road style are common across Northern Russia."
+        },
+        {
+          "country": "Canada",
+          "confidence": "low",
+          "reasoning": "Cross-continent analog: Rural roads in snowy boreal regions of Canada share nearly identical visual characteristics (wooden poles, basic asphalt, pine forests) with Northern Europe."
+        }
+      ],
+      "evidence": [
+        "No road signs visible",
+        "No license plates visible",
+        "No bollards visible",
+        "Rural asphalt road with snow-covered shoulders",
+        "Boreal pine forest environment"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "Finland",
+          "confidence": "medium",
+          "reasoning": "The image quality and slight blur patterns are consistent with Gen 3 Google camera coverage common in Nordic regions. The lack of road markings on a snowy rural road is typical for Finnish forest roads."
+        },
+        {
+          "country": "Sweden",
+          "confidence": "medium",
+          "reasoning": "Sweden shares nearly identical Google camera generation and image quality in rural snowy areas. Without specific bollards or poles, it is indistinguishable from Finland based on meta alone."
+        },
+        {
+          "country": "Russia",
+          "confidence": "low",
+          "reasoning": "Russia has extensive coverage in similar snowy forest environments with similar camera quality, though the specific 'cleanliness' of the road edge often differs from Nordic standards."
+        },
+        {
+          "country": "Canada",
+          "confidence": "speculative",
+          "reasoning": "Global analog: Canada has similar snowy rural road coverage and Gen 3 camera artifacts, though the specific tree spacing and road shoulder style are more characteristic of Northern Europe."
+        }
+      ],
+      "evidence": [
+        "Google Street View Gen 3 camera quality",
+        "Image blur patterns",
+        "Lack of road furniture/bollards in rural snowy setting"
+      ]
+    }
+  },
+  "progressive_narrowing": {
+    "region_consensus": false,
+    "confirmed_region": "Europe",
+    "runner_up_region": "North America",
+    "surviving_regions": [
+      "Europe",
+      "North America"
+    ],
+    "proposed_regions": [
+      "Europe",
+      "North America"
+    ],
+    "region_candidates": {
+      "Europe": {
+        "Finland": 4,
+        "Sweden": 4,
+        "Russia": 4
+      },
+      "North America": {
+        "Canada": 4,
+        "United States": 1
+      }
+    },
+    "region_decision_reasoning": "Europe received the highest weighted score due to consistent support from landscape, botanics, regulatory, and meta agents, with the meta agent specifically noting camera artifacts common in Northern Europe. North America is a strong runner-up as the boreal forest environment is geographically and botanically similar, though it lacked the specific meta-evidence supporting Europe.",
+    "path": "B"
+  },
+  "road_evidence": {
+    "outside_color": "none",
+    "inside_color": "none",
+    "driving_side": "UNCLEAR",
+    "driving_side_basis": "none"
+  },
+  "country_assessments": {
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Finland",
+          "confidence": "high",
+          "reasoning": "The landscape features a classic boreal forest (taiga) dominated by Scots pine with a flat to gently undulating terrain. The road maintenance style and the specific density of the pine stands are highly characteristic of the Finnish interior."
+        },
+        {
+          "country": "Sweden",
+          "confidence": "high",
+          "reasoning": "The geography is nearly identical to Finland, featuring the same boreal pine forests and snow-covered plains. It is indistinguishable from Finland based solely on landscape and vegetation."
+        },
+        {
+          "country": "Russia",
+          "confidence": "medium",
+          "reasoning": "The vast taiga regions of European Russia share this exact environmental profile of coniferous forests and heavy winter snow. However, the road surface quality appears slightly more maintained than typical remote Russian rural roads."
+        },
+        {
+          "country": "Canada",
+          "confidence": "low",
+          "reasoning": "The boreal forests of Canada provide a strong global analog with similar pine/spruce compositions and heavy snowfall. The terrain is consistent with the Canadian Shield regions."
+        },
+        {
+          "country": "United States",
+          "confidence": "low",
+          "reasoning": "Similar landscapes exist in Alaska or the northernmost parts of the Lower 48 (e.g., Minnesota, Maine). The vegetation and climate match the northern boreal zone."
+        }
+      ],
+      "evidence": [
+        "Boreal forest (taiga) dominated by coniferous pine trees",
+        "Heavy snow cover with packed snow/ice road surface",
+        "Flat to gently undulating terrain",
+        "Low sun angle suggesting high northern latitude"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Finland",
+          "confidence": "high",
+          "reasoning": "The dominance of Pinus sylvestris (Scots Pine) with characteristic tall, slender trunks and high canopies is typical of the boreal forests of Finland. The open, sandy soil structure visible beneath the snow is highly characteristic of Finnish pine barrens."
+        },
+        {
+          "country": "Sweden",
+          "confidence": "high",
+          "reasoning": "The vegetation is virtually identical to that of Finland, as both share the same taiga biome and prevalence of Pinus sylvestris. Without endemic species visible, Sweden is equally likely based on botanical evidence."
+        },
+        {
+          "country": "Norway",
+          "confidence": "medium",
+          "reasoning": "Similar boreal pine forests exist in Norway, though the flat terrain shown here is more characteristic of the interior plains of Sweden or Finland than the mountainous regions of Norway."
+        },
+        {
+          "country": "Russia",
+          "confidence": "medium",
+          "reasoning": "The European part of Russia shares this exact boreal forest composition. The species distribution of Scots Pine is continuous across the Fennoscandian and Russian taiga."
+        },
+        {
+          "country": "Canada",
+          "confidence": "low",
+          "reasoning": "North American boreal forests contain similar conifers (e.g., Pinus banksiana), which can look similar to Scots Pine in winter. However, the specific growth habit and spacing are more typical of Northern Europe."
+        },
+        {
+          "country": "United States",
+          "confidence": "low",
+          "reasoning": "Similar pine-dominated snowy landscapes occur in Alaska or the Upper Midwest, but the specific morphology of these pines strongly suggests a European provenance."
+        }
+      ],
+      "evidence": [
+        "Pinus sylvestris (Scots Pine)",
+        "Boreal forest (Taiga) biome",
+        "Northern European/North American distribution"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Finland",
+          "confidence": "medium",
+          "reasoning": "The combination of dense pine forests, snow-covered rural road shoulders, and the specific quality of the asphalt under the snow is highly characteristic of Finnish rural infrastructure."
+        },
+        {
+          "country": "Sweden",
+          "confidence": "medium",
+          "reasoning": "The landscape and road width are nearly identical to Finland, with similar boreal forest vegetation and winter road maintenance patterns common in Northern Sweden."
+        },
+        {
+          "country": "Norway",
+          "confidence": "low",
+          "reasoning": "Similar boreal environment and winter road conditions, though the terrain here is flatter than typical Norwegian mountain passes."
+        },
+        {
+          "country": "Russia",
+          "confidence": "low",
+          "reasoning": "The rural road style and forest type are consistent with European Russia, though the road surface appears slightly better maintained than typical remote Russian rural roads."
+        },
+        {
+          "country": "Canada",
+          "confidence": "speculative",
+          "reasoning": "The boreal forest and heavy snow cover are visually analogous to rural roads in provinces like Quebec or Ontario, fitting the cross-continent analog rule for rural infrastructure."
+        }
+      ],
+      "evidence": [
+        "none visible",
+        "none visible",
+        "none visible",
+        "rural asphalt road with snow-covered shoulders",
+        "boreal pine forest environment"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "Finland",
+          "confidence": "medium",
+          "reasoning": "The image quality and slight blur patterns are consistent with Gen 3 Google camera coverage common in Nordic regions. The lack of road markings on a snowy rural road is typical for Finnish forest roads."
+        },
+        {
+          "country": "Sweden",
+          "confidence": "medium",
+          "reasoning": "Sweden shares nearly identical camera generation and image quality in rural snowy areas. The road surface and lack of infrastructure are indistinguishable from Finland in this specific view."
+        },
+        {
+          "country": "Canada",
+          "confidence": "low",
+          "reasoning": "Canada has vast areas of similar snowy forest roads with Gen 3 coverage. However, the specific hue of the sky and the way the snow is packed on the road edges are slightly more characteristic of Northern Europe."
+        },
+        {
+          "country": "Russia",
+          "confidence": "low",
+          "reasoning": "The European part of Russia uses similar camera generations and has identical rural snowy landscapes. Without bollards or poles, it remains a strong analog to the Nordic countries."
+        }
+      ],
+      "evidence": [
+        "Google Street View Gen 3 camera quality",
+        "Lack of road infrastructure/bollards",
+        "Specific image blur and color grading typical of 2017-era coverage"
+      ]
+    }
+  },
+  "hypothesis_evaluations": [
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "region_europe",
+      "confidence": "neutral",
+      "reasoning": "There is no visible text in the image to provide linguistic evidence for or against this region.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "region_north_america",
+      "confidence": "neutral",
+      "reasoning": "There is no visible text in the image to provide linguistic evidence for or against this region.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_europe",
+      "confidence": "support",
+      "reasoning": "The landscape is highly characteristic of the boreal forests (taiga) found in Northern Europe, specifically Scandinavia and Russia. The combination of Scots pine, flat to gently undulating terrain, and heavy snow cover is a standard geographic profile for this region.",
+      "key_evidence": [
+        "boreal forest",
+        "Scots pine",
+        "heavy snow cover",
+        "flat terrain"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_north_america",
+      "confidence": "support",
+      "reasoning": "The terrain and climate are almost identical to the boreal forests of Canada and Alaska. The presence of coniferous forests in a snowy, high-latitude environment makes North America a geographically compatible candidate.",
+      "key_evidence": [
+        "taiga biome",
+        "coniferous trees",
+        "winter climate",
+        "remote road pattern"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_europe",
+      "confidence": "support",
+      "reasoning": "The vegetation consists of a boreal forest dominated by Pinus sylvestris (Scots Pine), which is characteristic of Northern Europe, particularly Scandinavia and Russia. The growth habit and spacing are highly consistent with Fennoscandian taiga.",
+      "key_evidence": [
+        "Pinus sylvestris",
+        "Boreal forest/Taiga"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_north_america",
+      "confidence": "support",
+      "reasoning": "The scene is botanically compatible with the North American boreal forest (Canada/Alaska), which features similar coniferous compositions including Pinus banksiana or Pinus ponderosa in certain latitudes. However, the specific morphology of the pines here is slightly more indicative of the Eurasian Scots Pine.",
+      "key_evidence": [
+        "Coniferous forest",
+        "Boreal biome"
+      ]
+    },
+    {
+      "agent_name": "regulatory",
+      "hypothesis_id": "region_europe",
+      "confidence": "support",
+      "reasoning": "The rural road infrastructure, characterized by a narrow asphalt road with no shoulders and the specific boreal forest environment, is highly compatible with Northern European countries (e.g., Finland, Sweden, Norway, Russia).",
+      "key_evidence": [
+        "road width class",
+        "shoulder treatment"
+      ]
+    },
+    {
+      "agent_name": "regulatory",
+      "hypothesis_id": "region_north_america",
+      "confidence": "support",
+      "reasoning": "The basic rural asphalt road and surrounding pine forest are visually similar to remote areas in Canada or the Northern USA (Alaska), fitting the global analog rule for rural infrastructure.",
+      "key_evidence": [
+        "road width class",
+        "shoulder treatment"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_europe",
+      "confidence": "support",
+      "reasoning": "The image quality and the specific 'halo' blur/stitching pattern are consistent with Google's Gen 3 camera coverage often seen in Northern Europe (specifically Scandinavia/Finland). While the environment is generic, the camera artifacts align with European coverage patterns from the 2017 era.",
+      "key_evidence": [
+        "Google Street View camera generation 3 artifacts",
+        "Image quality and stitching patterns consistent with 2017 European coverage"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_north_america",
+      "confidence": "low",
+      "reasoning": "While snowy roads exist in North America, the specific camera rig artifacts and the lack of typical North American road shoulder markers or utility pole styles (which are usually more prominent even in rural areas) make this less likely than Europe.",
+      "key_evidence": [
+        "Lack of North American style utility infrastructure",
+        "Camera artifacts more typical of European Gen 3 coverage"
+      ]
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "country_finland",
+      "confidence": "neutral",
+      "reasoning": "No text is visible in the image to support or contradict this hypothesis.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "country_sweden",
+      "confidence": "neutral",
+      "reasoning": "No text is visible in the image to support or contradict this hypothesis.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "country_russia",
+      "confidence": "neutral",
+      "reasoning": "No text is visible in the image to support or contradict this hypothesis.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "country_canada",
+      "confidence": "neutral",
+      "reasoning": "No text is visible in the image to support or contradict this hypothesis.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "country_united_states",
+      "confidence": "neutral",
+      "reasoning": "No text is visible in the image to support or contradict this hypothesis.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "country_norway",
+      "confidence": "neutral",
+      "reasoning": "No text is visible in the image to support or contradict this hypothesis.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_finland",
+      "confidence": "support",
+      "reasoning": "The dominance of Pinus sylvestris (Scots Pine) in a sparse, sandy-soil boreal forest is highly characteristic of the Finnish taiga. The growth habit and spacing are typical for the region.",
+      "key_evidence": [
+        "Pinus sylvestris",
+        "Boreal forest structure"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_sweden",
+      "confidence": "support",
+      "reasoning": "The vegetation is virtually identical to that of Finland, as both share the same boreal biome and dominant Scots Pine species across their northern and central latitudes.",
+      "key_evidence": [
+        "Pinus sylvestris",
+        "Boreal forest structure"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_russia",
+      "confidence": "support",
+      "reasoning": "The European part of Russia (Karelia/Murmansk) features this exact combination of Scots Pine and snowy boreal landscapes, making it botanically indistinguishable from Finland or Sweden.",
+      "key_evidence": [
+        "Pinus sylvestris",
+        "Boreal forest structure"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_norway",
+      "confidence": "support",
+      "reasoning": "While Norway has more mountainous terrain, its eastern lowlands contain these same Scots Pine forests, though they are slightly less dominant than in Finland or Sweden.",
+      "key_evidence": [
+        "Pinus sylvestris",
+        "Boreal forest structure"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_canada",
+      "confidence": "low",
+      "reasoning": "While Canada has vast boreal forests, the specific morphology of these pines is more consistent with the Eurasian Pinus sylvestris than the North American Pinus banksiana or Pinus resinosa, though a global analog is possible.",
+      "key_evidence": [
+        "Boreal biome analog"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_united_states",
+      "confidence": "low",
+      "reasoning": "Similar to Canada, Alaska possesses boreal forests, but the specific tree architecture and density seen here are more typical of the Fennoscandian/Russian taiga.",
+      "key_evidence": [
+        "Boreal biome analog"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_finland",
+      "confidence": "support",
+      "reasoning": "The image quality and blur patterns are consistent with Gen 3 Google camera coverage common in Nordic regions. The lack of visible road markings on a snowy rural road is typical for Finnish forest roads.",
+      "key_evidence": [
+        "camera generation",
+        "image quality"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_sweden",
+      "confidence": "support",
+      "reasoning": "Similar to Finland, the camera generation and general image quality are compatible with Swedish rural coverage. There are no unique bollards or poles visible to distinguish it from Finland.",
+      "key_evidence": [
+        "camera generation",
+        "image quality"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_norway",
+      "confidence": "support",
+      "reasoning": "The camera quality is compatible with Norwegian coverage, though the flat terrain is less typical for many Norwegian rural roads compared to Finland or Sweden.",
+      "key_evidence": [
+        "camera generation"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_russia",
+      "confidence": "low",
+      "reasoning": "While the environment matches, the specific image quality and lack of typical Russian utility pole styles (which are often more varied or specific in rural areas) make it less likely than the Nordics.",
+      "key_evidence": [
+        "image quality"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_canada",
+      "confidence": "speculative",
+      "reasoning": "Global analog: Canada has similar snowy rural roads and Gen 3 coverage, but the specific 'feel' of the image quality and the lack of North American style utility poles in the distance make it a lower probability.",
+      "key_evidence": [
+        "camera generation"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_united_states",
+      "confidence": "speculative",
+      "reasoning": "Global analog: Similar snowy conditions and camera generation exist in Alaska, but the overall image composition is more characteristic of European Nordic coverage.",
+      "key_evidence": [
+        "camera generation"
+      ]
+    }
+  ],
+  "candidate_pool": [
+    "Finland",
+    "Sweden",
+    "Russia",
+    "Canada",
+    "United States",
+    "Norway"
+  ],
+  "rag_findings": [
+    {
+      "kind": "tournament_match",
+      "country": "Russia",
+      "detail": "The landscape features a sparse boreal forest of Scots Pine and sandy soil highly characteristic of the Finnish taiga. Meta-evidence suggests the image quality and camera generation are more consistent with Nordic coverage than Russian coverage.",
+      "opponent": "Finland",
+      "winner": "Finland"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Norway",
+      "detail": "The terrain is notably flat, which is more characteristic of the Swedish landscape than the typically mountainous terrain of Norway. Specialist evidence supports Sweden as a strong match for this boreal forest environment and camera quality.",
+      "opponent": "Sweden",
+      "winner": "Sweden"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Sweden",
+      "detail": "The landscape features a sparse, sandy-soil boreal forest dominated by Scots Pine, which is highly characteristic of the Finnish taiga. While similar to Sweden, the specific growth habit and the nature of the rural forest road are strongly associated with Finnish coverage patterns.",
+      "opponent": "Finland",
+      "winner": "Finland"
+    }
+  ],
+  "rag_refs_seen": [],
+  "road_filter_warnings": [],
+  "tournament_log": [
+    {
+      "round_label": "semi-1",
+      "country_a": "Finland",
+      "country_b": "Russia",
+      "pool_rank_a": 0,
+      "pool_rank_b": 3,
+      "winner": "Finland",
+      "reasoning": "The landscape features a sparse boreal forest of Scots Pine and sandy soil highly characteristic of the Finnish taiga. Meta-evidence suggests the image quality and camera generation are more consistent with Nordic coverage than Russian coverage.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "semi-2",
+      "country_a": "Sweden",
+      "country_b": "Norway",
+      "pool_rank_a": 1,
+      "pool_rank_b": 2,
+      "winner": "Sweden",
+      "reasoning": "The terrain is notably flat, which is more characteristic of the Swedish landscape than the typically mountainous terrain of Norway. Specialist evidence supports Sweden as a strong match for this boreal forest environment and camera quality.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "final",
+      "country_a": "Finland",
+      "country_b": "Sweden",
+      "pool_rank_a": 0,
+      "pool_rank_b": 1,
+      "winner": "Finland",
+      "reasoning": "The landscape features a sparse, sandy-soil boreal forest dominated by Scots Pine, which is highly characteristic of the Finnish taiga. While similar to Sweden, the specific growth habit and the nature of the rural forest road are strongly associated with Finnish coverage patterns.",
+      "agreement": "agree"
+    }
+  ],
+  "country_result": "Country: Finland\nCoordinates: 64.5, 25.0\nReasoning: The landscape features a sparse, sandy-soil boreal forest dominated by Scots Pine, which is highly characteristic of the Finnish taiga. While similar to Sweden, the specific growth habit and the nature of the rural forest road are strongly associated with Finnish coverage patterns.\n\nTournament:\n  semi-1: Finland vs Russia → Finland\n  semi-2: Sweden vs Norway → Sweden\n  final: Finland vs Sweden → Finland",
+  "coordinates": {
+    "lat": 64.5,
+    "lng": 25.0
+  },
+  "final_reasoning": "The landscape features a sparse, sandy-soil boreal forest dominated by Scots Pine, which is highly characteristic of the Finnish taiga. While similar to Sweden, the specific growth habit and the nature of the rural forest road are strongly associated with Finnish coverage patterns."
+}

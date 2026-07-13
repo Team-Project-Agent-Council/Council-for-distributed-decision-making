@@ -1,0 +1,100 @@
+{
+  "image_id": "oIqmyQzBGtaIeI84_4",
+  "truth_country": "peru",
+  "pred_country": "colombia",
+  "is_correct": false,
+  "candidate_pool": [
+    "Colombia",
+    "Mexico",
+    "Venezuela",
+    "Panama",
+    "Thailand",
+    "Paraguay"
+  ],
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": true,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "role_adherence_notes": {
+      "linguistic": "Analyzed the 'SOLGAS' sign and Spanish language; stayed within linguistic domain.",
+      "landscape": "Analyzed terrain, vegetation, and construction materials; stayed within landscape domain.",
+      "botanics": "Analyzed tropical broadleaf trees and shrubs; stayed within botanics domain.",
+      "regulatory": "Analyzed road slabs, curbs, and utility poles; stayed within regulatory domain.",
+      "meta": "Synthesized infrastructure and architectural cues; stayed within meta domain."
+    },
+    "argumentative_quality": {
+      "linguistic": "weak",
+      "landscape": "strong",
+      "botanics": "normal",
+      "regulatory": "strong",
+      "meta": "strong"
+    },
+    "constructive_synthesis": true,
+    "overall_verdict_notes": "The pipeline failed to identify Peru, the ground truth. The primary failure was the linguistic agent's hallucination of a Colombian gas brand ('SOLGAS'), which biased the candidate pool and the meta/regulatory agents toward Colombia. The landscape and regulatory agents provided strong visual evidence (concrete slabs, red brick) that was correctly interpreted as Colombian-style but was actually Peruvian. The tournament correctly followed the evidence provided by the specialists.",
+    "role_adherence_score": {
+      "linguistic": 0.9,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.9,
+      "meta": 0.9
+    },
+    "argumentative_quality_score": {
+      "linguistic": 0.3,
+      "landscape": 0.8,
+      "botanics": 0.6,
+      "regulatory": 0.8,
+      "meta": 0.8
+    },
+    "hallucination_score": {
+      "linguistic": 0.75,
+      "landscape": 0.0,
+      "botanics": 0.0,
+      "regulatory": 0.0,
+      "meta": 0.0
+    },
+    "hallucination_examples": {
+      "linguistic": [
+        "The text 'SOLGAS' refers to a gas distribution company that operates primarily in Colombia."
+      ],
+      "landscape": [],
+      "botanics": [],
+      "regulatory": [],
+      "meta": []
+    },
+    "visual_consistency_score": {
+      "linguistic": 0.2,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.9,
+      "meta": 0.9
+    },
+    "visual_consistency_notes": {
+      "linguistic": "Identified the text 'SOLGAS' correctly, but the interpretation of its origin was factually wrong.",
+      "landscape": "Accurately described the concrete slabs, red brick, and tropical vegetation.",
+      "botanics": "Accurately described the tropical broadleaf trees and shrubs.",
+      "regulatory": "Accurately described the road slabs, yellow curbs, and utility poles.",
+      "meta": "Accurately described the infrastructure style."
+    },
+    "confidence_calibration": {
+      "linguistic": 0.0,
+      "landscape": 0.25,
+      "botanics": 0.25,
+      "regulatory": 0.25,
+      "meta": 0.25
+    },
+    "tournament_failure": {
+      "truth_in_pool": false,
+      "truth_lost_to": null,
+      "failure_match_round": null,
+      "failure_reason": "agent_misled_pre_pool",
+      "failure_reasoning": "The linguistic agent hallucinated that 'SOLGAS' is a Colombian brand, leading it to nominate Colombia with 'medium' confidence. This, combined with the landscape and regulatory agents' strong visual matches for Colombian infrastructure, caused Peru to be omitted from the candidate pool entirely. The tournament could not recover because the truth was never considered.",
+      "counterfactual_winnable": false
+    }
+  },
+  "validation_error": "1 validation error for JudgeVerdict\noverall_verdict_notes\n  String should have at most 400 characters [type=string_too_long, input_value=\"The pipeline failed to i...ded by the specialists.\", input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_too_long"
+}

@@ -1,0 +1,97 @@
+{
+  "image_id": "MjBPBTn3iUXdebSu_2",
+  "truth_country": "south africa",
+  "pred_country": "botswana",
+  "is_correct": false,
+  "candidate_pool": [
+    "Botswana",
+    "Namibia",
+    "Australia",
+    "South Africa",
+    "Brazil"
+  ],
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": false,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "role_adherence_notes": {
+      "linguistic": "The agent provided no candidates and no evidence, effectively failing to perform its role.",
+      "landscape": "Stayed within terrain, soil, and vegetation analysis.",
+      "botanics": "Focused on plant types (xeric shrubland) and soil profiles.",
+      "regulatory": "Analyzed road infrastructure, poles, and signage (or lack thereof).",
+      "meta": "Synthesized cross-domain cues like housing styles and camera generation artifacts."
+    },
+    "argumentative_quality": {
+      "linguistic": "very_weak",
+      "landscape": "strong",
+      "botanics": "strong",
+      "regulatory": "normal",
+      "meta": "strong"
+    },
+    "constructive_synthesis": true,
+    "overall_verdict_notes": "The pipeline failed to identify the correct country (South Africa) because the specialist agents collectively misidentified the region as the Kalahari basin (Botswana/Namibia). The linguistic agent was entirely absent. The tournament correctly followed the specialists' lead, resulting in a 'judge_misjudgment' failure where the visual evidence was under-determined and the specialists' bias towards the Kalahari biome drove the wrong conclusion.",
+    "role_adherence_score": {
+      "linguistic": 0.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.8,
+      "meta": 0.9
+    },
+    "argumentative_quality_score": {
+      "linguistic": 0.0,
+      "landscape": 0.8,
+      "botanics": 0.8,
+      "regulatory": 0.6,
+      "meta": 0.8
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.0,
+      "botanics": 0.0,
+      "regulatory": 0.0,
+      "meta": 0.0
+    },
+    "hallucination_examples": {
+      "linguistic": [],
+      "landscape": [],
+      "botanics": [],
+      "regulatory": [],
+      "meta": []
+    },
+    "visual_consistency_score": {
+      "linguistic": 0.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.8,
+      "meta": 0.9
+    },
+    "visual_consistency_notes": {
+      "linguistic": "No claims made.",
+      "landscape": "Descriptions of red soil and scrubland match the image perfectly.",
+      "botanics": "Descriptions of xeric shrubland match the image.",
+      "regulatory": "Descriptions of wooden poles and road shoulders match the image.",
+      "meta": "Descriptions of housing styles and fences match the image."
+    },
+    "confidence_calibration": {
+      "linguistic": 0.0,
+      "landscape": 0.2,
+      "botanics": 0.2,
+      "regulatory": 0.2,
+      "meta": 0.2
+    },
+    "tournament_failure": {
+      "truth_in_pool": true,
+      "truth_lost_to": "Namibia",
+      "failure_match_round": "semi-2",
+      "failure_reason": "ambiguous_evidence",
+      "failure_reasoning": "The visual evidence (red soil, scrub, wooden poles) is shared by South Africa, Botswana, and Namibia. The specialists could not distinguish them, and the tournament judge had no specific visual differentiator to break the tie, leading to a loss based on a slight preference for Namibia over South Africa.",
+      "counterfactual_winnable": false
+    }
+  },
+  "validation_error": "1 validation error for JudgeVerdict\noverall_verdict_notes\n  String should have at most 400 characters [type=string_too_long, input_value=\"The pipeline failed to i...e the wrong conclusion.\", input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_too_long"
+}

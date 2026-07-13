@@ -1,0 +1,76 @@
+{
+  "image_id": "sMPhUAFKpkB21pnD_5",
+  "truth_country": "guam",
+  "pred_country": "bahamas",
+  "is_correct": false,
+  "path": "",
+  "truth_in_hypothesis_pool": false,
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": true,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "role_adherence_notes": {
+      "linguistic": "Agent provided no assessment, which is a failure to perform its role, but it did not violate it by discussing other domains.",
+      "landscape": "Stayed within terrain and vegetation analysis.",
+      "botanics": "Stayed within plant species analysis.",
+      "regulatory": "Stayed within road marking and sign analysis.",
+      "meta": "Stayed within infrastructure and cross-domain synthesis."
+    },
+    "argumentative_quality": {
+      "linguistic": "very_weak",
+      "landscape": "strong",
+      "botanics": "strong",
+      "regulatory": "strong",
+      "meta": "normal"
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.1,
+      "botanics": 0.2,
+      "regulatory": 0.0,
+      "meta": 0.0
+    },
+    "hallucination_examples": {
+      "linguistic": [],
+      "landscape": [],
+      "botanics": [
+        "Identified 'Delonix regia (Flamboyant)' \u2014 the tree on the left is a Leucaena (mimosa), not a Flamboyant."
+      ],
+      "regulatory": [],
+      "meta": []
+    },
+    "visual_consistency_score": {
+      "linguistic": 1.0,
+      "landscape": 0.9,
+      "botanics": 0.7,
+      "regulatory": 0.9,
+      "meta": 0.9
+    },
+    "visual_consistency_notes": {
+      "linguistic": "N/A (no claims made)",
+      "landscape": "Tropical vegetation and road markings match the image.",
+      "botanics": "Identified 'tropical dry forest' and 'Castor bean' which are present, but misidentified the dominant tree species.",
+      "regulatory": "Correctly described LHT, double yellow lines, and yellow diamond sign.",
+      "meta": "Correctly described utility poles and camera rig."
+    },
+    "confidence_calibration": {
+      "linguistic": 0.0,
+      "landscape": 0.2,
+      "botanics": 0.2,
+      "regulatory": 0.2,
+      "meta": 0.2
+    },
+    "constructive_synthesis": false,
+    "overall_verdict_notes": "The pipeline failed due to a critical hallucination in the regulatory agent's perception of traffic direction. The image clearly shows a right-hand traffic (RHT) road (car in distance is on the right, sign is on the right), but the regulatory agent hallucinated LHT. This led the judge to select the Bahamas (LHT) instead of the truth (Guam, RHT). The linguistic agent's total silence further degraded the synthesis.",
+    "region_narrowing_quality": 0.25,
+    "region_narrowing_notes": "The judge failed to identify the region correctly. The agents unanimously pointed to the Caribbean (a plausible region for the image), but the judge's final answer (Bahamas) was based on a flawed regulatory assessment. The region narrowing was effectively non-existent or based on the hallucinated LHT cue.",
+    "hypothesis_pool_quality": 0.25,
+    "hypothesis_pool_notes": "The pool consisted of Jamaica, Puerto Rico, Dominican Republic, Bahamas, Barbados, Cayman Islands. While these are all Caribbean islands, the pool completely missed the actual location (Guam) and the broader region (Oceania/Micronesia). The pool was biased by the hallucinated LHT cue."
+  },
+  "validation_error": "2 validation errors for JudgeVerdict\noverall_verdict_notes\n  String should have at most 400 characters [type=string_too_long, input_value=\"The pipeline failed due ...degraded the synthesis.\", input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_too_long\nregion_narrowing_notes\n  String should have at most 300 characters [type=string_too_long, input_value=\"The judge failed to iden...e hallucinated LHT cue.\", input_type=str]\n    For further information visit h"
+}

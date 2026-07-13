@@ -1,0 +1,104 @@
+{
+  "image_id": "HF1MKwIFNCNb4FdM_3",
+  "truth_country": "argentina",
+  "pred_country": "colombia",
+  "is_correct": false,
+  "candidate_pool": [
+    "Colombia",
+    "Mexico",
+    "Ecuador",
+    "Brazil",
+    "Thailand",
+    "Spain"
+  ],
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": true,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "role_adherence_notes": {
+      "linguistic": "Analyzed Spanish text and place names on the billboard.",
+      "landscape": "Evaluated vegetation, terrain, and climate cues.",
+      "botanics": "Identified specific plant species (Queen Palm) and vegetation density.",
+      "regulatory": "Assessed road markings, curb colors, and utility pole styles.",
+      "meta": "Synthesized infrastructure and image quality cues."
+    },
+    "argumentative_quality": {
+      "linguistic": "weak",
+      "landscape": "normal",
+      "botanics": "normal",
+      "regulatory": "weak",
+      "meta": "weak"
+    },
+    "constructive_synthesis": false,
+    "overall_verdict_notes": "The pipeline failed because the specialists hallucinated a specific landmark ('Vilabonita' in Colombia) that does not exist in the image or the ground truth country (Argentina). This hallucination drove the candidate pool and the tournament, leading to a confident but incorrect prediction. The specialists failed to identify the actual visual evidence (e.g., driving on the right, specific Argentine infrastructure) and instead relied on fabricated evidence to support a wrong hypothesis.",
+    "role_adherence_score": {
+      "linguistic": 0.9,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.9,
+      "meta": 0.9
+    },
+    "argumentative_quality_score": {
+      "linguistic": 0.2,
+      "landscape": 0.5,
+      "botanics": 0.5,
+      "regulatory": 0.3,
+      "meta": 0.3
+    },
+    "hallucination_score": {
+      "linguistic": 0.75,
+      "landscape": 0.1,
+      "botanics": 0.1,
+      "regulatory": 0.5,
+      "meta": 0.5
+    },
+    "hallucination_examples": {
+      "linguistic": [
+        "The text 'Vilabonita' on the billboard is a specific residential project name common in Colombia."
+      ],
+      "landscape": [],
+      "botanics": [],
+      "regulatory": [
+        "The billboard text 'Vilabonita' and the general style of the utility poles and street lighting are consistent with Colombian infrastructure."
+      ],
+      "meta": [
+        "The billboard on the right mentions 'Vilabonita', which is a known residential development in Colombia."
+      ]
+    },
+    "visual_consistency_score": {
+      "linguistic": 0.2,
+      "landscape": 0.8,
+      "botanics": 0.8,
+      "regulatory": 0.5,
+      "meta": 0.5
+    },
+    "visual_consistency_notes": {
+      "linguistic": "Correctly read the text 'Vilabonita' but hallucinated its origin/location.",
+      "landscape": "Correctly identified tropical/subtropical vegetation and mountains.",
+      "botanics": "Correctly identified palm species.",
+      "regulatory": "Correctly identified yellow curbs and concrete poles, but misattributed them to Colombia.",
+      "meta": "Correctly identified infrastructure style but misattributed it."
+    },
+    "confidence_calibration": {
+      "linguistic": 0.0,
+      "landscape": 0.2,
+      "botanics": 0.2,
+      "regulatory": 0.0,
+      "meta": 0.0
+    },
+    "tournament_failure": {
+      "truth_in_pool": false,
+      "truth_lost_to": null,
+      "failure_match_round": null,
+      "failure_reason": "agent_misled_pre_pool",
+      "failure_reasoning": "The linguistic and meta agents hallucinated that 'Vilabonita' is a Colombian development, which led them to nominate Colombia with high confidence. Argentina was not nominated by any specialist, so it was excluded from the candidate pool before the tournament began.",
+      "counterfactual_winnable": false
+    }
+  },
+  "validation_error": "1 validation error for JudgeVerdict\noverall_verdict_notes\n  String should have at most 400 characters [type=string_too_long, input_value=\"The pipeline failed beca...ort a wrong hypothesis.\", input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_too_long"
+}

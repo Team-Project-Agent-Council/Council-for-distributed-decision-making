@@ -1,0 +1,103 @@
+{
+  "image_id": "cObaVm83g5wtLkhH_1",
+  "truth_country": "mexico",
+  "pred_country": "thailand",
+  "is_correct": false,
+  "candidate_pool": [
+    "Thailand",
+    "Brazil",
+    "Vietnam",
+    "Colombia",
+    "Mexico",
+    "Laos"
+  ],
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": true,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "role_adherence_notes": {
+      "linguistic": "Correctly identified the absence of text in the image.",
+      "landscape": "Focused on terrain, soil, and vegetation density.",
+      "botanics": "Analyzed plant types and growth patterns.",
+      "regulatory": "Analyzed the utility pole and road surface.",
+      "meta": "Synthesized infrastructure and image quality cues."
+    },
+    "argumentative_quality": {
+      "linguistic": "normal",
+      "landscape": "strong",
+      "botanics": "strong",
+      "regulatory": "normal",
+      "meta": "strong"
+    },
+    "constructive_synthesis": true,
+    "overall_verdict_notes": "The pipeline failed because the specialists (and the judge) relied on a 'tropical dirt road' heuristic that strongly favored Thailand over the correct answer, Mexico. The agents hallucinated specific infrastructure details (pole cross-arms) to distinguish between countries, leading to a confident but incorrect prediction.",
+    "role_adherence_score": {
+      "linguistic": 1.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.9,
+      "meta": 0.9
+    },
+    "argumentative_quality_score": {
+      "linguistic": 0.5,
+      "landscape": 0.8,
+      "botanics": 0.8,
+      "regulatory": 0.5,
+      "meta": 0.8
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.1,
+      "botanics": 0.1,
+      "regulatory": 0.5,
+      "meta": 0.5
+    },
+    "hallucination_examples": {
+      "linguistic": [],
+      "landscape": [],
+      "botanics": [],
+      "regulatory": [
+        "claimed 'specific cross-arm configuration' visible on the pole (image shows a simple T-bar/straight cross-arm, not a specific regional variant)",
+        "claimed 'absence of road signs' (true, but used as a negative cue for regulatory analysis)"
+      ],
+      "meta": [
+        "claimed 'specific small, rectangular cross-arm' (hallucinated detail to support Thailand hypothesis)",
+        "claimed 'slight blur/dust pattern' is consistent with Thailand (unsupported inference)"
+      ]
+    },
+    "visual_consistency_score": {
+      "linguistic": 1.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.5,
+      "meta": 0.5
+    },
+    "visual_consistency_notes": {
+      "linguistic": "Correctly noted no text.",
+      "landscape": "Accurately described the lush vegetation and dirt road.",
+      "botanics": "Accurately described the tropical scrub.",
+      "regulatory": "Described the pole generally, but hallucinated specific hardware details to fit the Thailand hypothesis.",
+      "meta": "Described the scene generally, but hallucinated specific hardware details to fit the Thailand hypothesis."
+    },
+    "confidence_calibration": {
+      "linguistic": 0.5,
+      "landscape": 0.2,
+      "botanics": 0.2,
+      "regulatory": 0.2,
+      "meta": 0.2
+    },
+    "tournament_failure": {
+      "truth_in_pool": true,
+      "truth_lost_to": "Thailand",
+      "failure_match_round": "semi-1",
+      "failure_reason": "agent_misled_in_tournament",
+      "failure_reasoning": "The landscape and meta agents assigned 'contradicts' or 'low' confidence to Mexico (the truth) while assigning 'strongly_support' to Thailand. The specialists collectively pointed away from the truth country based on flawed visual inferences (e.g., claiming the pole style contradicts Mexico), causing the tournament to eliminate Mexico early.",
+      "counterfactual_winnable": false
+    }
+  }
+}

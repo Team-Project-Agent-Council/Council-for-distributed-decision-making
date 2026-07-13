@@ -1,0 +1,496 @@
+{
+  "image_path": "/pfs/data6/home/ma/ma_ma/ma_lweisssc/llm_council_agent_orchestration_tests/clean_images_GeoRC_500/DKGAIVKGYnLWmMy9_4.png",
+  "model": "google/gemma-4-31B-it",
+  "judge_model": "google/gemma-4-31B-it",
+  "timing": {
+    "total_seconds": 69.8
+  },
+  "assessments": {
+    "linguistic": {
+      "agent_name": "linguistic",
+      "candidates": [],
+      "evidence": []
+    },
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Canada",
+          "confidence": "high",
+          "reasoning": "The dense temperate rainforest consisting of towering conifers (likely Douglas fir or Western Red Cedar) and lush undergrowth of ferns is highly characteristic of British Columbia. The road quality and layout are consistent with Canadian provincial highways in mountainous coastal regions."
+        },
+        {
+          "country": "United States",
+          "confidence": "high",
+          "reasoning": "The landscape is virtually identical to the Pacific Northwest (Washington and Oregon), featuring the same temperate rainforest biome and conifer species as Canada. The yellow center line is a standard road marking in the US."
+        },
+        {
+          "country": "Chile",
+          "confidence": "low",
+          "reasoning": "The southern regions of Chile feature similar temperate rainforests with dense conifers and ferns. However, the road infrastructure and specific tree morphology are more typical of North America."
+        },
+        {
+          "country": "New Zealand",
+          "confidence": "speculative",
+          "reasoning": "The South Island contains temperate rainforests and mountainous terrain that can mirror this environment, though the specific conifer density and road markings are less common here than in the Northern Hemisphere."
+        }
+      ],
+      "evidence": [
+        "Temperate rainforest biome",
+        "Dense conifer forest (Douglas fir/Cedar type)",
+        "Lush fern undergrowth",
+        "Paved two-lane road with yellow center line",
+        "Northern hemisphere sun angle based on shadow cast"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Canada",
+          "confidence": "high",
+          "reasoning": "The dense temperate rainforest composition, featuring a mix of Pseudotsuga menziesii (Douglas fir) and Tsuga heterophylla (Western hemlock) with a lush understory of ferns, is highly characteristic of the Pacific Northwest coast, specifically British Columbia."
+        },
+        {
+          "country": "United States",
+          "confidence": "high",
+          "reasoning": "The botanical profile is virtually identical to the Canadian coast, as these species form a continuous biome across Washington and Oregon. The presence of these specific conifers and ferns is diagnostic for the Cascadia region."
+        },
+        {
+          "country": "Chile",
+          "confidence": "low",
+          "reasoning": "The Valdivian temperate rainforests in southern Chile share a similar 'look' with dense evergreen conifers and ferns, serving as a Southern Hemisphere analog to the Pacific Northwest biome."
+        },
+        {
+          "country": "New Zealand",
+          "confidence": "speculative",
+          "reasoning": "Certain regions of the South Island feature temperate rainforests with dense greenery and ferns that can visually mimic the structure of North American coniferous forests from a distance."
+        }
+      ],
+      "evidence": [
+        "Pseudotsuga menziesii (Douglas fir)",
+        "Tsuga heterophylla (Western hemlock)",
+        "Polystichum munitum (Western sword fern)",
+        "Temperate coniferous rainforest biome"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Canada",
+          "confidence": "medium",
+          "reasoning": "The road width, asphalt quality, and gravel shoulder treatment are highly characteristic of rural British Columbia or Alberta. The surrounding coniferous forest is consistent with North American Pacific Northwest ecology."
+        },
+        {
+          "country": "United States",
+          "confidence": "medium",
+          "reasoning": "The infrastructure is indistinguishable from rural roads in the Pacific Northwest (Washington/Oregon). The road width and shoulder style are standard for US rural state highways."
+        },
+        {
+          "country": "Chile",
+          "confidence": "low",
+          "reasoning": "Rural roads in the southern lake district or Patagonia often feature similar asphalt quality, gravel shoulders, and dense coniferous forests."
+        },
+        {
+          "country": "New Zealand",
+          "confidence": "speculative",
+          "reasoning": "Some rural forest roads in the South Island share similar asphalt textures and narrow shoulder treatments, though the forest density is slightly different."
+        }
+      ],
+      "evidence": [
+        "narrow asphalt road with gravel shoulders",
+        "no visible road signs",
+        "no visible bollards or guardrails",
+        "no visible utility poles"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "United States",
+          "confidence": "medium",
+          "reasoning": "The image quality and camera generation are consistent with Gen 4 Google Street View. The asphalt texture and road wear are very common in the Pacific Northwest region of the US."
+        },
+        {
+          "country": "Canada",
+          "confidence": "medium",
+          "reasoning": "The camera generation and image quality are identical to the US. The road surface and general infrastructure (lack of specific bollards) are indistinguishable from the US Pacific Northwest."
+        },
+        {
+          "country": "Chile",
+          "confidence": "low",
+          "reasoning": "Chile has similar forested road environments and uses similar Google camera generations, serving as a cross-continent analog for this specific visual profile."
+        }
+      ],
+      "evidence": [
+        "Google Street View Gen 4 camera quality",
+        "Asphalt wear and texture"
+      ]
+    }
+  },
+  "progressive_narrowing": {
+    "region_consensus": false,
+    "confirmed_region": "North America",
+    "runner_up_region": null,
+    "surviving_regions": [
+      "North America"
+    ],
+    "proposed_regions": [
+      "North America",
+      "South America",
+      "Oceania"
+    ],
+    "region_candidates": {
+      "North America": {
+        "Canada": 4,
+        "United States": 4
+      },
+      "South America": {
+        "Chile": 4
+      },
+      "Oceania": {
+        "New Zealand": 3
+      }
+    },
+    "region_decision_reasoning": "North America received strong support from all three specialist agents (landscape, botanics, and meta), totaling a score of +6. All other evaluated regions (South America and Oceania) received negative scores, with the runner-up falling well below the threshold for inclusion.",
+    "path": "B"
+  },
+  "road_evidence": {
+    "outside_color": "white",
+    "inside_color": "yellow",
+    "driving_side": "UNCLEAR",
+    "driving_side_basis": "none"
+  },
+  "country_assessments": {
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Canada",
+          "confidence": "high",
+          "reasoning": "The dense, towering coniferous forest consisting of spruce and fir is highly characteristic of the Pacific Northwest and British Columbia. The road quality and the specific combination of temperate rainforest flora are very common in Western Canada."
+        },
+        {
+          "country": "United States",
+          "confidence": "high",
+          "reasoning": "The landscape is virtually identical to the temperate rainforests of Washington and Oregon. The presence of these specific evergreen species and the road layout are consistent with the US Pacific Northwest, making it geographically indistinguishable from Canada in this view."
+        },
+        {
+          "country": "Mexico",
+          "confidence": "low",
+          "reasoning": "While Mexico has high-altitude coniferous forests in the Sierra Madre ranges, the specific density, species type, and overall moisture level of this forest are more typical of northern temperate zones."
+        }
+      ],
+      "evidence": [
+        "Dense temperate coniferous forest",
+        "Presence of ferns and lush undergrowth indicating high precipitation",
+        "Paved two-lane road with yellow center line and white shoulder lines",
+        "Northern hemisphere sun angle based on shadow cast"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Canada",
+          "confidence": "high",
+          "reasoning": "The dense temperate rainforest composition, featuring a mix of Pseudotsuga menziesii (Douglas fir) and Tsuga heterophylla (Western hemlock) with a lush understory of Polystichum munitum (Western sword fern), is highly characteristic of the Pacific Northwest, specifically British Columbia."
+        },
+        {
+          "country": "United States",
+          "confidence": "high",
+          "reasoning": "The botanical profile is identical to the Canadian coast, as these species form a continuous biome across Washington and Oregon. The presence of these specific conifers and ferns is diagnostic for the Cascadia region of the US."
+        }
+      ],
+      "evidence": [
+        "Pseudotsuga menziesii (Douglas fir)",
+        "Tsuga heterophylla (Western hemlock)",
+        "Polystichum munitum (Western sword fern)",
+        "Pacific Northwest temperate rainforest biome"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Canada",
+          "confidence": "medium",
+          "reasoning": "The road width, asphalt quality, and gravel shoulder treatment are highly characteristic of rural highways in British Columbia or Alberta. The surrounding coniferous forest is consistent with the Pacific Northwest/Canadian Rockies region."
+        },
+        {
+          "country": "United States",
+          "confidence": "medium",
+          "reasoning": "The infrastructure is indistinguishable from rural roads in the Pacific Northwest (Washington or Oregon). The road width and shoulder style are standard for US state highways in forested regions."
+        },
+        {
+          "country": "Mexico",
+          "confidence": "low",
+          "reasoning": "While less likely given the specific vegetation, some high-altitude forested regions in Mexico utilize similar asphalt and shoulder treatments for rural roads."
+        }
+      ],
+      "evidence": [
+        "rural asphalt road width",
+        "unpaved gravel shoulders",
+        "absence of visible road signs or bollards",
+        "coniferous forest environment"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "United States",
+          "confidence": "medium",
+          "reasoning": "The image quality and camera generation are consistent with standard US Google Street View coverage. The road surface texture and wear patterns are common in rural US forested regions."
+        },
+        {
+          "country": "Canada",
+          "confidence": "medium",
+          "reasoning": "The camera generation and image quality are virtually identical to the US. The road construction and asphalt quality are consistent with rural Canadian provinces, particularly in the Pacific Northwest/British Columbia region."
+        }
+      ],
+      "evidence": [
+        "Google Street View camera generation",
+        "Asphalt texture and wear patterns"
+      ]
+    }
+  },
+  "hypothesis_evaluations": [
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_north_america",
+      "confidence": "strongly_support",
+      "reasoning": "The dense temperate rainforest consisting of towering conifers (likely Douglas fir, hemlock, or cedar) and a lush understory of ferns is highly characteristic of the Pacific Northwest (USA/Canada). The road quality and the specific combination of flora are quintessential for this region.",
+      "key_evidence": [
+        "temperate coniferous forest",
+        "dense fern undergrowth",
+        "high-latitude sunlight angle"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_south_america",
+      "confidence": "contradicts",
+      "reasoning": "While southern Chile has temperate rainforests, the specific species of conifers and the overall forest structure seen here are more aligned with Northern Hemisphere temperate zones. Additionally, the road infrastructure style is less common for remote Chilean forest roads.",
+      "key_evidence": [
+        "conifer species morphology",
+        "road construction style"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_oceania",
+      "confidence": "contradicts",
+      "reasoning": "The vegetation is dominated by tall, needle-leaf conifers which are not native to the primary forest landscapes of Australia or New Zealand in this specific density and growth pattern. The climate appears too cool and moist for most of Oceania's similar-looking scrublands.",
+      "key_evidence": [
+        "absence of eucalyptus/native podocarps",
+        "forest density and composition"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_north_america",
+      "confidence": "strongly_support",
+      "reasoning": "The vegetation is characteristic of the Pacific Northwest temperate rainforest. The combination of dense Pseudotsuga menziesii (Douglas fir) and Tsuga heterophylla (Western hemlock) with a lush understory of Polystichum munitum (Western sword fern) is highly diagnostic of the coastal regions of Canada and the USA.",
+      "key_evidence": [
+        "Pseudotsuga menziesii",
+        "Tsuga heterophylla",
+        "Polystichum munitum"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_south_america",
+      "confidence": "contradicts",
+      "reasoning": "While the Valdivian temperate rainforests in Chile have similar climates, the specific morphology of the conifers seen here (North American Pinaceae) is not native to South America. The absence of Nothofagus (Southern Beech) makes this region unlikely.",
+      "key_evidence": [
+        "Absence of Nothofagus",
+        "Presence of North American Pinaceae"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_oceania",
+      "confidence": "contradicts",
+      "reasoning": "The forest structure and species composition do not match the temperate rainforests of New Zealand or Australia. The dominant conifers here are not Podocarps or Araucaria, which would be expected in similar Oceania biomes.",
+      "key_evidence": [
+        "Absence of Podocarpaceae",
+        "Presence of North American Pinaceae"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_north_america",
+      "confidence": "strongly_support",
+      "reasoning": "The image quality and color grading are highly characteristic of Google's Gen 4 camera used extensively in the US and Canada. The specific asphalt texture and the way the road edges are finished are very common in the Pacific Northwest of North America.",
+      "key_evidence": [
+        "Gen 4 camera image quality",
+        "Asphalt texture and road edge finish"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_south_america",
+      "confidence": "contradicts",
+      "reasoning": "The image lacks the typical camera artifacts (such as the halo or specific blur patterns) often seen in South American coverage, and the road infrastructure quality is more consistent with North American standards.",
+      "key_evidence": [
+        "Lack of regional camera artifacts"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_oceania",
+      "confidence": "low",
+      "reasoning": "While some forested roads in New Zealand or Australia can look similar, the specific camera generation and the lack of typical Oceania-specific road shoulder markers make this less likely than North America.",
+      "key_evidence": [
+        "Camera generation",
+        "Lack of regional shoulder markers"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_canada",
+      "confidence": "strongly_support",
+      "reasoning": "The dense temperate rainforest consisting of towering conifers (likely hemlock, cedar, or fir) and a lush understory of ferns is highly characteristic of the Pacific Northwest, specifically British Columbia. The road quality and vegetation density are very consistent with Canadian coastal mountain ranges.",
+      "key_evidence": [
+        "temperate coniferous rainforest",
+        "dense fern undergrowth",
+        "high-latitude evergreen forest structure"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_united_states",
+      "confidence": "support",
+      "reasoning": "The landscape is nearly identical to the Pacific Northwest region of the US (Washington and Oregon). It is geographically indistinguishable from the Canadian side of the border based on vegetation and terrain alone.",
+      "key_evidence": [
+        "temperate coniferous rainforest",
+        "Pacific Northwest flora"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_mexico",
+      "confidence": "strongly_contradicts",
+      "reasoning": "The vegetation is characteristic of a cool, moist temperate climate. While Mexico has some high-altitude forests, they do not match this specific combination of coastal-style temperate rainforest and dense fern undergrowth seen here.",
+      "key_evidence": [
+        "absence of subtropical/tropical flora",
+        "climate mismatch for the majority of Mexican terrain"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_canada",
+      "confidence": "support",
+      "reasoning": "The dense temperate rainforest composition, featuring a mix of Pseudotsuga menziesii (Douglas fir) and Tsuga heterophylla (Western hemlock) with a lush understory of ferns, is highly characteristic of the Pacific Northwest, including British Columbia.",
+      "key_evidence": [
+        "Pseudotsuga menziesii",
+        "Tsuga heterophylla",
+        "temperate rainforest biome"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_united_states",
+      "confidence": "support",
+      "reasoning": "The vegetation is identical to that found in Canada's British Columbia, specifically matching the coastal forests of Washington and Oregon. There is no botanical differentiator to separate these two countries in this biome.",
+      "key_evidence": [
+        "Pseudotsuga menziesii",
+        "Tsuga heterophylla",
+        "temperate rainforest biome"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_mexico",
+      "confidence": "strongly_contradicts",
+      "reasoning": "The presence of a dense, cool-temperate coniferous forest with these specific species and a fern-heavy understory is inconsistent with the vast majority of Mexico's climate zones, and does not match the high-altitude Oyamel fir forests found in small pockets of Mexico.",
+      "key_evidence": [
+        "absence of tropical/subtropical flora",
+        "temperate coniferous dominance"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_canada",
+      "confidence": "support",
+      "reasoning": "The image quality and camera generation are consistent with Google Street View coverage in Canada. The road surface and general infrastructure are compatible with Canadian rural standards.",
+      "key_evidence": [
+        "camera generation",
+        "road surface quality"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_united_states",
+      "confidence": "support",
+      "reasoning": "The image quality and camera generation are consistent with Google Street View coverage in the US. The road surface and general infrastructure are compatible with US rural standards.",
+      "key_evidence": [
+        "camera generation",
+        "road surface quality"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_mexico",
+      "confidence": "low",
+      "reasoning": "While the camera generation is globally used, the specific combination of road wear and the absence of typical Mexican rural road markers makes this less likely than North American counterparts.",
+      "key_evidence": [
+        "camera generation"
+      ]
+    }
+  ],
+  "candidate_pool": [
+    "Canada",
+    "United States",
+    "Mexico"
+  ],
+  "rag_findings": [
+    {
+      "kind": "tournament_match",
+      "country": "United States",
+      "detail": "The landscape and botanics are highly characteristic of the Pacific Northwest, and the specialist evidence strongly supports Canada, specifically British Columbia, for this specific dense temperate rainforest composition. While the US is also plausible, the 'strongly_support' rating for Canada's landscape provides the deciding edge in the absence of distinguishing road markings.",
+      "opponent": "Canada",
+      "winner": "Canada"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Mexico",
+      "detail": "The landscape features a dense temperate rainforest with towering conifers and a lush fern understory, which is highly characteristic of British Columbia, Canada. Specialist evidence strongly contradicts Mexico, as the vegetation does not match Mexico's high-altitude forests.",
+      "opponent": "Canada",
+      "winner": "Canada"
+    }
+  ],
+  "rag_refs_seen": [],
+  "road_filter_warnings": [],
+  "tournament_log": [
+    {
+      "round_label": "semi",
+      "country_a": "Canada",
+      "country_b": "United States",
+      "pool_rank_a": 0,
+      "pool_rank_b": 1,
+      "winner": "Canada",
+      "reasoning": "The landscape and botanics are highly characteristic of the Pacific Northwest, and the specialist evidence strongly supports Canada, specifically British Columbia, for this specific dense temperate rainforest composition. While the US is also plausible, the 'strongly_support' rating for Canada's landscape provides the deciding edge in the absence of distinguishing road markings.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "final",
+      "country_a": "Canada",
+      "country_b": "Mexico",
+      "pool_rank_a": 0,
+      "pool_rank_b": 2,
+      "winner": "Canada",
+      "reasoning": "The landscape features a dense temperate rainforest with towering conifers and a lush fern understory, which is highly characteristic of British Columbia, Canada. Specialist evidence strongly contradicts Mexico, as the vegetation does not match Mexico's high-altitude forests.",
+      "agreement": "agree"
+    }
+  ],
+  "country_result": "Country: Canada\nCoordinates: 50.123, -125.456\nReasoning: The landscape features a dense temperate rainforest with towering conifers and a lush fern understory, which is highly characteristic of British Columbia, Canada. Specialist evidence strongly contradicts Mexico, as the vegetation does not match Mexico's high-altitude forests.\n\nTournament:\n  semi: Canada vs United States → Canada\n  final: Canada vs Mexico → Canada",
+  "coordinates": {
+    "lat": 50.123,
+    "lng": -125.456
+  },
+  "final_reasoning": "The landscape features a dense temperate rainforest with towering conifers and a lush fern understory, which is highly characteristic of British Columbia, Canada. Specialist evidence strongly contradicts Mexico, as the vegetation does not match Mexico's high-altitude forests."
+}

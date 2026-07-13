@@ -1,0 +1,84 @@
+{
+  "image_id": "HVBiwFr2gEcM1dze_1",
+  "truth_country": "spain",
+  "pred_country": "portugal",
+  "is_correct": false,
+  "discussion_rounds": 3,
+  "was_questioned": {
+    "linguistic": true,
+    "landscape": false,
+    "botanics": false,
+    "regulatory": true,
+    "meta": true
+  },
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": true,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.0,
+      "botanics": 0.0,
+      "regulatory": 0.5,
+      "meta": 0.5
+    },
+    "visual_consistency_score": {
+      "linguistic": 1.0,
+      "landscape": 0.75,
+      "botanics": 0.75,
+      "regulatory": 0.5,
+      "meta": 0.5
+    },
+    "confidence_calibration_score": {
+      "linguistic": 0.5,
+      "landscape": 0.75,
+      "botanics": 0.75,
+      "regulatory": 0.25,
+      "meta": 0.25
+    },
+    "question_relevance_score": {
+      "linguistic": 1.0,
+      "regulatory": 1.0,
+      "meta": 1.0
+    },
+    "question_relevance_notes": {
+      "linguistic": "Judge asked about text/signage, squarely in linguistic domain.",
+      "regulatory": "Judge asked about road marking standards, squarely in regulatory domain.",
+      "meta": "Judge asked about camera generation and data patterns, squarely in meta domain."
+    },
+    "response_update_quality": {
+      "linguistic": 1.0,
+      "regulatory": 0.0,
+      "meta": 0.0
+    },
+    "response_update_notes": {
+      "linguistic": "Agent correctly re-examined the image and confirmed the absence of text.",
+      "regulatory": "Agent provided contradictory responses across rounds (Yellow/Portugal -> White/Spain -> Yellow/Portugal) without resolving the visual ambiguity or acknowledging the error.",
+      "meta": "Agent provided contradictory responses across rounds (Yellow/Spain -> Yellow/Spain -> Yellow/Portugal) without resolving the contradiction."
+    },
+    "targeted_agent_addressed_question": {
+      "linguistic": true,
+      "regulatory": false,
+      "meta": false
+    },
+    "hallucination_examples": {
+      "regulatory": [
+        "Upon closer re-examination, the center line is a solid yellow line. In the Iberian Peninsula, Portugal uses yellow center lines to indicate 'no overtaking' on rural roads, whereas Spain exclusively uses white lines for this purpose."
+      ],
+      "meta": [
+        "The solid yellow center line is a highly specific meta for Spain, where it is used to indicate a 'no overtaking' zone on regional roads. In Portugal, center lines are almost exclusively white, making the yellow line a strong differentiator that points away from Portugal."
+      ]
+    },
+    "judge_question_strategy_score": 0.5,
+    "judge_question_strategy_notes": "The judge correctly identified the central point of contention (the center line color) and targeted the relevant agents. However, the judge failed to resolve the agents' hallucinations and contradictions, accepting their incorrect premises (that yellow lines exist in the image) and allowing them to contradict each other without forcing a definitive visual check.",
+    "judge_synthesis_quality": 0.25,
+    "judge_synthesis_notes": "The judge's final reasoning relied entirely on the hallucinated 'yellow center line' evidence. The judge failed to synthesize the contradictory agent responses or correct the visual error, leading to a completely incorrect final prediction (Portugal instead of Spain).",
+    "discussion_convergence_score": 0.0,
+    "discussion_convergence_notes": "The discussion went in circles. The agents contradicted themselves and each other across rounds regarding the color of the line and the country it indicated. The judge did not resolve this, and the final decision was based on a false premise."
+  }
+}

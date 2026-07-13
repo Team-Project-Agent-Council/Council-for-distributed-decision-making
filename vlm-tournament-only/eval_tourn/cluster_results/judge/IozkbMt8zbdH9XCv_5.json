@@ -1,0 +1,101 @@
+{
+  "image_id": "IozkbMt8zbdH9XCv_5",
+  "truth_country": "nigeria",
+  "pred_country": "india",
+  "is_correct": false,
+  "candidate_pool": [
+    "India",
+    "Ghana",
+    "Brazil",
+    "Pakistan",
+    "Nigeria",
+    "Australia"
+  ],
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": true,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "role_adherence_notes": {
+      "linguistic": "Analyzed the English text on the sign ('COAST ALUMNI ASSOCIATION') and script type (Latin).",
+      "landscape": "Identified red laterite soil, flat terrain, and tropical vegetation.",
+      "botanics": "Identified Eucalyptus and Neem trees based on visual morphology.",
+      "regulatory": "Noted the green-and-white painted curbs and road infrastructure.",
+      "meta": "Identified the red Google Street View car as a fleet indicator."
+    },
+    "argumentative_quality": {
+      "linguistic": "weak",
+      "landscape": "strong",
+      "botanics": "strong",
+      "regulatory": "strong",
+      "meta": "very_weak"
+    },
+    "constructive_synthesis": false,
+    "overall_verdict_notes": "The pipeline failed because the 'meta' agent hallucinated a specific Google Street View fleet color (red) for India, which was not present in the image (the car is red, but this is a generic vehicle color, not a fleet identifier). This hallucination was treated as a 'strong' signal by the tournament judge, overriding the correct visual evidence (Nigerian-style curb painting) and leading to a wrong prediction.",
+    "role_adherence_score": {
+      "linguistic": 0.8,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.9,
+      "meta": 0.9
+    },
+    "argumentative_quality_score": {
+      "linguistic": 0.3,
+      "landscape": 0.8,
+      "botanics": 0.8,
+      "regulatory": 0.8,
+      "meta": 0.2
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.0,
+      "botanics": 0.0,
+      "regulatory": 0.0,
+      "meta": 1.0
+    },
+    "hallucination_examples": {
+      "linguistic": [],
+      "landscape": [],
+      "botanics": [],
+      "regulatory": [],
+      "meta": [
+        "The red Google Street View car is a highly specific meta cue for India, as Google uses a red car for its coverage there.",
+        "Ghana does not use a red Google Street View car for its official coverage; the red car is a signature of the Indian fleet."
+      ]
+    },
+    "visual_consistency_score": {
+      "linguistic": 0.9,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.9,
+      "meta": 0.0
+    },
+    "visual_consistency_notes": {
+      "linguistic": "Correctly identified Latin script.",
+      "landscape": "Correctly identified red soil and tropical vegetation.",
+      "botanics": "Correctly identified Eucalyptus and Neem.",
+      "regulatory": "Correctly identified curb painting.",
+      "meta": "Completely hallucinated the car's color as a specific fleet marker for India."
+    },
+    "confidence_calibration": {
+      "linguistic": 0.2,
+      "landscape": 0.5,
+      "botanics": 0.2,
+      "regulatory": 0.2,
+      "meta": 0.0
+    },
+    "tournament_failure": {
+      "truth_in_pool": true,
+      "truth_lost_to": "India",
+      "failure_match_round": "final",
+      "failure_reason": "agent_misled_in_tournament",
+      "failure_reasoning": "The 'meta' agent hallucinated that the red car is a specific fleet indicator for India (it is not; Google uses white cars in India and red cars in many other places, including Nigeria). The tournament judge relied on this hallucinated 'strong' signal to defeat Pakistan and Nigeria, despite the visual evidence (curb painting) pointing to Nigeria.",
+      "counterfactual_winnable": true
+    }
+  },
+  "validation_error": "1 validation error for JudgeVerdict\noverall_verdict_notes\n  String should have at most 400 characters [type=string_too_long, input_value=\"The pipeline failed beca... to a wrong prediction.\", input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_too_long"
+}

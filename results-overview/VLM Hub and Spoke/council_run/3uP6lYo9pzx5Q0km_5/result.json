@@ -1,0 +1,235 @@
+{
+  "image_path": "/pfs/work9/workspace/scratch/ma_faschuma-vlm-images/3uP6lYo9pzx5Q0km_5.png",
+  "model": "google/gemma-4-31b-it",
+  "judge_model": "google/gemma-4-31b-it",
+  "timing": {
+    "total_seconds": 84.8
+  },
+  "assessments": {
+    "linguistic": {
+      "agent_name": "linguistic",
+      "candidates": [],
+      "evidence": []
+    },
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Bulgaria",
+          "confidence": "medium",
+          "reasoning": "The combination of lush deciduous forests, mountainous terrain, and the specific style of weathered, rusted guardrails is very common in the Balkan mountains. The road quality and vegetation are consistent with the region's temperate climate."
+        },
+        {
+          "country": "Romania",
+          "confidence": "medium",
+          "reasoning": "The Carpathian landscape features similar dense green forests and winding mountain roads. Geographically, it is nearly indistinguishable from Bulgaria in this specific environment of temperate broadleaf forests."
+        },
+        {
+          "country": "Slovenia",
+          "confidence": "low",
+          "reasoning": "The alpine foothills and dense greenery match this profile, though the road infrastructure often appears slightly more maintained than what is seen here."
+        },
+        {
+          "country": "Georgia",
+          "confidence": "low",
+          "reasoning": "The Caucasus region has similar steep, forested slopes and winding roads, though the specific shade of green and soil composition often differs slightly from the Balkans."
+        }
+      ],
+      "evidence": [
+        "Dense temperate deciduous forest",
+        "Mountainous terrain with steep slopes",
+        "Weathered/rusted metal guardrails",
+        "Northern hemisphere sun angle based on shadow cast",
+        "Winding two-lane asphalt road with single white edge line"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Georgia",
+          "confidence": "medium",
+          "reasoning": "The dense, mixed broadleaf forest featuring species consistent with Colchic rainforests (such as Castanea sativa and various Fagus species) is highly characteristic of the Caucasus region. This lush, humid vegetation is distinct from the drier forests of Central Asia."
+        },
+        {
+          "country": "Turkey",
+          "confidence": "medium",
+          "reasoning": "The Black Sea coast of Turkey shares the same Colchic botanical province as Georgia, featuring identical temperate rainforest vegetation and broadleaf deciduous trees. It is botanically indistinguishable from Georgia in this specific mountainous context."
+        },
+        {
+          "country": "Slovenia",
+          "confidence": "low",
+          "reasoning": "The mix of beech and hornbeam in a mountainous road setting is common in the Dinaric Alps, though the density and specific leaf structure seen here lean more towards the Caucasus."
+        },
+        {
+          "country": "Romania",
+          "confidence": "low",
+          "reasoning": "The Carpathian Mountains feature similar mixed deciduous forests, although the specific vibrancy and undergrowth density are more typical of the humid subtropical zones of the Black Sea region."
+        }
+      ],
+      "evidence": [
+        "Mixed broadleaf deciduous forest",
+        "Colchic vegetation profile",
+        "Fagus sylvatica (European Beech)",
+        "Castanea sativa (Sweet Chestnut)"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Global",
+          "confidence": "speculative",
+          "reasoning": "The image shows a generic paved road with a white edge/center line and a rusted metal guardrail. There are no unique road signs, license plates, or specific lane marking patterns that distinguish one country from another."
+        }
+      ],
+      "evidence": [
+        "driving side not visible",
+        "no signs visible",
+        "white line",
+        "no plates visible"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "Montenegro",
+          "confidence": "medium",
+          "reasoning": "The rusty, weathered appearance of the guardrail is very common in the mountainous regions of Montenegro. The image quality and camera generation are consistent with coverage found in the Balkans."
+        },
+        {
+          "country": "Albania",
+          "confidence": "medium",
+          "reasoning": "Similar to Montenegro, Albania features many rural roads with this specific style of aged, rusted metal guardrails and similar Google Street View camera quality."
+        },
+        {
+          "country": "Bosnia and Herzegovina",
+          "confidence": "medium",
+          "reasoning": "The combination of the road surface quality and the specific rust pattern on the guardrails is highly characteristic of rural Bosnian mountain roads."
+        }
+      ],
+      "evidence": [
+        "rusted metal guardrail style",
+        "Google Street View camera generation/image quality"
+      ]
+    }
+  },
+  "discussion_log": [
+    {
+      "round_number": 1,
+      "judge_question": "Please re-examine the image for any small details: are there any bollards, kilometer markers, or specific patterns in the road paint (e.g., dashed vs solid lines) that could narrow down the region?",
+      "target_agent": "regulatory",
+      "agent_response": ""
+    },
+    {
+      "round_number": 1,
+      "judge_question": "You mentioned Colchic vegetation (Georgia/Turkey). Does the specific density and species composition strongly rule out the Balkan countries (Bulgaria, Romania, Montenegro, Albania, Bosnia) mentioned by the other agents?",
+      "target_agent": "botanics",
+      "agent_response": ""
+    },
+    {
+      "round_number": 1,
+      "judge_question": "Comparing the guardrail style and road quality, do you see any specific features that would distinguish the Balkans (Bulgaria/Romania) from the Caucasus (Georgia/Turkey)?",
+      "target_agent": "landscape",
+      "agent_response": ""
+    },
+    {
+      "round_number": 1,
+      "judge_question": "Can you check if the specific rust pattern or guardrail design is more characteristic of the Balkans than the Caucasus or Turkey?",
+      "target_agent": "meta",
+      "agent_response": ""
+    },
+    {
+      "round_number": 1,
+      "judge_question": "Please re-examine the image for any small details: are there any bollards, kilometer markers, or specific patterns in the road paint (e.g., dashed vs solid lines) that could narrow down the region?",
+      "target_agent": "regulatory",
+      "agent_response": "```json\n{\"candidates\": [\n  {\"country\": \"Global\", \"confidence\": \"speculative\", \"reasoning\": \"Despite a closer inspection, there are no bollards, kilometer markers, or unique road paint patterns visible. The white line is a simple solid line, which is a universal standard for edge or center markings in countless countries across Europe, Asia, and the Americas.\"}\n], \"evidence\": [\"driving side not visible\", \"no signs visible\", \"solid white line\", \"rusted metal guardrail\", \"no bollards visible\"]}\n```"
+    },
+    {
+      "round_number": 1,
+      "judge_question": "You mentioned Colchic vegetation (Georgia/Turkey). Does the specific density and species composition strongly rule out the Balkan countries (Bulgaria, Romania, Montenegro, Albania, Bosnia) mentioned by the other agents?",
+      "target_agent": "botanics",
+      "agent_response": "```json\n{\"candidates\": [\n  {\"country\": \"Georgia\", \"confidence\": \"medium\", \"reasoning\": \"The extreme density of the understory and the specific lushness of the broadleaf canopy are highly characteristic of the Colchic rainforests. While similar to the Balkans, the humidity-driven biomass density here is more typical of the Caucasus region.\"},\n  {\"country\": \"Turkey\", \"confidence\": \"medium\", \"reasoning\": \"The Black Sea region of Turkey shares the exact same Colchic botanical province as Georgia. The vegetation is botanically indistinguishable from Georgia in this mountainous, humid temperate environment.\"},\n  {\"country\": \"Romania\", \"confidence\": \"medium\", \"reasoning\": \"The Carpathian mixed forests (Fagus and Quercus) can produce similar density in humid valleys. It is a strong candidate as the species composition overlaps significantly with the Caucasus, though typically with slightly less subtropical undergrowth.\"},\n  {\"country\": \"Bulgaria\", \"confidence\": \"medium\", \"reasoning\": \"The Balkan Mountains feature similar mixed deciduous forests. The density seen here is possible in the wetter western regions, making it botanically plausible and comparable to the Romanian and Georgian profiles.\"},\n  {\"country\": \"Slovenia\", \"confidence\": \"low\", \"reasoning\": \"While the beech-hornbeam mix is present in the Dinaric Alps, the overall vegetation volume and leaf density are slightly higher than what is typically observed in the more temperate Alpine-Dinaric transition.\"}\n], \"evidence\": [\"Mixed broadleaf deciduous forest\", \"High-density understory\", \"Fagus sylvatica (European Beech)\", \"Colchic vegetation profile\"]}\n```"
+    },
+    {
+      "round_number": 1,
+      "judge_question": "Comparing the guardrail style and road quality, do you see any specific features that would distinguish the Balkans (Bulgaria/Romania) from the Caucasus (Georgia/Turkey)?",
+      "target_agent": "landscape",
+      "agent_response": "```json\n{\"candidates\": [\n  {\"country\": \"Bulgaria\", \"confidence\": \"medium\", \"reasoning\": \"The dense, lush deciduous forest and the specific level of road wear are highly characteristic of the Balkan Mountains. The rusted, older-style guardrail is a common sight in rural Bulgarian mountain passes, distinguishing it from the more modern infrastructure often found in Turkey's developed mountain corridors.\"},\n  {\"country\": \"Romania\", \"confidence\": \"medium\", \"reasoning\": \"The Carpathian landscape is geographically nearly identical to the Balkans in this context, featuring the same temperate broadleaf forest and winding road patterns. It shares the same confidence level as Bulgaria due to the lack of distinguishing geological markers in this specific frame.\"},\n  {\"country\": \"Georgia\", \"confidence\": \"low\", \"reasoning\": \"While the Caucasus mountains have similar steepness and greenery, the vegetation here lacks the specific high-altitude alpine transition often seen in Georgian mountain roads. The soil visible on the embankment is more consistent with the brown forest soils of Eastern Europe than the volcanic soils common in parts of Georgia.\"},\n  {\"country\": \"Turkey\", \"confidence\": \"low\", \"reasoning\": \"Northern Turkey (Black Sea region) shares this lushness, but the road quality and guardrail style here are more typical of the EU-adjacent Balkans. Turkey's mountain roads often feature different drainage patterns and more frequent concrete barriers in steep sections.\"}\n], \"evidence\": [\"Dense temperate deciduous forest\", \"Mountainous terrain with steep slopes\", \"Weathered/rusted metal guardrails\", \"Northern hemisphere sun angle based on shadow cast\", \"Winding two-lane asphalt road with single white edge line\", \"Brown forest soil on embankments\"]}\n```"
+    },
+    {
+      "round_number": 1,
+      "judge_question": "Can you check if the specific rust pattern or guardrail design is more characteristic of the Balkans than the Caucasus or Turkey?",
+      "target_agent": "meta",
+      "agent_response": "```json\n{\"candidates\": [\n  {\"country\": \"Montenegro\", \"confidence\": \"medium\", \"reasoning\": \"The specific profile of the rusted guardrail, featuring a double-beam design with significant oxidation, is highly prevalent in the Dinaric Alps. While Turkey and the Caucasus use similar rails, the specific combination of the road's edge wear and the camera's color rendering is more typical of Balkan coverage.\"},\n  {\"country\": \"Albania\", \"confidence\": \"medium\", \"reasoning\": \"The weathered metal guardrail and the specific asphalt texture are consistent with rural Albanian mountain passes. It is visually indistinguishable from Montenegro in this specific meta, but differs from Turkey where guardrails on main mountain roads are often more frequently maintained or replaced with newer galvanized steel.\"},\n  {\"country\": \"Bosnia and Herzegovina\", \"confidence\": \"medium\", \"reasoning\": \"The rust pattern and the way the guardrail is anchored into the shoulder are characteristic of rural Bosnian roads. Compared to the Caucasus, the image lacks the specific high-contrast 'halo' effect often seen in older Georgian or Armenian coverage.\"},\n  {\"country\": \"Turkey\", \"confidence\": \"low\", \"reasoning\": \"Turkey uses similar guardrail designs, but the specific deep-orange rust patina seen here is more common in the humid, mountainous regions of the Balkans than in the more arid regions of Turkey where oxidation patterns differ.\"},\n  {\"country\": \"Georgia\", \"confidence\": \"low\", \"reasoning\": \"While the Caucasus has similar mountain roads, the Google Street View camera generation here lacks the specific blur patterns and rig shadows typically associated with the limited coverage in Georgia.\"}\n], \"evidence\": [\"rusted double-beam guardrail profile\", \"asphalt edge degradation\", \"Google Street View camera generation/color rendering\"]}\n```"
+    },
+    {
+      "round_number": 2,
+      "judge_question": "You mentioned that the soil on the embankment is more consistent with brown forest soils of Eastern Europe than volcanic soils of Georgia. Could this soil characteristic specifically help distinguish between Bulgaria/Romania and the Dinaric Alps (Montenegro, Albania, Bosnia)?",
+      "target_agent": "landscape",
+      "agent_response": ""
+    },
+    {
+      "round_number": 2,
+      "judge_question": "You've identified the guardrail and camera generation as characteristic of the Balkans. Between the 'Eastern Balkans' (Bulgaria, Romania) and the 'Western Balkans' (Montenegro, Albania, Bosnia), does the specific asphalt texture or the way the guardrail is anchored lean more towards one group?",
+      "target_agent": "meta",
+      "agent_response": ""
+    },
+    {
+      "round_number": 2,
+      "judge_question": "Given the landscape agent's observation about brown forest soils and the meta agent's focus on the Balkans, does the vegetation still strongly support the Colchic (Georgia/Turkey) profile, or is it equally consistent with the humid forests of the Carpathians or the Dinaric Alps?",
+      "target_agent": "botanics",
+      "agent_response": ""
+    },
+    {
+      "round_number": 2,
+      "judge_question": "You mentioned that the soil on the embankment is more consistent with brown forest soils of Eastern Europe than volcanic soils of Georgia. Could this soil characteristic specifically help distinguish between Bulgaria/Romania and the Dinaric Alps (Montenegro, Albania, Bosnia)?",
+      "target_agent": "landscape",
+      "agent_response": "```json\n{\"candidates\": [\n  {\"country\": \"Bulgaria\", \"confidence\": \"medium\", \"reasoning\": \"The deep brown, loamy forest soil visible on the embankment is characteristic of the Balkan Mountains' temperate broadleaf forests. This soil profile is more consistent with the Eastern European interior than the limestone-heavy, thinner soils often found in the Dinaric Alps.\"},\n  {\"country\": \"Romania\", \"confidence\": \"medium\", \"reasoning\": \"The Carpathian landscape shares the same rich, brown forest soil and dense deciduous canopy as Bulgaria. Geographically, the soil composition and vegetation density are nearly identical to the Bulgarian candidate in this environment.\"},\n  {\"country\": \"Montenegro\", \"confidence\": \"low\", \"reasoning\": \"While the terrain is mountainous, the Dinaric Alps typically feature more karst topography with greyish limestone outcrops and thinner, more alkaline soils compared to the deep brown soil seen here.\"},\n  {\"country\": \"Albania\", \"confidence\": \"low\", \"reasoning\": \"Similar to Montenegro, the landscape often exhibits more rugged limestone features and a slightly different vegetation mix influenced by Mediterranean proximity, whereas this image shows a more continental temperate forest profile.\"},\n  {\"country\": \"Bosnia and Herzegovina\", \"confidence\": \"low\", \"reasoning\": \"The Dinaric range here often presents more rocky, limestone-based terrain; the lush, deep-soil embankment in the image is more typical of the softer, more weathered mountains of the East Balkans or Carpathians.\"}\n], \"evidence\": [\"Deep brown forest soil (cambisols/luvisols) on embankment\", \"Dense temperate deciduous forest canopy\", \"Absence of grey limestone karst typical of Dinaric Alps\", \"Northern hemisphere sun angle\", \"Winding mountain road with weathered metal guardrails\"]}\n```"
+    },
+    {
+      "round_number": 2,
+      "judge_question": "You've identified the guardrail and camera generation as characteristic of the Balkans. Between the 'Eastern Balkans' (Bulgaria, Romania) and the 'Western Balkans' (Montenegro, Albania, Bosnia), does the specific asphalt texture or the way the guardrail is anchored lean more towards one group?",
+      "target_agent": "meta",
+      "agent_response": "```json\n{\"candidates\": [\n  {\"country\": \"Montenegro\", \"confidence\": \"medium\", \"reasoning\": \"The guardrail is a simple, rusted W-beam without the reflective delineators or plastic markers commonly found on newer Romanian or Bulgarian road upgrades. The asphalt texture is coarse and weathered with uneven edges, which is more typical of the Western Balkan mountain passes than the more standardized Eastern Balkan networks.\"},\n  {\"country\": \"Albania\", \"confidence\": \"medium\", \"reasoning\": \"The specific level of oxidation on the guardrail and the lack of standardized safety markers align with rural Albanian infrastructure. It lacks the specific concrete anchoring blocks often seen in Romania's mountainous regions.\"},\n  {\"country\": \"Bosnia and Herzegovina\", \"confidence\": \"medium\", \"reasoning\": \"The road surface shows a specific type of degradation and patching common in rural Bosnia. The guardrail's lack of maintenance and simple mounting style distinguish it from the more modernized Eastern Balkan corridors.\"}\n], \"evidence\": [\"rusted W-beam guardrail without reflectors\", \"coarse, weathered asphalt texture\", \"absence of concrete anchoring blocks\", \"Google Street View camera generation\"]}\n```"
+    },
+    {
+      "round_number": 2,
+      "judge_question": "Given the landscape agent's observation about brown forest soils and the meta agent's focus on the Balkans, does the vegetation still strongly support the Colchic (Georgia/Turkey) profile, or is it equally consistent with the humid forests of the Carpathians or the Dinaric Alps?",
+      "target_agent": "botanics",
+      "agent_response": "```json\n{\"candidates\": [\n  {\"country\": \"Romania\", \"confidence\": \"high\", \"reasoning\": \"The dense, mixed deciduous canopy dominated by Fagus sylvatica (European Beech) and Carpinus betulus (European Hornbeam) is highly characteristic of the Carpathian Mountains. The specific undergrowth density and the presence of brown forest soils mentioned by the landscape agent are more consistent with the temperate humid climate of the Balkans/Carpathians than the subtropical humidity of the Colchic region.\"},\n  {\"country\": \"Slovenia\", \"confidence\": \"high\", \"reasoning\": \"The vegetation is equally consistent with the Dinaric Alps, where similar beech-hornbeam forests thrive in mountainous road corridors. Botanically, this profile is indistinguishable from the Romanian Carpathians in a general street-view context.\"},\n  {\"country\": \"Georgia\", \"confidence\": \"medium\", \"reasoning\": \"While the lushness is consistent with the Caucasus, the lack of distinct Colchic endemic species (like Rhododendron ponticum) in the immediate roadside undergrowth makes it less certain than the Balkan candidates.\"},\n  {\"country\": \"Turkey\", \"confidence\": \"medium\", \"reasoning\": \"Similar to Georgia, the Black Sea region shares this profile, but the specific forest structure and soil indicators provided by the council lean more towards the European temperate mountain range.\"}\n], \"evidence\": [\"Fagus sylvatica (European Beech)\", \"Carpinus betulus (European Hornbeam)\", \"Mixed temperate deciduous forest\", \"Brown forest soil indicators\"]}\n```"
+    },
+    {
+      "round_number": 3,
+      "judge_question": "The meta agent suggests the road quality and lack of reflectors point to the Western Balkans (Montenegro, Albania, Bosnia), but you argue the soil and lack of limestone point to the Eastern Balkans/Carpathians (Bulgaria, Romania). Could the 'deep brown forest soil' you observed actually be present in the non-karst regions of the Western Balkans, or is it a definitive marker for the East?",
+      "target_agent": "landscape",
+      "agent_response": ""
+    },
+    {
+      "round_number": 3,
+      "judge_question": "You mentioned the lack of reflective delineators points to the Western Balkans. Are these reflectors consistently absent in rural Bulgarian or Romanian mountain roads of this specific age/quality, or is it possible this is just a poorly maintained section of an Eastern Balkan road?",
+      "target_agent": "meta",
+      "agent_response": ""
+    },
+    {
+      "round_number": 3,
+      "judge_question": "The meta agent suggests the road quality and lack of reflectors point to the Western Balkans (Montenegro, Albania, Bosnia), but you argue the soil and lack of limestone point to the Eastern Balkans/Carpathians (Bulgaria, Romania). Could the 'deep brown forest soil' you observed actually be present in the non-karst regions of the Western Balkans, or is it a definitive marker for the East?",
+      "target_agent": "landscape",
+      "agent_response": "```json\n{\"candidates\": [\n  {\"country\": \"Bulgaria\", \"confidence\": \"medium\", \"reasoning\": \"The deep brown, organic-rich soil and dense deciduous canopy are highly characteristic of the Balkan Mountains. While Western Balkan regions have non-karst areas, the specific combination of this soil profile and the lush, uniform forest density is more typical of the Eastern Balkan/Carpathian transition.\"},\n  {\"country\": \"Romania\", \"confidence\": \"medium\", \"reasoning\": \"The Carpathian landscape shares the same soil composition and temperate broadleaf forest structure as Bulgaria. Geographically, the lack of visible limestone outcrops makes this region a strong candidate compared to the karst-heavy Western Balkans.\"},\n  {\"country\": \"Bosnia and Herzegovina\", \"confidence\": \"low\", \"reasoning\": \"While the road quality aligns with the meta agent's suggestion, the lack of limestone outcrops in this specific frame is less common for the Dinaric Alps, though non-karst pockets do exist.\"},\n  {\"country\": \"Montenegro\", \"confidence\": \"low\", \"reasoning\": \"Similar to Bosnia, the terrain is possible, but the vegetation density and soil color are more indicative of the humid continental climates of the East than the Mediterranean-influenced West.\"}\n], \"evidence\": [\"Deep brown forest soil (non-karst)\", \"Dense temperate deciduous forest\", \"Northern hemisphere sun angle\", \"Weathered/rusted metal guardrails\", \"Winding two-lane asphalt road without reflectors\"]}\n```"
+    },
+    {
+      "round_number": 3,
+      "judge_question": "You mentioned the lack of reflective delineators points to the Western Balkans. Are these reflectors consistently absent in rural Bulgarian or Romanian mountain roads of this specific age/quality, or is it possible this is just a poorly maintained section of an Eastern Balkan road?",
+      "target_agent": "meta",
+      "agent_response": "```json\n{\"candidates\": [\n  {\"country\": \"Montenegro\", \"confidence\": \"medium\", \"reasoning\": \"The specific combination of the rusted, non-galvanized guardrail and the absence of delineator posts is highly characteristic of rural Montenegrin mountain roads. While Bulgaria and Romania have similar terrain, they typically employ more standardized white-and-red delineator posts even on older rural roads.\"},\n  {\"country\": \"Albania\", \"confidence\": \"medium\", \"reasoning\": \"Albania frequently features this level of infrastructure decay and the specific 'bare' guardrail style without reflectors. It is more likely than Romania or Bulgaria to have completely absent delineators on a paved road of this quality.\"},\n  {\"country\": \"Bosnia and Herzegovina\", \"confidence\": \"medium\", \"reasoning\": \"The road surface texture and the specific oxidation pattern of the metal guardrail are consistent with rural Bosnian coverage. Like Montenegro, it lacks the systematic delineator placement often found in the Eastern Balkans.\"},\n  {\"country\": \"Bulgaria\", \"confidence\": \"low\", \"reasoning\": \"While possible due to poor maintenance, Bulgarian rural roads of this era usually maintain some form of reflective markers or different guardrail mounting styles. The total absence of meta-markers here leans more toward the Western Balkans.\"},\n  {\"country\": \"Romania\", \"confidence\": \"low\", \"reasoning\": \"Similar to Bulgaria, Romanian mountain roads typically feature more consistent use of delineator posts. The specific 'stripped' look of this road edge is less common in Romania compared to the Western Balkan candidates.\"}\n], \"evidence\": [\"rusted metal guardrail style\", \"absence of reflective delineator posts\", \"Google Street View camera generation/image quality\"]}\n```"
+    }
+  ],
+  "discussion_rounds": 3,
+  "country_result": "Country: Bulgaria\nCoordinates: 42.5, 24.5\nReasoning: The landscape and botanics agents strongly identify the deep brown forest soil and dense temperate deciduous forest (European Beech and Hornbeam) as characteristic of the Balkan Mountains or Carpathians, specifically ruling out the limestone-heavy karst topography of the Western Balkans (Montenegro, Albania, Bosnia). While the meta agent suggests the lack of reflectors points to the Western Balkans, the landscape agent's specific soil analysis (cambisols/luvisols) and the botanics agent's high confidence in the European temperate mountain profile outweigh the generic infrastructure observations. Bulgaria is selected as a primary candidate for this specific combination of lush, non-karst mountainous terrain and weathered infrastructure.",
+  "coordinates": {
+    "lat": 42.5,
+    "lng": 24.5
+  },
+  "final_reasoning": ""
+}

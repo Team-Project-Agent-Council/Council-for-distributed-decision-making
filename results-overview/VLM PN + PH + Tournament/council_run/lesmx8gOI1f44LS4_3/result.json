@@ -1,0 +1,575 @@
+{
+  "image_path": "/pfs/data6/home/ma/ma_ma/ma_lweisssc/llm_council_agent_orchestration_tests/clean_images_GeoRC_500/lesmx8gOI1f44LS4_3.png",
+  "model": "google/gemma-4-31B-it",
+  "judge_model": "google/gemma-4-31B-it",
+  "timing": {
+    "total_seconds": 98.8
+  },
+  "assessments": {
+    "linguistic": {
+      "agent_name": "linguistic",
+      "candidates": [],
+      "evidence": []
+    },
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "India",
+          "confidence": "medium",
+          "reasoning": "The combination of coconut palms, dense tropical broadleaf vegetation, and the specific style of narrow paved rural road is highly characteristic of the Kerala or Karnataka coastal regions. The lush, humid environment and soil moisture levels match the Western Ghats foothills."
+        },
+        {
+          "country": "Sri Lanka",
+          "confidence": "medium",
+          "reasoning": "The landscape is nearly identical to Southern India, featuring the same tropical wet climate, coconut plantations, and narrow asphalt roads. It is geographically indistinguishable from India's southern coast based on vegetation alone."
+        },
+        {
+          "country": "Thailand",
+          "confidence": "low",
+          "reasoning": "The tropical greenery and palm species are common in Southeast Asia. However, the specific road shoulder and utility pole style are slightly more reminiscent of South Asia than the typical rural Thai landscape."
+        },
+        {
+          "country": "Brazil",
+          "confidence": "speculative",
+          "reasoning": "As a cross-continent analog, the Atlantic Forest regions of Brazil feature similar tropical humidity, dense green undergrowth, and coconut palms along rural roads."
+        }
+      ],
+      "evidence": [
+        "Tropical wet climate",
+        "Coconut palm (Cocos nucifera) dominance",
+        "Dense broadleaf undergrowth",
+        "Narrow paved rural road with no markings",
+        "High humidity indicated by vegetation density"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "India",
+          "confidence": "high",
+          "reasoning": "The combination of Cocos nucifera (coconut palms) and the specific dense, broad-leafed undergrowth is highly characteristic of the humid tropical regions of South India, particularly Kerala or Karnataka. The vegetation structure is consistent with the Western Ghats foothills."
+        },
+        {
+          "country": "Sri Lanka",
+          "confidence": "high",
+          "reasoning": "The botanical profile is nearly identical to South India, featuring the same coconut palm dominance and tropical rainforest understory. It is indistinguishable from the Indian coast based on vegetation alone."
+        },
+        {
+          "country": "Thailand",
+          "confidence": "medium",
+          "reasoning": "Similar tropical humid climate with coconut palms and dense broadleaf greenery. However, the specific mix of roadside scrub is slightly more characteristic of the Indian subcontinent."
+        },
+        {
+          "country": "Brazil",
+          "confidence": "low",
+          "reasoning": "Global analog: The Atlantic Forest biome features similar tropical broadleaf vegetation and coconut palms. However, the specific leaf morphology of the roadside shrubs is less typical for this region."
+        },
+        {
+          "country": "Indonesia",
+          "confidence": "low",
+          "reasoning": "Global analog: Tropical rainforest and coconut plantations are ubiquitous here. While the biome matches, the specific density and species of the roadside undergrowth are more common in South Asia."
+        }
+      ],
+      "evidence": [
+        "Cocos nucifera (Coconut Palm)",
+        "Tropical broadleaf understory",
+        "Humid tropical rainforest biome"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "India",
+          "confidence": "medium",
+          "reasoning": "The combination of narrow asphalt rural roads, specific concrete utility pole styles with mounted transformers, and the dense tropical vegetation is very common in Southern India."
+        },
+        {
+          "country": "Thailand",
+          "confidence": "low",
+          "reasoning": "Similar rural road width and utility pole infrastructure found in tropical regions of Southeast Asia."
+        },
+        {
+          "country": "Brazil",
+          "confidence": "speculative",
+          "reasoning": "Global analog: Rural tropical roads with basic asphalt and simple utility poles are visually similar across different continents."
+        },
+        {
+          "country": "Indonesia",
+          "confidence": "low",
+          "reasoning": "The road width, asphalt quality, and utility pole configuration are consistent with rural Indonesian village roads."
+        }
+      ],
+      "evidence": [
+        "Narrow asphalt road without shoulders",
+        "Concrete utility poles with mounted electrical transformers",
+        "Lack of road signs or bollards",
+        "Basic rural road width class"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "Sri Lanka",
+          "confidence": "medium",
+          "reasoning": "The utility pole design featuring a concrete base with a metal/wooden upper section and the specific style of the transformer mounted on the pole are very common in rural Sri Lanka. The image quality and camera height are consistent with Sri Lankan coverage."
+        },
+        {
+          "country": "Thailand",
+          "confidence": "low",
+          "reasoning": "Rural Thailand often uses similar concrete utility poles with complex wiring and transformers, though the specific pole shape here is more characteristic of South Asia."
+        },
+        {
+          "country": "Brazil",
+          "confidence": "speculative",
+          "reasoning": "As a cross-continent analog, rural Brazil features similar concrete utility poles and high-density tropical greenery with similar Google Street View camera generation artifacts."
+        }
+      ],
+      "evidence": [
+        "concrete utility pole with mounted transformer",
+        "specific power line wiring configuration",
+        "Google Street View camera generation/image quality"
+      ]
+    }
+  },
+  "progressive_narrowing": {
+    "region_consensus": false,
+    "confirmed_region": "South Asia",
+    "runner_up_region": "Southeast Asia",
+    "surviving_regions": [
+      "South Asia",
+      "Southeast Asia"
+    ],
+    "proposed_regions": [
+      "South Asia",
+      "Southeast Asia",
+      "South America"
+    ],
+    "region_candidates": {
+      "South Asia": {
+        "India": 3,
+        "Sri Lanka": 3
+      },
+      "Southeast Asia": {
+        "Thailand": 4,
+        "Indonesia": 2
+      },
+      "South America": {
+        "Brazil": 4
+      }
+    },
+    "region_decision_reasoning": "South Asia received the highest weighted score due to multiple 'strongly_support' ratings, particularly regarding the specific utility pole design and landscape characteristics of the Western Ghats or Sri Lanka. Southeast Asia is the runner-up as it shares very similar tropical flora and infrastructure, though it was rated with lower confidence than South Asia.",
+    "path": "B"
+  },
+  "road_evidence": {
+    "outside_color": "none",
+    "inside_color": "none",
+    "driving_side": "UNCLEAR",
+    "driving_side_basis": "none"
+  },
+  "country_assessments": {
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "India",
+          "confidence": "high",
+          "reasoning": "The combination of coconut palms, dense tropical broadleaf undergrowth, and the specific style of narrow asphalt road with weathered edges is highly characteristic of the Kerala or Karnataka coastal regions. The utility pole design and vegetation density are very common in South India."
+        },
+        {
+          "country": "Sri Lanka",
+          "confidence": "high",
+          "reasoning": "The landscape is nearly identical to the wet zone of Sri Lanka, featuring similar coconut plantations and lush, humid tropical greenery. It is geographically indistinguishable from South India based on terrain and flora alone."
+        },
+        {
+          "country": "Thailand",
+          "confidence": "medium",
+          "reasoning": "The tropical humid environment and road style are consistent with rural Southern Thailand. However, the specific density and mix of undergrowth are slightly more typical of the Indian subcontinent."
+        },
+        {
+          "country": "Indonesia",
+          "confidence": "medium",
+          "reasoning": "The volcanic soil richness is evident in the deep green foliage and palm density, which is common across Java and Sumatra. The narrow rural road layout is a standard settlement pattern in these regions."
+        }
+      ],
+      "evidence": [
+        "Tropical humid climate with high precipitation",
+        "Coconut palm (Cocos nucifera) dominance",
+        "Dense broadleaf tropical undergrowth",
+        "Narrow paved rural road with no shoulder",
+        "High sun angle suggesting equatorial or near-equatorial latitude"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "India",
+          "confidence": "high",
+          "reasoning": "The combination of Cocos nucifera (coconut palms) and the specific lush, broad-leafed undergrowth is highly characteristic of the Western Ghats or Kerala region. The density and arrangement of the mixed tropical vegetation are very common in South Indian rural roadsides."
+        },
+        {
+          "country": "Sri Lanka",
+          "confidence": "high",
+          "reasoning": "The vegetation is nearly identical to that of South India, featuring the same coconut palm dominance and tropical humid forest understory. It is botanically indistinguishable from the Kerala region of India without further non-botanical clues."
+        },
+        {
+          "country": "Thailand",
+          "confidence": "medium",
+          "reasoning": "The tropical humid environment and coconut cultivation are common in Southern Thailand. However, the specific composition of the roadside scrub is slightly more characteristic of the Indian subcontinent."
+        },
+        {
+          "country": "Indonesia",
+          "confidence": "medium",
+          "reasoning": "The presence of coconut palms and dense tropical greenery is ubiquitous across the archipelago. The biome matches perfectly, though the specific plant architecture is very common in South Asia as well."
+        }
+      ],
+      "evidence": [
+        "Cocos nucifera",
+        "Tropical humid forest understory",
+        "South/Southeast Asian tropical biome"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Sri Lanka",
+          "confidence": "medium",
+          "reasoning": "The narrow asphalt road width and the specific style of the concrete utility pole with a mounted transformer are common in rural Sri Lankan provinces. The lush tropical vegetation and road edge treatment are highly consistent with the region."
+        },
+        {
+          "country": "India",
+          "confidence": "medium",
+          "reasoning": "The rural road infrastructure, specifically the mix of asphalt and dirt shoulders combined with concrete utility poles, is very common in Southern India (e.g., Kerala). The vegetation and pole mounting style are typical for rural South Asian roads."
+        },
+        {
+          "country": "Thailand",
+          "confidence": "low",
+          "reasoning": "The road quality and the presence of concrete utility poles are consistent with rural Thailand. However, the specific pole hardware is slightly more characteristic of South Asia."
+        },
+        {
+          "country": "Indonesia",
+          "confidence": "low",
+          "reasoning": "The narrow road and tropical environment match rural Indonesia. The concrete utility poles are a standard feature, though the specific transformer mounting is less distinctive here."
+        }
+      ],
+      "evidence": [
+        "concrete utility poles",
+        "pole-mounted transformer",
+        "narrow asphalt road width",
+        "unpaved/grass shoulders"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "Sri Lanka",
+          "confidence": "high",
+          "reasoning": "The utility pole features a specific concrete design with a small, cylindrical transformer mounted high up, which is very characteristic of rural Sri Lankan power grids. The road quality and the specific style of the concrete pole are highly consistent with Sri Lankan coverage."
+        },
+        {
+          "country": "India",
+          "confidence": "medium",
+          "reasoning": "Similar concrete utility poles and transformer setups are used in southern India (e.g., Kerala), making it a strong regional analog. However, the specific pole shape and the lack of typical Indian road-side debris make it slightly less likely than Sri Lanka."
+        },
+        {
+          "country": "Thailand",
+          "confidence": "low",
+          "reasoning": "Thailand uses concrete poles extensively, but they typically have more complex cross-arms and different transformer mounting styles than seen here."
+        }
+      ],
+      "evidence": [
+        "Concrete utility pole design",
+        "Cylindrical transformer mounting style",
+        "Google Street View camera generation (Gen 3/4 quality)"
+      ]
+    }
+  },
+  "hypothesis_evaluations": [
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_south_asia",
+      "confidence": "strongly_support",
+      "reasoning": "The combination of dense tropical greenery, coconut palms, and the specific style of narrow, paved rural roads with utility poles is highly characteristic of the Western Ghats or coastal regions of India and Sri Lanka. The lush, humid vegetation and soil moisture levels are very consistent with this region.",
+      "key_evidence": [
+        "Coconut palm density",
+        "Tropical humid climate vegetation",
+        "Narrow rural asphalt road style"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_southeast_asia",
+      "confidence": "support",
+      "reasoning": "The landscape is very similar to rural areas in Thailand, Malaysia, or Indonesia, which share the same tropical climate and flora. However, the specific density and arrangement of the roadside foliage are slightly more typical of South Asian coastal highlands.",
+      "key_evidence": [
+        "Tropical rainforest flora",
+        "Palm trees",
+        "Humid environment"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_south_america",
+      "confidence": "low",
+      "reasoning": "While the tropical jungle environment is compatible with regions like Brazil or Colombia, the specific settlement pattern and road infrastructure are less common for these remote tropical areas compared to the Asian candidates.",
+      "key_evidence": [
+        "Tropical vegetation",
+        "Humid climate"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_south_asia",
+      "confidence": "support",
+      "reasoning": "The combination of Cocos nucifera (coconut palms) and the dense, lush undergrowth is highly characteristic of coastal South Asia, particularly the Western Ghats of India or Sri Lanka. The vegetation structure is consistent with humid tropical monsoon climates found here.",
+      "key_evidence": [
+        "Cocos nucifera",
+        "Tropical monsoon undergrowth"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_southeast_asia",
+      "confidence": "support",
+      "reasoning": "The botanical composition is almost identical to that of South Asia, featuring coconut palms and broadleaf tropical greenery common in Thailand, Malaysia, or Indonesia. Without a specific endemic species, it is indistinguishable from South Asian coastal flora.",
+      "key_evidence": [
+        "Cocos nucifera",
+        "Tropical rainforest edge vegetation"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_south_america",
+      "confidence": "low",
+      "reasoning": "While the biome is a tropical rainforest/coastal analog compatible with regions like Brazil or Colombia, the specific arrangement of coconut palms alongside this particular type of road-side scrub is more typical of the Indo-Pacific region. It remains a possibility as a global analog for the humid tropics.",
+      "key_evidence": [
+        "Cocos nucifera",
+        "Humid tropical biome"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_south_asia",
+      "confidence": "strongly_support",
+      "reasoning": "The utility pole design is highly characteristic of Sri Lanka, featuring a specific concrete pole with a small, cylindrical grey transformer mounted high up and a distinct arrangement of cross-arms. The image quality and camera generation are consistent with Sri Lankan coverage.",
+      "key_evidence": [
+        "concrete utility pole style",
+        "cylindrical transformer mounting",
+        "camera generation/image quality"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_southeast_asia",
+      "confidence": "support",
+      "reasoning": "The general infrastructure, such as the narrow paved road and basic concrete poles, is compatible with several Southeast Asian countries (e.g., Thailand or Indonesia), though the specific transformer style is less common there than in South Asia.",
+      "key_evidence": [
+        "concrete utility poles",
+        "road surface quality"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_south_america",
+      "confidence": "low",
+      "reasoning": "While some rural areas in Brazil or Colombia have similar narrow roads and concrete poles, the specific configuration of the electrical hardware on the pole is not typical for the region.",
+      "key_evidence": [
+        "generic concrete poles"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_india",
+      "confidence": "strongly_support",
+      "reasoning": "The combination of lush tropical greenery, coconut palms, and the specific style of narrow asphalt road with uncurbed, grassy shoulders is highly characteristic of the Western Ghats or coastal Kerala/Karnataka regions. The vegetation density and road infrastructure are very consistent with South Indian rural landscapes.",
+      "key_evidence": [
+        "coconut palms",
+        "dense tropical undergrowth",
+        "narrow rural asphalt road"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_sri_lanka",
+      "confidence": "support",
+      "reasoning": "The landscape is geographically very similar to South India, featuring the same tropical climate and coconut palm distribution. It is highly compatible, though the specific road shoulder vegetation is slightly more typical of the Indian mainland.",
+      "key_evidence": [
+        "tropical climate",
+        "coconut palms",
+        "humid environment"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_indonesia",
+      "confidence": "support",
+      "reasoning": "The tropical rainforest environment and palm trees are consistent with Indonesian islands. However, the specific road construction and utility pole style are slightly more aligned with South Asian patterns.",
+      "key_evidence": [
+        "tropical jungle",
+        "palm trees",
+        "humid climate"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_thailand",
+      "confidence": "support",
+      "reasoning": "The lush greenery and tropical flora are compatible with Thailand's southern regions. However, the specific mix of broad-leafed undergrowth and palm height is more characteristic of the Indian subcontinent.",
+      "key_evidence": [
+        "tropical vegetation",
+        "humid climate"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_india",
+      "confidence": "support",
+      "reasoning": "The combination of coconut palms (Cocos nucifera) and dense, broad-leaved tropical undergrowth is highly characteristic of the Western Ghats or coastal Kerala/Karnataka regions. It is botanically indistinguishable from Sri Lanka in this specific view.",
+      "key_evidence": [
+        "Cocos nucifera",
+        "Tropical broadleaf undergrowth"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_sri_lanka",
+      "confidence": "support",
+      "reasoning": "The vegetation is perfectly consistent with the humid tropical climate of Sri Lanka, where coconut palms and lush, opportunistic greenery line rural roads. It shares the same botanical profile as Southern India.",
+      "key_evidence": [
+        "Cocos nucifera",
+        "Tropical broadleaf undergrowth"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_thailand",
+      "confidence": "low",
+      "reasoning": "While Thailand has coconut palms and tropical greenery, the specific density and layering of the roadside scrub seen here are more typical of the Indian subcontinent's humid zones than the typical Thai rural landscape.",
+      "key_evidence": [
+        "Cocos nucifera"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_indonesia",
+      "confidence": "low",
+      "reasoning": "The biome is compatible with Indonesia's tropical rainforest climate, but the specific arrangement of coconut palms as a dominant roadside feature is more characteristic of the South Asian coastal belt.",
+      "key_evidence": [
+        "Cocos nucifera"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_sri_lanka",
+      "confidence": "strongly_support",
+      "reasoning": "The utility pole is a classic Sri Lankan design: a concrete pole with a specific small, cylindrical transformer mounted high up, often seen in rural areas. The image quality and camera generation are consistent with Sri Lankan coverage.",
+      "key_evidence": [
+        "concrete utility pole design",
+        "cylindrical transformer style",
+        "camera generation"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_india",
+      "confidence": "support",
+      "reasoning": "The utility poles and general road quality are compatible with rural India, particularly in southern states. However, the specific transformer mounting is more characteristic of Sri Lanka.",
+      "key_evidence": [
+        "concrete utility poles"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_indonesia",
+      "confidence": "low",
+      "reasoning": "While the general environment is compatible, the specific style of the concrete utility pole and the transformer does not match the most common Indonesian patterns.",
+      "key_evidence": [
+        "concrete utility poles"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_thailand",
+      "confidence": "low",
+      "reasoning": "Thailand typically uses different utility pole configurations (often with more complex cross-arms or different concrete shapes) than what is visible here.",
+      "key_evidence": [
+        "utility pole design"
+      ]
+    }
+  ],
+  "candidate_pool": [
+    "India",
+    "Sri Lanka",
+    "Thailand",
+    "Indonesia"
+  ],
+  "rag_findings": [
+    {
+      "kind": "tournament_match",
+      "country": "Indonesia",
+      "detail": "The landscape, featuring dense tropical greenery and coconut palms along a narrow asphalt road with grassy shoulders, is strongly characteristic of South India (specifically Kerala or Karnataka). Specialist evidence notes that the utility pole and road infrastructure are more aligned with South Asian patterns than Indonesian ones.",
+      "opponent": "India",
+      "winner": "India"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Thailand",
+      "detail": "The utility pole design, specifically the concrete pole with a small cylindrical transformer mounted high up, is a strong match for Sri Lankan rural infrastructure. Additionally, the botanical profile and lush roadside greenery are more characteristic of the Indian subcontinent/Sri Lanka than Thailand.",
+      "opponent": "Sri Lanka",
+      "winner": "Sri Lanka"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "India",
+      "detail": "The utility pole features a specific small, cylindrical transformer mounted high up, which is a classic design characteristic of rural Sri Lanka as noted in the meta evidence. While the landscape is similar to South India, the specific infrastructure of the electrical pole strongly supports Sri Lanka.",
+      "opponent": "Sri Lanka",
+      "winner": "Sri Lanka"
+    }
+  ],
+  "rag_refs_seen": [],
+  "road_filter_warnings": [],
+  "tournament_log": [
+    {
+      "round_label": "semi-1",
+      "country_a": "India",
+      "country_b": "Indonesia",
+      "pool_rank_a": 0,
+      "pool_rank_b": 3,
+      "winner": "India",
+      "reasoning": "The landscape, featuring dense tropical greenery and coconut palms along a narrow asphalt road with grassy shoulders, is strongly characteristic of South India (specifically Kerala or Karnataka). Specialist evidence notes that the utility pole and road infrastructure are more aligned with South Asian patterns than Indonesian ones.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "semi-2",
+      "country_a": "Sri Lanka",
+      "country_b": "Thailand",
+      "pool_rank_a": 1,
+      "pool_rank_b": 2,
+      "winner": "Sri Lanka",
+      "reasoning": "The utility pole design, specifically the concrete pole with a small cylindrical transformer mounted high up, is a strong match for Sri Lankan rural infrastructure. Additionally, the botanical profile and lush roadside greenery are more characteristic of the Indian subcontinent/Sri Lanka than Thailand.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "final",
+      "country_a": "India",
+      "country_b": "Sri Lanka",
+      "pool_rank_a": 0,
+      "pool_rank_b": 1,
+      "winner": "Sri Lanka",
+      "reasoning": "The utility pole features a specific small, cylindrical transformer mounted high up, which is a classic design characteristic of rural Sri Lanka as noted in the meta evidence. While the landscape is similar to South India, the specific infrastructure of the electrical pole strongly supports Sri Lanka.",
+      "agreement": "agree"
+    }
+  ],
+  "country_result": "Country: Sri Lanka\nCoordinates: 7.8731, 80.7718\nReasoning: The utility pole features a specific small, cylindrical transformer mounted high up, which is a classic design characteristic of rural Sri Lanka as noted in the meta evidence. While the landscape is similar to South India, the specific infrastructure of the electrical pole strongly supports Sri Lanka.\n\nTournament:\n  semi-1: India vs Indonesia → India\n  semi-2: Sri Lanka vs Thailand → Sri Lanka\n  final: India vs Sri Lanka → Sri Lanka",
+  "coordinates": {
+    "lat": 7.8731,
+    "lng": 80.7718
+  },
+  "final_reasoning": "The utility pole features a specific small, cylindrical transformer mounted high up, which is a classic design characteristic of rural Sri Lanka as noted in the meta evidence. While the landscape is similar to South India, the specific infrastructure of the electrical pole strongly supports Sri Lanka."
+}

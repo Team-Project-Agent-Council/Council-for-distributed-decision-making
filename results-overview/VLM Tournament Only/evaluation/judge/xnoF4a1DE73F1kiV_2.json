@@ -1,0 +1,102 @@
+{
+  "image_id": "xnoF4a1DE73F1kiV_2",
+  "truth_country": "france",
+  "pred_country": "hawaii, usa",
+  "is_correct": false,
+  "candidate_pool": [
+    "Australia",
+    "New Zealand",
+    "Brazil",
+    "Hawaii, USA",
+    "Hawaii (USA)",
+    "French Polynesia"
+  ],
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": false,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "role_adherence_notes": {
+      "linguistic": "The agent provided no output (empty candidates and evidence), failing to perform its role.",
+      "landscape": "Stayed within terrain, vegetation, and climate analysis.",
+      "botanics": "Stayed within plant species and biome analysis.",
+      "regulatory": "Stayed within infrastructure and road marking analysis.",
+      "meta": "Stayed within cross-domain synthesis (camera artifacts, architecture, utility styles)."
+    },
+    "argumentative_quality": {
+      "linguistic": "very_weak",
+      "landscape": "strong",
+      "botanics": "strong",
+      "regulatory": "normal",
+      "meta": "strong"
+    },
+    "constructive_synthesis": false,
+    "overall_verdict_notes": "The pipeline failed because the linguistic agent was empty and the other agents hallucinated key visual features (coconut palms) to fit a 'Hawaii' narrative. The tournament then suffered from a duplicate candidate pool (Hawaii, USA vs Hawaii (USA)) and a judge that relied on 'camera artifacts' rather than visual evidence, leading to a wrong prediction.",
+    "role_adherence_score": {
+      "linguistic": 0.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.9,
+      "meta": 0.9
+    },
+    "argumentative_quality_score": {
+      "linguistic": 0.0,
+      "landscape": 0.8,
+      "botanics": 0.8,
+      "regulatory": 0.6,
+      "meta": 0.8
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.1,
+      "botanics": 0.75,
+      "regulatory": 0.0,
+      "meta": 0.1
+    },
+    "hallucination_examples": {
+      "linguistic": [],
+      "landscape": [],
+      "botanics": [
+        "claimed 'Cocos nucifera (Coconut Palm)' visible \u2014 the image shows generic palm-like fronds but no distinct coconuts or trunks, and the landscape agent noted 'palm-like vegetation' rather than identifying the species.",
+        "claimed 'specific coastal scrub morphology' \u2014 vague and unsupported by specific visual details in the image."
+      ],
+      "regulatory": [],
+      "meta": [
+        "claimed 'simple wooden poles without the complex cross-arms' \u2014 the poles in the image clearly have cross-arms and insulators."
+      ]
+    },
+    "visual_consistency_score": {
+      "linguistic": 0.0,
+      "landscape": 0.8,
+      "botanics": 0.3,
+      "regulatory": 0.9,
+      "meta": 0.5
+    },
+    "visual_consistency_notes": {
+      "linguistic": "No output.",
+      "landscape": "Described lush greenery and coastal hills accurately.",
+      "botanics": "Identified 'tropical ferns' correctly but hallucinated 'coconut palms' which are not clearly visible.",
+      "regulatory": "Correctly described the narrow asphalt road and wooden poles.",
+      "meta": "Incorrectly described the utility pole hardware (cross-arms)."
+    },
+    "confidence_calibration": {
+      "linguistic": 0.0,
+      "landscape": 0.2,
+      "botanics": 0.2,
+      "regulatory": 0.2,
+      "meta": 0.2
+    },
+    "tournament_failure": {
+      "truth_in_pool": false,
+      "truth_lost_to": null,
+      "failure_match_round": null,
+      "failure_reason": "agent_misled_pre_pool",
+      "failure_reasoning": "The ground truth (France) was not included in the candidate pool. The agents failed to identify the location as a French overseas department (likely R\u00e9union), likely due to the linguistic agent's total failure to analyze any text (none visible) and the other agents' bias towards 'Hawaii' based on hallucinated vegetation.",
+      "counterfactual_winnable": false
+    }
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "image_id": "nnxZ3V6PpY9PoPLX_2",
+  "truth_country": "new zealand",
+  "pred_country": "spain",
+  "is_correct": false,
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": true,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.5,
+      "botanics": 0.5,
+      "regulatory": 0.5,
+      "meta": 0.5
+    },
+    "visual_consistency_score": {
+      "linguistic": 1.0,
+      "landscape": 0.75,
+      "botanics": 0.75,
+      "regulatory": 0.75,
+      "meta": 0.75
+    },
+    "confidence_calibration_score": {
+      "linguistic": 0.5,
+      "landscape": 0.0,
+      "botanics": 0.0,
+      "regulatory": 0.0,
+      "meta": 0.0
+    },
+    "round2_improvement": {
+      "linguistic": 0.0,
+      "landscape": 0.0,
+      "botanics": 0.0,
+      "regulatory": 0.0,
+      "meta": 0.0
+    },
+    "round2_improvement_notes": {
+      "linguistic": "Agent provided no output; cannot evaluate improvement.",
+      "landscape": "Agent did not improve; it simply adopted the hallucinated 'delineator post' evidence from the Meta agent to increase confidence in a wrong answer.",
+      "botanics": "Agent did not improve; it adopted the hallucinated 'delineator post' evidence from the Meta agent to increase confidence in a wrong answer.",
+      "regulatory": "Agent did not improve; it adopted the hallucinated 'delineator post' evidence from the Meta agent to increase confidence in a wrong answer.",
+      "meta": "Agent did not improve; it hallucinated a specific 'thin white delineator post' on the left side of the road which is not visible in the image."
+    },
+    "role_leakage_score": {
+      "linguistic": 0.0,
+      "landscape": 1.0,
+      "botanics": 1.0,
+      "regulatory": 1.0,
+      "meta": 0.0
+    },
+    "role_leakage_notes": {
+      "linguistic": "No leakage.",
+      "landscape": "Heavy leakage: The landscape agent's R2 reasoning relies entirely on the 'thin white delineator post' claim from the Meta agent, which is outside the landscape domain.",
+      "botanics": "Heavy leakage: The botanics agent's R2 reasoning relies entirely on the 'thin white delineator post' claim from the Meta agent, which is outside the botanics domain.",
+      "regulatory": "Heavy leakage: The regulatory agent's R2 reasoning relies entirely on the 'thin white delineator post' claim from the Meta agent, which is outside the regulatory domain.",
+      "meta": "No leakage."
+    },
+    "hallucination_examples": {
+      "linguistic": [],
+      "landscape": [
+        "The specific infrastructure markers noted by the Meta Agent... are highly characteristic of rural Spain"
+      ],
+      "botanics": [
+        "This botanical evidence is strongly reinforced by the Landscape and Meta agents' observations of... specific Spanish delineator posts"
+      ],
+      "regulatory": [
+        "The specific thin white delineator post on the left... are highly characteristic of the Spanish interior"
+      ],
+      "meta": [
+        "the specific style of the thin white delineator post on the left"
+      ]
+    },
+    "judge_synthesis_quality": 0.0,
+    "judge_synthesis_notes": "The judge failed to identify the hallucination. The 'thin white delineator post' cited by the Meta agent and subsequently adopted by all other agents does not exist in the image (the left shoulder is empty). The judge's synthesis is circular, relying on the hallucinated evidence to confirm the wrong prediction (Spain) while missing the actual visual evidence (e.g., lack of right-hand traffic signs, specific vegetation) that points to New Zealand."
+  }
+}

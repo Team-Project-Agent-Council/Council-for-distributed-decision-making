@@ -1,0 +1,98 @@
+{
+  "image_id": "d8lnc9Ex03KQUJEL_2",
+  "truth_country": "canada",
+  "pred_country": "united states",
+  "is_correct": false,
+  "candidate_pool": [
+    "USA",
+    "Canada",
+    "Argentina",
+    "Kazakhstan",
+    "Russia",
+    "Australia"
+  ],
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": false,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "role_adherence_notes": {
+      "linguistic": "The agent provided no candidates and no evidence, effectively failing to perform its role.",
+      "landscape": "Stayed within terrain, vegetation, and climate analysis.",
+      "botanics": "Stayed within biome and crop analysis.",
+      "regulatory": "Stayed within infrastructure and road marking analysis.",
+      "meta": "Stayed within cross-domain synthesis and camera generation analysis."
+    },
+    "argumentative_quality": {
+      "linguistic": "very_weak",
+      "landscape": "strong",
+      "botanics": "strong",
+      "regulatory": "normal",
+      "meta": "strong"
+    },
+    "constructive_synthesis": true,
+    "overall_verdict_notes": "The pipeline failed to identify the correct country (Canada) because the linguistic agent was completely absent, and the remaining agents could not distinguish between the US and Canada based on the visual evidence (which is nearly identical). The tournament correctly identified the US as the winner of the final match, but this was a 50/50 guess between two very similar North American regions. The failure is primarily due to the lack of distinguishing evidence (like signs or license plates) rather than a structural flaw in the tournament logic.",
+    "role_adherence_score": {
+      "linguistic": 0.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.8,
+      "meta": 0.9
+    },
+    "argumentative_quality_score": {
+      "linguistic": 0.0,
+      "landscape": 0.8,
+      "botanics": 0.8,
+      "regulatory": 0.6,
+      "meta": 0.8
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.0,
+      "botanics": 0.0,
+      "regulatory": 0.0,
+      "meta": 0.0
+    },
+    "hallucination_examples": {
+      "linguistic": [],
+      "landscape": [],
+      "botanics": [],
+      "regulatory": [],
+      "meta": []
+    },
+    "visual_consistency_score": {
+      "linguistic": 0.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.8,
+      "meta": 0.9
+    },
+    "visual_consistency_notes": {
+      "linguistic": "No claims made.",
+      "landscape": "Accurately described the prairie terrain and utility poles.",
+      "botanics": "Accurately described the temperate grassland and fallow fields.",
+      "regulatory": "Accurately described the gravel road and lack of markings.",
+      "meta": "Accurately described the camera generation and pole style."
+    },
+    "confidence_calibration": {
+      "linguistic": 0.0,
+      "landscape": 0.5,
+      "botanics": 0.5,
+      "regulatory": 0.5,
+      "meta": 0.5
+    },
+    "tournament_failure": {
+      "truth_in_pool": true,
+      "truth_lost_to": "USA",
+      "failure_match_round": "final",
+      "failure_reason": "ambiguous_evidence",
+      "failure_reasoning": "The final match was between USA and Canada. The visual evidence (gravel road, wooden poles, flat prairie) is virtually identical in both countries. The specialists could not distinguish between them, and the RAG evidence was likely symmetric or non-existent for specific distinguishing features. The judge's decision was a guess between two equally plausible options.",
+      "counterfactual_winnable": false
+    }
+  },
+  "validation_error": "1 validation error for JudgeVerdict\noverall_verdict_notes\n  String should have at most 400 characters [type=string_too_long, input_value='The pipeline failed to i...n the tournament logic.', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_too_long"
+}

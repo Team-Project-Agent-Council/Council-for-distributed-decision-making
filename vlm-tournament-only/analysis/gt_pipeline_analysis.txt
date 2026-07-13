@@ -1,0 +1,328 @@
+==========================================================================
+  VLM Council - Tournament-only Analysis
+==========================================================================
+  Total images: 500
+
+--------------------------------------------------------------------------
+  PIPELINE OVERVIEW
+--------------------------------------------------------------------------
+  The tournament-only approach strips out PN region gating, per-agent
+  country reassessment, and road-side filtering - leaving just initial
+  assessments -> candidate pool -> country hypothesis eval -> 4-seed
+  bracket -> champion. The bracket is always a full 3-match tree
+  (semi-1, semi-2, final). We check here that the runs conform to that
+  shape, and how much pool-vs-bracket slack there is (a pool of 5-6
+  candidates means the seeding step dropped one or two countries
+  before bracketing).
+
+  Runs marked as TOURNAMENT_ONLY path: 500/500 (100.0%)
+  Bracket shapes:
+    semi-1 -> semi-2 -> final                   500  (100.0%)
+
+  Candidate-pool size:  min 4, max 6, mean 5.75, median 6
+  Bracket size:         min 4, max 4, mean 4.00
+  Pool ↔ bracket slack (pool-size - bracket-size): mean 1.75, max 2
+
+  Hypothesis evaluations per image: mean 16.7, median 18, max 30
+
+--------------------------------------------------------------------------
+  POOL -> BRACKET SEEDING (which pool candidates make the tree)
+--------------------------------------------------------------------------
+  Given a pool of 4-6 countries, only 4 enter the bracket. This
+  section characterises what the seeding step drops. 'Bracket ==
+  pool[:4]' asks whether the bracket is simply the first four of the
+  pool array (i.e. the pool is already a ranked list). If not, the
+  seeding uses information beyond the pool order - most likely the
+  aggregated hypothesis-eval scores. The seed-0 country identity table
+  shows which agent's top pick tends to become the top seed.
+
+  Images where the bracket == pool[:4] as a set: 204/500 (40.8%)
+  Images with pool larger than 4 (some pool entries did NOT make the bracket): 485/500 (97.0%)
+
+  Seed-0 country origin (across 500 images):
+    matches the initial plurality (≥2/5): 467/500 (93.4%)
+    matches an individual agent's initial top pick:
+      linguistic     95/500 ( 19.0%)
+      landscape     460/500 ( 92.0%)
+      botanics      442/500 ( 88.4%)
+      regulatory    432/500 ( 86.4%)
+      meta          416/500 ( 83.2%)
+
+--------------------------------------------------------------------------
+  HYPOTHESIS STANCE DISTRIBUTION (per agent, country hyps only)
+--------------------------------------------------------------------------
+  Every hypothesis evaluated in this pipeline is a country hypothesis
+  (there are no region hypotheses because there is no region gate).
+  This table is the agent's behavioural signature: assertive agents
+  pile up support/strongly_support, sceptical agents produce many
+  contradicts/strongly_contradicts, narrow-signal agents sit on
+  neutral/low/speculative. Compare this shape against the v12 stance
+  distribution to see how removing the region step changes agent
+  commitment patterns.
+
+  Agent         Total         s_supp          supp          neut           low          spec        contra      s_contra
+  ──────────── ──────  ───────────── ───────────── ───────────── ───────────── ───────────── ───────────── ─────────────
+  linguistic      850       0 ( 0.0%)      0 ( 0.0%)    850 (100.0%)      0 ( 0.0%)      0 ( 0.0%)      0 ( 0.0%)      0 ( 0.0%)
+  landscape      1351     255 (18.9%)    663 (49.1%)     43 ( 3.2%)    196 (14.5%)     10 ( 0.7%)    160 (11.8%)     24 ( 1.8%)
+  botanics       2651      64 ( 2.4%)   1635 (61.7%)     48 ( 1.8%)    717 (27.0%)     29 ( 1.1%)    125 ( 4.7%)     18 ( 0.7%)
+  regulatory      607      62 (10.2%)    257 (42.3%)     16 ( 2.6%)     84 (13.8%)     66 (10.9%)     65 (10.7%)     57 ( 9.4%)
+  meta           2869     419 (14.6%)   1009 (35.2%)     79 ( 2.8%)    725 (25.3%)    100 ( 3.5%)    390 (13.6%)    147 ( 5.1%)
+
+  Stance scoring: strongly_support=+2 support=+1 neutral/low/spec=0 contradicts=-1 strongly_contradicts=-2
+
+--------------------------------------------------------------------------
+  TOURNAMENT DYNAMICS (matches, upsets, judge overrides)
+--------------------------------------------------------------------------
+  Match-level behaviour of the 4-seed bracket. `Agreement` = the
+  specialists defending each candidate and the judge all reached the
+  same verdict. `Disagreement` = judge overruled a specialist. `Upset`
+  = a lower-seeded country beat a higher seeded one - i.e. the
+  tournament revised the seeding. In this pipeline the tournament IS
+  the whole answer, so upsets are where the mechanism actually does
+  work beyond the pool builder; later GT sections check whether the
+  upsets are informative.
+
+  Total matches: 1500
+    Agreement (judge == specialists): 1469/1500 (97.9%)
+    Disagreement (judge overruled):   31/1500 (2.1%)
+    Upsets (lower seed won):          82/1500 (5.5%)
+
+  Round          N  Upsets  Upset %  Disagree  Disagree %
+  ────────── ───── ─────── ──────── ───────── ───────────
+  semi-1       500       1     0.2%         2        0.4%
+  semi-2       500      74    14.8%        24        4.8%
+  final        500       7     1.4%         5        1.0%
+
+  Finals played: 500
+    Champion by original seed:
+      seed 0:  492  ( 98.4%)
+      seed 1:    4  (  0.8%)
+      seed 2:    4  (  0.8%)
+
+--------------------------------------------------------------------------
+  INITIAL PLURALITY -> CHAMPION (does the tournament ratify or revise?)
+--------------------------------------------------------------------------
+  Compares each image's initial plurality (≥2 agents naming the same
+  country up front) with the tournament champion. A high match rate
+  means the tournament mostly rubber-stamps the pre-tournament
+  consensus; a lower one means the bracket + HE actively revise the
+  initial answer. Whether revisions are productive can only be told
+  with GT (see later sections).
+
+  Images with initial plurality (≥2/5): 498/500
+    Champion == initial plurality: 463/498 (93.0%)
+    Champion  ≠ initial plurality: 35/498 (7.0%)
+    No initial plurality:          2/500
+
+--------------------------------------------------------------------------
+  TIMING
+--------------------------------------------------------------------------
+  Wall-clock cost per image. Since every image runs the full 4-seed
+  bracket, timing variance mostly reflects agent latency and
+  hypothesis-eval volume, not pipeline shape (as it did in v12 where
+  walkovers were much cheaper).
+
+  Overall: avg 88.9s, median 58.8s, min 38.6s, max 747.5s
+  Total compute: 44452s (740.9 min)
+
+==========================================================================
+  GROUND-TRUTH-BASED TOURNAMENT-ONLY ANALYSIS
+==========================================================================
+
+--------------------------------------------------------------------------
+  PIPELINE ACCURACY LADDER (each gate, on GT)
+--------------------------------------------------------------------------
+  The tournament-only pipeline has just four gates that can drop GT:
+  pool inclusion, bracket seeding (top-4 of pool), reaching the final,
+  and winning the final. Once a gate drops GT, no downstream stage can
+  recover it. Compare the survival rates side-by-side to see which
+  gate is the primary bottleneck - for tournament-only this is almost
+  always the pool builder, since there's no region gate above it.
+
+  Images with GT: 500
+
+  GT was some agent's initial top pick              356/500  ( 71.2%)
+  Initial plurality (≥2/5) on GT                    324/500  ( 64.8%)
+  GT ∈ candidate_pool (any rank)                    428/500  ( 85.6%)
+  GT ∈ candidate_pool top-3                         391/500  ( 78.2%)
+  GT == pool[0]                                     315/500  ( 63.0%)
+  GT ∈ bracket (top-4 seeded)                       417/500  ( 83.4%)
+  GT ∈ bracket top-2 seed (seed 0 or 1)             375/500  ( 75.0%)
+  GT == seed 0 (bracket top seed)                   335/500  ( 67.0%)
+  GT reached tournament final                       383/500  ( 76.6%)
+  GT won tournament (== champion)                   338/500  ( 67.6%)
+  Final judge country == GT                         338/500  ( 67.6%)
+
+  Gate-to-gate survival of GT:
+    in pool -> in bracket: 417/428 (97.4%)
+    in bracket -> reached final: 383/417 (91.8%)
+    reached final -> won tournament: 338/383 (88.3%)
+    won tournament -> final judge = GT: 338/338 (100.0%)
+
+--------------------------------------------------------------------------
+  SEED FIDELITY - does the seeding align with truth?
+--------------------------------------------------------------------------
+  For every image where GT made it into the bracket, at which seed did
+  it land? A well-calibrated seeding puts GT at seed 0, where it plays
+  only two matches to win. The seed-to-outcome table shows how often
+  GT wins by seed: if seed 3 GT still wins half its images, the
+  tournament corrects mis-seedings; if seed 3 GT almost always loses,
+  the seeding basically decides the answer.
+
+  Images where GT is in the bracket: 417
+
+   GT seed     N   Won   Win rate
+  ──────── ───── ───── ──────────
+         0   335   333      99.4%
+         1    40     1       2.5%
+         2    27     4      14.8%
+         3    15     0       0.0%
+
+  Overall: when GT is in the bracket, tournament picks it 338/417 (81.1%) of the time.
+
+--------------------------------------------------------------------------
+  HYPOTHESIS-STANCE CALIBRATION (GT country hyp vs the rest)
+--------------------------------------------------------------------------
+  For each image we sum stance scores per country hypothesis and rank
+  them. If HE is well-calibrated, the GT country hypothesis ranks #1
+  with a positive score. Because tournament-only has no region
+  hypotheses, this table is a pure country-level probe. Compare
+  'ranked #1' (a strict criterion) with 'score > 0' (a floor: at least
+  net-supported).
+
+  Images with GT: 500
+  Images where GT country was evaluated as a hypothesis: 428/500 (85.6%)
+    Ranked #1 by aggregate stance:   335/428 (78.3%)
+    Ranked in top 3:                 400/428 (93.5%)
+    Aggregate score > 0 (net supported):    421/428 (98.4%)
+    Aggregate score < 0 (net contradicted): 2/428 (0.5%)
+    Mean rank of GT hyp:            1.44 (median 1)
+    Mean aggregate score of GT hyp: +3.80
+
+  Per-agent stance on the GT country hypothesis:
+    Agent            N    s_supp      supp      neut       low      spec    contra  s_contra
+    ──────────── ───── ───────── ───────── ───────── ───────── ───────── ───────── ─────────
+    linguistic     115         0         0       115         0         0         0         0
+    landscape      203       154        42         1         5         0         1         0
+    botanics       393        53       327         1        10         0         0         0
+    regulatory     102        52        48         0         2         0         0         0
+    meta           427       288       117         3        17         1         1         0
+
+--------------------------------------------------------------------------
+  MATCH-LEVEL OUTCOMES vs GT
+--------------------------------------------------------------------------
+  For each 1v1 match: was the winning country GT, the losing country
+  GT, or neither? 'Toward truth' = winner was GT; 'Away from truth' =
+  GT was in the match but lost - a wasted chance for the pipeline;
+  'Both wrong' = GT never entered the match at all (a pool-level
+  failure). Decisive-match accuracy isolates only matches where GT was
+  on exactly one side.
+
+  Total matches (GT-anchored images): 1500
+    Toward truth (winner == GT):          735/1500 (49.0%)
+    Away from truth (GT was in match, lost): 79/1500 (5.3%)
+    Both wrong (GT not in match):         686/1500 (45.7%)
+    Decisive matches (GT on exactly one side): 735/814 (90.3%) toward truth
+
+  Round          N  Toward   Away  Both wrong
+  ────────── ───── ─────── ────── ───────────
+  semi-1       500     335 (67.0%)   15 ( 3.0%)    150 (30.0%)
+  semi-2       500      62 (12.4%)   19 ( 3.8%)    419 (83.8%)
+  final        500     338 (67.6%)   45 ( 9.0%)    117 (23.4%)
+
+  Bracket upsets (lower seed won): 82
+    Toward GT: 14/82 (17.1%)
+    Away from GT: 4/82 (4.9%)
+    (remainder = neither side was GT)
+
+--------------------------------------------------------------------------
+  HOW GT LOSES - semi vs final elimination + top eliminators
+--------------------------------------------------------------------------
+  When GT is in the bracket but doesn't win, at which round is it
+  eliminated, and by which country? A large tail of the same
+  eliminator suggests a systematic confusion (e.g. Costa Rica beats
+  Taiwan repeatedly). Semi-eliminations mean GT lost early; final-
+  eliminations mean GT reached the last match but was outvoted.
+
+  GT in bracket: 417    Eliminated: 79
+    Lost in a semi-final: 34
+    Lost in the final:    45
+
+  Top eliminators in the semis:
+    Namibia                             3
+    Lithuania                           2
+    Belgium                             2
+    Germany                             2
+    Bulgaria                            2
+    Kazakhstan                          1
+    Ecuador                             1
+    Russia                              1
+
+  Top eliminators in the final:
+    Namibia                             4
+    Bosnia and Herzegovina              2
+    India                               2
+    Philippines                         2
+    Sweden                              2
+    Finland                             2
+    Russia                              2
+    USA                                 2
+
+--------------------------------------------------------------------------
+  PER-AGENT INITIAL PICK ACCURACY (only pre-tournament signal)
+--------------------------------------------------------------------------
+  In tournament-only there is no per-agent country reassessment, so an
+  agent's contribution is just its initial top pick. 'Init acc' =
+  share of images where the agent's top pick is GT. 'Also in bracket'
+  = share of images where the agent's top pick made it into the
+  bracket at all - a measure of how much the pool-builder listens to
+  this agent. Compare the two: an agent who is often correct but
+  rarely bracketed is being underused.
+
+  Agent            N     Init acc   Top ∈ bracket   Top ∈ pool
+  ──────────── ───── ──────────── ─────────────── ────────────
+  linguistic     107 84/107 (78.5%) 103/107 (96.3%) 106/107 (99.1%)
+  landscape      500 323/500 (64.6%) 497/500 (99.4%) 500/500 (100.0%)
+  botanics       500 316/500 (63.2%) 497/500 (99.4%) 500/500 (100.0%)
+  regulatory     500 323/500 (64.6%) 493/500 (98.6%) 498/500 (99.6%)
+  meta           500 312/500 (62.4%) 473/500 (94.6%) 481/500 (96.2%)
+
+--------------------------------------------------------------------------
+  BRACKET DIVERSITY (how far apart are the 4 seeded countries?)
+--------------------------------------------------------------------------
+  A well-designed bracket contains alternatives that cover different
+  plausible answers. We approximate this via the number of distinct
+  continents/macro-regions among the 4 seeded countries. A bracket of
+  4 European countries is 'locally focused' - if it wins, PN-style
+  narrowing was essentially implicit; if it loses, GT was pushed out
+  very early. Cross-continental brackets hedge but signal higher
+  uncertainty about the region.
+
+  #Regions in bracket        N  Correct   Accuracy
+  ────────────────────── ───── ──────── ──────────
+  1                        166      113      68.1%
+  2                        209      146      69.9%
+  3                        111       68      61.3%
+  4                         14       11      78.6%
+
+  A bracket of 1 region = fully-committed (all 4 seeds share a region).
+  A bracket of 4 regions = maximally diversified.
+
+--------------------------------------------------------------------------
+  GEOGRAPHIC BIAS (final prediction vs GT)
+--------------------------------------------------------------------------
+  Systematic direction of error for the final coordinate. Mean N-S /
+  W-E offsets in km show whether the pipeline is biased toward a
+  particular hemisphere. A gap between mean and median reveals long-
+  tail bias - a few extreme wrong-continent picks can drag the average
+  without moving the median.
+
+  Images with parsed final coordinates: 500
+  Mean N-S offset: +148 km   (median +22 km)
+    predictions tend NORTH of GT
+  Mean W-E offset: -85 km   (median -9 km)
+    predictions tend WEST of GT
+
+  Sign convention: +Δlat = north of GT; +Δlng = east of GT.
+  W-E km uses cos(lat_GT).
+

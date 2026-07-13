@@ -1,0 +1,95 @@
+{
+  "image_id": "Y2QhKx7sks9MExvw_4",
+  "truth_country": "panama",
+  "pred_country": "puerto rico",
+  "is_correct": false,
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": true,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "role_adherence_notes": {
+      "linguistic": "Agent correctly identified the absence of linguistic evidence (no signs) and stayed within its domain.",
+      "landscape": "Focused on terrain, vegetation, and settlement patterns.",
+      "botanics": "Identified specific plant species (Adonidia, Bougainvillea) and their regional distribution.",
+      "regulatory": "Analyzed road infrastructure, utility poles, and vehicle types.",
+      "meta": "Used cross-domain knowledge (Google camera hood shape) to distinguish regions."
+    },
+    "argumentative_quality": {
+      "linguistic": "normal",
+      "landscape": "strong",
+      "botanics": "strong",
+      "regulatory": "strong",
+      "meta": "strong"
+    },
+    "constructive_synthesis": true,
+    "overall_verdict_notes": "The pipeline failed to identify the ground truth (Panama) because the agents heavily favored Puerto Rico based on a 'Google camera hood' heuristic and generic Caribbean architectural tropes. The specialists were visually consistent but hallucinated specific regional markers (like the camera model) to support a wrong conclusion.",
+    "assertiveness": null,
+    "assertiveness_score": {},
+    "overall_quality_score": null,
+    "role_adherence_score": {
+      "linguistic": 1.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.9,
+      "meta": 0.9
+    },
+    "argumentative_quality_score": {
+      "linguistic": 0.5,
+      "landscape": 0.8,
+      "botanics": 0.8,
+      "regulatory": 0.8,
+      "meta": 0.8
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.1,
+      "botanics": 0.1,
+      "regulatory": 0.1,
+      "meta": 0.75
+    },
+    "hallucination_examples": {
+      "linguistic": [],
+      "landscape": [],
+      "botanics": [],
+      "regulatory": [],
+      "meta": [
+        "claimed 'distinct Gen 4 Google Street View car hood blur... highly characteristic of coverage in Puerto Rico' (The blur is a generic artifact of the camera rig, not a specific regional marker for PR vs Panama).",
+        "claimed 'specific utility pole style... strongly aligns with Puerto Rican residential areas' (The poles are generic concrete/wood utility poles found throughout Latin America)."
+      ]
+    },
+    "visual_consistency_score": {
+      "linguistic": 1.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.8,
+      "meta": 0.5
+    },
+    "visual_consistency_notes": {
+      "linguistic": "Correctly noted lack of text.",
+      "landscape": "Accurately described the tropical vegetation and concrete architecture.",
+      "botanics": "Correctly identified the visible plants.",
+      "regulatory": "Accurately described the road and utility infrastructure.",
+      "meta": "Described the camera blur but incorrectly interpreted its visual significance as a regional fingerprint."
+    },
+    "confidence_calibration": {
+      "linguistic": 0.5,
+      "landscape": 0.2,
+      "botanics": 0.2,
+      "regulatory": 0.2,
+      "meta": 0.0
+    },
+    "tournament_failure": {
+      "truth_in_pool": true,
+      "truth_lost_to": "Puerto Rico",
+      "failure_match_round": "semi-1",
+      "failure_reason": "agent_misled",
+      "failure_reasoning": "The meta agent hallucinated that the camera blur was a specific 'Gen 4' marker for Puerto Rico, and the landscape/regulatory agents collectively assigned 'strongly_support' to Puerto Rico while giving Panama only 'low' confidence. The specialists actively misled the tournament away from the truth.",
+      "counterfactual_winnable": false
+    }
+  }
+}

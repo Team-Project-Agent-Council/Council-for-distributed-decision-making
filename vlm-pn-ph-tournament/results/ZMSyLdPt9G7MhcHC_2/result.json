@@ -1,0 +1,589 @@
+{
+  "image_path": "/pfs/data6/home/ma/ma_ma/ma_lweisssc/llm_council_agent_orchestration_tests/clean_images_GeoRC_500/ZMSyLdPt9G7MhcHC_2.png",
+  "model": "google/gemma-4-31B-it",
+  "judge_model": "google/gemma-4-31B-it",
+  "timing": {
+    "total_seconds": 89.7
+  },
+  "assessments": {
+    "linguistic": {
+      "agent_name": "linguistic",
+      "candidates": [
+        {
+          "country": "United States",
+          "confidence": "high",
+          "reasoning": "The text 'DAN RIVER' on the water tower is in English. While English is spoken in many countries, the specific naming convention and the style of the water tower are highly characteristic of the United States."
+        }
+      ],
+      "evidence": [
+        "DAN RIVER",
+        "English",
+        "Latin"
+      ]
+    },
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "United States",
+          "confidence": "high",
+          "reasoning": "The combination of wide asphalt roads with double yellow center lines, specific water tower architecture, and the temperate deciduous forest mixed with manicured lawns is highly characteristic of the Eastern United States. The rolling terrain and vegetation are typical of the Piedmont region."
+        },
+        {
+          "country": "Canada",
+          "confidence": "medium",
+          "reasoning": "Similar temperate forest and road infrastructure can be found in Southern Ontario or the Maritimes, though the specific style of the water tower and the lushness of the grass are more common in the US South/Midwest."
+        },
+        {
+          "country": "Australia",
+          "confidence": "speculative",
+          "reasoning": "Certain coastal or temperate regions of Australia have similar green rolling hills and deciduous plantings, though the road markings and utility pole styles differ from standard Australian norms."
+        }
+      ],
+      "evidence": [
+        "Temperate deciduous forest",
+        "Rolling hills/lowland terrain",
+        "Double yellow road center lines",
+        "Manicured grass verges",
+        "Northern hemisphere sun angle (shadows cast to the north/northwest)"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "United States",
+          "confidence": "high",
+          "reasoning": "The combination of broadleaf deciduous trees, specifically the appearance of Liriodendron tulipifera (Tulip Poplar) and Acer species, is highly characteristic of the Eastern United States. The managed turf grass and roadside vegetation are typical of the Mid-Atlantic or Southeastern US regions."
+        },
+        {
+          "country": "Canada",
+          "confidence": "medium",
+          "reasoning": "The temperate deciduous forest composition is similar to Southern Ontario or Quebec. However, the lushness and specific growth habit of the understory shrubs are more indicative of a warmer temperate zone than typical Canadian deciduous forests."
+        },
+        {
+          "country": "China",
+          "confidence": "low",
+          "reasoning": "Certain regions of Eastern China share a similar temperate broadleaf forest biome with mixed deciduous species. However, the specific arrangement of the managed landscape and tree species composition is less common there than in North America."
+        },
+        {
+          "country": "France",
+          "confidence": "speculative",
+          "reasoning": "The temperate broadleaf biome is a global analog found across Western Europe. While the general greenery is similar, the specific species of large deciduous trees seen here are more characteristic of North American forests than European ones."
+        }
+      ],
+      "evidence": [
+        "Temperate broadleaf deciduous forest",
+        "Liriodendron tulipifera (likely)",
+        "Managed turf grass",
+        "Mixed deciduous canopy"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "United States",
+          "confidence": "high",
+          "reasoning": "The presence of a large, elevated water tower with specific American styling and English text ('DAN RIVER') is a strong indicator. The wooden utility poles and the specific style of rural asphalt road are characteristic of the Eastern United States."
+        },
+        {
+          "country": "Canada",
+          "confidence": "medium",
+          "reasoning": "Rural infrastructure, including wooden utility poles and road width, is very similar to the USA. English text on the water tower is consistent with English-speaking provinces."
+        },
+        {
+          "country": "Australia",
+          "confidence": "speculative",
+          "reasoning": "Following the global analog rule, rural roads with wooden poles and similar asphalt quality can be found in rural Australia, though the water tower style is less common."
+        }
+      ],
+      "evidence": [
+        "Wooden utility poles",
+        "Elevated water tower with English text",
+        "Rural asphalt road with grass shoulders",
+        "No visible road signs or license plates"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "United States",
+          "confidence": "high",
+          "reasoning": "The utility pole is a classic North American wooden pole with a specific cross-arm configuration. The water tower design (spherical tank on a multi-legged steel trellis) is extremely common in the US, particularly in the East and Midwest."
+        },
+        {
+          "country": "Canada",
+          "confidence": "medium",
+          "reasoning": "Shares nearly identical utility pole and water tower infrastructure with the USA. Distinguishing between the two often requires specific regional meta or text, which is excluded here."
+        },
+        {
+          "country": "Australia",
+          "confidence": "low",
+          "reasoning": "Global analog; some rural areas use similar wooden utility poles and steel water towers, though the specific proportions of the pole and the water tower style are more characteristic of North America."
+        }
+      ],
+      "evidence": [
+        "wooden utility pole with cross-arm",
+        "steel trellis water tower design",
+        "Google Street View camera generation (Gen 3/4 based on image clarity and lack of halo)"
+      ]
+    }
+  },
+  "progressive_narrowing": {
+    "region_consensus": false,
+    "confirmed_region": "North America",
+    "runner_up_region": "Europe",
+    "surviving_regions": [
+      "North America",
+      "Europe"
+    ],
+    "proposed_regions": [
+      "North America",
+      "Oceania",
+      "East Asia",
+      "Europe"
+    ],
+    "region_candidates": {
+      "North America": {
+        "United States": 5,
+        "Canada": 4
+      },
+      "Oceania": {
+        "Australia": 3
+      },
+      "East Asia": {
+        "China": 1
+      },
+      "Europe": {
+        "France": 1
+      }
+    },
+    "region_decision_reasoning": "North America received the highest score due to strong support across landscape, botanics, and meta-data agents, specifically citing the characteristic water tower and utility pole designs. Europe is the runner-up as it shares similar temperate vegetation, although its infrastructure was noted as a contradiction by the meta agent.",
+    "path": "B"
+  },
+  "road_evidence": {
+    "outside_color": "white",
+    "inside_color": "yellow",
+    "driving_side": "UNCLEAR",
+    "driving_side_basis": "none"
+  },
+  "country_assessments": {
+    "linguistic": {
+      "agent_name": "linguistic",
+      "candidates": [
+        {
+          "country": "United States",
+          "confidence": "high",
+          "reasoning": "The text 'DAN RIVER' refers to a geographic feature located in the United States (Virginia/North Carolina). The use of English in this specific regional context is highly characteristic of the US."
+        }
+      ],
+      "evidence": [
+        "DAN RIVER",
+        "English",
+        "Latin"
+      ]
+    },
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "United States",
+          "confidence": "high",
+          "reasoning": "The combination of wide, two-lane asphalt roads with double yellow center lines and white shoulder lines is highly characteristic of US rural infrastructure. The specific style of the elevated water tower and the temperate deciduous forest mixed with manicured lawns are typical of the Eastern or Midwestern US."
+        },
+        {
+          "country": "Canada",
+          "confidence": "medium",
+          "reasoning": "The temperate landscape and road markings are very similar to those found in the US, particularly in Southern Ontario or the Maritimes. However, the specific water tower design is more ubiquitous in the US."
+        },
+        {
+          "country": "France",
+          "confidence": "low",
+          "reasoning": "Some rural areas in France have similar temperate greenery and rolling terrain. However, the road marking standards (double yellow) and the specific industrial design of the water tower are not typical for rural France."
+        }
+      ],
+      "evidence": [
+        "Double yellow center lines with white edge lines",
+        "Temperate deciduous forest and manicured grass verges",
+        "Elevated steel-leg water tower",
+        "Northern hemisphere sun angle (shadows cast to the north/northwest)"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "United States",
+          "confidence": "high",
+          "reasoning": "The combination of broadleaf deciduous trees and the specific lush, managed turf grass is highly characteristic of the Eastern United States. The vegetation structure is consistent with the humid subtropical climate of the Mid-Atlantic or Southeastern regions."
+        },
+        {
+          "country": "Canada",
+          "confidence": "medium",
+          "reasoning": "Similar temperate deciduous forests exist in Southern Ontario and Quebec. However, the specific density and leaf structure of the undergrowth are more typical of slightly warmer latitudes than the Canadian border regions."
+        },
+        {
+          "country": "France",
+          "confidence": "low",
+          "reasoning": "The temperate broadleaf forest biome is present in Western Europe, particularly France. However, the specific arrangement of the roadside greenery and field grass is more characteristic of North American land management."
+        },
+        {
+          "country": "Germany",
+          "confidence": "low",
+          "reasoning": "Central European temperate forests share similar species of deciduous trees. The botanical profile is a global analog to the US East Coast, though the specific grass species appear more North American."
+        }
+      ],
+      "evidence": [
+        "Temperate broadleaf deciduous forest",
+        "Managed turf grass (Poaceae)",
+        "Humid subtropical vegetation profile"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "United States",
+          "confidence": "high",
+          "reasoning": "The presence of a large, elevated water tower with text is a quintessential feature of rural American landscapes. The wooden utility poles and the specific style of asphalt road with wide grass shoulders are highly characteristic of the US."
+        },
+        {
+          "country": "Canada",
+          "confidence": "medium",
+          "reasoning": "Rural infrastructure in Canada, particularly in southern provinces, is nearly identical to the USA, featuring similar wooden utility poles and water tower designs."
+        }
+      ],
+      "evidence": [
+        "elevated water tower with text",
+        "wooden utility poles",
+        "wide grass shoulders",
+        "rural asphalt road width"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "United States",
+          "confidence": "high",
+          "reasoning": "The utility pole is a classic American wooden pole with a specific cross-arm configuration. The water tower design (spherical tank on a multi-legged steel trellis) is extremely characteristic of rural US infrastructure."
+        },
+        {
+          "country": "Canada",
+          "confidence": "medium",
+          "reasoning": "Canada shares very similar utility pole and water tower infrastructure with the US. However, the specific style of the water tower is slightly more common in the US South/Midwest."
+        }
+      ],
+      "evidence": [
+        "Wooden utility pole with specific cross-arm style",
+        "Spherical water tower on steel trellis legs",
+        "Google Street View camera generation (Gen 3/4 based on image clarity and lack of halo)"
+      ]
+    }
+  },
+  "hypothesis_evaluations": [
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_north_america",
+      "confidence": "strongly_support",
+      "reasoning": "The combination of rolling temperate grasslands, deciduous broadleaf forest, and the specific style of rural infrastructure (water tower design and road markings) is highly characteristic of the Eastern United States. The sun angle and shadow direction are consistent with a Northern Hemisphere mid-latitude location.",
+      "key_evidence": [
+        "temperate deciduous forest",
+        "rolling green hills",
+        "Northern Hemisphere sun angle",
+        "North American rural settlement pattern"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_europe",
+      "confidence": "support",
+      "reasoning": "The temperate climate and vegetation are compatible with Central or Western Europe. However, the specific scale of the open fields and the style of the water tower are less common in European rural landscapes compared to North America.",
+      "key_evidence": [
+        "temperate climate",
+        "deciduous trees",
+        "Northern Hemisphere sun angle"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_east_asia",
+      "confidence": "low",
+      "reasoning": "While temperate forests exist in East Asia, the specific combination of wide-open grassy verges and the particular architectural style of the utility infrastructure is not typical for the region.",
+      "key_evidence": [
+        "temperate vegetation"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_oceania",
+      "confidence": "strongly_contradicts",
+      "reasoning": "The shadow direction indicates the sun is in the south/southwest, which is inconsistent with a mid-latitude Southern Hemisphere location during a similar season. Furthermore, the specific deciduous forest composition is not characteristic of the Australian or New Zealand interior.",
+      "key_evidence": [
+        "Northern Hemisphere shadow direction",
+        "non-native vegetation patterns for Oceania"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_north_america",
+      "confidence": "support",
+      "reasoning": "The combination of broadleaf deciduous trees, manicured lawn grasses, and the specific density of the forest edge is highly characteristic of the Eastern United States (temperate broadleaf forest biome).",
+      "key_evidence": [
+        "temperate broadleaf deciduous trees",
+        "managed turf grass"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_europe",
+      "confidence": "support",
+      "reasoning": "The vegetation is compatible with temperate regions of Central or Western Europe, which share similar deciduous tree species and grass types with North America.",
+      "key_evidence": [
+        "temperate broadleaf deciduous trees",
+        "managed turf grass"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_east_asia",
+      "confidence": "low",
+      "reasoning": "While temperate forests exist in East Asia, the specific composition of the roadside greenery and the style of the open grassland are less typical than in Western temperate zones.",
+      "key_evidence": [
+        "temperate broadleaf deciduous trees"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_oceania",
+      "confidence": "contradicts",
+      "reasoning": "The dense, uniform canopy of deciduous broadleaf trees seen here is not characteristic of the dominant native flora of Oceania, which is dominated by sclerophyll forests (eucalyptus) or tropical species.",
+      "key_evidence": [
+        "absence of eucalyptus/acacia",
+        "deciduous forest structure"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_north_america",
+      "confidence": "strongly_support",
+      "reasoning": "The utility pole is a classic North American wooden pole with a specific cross-arm configuration. The water tower design (spherical tank on a multi-legged steel trellis) is extremely characteristic of rural USA. The Google Street View camera generation (Gen 4) and the specific blur pattern on the car hood are consistent with US coverage.",
+      "key_evidence": [
+        "wooden utility pole style",
+        "US-style water tower architecture",
+        "Google camera car hood artifact"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_oceania",
+      "confidence": "low",
+      "reasoning": "While some rural areas in Australia or New Zealand use wooden poles, the specific design of the water tower and the overall infrastructure aesthetic are much more aligned with North American standards.",
+      "key_evidence": [
+        "wooden utility poles"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_east_asia",
+      "confidence": "contradicts",
+      "reasoning": "The utility pole design and the specific style of the water tower are not typical for East Asian countries, which favor concrete poles and different water storage structures.",
+      "key_evidence": [
+        "wooden utility pole",
+        "water tower design"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_europe",
+      "confidence": "contradicts",
+      "reasoning": "The combination of the wooden pole style and the specific American-style water tower is not found in Europe. European rural infrastructure typically uses different pole materials or designs.",
+      "key_evidence": [
+        "wooden utility pole",
+        "water tower design"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_united_states",
+      "confidence": "strongly_support",
+      "reasoning": "The combination of rolling temperate hills, specific deciduous tree species, and the presence of a high-capacity elevated water tower is extremely characteristic of the Eastern United States (specifically the Piedmont region). The road markings (double yellow center line) and the wide, grassy roadside verges are standard for US rural infrastructure.",
+      "key_evidence": [
+        "elevated water tower style",
+        "double yellow center lines",
+        "temperate deciduous forest",
+        "rolling Piedmont-style terrain"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_canada",
+      "confidence": "support",
+      "reasoning": "The temperate climate and deciduous vegetation are compatible with Southern Canada (e.g., Ontario or Quebec). However, the specific style of the water tower and the road shoulder width are more typical of the US South/Mid-Atlantic than Canadian rural landscapes.",
+      "key_evidence": [
+        "temperate deciduous forest",
+        "rolling terrain"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_france",
+      "confidence": "contradicts",
+      "reasoning": "While France has temperate forests and rolling hills, the infrastructure is inconsistent. The specific design of the water tower and the double yellow center lines are not standard in rural France, where road markings and utility architecture differ significantly.",
+      "key_evidence": [
+        "non-European road markings",
+        "atypical water tower architecture for France"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_united_states",
+      "confidence": "support",
+      "reasoning": "The vegetation consists of a mix of temperate broadleaf deciduous trees and managed turf grass typical of the Eastern United States (e.g., Mid-Atlantic or Southeast). The lush, dense green canopy and specific growth habit of the roadside shrubs are highly characteristic of the humid subtropical climate found in the US.",
+      "key_evidence": [
+        "temperate broadleaf deciduous forest",
+        "managed turf grass",
+        "humid subtropical vegetation pattern"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_canada",
+      "confidence": "neutral",
+      "reasoning": "While the deciduous trees are compatible with Southern Canada (Ontario or Quebec), the overall density and specific vibrancy of the greenery are more characteristic of a slightly warmer temperate zone. It is possible but less diagnostic than the US hypothesis.",
+      "key_evidence": [
+        "temperate deciduous trees"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_france",
+      "confidence": "support",
+      "reasoning": "The temperate broadleaf vegetation and managed grasslands are compatible with the climate of Western or Central France. However, the specific composition of the forest edge is more reminiscent of North American temperate zones than European ones.",
+      "key_evidence": [
+        "temperate broadleaf deciduous forest"
+      ]
+    },
+    {
+      "agent_name": "regulatory",
+      "hypothesis_id": "country_united_states",
+      "confidence": "strongly_support",
+      "reasoning": "The presence of a large, elevated water tower with specific American municipal styling and the use of wooden utility poles with cross-arms are highly characteristic of rural US infrastructure. The road width and shoulder treatment are consistent with US county roads.",
+      "key_evidence": [
+        "water tower style",
+        "wooden utility poles with cross-arms",
+        "road width and shoulder treatment"
+      ]
+    },
+    {
+      "agent_name": "regulatory",
+      "hypothesis_id": "country_canada",
+      "confidence": "support",
+      "reasoning": "Rural Canadian infrastructure, particularly in English-speaking provinces, is visually very similar to the US, utilizing similar wooden utility poles and road construction styles.",
+      "key_evidence": [
+        "wooden utility poles",
+        "rural road layout"
+      ]
+    },
+    {
+      "agent_name": "regulatory",
+      "hypothesis_id": "country_france",
+      "confidence": "strongly_contradicts",
+      "reasoning": "The infrastructure lacks any European regulatory cues; there are no Vienna Convention signs, European-style bollards, or French-style utility poles. The water tower design is not typical for rural France.",
+      "key_evidence": [
+        "absence of European bollards",
+        "non-European utility pole style",
+        "atypical water tower design"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_united_states",
+      "confidence": "strongly_support",
+      "reasoning": "The utility pole is a classic North American wooden pole with a specific cross-arm configuration common in the US. The water tower design (spherical tank on a multi-legged steel trestle) is an iconic piece of American rural infrastructure. Additionally, the Google Street View camera generation and image quality are consistent with US coverage.",
+      "key_evidence": [
+        "wooden utility pole style",
+        "American-style water tower design",
+        "Google camera generation"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_canada",
+      "confidence": "support",
+      "reasoning": "The wooden utility poles and general rural infrastructure are very similar to those found in Canada, as they share a North American standard. However, the specific style of the water tower is slightly more characteristic of the US South/Midwest.",
+      "key_evidence": [
+        "wooden utility pole style",
+        "North American infrastructure"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_france",
+      "confidence": "strongly_contradicts",
+      "reasoning": "The utility pole design and the specific architecture of the water tower are not found in France. French rural areas typically use concrete or different styles of wooden poles and different water tower silhouettes.",
+      "key_evidence": [
+        "utility pole design",
+        "water tower architecture"
+      ]
+    }
+  ],
+  "candidate_pool": [
+    "United States",
+    "Canada",
+    "France"
+  ],
+  "rag_findings": [
+    {
+      "kind": "elim_road_marking",
+      "country": "Germany",
+      "detail": "observed outside=white, inside=yellow vs table='Outside: White | Inside: White'"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Canada",
+      "detail": "The image features a double yellow center line and a specific style of elevated water tower on a steel trestle that is highly characteristic of rural infrastructure in the United States. Specialist evidence strongly supports the US based on the landscape, vegetation, and utility pole configuration typical of the Eastern US Piedmont region.",
+      "opponent": "United States",
+      "winner": "United States"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "France",
+      "detail": "The image features a double yellow center line and a spherical elevated water tower on a steel trestle, both of which are iconic markers of rural United States infrastructure. The wooden utility poles with cross-arms and the general landscape are highly characteristic of the Eastern US, whereas these elements strongly contradict French infrastructure standards.",
+      "opponent": "United States",
+      "winner": "United States"
+    }
+  ],
+  "rag_refs_seen": [],
+  "road_filter_warnings": [],
+  "tournament_log": [
+    {
+      "round_label": "semi",
+      "country_a": "United States",
+      "country_b": "Canada",
+      "pool_rank_a": 0,
+      "pool_rank_b": 1,
+      "winner": "United States",
+      "reasoning": "The image features a double yellow center line and a specific style of elevated water tower on a steel trestle that is highly characteristic of rural infrastructure in the United States. Specialist evidence strongly supports the US based on the landscape, vegetation, and utility pole configuration typical of the Eastern US Piedmont region.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "final",
+      "country_a": "United States",
+      "country_b": "France",
+      "pool_rank_a": 0,
+      "pool_rank_b": 2,
+      "winner": "United States",
+      "reasoning": "The image features a double yellow center line and a spherical elevated water tower on a steel trestle, both of which are iconic markers of rural United States infrastructure. The wooden utility poles with cross-arms and the general landscape are highly characteristic of the Eastern US, whereas these elements strongly contradict French infrastructure standards.",
+      "agreement": "agree"
+    }
+  ],
+  "country_result": "Country: United States\nCoordinates: 36.65, -80.15\nReasoning: The image features a double yellow center line and a spherical elevated water tower on a steel trestle, both of which are iconic markers of rural United States infrastructure. The wooden utility poles with cross-arms and the general landscape are highly characteristic of the Eastern US, whereas these elements strongly contradict French infrastructure standards.\n\nTournament:\n  semi: United States vs Canada → United States\n  final: United States vs France → United States",
+  "coordinates": {
+    "lat": 36.65,
+    "lng": -80.15
+  },
+  "final_reasoning": "The image features a double yellow center line and a spherical elevated water tower on a steel trestle, both of which are iconic markers of rural United States infrastructure. The wooden utility poles with cross-arms and the general landscape are highly characteristic of the Eastern US, whereas these elements strongly contradict French infrastructure standards."
+}

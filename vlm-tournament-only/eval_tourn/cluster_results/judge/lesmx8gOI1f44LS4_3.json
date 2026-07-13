@@ -1,0 +1,100 @@
+{
+  "image_id": "lesmx8gOI1f44LS4_3",
+  "truth_country": "indonesia",
+  "pred_country": "sri lanka",
+  "is_correct": false,
+  "candidate_pool": [
+    "Thailand",
+    "Brazil",
+    "India",
+    "Sri Lanka",
+    "Indonesia"
+  ],
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": true,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "role_adherence_notes": {
+      "linguistic": "Agent provided no candidates or evidence, effectively remaining silent.",
+      "landscape": "Stayed within terrain and vegetation analysis, correctly identifying tropical coastal features.",
+      "botanics": "Stayed within plant species analysis, focusing on palms and undergrowth density.",
+      "regulatory": "Stayed within infrastructure analysis, focusing on road width and utility poles.",
+      "meta": "Stayed within cross-domain synthesis, focusing on utility pole design and camera artifacts."
+    },
+    "argumentative_quality": {
+      "linguistic": "very_weak",
+      "landscape": "strong",
+      "botanics": "strong",
+      "regulatory": "normal",
+      "meta": "normal"
+    },
+    "constructive_synthesis": true,
+    "overall_verdict_notes": "The pipeline failed to identify the correct country (Indonesia) because the linguistic agent was inactive and the other agents relied on a 'Sri Lankan' utility pole heuristic that was visually incorrect. The tournament correctly followed the specialist consensus to Sri Lanka, but the specialists themselves were misled by a hallucinated visual detail.",
+    "role_adherence_score": {
+      "linguistic": 0.5,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.8,
+      "meta": 0.8
+    },
+    "argumentative_quality_score": {
+      "linguistic": 0.0,
+      "landscape": 0.8,
+      "botanics": 0.8,
+      "regulatory": 0.6,
+      "meta": 0.6
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.0,
+      "botanics": 0.0,
+      "regulatory": 0.0,
+      "meta": 0.75
+    },
+    "hallucination_examples": {
+      "linguistic": [],
+      "landscape": [],
+      "botanics": [],
+      "regulatory": [],
+      "meta": [
+        "claimed 'concrete pole with a specific small, cylindrical transformer mounted high up' (Image shows a flat, rectangular box)",
+        "claimed 'specific power line wiring configuration' (Image shows simple parallel lines)",
+        "claimed 'Google Street View camera generation/image quality' is consistent with Sri Lanka (unsupported inference)"
+      ]
+    },
+    "visual_consistency_score": {
+      "linguistic": 0.5,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.9,
+      "meta": 0.25
+    },
+    "visual_consistency_notes": {
+      "linguistic": "No claims to verify.",
+      "landscape": "Vegetation and road description matches image perfectly.",
+      "botanics": "Plant species identification matches image.",
+      "regulatory": "Road width and lack of markings matches image.",
+      "meta": "The description of the utility pole hardware (cylindrical transformer) contradicts the image (rectangular box)."
+    },
+    "confidence_calibration": {
+      "linguistic": 0.5,
+      "landscape": 0.25,
+      "botanics": 0.25,
+      "regulatory": 0.25,
+      "meta": 0.0
+    },
+    "tournament_failure": {
+      "truth_in_pool": true,
+      "truth_lost_to": "Sri Lanka",
+      "failure_match_round": "semi-1",
+      "failure_reason": "agent_misled_in_tournament",
+      "failure_reasoning": "The meta specialist hallucinated a 'cylindrical transformer' on the utility pole, which is a key distinguishing feature for Sri Lanka in this context. This hallucination led to high confidence in Sri Lanka and low confidence in Indonesia (which was in the pool). The specialists collectively pointed away from the truth based on this fabricated visual evidence.",
+      "counterfactual_winnable": false
+    }
+  }
+}

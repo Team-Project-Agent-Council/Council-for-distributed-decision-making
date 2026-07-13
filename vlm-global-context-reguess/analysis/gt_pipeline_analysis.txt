@@ -1,0 +1,217 @@
+======================================================================
+VLM Council - Global Context Re-guess Analysis
+======================================================================
+Total images: 500
+
+----------------------------------------------------------------------
+  RE-GUESS OVERVIEW
+----------------------------------------------------------------------
+  Images with full R1 unanimity (no contradicting picks): 84/500 (17%)
+  Images with R1 disagreement (R2 sees contradicting context): 416/500 (83%)
+
+  Comparable agent-image R1/R2 pairs: 2048
+  Top pick changed in R2:   229/2048 (11.2% of agent-image pairs)
+  Top pick unchanged in R2: 1819/2048 (88.8% of agent-image pairs)
+
+----------------------------------------------------------------------
+  PER-AGENT RE-GUESS BEHAVIOR
+----------------------------------------------------------------------
+
+  Agent         R1 picks  R2 picks  Changed  ConfUp  ConfDown  Change %
+  ──────────── ───────── ───────── ──────── ─────── ───────── ─────────
+  linguistic         107       134       11      19         0       10%
+  landscape          500       500       44      81         2        9%
+  botanics           499       500       58     201         0       12%
+  regulatory         443       500       69     232         0       16%
+  meta               499       500       47     154         0        9%
+
+  R1 picks  = images where this agent produced a top candidate in Round 1
+  R2 picks  = images where this agent produced a top candidate in Round 2
+  Changed   = R2 top pick differs from R1 top pick (comparable pairs only)
+  ConfUp    = R2 confidence is higher than R1; ConfDown = lower
+  Change %  = Changed / comparable R1+R2 pairs
+
+  Confidence asymmetry: 687 ConfUp vs 2 ConfDown across all 2048 comparable pairs (344×).
+  -> Re-guess monotonically increases certainty: agents harden their
+    confidence with peer context but almost never down-regulate it,
+    even when peers contradict them.
+
+----------------------------------------------------------------------
+  AGREEMENT DYNAMICS (R1 plurality vs R2 plurality)
+----------------------------------------------------------------------
+
+  Plurality top-count distribution (top votes out of 5):
+    Top votes    R1 images  R2 images
+    ─────────── ────────── ──────────
+    1                    2          0
+    2                   77         17
+    3                  115         47
+    4                  222        312
+    5                   84        124
+
+  R1 plurality reached (≥3/5):                    421/500
+  R2 plurality reached (≥3/5):                    483/500
+  R1 unanimous (5/5 same country):                84/500 (16.8%)
+  R2 unanimous (5/5 same country):                124/500 (24.8%)
+
+  R1 sub-plurality -> R2 plurality (context built majority): 64/500
+  R1 plurality -> R2 sub-plurality (context broke majority): 2/500
+  R1 split -> R2 unanimous (context built consensus):        40/500
+  R1 unanimous -> R2 split (context broke consensus):        0/500
+  Same plurality top country in both rounds:                468/500
+
+----------------------------------------------------------------------
+  JUDGE FINAL CHOICE - WHERE DOES IT COME FROM?
+----------------------------------------------------------------------
+
+  Images with parsed final country: 500
+
+  Judge matches                        Count   Share
+  ─────────────────────────────────── ────── ───────
+  R1 plurality AND R2 plurality          454   90.8%
+  R2 plurality only (R1 differed)         23    4.6%
+  R1 plurality only (R2 differed)          7    1.4%
+  Neither (Judge picked own answer)       16    3.2%
+
+  Judge agrees with R2 plurality on 477/500 (95.4%); with R1 plurality on 461/500 (92.2%).
+
+----------------------------------------------------------------------
+  TIMING
+----------------------------------------------------------------------
+
+  Overall: avg 45.8s, median 44.5s, min 25.0s, max 192.8s
+  Total compute: 22924s (382.1 min)
+
+======================================================================
+GROUND-TRUTH-BASED RE-GUESS ANALYSIS
+======================================================================
+
+----------------------------------------------------------------------
+  CONSTRUCTIVE vs DESTRUCTIVE R1->R2 SHIFTS (per agent-image)
+----------------------------------------------------------------------
+
+  Total comparable agent-image R1->R2 pairs: 2048
+
+  ── Movement-only view (agent actually changed its top pick) ──
+  Pairs that changed in R2: 229/2048 (11.2%)
+    CONSTRUCTIVE  (wrong -> GT):                64/229 ( 27.9%)
+    DESTRUCTIVE   (GT -> wrong):                26/229 ( 11.4%)
+    LATERAL       (wrong -> other wrong):      139/229 ( 60.7%)
+
+  ── Full 5-bucket view (all comparable pairs) ──
+  CONSTRUCTIVE            64  (  3.1%)
+    └ agent was wrong in R1, R2 corrected it onto the GT
+  DESTRUCTIVE             26  (  1.3%)
+    └ agent was correct in R1, R2 moved away from the GT
+  STAYED_CORRECT        1287  ( 62.8%)
+    └ both R1 and R2 equal GT - re-guess held the truth
+  STAYED_WRONG           532  ( 26.0%)
+    └ both rounds wrong, on the same wrong country
+  WRONG_TO_WRONG         139  (  6.8%)
+    └ both rounds wrong but on different countries (lateral move)
+
+  Among the 90 pairs where exactly one round had the GT (R1 vs R2 disagreed about correctness):
+    Constructive: 64/90 (71.1%)
+    Destructive:  26/90 (28.9%)
+
+----------------------------------------------------------------------
+  GT-BASED R2 CONVERGENCE (per image, plurality ≥3/5)
+----------------------------------------------------------------------
+
+  Images with R2 votes from any agent: 500
+    Plurality on GT (correct):    316/500 (63.2%)
+    Plurality on wrong country:   167/500 (33.4%)
+    No plurality (top ≤ 2/5):     17/500 (3.4%)
+    Of plurality-converged: 316/483 (65.4%) landed on GT
+
+  Strict-unanimous (5/5) reference: 103/500 on GT, 21/500 on wrong country.
+
+  Examples (correct plurality):
+    1NJsXTxIF9GGMDxC_4 -> argentina (4/5, GT: argentina)
+    2xnQdwiCve2rHWVt_1 -> thailand (4/5, GT: thailand)
+    2xnQdwiCve2rHWVt_2 -> bangladesh (5/5, GT: bangladesh)
+    2xnQdwiCve2rHWVt_3 -> indonesia (5/5, GT: indonesia)
+    2xnQdwiCve2rHWVt_4 -> poland (4/5, GT: poland)
+
+  Examples (wrong plurality):
+    1NJsXTxIF9GGMDxC_1 -> azerbaijan (5/5, GT: kyrgyzstan)
+    1NJsXTxIF9GGMDxC_2 -> taiwan (4/5, GT: malaysia)
+    1NJsXTxIF9GGMDxC_3 -> bosnia and herzegovina (4/5, GT: serbia)
+    1NJsXTxIF9GGMDxC_5 -> botswana (4/5, GT: south africa)
+    2xnQdwiCve2rHWVt_5 -> spain (4/5, GT: portugal)
+
+----------------------------------------------------------------------
+  PER-AGENT R1->R2 SHIFT MATRIX
+----------------------------------------------------------------------
+
+  Agent            N  Constr  Destr  StayOK  StayX  WrongShift  NetTruth
+  ──────────── ───── ─────── ────── ─────── ────── ─────────── ─────────
+  linguistic     107       5      1      84     12           5        +4
+  landscape      500      14      6     310    146          24        +8
+  botanics       499      10      6     311    130          42        +4
+  regulatory     443      20      9     275     99          40       +11
+  meta           499      15      4     307    145          28       +11
+
+  Constr     = R1 wrong, R2 corrected onto GT (good for the council)
+  Destr      = R1 correct, R2 moved away from GT (bad for the council)
+  StayOK     = R1 and R2 both equal GT
+  StayX      = R1 and R2 both wrong, on the same wrong country
+  WrongShift = R1 and R2 both wrong, on different countries (lateral move)
+  NetTruth   = Constr - Destr
+               positive -> context shifted this agent toward the GT
+               negative -> context shifted this agent away from the GT
+
+----------------------------------------------------------------------
+  PER-AGENT R1 vs R2 ACCURACY
+----------------------------------------------------------------------
+
+  Agent            N     R1 acc     R2 acc       Δ
+  ──────────── ───── ────────── ────────── ───────
+  linguistic     107 85/107 (79.4%) 89/107 (83.2%)   +3.7%
+  landscape      500 316/500 (63.2%) 324/500 (64.8%)   +1.6%
+  botanics       499 317/499 (63.5%) 321/499 (64.3%)   +0.8%
+  regulatory     443 284/443 (64.1%) 295/443 (66.6%)   +2.5%
+  meta           499 311/499 (62.3%) 322/499 (64.5%)   +2.2%
+
+  R1 acc = share of images where the agent's R1 top pick equals GT
+  R2 acc = same for R2; Δ = R2 - R1 in percentage points
+
+----------------------------------------------------------------------
+  GEOGRAPHIC BIAS (Council prediction vs ground truth)
+----------------------------------------------------------------------
+
+  Images with parsed prediction coordinates: 500/500
+
+  Mean Δlat:           +2.11°
+  Mean N-S offset:     +234 km   (median +12 km)
+    └ predictions tend NORTH of GT on average
+
+  Mean Δlng:           -0.13°
+  Mean W-E offset:     +7 km   (median -10 km)
+    └ predictions tend EAST of GT on average
+
+  Sign convention: positive Δlat = prediction north of GT;
+                   positive Δlng = prediction east of GT.
+  W-E km uses cos(lat_GT) so high-latitude shifts are not over-counted.
+
+----------------------------------------------------------------------
+  PER-AGENT GEOGRAPHIC BIAS - R1 and R2 (top pick -> country centroid)
+----------------------------------------------------------------------
+
+  Agent        Round      N  MeanΔlat   MeanN-S   MedN-S  MeanΔlng   MeanW-E   MedW-E
+  ──────────── ────── ───── ───────── ───────── ──────── ───────── ───────── ────────
+  linguistic   R1       103    +0.93°     +104      +0    +0.74°      +70      -4
+  linguistic   R2       130    +0.24°      +27      +0    +0.24°      +13      -6
+  landscape    R1       463    +1.70°     +189     +30    -1.29°     -150     -10
+  landscape    R2       471    +1.67°     +186     +17    -0.12°      -24      -4
+  botanics     R1       465    +1.98°     +220     +45    -2.74°     -287     -15
+  botanics     R2       467    +1.36°     +150     +17    -0.65°      -83      -6
+  regulatory   R1       392    +0.81°      +90     +21    +0.61°      +46      +0
+  regulatory   R2       467    +1.55°     +172     +18    -0.86°      -99      -7
+  meta         R1       469    +2.00°     +222     +20    -1.67°     -187      -6
+  meta         R2       466    +1.68°     +186     +19    -0.93°     -110      -6
+
+  Country centroids derived from 500 GT entries across 92 countries.
+  Compare R1 vs R2 per agent to see whether global context pulled the
+  agent's geographic tendency closer to GT (smaller km magnitudes) or farther.
+

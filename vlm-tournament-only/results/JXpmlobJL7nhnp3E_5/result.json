@@ -1,0 +1,283 @@
+{
+  "image_path": "/pfs/data6/home/ma/ma_ma/ma_lweisssc/llm_council_agent_orchestration_tests/clean_images_GeoRC_500/JXpmlobJL7nhnp3E_5.png",
+  "model": "google/gemma-4-31B-it",
+  "judge_model": "google/gemma-4-31B-it",
+  "timing": {
+    "total_seconds": 203.6
+  },
+  "assessments": {
+    "linguistic": {
+      "agent_name": "linguistic",
+      "candidates": [],
+      "evidence": []
+    },
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Russia",
+          "confidence": "medium",
+          "reasoning": "The combination of dense spruce/fir forests mixed with deciduous birch-like trees and a sandy, unpaved forest road is highly characteristic of the Russian taiga and mixed forest zones."
+        },
+        {
+          "country": "Finland",
+          "confidence": "medium",
+          "reasoning": "The boreal forest composition and the specific light-colored sandy soil of the forest track are very common across Finland and the Nordic region."
+        },
+        {
+          "country": "Estonia",
+          "confidence": "medium",
+          "reasoning": "The flat to gently rolling terrain and the mix of coniferous and deciduous trees are consistent with the Baltic landscape, which mirrors the Russian and Finnish borders."
+        },
+        {
+          "country": "Canada",
+          "confidence": "low",
+          "reasoning": "The boreal forest (taiga) landscape with similar spruce and birch species is a global analog found across the Canadian shield and northern provinces."
+        },
+        {
+          "country": "USA",
+          "confidence": "low",
+          "reasoning": "Similar mixed coniferous and deciduous forests with sandy logging roads can be found in the Pacific Northwest or New England regions."
+        }
+      ],
+      "evidence": [
+        "Boreal mixed forest (coniferous spruce/fir and deciduous birch/aspen)",
+        "Sandy, light-brown soil on an unpaved forest road",
+        "Temperate/Cool climate indicated by autumn foliage colors",
+        "Flat to gently undulating terrain"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Russia",
+          "confidence": "medium",
+          "reasoning": "The combination of Picea abies (Norway Spruce) and Betula (Birch) is highly characteristic of the Russian taiga and mixed forests. The density and growth pattern of the conifers are consistent with Northern European Russia."
+        },
+        {
+          "country": "Finland",
+          "confidence": "medium",
+          "reasoning": "The boreal forest composition of spruce and birch is a primary landscape feature of Finland. It is botanically indistinguishable from neighboring Russia or Sweden in this specific biome."
+        },
+        {
+          "country": "Sweden",
+          "confidence": "medium",
+          "reasoning": "The mixed coniferous-deciduous forest seen here is typical of the Swedish landscape. The presence of spruce and birch is standard for the region's temperate and boreal zones."
+        },
+        {
+          "country": "Canada",
+          "confidence": "low",
+          "reasoning": "The boreal forest biome in Canada features similar spruce and birch associations. However, the specific leaf shape of the deciduous trees on the right is more characteristic of European species than North American counterparts."
+        },
+        {
+          "country": "USA",
+          "confidence": "low",
+          "reasoning": "Similar mixed coniferous forests exist in the Pacific Northwest or New England. This is a global analog for the temperate/boreal mixed forest biome."
+        }
+      ],
+      "evidence": [
+        "Picea abies (Norway Spruce)",
+        "Betula (Birch)",
+        "Boreal mixed forest biome"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Russia",
+          "confidence": "low",
+          "reasoning": "The dirt road quality and the specific mix of coniferous and deciduous forest are very common in rural Russian regions."
+        },
+        {
+          "country": "Finland",
+          "confidence": "low",
+          "reasoning": "The forest composition and the well-maintained but unpaved nature of the forest road are consistent with Nordic rural infrastructure."
+        },
+        {
+          "country": "Canada",
+          "confidence": "speculative",
+          "reasoning": "Global analog: Rural forest roads with similar dirt composition and pine/birch vegetation are common across North American boreal forests."
+        },
+        {
+          "country": "Chile",
+          "confidence": "speculative",
+          "reasoning": "Global analog: Southern Chilean forest roads share similar dirt textures and temperate rainforest vegetation patterns."
+        }
+      ],
+      "evidence": [
+        "unpaved dirt road",
+        "no road signs visible",
+        "no license plates visible",
+        "no bollards visible",
+        "no utility poles visible"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "Russia",
+          "confidence": "medium",
+          "reasoning": "The image quality and the specific blur pattern at the bottom of the frame are consistent with the Google Street View camera generation used extensively in rural Russia. The dirt road texture and lack of roadside infrastructure are common in these regions."
+        },
+        {
+          "country": "Canada",
+          "confidence": "low",
+          "reasoning": "The camera generation and image quality are similar to those used in remote parts of Canada. However, the specific dirt road composition is more generic and lacks unique Canadian markers like specific utility pole styles."
+        },
+        {
+          "country": "Finland",
+          "confidence": "low",
+          "reasoning": "The image quality matches Gen 3/4 coverage found in Nordic countries. While the environment is similar, there are no distinctive Finnish bollards or poles visible to elevate confidence."
+        }
+      ],
+      "evidence": [
+        "Google Street View camera generation blur pattern",
+        "Image quality/resolution",
+        "Dirt road surface texture"
+      ]
+    }
+  },
+  "progressive_narrowing": {
+    "region_consensus": null,
+    "confirmed_region": null,
+    "runner_up_region": null,
+    "surviving_regions": [],
+    "proposed_regions": [],
+    "region_candidates": {},
+    "region_decision_reasoning": "",
+    "path": "TOURNAMENT_ONLY"
+  },
+  "road_evidence": {},
+  "country_assessments": {},
+  "hypothesis_evaluations": [
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_russia",
+      "confidence": "support",
+      "reasoning": "The image quality and the specific blur pattern at the bottom of the frame are consistent with Google's coverage in Russia, which often features these artifacts on rural dirt roads.",
+      "key_evidence": [
+        "camera blur pattern",
+        "image quality"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_finland",
+      "confidence": "support",
+      "reasoning": "The camera generation is compatible with Finnish rural coverage, and the road surface is typical for the region, though no unique Finnish bollards or poles are visible.",
+      "key_evidence": [
+        "camera generation"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_estonia",
+      "confidence": "support",
+      "reasoning": "The image quality and camera artifacts are compatible with Baltic coverage, which shares similar characteristics with Russian and Finnish rural imagery.",
+      "key_evidence": [
+        "camera generation"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_sweden",
+      "confidence": "support",
+      "reasoning": "Compatible with Swedish rural coverage, but lacks the specific high-quality Gen 4 clarity often seen in more recent Swedish forest roads.",
+      "key_evidence": [
+        "camera generation"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_canada",
+      "confidence": "low",
+      "reasoning": "While the environment is similar, the specific blur/artifacting at the bottom of the image is less common in Canadian rural coverage compared to Eastern European/Russian patterns.",
+      "key_evidence": [
+        "camera blur pattern"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_usa",
+      "confidence": "low",
+      "reasoning": "The camera artifacts and image processing style are more characteristic of the Eurasian coverage patterns than North American ones.",
+      "key_evidence": [
+        "camera blur pattern"
+      ]
+    }
+  ],
+  "candidate_pool": [
+    "Russia",
+    "Finland",
+    "Canada",
+    "USA",
+    "Estonia",
+    "Sweden"
+  ],
+  "rag_findings": [
+    {
+      "kind": "tournament_match",
+      "country": "Sweden",
+      "detail": "The image quality and the distinct blur pattern at the bottom of the frame are highly characteristic of Google's historical coverage in Russia. While the landscape is compatible with both, the specific camera artifacts provide stronger support for Russia over Sweden.",
+      "opponent": "Russia",
+      "winner": "Russia"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Estonia",
+      "detail": "The image shows a rural dirt road through a coniferous and deciduous forest typical of Northern Europe. While both countries are plausible, the specific combination of the road surface and the dense, tall spruce forest is highly characteristic of Finnish rural coverage.",
+      "opponent": "Finland",
+      "winner": "Finland"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Finland",
+      "detail": "The image quality and the specific blur pattern at the bottom of the frame are highly characteristic of Google's rural coverage in Russia. While the landscape is compatible with both, the meta-evidence regarding the camera artifacts strongly supports Russia.",
+      "opponent": "Russia",
+      "winner": "Russia"
+    }
+  ],
+  "rag_refs_seen": [],
+  "road_filter_warnings": [],
+  "tournament_log": [
+    {
+      "round_label": "semi-1",
+      "country_a": "Russia",
+      "country_b": "Sweden",
+      "pool_rank_a": 0,
+      "pool_rank_b": 3,
+      "winner": "Russia",
+      "reasoning": "The image quality and the distinct blur pattern at the bottom of the frame are highly characteristic of Google's historical coverage in Russia. While the landscape is compatible with both, the specific camera artifacts provide stronger support for Russia over Sweden.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "semi-2",
+      "country_a": "Finland",
+      "country_b": "Estonia",
+      "pool_rank_a": 1,
+      "pool_rank_b": 2,
+      "winner": "Finland",
+      "reasoning": "The image shows a rural dirt road through a coniferous and deciduous forest typical of Northern Europe. While both countries are plausible, the specific combination of the road surface and the dense, tall spruce forest is highly characteristic of Finnish rural coverage.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "final",
+      "country_a": "Russia",
+      "country_b": "Finland",
+      "pool_rank_a": 0,
+      "pool_rank_b": 1,
+      "winner": "Russia",
+      "reasoning": "The image quality and the specific blur pattern at the bottom of the frame are highly characteristic of Google's rural coverage in Russia. While the landscape is compatible with both, the meta-evidence regarding the camera artifacts strongly supports Russia.",
+      "agreement": "agree"
+    }
+  ],
+  "country_result": "Country: Russia\nCoordinates: 61.2167, 105.3333\nReasoning: The image quality and the specific blur pattern at the bottom of the frame are highly characteristic of Google's rural coverage in Russia. While the landscape is compatible with both, the meta-evidence regarding the camera artifacts strongly supports Russia.\n\nTournament:\n  semi-1: Russia vs Sweden → Russia\n  semi-2: Finland vs Estonia → Finland\n  final: Russia vs Finland → Russia",
+  "coordinates": {
+    "lat": 61.2167,
+    "lng": 105.3333
+  },
+  "final_reasoning": "The image quality and the specific blur pattern at the bottom of the frame are highly characteristic of Google's rural coverage in Russia. While the landscape is compatible with both, the meta-evidence regarding the camera artifacts strongly supports Russia."
+}

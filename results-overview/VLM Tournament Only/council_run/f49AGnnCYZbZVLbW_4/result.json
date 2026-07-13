@@ -1,0 +1,280 @@
+{
+  "image_path": "/pfs/data6/home/ma/ma_ma/ma_lweisssc/llm_council_agent_orchestration_tests/clean_images_GeoRC_500/f49AGnnCYZbZVLbW_4.png",
+  "model": "google/gemma-4-31B-it",
+  "judge_model": "google/gemma-4-31B-it",
+  "timing": {
+    "total_seconds": 40.5
+  },
+  "assessments": {
+    "linguistic": {
+      "agent_name": "linguistic",
+      "candidates": [
+        {
+          "country": "India",
+          "confidence": "high",
+          "reasoning": "The text is written in the Devanagari script, which is used for Hindi and several other Indian languages. The specific wording and style of the wall painting are highly characteristic of rural India."
+        },
+        {
+          "country": "Nepal",
+          "confidence": "medium",
+          "reasoning": "Devanagari is the official script of Nepal. While the style is more typical of India, the language could be Nepali or Hindi, both of which use this script."
+        }
+      ],
+      "evidence": [
+        "डागगन",
+        "Hindi/Nepali",
+        "Devanagari"
+      ]
+    },
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "India",
+          "confidence": "high",
+          "reasoning": "The combination of red brick construction, lush tropical deciduous vegetation, and the specific style of rural road infrastructure is highly characteristic of the Indo-Gangetic plain or Central India. The soil color and settlement pattern are typical for this region."
+        },
+        {
+          "country": "Nepal",
+          "confidence": "medium",
+          "reasoning": "The Terai region of Nepal shares nearly identical geography, soil, and vegetation with Northern India, making it a strong candidate based on landscape alone."
+        },
+        {
+          "country": "Pakistan",
+          "confidence": "medium",
+          "reasoning": "The Punjab region of Pakistan features similar flat terrain, agricultural patterns, and tropical greenery, though the brickwork style is slightly more common in India/Nepal."
+        },
+        {
+          "country": "Thailand",
+          "confidence": "speculative",
+          "reasoning": "As a cross-continent analog, rural Thailand features similar tropical greenery, flat terrain, and asphalt roads with similar shoulder conditions, though the brick architecture is less common."
+        }
+      ],
+      "evidence": [
+        "Lush tropical deciduous trees",
+        "Reddish-brown soil",
+        "Flat alluvial plain terrain",
+        "Unfinished red brick masonry",
+        "Asphalt road with white dashed center line"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "India",
+          "confidence": "high",
+          "reasoning": "The combination of broadleaf tropical deciduous trees and the specific lush, humid greenery along the roadside is highly characteristic of the Indo-Gangetic plain or Central India. The vegetation structure is consistent with the monsoon-driven growth patterns seen in South Asia."
+        },
+        {
+          "country": "Nepal",
+          "confidence": "medium",
+          "reasoning": "The Terai region of Nepal shares nearly identical botanical characteristics and crop patterns with Northern India, making it a strong candidate based solely on vegetation."
+        },
+        {
+          "country": "Thailand",
+          "confidence": "low",
+          "reasoning": "The tropical broadleaf canopy and roadside scrub are similar to Southeast Asian landscapes, though the specific density and species mix are more typical of the Indian subcontinent."
+        },
+        {
+          "country": "Brazil",
+          "confidence": "speculative",
+          "reasoning": "The general biome of tropical savanna/forest transition (Cerrado/Atlantic Forest edges) can produce similar green roadside corridors and broadleaf tree clusters, serving as a cross-continent analog."
+        }
+      ],
+      "evidence": [
+        "Tropical deciduous broadleaf trees",
+        "Monsoon-season roadside scrub",
+        "Humid tropical lowland vegetation"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "India",
+          "confidence": "high",
+          "reasoning": "The script on the wall is Devanagari, which is used in India. The road quality, shoulder treatment, and the style of the brick building are highly characteristic of rural Indian infrastructure."
+        },
+        {
+          "country": "Nepal",
+          "confidence": "medium",
+          "reasoning": "Nepal also uses Devanagari script and has very similar rural road infrastructure, asphalt quality, and brick construction styles to India."
+        },
+        {
+          "country": "Thailand",
+          "confidence": "speculative",
+          "reasoning": "Following the global analog rule for rural asphalt roads with basic shoulders and similar tropical vegetation, though the script on the wall strongly contradicts this."
+        }
+      ],
+      "evidence": [
+        "Devanagari script on building wall",
+        "Unfinished red brick building style",
+        "Rural asphalt road with narrow, unpaved shoulders",
+        "Lack of formal road signage or bollards"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "India",
+          "confidence": "high",
+          "reasoning": "The combination of red brick construction without plastering and the specific style of the low mud/brick boundary walls is extremely common in rural India. The image quality and slight blur patterns are consistent with Google's coverage in the region."
+        },
+        {
+          "country": "Mexico",
+          "confidence": "low",
+          "reasoning": "Rural Mexico often features similar unplastered red brick structures and dirt-shoulder roads, serving as a cross-continent analog for the construction style."
+        }
+      ],
+      "evidence": [
+        "unplastered red brick building",
+        "low mud/brick property boundary walls",
+        "Google Street View image quality/blur patterns"
+      ]
+    }
+  },
+  "progressive_narrowing": {
+    "region_consensus": null,
+    "confirmed_region": null,
+    "runner_up_region": null,
+    "surviving_regions": [],
+    "proposed_regions": [],
+    "region_candidates": {},
+    "region_decision_reasoning": "",
+    "path": "TOURNAMENT_ONLY"
+  },
+  "road_evidence": {},
+  "country_assessments": {},
+  "hypothesis_evaluations": [
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_india",
+      "confidence": "strongly_support",
+      "reasoning": "The image quality and blur patterns are consistent with the Google Street View camera generation used extensively in India. The construction of the brick building (exposed red brick without plaster) and the specific style of the low mud/brick boundary walls are extremely common in rural Indian landscapes.",
+      "key_evidence": [
+        "Google camera generation/image quality",
+        "Exposed red brick construction style",
+        "Rural boundary wall materials"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_nepal",
+      "confidence": "support",
+      "reasoning": "Nepal shares very similar rural construction materials (red brick) and Google camera coverage styles with India, making it a plausible candidate, though the specific building style is more characteristic of the Indo-Gangetic plain.",
+      "key_evidence": [
+        "Red brick construction",
+        "Google camera generation"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_pakistan",
+      "confidence": "support",
+      "reasoning": "The rural architecture and road quality are compatible with Pakistan, but Google Street View coverage in Pakistan is extremely limited compared to India, making it less likely.",
+      "key_evidence": [
+        "Red brick construction"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_thailand",
+      "confidence": "contradicts",
+      "reasoning": "The style of the brick building and the specific way the road is paved and edged do not match typical rural Thai infrastructure or architecture.",
+      "key_evidence": [
+        "Building construction style"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_brazil",
+      "confidence": "low",
+      "reasoning": "While Brazil has rural red brick buildings, the overall image quality and the specific 'feel' of the road infrastructure are more aligned with South Asian Google coverage.",
+      "key_evidence": [
+        "Google camera generation"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_mexico",
+      "confidence": "low",
+      "reasoning": "Similar to Brazil, while red brick is used, the specific combination of the road edge and the building style is not typical for rural Mexico.",
+      "key_evidence": [
+        "Building construction style"
+      ]
+    }
+  ],
+  "candidate_pool": [
+    "India",
+    "Nepal",
+    "Thailand",
+    "Pakistan",
+    "Brazil",
+    "Mexico"
+  ],
+  "rag_findings": [
+    {
+      "kind": "tournament_match",
+      "country": "Brazil",
+      "detail": "The image features a building with exposed red brick and a wall with text in Devanagari script, which is the primary script used in India. The overall landscape and construction style are highly characteristic of rural India, as noted in the specialist evidence.",
+      "opponent": "India",
+      "winner": "India"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Pakistan",
+      "detail": "The streetview shows Devanagari script on the wall of the building, which is the official script of Nepal. Pakistan uses the Arabic-based Urdu script, making Nepal the only plausible candidate between the two.",
+      "opponent": "Nepal",
+      "winner": "Nepal"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Nepal",
+      "detail": "The visual evidence, specifically the exposed red brick construction and the style of the rural boundary walls, is highly characteristic of the Indo-Gangetic plain in India. The image quality and blur patterns are also consistent with Google Street View coverage in India.",
+      "opponent": "India",
+      "winner": "India"
+    }
+  ],
+  "rag_refs_seen": [],
+  "road_filter_warnings": [],
+  "tournament_log": [
+    {
+      "round_label": "semi-1",
+      "country_a": "India",
+      "country_b": "Brazil",
+      "pool_rank_a": 0,
+      "pool_rank_b": 3,
+      "winner": "India",
+      "reasoning": "The image features a building with exposed red brick and a wall with text in Devanagari script, which is the primary script used in India. The overall landscape and construction style are highly characteristic of rural India, as noted in the specialist evidence.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "semi-2",
+      "country_a": "Nepal",
+      "country_b": "Pakistan",
+      "pool_rank_a": 1,
+      "pool_rank_b": 2,
+      "winner": "Nepal",
+      "reasoning": "The streetview shows Devanagari script on the wall of the building, which is the official script of Nepal. Pakistan uses the Arabic-based Urdu script, making Nepal the only plausible candidate between the two.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "final",
+      "country_a": "India",
+      "country_b": "Nepal",
+      "pool_rank_a": 0,
+      "pool_rank_b": 1,
+      "winner": "India",
+      "reasoning": "The visual evidence, specifically the exposed red brick construction and the style of the rural boundary walls, is highly characteristic of the Indo-Gangetic plain in India. The image quality and blur patterns are also consistent with Google Street View coverage in India.",
+      "agreement": "agree"
+    }
+  ],
+  "country_result": "Country: India\nCoordinates: 27.1767, 78.0081\nReasoning: The visual evidence, specifically the exposed red brick construction and the style of the rural boundary walls, is highly characteristic of the Indo-Gangetic plain in India. The image quality and blur patterns are also consistent with Google Street View coverage in India.\n\nTournament:\n  semi-1: India vs Brazil → India\n  semi-2: Nepal vs Pakistan → Nepal\n  final: India vs Nepal → India",
+  "coordinates": {
+    "lat": 27.1767,
+    "lng": 78.0081
+  },
+  "final_reasoning": "The visual evidence, specifically the exposed red brick construction and the style of the rural boundary walls, is highly characteristic of the Indo-Gangetic plain in India. The image quality and blur patterns are also consistent with Google Street View coverage in India."
+}

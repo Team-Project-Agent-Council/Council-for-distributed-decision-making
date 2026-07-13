@@ -1,0 +1,623 @@
+{
+  "image_path": "/pfs/data6/home/ma/ma_ma/ma_lweisssc/llm_council_agent_orchestration_tests/clean_images_GeoRC_500/SkFHwlV4Z2q9fUje_5.png",
+  "model": "google/gemma-4-31B-it",
+  "judge_model": "google/gemma-4-31B-it",
+  "timing": {
+    "total_seconds": 81.5
+  },
+  "assessments": {
+    "linguistic": {
+      "agent_name": "linguistic",
+      "candidates": [
+        {
+          "country": "India",
+          "confidence": "high",
+          "reasoning": "The text is written in the Devanagari script and the language is Hindi, which is the primary official language of India. The specific phrasing and style of the wall painting are characteristic of rural Indian signage."
+        }
+      ],
+      "evidence": [
+        "सैक्स रोगी उस्तामाती",
+        "Hindi",
+        "Devanagari"
+      ]
+    },
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "India",
+          "confidence": "high",
+          "reasoning": "The combination of red-brown arid soil, specific deciduous tree shapes, and the style of low-slung brick and concrete rural settlements is highly characteristic of the Deccan Plateau or Central Indian highlands. The terrain is flat with distant rolling hills, typical of the interior plains."
+        },
+        {
+          "country": "Pakistan",
+          "confidence": "medium",
+          "reasoning": "The arid landscape, soil color, and rural building styles are very similar to those found in India, particularly in the Punjab or Sindh regions, though the vegetation here is slightly more lush than the deep desert areas."
+        },
+        {
+          "country": "Thailand",
+          "confidence": "low",
+          "reasoning": "The flat terrain, red soil, and rural road infrastructure can be found in the Isan region, although the specific tree species and building materials are more aligned with South Asia."
+        },
+        {
+          "country": "Mexico",
+          "confidence": "speculative",
+          "reasoning": "As a cross-continent analog, the arid scrubland, red-tinted soil, and low-density rural concrete structures in the highlands of Mexico share a similar environmental profile to the South Asian interior."
+        }
+      ],
+      "evidence": [
+        "Reddish-brown arid soil",
+        "Deciduous tropical scrub vegetation",
+        "Low-density rural settlement with flat-roofed brick/concrete structures",
+        "Rolling hills in the background",
+        "Northern hemisphere sun angle based on shadow cast"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "India",
+          "confidence": "high",
+          "reasoning": "The presence of large, broad-leaved deciduous trees with a growth habit consistent with Azadirachta indica (Neem) or similar tropical dry deciduous species is highly characteristic of the Indian subcontinent. The combination of these trees with the arid, sandy soil and sparse scrub is typical of the Deccan Plateau or Central Indian regions."
+        },
+        {
+          "country": "Thailand",
+          "confidence": "low",
+          "reasoning": "The tropical dry forest biome and similar broad-leaved tree structures are found in Northern Thailand, though the specific density and soil color are more characteristic of South Asia."
+        },
+        {
+          "country": "Mexico",
+          "confidence": "speculative",
+          "reasoning": "The xeric shrubland and scattered tropical deciduous trees represent a global analog to the dry forests of Mexico, though the specific tree morphology is less typical for that region."
+        }
+      ],
+      "evidence": [
+        "Tropical dry deciduous forest",
+        "Azadirachta indica (likely)",
+        "Xeric scrubland"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "India",
+          "confidence": "high",
+          "reasoning": "The text on the building is in Devanagari script, which is used for Hindi and other Indian languages. The concrete drainage gutters along the road edge and the specific style of the concrete utility pole are very common in rural Indian road infrastructure."
+        },
+        {
+          "country": "Nepal",
+          "confidence": "medium",
+          "reasoning": "Nepal also uses Devanagari script and shares very similar rural road infrastructure, including concrete drainage channels and utility pole styles."
+        },
+        {
+          "country": "Thailand",
+          "confidence": "speculative",
+          "reasoning": "Following the global analog rule for rural asphalt roads with concrete drainage gutters and similar utility poles, though the script on the building does not match."
+        }
+      ],
+      "evidence": [
+        "Devanagari script on building wall",
+        "Concrete drainage gutters lining the road",
+        "Concrete utility pole with cross-arm",
+        "Rural asphalt road with unpaved/dirt shoulders"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "India",
+          "confidence": "high",
+          "reasoning": "The utility pole is a classic Indian concrete pole with a specific cross-arm configuration and wiring style. The construction of the roadside drainage gutters and the use of red brick for the simple, flat-roofed structures are highly characteristic of rural India."
+        },
+        {
+          "country": "Thailand",
+          "confidence": "low",
+          "reasoning": "Thailand also uses similar concrete utility poles and has rural areas with similar dirt shoulders and simple brick/concrete structures, though the specific pole hardware differs slightly from the Indian style."
+        },
+        {
+          "country": "Mexico",
+          "confidence": "speculative",
+          "reasoning": "As a cross-continent analog, rural Mexico features similar concrete utility poles and unpaved road shoulders with simple brick construction, though the overall architectural style of the buildings is less typical."
+        }
+      ],
+      "evidence": [
+        "concrete utility pole with specific cross-arm",
+        "concrete roadside drainage gutters",
+        "red brick construction with flat roofs",
+        "Google car hood visible (standard Gen 4/Gen 3 appearance)"
+      ]
+    }
+  },
+  "progressive_narrowing": {
+    "region_consensus": false,
+    "confirmed_region": "South Asia",
+    "runner_up_region": "Southeast Asia",
+    "surviving_regions": [
+      "South Asia",
+      "Southeast Asia"
+    ],
+    "proposed_regions": [
+      "South Asia",
+      "Southeast Asia",
+      "North America"
+    ],
+    "region_candidates": {
+      "South Asia": {
+        "India": 5,
+        "Pakistan": 1,
+        "Nepal": 1
+      },
+      "Southeast Asia": {
+        "Thailand": 4
+      },
+      "North America": {
+        "Mexico": 3
+      }
+    },
+    "region_decision_reasoning": "South Asia received three 'strongly_support' votes across landscape, botanics, and meta agents, resulting in the highest weighted score. Southeast Asia was consistently rated as 'support' across all agents, making it the clear runner-up.",
+    "path": "B"
+  },
+  "road_evidence": {
+    "outside_color": "none",
+    "inside_color": "none",
+    "driving_side": "UNCLEAR",
+    "driving_side_basis": "none"
+  },
+  "country_assessments": {
+    "linguistic": {
+      "agent_name": "linguistic",
+      "candidates": [
+        {
+          "country": "India",
+          "confidence": "high",
+          "reasoning": "The text is written in Hindi, which is the primary official language of India. The specific phrasing and script are characteristic of rural Indian signage."
+        }
+      ],
+      "evidence": [
+        "सैक्स रोगो उस्मानि",
+        "Hindi",
+        "Devanagari"
+      ]
+    },
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "India",
+          "confidence": "high",
+          "reasoning": "The combination of red-brown arid soil, flat terrain with distant low hills, and the specific style of brick-and-mortar rural construction is highly characteristic of the Deccan Plateau or Central Indian highlands. The vegetation consists of hardy, broad-leafed deciduous trees common in the semi-arid regions of the Indian interior."
+        },
+        {
+          "country": "Pakistan",
+          "confidence": "medium",
+          "reasoning": "The arid landscape and dusty road shoulders are similar to the Punjab or Sindh regions. However, the specific tree species and the style of the small concrete drainage gutters along the road are more typical of Indian rural infrastructure."
+        },
+        {
+          "country": "Myanmar",
+          "confidence": "low",
+          "reasoning": "The dry zone of central Myanmar features similar arid scrubland and red soils. However, the settlement pattern and the specific architecture of the flat-roofed brick buildings are less common there than in South Asia."
+        }
+      ],
+      "evidence": [
+        "Arid red-brown soil",
+        "Semi-arid scrubland with broad-leafed deciduous trees",
+        "Flat terrain with distant low-altitude hills",
+        "Concrete drainage gutters along a paved rural road",
+        "Flat-roofed brick rural architecture"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "India",
+          "confidence": "high",
+          "reasoning": "The presence of large, broad-leaved deciduous trees resembling Azadirachta indica (Neem) or Ficus species in a dry, semi-arid landscape is highly characteristic of the Indian Deccan Plateau or Central Indian plains. The vegetation pattern and soil color are consistent with the rain-shadow regions of India."
+        },
+        {
+          "country": "Pakistan",
+          "confidence": "medium",
+          "reasoning": "The xeric shrubland and deciduous tree types are similar to those found in the Punjab or Sindh regions. However, the specific density and form of the canopy trees are more typical of the Indian interior."
+        },
+        {
+          "country": "Thailand",
+          "confidence": "low",
+          "reasoning": "Dry dipterocarp forests in Northeast Thailand can present a similar open-canopy, arid appearance, though the specific tree morphology here is more aligned with South Asian species."
+        }
+      ],
+      "evidence": [
+        "Azadirachta indica (Neem)",
+        "Ficus species",
+        "Tropical dry deciduous forest biome"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "India",
+          "confidence": "high",
+          "reasoning": "The text on the building is in Devanagari script, which is used for Hindi and other Indian languages. The concrete drainage gutters along the road edge and the specific style of the concrete utility pole are very common in rural Indian road infrastructure."
+        },
+        {
+          "country": "Nepal",
+          "confidence": "medium",
+          "reasoning": "Nepal also uses Devanagari script and shares very similar rural road infrastructure, including concrete utility poles and basic asphalt roads with concrete side drains."
+        }
+      ],
+      "evidence": [
+        "Devanagari script on building",
+        "Concrete utility pole",
+        "Concrete roadside drainage gutters",
+        "Rural asphalt road width and quality"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "India",
+          "confidence": "high",
+          "reasoning": "The utility pole is a classic Indian concrete pole with a specific cross-arm configuration and wiring style common in rural areas. The construction of the small brick buildings with flat concrete roofs and the specific style of the concrete drainage gutters along the road are highly characteristic of rural India."
+        },
+        {
+          "country": "Nepal",
+          "confidence": "medium",
+          "reasoning": "Nepal shares very similar rural infrastructure, including concrete utility poles and brick building styles, due to its proximity and shared architectural influences with India. However, the specific gutter design is slightly more common in Indian state highways."
+        },
+        {
+          "country": "Sri Lanka",
+          "confidence": "low",
+          "reasoning": "While Sri Lanka uses concrete poles, the overall aesthetic of the road shoulders and the specific style of the rural brick structures are less typical than those found in the Indian subcontinent mainland."
+        }
+      ],
+      "evidence": [
+        "concrete utility pole with specific cross-arm",
+        "concrete drainage gutters along road edge",
+        "flat-roofed red brick construction",
+        "Google Street View car hood visible (common in regional coverage)"
+      ]
+    }
+  },
+  "hypothesis_evaluations": [
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_south_asia",
+      "confidence": "strongly_support",
+      "reasoning": "The combination of arid, sandy-loam soil, semi-arid scrub vegetation, and the specific style of low-rise brick and concrete settlement patterns is highly characteristic of the Deccan Plateau or central Indian plains. The rolling hills in the background and the specific tree morphology are very common in this region.",
+      "key_evidence": [
+        "sandy-loam soil",
+        "semi-arid scrubland",
+        "low-rise brick settlement patterns",
+        "rolling hills"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_southeast_asia",
+      "confidence": "support",
+      "reasoning": "The climate and terrain are compatible with drier regions of Southeast Asia (e.g., parts of Thailand or Myanmar), though the soil color and lack of denser tropical foliage make it slightly less characteristic than South Asia.",
+      "key_evidence": [
+        "tropical semi-arid climate",
+        "similar road infrastructure"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_north_america",
+      "confidence": "contradicts",
+      "reasoning": "While the arid landscape resembles the US Southwest, the settlement patterns, building materials (unpainted brick/concrete), and the specific arrangement of utility poles and road drainage are inconsistent with North American rural infrastructure.",
+      "key_evidence": [
+        "non-standard North American settlement style",
+        "infrastructure layout"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_south_asia",
+      "confidence": "strongly_support",
+      "reasoning": "The broad-leaved, rounded canopy trees are highly characteristic of Azadirachta indica (Neem) and other common Indian village flora. The combination of these specific tree morphologies with the arid, dusty soil and sparse scrub is a classic botanical profile for the Deccan Plateau or Central Indian plains.",
+      "key_evidence": [
+        "Azadirachta indica (Neem) morphology",
+        "Tropical dry deciduous vegetation"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_southeast_asia",
+      "confidence": "support",
+      "reasoning": "The vegetation is compatible with the tropical dry forests found in parts of Thailand or Myanmar. However, the specific growth habit and spacing of the trees are more typical of South Asian rural landscapes than the denser, more humid vegetation usually seen in Southeast Asia.",
+      "key_evidence": [
+        "Tropical dry forest biome"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_north_america",
+      "confidence": "contradicts",
+      "reasoning": "The tree species and overall vegetation structure do not match North American biomes. The foliage and canopy shape are inconsistent with the xeric shrublands of the US Southwest or the temperate forests of the North.",
+      "key_evidence": [
+        "Absence of North American endemic xeric species",
+        "Incompatible canopy structure"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_south_asia",
+      "confidence": "strongly_support",
+      "reasoning": "The utility pole is a concrete pole with a specific cross-arm configuration common in India. The construction of the buildings using unpainted red brick and the specific style of the concrete drainage gutters along the road are highly characteristic of rural Indian infrastructure.",
+      "key_evidence": [
+        "concrete utility pole style",
+        "unpainted red brick construction",
+        "concrete roadside drainage gutters"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_southeast_asia",
+      "confidence": "support",
+      "reasoning": "While the concrete poles and rural road style are compatible with some Southeast Asian countries, the specific combination of red brick and the gutter design is more typical of South Asia.",
+      "key_evidence": [
+        "concrete utility poles"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_north_america",
+      "confidence": "strongly_contradicts",
+      "reasoning": "The utility pole design, the lack of standardized road shoulders, and the specific style of rural brick architecture are entirely inconsistent with North American infrastructure standards.",
+      "key_evidence": [
+        "non-standard utility pole",
+        "building materials",
+        "roadside infrastructure"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_india",
+      "confidence": "strongly_support",
+      "reasoning": "The combination of arid, sandy-loam soil, semi-arid scrub vegetation, and the specific style of low-rise brick and concrete settlement patterns is highly characteristic of the Deccan Plateau or Central Indian highlands. The rolling hills in the background and the specific road-shoulder drainage construction are very common in rural Indian states.",
+      "key_evidence": [
+        "sandy-loam soil",
+        "semi-arid scrubland",
+        "low-rise brick settlement patterns",
+        "rolling hills"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_pakistan",
+      "confidence": "support",
+      "reasoning": "The arid climate and flat-to-rolling terrain are compatible with the Punjab or Sindh regions, though the vegetation and building materials are slightly more consistent with the Indian interior.",
+      "key_evidence": [
+        "arid climate",
+        "flat terrain"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_nepal",
+      "confidence": "support",
+      "reasoning": "The Terai region of Nepal shares very similar geography, soil, and climate with Northern India, making it a plausible candidate based on landscape alone.",
+      "key_evidence": [
+        "Terai-style plains",
+        "semi-arid vegetation"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_myanmar",
+      "confidence": "low",
+      "reasoning": "While Myanmar has arid zones (Central Dry Zone), the settlement style and road infrastructure seen here are less typical than those found in South Asia.",
+      "key_evidence": [
+        "dry zone climate"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_thailand",
+      "confidence": "low",
+      "reasoning": "The terrain is too arid and the soil too sandy for most of Thailand, though some northeastern plateaus share a similar look; however, the settlement pattern is not typical.",
+      "key_evidence": [
+        "plateau terrain"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_sri_lanka",
+      "confidence": "contradicts",
+      "reasoning": "The vegetation and soil color are more indicative of a continental interior than the tropical, humid environment typical of Sri Lanka.",
+      "key_evidence": [
+        "lack of tropical humidity indicators",
+        "soil composition"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_india",
+      "confidence": "strongly_support",
+      "reasoning": "The broad-leaved, rounded canopy trees are highly characteristic of Azadirachta indica (Neem) and possibly species of Ficus or Albizia common in the semi-arid regions of central and northern India. The combination of these specific tree morphologies with the dry, dusty soil and sparse scrub is a classic botanical profile for the Indian Deccan or Indo-Gangetic plains.",
+      "key_evidence": [
+        "Azadirachta indica (Neem) morphology",
+        "Semi-arid tropical scrub"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_pakistan",
+      "confidence": "support",
+      "reasoning": "The vegetation is compatible with the Punjab or Sindh regions of Pakistan, which share similar semi-arid tropical flora with India. However, the specific density and shape of the canopy trees are slightly more typical of the Indian interior.",
+      "key_evidence": [
+        "Semi-arid tropical flora"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_nepal",
+      "confidence": "support",
+      "reasoning": "The Terai region of Nepal shares the same botanical characteristics as northern India, including the presence of similar broad-leaved tropical trees and dry seasonal grasslands.",
+      "key_evidence": [
+        "Terai lowland vegetation"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_myanmar",
+      "confidence": "low",
+      "reasoning": "While Myanmar has dry zones, the specific arrangement and species of the roadside trees seen here are more characteristic of the South Asian subcontinent than the Southeast Asian dry forests.",
+      "key_evidence": [
+        "Tropical dry forest"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_thailand",
+      "confidence": "low",
+      "reasoning": "The vegetation is broadly compatible with Thailand's dry deciduous forests, but the specific tree silhouettes and the lack of typical Southeast Asian undergrowth make it less likely than the South Asian candidates.",
+      "key_evidence": [
+        "Dry deciduous forest"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_sri_lanka",
+      "confidence": "low",
+      "reasoning": "While Sri Lanka has dry zones, the vegetation here lacks the specific coastal or highland indicators often seen there, and the tree types are more aligned with the mainland Indian subcontinent.",
+      "key_evidence": [
+        "Dry zone vegetation"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_india",
+      "confidence": "strongly_support",
+      "reasoning": "The image shows a very distinct Google Street View camera artifact: the prominent, rounded white hood of the Google car visible at the bottom of the frame, which is characteristic of the camera rigs used extensively in India. Additionally, the concrete utility pole with a simple cross-arm and the specific style of red brick construction for the small roadside buildings are highly typical of rural Indian infrastructure.",
+      "key_evidence": [
+        "Google car hood artifact",
+        "concrete utility pole style",
+        "red brick construction"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_pakistan",
+      "confidence": "contradicts",
+      "reasoning": "Google Street View coverage in Pakistan is extremely limited and does not typically feature the same widespread camera rig deployment seen in India. The specific combination of the car hood artifact and the utility pole style is not characteristic of Pakistani meta.",
+      "key_evidence": [
+        "Google car hood artifact"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_nepal",
+      "confidence": "support",
+      "reasoning": "While the construction materials and poles are somewhat similar to India due to regional proximity, the specific Google car hood artifact is much more common in Indian coverage than in the limited coverage available in Nepal.",
+      "key_evidence": [
+        "concrete utility pole style"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_myanmar",
+      "confidence": "contradicts",
+      "reasoning": "The utility pole design and the specific Google camera rig artifact do not match the typical patterns seen in Myanmar's limited coverage.",
+      "key_evidence": [
+        "Google car hood artifact",
+        "utility pole style"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_thailand",
+      "confidence": "contradicts",
+      "reasoning": "Thailand uses different utility pole designs (often with more complex transformers or different concrete shapes) and the Google car rig artifacts in Thailand typically differ from the one seen here.",
+      "key_evidence": [
+        "Google car hood artifact",
+        "utility pole style"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_sri_lanka",
+      "confidence": "support",
+      "reasoning": "Similar to Nepal, there are regional similarities in construction, but the specific Google car hood artifact is a strong indicator for India over Sri Lanka.",
+      "key_evidence": [
+        "concrete utility pole style"
+      ]
+    }
+  ],
+  "candidate_pool": [
+    "India",
+    "Pakistan",
+    "Nepal",
+    "Myanmar",
+    "Thailand",
+    "Sri Lanka"
+  ],
+  "rag_findings": [
+    {
+      "kind": "tournament_match",
+      "country": "Sri Lanka",
+      "detail": "The streetview features Devanagari script on the roadside building, which is the primary script used in India and not in Sri Lanka. Additionally, the landscape, vegetation, and the specific Google car hood artifact are strongly characteristic of rural India as noted in the specialist evidence.",
+      "opponent": "India",
+      "winner": "India"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Pakistan",
+      "detail": "The script on the building is Devanagari, which is used in Nepal but not in Pakistan (where Urdu/Arabic script is standard). While the meta evidence suggests this is likely India, between the two provided candidates, Nepal is the only one that uses this script.",
+      "opponent": "Nepal",
+      "winner": "Nepal"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Nepal",
+      "detail": "The visual evidence strongly supports India, specifically the presence of the distinct Google car hood artifact common in Indian coverage and the architectural style of the red brick buildings. The landscape and botanical profiles are highly characteristic of the Indian Deccan or Central highlands, and the script on the building is Devanagari, which is used in both countries but fits the specific rural Indian infrastructure seen here.",
+      "opponent": "India",
+      "winner": "India"
+    }
+  ],
+  "rag_refs_seen": [],
+  "road_filter_warnings": [],
+  "tournament_log": [
+    {
+      "round_label": "semi-1",
+      "country_a": "India",
+      "country_b": "Sri Lanka",
+      "pool_rank_a": 0,
+      "pool_rank_b": 3,
+      "winner": "India",
+      "reasoning": "The streetview features Devanagari script on the roadside building, which is the primary script used in India and not in Sri Lanka. Additionally, the landscape, vegetation, and the specific Google car hood artifact are strongly characteristic of rural India as noted in the specialist evidence.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "semi-2",
+      "country_a": "Nepal",
+      "country_b": "Pakistan",
+      "pool_rank_a": 1,
+      "pool_rank_b": 2,
+      "winner": "Nepal",
+      "reasoning": "The script on the building is Devanagari, which is used in Nepal but not in Pakistan (where Urdu/Arabic script is standard). While the meta evidence suggests this is likely India, between the two provided candidates, Nepal is the only one that uses this script.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "final",
+      "country_a": "India",
+      "country_b": "Nepal",
+      "pool_rank_a": 0,
+      "pool_rank_b": 1,
+      "winner": "India",
+      "reasoning": "The visual evidence strongly supports India, specifically the presence of the distinct Google car hood artifact common in Indian coverage and the architectural style of the red brick buildings. The landscape and botanical profiles are highly characteristic of the Indian Deccan or Central highlands, and the script on the building is Devanagari, which is used in both countries but fits the specific rural Indian infrastructure seen here.",
+      "agreement": "agree"
+    }
+  ],
+  "country_result": "Country: India\nCoordinates: 23.2599, 77.4126\nReasoning: The visual evidence strongly supports India, specifically the presence of the distinct Google car hood artifact common in Indian coverage and the architectural style of the red brick buildings. The landscape and botanical profiles are highly characteristic of the Indian Deccan or Central highlands, and the script on the building is Devanagari, which is used in both countries but fits the specific rural Indian infrastructure seen here.\n\nTournament:\n  semi-1: India vs Sri Lanka → India\n  semi-2: Nepal vs Pakistan → Nepal\n  final: India vs Nepal → India",
+  "coordinates": {
+    "lat": 23.2599,
+    "lng": 77.4126
+  },
+  "final_reasoning": "The visual evidence strongly supports India, specifically the presence of the distinct Google car hood artifact common in Indian coverage and the architectural style of the red brick buildings. The landscape and botanical profiles are highly characteristic of the Indian Deccan or Central highlands, and the script on the building is Devanagari, which is used in both countries but fits the specific rural Indian infrastructure seen here."
+}

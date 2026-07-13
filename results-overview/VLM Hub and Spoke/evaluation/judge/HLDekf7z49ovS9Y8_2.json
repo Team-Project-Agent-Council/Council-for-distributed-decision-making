@@ -1,0 +1,100 @@
+{
+  "image_id": "HLDekf7z49ovS9Y8_2",
+  "truth_country": "bhutan",
+  "pred_country": "india",
+  "is_correct": false,
+  "discussion_rounds": 3,
+  "was_questioned": {
+    "linguistic": true,
+    "landscape": true,
+    "botanics": false,
+    "regulatory": true,
+    "meta": true
+  },
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": true,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.25,
+      "botanics": 0.25,
+      "regulatory": 0.25,
+      "meta": 0.25
+    },
+    "visual_consistency_score": {
+      "linguistic": 1.0,
+      "landscape": 0.75,
+      "botanics": 0.75,
+      "regulatory": 0.75,
+      "meta": 0.75
+    },
+    "confidence_calibration_score": {
+      "linguistic": 0.5,
+      "landscape": 0.25,
+      "botanics": 0.25,
+      "regulatory": 0.25,
+      "meta": 0.25
+    },
+    "question_relevance_score": {
+      "linguistic": 1.0,
+      "landscape": 1.0,
+      "botanics": 0.5,
+      "regulatory": 1.0,
+      "meta": 1.0
+    },
+    "question_relevance_notes": {
+      "linguistic": "Judge asked for text/script analysis, squarely in linguistic domain.",
+      "landscape": "Judge asked for terrain morphology analysis, squarely in landscape domain.",
+      "botanics": "Agent was not questioned; default score applied.",
+      "regulatory": "Judge asked for road/utility standards, squarely in regulatory domain.",
+      "meta": "Judge asked for vehicle/infrastructure synthesis, squarely in meta domain."
+    },
+    "response_update_quality": {
+      "linguistic": 0.5,
+      "landscape": 0.5,
+      "botanics": 0.5,
+      "regulatory": 0.5,
+      "meta": 0.5
+    },
+    "response_update_notes": {
+      "linguistic": "Agent correctly identified the limitation (resolution) but provided no new visual evidence.",
+      "landscape": "Agent restated priors about 'rounded' mountains without adding specific visual verification.",
+      "botanics": "Agent was not questioned; default score applied.",
+      "regulatory": "Agent restated priors about truck style without adding specific visual verification.",
+      "meta": "Agent restated priors about 'Tata-style' without adding specific visual verification."
+    },
+    "targeted_agent_addressed_question": {
+      "linguistic": true,
+      "landscape": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "hallucination_examples": {
+      "linguistic": [],
+      "landscape": [
+        "The mountains in the background are rounded, heavily forested tropical highlands rather than the jagged, rocky, or snow-capped peaks typical of the high Himalayas."
+      ],
+      "botanics": [
+        "The specific canopy structure of the larger trees is common in the foothills of the Himalayas or the Western Ghats."
+      ],
+      "regulatory": [
+        "The truck's highly decorative paint scheme and body structure are quintessential to Indian commercial vehicles."
+      ],
+      "meta": [
+        "The truck features a highly specific 'Tata-style' cab with a colorful, hand-painted livery and a high-clearance chassis common in Indian rural logistics."
+      ]
+    },
+    "judge_question_strategy_score": 0.5,
+    "judge_question_strategy_notes": "The judge correctly targeted the regulatory and meta agents to look for text or specific vehicle markers, which was the most logical path to disambiguation. However, the judge failed to notice that the text on the truck was actually legible ('DAMCHEN PETROLEUM DISTRIBUTORS'), leading to a wasted round of questioning where agents claimed the text was unreadable. The judge also failed to target the linguistic agent for the script analysis (Devanagari vs others) effectively, as the linguistic agent's response was a non-answer.",
+    "judge_synthesis_quality": 0.0,
+    "judge_synthesis_notes": "The judge's final reasoning is factually incorrect regarding the image content. It claims the landscape agent observed 'rounded, forested tropical highlands' characteristic of the Western Ghats, whereas the image clearly shows a mountain range consistent with the Himalayas (steep, rugged, high-altitude). The judge also hallucinates that the truck is 'quintessential to rural India' while ignoring the text 'DAMCHEN' which points to Bhutan. The final prediction (India) is incorrect.",
+    "discussion_convergence_score": 0.0,
+    "discussion_convergence_notes": "The discussion did not converge on the correct answer. The agents and judge reinforced a bias towards India based on incorrect visual interpretations (hallucinating 'rounded' hills and 'unreadable' text). The process failed to eliminate the correct candidate (Bhutan) or identify the key differentiator (the text on the truck)."
+  }
+}

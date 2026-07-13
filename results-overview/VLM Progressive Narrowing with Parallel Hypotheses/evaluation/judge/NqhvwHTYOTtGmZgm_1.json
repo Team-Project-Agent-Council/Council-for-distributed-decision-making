@@ -1,0 +1,79 @@
+{
+  "image_id": "NqhvwHTYOTtGmZgm_1",
+  "truth_country": "greenland",
+  "pred_country": "iceland",
+  "is_correct": false,
+  "path": "",
+  "truth_in_hypothesis_pool": false,
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": true,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "role_adherence_notes": {
+      "linguistic": "Correctly identified lack of linguistic cues (no signs) and stayed silent.",
+      "landscape": "Stayed within terrain/climate analysis, though misidentified the soil type.",
+      "botanics": "Stayed within vegetation analysis, though hallucinated specific ground cover.",
+      "regulatory": "Correctly identified lack of regulatory cues (no roads/signs) and stayed silent.",
+      "meta": "Stayed within cross-domain synthesis, focusing on infrastructure style and image metadata."
+    },
+    "argumentative_quality": {
+      "linguistic": "normal",
+      "landscape": "weak",
+      "botanics": "weak",
+      "regulatory": "normal",
+      "meta": "normal"
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.5,
+      "botanics": 0.75,
+      "regulatory": 0.0,
+      "meta": 0.0
+    },
+    "hallucination_examples": {
+      "linguistic": [],
+      "landscape": [
+        "claimed 'volcanic basaltic soil' \u2014 the ground is clearly grey gravel/sand, not black basalt."
+      ],
+      "botanics": [
+        "claimed 'mosses' visible \u2014 the ground is bare rock/gravel with no visible moss.",
+        "claimed 'absence of arboreal vegetation' \u2014 while true, the specific 'low-lying tundra/mosses' description is unsupported."
+      ],
+      "regulatory": [],
+      "meta": []
+    },
+    "visual_consistency_score": {
+      "linguistic": 1.0,
+      "landscape": 0.6,
+      "botanics": 0.4,
+      "regulatory": 1.0,
+      "meta": 0.8
+    },
+    "visual_consistency_notes": {
+      "linguistic": "Correctly noted absence of text.",
+      "landscape": "Correctly noted snow and barren terrain, but incorrectly described soil color/texture.",
+      "botanics": "Incorrectly described ground cover as mossy/tundra when it is bare rock.",
+      "regulatory": "Correctly noted absence of road infrastructure.",
+      "meta": "Correctly identified the wooden platform and image quality."
+    },
+    "confidence_calibration": {
+      "linguistic": 0.5,
+      "landscape": 0.2,
+      "botanics": 0.2,
+      "regulatory": 0.5,
+      "meta": 0.2
+    },
+    "constructive_synthesis": false,
+    "overall_verdict_notes": "The agents failed to identify the correct country (Greenland) and instead converged on Iceland based on hallucinated visual features (moss, basalt). The judge's synthesis was poor, as it accepted the flawed 'Iceland' consensus without critically evaluating the hallucinated evidence.",
+    "region_narrowing_quality": 0.25,
+    "region_narrowing_notes": "The judge accepted a consensus on 'Iceland' (Europe/North Atlantic) despite the agents' evidence being largely hallucinated. The reasoning did not adequately account for the lack of specific Icelandic markers (like black sand or distinct vegetation) and failed to consider other high-latitude regions like Greenland or Svalbard.",
+    "hypothesis_pool_quality": 0.25,
+    "hypothesis_pool_notes": "The pool was heavily biased towards Iceland and Norway, ignoring other plausible high-latitude regions like Greenland, Svalbard, or Alaska. The pool lacked diversity for such a generic arctic/alpine scene."
+  },
+  "validation_error": "1 validation error for JudgeVerdict\nregion_narrowing_notes\n  String should have at most 300 characters [type=string_too_long, input_value=\"The judge accepted a con... Greenland or Svalbard.\", input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_too_long"
+}

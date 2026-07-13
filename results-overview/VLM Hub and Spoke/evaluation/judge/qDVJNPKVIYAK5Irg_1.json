@@ -1,0 +1,91 @@
+{
+  "image_id": "qDVJNPKVIYAK5Irg_1",
+  "truth_country": "philippines",
+  "pred_country": "puerto rico",
+  "is_correct": false,
+  "discussion_rounds": 1,
+  "was_questioned": {
+    "linguistic": true,
+    "landscape": false,
+    "botanics": false,
+    "regulatory": true,
+    "meta": true
+  },
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": true,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.5,
+      "botanics": 0.5,
+      "regulatory": 0.75,
+      "meta": 0.5
+    },
+    "visual_consistency_score": {
+      "linguistic": 1.0,
+      "landscape": 0.5,
+      "botanics": 0.5,
+      "regulatory": 0.25,
+      "meta": 0.5
+    },
+    "confidence_calibration_score": {
+      "linguistic": 0.5,
+      "landscape": 0.25,
+      "botanics": 0.25,
+      "regulatory": 0.25,
+      "meta": 0.25
+    },
+    "question_relevance_score": {
+      "linguistic": 1.0,
+      "regulatory": 1.0,
+      "meta": 1.0
+    },
+    "question_relevance_notes": {
+      "linguistic": "Question asked for text evidence, squarely in linguistic domain.",
+      "regulatory": "Question asked for specific infrastructure details, squarely in regulatory domain.",
+      "meta": "Question asked for specific infrastructure markers, squarely in meta domain."
+    },
+    "response_update_quality": {
+      "linguistic": 0.5,
+      "regulatory": 0.0,
+      "meta": 0.0
+    },
+    "response_update_notes": {
+      "linguistic": "Agent responded but was vague, stating no text was visible (which is true but unhelpful).",
+      "regulatory": "Agent response was empty/refused.",
+      "meta": "Agent response was empty/refused."
+    },
+    "targeted_agent_addressed_question": {
+      "linguistic": true,
+      "regulatory": false,
+      "meta": false
+    },
+    "hallucination_examples": {
+      "linguistic": [],
+      "landscape": [
+        "The specific infrastructure and road quality seen here are slightly more aligned with Puerto Rican standards."
+      ],
+      "botanics": [
+        "The combination of coconut palms (Cocos nucifera), lush tropical broadleaf evergreen foliage, and specific ornamental shrubs like Nerium oleander is highly characteristic of the Caribbean."
+      ],
+      "regulatory": [
+        "The electrical infrastructure features a specific single-phase pole-mounted transformer with a grey cylindrical tank and a distinct top-mounted bushing configuration standard to US utility grids (ANSI standards)."
+      ],
+      "meta": [
+        "The specific combination of concrete utility poles with the grey cylindrical transformer mounts and the 'messy' overhead wiring is a hallmark of Puerto Rico."
+      ]
+    },
+    "judge_question_strategy_score": 0.5,
+    "judge_question_strategy_notes": "The judge correctly identified that the agents were hallucinating US/Puerto Rican markers to fit a bias. The questions were relevant to the agents' domains. However, the judge failed to notice that the agents were hallucinating (e.g., asking the regulatory agent to justify 'US-style' transformers that don't exist in the image). The judge should have targeted the hallucination directly rather than asking for justification of false premises.",
+    "judge_synthesis_quality": 0.0,
+    "judge_synthesis_notes": "The judge's final reasoning is entirely based on hallucinated evidence (ANSI transformers, concrete curbs) that are not present in the image. The judge failed to correct the agents' errors and instead amplified them, leading to a completely incorrect prediction (Puerto Rico instead of Philippines).",
+    "discussion_convergence_score": 0.0,
+    "discussion_convergence_notes": "The discussion did not converge on the truth; it converged on a hallucination. The agents were not questioned on their hallucinations, and the judge accepted the false premises."
+  }
+}

@@ -1,0 +1,656 @@
+{
+  "image_path": "/pfs/data6/home/ma/ma_ma/ma_lweisssc/llm_council_agent_orchestration_tests/clean_images_GeoRC_500/kMEhvQ4rbv1USOGs_3.png",
+  "model": "google/gemma-4-31B-it",
+  "judge_model": "google/gemma-4-31B-it",
+  "timing": {
+    "total_seconds": 308.6
+  },
+  "assessments": {
+    "linguistic": {
+      "agent_name": "linguistic",
+      "candidates": [],
+      "evidence": []
+    },
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "France",
+          "confidence": "medium",
+          "reasoning": "The temperate deciduous forest with mixed broadleaf trees and the specific style of narrow, paved rural lane are very common in the French countryside, particularly in central or western regions."
+        },
+        {
+          "country": "United Kingdom",
+          "confidence": "medium",
+          "reasoning": "The damp road surface, overcast lighting, and the presence of dense, mixed deciduous woodland with undergrowth are highly characteristic of the British Isles."
+        },
+        {
+          "country": "Belgium",
+          "confidence": "medium",
+          "reasoning": "The terrain and vegetation are nearly identical to Northern France and the UK, featuring the same temperate climate and rural road infrastructure."
+        },
+        {
+          "country": "United States",
+          "confidence": "low",
+          "reasoning": "The Eastern United States (e.g., New England or the Appalachians) features very similar temperate deciduous forests and rural paved roads during the autumn season."
+        },
+        {
+          "country": "Japan",
+          "confidence": "speculative",
+          "reasoning": "Certain mountainous or rural regions of Honshu feature similar temperate forests and narrow paved roads, though the tree species composition may differ slightly."
+        }
+      ],
+      "evidence": [
+        "Temperate deciduous forest",
+        "Autumnal foliage (yellow/brown leaves)",
+        "Narrow paved rural road",
+        "Overcast sky with diffused lighting",
+        "Damp/wet road surface indicating high humidity or recent rain"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "France",
+          "confidence": "medium",
+          "reasoning": "The combination of deciduous broadleaf forest with heavy Hedera helix (English Ivy) climbing the trunks is extremely characteristic of Western Europe, particularly the temperate forests of France."
+        },
+        {
+          "country": "United Kingdom",
+          "confidence": "medium",
+          "reasoning": "The damp, temperate deciduous woodland with similar species composition and ivy growth is highly consistent with the British Isles."
+        },
+        {
+          "country": "Belgium",
+          "confidence": "medium",
+          "reasoning": "The vegetation is virtually identical to that of France and the UK, representing the same Atlantic-influenced temperate broadleaf biome."
+        },
+        {
+          "country": "United States",
+          "confidence": "low",
+          "reasoning": "The Eastern Deciduous Forest of the US (e.g., Appalachia) shares a very similar biome with mixed hardwoods and climbing vines, serving as a cross-continent analog."
+        },
+        {
+          "country": "Japan",
+          "confidence": "speculative",
+          "reasoning": "Certain temperate regions of Japan feature similar deciduous forests with autumn foliage and climbing vines, though the specific species mix often differs."
+        }
+      ],
+      "evidence": [
+        "Deciduous broadleaf forest",
+        "Hedera helix (English Ivy)",
+        "Temperate mixed hardwood"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "France",
+          "confidence": "low",
+          "reasoning": "The narrow asphalt road with soft grass shoulders and deciduous forest is very common in rural French departments."
+        },
+        {
+          "country": "United Kingdom",
+          "confidence": "low",
+          "reasoning": "The road width, vegetation, and general rural lane appearance are consistent with the English or Welsh countryside."
+        },
+        {
+          "country": "Belgium",
+          "confidence": "low",
+          "reasoning": "Similar rural road infrastructure and forest composition are found throughout the Ardennes and other rural regions."
+        },
+        {
+          "country": "New Zealand",
+          "confidence": "speculative",
+          "reasoning": "Cross-continent analog: rural narrow asphalt roads with similar greenery and lack of formal curbing are common in rural NZ."
+        },
+        {
+          "country": "Chile",
+          "confidence": "speculative",
+          "reasoning": "Cross-continent analog: southern rural regions of Chile feature similar narrow paved roads through temperate forests."
+        }
+      ],
+      "evidence": [
+        "narrow asphalt road",
+        "unmarked grass shoulders",
+        "absence of visible signage",
+        "absence of utility poles"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "France",
+          "confidence": "low",
+          "reasoning": "The image quality and slight blur patterns are consistent with Gen 3 Google Street View coverage often found in rural French departments. The narrow asphalt road style is common in rural France, though not unique."
+        },
+        {
+          "country": "United Kingdom",
+          "confidence": "low",
+          "reasoning": "The general image quality and road texture are similar to rural UK coverage. However, there are no specific UK-style bollards or utility poles visible to confirm this over other European countries."
+        },
+        {
+          "country": "Japan",
+          "confidence": "speculative",
+          "reasoning": "As a cross-continent analog, Japan has extensive rural coverage with similar narrow asphalt roads and Gen 3 camera quality, though the lack of specific Japanese utility poles makes this less likely."
+        }
+      ],
+      "evidence": [
+        "Google Street View Gen 3 camera quality",
+        "Rural narrow asphalt road texture",
+        "Lack of distinctive street furniture/bollards"
+      ]
+    }
+  },
+  "progressive_narrowing": {
+    "region_consensus": false,
+    "confirmed_region": "Europe",
+    "runner_up_region": "North America",
+    "surviving_regions": [
+      "Europe",
+      "North America"
+    ],
+    "proposed_regions": [
+      "Europe",
+      "North America",
+      "East Asia",
+      "Oceania",
+      "South America"
+    ],
+    "region_candidates": {
+      "Europe": {
+        "France": 4,
+        "United Kingdom": 4,
+        "Belgium": 3
+      },
+      "North America": {
+        "United States": 2
+      },
+      "East Asia": {
+        "Japan": 3
+      },
+      "Oceania": {
+        "New Zealand": 1
+      },
+      "South America": {
+        "Chile": 1
+      }
+    },
+    "region_decision_reasoning": "Europe received the highest score due to strong support from the landscape agent and consistent support from botanics and meta agents, specifically citing the road style and ivy prevalence. North America is the runner-up as it shares similar temperate deciduous flora, though it lacked the strong support for the specific infrastructure and vegetation patterns seen in Europe.",
+    "path": "B"
+  },
+  "road_evidence": {
+    "outside_color": "none",
+    "inside_color": "none",
+    "driving_side": "UNCLEAR",
+    "driving_side_basis": "none"
+  },
+  "country_assessments": {
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "France",
+          "confidence": "medium",
+          "reasoning": "The combination of deciduous forest with mixed autumn foliage, damp narrow asphalt roads, and the specific density of undergrowth is very characteristic of rural Western Europe, particularly central or northern France."
+        },
+        {
+          "country": "Belgium",
+          "confidence": "medium",
+          "reasoning": "The terrain is flat to gently rolling with a similar temperate maritime climate and vegetation pattern to France, making it geographically indistinguishable from the French border regions."
+        },
+        {
+          "country": "United Kingdom",
+          "confidence": "low",
+          "reasoning": "The damp road surface and deciduous tree species are consistent with the UK landscape, though the road width and shoulder style are slightly more common in continental Europe."
+        },
+        {
+          "country": "United States",
+          "confidence": "low",
+          "reasoning": "The temperate deciduous forest and autumn leaf litter are highly similar to the Northeastern US (e.g., New England or the Appalachians), providing a cross-continental analog for this climate zone."
+        }
+      ],
+      "evidence": [
+        "Temperate deciduous forest with autumn foliage",
+        "Damp, narrow asphalt road with soft shoulders",
+        "Overcast lighting suggesting a maritime or humid continental climate",
+        "Dense leaf litter and green understory typical of high-precipitation regions"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "France",
+          "confidence": "medium",
+          "reasoning": "The combination of deciduous broadleaf trees with heavy Hedera helix (English Ivy) climbing the trunks is extremely common in Western Europe, particularly in rural France. The forest structure and leaf litter are consistent with temperate Atlantic forests."
+        },
+        {
+          "country": "United Kingdom",
+          "confidence": "medium",
+          "reasoning": "The damp, temperate environment and the prevalence of ivy-covered deciduous trees are highly characteristic of the British Isles. The vegetation is virtually indistinguishable from Northern France in this specific biome."
+        },
+        {
+          "country": "Belgium",
+          "confidence": "medium",
+          "reasoning": "The mixed deciduous woodland and the specific shade of autumn foliage are consistent with the Ardennes or Flemish countryside. It shares the same botanical profile as neighboring France and Germany."
+        },
+        {
+          "country": "United States",
+          "confidence": "low",
+          "reasoning": "The Eastern Deciduous Forest (e.g., Appalachia or New England) features similar broadleaf species and ivy growth. However, the specific density and growth habit of the understory are more typical of European managed woodlands."
+        }
+      ],
+      "evidence": [
+        "Hedera helix (English Ivy)",
+        "Temperate broadleaf deciduous forest",
+        "Mixed autumn foliage (yellow/brown)"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "France",
+          "confidence": "low",
+          "reasoning": "The narrow asphalt road with soft grass shoulders and deciduous forest is very common in rural French departments. The road width and surface quality are consistent with local 'chemins' or rural lanes."
+        },
+        {
+          "country": "United Kingdom",
+          "confidence": "low",
+          "reasoning": "The narrow, winding nature of the road and the surrounding woodland are typical of rural lanes in the UK. The lack of formal curbing and the integration with the natural landscape are common features."
+        },
+        {
+          "country": "Germany",
+          "confidence": "low",
+          "reasoning": "Similar rural forest roads are found throughout Germany, particularly in hilly or wooded regions. The asphalt quality and road width are consistent with secondary forest access roads."
+        },
+        {
+          "country": "United States",
+          "confidence": "speculative",
+          "reasoning": "Rural backroads in the Northeastern US or Appalachia can feature similar narrow asphalt strips through deciduous forests. However, the lack of wide gravel shoulders makes it less typical than European lanes."
+        }
+      ],
+      "evidence": [
+        "narrow asphalt road",
+        "grass shoulders",
+        "absence of road signs",
+        "absence of utility poles"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "France",
+          "confidence": "medium",
+          "reasoning": "The image quality and specific stitching artifacts at the bottom of the frame are characteristic of Gen 3 Google Street View coverage often found in rural French roads. The narrow, paved lane without markings is common in French countryside 'chemins'."
+        },
+        {
+          "country": "United Kingdom",
+          "confidence": "low",
+          "reasoning": "The general image quality and road width are consistent with rural UK lanes. However, the lack of specific UK-style bollards or signage makes this a lower confidence candidate compared to mainland Europe."
+        },
+        {
+          "country": "United States",
+          "confidence": "speculative",
+          "reasoning": "Providing a North American analog as per the global analog rule. Some rural forest service roads in the Northeast US can share this visual quality and road narrowness, though the stitching pattern is less common there."
+        }
+      ],
+      "evidence": [
+        "Gen 3 camera stitching artifacts (bottom of image)",
+        "Image quality and blur patterns",
+        "Narrow paved rural road width"
+      ]
+    }
+  },
+  "hypothesis_evaluations": [
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "region_europe",
+      "confidence": "neutral",
+      "reasoning": "There is no visible text in the image to provide linguistic evidence for or against this region.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "region_north_america",
+      "confidence": "neutral",
+      "reasoning": "There is no visible text in the image to provide linguistic evidence for or against this region.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "region_east_asia",
+      "confidence": "neutral",
+      "reasoning": "There is no visible text in the image to provide linguistic evidence for or against this region.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "region_oceania",
+      "confidence": "neutral",
+      "reasoning": "There is no visible text in the image to provide linguistic evidence for or against this region.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_europe",
+      "confidence": "strongly_support",
+      "reasoning": "The combination of deciduous broadleaf forest, the specific shade of green in the undergrowth, and the damp, grey asphalt road is highly characteristic of Western or Central Europe in autumn. The tree species and the general 'feel' of the temperate maritime/continental transition zone are most consistent with this region.",
+      "key_evidence": [
+        "deciduous broadleaf forest",
+        "autumnal leaf litter",
+        "temperate maritime climate indicators",
+        "narrow paved rural road"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_north_america",
+      "confidence": "support",
+      "reasoning": "The temperate deciduous forests of the Eastern United States or Southern Canada share very similar flora and climate patterns with Europe. However, the road style and the specific density of the undergrowth are slightly more typical of European rural lanes.",
+      "key_evidence": [
+        "temperate deciduous forest",
+        "autumnal foliage"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_east_asia",
+      "confidence": "low",
+      "reasoning": "While Japan or Korea have similar temperate forests and autumn colors, the specific composition of the forest floor and the road infrastructure are less typical for these regions compared to the Atlantic-influenced forests of Europe.",
+      "key_evidence": [
+        "temperate forest"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_oceania",
+      "confidence": "contradicts",
+      "reasoning": "The vegetation is overwhelmingly Northern Hemisphere temperate deciduous. While some introduced species exist in Oceania, the overall ecosystem and the specific 'grey' autumn atmosphere are inconsistent with the native landscapes of Australia or New Zealand.",
+      "key_evidence": [
+        "deciduous tree dominance",
+        "climate profile"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_europe",
+      "confidence": "support",
+      "reasoning": "The image shows a temperate deciduous forest with a mix of broadleaf trees and significant ivy (Hedera helix) climbing the trunks, which is extremely common in Western and Central Europe. The leaf litter and undergrowth are consistent with European temperate biomes.",
+      "key_evidence": [
+        "Hedera helix (English Ivy)",
+        "Temperate deciduous broadleaf forest"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_north_america",
+      "confidence": "support",
+      "reasoning": "The vegetation is highly compatible with the Eastern Deciduous Forest of North America. While the ivy-covered trunks are very European, similar climbing vines and deciduous species are prevalent in the US East Coast and Canada.",
+      "key_evidence": [
+        "Temperate deciduous broadleaf forest",
+        "Climbing vines"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_east_asia",
+      "confidence": "low",
+      "reasoning": "While East Asia has temperate deciduous forests, the specific combination of tree architecture and the prevalence of this specific type of climbing ivy is less characteristic than in Europe or North America.",
+      "key_evidence": [
+        "Temperate deciduous forest"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_oceania",
+      "confidence": "contradicts",
+      "reasoning": "The dominant vegetation consists of Northern Hemisphere temperate deciduous trees that shed leaves in autumn. This biome is not native to the vast majority of Oceania, which is dominated by sclerophyll forests (Eucalyptus) or tropical rainforests.",
+      "key_evidence": [
+        "Deciduous leaf drop",
+        "Northern temperate broadleaf species"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_europe",
+      "confidence": "support",
+      "reasoning": "The image quality and the specific stitching artifacts (the 'ghosting' or mirrored effect at the top and bottom edges) are highly characteristic of Google's Gen 3 or Gen 4 camera rigs used extensively across European rural roads. The narrow, paved single-track road is a common infrastructure pattern in rural Europe.",
+      "key_evidence": [
+        "camera stitching artifacts",
+        "road width and paving style"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_north_america",
+      "confidence": "low",
+      "reasoning": "While rural roads exist in North America, the specific camera artifacts and the narrowness of the paved strip without shoulders are less common for standard Google Street View coverage in the US or Canada, which typically features wider roads or distinct gravel shoulders.",
+      "key_evidence": [
+        "camera stitching artifacts"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_east_asia",
+      "confidence": "neutral",
+      "reasoning": "There are no specific utility poles, bollards, or street furniture visible to either support or contradict this region, although the camera generation is globally distributed.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_oceania",
+      "confidence": "neutral",
+      "reasoning": "No region-specific meta details like unique bollards or power pole designs are visible to provide a definitive assessment.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "country_france",
+      "confidence": "neutral",
+      "reasoning": "No text is visible in the image to support or contradict this hypothesis.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "country_united_kingdom",
+      "confidence": "neutral",
+      "reasoning": "No text is visible in the image to support or contradict this hypothesis.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "country_united_states",
+      "confidence": "neutral",
+      "reasoning": "No text is visible in the image to support or contradict this hypothesis.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "country_belgium",
+      "confidence": "neutral",
+      "reasoning": "No text is visible in the image to support or contradict this hypothesis.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "country_germany",
+      "confidence": "neutral",
+      "reasoning": "No text is visible in the image to support or contradict this hypothesis.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_france",
+      "confidence": "support",
+      "reasoning": "The temperate broadleaf forest with a mix of deciduous trees (likely Fagus and Quercus) and the presence of Hedera helix (English Ivy) climbing the trunks is highly characteristic of Western Europe, including France.",
+      "key_evidence": [
+        "temperate broadleaf forest",
+        "Hedera helix"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_united_kingdom",
+      "confidence": "support",
+      "reasoning": "The damp, temperate climate and the specific composition of deciduous trees and climbing ivy are very common in the UK countryside, making it botanically indistinguishable from France or Belgium in this view.",
+      "key_evidence": [
+        "temperate broadleaf forest",
+        "Hedera helix"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_belgium",
+      "confidence": "support",
+      "reasoning": "The vegetation is entirely consistent with the lowland temperate forests of Belgium, sharing the same species profile as neighboring France and Germany.",
+      "key_evidence": [
+        "temperate broadleaf forest",
+        "Hedera helix"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_germany",
+      "confidence": "support",
+      "reasoning": "The mix of deciduous trees and the forest floor composition are compatible with Western and Central Germany, though the high moisture indicated by the ivy is slightly more typical of the Atlantic influence in the west.",
+      "key_evidence": [
+        "temperate broadleaf forest",
+        "Hedera helix"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_united_states",
+      "confidence": "low",
+      "reasoning": "While the Eastern US has similar temperate deciduous forests (Appalachia), the specific density and growth habit of the ivy and the overall forest structure are more characteristic of European managed woodlands.",
+      "key_evidence": [
+        "temperate broadleaf forest"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_france",
+      "confidence": "support",
+      "reasoning": "The image quality and stitching patterns are consistent with Gen 3/Gen 4 Google camera coverage common in rural France. The narrow, paved rural lane is a very common sight in the French countryside.",
+      "key_evidence": [
+        "camera generation",
+        "road surface type"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_belgium",
+      "confidence": "support",
+      "reasoning": "The camera quality and the style of the rural paved road are highly compatible with Belgian coverage, which often mirrors the rural infrastructure of France.",
+      "key_evidence": [
+        "camera generation",
+        "road surface type"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_germany",
+      "confidence": "support",
+      "reasoning": "The image quality is compatible with German coverage, and the narrow paved forest road is a common feature in many German states.",
+      "key_evidence": [
+        "camera generation",
+        "road surface type"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_united_kingdom",
+      "confidence": "low",
+      "reasoning": "While the scenery is compatible, the specific stitching and image clarity are slightly more characteristic of mainland European Gen 3/4 coverage than typical UK rural coverage.",
+      "key_evidence": [
+        "camera generation"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_united_states",
+      "confidence": "contradicts",
+      "reasoning": "The narrowness of the paved road and the specific image stitching patterns are inconsistent with typical US rural road infrastructure and Google coverage patterns.",
+      "key_evidence": [
+        "road width",
+        "camera generation"
+      ]
+    }
+  ],
+  "candidate_pool": [
+    "France",
+    "United Kingdom",
+    "United States",
+    "Belgium",
+    "Germany"
+  ],
+  "rag_findings": [
+    {
+      "kind": "tournament_match",
+      "country": "United Kingdom",
+      "detail": "The image shows a narrow, paved rural lane and vegetation patterns that are highly characteristic of the French countryside. Meta-evidence suggests the image quality and stitching are more consistent with Google's Gen 3/4 coverage in rural France than in the UK.",
+      "opponent": "France",
+      "winner": "France"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Germany",
+      "detail": "The image shows a narrow, rural paved road through a temperate forest with significant ivy growth and moisture, which aligns with the Atlantic influence noted in the specialist evidence for Belgium. While both countries are plausible, the specific style of the rural road and the vegetation profile are highly characteristic of Belgian coverage.",
+      "opponent": "Belgium",
+      "winner": "Belgium"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Belgium",
+      "detail": "The visual evidence is neutral as there are no reference images, but the narrow, paved rural lane and the specific temperate broadleaf forest composition are highly characteristic of the French countryside. Meta-analysis of the camera quality and road style slightly favors France for this specific rural landscape profile.",
+      "opponent": "France",
+      "winner": "France"
+    }
+  ],
+  "rag_refs_seen": [],
+  "road_filter_warnings": [],
+  "tournament_log": [
+    {
+      "round_label": "semi-1",
+      "country_a": "France",
+      "country_b": "United Kingdom",
+      "pool_rank_a": 0,
+      "pool_rank_b": 3,
+      "winner": "France",
+      "reasoning": "The image shows a narrow, paved rural lane and vegetation patterns that are highly characteristic of the French countryside. Meta-evidence suggests the image quality and stitching are more consistent with Google's Gen 3/4 coverage in rural France than in the UK.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "semi-2",
+      "country_a": "Belgium",
+      "country_b": "Germany",
+      "pool_rank_a": 1,
+      "pool_rank_b": 2,
+      "winner": "Belgium",
+      "reasoning": "The image shows a narrow, rural paved road through a temperate forest with significant ivy growth and moisture, which aligns with the Atlantic influence noted in the specialist evidence for Belgium. While both countries are plausible, the specific style of the rural road and the vegetation profile are highly characteristic of Belgian coverage.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "final",
+      "country_a": "France",
+      "country_b": "Belgium",
+      "pool_rank_a": 0,
+      "pool_rank_b": 1,
+      "winner": "France",
+      "reasoning": "The visual evidence is neutral as there are no reference images, but the narrow, paved rural lane and the specific temperate broadleaf forest composition are highly characteristic of the French countryside. Meta-analysis of the camera quality and road style slightly favors France for this specific rural landscape profile.",
+      "agreement": "agree"
+    }
+  ],
+  "country_result": "Country: France\nCoordinates: 48.8566, 2.3522\nReasoning: The visual evidence is neutral as there are no reference images, but the narrow, paved rural lane and the specific temperate broadleaf forest composition are highly characteristic of the French countryside. Meta-analysis of the camera quality and road style slightly favors France for this specific rural landscape profile.\n\nTournament:\n  semi-1: France vs United Kingdom → France\n  semi-2: Belgium vs Germany → Belgium\n  final: France vs Belgium → France",
+  "coordinates": {
+    "lat": 48.8566,
+    "lng": 2.3522
+  },
+  "final_reasoning": "The visual evidence is neutral as there are no reference images, but the narrow, paved rural lane and the specific temperate broadleaf forest composition are highly characteristic of the French countryside. Meta-analysis of the camera quality and road style slightly favors France for this specific rural landscape profile."
+}

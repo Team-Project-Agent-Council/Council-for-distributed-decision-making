@@ -1,0 +1,96 @@
+{
+  "image_id": "HVBiwFr2gEcM1dze_3",
+  "truth_country": "sweden",
+  "pred_country": "finland",
+  "is_correct": false,
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": true,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "role_adherence_notes": {
+      "linguistic": "Correctly identified the absence of linguistic cues (no text visible) and stayed within domain.",
+      "landscape": "Focused on terrain, vegetation, and climate cues appropriate for the domain.",
+      "botanics": "Analyzed tree species (Pinus sylvestris) and forest structure, staying within botanical scope.",
+      "regulatory": "Noted the lack of road signs/markings and analyzed road infrastructure style.",
+      "meta": "Analyzed camera generation and image artifacts, staying within cross-domain knowledge."
+    },
+    "argumentative_quality": {
+      "linguistic": "normal",
+      "landscape": "strong",
+      "botanics": "strong",
+      "regulatory": "normal",
+      "meta": "strong"
+    },
+    "constructive_synthesis": true,
+    "overall_verdict_notes": "The pipeline correctly identified the region (Europe) and the specific biome (Fennoscandian taiga). However, the agents failed to distinguish between Sweden and Finland due to the lack of unique visual markers (signs, bollards) in the image. The final decision to pick Finland over Sweden was based on a 'strong association' with Finnish coverage patterns rather than definitive visual evidence, leading to a hallucinated confidence in a specific country.",
+    "role_adherence_score": {
+      "linguistic": 1.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.9,
+      "meta": 0.9
+    },
+    "argumentative_quality_score": {
+      "linguistic": 0.5,
+      "landscape": 0.8,
+      "botanics": 0.8,
+      "regulatory": 0.5,
+      "meta": 0.8
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.2,
+      "botanics": 0.2,
+      "regulatory": 0.0,
+      "meta": 0.5
+    },
+    "hallucination_examples": {
+      "linguistic": [],
+      "landscape": [
+        "claimed 'sandy soil indicators' visible \u2014 soil is covered by snow"
+      ],
+      "botanics": [
+        "claimed 'open, sandy soil structure visible beneath the snow' \u2014 not visible"
+      ],
+      "regulatory": [],
+      "meta": [
+        "claimed 'specific 'halo' blur/stitching pattern' is consistent with Nordic coverage \u2014 this is a generic camera artifact, not a regional marker"
+      ]
+    },
+    "visual_consistency_score": {
+      "linguistic": 1.0,
+      "landscape": 0.8,
+      "botanics": 0.8,
+      "regulatory": 1.0,
+      "meta": 0.5
+    },
+    "visual_consistency_notes": {
+      "linguistic": "Correctly noted no text.",
+      "landscape": "Accurately described the pine forest and snow, though 'sandy soil' was inferred rather than seen.",
+      "botanics": "Correctly identified pine species morphology.",
+      "regulatory": "Correctly noted lack of signs.",
+      "meta": "The 'halo' blur is a real artifact, but the claim that it indicates a specific region is not visually supported."
+    },
+    "confidence_calibration": {
+      "linguistic": 0.5,
+      "landscape": 0.2,
+      "botanics": 0.2,
+      "regulatory": 0.5,
+      "meta": 0.2
+    },
+    "tournament_failure": {
+      "truth_in_pool": true,
+      "truth_lost_to": "Finland",
+      "failure_match_round": "final",
+      "failure_reason": "judge_misjudgment",
+      "failure_reasoning": "The image is visually ambiguous between Sweden and Finland. The judge (meta agent) picked Finland based on a 'strong association' with Finnish coverage patterns, which is a hallucinated preference not supported by the visual evidence. The judge had comparable evidence for both but chose the wrong one based on a non-visual bias.",
+      "counterfactual_winnable": true
+    }
+  },
+  "validation_error": "1 validation error for JudgeVerdict\noverall_verdict_notes\n  String should have at most 400 characters [type=string_too_long, input_value=\"The pipeline correctly i... in a specific country.\", input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_too_long"
+}

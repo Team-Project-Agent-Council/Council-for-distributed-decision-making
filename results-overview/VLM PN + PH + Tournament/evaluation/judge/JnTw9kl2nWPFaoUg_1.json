@@ -1,0 +1,95 @@
+{
+  "image_id": "JnTw9kl2nWPFaoUg_1",
+  "truth_country": "oman",
+  "pred_country": "saudi arabia",
+  "is_correct": false,
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": true,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "role_adherence_notes": {
+      "linguistic": "Correctly identified the absence of text and remained neutral.",
+      "landscape": "Focused on terrain, soil, and vegetation as expected.",
+      "botanics": "Correctly identified Phoenix dactylifera and xeric scrub.",
+      "regulatory": "Analyzed road surface and wall construction styles.",
+      "meta": "Relied on Google car hood and wall finish, which is the correct domain for this agent."
+    },
+    "argumentative_quality": {
+      "linguistic": "normal",
+      "landscape": "strong",
+      "botanics": "strong",
+      "regulatory": "normal",
+      "meta": "weak"
+    },
+    "constructive_synthesis": true,
+    "overall_verdict_notes": "The pipeline correctly identified the region (Middle East) and the country (Oman) as a candidate, but the final decision was swayed by the meta agent's hallucinated confidence in Saudi Arabia's specific car/wall markers, leading to a wrong final prediction.",
+    "assertiveness": null,
+    "assertiveness_score": {},
+    "overall_quality_score": null,
+    "role_adherence_score": {
+      "linguistic": 1.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.8,
+      "meta": 0.9
+    },
+    "argumentative_quality_score": {
+      "linguistic": 0.5,
+      "landscape": 0.8,
+      "botanics": 0.8,
+      "regulatory": 0.5,
+      "meta": 0.3
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.0,
+      "botanics": 0.0,
+      "regulatory": 0.0,
+      "meta": 0.75
+    },
+    "hallucination_examples": {
+      "linguistic": [],
+      "landscape": [],
+      "botanics": [],
+      "regulatory": [],
+      "meta": [
+        "Claimed the white Google car hood has a 'distinct shape and reflection pattern characteristic of the camera cars used extensively in Saudi Arabia' (not visible/verifiable).",
+        "Claimed the wall finish is 'extremely common' in Saudi Arabia specifically, distinguishing it from neighbors without evidence."
+      ]
+    },
+    "visual_consistency_score": {
+      "linguistic": 1.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.8,
+      "meta": 0.4
+    },
+    "visual_consistency_notes": {
+      "linguistic": "Accurately noted no text.",
+      "landscape": "Accurately described the arid, rocky terrain and palms.",
+      "botanics": "Accurately identified the palm species.",
+      "regulatory": "Accurately described the unpaved road and concrete walls.",
+      "meta": "Described the car hood and walls, but the 'characteristic' claims were not grounded in visual evidence."
+    },
+    "confidence_calibration": {
+      "linguistic": 0.5,
+      "landscape": 0.5,
+      "botanics": 0.5,
+      "regulatory": 0.5,
+      "meta": 0.2
+    },
+    "tournament_failure": {
+      "truth_in_pool": true,
+      "truth_lost_to": "Saudi Arabia",
+      "failure_match_round": "final",
+      "failure_reason": "agent_misled",
+      "failure_reasoning": "The meta agent assigned 'strongly_support' to Saudi Arabia based on hallucinated car/wall markers, while Oman only received 'support'. This skewed the final pairwise match against the truth.",
+      "counterfactual_winnable": false
+    }
+  }
+}

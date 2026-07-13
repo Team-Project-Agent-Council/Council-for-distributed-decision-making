@@ -1,0 +1,807 @@
+{
+  "image_path": "/pfs/data6/home/ma/ma_ma/ma_lweisssc/llm_council_agent_orchestration_tests/clean_images_GeoRC_500/KXkXw08ZCDqL1e2q_2.png",
+  "model": "google/gemma-4-31B-it",
+  "judge_model": "google/gemma-4-31B-it",
+  "timing": {
+    "total_seconds": 189.3
+  },
+  "assessments": {
+    "linguistic": {
+      "agent_name": "linguistic",
+      "candidates": [],
+      "evidence": []
+    },
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Albania",
+          "confidence": "high",
+          "reasoning": "The combination of concrete block perimeter walls, unfinished concrete upper floors on residential buildings, and the specific Mediterranean scrub/mountainous backdrop is highly characteristic of rural Albanian settlements."
+        },
+        {
+          "country": "North Macedonia",
+          "confidence": "medium",
+          "reasoning": "Shares very similar Balkan topography and settlement patterns with Albania, including the use of concrete block fencing and similar vegetation in hilly regions."
+        },
+        {
+          "country": "Greece",
+          "confidence": "medium",
+          "reasoning": "The Mediterranean climate, flora (bougainvillea-like flowers), and mountainous terrain match Northern Greece, though the specific style of unfinished concrete construction is more prevalent in the Western Balkans."
+        },
+        {
+          "country": "Turkey",
+          "confidence": "low",
+          "reasoning": "Similar Mediterranean landscape and rural concrete construction styles can be found in Western Turkey, particularly in hilly coastal or inland regions."
+        },
+        {
+          "country": "Mexico",
+          "confidence": "speculative",
+          "reasoning": "Global analog: Rural Mexican settlements often feature similar unpainted concrete block walls, unfinished second stories, and a mix of arid/temperate vegetation in mountainous regions."
+        }
+      ],
+      "evidence": [
+        "Unfinished concrete residential architecture",
+        "Concrete block perimeter walls",
+        "Mediterranean mountainous terrain",
+        "Temperate/Mediterranean flora (pink flowering shrubs)",
+        "Gravel rural path",
+        "Northern hemisphere sun angle (shadows cast slightly north/east)"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Albania",
+          "confidence": "medium",
+          "reasoning": "The combination of Mediterranean garden flora, including Bougainvillea and citrus-like shrubs, paired with the specific mountainous backdrop is highly characteristic of the Balkan coast. It shares this botanical profile with Greece, but the specific density of these ornamental species in residential alleys is common here."
+        },
+        {
+          "country": "Greece",
+          "confidence": "medium",
+          "reasoning": "The presence of Bougainvillea and Mediterranean broadleaf shrubs is ubiquitous across Greece. The vegetation is virtually identical to that of Albania, making it a primary candidate based solely on botany."
+        },
+        {
+          "country": "Italy",
+          "confidence": "low",
+          "reasoning": "Similar Mediterranean flora, including the ornamental flowering vines and fruit trees, is found in Southern Italy and Sicily, though the specific mountain-to-coast transition seen in the background is more typical of the eastern Adriatic coast."
+        },
+        {
+          "country": "Mexico",
+          "confidence": "speculative",
+          "reasoning": "As a global analog, the combination of Bougainvillea and similar xeric-adapted ornamental shrubs is common in Mexican residential areas, though the background mountain range and overall leaf morphology of the deciduous trees are less typical for this region."
+        }
+      ],
+      "evidence": [
+        "Bougainvillea spectabilis",
+        "Mediterranean broadleaf shrubs",
+        "Citrus spp.",
+        "Temperate deciduous trees"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Albania",
+          "confidence": "medium",
+          "reasoning": "The combination of concrete block perimeter walls, specific residential architecture with flat roofs and balconies, and the narrow unpaved residential lane is very common in rural Albanian villages."
+        },
+        {
+          "country": "Greece",
+          "confidence": "medium",
+          "reasoning": "The architectural style, white-washed walls, and the presence of similar narrow gravel paths in mountainous or rural regions are highly consistent with Greek village infrastructure."
+        },
+        {
+          "country": "Montenegro",
+          "confidence": "low",
+          "reasoning": "Similar Balkan residential construction patterns featuring concrete block walls and unpaved access roads in rural settlements."
+        },
+        {
+          "country": "Mexico",
+          "confidence": "speculative",
+          "reasoning": "Global analog: Rural residential areas in Mexico often feature similar unpaved lanes, concrete block boundary walls, and flat-roofed concrete housing."
+        }
+      ],
+      "evidence": [
+        "unpaved gravel residential lane",
+        "concrete block perimeter walls",
+        "flat-roofed concrete residential architecture",
+        "no road signs or license plates visible"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "Albania",
+          "confidence": "medium",
+          "reasoning": "The combination of unfinished concrete block walls, specific white-washed building styles with flat roofs, and the use of simple wire mesh fencing on low concrete bases is very common in rural Albanian villages."
+        },
+        {
+          "country": "Greece",
+          "confidence": "medium",
+          "reasoning": "The architectural style, particularly the white buildings and the specific type of concrete block construction, is highly similar to rural Greece, making it a strong neighbor candidate."
+        },
+        {
+          "country": "Turkey",
+          "confidence": "low",
+          "reasoning": "Similar concrete block construction and rural residential layouts are found in Turkey, though the specific window frame styles are slightly more characteristic of the Balkans."
+        },
+        {
+          "country": "Mexico",
+          "confidence": "speculative",
+          "reasoning": "Following the global analog rule, rural Mexico often features similar unpainted concrete block walls and simple wire fencing in residential alleys, though the building proportions differ slightly."
+        }
+      ],
+      "evidence": [
+        "unfinished concrete block walls",
+        "wire mesh fencing on concrete bases",
+        "flat-roofed white residential architecture",
+        "specific window frame style"
+      ]
+    }
+  },
+  "progressive_narrowing": {
+    "region_consensus": false,
+    "confirmed_region": "Europe",
+    "runner_up_region": "Middle East",
+    "surviving_regions": [
+      "Europe",
+      "Middle East"
+    ],
+    "proposed_regions": [
+      "Europe",
+      "Middle East",
+      "North America"
+    ],
+    "region_candidates": {
+      "Europe": {
+        "Albania": 4,
+        "North Macedonia": 1,
+        "Greece": 4,
+        "Italy": 1,
+        "Montenegro": 1
+      },
+      "Middle East": {
+        "Turkey": 2
+      },
+      "North America": {
+        "Mexico": 4
+      }
+    },
+    "region_decision_reasoning": "Europe received the highest score due to multiple 'strongly_support' ratings from the landscape and meta agents, who identified the architecture and vegetation as highly characteristic of Southern Europe/the Balkans. The Middle East is the runner-up as it consistently received 'support' across most agents due to similar Mediterranean climates and construction styles.",
+    "path": "B"
+  },
+  "road_evidence": {
+    "outside_color": "none",
+    "inside_color": "none",
+    "driving_side": "UNCLEAR",
+    "driving_side_basis": "none"
+  },
+  "country_assessments": {
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Albania",
+          "confidence": "high",
+          "reasoning": "The combination of concrete block perimeter walls, unfinished concrete upper floors on residential buildings, and the specific Mediterranean scrub/mountainous backdrop is highly characteristic of rural Albanian settlements. The road quality and settlement pattern are very common in the Balkan region."
+        },
+        {
+          "country": "North Macedonia",
+          "confidence": "medium",
+          "reasoning": "Shares very similar terrain, climate, and construction styles with Albania, particularly the use of concrete blocks and the presence of distant mountains in a Mediterranean-influenced temperate zone."
+        },
+        {
+          "country": "Greece",
+          "confidence": "medium",
+          "reasoning": "The vegetation, including the bougainvillea-like flowers and the general landscape, is consistent with Northern or Central Greece, though the specific style of unfinished concrete housing is more prevalent in the Western Balkans."
+        },
+        {
+          "country": "Montenegro",
+          "confidence": "medium",
+          "reasoning": "The mountainous horizon and the rural residential architecture match the coastal and inland valley regions of Montenegro, which are geographically nearly identical to Albania."
+        },
+        {
+          "country": "Turkey",
+          "confidence": "low",
+          "reasoning": "Certain rural areas in Western Turkey feature similar Mediterranean vegetation and concrete residential construction, though the specific architectural 'unfinished' look is less diagnostic here than in the Balkans."
+        }
+      ],
+      "evidence": [
+        "Mediterranean temperate climate with lush green vegetation and flowering shrubs",
+        "Distant mountainous terrain with soft, eroded peaks",
+        "Unfinished concrete residential architecture with flat roofs",
+        "Unpaved gravel path with concrete block boundary walls",
+        "Northern hemisphere sun angle based on shadow cast"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Albania",
+          "confidence": "medium",
+          "reasoning": "The combination of Mediterranean garden flora, including Bougainvillea and citrus-like shrubs, paired with the specific temperate mountain backdrop is highly characteristic of the Western Balkans. The vegetation is consistent with the coastal and foothill regions of Albania."
+        },
+        {
+          "country": "Greece",
+          "confidence": "medium",
+          "reasoning": "The presence of Bougainvillea and the general Mediterranean scrubland in the background are ubiquitous in Greece. It is botanically indistinguishable from Albania in this specific residential context."
+        },
+        {
+          "country": "Turkey",
+          "confidence": "low",
+          "reasoning": "The Aegean and Mediterranean coasts of Turkey share the same botanical profile, including the ornamental flowering shrubs and temperate deciduous trees seen here."
+        },
+        {
+          "country": "Italy",
+          "confidence": "low",
+          "reasoning": "The vegetation, particularly the ornamental garden plants and the distant mountain greenery, is consistent with Southern Italy or Sicily."
+        }
+      ],
+      "evidence": [
+        "Bougainvillea spectabilis",
+        "Mediterranean garden flora",
+        "Temperate broadleaf mountain vegetation"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Albania",
+          "confidence": "medium",
+          "reasoning": "The combination of concrete block perimeter walls, specific residential architecture with flat roofs and balconies, and the unpaved narrow residential lane is very common in rural Albanian villages."
+        },
+        {
+          "country": "Greece",
+          "confidence": "medium",
+          "reasoning": "The white-washed building style, concrete fencing, and Mediterranean vegetation are highly consistent with rural Greek residential areas."
+        },
+        {
+          "country": "North Macedonia",
+          "confidence": "low",
+          "reasoning": "Similar Balkan architectural styles featuring concrete block walls and unpaved access roads are found in rural North Macedonia."
+        },
+        {
+          "country": "Turkey",
+          "confidence": "low",
+          "reasoning": "The residential construction style and the use of concrete block walls for property demarcation are common in rural Anatolian or Aegean regions."
+        }
+      ],
+      "evidence": [
+        "unpaved gravel residential lane",
+        "concrete block perimeter walls",
+        "flat-roofed residential architecture with balconies",
+        "wire mesh fencing on concrete bases"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "Albania",
+          "confidence": "medium",
+          "reasoning": "The combination of unfinished concrete block walls, specific white-washed building styles with flat roofs, and the use of simple wire mesh fencing is very common in rural Albanian villages. The overall image quality and camera generation are consistent with Albania's coverage."
+        },
+        {
+          "country": "Greece",
+          "confidence": "medium",
+          "reasoning": "The architectural style, particularly the white buildings and the use of concrete for boundary walls, is highly similar to rural Greece. It is often difficult to distinguish from Albania based solely on these construction materials."
+        },
+        {
+          "country": "North Macedonia",
+          "confidence": "low",
+          "reasoning": "Similar construction patterns with concrete blocks and wire fencing are found in the Balkan region, including North Macedonia, though the specific building aesthetic is slightly more characteristic of the coast or southern regions."
+        }
+      ],
+      "evidence": [
+        "concrete block boundary walls",
+        "wire mesh fencing",
+        "white-washed building facades",
+        "flat roof construction",
+        "Google Street View camera generation/image quality"
+      ]
+    }
+  },
+  "hypothesis_evaluations": [
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "region_europe",
+      "confidence": "neutral",
+      "reasoning": "There is no visible text in the image to provide linguistic evidence for or against this region.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "region_middle_east",
+      "confidence": "neutral",
+      "reasoning": "There is no visible text in the image to provide linguistic evidence for or against this region.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "region_north_america",
+      "confidence": "neutral",
+      "reasoning": "There is no visible text in the image to provide linguistic evidence for or against this region.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_europe",
+      "confidence": "strongly_support",
+      "reasoning": "The combination of Mediterranean-style vegetation (bougainvillea, olive-like trees), limestone-based soil, and the specific mountainous backdrop is highly characteristic of Southern Europe, particularly the Balkans or Italy. The settlement pattern of concrete block walls and white-washed houses is very common in this region.",
+      "key_evidence": [
+        "Mediterranean flora",
+        "Limestone mountains",
+        "Southern European settlement style"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_middle_east",
+      "confidence": "support",
+      "reasoning": "The arid-to-semi-arid climate and the use of concrete block construction are compatible with parts of the Levant (e.g., Lebanon, Jordan, Turkey). However, the lushness of the greenery and the specific mountain profile are slightly more typical of the Mediterranean basin than the interior Middle East.",
+      "key_evidence": [
+        "Semi-arid climate",
+        "Concrete block construction"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_north_america",
+      "confidence": "low",
+      "reasoning": "While some parts of Mexico or Southern California have similar climates and vegetation, the specific architectural style of the houses and the layout of the narrow gravel path are not typical for North American rural settlements.",
+      "key_evidence": [
+        "Compatible climate",
+        "Atypical settlement layout"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_europe",
+      "confidence": "support",
+      "reasoning": "The combination of Mediterranean-style ornamental flora, specifically the Bougainvillea and the general temperate broadleaf greenery, is highly characteristic of Southern Europe (e.g., Balkans, Italy, Greece). The vegetation is consistent with a Mediterranean climate zone.",
+      "key_evidence": [
+        "Bougainvillea",
+        "Temperate broadleaf shrubs"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_middle_east",
+      "confidence": "support",
+      "reasoning": "The vegetation, including the Bougainvillea and the xeric-tolerant garden plants, is also very common in the Levant and other Mediterranean-influenced areas of the Middle East. It is botanically indistinguishable from Southern Europe in this specific view.",
+      "key_evidence": [
+        "Bougainvillea",
+        "Mediterranean garden flora"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_north_america",
+      "confidence": "low",
+      "reasoning": "While Bougainvillea is grown in Southern California, Florida, and Mexico, the overall composition of the surrounding deciduous greenery and the specific growth habit of the garden plants are less typical for North American residential landscaping compared to the Mediterranean basin.",
+      "key_evidence": [
+        "Bougainvillea"
+      ]
+    },
+    {
+      "agent_name": "regulatory",
+      "hypothesis_id": "region_europe",
+      "confidence": "support",
+      "reasoning": "The architectural style of the concrete houses, the use of cinder block walls, and the general layout of the narrow residential lane are highly characteristic of Southern European rural areas, particularly the Balkans or Mediterranean regions.",
+      "key_evidence": [
+        "concrete house architecture",
+        "cinder block boundary walls"
+      ]
+    },
+    {
+      "agent_name": "regulatory",
+      "hypothesis_id": "region_middle_east",
+      "confidence": "support",
+      "reasoning": "The use of flat-roofed concrete structures and cinder block walls is also common in rural parts of the Middle East (e.g., Turkey, Levant), making it a plausible candidate based on basic infrastructure.",
+      "key_evidence": [
+        "concrete house architecture",
+        "cinder block boundary walls"
+      ]
+    },
+    {
+      "agent_name": "regulatory",
+      "hypothesis_id": "region_north_america",
+      "confidence": "speculative",
+      "reasoning": "While rural gravel paths and basic concrete blocks exist in North America, the specific style of the house balconies and the overall residential density/layout are less typical for the region.",
+      "key_evidence": [
+        "gravel path",
+        "concrete blocks"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_europe",
+      "confidence": "strongly_support",
+      "reasoning": "The construction style is highly characteristic of Southern Europe (specifically the Balkans or Mediterranean), featuring concrete block walls with rough plaster, flat concrete roof overhangs, and specific white PVC window frames. The combination of these building materials and the general image quality/camera generation is most consistent with European coverage.",
+      "key_evidence": [
+        "concrete block wall construction",
+        "flat concrete roof slabs",
+        "white PVC window frames",
+        "rough plaster finish on buildings"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_middle_east",
+      "confidence": "support",
+      "reasoning": "The use of concrete blocks and flat roofs is common in the Middle East (e.g., Jordan, Turkey), making it a plausible analog for the construction style seen here.",
+      "key_evidence": [
+        "concrete block walls",
+        "flat roof architecture"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_north_america",
+      "confidence": "contradicts",
+      "reasoning": "The specific style of the concrete block perimeter walls and the architectural design of the house (particularly the balcony/overhang style) are not typical for North American residential construction.",
+      "key_evidence": [
+        "non-standard North American residential construction materials",
+        "atypical balcony design"
+      ]
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "country_albania",
+      "confidence": "neutral",
+      "reasoning": "No text is visible in the image to support or contradict this hypothesis.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "country_greece",
+      "confidence": "neutral",
+      "reasoning": "No text is visible in the image to support or contradict this hypothesis.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "country_north_macedonia",
+      "confidence": "neutral",
+      "reasoning": "No text is visible in the image to support or contradict this hypothesis.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "country_turkey",
+      "confidence": "neutral",
+      "reasoning": "No text is visible in the image to support or contradict this hypothesis.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "country_montenegro",
+      "confidence": "neutral",
+      "reasoning": "No text is visible in the image to support or contradict this hypothesis.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "country_italy",
+      "confidence": "neutral",
+      "reasoning": "No text is visible in the image to support or contradict this hypothesis.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_albania",
+      "confidence": "strongly_support",
+      "reasoning": "The combination of rugged limestone mountains in the background, Mediterranean scrub vegetation, and the specific style of concrete block perimeter walls and unfinished concrete building structures is highly characteristic of rural Albanian settlements.",
+      "key_evidence": [
+        "limestone mountains",
+        "Mediterranean climate vegetation",
+        "concrete block settlement pattern"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_greece",
+      "confidence": "support",
+      "reasoning": "The terrain and climate are very similar to Albania, particularly in Epirus or Northern Greece, where similar mountainous landscapes and Mediterranean flora exist.",
+      "key_evidence": [
+        "Mediterranean flora",
+        "mountainous backdrop"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_montenegro",
+      "confidence": "support",
+      "reasoning": "The karst topography and mountainous terrain are consistent with the Balkan coast and interior, though the building style is slightly more aligned with Albanian patterns.",
+      "key_evidence": [
+        "karst mountains",
+        "temperate Mediterranean climate"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_north_macedonia",
+      "confidence": "support",
+      "reasoning": "The landscape is compatible with the hilly and mountainous regions of North Macedonia, though it lacks the specific coastal-influenced vegetation seen in the foreground.",
+      "key_evidence": [
+        "mountainous terrain",
+        "temperate climate"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_turkey",
+      "confidence": "support",
+      "reasoning": "The Aegean or Mediterranean coasts of Turkey share this exact climate, soil type, and mountainous backdrop, making it a geographically viable candidate.",
+      "key_evidence": [
+        "Mediterranean scrub",
+        "mountainous terrain"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_italy",
+      "confidence": "support",
+      "reasoning": "The landscape is compatible with Southern Italy or Sicily, featuring similar mountains and Mediterranean flora, though the specific settlement layout is less common there.",
+      "key_evidence": [
+        "Mediterranean vegetation",
+        "mountainous backdrop"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_albania",
+      "confidence": "support",
+      "reasoning": "The combination of Mediterranean garden flora, including Bougainvillea and citrus-like shrubs, is highly compatible with the coastal and hilly regions of Albania. The vegetation is typical for the Balkan Peninsula's Mediterranean zone.",
+      "key_evidence": [
+        "Bougainvillea",
+        "Mediterranean shrubs"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_greece",
+      "confidence": "support",
+      "reasoning": "The botanical profile is nearly identical to Albania, with Bougainvillea and similar ornamental shrubs being ubiquitous in Greek residential gardens. It is indistinguishable from Albania based on vegetation alone.",
+      "key_evidence": [
+        "Bougainvillea",
+        "Mediterranean shrubs"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_north_macedonia",
+      "confidence": "support",
+      "reasoning": "While more continental, the southern regions of North Macedonia support this type of Mediterranean-influenced garden vegetation, though it is slightly less common than in Greece or Albania.",
+      "key_evidence": [
+        "Bougainvillea",
+        "Mediterranean shrubs"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_turkey",
+      "confidence": "support",
+      "reasoning": "The Aegean and Mediterranean coasts of Turkey feature the exact same botanical composition, including the heavy use of Bougainvillea as a decorative hedge.",
+      "key_evidence": [
+        "Bougainvillea",
+        "Mediterranean shrubs"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_montenegro",
+      "confidence": "support",
+      "reasoning": "The coastal regions of Montenegro share this Mediterranean biome and the same ornamental plant preferences as its neighbors in the Balkans.",
+      "key_evidence": [
+        "Bougainvillea",
+        "Mediterranean shrubs"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_italy",
+      "confidence": "support",
+      "reasoning": "The vegetation is entirely consistent with Southern Italy (Sicily/Calabria), where Bougainvillea and similar xeric-adapted ornamentals are standard.",
+      "key_evidence": [
+        "Bougainvillea",
+        "Mediterranean shrubs"
+      ]
+    },
+    {
+      "agent_name": "regulatory",
+      "hypothesis_id": "country_albania",
+      "confidence": "support",
+      "reasoning": "The concrete block walling, basic gravel path, and architectural style of the unfinished concrete house are very common in rural Albania.",
+      "key_evidence": [
+        "concrete block walling",
+        "rural path quality"
+      ]
+    },
+    {
+      "agent_name": "regulatory",
+      "hypothesis_id": "country_greece",
+      "confidence": "support",
+      "reasoning": "The white-washed buildings and general rural infrastructure are compatible with Greek village settings.",
+      "key_evidence": [
+        "building style",
+        "rural path quality"
+      ]
+    },
+    {
+      "agent_name": "regulatory",
+      "hypothesis_id": "country_north_macedonia",
+      "confidence": "support",
+      "reasoning": "The mix of concrete block construction and rural road quality is consistent with the Balkans region.",
+      "key_evidence": [
+        "concrete block walling",
+        "rural path quality"
+      ]
+    },
+    {
+      "agent_name": "regulatory",
+      "hypothesis_id": "country_turkey",
+      "confidence": "support",
+      "reasoning": "Rural Turkish villages often feature similar concrete block boundary walls and unpaved residential access paths.",
+      "key_evidence": [
+        "concrete block walling",
+        "rural path quality"
+      ]
+    },
+    {
+      "agent_name": "regulatory",
+      "hypothesis_id": "country_montenegro",
+      "confidence": "support",
+      "reasoning": "The infrastructure is compatible with rural Montenegro, sharing the same Balkan concrete construction trends.",
+      "key_evidence": [
+        "concrete block walling",
+        "rural path quality"
+      ]
+    },
+    {
+      "agent_name": "regulatory",
+      "hypothesis_id": "country_italy",
+      "confidence": "support",
+      "reasoning": "Similar rural residential infrastructure can be found in Southern Italy, though less common than in the Balkans.",
+      "key_evidence": [
+        "building style",
+        "rural path quality"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_albania",
+      "confidence": "strongly_support",
+      "reasoning": "The combination of unfinished concrete block walls, specific white-washed building styles with flat concrete overhangs, and the prevalence of simple wire-mesh fencing on low concrete bases is highly characteristic of rural and suburban Albania. The image quality and camera generation are consistent with Albanian coverage.",
+      "key_evidence": [
+        "unfinished concrete block walls",
+        "flat concrete roof overhangs",
+        "wire-mesh fencing on concrete bases"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_greece",
+      "confidence": "support",
+      "reasoning": "The architecture and construction materials (white walls, concrete) are common in the Balkans and Greece, but the specific 'unfinished' look of the concrete blocks is more typical of Albania than Greece.",
+      "key_evidence": [
+        "white-washed walls",
+        "concrete construction"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_north_macedonia",
+      "confidence": "support",
+      "reasoning": "Similar construction styles to Albania and Greece are found here, particularly the use of concrete blocks and wire fencing in rural areas.",
+      "key_evidence": [
+        "concrete block walls",
+        "wire-mesh fencing"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_montenegro",
+      "confidence": "support",
+      "reasoning": "The building materials and general aesthetic of the residential structures are compatible with Montenegro, though less diagnostic than Albania.",
+      "key_evidence": [
+        "concrete block construction"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_turkey",
+      "confidence": "low",
+      "reasoning": "While concrete construction is universal in Turkey, the specific style of the house on the left and the fence design are more aligned with the Western Balkans.",
+      "key_evidence": [
+        "concrete construction"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_italy",
+      "confidence": "low",
+      "reasoning": "While some rural areas in Southern Italy have similar white-washed buildings, the specific style of the unfinished concrete block walls is less common than in the Balkans.",
+      "key_evidence": [
+        "white-washed walls"
+      ]
+    }
+  ],
+  "candidate_pool": [
+    "Albania",
+    "Greece",
+    "North Macedonia",
+    "Turkey",
+    "Montenegro",
+    "Italy"
+  ],
+  "rag_findings": [
+    {
+      "kind": "tournament_match",
+      "country": "Montenegro",
+      "detail": "The architectural style, specifically the unfinished concrete structures with flat overhangs and the prevalence of concrete block perimeter walls with wire-mesh fencing, is highly characteristic of rural Albania. Specialist evidence strongly supports Albania over Montenegro based on these specific building patterns and the overall landscape aesthetic.",
+      "opponent": "Albania",
+      "winner": "Albania"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "North Macedonia",
+      "detail": "The presence of Bougainvillea and the specific white-washed architecture are highly characteristic of Greece and the surrounding Mediterranean region. While both countries share Balkan construction styles, the botanical profile and building aesthetics align more strongly with the Greek landscape evidence.",
+      "opponent": "Greece",
+      "winner": "Greece"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Greece",
+      "detail": "The architectural style, specifically the unfinished concrete block walls and the flat concrete overhangs on the white-washed building, is highly characteristic of rural Albania. The combination of rugged limestone mountains and the specific style of wire-mesh fencing on low concrete bases strongly supports Albania over Greece.",
+      "opponent": "Albania",
+      "winner": "Albania"
+    }
+  ],
+  "rag_refs_seen": [],
+  "road_filter_warnings": [],
+  "tournament_log": [
+    {
+      "round_label": "semi-1",
+      "country_a": "Albania",
+      "country_b": "Montenegro",
+      "pool_rank_a": 0,
+      "pool_rank_b": 3,
+      "winner": "Albania",
+      "reasoning": "The architectural style, specifically the unfinished concrete structures with flat overhangs and the prevalence of concrete block perimeter walls with wire-mesh fencing, is highly characteristic of rural Albania. Specialist evidence strongly supports Albania over Montenegro based on these specific building patterns and the overall landscape aesthetic.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "semi-2",
+      "country_a": "Greece",
+      "country_b": "North Macedonia",
+      "pool_rank_a": 1,
+      "pool_rank_b": 2,
+      "winner": "Greece",
+      "reasoning": "The presence of Bougainvillea and the specific white-washed architecture are highly characteristic of Greece and the surrounding Mediterranean region. While both countries share Balkan construction styles, the botanical profile and building aesthetics align more strongly with the Greek landscape evidence.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "final",
+      "country_a": "Albania",
+      "country_b": "Greece",
+      "pool_rank_a": 0,
+      "pool_rank_b": 1,
+      "winner": "Albania",
+      "reasoning": "The architectural style, specifically the unfinished concrete block walls and the flat concrete overhangs on the white-washed building, is highly characteristic of rural Albania. The combination of rugged limestone mountains and the specific style of wire-mesh fencing on low concrete bases strongly supports Albania over Greece.",
+      "agreement": "agree"
+    }
+  ],
+  "country_result": "Country: Albania\nCoordinates: 41.3295, 19.8189\nReasoning: The architectural style, specifically the unfinished concrete block walls and the flat concrete overhangs on the white-washed building, is highly characteristic of rural Albania. The combination of rugged limestone mountains and the specific style of wire-mesh fencing on low concrete bases strongly supports Albania over Greece.\n\nTournament:\n  semi-1: Albania vs Montenegro → Albania\n  semi-2: Greece vs North Macedonia → Greece\n  final: Albania vs Greece → Albania",
+  "coordinates": {
+    "lat": 41.3295,
+    "lng": 19.8189
+  },
+  "final_reasoning": "The architectural style, specifically the unfinished concrete block walls and the flat concrete overhangs on the white-washed building, is highly characteristic of rural Albania. The combination of rugged limestone mountains and the specific style of wire-mesh fencing on low concrete bases strongly supports Albania over Greece."
+}

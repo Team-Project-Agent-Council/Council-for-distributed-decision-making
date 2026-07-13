@@ -1,0 +1,74 @@
+{
+  "image_id": "ZMSyLdPt9G7MhcHC_1",
+  "truth_country": "chile",
+  "pred_country": "chile",
+  "is_correct": true,
+  "path": "",
+  "truth_in_hypothesis_pool": false,
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": true,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "role_adherence_notes": {
+      "linguistic": "Agent provided no assessment, which is a failure to perform its role, but it did not violate it by discussing other domains.",
+      "landscape": "Stayed within terrain and settlement pattern analysis.",
+      "botanics": "Stayed within vegetation analysis.",
+      "regulatory": "Stayed within infrastructure and road standards.",
+      "meta": "Synthesized cross-domain cues (hydrant, poles, roofing) effectively."
+    },
+    "argumentative_quality": {
+      "linguistic": "very_weak",
+      "landscape": "strong",
+      "botanics": "strong",
+      "regulatory": "strong",
+      "meta": "very_strong"
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.0,
+      "botanics": 0.0,
+      "regulatory": 0.0,
+      "meta": 0.0
+    },
+    "hallucination_examples": {
+      "linguistic": [],
+      "landscape": [],
+      "botanics": [],
+      "regulatory": [],
+      "meta": []
+    },
+    "visual_consistency_score": {
+      "linguistic": 0.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.9,
+      "meta": 0.95
+    },
+    "visual_consistency_notes": {
+      "linguistic": "No assessment provided.",
+      "landscape": "Descriptions of concrete slabs and mixed housing match the image.",
+      "botanics": "Descriptions of scrubland and grasses match the image.",
+      "regulatory": "Descriptions of road surface and poles match the image.",
+      "meta": "Descriptions of hydrant, poles, and roofing match the image."
+    },
+    "confidence_calibration": {
+      "linguistic": 0.0,
+      "landscape": 0.75,
+      "botanics": 0.75,
+      "regulatory": 0.75,
+      "meta": 0.9
+    },
+    "constructive_synthesis": true,
+    "overall_verdict_notes": "The pipeline correctly identified Chile as the country, driven by strong consensus among the landscape, botanics, regulatory, and meta agents. The linguistic agent failed to contribute, which prevented a formal 'consensus' check, forcing the judge into Path B. However, the judge correctly identified the dominant signal (Southern Cone/Chile) and generated a hypothesis pool that, while missing the specific southern location, correctly included Chile.",
+    "region_narrowing_quality": 0.75,
+    "region_narrowing_notes": "The judge correctly identified the Southern Cone as the dominant region despite the missing linguistic input. The reasoning was sound, discounting the lack of consensus due to the strong agreement of the other four agents.",
+    "hypothesis_pool_quality": 0.5,
+    "hypothesis_pool_notes": "The pool included Chile, which is correct, but the coordinates provided in the final answer (-33.44, -70.66) correspond to the Santiago region, which is visually inconsistent with the Patagonian steppe landscape shown in the image. The pool likely lacked sufficient regional granularity to distinguish between central and southern Chile."
+  },
+  "validation_error": "2 validation errors for JudgeVerdict\noverall_verdict_notes\n  String should have at most 400 characters [type=string_too_long, input_value=\"The pipeline correctly i...rrectly included Chile.\", input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_too_long\nhypothesis_pool_notes\n  String should have at most 300 characters [type=string_too_long, input_value='The pool included Chile,...ral and southern Chile.', input_type=str]\n    For further information visit ht"
+}

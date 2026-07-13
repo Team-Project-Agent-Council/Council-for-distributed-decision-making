@@ -1,0 +1,568 @@
+{
+  "image_path": "/pfs/data6/home/ma/ma_ma/ma_lweisssc/llm_council_agent_orchestration_tests/clean_images_GeoRC_500/8G5DpHP2KCtVKrk9_2.png",
+  "model": "google/gemma-4-31B-it",
+  "judge_model": "google/gemma-4-31B-it",
+  "timing": {
+    "total_seconds": 170.9
+  },
+  "assessments": {
+    "linguistic": {
+      "agent_name": "linguistic",
+      "candidates": [
+        {
+          "country": "United States",
+          "confidence": "medium",
+          "reasoning": "The use of the Latin script and the specific 'No Parking' symbol (a red circle with a slash over a 'P') is common in North America. While the symbol is international, the overall context of the signage and house numbering is highly consistent with US standards."
+        },
+        {
+          "country": "Canada",
+          "confidence": "medium",
+          "reasoning": "The Latin script and 'No Parking' symbol are also used in Canada. Linguistically, there is no distinguishing text to separate it from the United States."
+        }
+      ],
+      "evidence": [
+        "P",
+        "English",
+        "Latin"
+      ]
+    },
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "United States",
+          "confidence": "high",
+          "reasoning": "The combination of deciduous hardwood forests, specific suburban residential architecture (Cape Cod and colonial styles), and the wide asphalt road layout is highly characteristic of the Northeastern US. The vegetation and soil moisture levels are consistent with a humid continental climate."
+        },
+        {
+          "country": "Canada",
+          "confidence": "high",
+          "reasoning": "The landscape, flora, and settlement patterns in Southern Ontario or the Maritime provinces are virtually identical to the Northeastern US. The temperate deciduous forest and residential building materials are common across this border region."
+        },
+        {
+          "country": "United Kingdom",
+          "confidence": "low",
+          "reasoning": "Some suburban areas in England share similar temperate greenery and deciduous trees, though the road width and specific house styles are less common than in North America."
+        },
+        {
+          "country": "Germany",
+          "confidence": "speculative",
+          "reasoning": "Central European temperate forests and some village settlement patterns can mirror this greenery, serving as a cross-continent analog for the humid temperate climate."
+        }
+      ],
+      "evidence": [
+        "Temperate deciduous forest canopy",
+        "Humid continental climate vegetation",
+        "Suburban low-density settlement pattern",
+        "Asphalt road with wide shoulders and utility poles",
+        "Northern hemisphere sun angle based on shadow cast"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "United States",
+          "confidence": "high",
+          "reasoning": "The combination of Acer saccharum (Sugar Maple) and Hosta ornamentals in a residential setting is highly characteristic of the Northeastern United States. The broadleaf deciduous canopy is consistent with the temperate forests of New England."
+        },
+        {
+          "country": "Canada",
+          "confidence": "high",
+          "reasoning": "The vegetation, specifically the maple species and the temperate deciduous forest structure, is virtually identical to that of the Northeastern US, particularly in Southern Ontario and Quebec."
+        },
+        {
+          "country": "Japan",
+          "confidence": "low",
+          "reasoning": "Hosta are native to East Asia and common in Japanese gardens, and the temperate deciduous forest biome is present, though the specific mix of large maples and lawn grass is more typical of North America."
+        }
+      ],
+      "evidence": [
+        "Acer saccharum (Sugar Maple)",
+        "Hosta (Ornamental plant)",
+        "Temperate broadleaf deciduous forest"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "United States",
+          "confidence": "high",
+          "reasoning": "The 'No Parking' sign follows the MUTCD style (red circle with slash over a black P). The wooden utility poles with attached metal conduits and the specific residential architecture are highly characteristic of New England."
+        },
+        {
+          "country": "Canada",
+          "confidence": "medium",
+          "reasoning": "Shares very similar MUTCD-based signage and wooden utility pole infrastructure in rural/suburban areas, particularly in provinces bordering the US."
+        },
+        {
+          "country": "Australia",
+          "confidence": "speculative",
+          "reasoning": "Global analog rule: rural residential roads with wooden utility poles and basic asphalt can appear similar, though the sign style is less common here."
+        }
+      ],
+      "evidence": [
+        "MUTCD style 'No Parking' sign (red circle/slash over P)",
+        "Wooden utility poles with external metal conduit",
+        "Residential asphalt road with no curbs/shoulders",
+        "North American style residential housing"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "United States",
+          "confidence": "high",
+          "reasoning": "The combination of treated wooden utility poles with specific metal bracing, the style of the residential siding (vinyl/clapboard), and the specific design of the 'No Parking' sign on the pole are highly characteristic of New England. The house architecture with steep gables and the specific style of the concrete retaining wall are common in the Northeastern US."
+        },
+        {
+          "country": "Canada",
+          "confidence": "medium",
+          "reasoning": "Canada shares almost identical utility pole infrastructure and residential construction styles (wooden poles, vinyl siding, similar roof tiles) with the Northern USA. Without text or specific license plates, it is visually indistinguishable from the US Northeast in this suburban setting."
+        },
+        {
+          "country": "United Kingdom",
+          "confidence": "speculative",
+          "reasoning": "While the wooden poles are a global analog, the house styles and the specific 'No Parking' sign layout are not typical for the UK, but listed as a cross-continent analog for generic wooden utility pole infrastructure."
+        }
+      ],
+      "evidence": [
+        "treated wooden utility poles",
+        "vinyl/clapboard house siding",
+        "specific 'No Parking' sign mounting style",
+        "residential roof tile style",
+        "concrete retaining wall design"
+      ]
+    }
+  },
+  "progressive_narrowing": {
+    "region_consensus": false,
+    "confirmed_region": "North America",
+    "runner_up_region": "Europe",
+    "surviving_regions": [
+      "North America",
+      "Europe"
+    ],
+    "proposed_regions": [
+      "North America",
+      "Europe",
+      "East Asia",
+      "Oceania"
+    ],
+    "region_candidates": {
+      "North America": {
+        "United States": 5,
+        "Canada": 5
+      },
+      "Europe": {
+        "United Kingdom": 2,
+        "Germany": 1
+      },
+      "East Asia": {
+        "Japan": 1
+      },
+      "Oceania": {
+        "Australia": 1
+      }
+    },
+    "region_decision_reasoning": "North America received 'strongly_support' from all four agents, citing specific MUTCD-style signage, wooden utility pole configurations, and quintessential suburban architecture. Europe is the runner-up due to some support for the temperate vegetation, although it was contradicted by the regulatory and meta agents.",
+    "path": "B"
+  },
+  "road_evidence": {
+    "outside_color": "none",
+    "inside_color": "none",
+    "driving_side": "UNCLEAR",
+    "driving_side_basis": "none"
+  },
+  "country_assessments": {
+    "linguistic": {
+      "agent_name": "linguistic",
+      "candidates": [
+        {
+          "country": "United States",
+          "confidence": "medium",
+          "reasoning": "The 'No Parking' symbol (P with a red slash) is common in North America. The overall layout and signage style are highly consistent with US residential areas."
+        },
+        {
+          "country": "Canada",
+          "confidence": "medium",
+          "reasoning": "The 'No Parking' symbol and Latin script are used in Canada. Linguistically, the lack of French text on the sign makes it more likely to be English-speaking Canada or the US."
+        }
+      ],
+      "evidence": [
+        "P",
+        "English",
+        "Latin"
+      ]
+    },
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "United States",
+          "confidence": "high",
+          "reasoning": "The combination of wide asphalt roads, specific residential architecture (Cape Cod and ranch styles), and the presence of wooden utility poles with overhead wiring is highly characteristic of the Northeastern US. The lush, temperate deciduous forest and manicured lawns are typical of New England."
+        },
+        {
+          "country": "Canada",
+          "confidence": "medium",
+          "reasoning": "The landscape, climate, and vegetation are nearly identical to the Northeastern US, particularly in provinces like Nova Scotia or New Brunswick. The settlement pattern of detached houses with large yards is common across Eastern Canada."
+        }
+      ],
+      "evidence": [
+        "Temperate deciduous forest with broadleaf trees",
+        "Low-density residential settlement pattern with large lawns",
+        "Wooden utility poles with complex overhead cabling",
+        "Asphalt road surface with typical North American wear patterns",
+        "Northern hemisphere sun angle based on shadow orientation"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "United States",
+          "confidence": "high",
+          "reasoning": "The combination of Acer saccharum (Sugar Maple) and Hosta cultivars in residential landscaping is highly characteristic of the Northeastern US. The broadleaf deciduous canopy structure is typical of the New England region."
+        },
+        {
+          "country": "Canada",
+          "confidence": "high",
+          "reasoning": "The vegetation, specifically the maple species and temperate deciduous forest composition, is virtually identical to that of the Northeastern US. Southern Ontario and Quebec share this exact botanical profile."
+        }
+      ],
+      "evidence": [
+        "Acer saccharum (Sugar Maple)",
+        "Hosta (ornamental landscaping)",
+        "Temperate broadleaf deciduous forest"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "United States",
+          "confidence": "high",
+          "reasoning": "The 'No Parking' sign follows the MUTCD style with a red circle and slash over a black 'P'. The wooden utility poles with attached metal conduits and the specific residential architecture are highly characteristic of the Northeastern United States."
+        },
+        {
+          "country": "Canada",
+          "confidence": "medium",
+          "reasoning": "Canada shares very similar MUTCD-based signage and wooden utility pole infrastructure with the USA. The residential style and road width are consistent with Canadian suburban or rural areas."
+        }
+      ],
+      "evidence": [
+        "MUTCD style 'No Parking' sign (red circle/slash over P)",
+        "Wooden utility poles with external metal conduit",
+        "Asphalt road with no defined shoulder/curb",
+        "North American residential architecture"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "United States",
+          "confidence": "high",
+          "reasoning": "The combination of treated wooden utility poles with specific metal bracing, the style of the residential siding (vinyl/clapboard), and the specific design of the 'No Parking' sign (red circle with slash on a white rectangular plate) is highly characteristic of the Northeastern United States. The house architecture, particularly the red house with white trim and the roof styles, is typical of New England."
+        },
+        {
+          "country": "Canada",
+          "confidence": "medium",
+          "reasoning": "Canada shares very similar residential architecture and utility pole infrastructure with the USA, particularly in provinces like Nova Scotia or New Brunswick. However, the specific sign mounting and house numbering style are slightly more aligned with US standards."
+        }
+      ],
+      "evidence": [
+        "Wooden utility poles with metal support brackets",
+        "Vinyl and clapboard residential siding",
+        "Specific 'No Parking' sign design (red circle/slash on white rectangle)",
+        "Residential roof tile and shingle style",
+        "House number plate mounting style"
+      ]
+    }
+  },
+  "hypothesis_evaluations": [
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_north_america",
+      "confidence": "strongly_support",
+      "reasoning": "The combination of temperate deciduous forest, specific residential settlement patterns (detached houses with large lawns), and the style of utility poles and overhead wiring is highly characteristic of the Northeastern United States or Eastern Canada. The vegetation and light angle are consistent with a Northern Hemisphere temperate zone.",
+      "key_evidence": [
+        "temperate deciduous trees",
+        "spacious residential lot patterns",
+        "Northern Hemisphere sun angle",
+        "utility pole construction"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_europe",
+      "confidence": "support",
+      "reasoning": "The temperate climate and deciduous vegetation are compatible with Northern or Central Europe. However, the specific layout of the wide road without curbs and the style of the detached housing are less common in European residential zones compared to North America.",
+      "key_evidence": [
+        "temperate deciduous forest",
+        "Northern Hemisphere sun angle"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_east_asia",
+      "confidence": "contradicts",
+      "reasoning": "While temperate forests exist in East Asia, the settlement pattern, house architecture, and road infrastructure are entirely inconsistent with typical residential areas in Japan, Korea, or China.",
+      "key_evidence": [
+        "atypical settlement pattern",
+        "inconsistent architectural style"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_oceania",
+      "confidence": "strongly_contradicts",
+      "reasoning": "The vegetation is characteristic of a Northern Hemisphere temperate zone. Furthermore, the shadow direction and sun angle are inconsistent with the Southern Hemisphere latitudes typical of Oceania.",
+      "key_evidence": [
+        "Northern Hemisphere sun angle",
+        "temperate deciduous flora"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_north_america",
+      "confidence": "strongly_support",
+      "reasoning": "The combination of Acer (maple) and Quercus (oak) species, alongside the specific ornamental use of Hosta in the foreground, is highly characteristic of the Northeastern United States and Southeastern Canada. The broadleaf deciduous forest structure and manicured lawn grass are typical of this temperate North American zone.",
+      "key_evidence": [
+        "Hosta",
+        "Acer species",
+        "Quercus species",
+        "Temperate broadleaf deciduous forest"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_europe",
+      "confidence": "support",
+      "reasoning": "The temperate deciduous vegetation is compatible with Central or Northern Europe. However, the specific combination of ornamental Hosta and the density of the broadleaf canopy is more typical of North American suburban landscaping than European residential patterns.",
+      "key_evidence": [
+        "Temperate broadleaf deciduous forest"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_east_asia",
+      "confidence": "low",
+      "reasoning": "While Hosta is native to East Asia, the overall forest composition and the way the vegetation is integrated into the suburban landscape are not characteristic of East Asian residential areas.",
+      "key_evidence": [
+        "Hosta (native range)"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_oceania",
+      "confidence": "contradicts",
+      "reasoning": "The dominant deciduous broadleaf trees and the specific temperate undergrowth are inconsistent with the native flora of Oceania, and the climate zone does not match the typical suburban vegetation patterns of that region.",
+      "key_evidence": [
+        "Deciduous broadleaf canopy"
+      ]
+    },
+    {
+      "agent_name": "regulatory",
+      "hypothesis_id": "region_north_america",
+      "confidence": "strongly_support",
+      "reasoning": "The 'No Parking' sign (red circle with slash over a black 'P' on a white rectangular background) is a standard MUTCD-style sign common in the USA and Canada. The wooden utility poles with attached electrical transformers and overhead wiring are characteristic of North American residential infrastructure.",
+      "key_evidence": [
+        "MUTCD-style No Parking sign",
+        "Wooden utility poles with overhead wiring"
+      ]
+    },
+    {
+      "agent_name": "regulatory",
+      "hypothesis_id": "region_europe",
+      "confidence": "contradicts",
+      "reasoning": "While some European countries use a 'P' for parking, the specific rectangular white backing and the overall style of the signage and utility pole construction are inconsistent with European standards.",
+      "key_evidence": [
+        "Sign style",
+        "Utility pole construction"
+      ]
+    },
+    {
+      "agent_name": "regulatory",
+      "hypothesis_id": "region_east_asia",
+      "confidence": "strongly_contradicts",
+      "reasoning": "The infrastructure, specifically the wooden utility poles and the specific design of the regulatory signage, does not match the concrete poles or distinct sign styles found in East Asian countries.",
+      "key_evidence": [
+        "Wooden utility poles",
+        "Sign style"
+      ]
+    },
+    {
+      "agent_name": "regulatory",
+      "hypothesis_id": "region_oceania",
+      "confidence": "support",
+      "reasoning": "Rural or suburban Oceania (Australia/NZ) often uses wooden utility poles and similar asphalt road treatments, making it a plausible global analog, though the sign style is more aligned with North America.",
+      "key_evidence": [
+        "Wooden utility poles",
+        "Road width and shoulder treatment"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_north_america",
+      "confidence": "strongly_support",
+      "reasoning": "The combination of wooden utility poles with specific cross-arm configurations, the style of residential siding (vinyl/clapboard), and the specific design of the 'No Parking' sign (red circle with slash on a white rectangular plate) is highly characteristic of the United States and Canada. The house architecture, particularly the red house with white trim and the roof styles, is quintessential North American suburban design.",
+      "key_evidence": [
+        "wooden utility poles",
+        "vinyl/clapboard house siding",
+        "specific 'No Parking' sign design",
+        "residential architecture style"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_europe",
+      "confidence": "contradicts",
+      "reasoning": "The utility pole style and the specific residential construction materials (siding and roof tiles) are not typical for European suburbs. The 'No Parking' sign, while using a universal symbol, is mounted on a pole in a style and size common to North America rather than Europe.",
+      "key_evidence": [
+        "utility pole design",
+        "house siding materials"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_east_asia",
+      "confidence": "strongly_contradicts",
+      "reasoning": "The architectural style, the use of wooden utility poles of this specific diameter and mounting, and the overall street furniture are entirely inconsistent with East Asian urban or rural planning.",
+      "key_evidence": [
+        "residential architecture",
+        "utility pole style"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_oceania",
+      "confidence": "support",
+      "reasoning": "While some elements like wooden poles and certain house styles can be found in Australia or New Zealand, the specific combination of siding and the sign mounting style is much more aligned with North American standards.",
+      "key_evidence": [
+        "wooden utility poles"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_united_states",
+      "confidence": "strongly_support",
+      "reasoning": "The combination of deciduous hardwood forests, temperate climate, and specific suburban settlement patterns (wide asphalt roads, detached single-family homes with large lawns) is highly characteristic of the Northeastern United States. The vegetation and light angle are consistent with a mid-latitude Northern Hemisphere temperate zone.",
+      "key_evidence": [
+        "Deciduous temperate forest",
+        "Suburban settlement pattern",
+        "Northern Hemisphere sun angle"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_canada",
+      "confidence": "support",
+      "reasoning": "The landscape, climate, and vegetation are nearly identical to the Northeastern US, particularly in Southern Ontario or the Maritime provinces. While compatible, the specific architectural style of the houses is slightly more common in the US New England region than in Canada.",
+      "key_evidence": [
+        "Temperate deciduous vegetation",
+        "Northern Hemisphere sun angle",
+        "Similar climate zone to NE USA"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_united_states",
+      "confidence": "support",
+      "reasoning": "The vegetation consists of temperate broadleaf deciduous trees and ornamental Hosta plants in the foreground, which are extremely common in the Northeastern US. This botanical profile is fully compatible with the region.",
+      "key_evidence": [
+        "Hosta",
+        "Temperate deciduous forest"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_canada",
+      "confidence": "support",
+      "reasoning": "The mix of deciduous trees and ornamental garden plants is virtually identical to that found in Southern Ontario or the Maritime provinces. There is no botanical evidence here to distinguish it from the US Northeast.",
+      "key_evidence": [
+        "Hosta",
+        "Temperate deciduous forest"
+      ]
+    },
+    {
+      "agent_name": "regulatory",
+      "hypothesis_id": "country_united_states",
+      "confidence": "strongly_support",
+      "reasoning": "The 'No Parking' sign (red circle with a slash over a black 'P' on a white rectangular background) is a standard MUTCD-style regulatory sign common in the US. The wooden utility pole with a metal protector base and the specific style of residential architecture and road shoulder treatment are highly characteristic of New England.",
+      "key_evidence": [
+        "MUTCD-style No Parking sign",
+        "Wooden utility pole with metal base protector",
+        "Residential road width and shoulder style"
+      ]
+    },
+    {
+      "agent_name": "regulatory",
+      "hypothesis_id": "country_canada",
+      "confidence": "support",
+      "reasoning": "The infrastructure is visually compatible with Canada, as Canada shares many MUTCD-based sign standards and similar rural/suburban utility pole styles with the US. However, the specific sign mounting and pole hardware are slightly more typical of US Northeast patterns.",
+      "key_evidence": [
+        "MUTCD-compatible regulatory sign",
+        "Wooden utility poles"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_united_states",
+      "confidence": "strongly_support",
+      "reasoning": "The combination of wooden utility poles with specific grey metal conduit running up the side, the style of the 'No Parking' sign (white rectangle with red circle/slash), and the specific architectural style of the houses (vinyl siding, asphalt shingle roofs, and specific window frame styles) is highly characteristic of the Northeastern US. The Google camera generation is consistent with US coverage.",
+      "key_evidence": [
+        "wooden utility pole with grey metal conduit",
+        "white rectangular 'No Parking' sign with red circle/slash",
+        "vinyl siding and asphalt shingle roofing",
+        "house number plate style"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_canada",
+      "confidence": "support",
+      "reasoning": "The meta details are very similar to the US, particularly in Ontario or the Maritimes, as they share similar utility pole styles and construction materials. However, the specific sign design and the overall 'feel' of the street furniture lean slightly more towards the US.",
+      "key_evidence": [
+        "wooden utility poles",
+        "similar residential construction materials"
+      ]
+    }
+  ],
+  "candidate_pool": [
+    "United States",
+    "Canada"
+  ],
+  "rag_findings": [
+    {
+      "kind": "tournament_match",
+      "country": "Canada",
+      "detail": "The 'No Parking' sign (red circle with slash over a black 'P') and the specific wooden utility pole with grey metal conduit are highly characteristic of the Northeastern United States. The architectural style of the houses, featuring vinyl siding and asphalt shingle roofs, strongly aligns with New England suburban patterns.",
+      "opponent": "United States",
+      "winner": "United States"
+    }
+  ],
+  "rag_refs_seen": [],
+  "road_filter_warnings": [],
+  "tournament_log": [
+    {
+      "round_label": "final",
+      "country_a": "United States",
+      "country_b": "Canada",
+      "pool_rank_a": 0,
+      "pool_rank_b": 1,
+      "winner": "United States",
+      "reasoning": "The 'No Parking' sign (red circle with slash over a black 'P') and the specific wooden utility pole with grey metal conduit are highly characteristic of the Northeastern United States. The architectural style of the houses, featuring vinyl siding and asphalt shingle roofs, strongly aligns with New England suburban patterns.",
+      "agreement": "agree"
+    }
+  ],
+  "country_result": "Country: United States\nCoordinates: 42.3601, -71.0589\nReasoning: The 'No Parking' sign (red circle with slash over a black 'P') and the specific wooden utility pole with grey metal conduit are highly characteristic of the Northeastern United States. The architectural style of the houses, featuring vinyl siding and asphalt shingle roofs, strongly aligns with New England suburban patterns.\n\nTournament:\n  final: United States vs Canada → United States",
+  "coordinates": {
+    "lat": 42.3601,
+    "lng": -71.0589
+  },
+  "final_reasoning": "The 'No Parking' sign (red circle with slash over a black 'P') and the specific wooden utility pole with grey metal conduit are highly characteristic of the Northeastern United States. The architectural style of the houses, featuring vinyl siding and asphalt shingle roofs, strongly aligns with New England suburban patterns."
+}

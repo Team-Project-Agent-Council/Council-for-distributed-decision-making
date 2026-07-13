@@ -1,0 +1,547 @@
+{
+  "n_total_judge_files": 500,
+  "n_with_verdict": 500,
+  "n_correct_runs": 324,
+  "errors": {},
+  "constructive_synthesis_rate": 1.0,
+  "constructive_synthesis_n": 500,
+  "overall_quality_score": {
+    "n": 0,
+    "mean": null,
+    "median": null,
+    "stdev": null,
+    "min": null,
+    "max": null
+  },
+  "tournament_failure": {
+    "by_reason": {
+      "agent_misled_in_tournament": 58,
+      "ambiguous_evidence": 32,
+      "not_applicable": 327,
+      "judge_misjudgment": 23,
+      "agent_misled_pre_pool": 57,
+      "missing_rag_refs": 3
+    },
+    "counterfactual_winnable_rate": 0.2658959537572254,
+    "counterfactual_n": 173,
+    "examples": [
+      {
+        "image_id": "1NJsXTxIF9GGMDxC_1",
+        "failure_reason": "agent_misled_in_tournament",
+        "truth_lost_to": "Azerbaijan",
+        "failure_match_round": "final",
+        "failure_reasoning": "The meta and regulatory agents hallucinated a strong link between the green totem and Azerbaijan (SOCAR), assigning 'strongly_support' to Azerbaijan while giving only 'support' to Kyrgyzstan. This misleading evidence caused the tournament to discard the correct country.",
+        "counterfactual_winnable": true
+      },
+      {
+        "image_id": "1NJsXTxIF9GGMDxC_2",
+        "failure_reason": "agent_misled_in_tournament",
+        "truth_lost_to": "Taiwan",
+        "failure_match_round": "final",
+        "failure_reasoning": "The specialists collectively hallucinated that the visible infrastructure (concrete gutters, guardrails) was a unique signature of Taiwan/Japan, assigning 'strongly_support' to Taiwan and 'support' to Japan while giving 'low' confidence to Malaysia (which was in the pool). This misleading evidence set the tournament up to fail, as the judge had no basis to prefer the correct country (Malaysia) over the incorrect one (Taiwan).",
+        "counterfactual_winnable": false
+      },
+      {
+        "image_id": "1NJsXTxIF9GGMDxC_3",
+        "failure_reason": "ambiguous_evidence",
+        "truth_lost_to": "Bosnia and Herzegovina",
+        "failure_match_round": "final",
+        "failure_reasoning": "The image features generic socialist-era architecture and standard European signage common to both Serbia and Bosnia. The agents correctly identified both as candidates but lacked specific visual differentiators (like unique text or distinct landmarks). The final decision was based on 'meta' cues (camera artifacts, building colors) which are ambiguous and insufficient to definitively rule out the ground truth.",
+        "counterfactual_winnable": false
+      },
+      {
+        "image_id": "2xnQdwiCve2rHWVt_1",
+        "failure_reason": "judge_misjudgment",
+        "truth_lost_to": "Brazil",
+        "failure_match_round": "final",
+        "failure_reasoning": "The specialists unanimously and strongly supported Thailand (the truth) based on clear visual evidence (utility poles, vegetation). The judge ignored this overwhelming consensus and hallucinated a win for Brazil, which was explicitly contradicted by the regulatory and meta agents.",
+        "counterfactual_winnable": true
+      },
+      {
+        "image_id": "3I4ZtihbhZy5qZzQ_1",
+        "failure_reason": "judge_misjudgment",
+        "truth_lost_to": "India",
+        "failure_match_round": "final",
+        "failure_reasoning": "The truth (Bangladesh) and the winner (India) were visually indistinguishable based on the provided evidence (landscape, botanics, regulatory). The meta-agent provided weak evidence favoring India based on 'image quality' and 'pole style' which are not reliable differentiators. The judge accepted this weak signal over the neutral/indistinguishable signal for Bangladesh, resulting in a misjudgment.",
+        "counterfactual_winnable": true
+      },
+      {
+        "image_id": "3I4ZtihbhZy5qZzQ_5",
+        "failure_reason": "agent_misled_in_tournament",
+        "truth_lost_to": "Colombia",
+        "failure_match_round": "final",
+        "failure_reasoning": "The meta agent hallucinated a specific camera hood artifact ('grey/silver color... characteristic of Colombia') that was not visible in the image. This fabricated evidence was treated as a 'strongly_support' signal by the tournament judge, overriding the generic but accurate evidence for Panama.",
+        "counterfactual_winnable": true
+      },
+      {
+        "image_id": "3OuVMcpGjmm0tVfG_1",
+        "failure_reason": "agent_misled_in_tournament",
+        "truth_lost_to": "Philippines",
+        "failure_match_round": "semi-1",
+        "failure_reasoning": "The landscape agent assigned 'strongly_support' to the Philippines based on a specific, likely hallucinated claim about volcanic rock embankments being characteristic of the Philippines, while giving only 'support' to Indonesia. This biased the tournament judge to pick the wrong country.",
+        "counterfactual_winnable": true
+      },
+      {
+        "image_id": "3OuVMcpGjmm0tVfG_5",
+        "failure_reason": "agent_misled_pre_pool",
+        "truth_lost_to": "Mexico",
+        "failure_match_round": "final",
+        "failure_reasoning": "Argentina was not included in the candidate pool.",
+        "counterfactual_winnable": false
+      },
+      {
+        "image_id": "3uP6lYo9pzx5Q0km_2",
+        "failure_reason": "judge_misjudgment",
+        "truth_lost_to": "Sweden",
+        "failure_match_round": "final",
+        "failure_reasoning": "The specialists provided comparable support for both Sweden and Norway (both 'support' or 'strongly_support'). The judge selected Sweden based on the claim that the terrain is 'more gently rolling than typical Norwegian landscapes,' which is a subjective visual judgment that contradicts the reality that such terrain is common in Norway. The judge had sufficient evidence to be uncertain but made a definitive, incorrect choice.",
+        "counterfactual_winnable": true
+      },
+      {
+        "image_id": "3uP6lYo9pzx5Q0km_4",
+        "failure_reason": "judge_misjudgment",
+        "truth_lost_to": "Thailand",
+        "failure_match_round": "semi-1",
+        "failure_reasoning": "The truth (Indonesia) and the winner (Thailand) were visually indistinguishable based on the provided evidence. The judge's reasoning ('slightly more typical of Thai rural infrastructure') was a subjective preference rather than a deduction from the image, as the specialists had rated both countries as 'support' with no decisive differentiator.",
+        "counterfactual_winnable": true
+      },
+      {
+        "image_id": "3uP6lYo9pzx5Q0km_5",
+        "failure_reason": "agent_misled_pre_pool",
+        "truth_lost_to": "Romania",
+        "failure_match_round": "final",
+        "failure_reasoning": "Montenegro was not in the candidate pool for the final tournament.",
+        "counterfactual_winnable": false
+      },
+      {
+        "image_id": "4UvmdTHySo6AXW4M_1",
+        "failure_reason": "agent_misled_pre_pool",
+        "truth_lost_to": "United Kingdom",
+        "failure_match_round": "final",
+        "failure_reasoning": "Luxembourg was not in the candidate pool. The agents correctly narrowed it to the British Isles/France/Belgium region but could not distinguish Luxembourg from the UK due to visual similarity.",
+        "counterfactual_winnable": false
+      },
+      {
+        "image_id": "4UvmdTHySo6AXW4M_5",
+        "failure_reason": "agent_misled_in_tournament",
+        "truth_lost_to": "India",
+        "failure_match_round": "final",
+        "failure_reasoning": "The landscape and botanics agents assigned 'high' confidence to India/Pakistan and 'low' to Cambodia/Thailand, effectively locking the region decision to South Asia. The meta agent gave Cambodia only 'low' confidence. The specialists collectively misled the judge away from the truth.",
+        "counterfactual_winnable": false
+      },
+      {
+        "image_id": "56Q4T4rpv9O9sCpP_2",
+        "failure_reason": "ambiguous_evidence",
+        "truth_lost_to": "Australia",
+        "failure_match_round": "final",
+        "failure_reasoning": "The image contains strong visual cues (Eucalyptus, red soil, rolling hills) that are ambiguous between Australia and South Africa. The agents correctly identified these features but lacked the specific regulatory or linguistic markers to disambiguate. The 'Eucalyptus = Australia' bias led to high confidence in the wrong country, but the evidence itself was genuinely under-determined.",
+        "counterfactual_winnable": false
+      },
+      {
+        "image_id": "56Q4T4rpv9O9sCpP_5",
+        "failure_reason": "agent_misled_in_tournament",
+        "truth_lost_to": "Botswana",
+        "failure_match_round": "final",
+        "failure_reasoning": "The meta agent hallucinated a 'circular blur' artifact as a specific indicator for Botswana. This false evidence was treated as a 'strong' signal by the tournament judge, overriding the visual reality and leading to the incorrect prediction.",
+        "counterfactual_winnable": false
+      },
+      {
+        "image_id": "5GS2RPgTrf85UZM5_3",
+        "failure_reason": "agent_misled_pre_pool",
+        "truth_lost_to": "Brazil",
+        "failure_match_round": "final",
+        "failure_reasoning": "Bolivia was not in the candidate pool for the final tournament.",
+        "counterfactual_winnable": false
+      },
+      {
+        "image_id": "5bPlIRT7eGN79a2E_3",
+        "failure_reason": "agent_misled_in_tournament",
+        "truth_lost_to": "Argentina",
+        "failure_match_round": "semi-1",
+        "failure_reasoning": "The 'meta' agent assigned 'strongly_support' to Argentina based on a hallucinated camera artifact, while assigning 'low' confidence to Mexico. This skewed the region decision and the final tournament bracket, effectively misleading the judge away from the truth.",
+        "counterfactual_winnable": true
+      },
+      {
+        "image_id": "5bPlIRT7eGN79a2E_5",
+        "failure_reason": "agent_misled_in_tournament",
+        "truth_lost_to": "Argentina",
+        "failure_match_round": "final",
+        "failure_reasoning": "The meta agent hallucinated a specific visual feature (hood shape/color) and falsely associated it with Argentina. This fabricated evidence was weighted heavily in the final tournament, overriding the neutral/ambiguous visual evidence that actually supported Chile.",
+        "counterfactual_winnable": true
+      },
+      {
+        "image_id": "5l0GTCFZI877KxkV_1",
+        "failure_reason": "agent_misled_in_tournament",
+        "truth_lost_to": "Colombia",
+        "failure_match_round": "semi-1",
+        "failure_reasoning": "The 'meta' agent assigned 'low' confidence to Mexico and 'strongly_support' to Colombia based on the yellow curbs, despite the landscape agent strongly supporting Mexico. The regulatory agent also shifted to Colombia. The specialists collectively misled the judge away from the truth.",
+        "counterfactual_winnable": true
+      },
+      {
+        "image_id": "67gLC5CcGgkQIWEW_5",
+        "failure_reason": "agent_misled_in_tournament",
+        "truth_lost_to": "Cambodia",
+        "failure_match_round": "semi-1",
+        "failure_reasoning": "The meta-agent hallucinated specific diagnostic features (hood shape, pole style) for Cambodia and assigned 'strongly_support' to it while giving 'low' confidence to the Philippines. This biased the tournament setup, causing the judge to pick Cambodia over the truth.",
+        "counterfactual_winnable": true
+      }
+    ]
+  },
+  "per_agent": {
+    "linguistic": {
+      "n": 500,
+      "role_adherence_rate": 1.0,
+      "role_adherence_when_run_correct": 1.0,
+      "role_adherence_when_run_wrong": 1.0,
+      "argumentative_quality": {
+        "very_weak": 18,
+        "weak": 13,
+        "normal": 381,
+        "strong": 37,
+        "very_strong": 51
+      },
+      "assertiveness": {
+        "very_low": 0,
+        "low": 0,
+        "medium": 0,
+        "high": 0,
+        "very_high": 0
+      },
+      "hallucination_score": {
+        "n": 500,
+        "mean": 0.005,
+        "median": 0.0,
+        "stdev": 0.05678908345800274,
+        "min": 0.0,
+        "max": 0.75
+      },
+      "visual_consistency_score": {
+        "n": 500,
+        "mean": 0.9907,
+        "median": 1.0,
+        "stdev": 0.07196186490079312,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "confidence_calibration_score": {
+        "n": 500,
+        "mean": 0.5681999999999999,
+        "median": 0.5,
+        "stdev": 0.19115114438579747,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "hallucination_examples": [
+        {
+          "image_id": "8Uo6ejwXYqmp9av3_2",
+          "example": "claimed 'MURMESTER' is 'strongly indicative of Denmark' (it is a standard Norwegian term for bricklayer)",
+          "score": 0.5
+        },
+        {
+          "image_id": "JnTw9kl2nWPFaoUg_5",
+          "example": "'Muki' is a common name/word in Luganda, the primary language of Uganda",
+          "score": 0.5
+        },
+        {
+          "image_id": "oIqmyQzBGtaIeI84_4",
+          "example": "The text 'SOLGAS' refers to a gas distribution company that operates primarily in Colombia.",
+          "score": 0.75
+        },
+        {
+          "image_id": "oIqmyQzBGtaIeI84_4",
+          "example": "The text 'SOLGAS' refers to a well-known LPG gas distribution company operating in Colombia.",
+          "score": 0.75
+        },
+        {
+          "image_id": "z2mhsiTu4DYWixQf_5",
+          "example": "The sign on the left contains the word '\u0633\u0648\u0631\u064a\u0629' (Syria/Syrian)",
+          "score": 0.75
+        }
+      ]
+    },
+    "landscape": {
+      "n": 500,
+      "role_adherence_rate": 1.0,
+      "role_adherence_when_run_correct": 1.0,
+      "role_adherence_when_run_wrong": 1.0,
+      "argumentative_quality": {
+        "very_weak": 0,
+        "weak": 0,
+        "normal": 14,
+        "strong": 476,
+        "very_strong": 10
+      },
+      "assertiveness": {
+        "very_low": 0,
+        "low": 0,
+        "medium": 0,
+        "high": 0,
+        "very_high": 0
+      },
+      "hallucination_score": {
+        "n": 500,
+        "mean": 0.0115,
+        "median": 0.0,
+        "stdev": 0.06060321773635457,
+        "min": 0.0,
+        "max": 0.75
+      },
+      "visual_consistency_score": {
+        "n": 500,
+        "mean": 0.9066000000000002,
+        "median": 0.9,
+        "stdev": 0.04468153981232069,
+        "min": 0.5,
+        "max": 1.0
+      },
+      "confidence_calibration_score": {
+        "n": 500,
+        "mean": 0.6818000000000002,
+        "median": 0.8,
+        "stdev": 0.2752430925563801,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "hallucination_examples": [
+        {
+          "image_id": "1NJsXTxIF9GGMDxC_2",
+          "example": "claimed concrete drainage gutters are 'very characteristic of Taiwan's central mountain ranges' (also common in Malaysia/Australia)",
+          "score": 0.5
+        },
+        {
+          "image_id": "3OuVMcpGjmm0tVfG_1",
+          "example": "claimed 'volcanic-looking grey rocky embankments' are 'highly characteristic of the Philippine archipelago' (a specific, unsupported generalization used to bias the decision)",
+          "score": 0.5
+        },
+        {
+          "image_id": "3OuVMcpGjmm0tVfG_1",
+          "example": "claimed 'volcanic rock roadside borders' are 'highly characteristic of the Philippine archipelago'",
+          "score": 0.5
+        },
+        {
+          "image_id": "3uP6lYo9pzx5Q0km_2",
+          "example": "Claimed the terrain is 'more gently rolling than typical Norwegian landscapes' to justify Sweden over Norway; the image shows a gentle slope that is equally characteristic of coastal Norway.",
+          "score": 0.5
+        },
+        {
+          "image_id": "3uP6lYo9pzx5Q0km_2",
+          "example": "Repeatedly cited 'exposed granite outcrops' as a strong indicator for Sweden, whereas the image shows generic rocky outcrops common to both countries.",
+          "score": 0.5
+        }
+      ]
+    },
+    "botanics": {
+      "n": 500,
+      "role_adherence_rate": 1.0,
+      "role_adherence_when_run_correct": 1.0,
+      "role_adherence_when_run_wrong": 1.0,
+      "argumentative_quality": {
+        "very_weak": 0,
+        "weak": 4,
+        "normal": 76,
+        "strong": 414,
+        "very_strong": 6
+      },
+      "assertiveness": {
+        "very_low": 0,
+        "low": 0,
+        "medium": 0,
+        "high": 0,
+        "very_high": 0
+      },
+      "hallucination_score": {
+        "n": 500,
+        "mean": 0.0167,
+        "median": 0.0,
+        "stdev": 0.07586903189048876,
+        "min": 0.0,
+        "max": 0.75
+      },
+      "visual_consistency_score": {
+        "n": 500,
+        "mean": 0.8977,
+        "median": 0.9,
+        "stdev": 0.06511305552652248,
+        "min": 0.3,
+        "max": 1.0
+      },
+      "confidence_calibration_score": {
+        "n": 500,
+        "mean": 0.6585,
+        "median": 0.8,
+        "stdev": 0.2562669506588784,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "hallucination_examples": [
+        {
+          "image_id": "1NJsXTxIF9GGMDxC_2",
+          "example": "claimed fern abundance is 'highly characteristic of Taiwan's central mountain ranges' (generic to humid tropics)",
+          "score": 0.5
+        },
+        {
+          "image_id": "4UvmdTHySo6AXW4M_5",
+          "example": "claimed 'Prosopis juliflora (mesquite)' visible in scrub \u2014 not identifiable from image",
+          "score": 0.5
+        },
+        {
+          "image_id": "4UvmdTHySo6AXW4M_5",
+          "example": "claimed 'Triticum aestivum (Winter Wheat)' \u2014 crop is too distant to identify species",
+          "score": 0.5
+        },
+        {
+          "image_id": "5l0GTCFZI877KxkV_4",
+          "example": "botanics agent cited 'terraced paddy fields' in Phase 1 evidence; the foreground field appears to be a harvested grassy plot or fallow field, not a flooded paddy.",
+          "score": 0.2
+        },
+        {
+          "image_id": "6ypQOh9cOoE7WaWH_3",
+          "example": "claimed 'eucalyptus plantations' are visible \u2014 the background vegetation is generic montane forest/scrub, not clearly identifiable as eucalyptus.",
+          "score": 0.25
+        }
+      ]
+    },
+    "regulatory": {
+      "n": 500,
+      "role_adherence_rate": 1.0,
+      "role_adherence_when_run_correct": 1.0,
+      "role_adherence_when_run_wrong": 1.0,
+      "argumentative_quality": {
+        "very_weak": 0,
+        "weak": 8,
+        "normal": 157,
+        "strong": 304,
+        "very_strong": 31
+      },
+      "assertiveness": {
+        "very_low": 0,
+        "low": 0,
+        "medium": 0,
+        "high": 0,
+        "very_high": 0
+      },
+      "hallucination_score": {
+        "n": 500,
+        "mean": 0.0175,
+        "median": 0.0,
+        "stdev": 0.09984362773857929,
+        "min": 0.0,
+        "max": 0.8
+      },
+      "visual_consistency_score": {
+        "n": 500,
+        "mean": 0.9109,
+        "median": 0.9,
+        "stdev": 0.08346370468652826,
+        "min": 0.2,
+        "max": 1.0
+      },
+      "confidence_calibration_score": {
+        "n": 500,
+        "mean": 0.6403000000000001,
+        "median": 0.7,
+        "stdev": 0.2631366755129357,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "hallucination_examples": [
+        {
+          "image_id": "1NJsXTxIF9GGMDxC_1",
+          "example": "The green fuel price totem displays 'AZS', which is the standard abbreviation for Azerbaijan Manat (AZN) fuel stations.",
+          "score": 0.5
+        },
+        {
+          "image_id": "1NJsXTxIF9GGMDxC_2",
+          "example": "claimed concrete drainage gutter style is 'very common in mountainous regions of Taiwan' (implies exclusivity not supported by image)",
+          "score": 0.75
+        },
+        {
+          "image_id": "8Uo6ejwXYqmp9av3_2",
+          "example": "claimed 'Murmester' terminology is 'strongly Danish' (misleading/incorrect)",
+          "score": 0.5
+        },
+        {
+          "image_id": "IozkbMt8zbdH9XCv_3",
+          "example": "regulatory agent claimed 'blue and white painted curbs' are a 'frequent regulatory marker in Iranian cities' (unsupported generalization).",
+          "score": 0.2
+        },
+        {
+          "image_id": "JfPkjboMSjCsG1Qu_5",
+          "example": "regulatory agent: 'blue rectangular informational sign with white border' (Image shows blue sign with yellow border)",
+          "score": 0.5
+        }
+      ]
+    },
+    "meta": {
+      "n": 500,
+      "role_adherence_rate": 1.0,
+      "role_adherence_when_run_correct": 1.0,
+      "role_adherence_when_run_wrong": 1.0,
+      "argumentative_quality": {
+        "very_weak": 1,
+        "weak": 16,
+        "normal": 20,
+        "strong": 279,
+        "very_strong": 184
+      },
+      "assertiveness": {
+        "very_low": 0,
+        "low": 0,
+        "medium": 0,
+        "high": 0,
+        "very_high": 0
+      },
+      "hallucination_score": {
+        "n": 500,
+        "mean": 0.05790000000000001,
+        "median": 0.0,
+        "stdev": 0.19300930029405317,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "visual_consistency_score": {
+        "n": 500,
+        "mean": 0.8749000000000001,
+        "median": 0.9,
+        "stdev": 0.15736896136150866,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "confidence_calibration_score": {
+        "n": 500,
+        "mean": 0.675,
+        "median": 0.85,
+        "stdev": 0.3129776349837157,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "hallucination_examples": [
+        {
+          "image_id": "1NJsXTxIF9GGMDxC_1",
+          "example": "The green fuel price totem is highly characteristic of SOCAR stations in Azerbaijan.",
+          "score": 0.5
+        },
+        {
+          "image_id": "1NJsXTxIF9GGMDxC_2",
+          "example": "claimed concrete drainage gutter is a 'hallmark of infrastructure in Japan and Taiwan' (ignores other regions with similar infrastructure)",
+          "score": 0.75
+        },
+        {
+          "image_id": "3I4ZtihbhZy5qZzQ_5",
+          "example": "The Google Street View camera car hood is visible and has a distinct grey/silver color and shape characteristic of the coverage in several South American countries, particularly Colombia.",
+          "score": 0.75
+        },
+        {
+          "image_id": "3I4ZtihbhZy5qZzQ_5",
+          "example": "The specific Google car hood color (greyish-white) and the style of the concrete perimeter walls... is very common in Colombian urban/industrial areas.",
+          "score": 0.75
+        },
+        {
+          "image_id": "4UvmdTHySo6AXW4M_5",
+          "example": "claimed 'specific blur patterns... consistent with Google Trekker' \u2014 generic artifacts cited as specific evidence",
+          "score": 0.2
+        }
+      ]
+    }
+  }
+}

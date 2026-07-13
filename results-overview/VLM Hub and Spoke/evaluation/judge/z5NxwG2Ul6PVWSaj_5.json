@@ -1,0 +1,91 @@
+{
+  "image_id": "z5NxwG2Ul6PVWSaj_5",
+  "truth_country": "kenya",
+  "pred_country": "rwanda",
+  "is_correct": false,
+  "discussion_rounds": 1,
+  "was_questioned": {
+    "linguistic": true,
+    "landscape": false,
+    "botanics": false,
+    "regulatory": true,
+    "meta": true
+  },
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": true,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.0,
+      "botanics": 0.0,
+      "regulatory": 0.0,
+      "meta": 0.0
+    },
+    "visual_consistency_score": {
+      "linguistic": 1.0,
+      "landscape": 1.0,
+      "botanics": 1.0,
+      "regulatory": 1.0,
+      "meta": 1.0
+    },
+    "confidence_calibration_score": {
+      "linguistic": 0.5,
+      "landscape": 0.5,
+      "botanics": 0.5,
+      "regulatory": 0.5,
+      "meta": 0.5
+    },
+    "question_relevance_score": {
+      "linguistic": 1.0,
+      "landscape": 0.5,
+      "botanics": 0.5,
+      "regulatory": 1.0,
+      "meta": 1.0
+    },
+    "question_relevance_notes": {
+      "linguistic": "Judge asked about text on signs/poles, squarely in linguistic domain.",
+      "landscape": "Agent was not questioned; default score applied.",
+      "botanics": "Agent was not questioned; default score applied.",
+      "regulatory": "Judge asked about road placement/traffic side, squarely in regulatory domain.",
+      "meta": "Judge asked about coverage patterns and infrastructure, squarely in meta domain."
+    },
+    "response_update_quality": {
+      "linguistic": 1.0,
+      "landscape": 0.5,
+      "botanics": 0.5,
+      "regulatory": 1.0,
+      "meta": 1.0
+    },
+    "response_update_notes": {
+      "linguistic": "Agent directly addressed the question, confirming no text was visible.",
+      "landscape": "Agent was not questioned; default score applied.",
+      "botanics": "Agent was not questioned; default score applied.",
+      "regulatory": "Agent provided a reasoned update regarding utility pole placement and terrain.",
+      "meta": "Agent provided a decisive update regarding GS coverage differences between Rwanda and Burundi."
+    },
+    "targeted_agent_addressed_question": {
+      "linguistic": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "hallucination_examples": {
+      "linguistic": [],
+      "landscape": [],
+      "botanics": [],
+      "regulatory": [],
+      "meta": []
+    },
+    "judge_question_strategy_score": 0.75,
+    "judge_question_strategy_notes": "The judge correctly identified that the visual features (landscape, botany) were ambiguous between Rwanda and Burundi. The strategy to pivot to the Meta agent to resolve the ambiguity via coverage data was excellent. However, the judge repeated the question to the Meta agent in the same round, which is a minor procedural inefficiency.",
+    "judge_synthesis_quality": 0.25,
+    "judge_synthesis_notes": "The judge's final reasoning relied entirely on the Meta agent's correct deduction (GS coverage exists in Rwanda, not Burundi). However, the final prediction coordinates (-1.944, 29.874) are geographically incorrect for the image (which is in Kenya, approx -0.88, 36.95) and actually point to a location in Rwanda. While the country prediction (Rwanda) was logically derived from the discussion, the coordinate hallucination indicates a failure in the final synthesis step to anchor the location to the image.",
+    "discussion_convergence_score": 0.5,
+    "discussion_convergence_notes": "The discussion successfully converged on Rwanda by eliminating Burundi based on coverage data. However, the convergence was incomplete because the agents failed to consider Kenya, which shares the same visual characteristics (red soil, vegetation) but was not discussed or eliminated."
+  }
+}

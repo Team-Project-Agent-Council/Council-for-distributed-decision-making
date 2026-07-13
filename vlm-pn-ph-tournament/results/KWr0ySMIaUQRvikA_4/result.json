@@ -1,0 +1,485 @@
+{
+  "image_path": "/pfs/data6/home/ma/ma_ma/ma_lweisssc/llm_council_agent_orchestration_tests/clean_images_GeoRC_500/KWr0ySMIaUQRvikA_4.png",
+  "model": "google/gemma-4-31B-it",
+  "judge_model": "google/gemma-4-31B-it",
+  "timing": {
+    "total_seconds": 88.3
+  },
+  "assessments": {
+    "linguistic": {
+      "agent_name": "linguistic",
+      "candidates": [],
+      "evidence": []
+    },
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "United States",
+          "confidence": "high",
+          "reasoning": "The vast, flat agricultural plains combined with large-scale metal pole barns and wide gravel roads are highly characteristic of the American Midwest or Intermountain West. The distant mountain range suggests a location like Montana, Wyoming, or Idaho."
+        },
+        {
+          "country": "Canada",
+          "confidence": "high",
+          "reasoning": "The landscape is nearly identical to the Canadian Prairies (Saskatchewan or Alberta), featuring similar soil types, large-scale grain farming, and wide-open horizons with distant hills."
+        },
+        {
+          "country": "Australia",
+          "confidence": "medium",
+          "reasoning": "The arid, golden-brown grass and flat terrain are common in the wheat belt of New South Wales or Western Australia. However, the specific style of the metal shed is more typical of North American farming."
+        },
+        {
+          "country": "Argentina",
+          "confidence": "low",
+          "reasoning": "The Pampas region features similar flat, agricultural landscapes and large-scale farming operations, though the vegetation and building styles differ slightly from the North American model."
+        },
+        {
+          "country": "Kazakhstan",
+          "confidence": "speculative",
+          "reasoning": "The vast, open steppe with industrial-scale agriculture and distant mountains provides a strong global analog to the North American plains."
+        }
+      ],
+      "evidence": [
+        "Flat agricultural plains",
+        "Arid golden-brown grass",
+        "Large metal agricultural shed",
+        "Wide gravel road",
+        "Distant mountain range",
+        "Northern hemisphere sun angle (shadows cast slightly to the side/front)"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "United States",
+          "confidence": "medium",
+          "reasoning": "The combination of large-scale industrial cereal crop production, vast open plains, and the specific appearance of the dry, golden roadside grasses is highly characteristic of the Great Plains or Intermountain West."
+        },
+        {
+          "country": "Canada",
+          "confidence": "medium",
+          "reasoning": "The agricultural landscape and vegetation are nearly identical to the US Great Plains, specifically the Prairie Provinces, where similar wheat/barley cultivation and wild grasses occur."
+        },
+        {
+          "country": "Argentina",
+          "confidence": "low",
+          "reasoning": "The Pampas region features similar large-scale cereal agriculture and flat horizons with similar grass types, though the building style is less typical."
+        },
+        {
+          "country": "Australia",
+          "confidence": "low",
+          "reasoning": "The wheat belt of Western Australia or New South Wales presents a similar biome of dry, golden grasslands and industrial grain farming."
+        },
+        {
+          "country": "Kazakhstan",
+          "confidence": "speculative",
+          "reasoning": "The vast steppe regions engage in similar large-scale grain production with comparable semi-arid grassland vegetation."
+        }
+      ],
+      "evidence": [
+        "Cereal crops (likely wheat or barley)",
+        "Semi-arid temperate grassland",
+        "Industrial monoculture agriculture"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "United States",
+          "confidence": "low",
+          "reasoning": "The combination of a wide gravel rural road, large metal agricultural sheds, and distant utility poles is highly characteristic of the American Midwest or West."
+        },
+        {
+          "country": "Canada",
+          "confidence": "low",
+          "reasoning": "The prairie landscape and basic gravel road infrastructure are virtually identical to those found in the Canadian provinces like Saskatchewan or Alberta."
+        },
+        {
+          "country": "Australia",
+          "confidence": "speculative",
+          "reasoning": "Rural Australian infrastructure often features similar gravel road widths and metal farm buildings in arid or semi-arid agricultural regions."
+        },
+        {
+          "country": "Argentina",
+          "confidence": "speculative",
+          "reasoning": "The Pampas region features similar flat agricultural landscapes with basic gravel roads and large-scale farming infrastructure."
+        }
+      ],
+      "evidence": [
+        "unpaved gravel road",
+        "wooden utility poles",
+        "large metal agricultural building",
+        "no visible road signs or license plates"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "United States",
+          "confidence": "medium",
+          "reasoning": "The style of the large corrugated metal agricultural building and the specific type of wooden utility poles seen in the distance are very common in the American West/Midwest. The image quality and lack of distinct camera artifacts are consistent with Gen 3/4 coverage in rural US areas."
+        },
+        {
+          "country": "Canada",
+          "confidence": "medium",
+          "reasoning": "The agricultural infrastructure, specifically the metal shed and the wooden power poles, is nearly identical to that found in the US Prairies. It is a primary candidate due to the shared North American rural meta."
+        },
+        {
+          "country": "Australia",
+          "confidence": "low",
+          "reasoning": "The wide-open rural landscape with similar metal sheds and wooden poles can be found in the Australian Outback or wheat belt. This serves as a cross-continent analog for the North American rural meta."
+        },
+        {
+          "country": "Argentina",
+          "confidence": "speculative",
+          "reasoning": "The Pampas region often features similar large-scale agricultural sheds and generic wooden utility poles, making it a possible South American analog for this specific rural meta."
+        }
+      ],
+      "evidence": [
+        "corrugated metal agricultural building",
+        "wooden utility poles",
+        "Google Street View camera quality/generation"
+      ]
+    }
+  },
+  "progressive_narrowing": {
+    "region_consensus": false,
+    "confirmed_region": "North America",
+    "runner_up_region": "Oceania",
+    "surviving_regions": [
+      "North America",
+      "Oceania"
+    ],
+    "proposed_regions": [
+      "North America",
+      "Oceania",
+      "South America",
+      "Central Asia"
+    ],
+    "region_candidates": {
+      "North America": {
+        "United States": 4,
+        "Canada": 4
+      },
+      "Oceania": {
+        "Australia": 4
+      },
+      "South America": {
+        "Argentina": 4
+      },
+      "Central Asia": {
+        "Kazakhstan": 2
+      }
+    },
+    "region_decision_reasoning": "North America received the highest total score, including a 'strongly_support' vote from the meta agent regarding the specific architectural style of the agricultural shed and camera artifacts. Oceania is the runner-up as it was supported by both the botanics and meta agents for its similar agricultural biomes and structures.",
+    "path": "B"
+  },
+  "road_evidence": {
+    "outside_color": "none",
+    "inside_color": "none",
+    "driving_side": "UNCLEAR",
+    "driving_side_basis": "none"
+  },
+  "country_assessments": {
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "United States",
+          "confidence": "high",
+          "reasoning": "The vast, flat agricultural plains combined with distant mountains and large-scale metal utility sheds are highly characteristic of the American West or Midwest. The road quality and field management style are typical of US rural infrastructure."
+        },
+        {
+          "country": "Canada",
+          "confidence": "medium",
+          "reasoning": "The prairie landscape and agricultural patterns are very similar to the Canadian Prairies (Alberta, Saskatchewan). It is geographically nearly indistinguishable from the northern US plains in this specific view."
+        },
+        {
+          "country": "Australia",
+          "confidence": "low",
+          "reasoning": "The arid, golden-brown grass and flat terrain are common in the Australian wheat belt. However, the specific style of the metal shed and the distant mountain range are more typical of North American interior basins."
+        }
+      ],
+      "evidence": [
+        "Flat agricultural plains with golden-brown dormant grass",
+        "Distant mountain range on the horizon",
+        "Large corrugated metal agricultural building",
+        "Unpaved gravel road with well-defined edges",
+        "High sun angle suggesting a mid-latitude region"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "United States",
+          "confidence": "high",
+          "reasoning": "The combination of large-scale cereal crop production (likely wheat or barley) and the specific appearance of the semi-arid grassland suggests the Great Plains or Intermountain West. The vegetation pattern is highly characteristic of the American Midwest or Northwest interior."
+        },
+        {
+          "country": "Canada",
+          "confidence": "medium",
+          "reasoning": "The agricultural landscape and temperate grassland species are very similar to the Canadian Prairies. It is botanically indistinguishable from the northern US plains without seeing specific endemic weed species."
+        },
+        {
+          "country": "Australia",
+          "confidence": "low",
+          "reasoning": "The wheat-belt regions of Western Australia or New South Wales share this open, xeric agricultural biome. However, the specific hue of the green pasture and the distant mountain silhouettes are more typical of North American temperate zones."
+        }
+      ],
+      "evidence": [
+        "Cereal crops (Triticum/Hordeum)",
+        "Temperate semi-arid grassland",
+        "Cultivated pasture grass"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "United States",
+          "confidence": "medium",
+          "reasoning": "The wide, gravel-surfaced rural road and the style of the large metal agricultural shed are very common in the American Midwest or West. The utility pole spacing and general land use are consistent with US rural infrastructure."
+        },
+        {
+          "country": "Canada",
+          "confidence": "medium",
+          "reasoning": "The rural road construction and agricultural building style are nearly identical to those found in the Canadian Prairies. The landscape and infrastructure provide no distinguishing features to separate it from the US."
+        },
+        {
+          "country": "Australia",
+          "confidence": "low",
+          "reasoning": "The wide, unpaved rural road and flat agricultural landscape are common in the Australian Outback or wheat belt. However, the specific style of the metal shed is slightly more characteristic of North American farming."
+        }
+      ],
+      "evidence": [
+        "unpaved gravel road",
+        "metal agricultural shed",
+        "wooden utility poles",
+        "wide rural road width"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "United States",
+          "confidence": "medium",
+          "reasoning": "The presence of a large, corrugated metal agricultural shed with a low-pitch roof is very common in the American West/Midwest. The utility pole in the distance appears to be a standard wooden pole typical of rural US infrastructure."
+        },
+        {
+          "country": "Canada",
+          "confidence": "medium",
+          "reasoning": "The agricultural building style and rural road quality are nearly identical to the USA, particularly in the Prairie provinces. Without more specific meta like bollards or unique pole hardware, it is indistinguishable from the US."
+        },
+        {
+          "country": "Australia",
+          "confidence": "low",
+          "reasoning": "The wide-open rural landscape and corrugated iron sheds are common in Australia. However, the specific shade of the road gravel and the style of the distant utility pole are slightly more characteristic of North American rural grids."
+        }
+      ],
+      "evidence": [
+        "corrugated metal agricultural building",
+        "wooden utility pole",
+        "unpaved gravel road texture",
+        "Google Street View camera generation (Gen 3/4 based on clarity and lack of halo)"
+      ]
+    }
+  },
+  "hypothesis_evaluations": [
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_north_america",
+      "confidence": "support",
+      "reasoning": "The combination of large-scale cereal crop production (likely wheat or barley) and the specific appearance of the dry, golden temperate grasslands is highly characteristic of the Great Plains or the Intermountain West of North America.",
+      "key_evidence": [
+        "temperate cereal crops",
+        "semi-arid grassland"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_oceania",
+      "confidence": "support",
+      "reasoning": "The vegetation is compatible with the wheat-belt regions of Australia or the Canterbury Plains of New Zealand, which share similar semi-arid agricultural biomes and grass types.",
+      "key_evidence": [
+        "temperate cereal crops",
+        "semi-arid grassland"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_south_america",
+      "confidence": "support",
+      "reasoning": "This landscape is botanically similar to the Pampas of Argentina or the agricultural plains of Uruguay, where similar cereal crops and temperate grasses are cultivated.",
+      "key_evidence": [
+        "temperate cereal crops",
+        "semi-arid grassland"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_central_asia",
+      "confidence": "low",
+      "reasoning": "While the steppe vegetation is compatible, the specific agricultural layout and the lushness of the green field on the left are slightly less typical for the more extreme arid steppes of Central Asia compared to the other regions.",
+      "key_evidence": [
+        "steppe vegetation"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_north_america",
+      "confidence": "strongly_support",
+      "reasoning": "The presence of a large, corrugated metal agricultural shed with a specific low-pitch roof and the style of the gravel road are highly characteristic of the US/Canada rural landscape. Additionally, the Google camera generation (Gen 3/4) and the specific 'halo' or blur pattern at the bottom of the frame are very common in North American rural coverage.",
+      "key_evidence": [
+        "corrugated metal shed design",
+        "Google camera generation/blur pattern",
+        "rural gravel road style"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_oceania",
+      "confidence": "support",
+      "reasoning": "The agricultural structures and open landscape are compatible with rural Australia or New Zealand. However, the specific style of the metal building is more typical of North American 'pole barns' than Australian sheds.",
+      "key_evidence": [
+        "corrugated metal building",
+        "open rural landscape"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_south_america",
+      "confidence": "low",
+      "reasoning": "While corrugated metal is used globally, the specific combination of the building's scale, the road quality, and the camera artifacts is less common in South American rural coverage compared to North America.",
+      "key_evidence": [
+        "corrugated metal building"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_central_asia",
+      "confidence": "contradicts",
+      "reasoning": "The style of the agricultural building and the specific Google camera artifacts do not align with the typical coverage patterns or rural infrastructure found in Central Asian countries.",
+      "key_evidence": [
+        "building architecture",
+        "camera artifacts"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_united_states",
+      "confidence": "support",
+      "reasoning": "The combination of large-scale cereal crop production (likely wheat or barley) and the specific appearance of the semi-arid grassland/steppe vegetation is highly characteristic of the Great Plains or the Intermountain West (e.g., Montana, Wyoming).",
+      "key_evidence": [
+        "cereal crops",
+        "semi-arid steppe grasses"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_canada",
+      "confidence": "support",
+      "reasoning": "The botanical profile is nearly identical to the US Great Plains, as the Prairie provinces (Alberta, Saskatchewan, Manitoba) share the same agricultural crops and temperate grassland biomes.",
+      "key_evidence": [
+        "cereal crops",
+        "temperate grassland"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_australia",
+      "confidence": "low",
+      "reasoning": "While Australia has similar wheat-belt regions (e.g., Western Australia or New South Wales), the specific hue and texture of the roadside grasses and the surrounding deciduous-looking tree clusters in the distance are more typical of Northern Hemisphere temperate zones.",
+      "key_evidence": [
+        "cereal crops",
+        "temperate grassland"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_united_states",
+      "confidence": "strongly_support",
+      "reasoning": "The image shows a very distinct Google Street View 'car hood' artifact at the bottom center, which is characteristic of the Gen 4 camera used extensively in the US. The style of the large corrugated metal agricultural building and the specific type of wooden utility poles seen in the distance are highly typical of the American Midwest or West.",
+      "key_evidence": [
+        "Gen 4 camera car hood artifact",
+        "Corrugated metal barn construction",
+        "Wooden utility pole style"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_canada",
+      "confidence": "support",
+      "reasoning": "The meta details (Gen 4 camera, wooden poles, and metal agricultural buildings) are very similar to those found in the US, as Canada shares much of the same infrastructure and Google coverage style in rural areas.",
+      "key_evidence": [
+        "Gen 4 camera car hood artifact",
+        "Wooden utility pole style"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_australia",
+      "confidence": "low",
+      "reasoning": "While Australia has similar rural landscapes and uses Gen 4 cameras, the specific architectural style of the metal shed and the utility pole configuration are more characteristic of North American rural infrastructure.",
+      "key_evidence": [
+        "Gen 4 camera car hood artifact"
+      ]
+    }
+  ],
+  "candidate_pool": [
+    "United States",
+    "Canada",
+    "Australia"
+  ],
+  "rag_findings": [
+    {
+      "kind": "tournament_match",
+      "country": "Canada",
+      "detail": "The image features a distinct Gen 4 Google Street View car hood artifact and infrastructure (corrugated metal buildings and utility poles) that are highly characteristic of the US Great Plains or Intermountain West. While Canada is similar, the meta evidence strongly supports the United States for this specific coverage style.",
+      "opponent": "United States",
+      "winner": "United States"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Australia",
+      "detail": "The landscape, specifically the large-scale cereal crop production and semi-arid grassland, is highly characteristic of the US Great Plains or Intermountain West. Additionally, the architectural style of the corrugated metal agricultural building and the utility poles are more typical of North American rural infrastructure than Australian.",
+      "opponent": "United States",
+      "winner": "United States"
+    }
+  ],
+  "rag_refs_seen": [],
+  "road_filter_warnings": [],
+  "tournament_log": [
+    {
+      "round_label": "semi",
+      "country_a": "United States",
+      "country_b": "Canada",
+      "pool_rank_a": 0,
+      "pool_rank_b": 1,
+      "winner": "United States",
+      "reasoning": "The image features a distinct Gen 4 Google Street View car hood artifact and infrastructure (corrugated metal buildings and utility poles) that are highly characteristic of the US Great Plains or Intermountain West. While Canada is similar, the meta evidence strongly supports the United States for this specific coverage style.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "final",
+      "country_a": "United States",
+      "country_b": "Australia",
+      "pool_rank_a": 0,
+      "pool_rank_b": 2,
+      "winner": "United States",
+      "reasoning": "The landscape, specifically the large-scale cereal crop production and semi-arid grassland, is highly characteristic of the US Great Plains or Intermountain West. Additionally, the architectural style of the corrugated metal agricultural building and the utility poles are more typical of North American rural infrastructure than Australian.",
+      "agreement": "agree"
+    }
+  ],
+  "country_result": "Country: United States\nCoordinates: 45.5017, -110.5883\nReasoning: The landscape, specifically the large-scale cereal crop production and semi-arid grassland, is highly characteristic of the US Great Plains or Intermountain West. Additionally, the architectural style of the corrugated metal agricultural building and the utility poles are more typical of North American rural infrastructure than Australian.\n\nTournament:\n  semi: United States vs Canada → United States\n  final: United States vs Australia → United States",
+  "coordinates": {
+    "lat": 45.5017,
+    "lng": -110.5883
+  },
+  "final_reasoning": "The landscape, specifically the large-scale cereal crop production and semi-arid grassland, is highly characteristic of the US Great Plains or Intermountain West. Additionally, the architectural style of the corrugated metal agricultural building and the utility poles are more typical of North American rural infrastructure than Australian."
+}

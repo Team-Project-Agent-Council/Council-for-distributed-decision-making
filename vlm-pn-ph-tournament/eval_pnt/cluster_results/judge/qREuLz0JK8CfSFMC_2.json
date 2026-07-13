@@ -1,0 +1,94 @@
+{
+  "image_id": "qREuLz0JK8CfSFMC_2",
+  "truth_country": "argentina",
+  "pred_country": "costa rica",
+  "is_correct": false,
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": true,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "role_adherence_notes": {
+      "linguistic": "Correctly identified the absence of text and remained neutral.",
+      "landscape": "Focused on terrain, vegetation density, and climate cues.",
+      "botanics": "Analyzed forest types and leaf morphology.",
+      "regulatory": "Evaluated road surface and guardrail infrastructure.",
+      "meta": "Used camera generation artifacts and regional infrastructure patterns."
+    },
+    "argumentative_quality": {
+      "linguistic": "normal",
+      "landscape": "strong",
+      "botanics": "strong",
+      "regulatory": "normal",
+      "meta": "strong"
+    },
+    "constructive_synthesis": true,
+    "overall_verdict_notes": "The pipeline failed to identify the ground truth (Argentina) because the agents relied on 'global analogs' (tropical rainforests) rather than specific biogeographic markers (e.g., the arid/semi-arid scrub typical of NW Argentina). The agents hallucinated a tropical climate to fit the lush vegetation, ignoring the latitude/altitude context. The tournament then arbitrarily split the 'tropical' candidates, leading to a wrong winner.",
+    "role_adherence_score": {
+      "linguistic": 1.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.9,
+      "meta": 0.9
+    },
+    "argumentative_quality_score": {
+      "linguistic": 0.5,
+      "landscape": 0.75,
+      "botanics": 0.75,
+      "regulatory": 0.5,
+      "meta": 0.75
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.5,
+      "botanics": 0.5,
+      "regulatory": 0.0,
+      "meta": 0.0
+    },
+    "hallucination_examples": {
+      "linguistic": [],
+      "landscape": [
+        "Described the environment as 'humid tropical' and 'cloud forest' (Phase 1), which contradicts the likely semi-arid/scrubland biome of the ground truth location (-26.87, -65.42) and misinterprets the visual density as tropical rather than dense riparian scrub."
+      ],
+      "botanics": [
+        "Identified the vegetation as 'humid subtropical broadleaf forest' and 'Neotropical moist forest biome' (Phase 1 & 2), which is a misclassification of the visual evidence for the specific region."
+      ],
+      "regulatory": [],
+      "meta": []
+    },
+    "visual_consistency_score": {
+      "linguistic": 1.0,
+      "landscape": 0.5,
+      "botanics": 0.5,
+      "regulatory": 0.9,
+      "meta": 0.9
+    },
+    "visual_consistency_notes": {
+      "linguistic": "Accurately noted no text.",
+      "landscape": "Described the vegetation as 'dense' and 'lush', which matches the image, but the climatic inference ('tropical') is inconsistent with the ground truth's likely environment.",
+      "botanics": "Described 'broadleaf' and 'evergreen' features visible in the image, but the biome classification is incorrect for the region.",
+      "regulatory": "Accurately described the gravel road and metal guardrail.",
+      "meta": "Accurately described the camera artifacts and guardrail style."
+    },
+    "confidence_calibration": {
+      "linguistic": 0.5,
+      "landscape": 0.25,
+      "botanics": 0.25,
+      "regulatory": 0.25,
+      "meta": 0.25
+    },
+    "tournament_failure": {
+      "truth_in_pool": false,
+      "truth_lost_to": "Costa Rica",
+      "failure_match_round": "final",
+      "failure_reason": "not_applicable",
+      "failure_reasoning": "Argentina was not in the candidate pool. The agents failed to consider it because they misclassified the biome as tropical/rainforest (likely due to the dense vegetation) and relied on global analogs for Central America/SE Asia. Since the truth was not a candidate, the tournament failure rules do not apply.",
+      "counterfactual_winnable": false
+    }
+  },
+  "validation_error": "1 validation error for JudgeVerdict\noverall_verdict_notes\n  String should have at most 400 characters [type=string_too_long, input_value=\"The pipeline failed to i...ding to a wrong winner.\", input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_too_long"
+}

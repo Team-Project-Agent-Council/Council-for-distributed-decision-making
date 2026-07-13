@@ -1,0 +1,82 @@
+{
+  "image_id": "e1zn5HV7y0bMjzQL_5",
+  "truth_country": "bhutan",
+  "pred_country": "nepal",
+  "is_correct": false,
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": true,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.25,
+      "botanics": 0.25,
+      "regulatory": 0.75,
+      "meta": 0.25
+    },
+    "visual_consistency_score": {
+      "linguistic": 1.0,
+      "landscape": 0.75,
+      "botanics": 0.75,
+      "regulatory": 0.5,
+      "meta": 0.75
+    },
+    "confidence_calibration_score": {
+      "linguistic": 0.5,
+      "landscape": 0.25,
+      "botanics": 0.25,
+      "regulatory": 0.0,
+      "meta": 0.25
+    },
+    "round2_improvement": {
+      "linguistic": 0.0,
+      "landscape": 0.5,
+      "botanics": 0.5,
+      "regulatory": 0.5,
+      "meta": 0.5
+    },
+    "round2_improvement_notes": {
+      "linguistic": "Agent provided no output; no improvement possible.",
+      "landscape": "Acknowledged other agents' evidence (Meta) and shifted hypothesis, but the shift was factually incorrect regarding traffic laws.",
+      "botanics": "Acknowledged other agents' evidence (Meta) and shifted hypothesis, but the shift was factually incorrect regarding traffic laws.",
+      "regulatory": "Acknowledged other agents' evidence (Meta) and shifted hypothesis, but failed to verify the traffic law of the new candidate country.",
+      "meta": "Acknowledged other agents' evidence (Landscape/Regulatory) and shifted hypothesis, but failed to verify the camera rig evidence for the new candidate country."
+    },
+    "role_leakage_score": {
+      "linguistic": 0.0,
+      "landscape": 1.0,
+      "botanics": 1.0,
+      "regulatory": 1.0,
+      "meta": 1.0
+    },
+    "role_leakage_notes": {
+      "linguistic": "none",
+      "landscape": "Heavy leakage: R2 reasoning relied primarily on the Meta agent's camera rig evidence to override its own landscape analysis.",
+      "botanics": "Heavy leakage: R2 reasoning relied primarily on the Meta agent's camera rig evidence to override its own botanical analysis.",
+      "regulatory": "Heavy leakage: R2 reasoning relied primarily on the Meta agent's camera rig evidence to override its own regulatory analysis.",
+      "meta": "Heavy leakage: R2 reasoning relied primarily on the Landscape and Regulatory agents' terrain and traffic evidence to override its own meta analysis."
+    },
+    "hallucination_examples": {
+      "linguistic": [],
+      "landscape": [
+        "The white concrete block delineators are a signature landscape feature of rural Laotian mountain roads."
+      ],
+      "botanics": [
+        "The vegetation consists of tropical moist broadleaf forest and secondary scrub typical of the Annamite Range and Northern Laos."
+      ],
+      "regulatory": [
+        "The driving side is left-hand traffic, which is consistent with Laos."
+      ],
+      "meta": [
+        "The visible car hood is a hallmark of the 'Trekker' or local vehicle mounts used by Google in Nepal for mountainous regions."
+      ]
+    },
+    "judge_synthesis_quality": 0.25,
+    "judge_synthesis_notes": "The judge's reasoning is weak and contains a critical factual error. The judge states that 'Nepal drives on the right,' which is false (Nepal drives on the left). This error led the judge to incorrectly dismiss the Landscape agent's strong terrain evidence for Nepal and likely contributed to the failure to identify Bhutan. The judge also failed to identify the hallucination in the Regulatory agent's claim about Laos driving on the left."
+  }
+}

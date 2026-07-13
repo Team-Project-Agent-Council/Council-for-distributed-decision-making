@@ -1,0 +1,102 @@
+{
+  "image_id": "xYdYhcgnMuyj35eG_3",
+  "truth_country": "mexico",
+  "pred_country": "brazil",
+  "is_correct": false,
+  "candidate_pool": [
+    "Brazil",
+    "Australia",
+    "South Africa",
+    "Colombia",
+    "Venezuela",
+    "Botswana"
+  ],
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": false,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "role_adherence_notes": {
+      "linguistic": "The agent provided an empty candidate list and no evidence, failing to perform any linguistic analysis (e.g., checking for Spanish/Portuguese signage or script).",
+      "landscape": "Stayed within terrain, vegetation, and climate analysis.",
+      "botanics": "Stayed within plant species and biome analysis.",
+      "regulatory": "Stayed within infrastructure and road marking analysis.",
+      "meta": "Stayed within cross-domain synthesis (camera artifacts, general infrastructure).",
+      "linguistic_note": "The linguistic agent failed to provide any output, which is a total failure of role adherence."
+    },
+    "argumentative_quality": {
+      "linguistic": "very_weak",
+      "landscape": "strong",
+      "botanics": "strong",
+      "regulatory": "normal",
+      "meta": "strong"
+    },
+    "constructive_synthesis": true,
+    "overall_verdict_notes": "The pipeline failed to identify the correct country (Mexico) because the agents relied heavily on biome similarity (Cerrado/Llanos) and hallucinated specific camera artifacts to support Brazil. The linguistic agent was completely absent. The tournament correctly followed the specialists' lead, but the specialists were misled by visual similarities to South American biomes.",
+    "role_adherence_score": {
+      "linguistic": 0.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.8,
+      "meta": 0.9
+    },
+    "argumentative_quality_score": {
+      "linguistic": 0.0,
+      "landscape": 0.8,
+      "botanics": 0.8,
+      "regulatory": 0.6,
+      "meta": 0.8
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.1,
+      "botanics": 0.1,
+      "regulatory": 0.0,
+      "meta": 0.75
+    },
+    "hallucination_examples": {
+      "linguistic": [],
+      "landscape": [],
+      "botanics": [],
+      "regulatory": [],
+      "meta": [
+        "meta agent: 'the 'halo' or 'blur' at the bottom of the frame is characteristic of the Gen 4 camera used extensively in Brazil.' (The blur is a standard Google Street View artifact, not specific to Brazil)",
+        "meta agent: 'The utility poles are simple concrete posts with a specific slim profile common in rural Brazil.' (The poles are generic concrete poles found in many countries, not a specific Brazilian marker)",
+        "hypothesis evaluation (meta): 'The image shows a very distinct Google Street View camera artifact: the 'halo' or 'blur' at the bottom of the frame is a known marker for the Gen 4 camera used extensively in Brazil.' (Fabricated specificity)"
+      ]
+    },
+    "visual_consistency_score": {
+      "linguistic": 0.0,
+      "landscape": 0.8,
+      "botanics": 0.8,
+      "regulatory": 0.8,
+      "meta": 0.5
+    },
+    "visual_consistency_notes": {
+      "linguistic": "No analysis provided.",
+      "landscape": "Correctly identified the dry, flat, scrubby terrain.",
+      "botanics": "Correctly identified the savanna-like vegetation.",
+      "regulatory": "Correctly identified the road and pole types.",
+      "meta": "Described the blur as a specific 'Gen 4 Brazil marker' which is not visually supported as a distinguishing feature."
+    },
+    "confidence_calibration": {
+      "linguistic": 0.0,
+      "landscape": 0.2,
+      "botanics": 0.2,
+      "regulatory": 0.2,
+      "meta": 0.2
+    },
+    "tournament_failure": {
+      "truth_in_pool": false,
+      "truth_lost_to": null,
+      "failure_match_round": null,
+      "failure_reason": "agent_misled_pre_pool",
+      "failure_reasoning": "The ground truth (Mexico) was not included in the candidate pool. The landscape and botanics agents incorrectly identified the terrain as the Brazilian Cerrado or Colombian Llanos, ignoring the lack of specific Mexican markers and the presence of generic features. The meta agent's hallucination of a 'Brazil-specific camera artifact' further cemented the wrong path.",
+      "counterfactual_winnable": false
+    }
+  }
+}

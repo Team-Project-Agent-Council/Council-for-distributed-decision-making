@@ -1,0 +1,98 @@
+{
+  "image_id": "k4PVd80ZGfSSesQF_1",
+  "truth_country": "kenya",
+  "pred_country": "brazil",
+  "is_correct": false,
+  "candidate_pool": [
+    "Brazil",
+    "Thailand",
+    "Cambodia",
+    "Australia",
+    "Laos",
+    "Namibia"
+  ],
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": true,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "role_adherence_notes": {
+      "linguistic": "Correctly identified the absence of text and remained within the domain of script/language analysis.",
+      "landscape": "Analyzed soil, vegetation, and terrain features consistent with the landscape expert role.",
+      "botanics": "Focused on canopy structure, leaf density, and biome analogs (Cerrado vs. Indochinese), staying within botanical scope.",
+      "regulatory": "Analyzed road surface, utility poles, and absence of signage/markings, which fits the regulatory/infrastructure domain.",
+      "meta": "Used cross-domain cues like image quality and utility pole styles to distinguish regions, appropriate for the meta role."
+    },
+    "argumentative_quality": {
+      "linguistic": "normal",
+      "landscape": "strong",
+      "botanics": "strong",
+      "regulatory": "normal",
+      "meta": "strong"
+    },
+    "constructive_synthesis": true,
+    "overall_verdict_notes": "The pipeline failed because the image lacked definitive linguistic or regulatory markers, forcing the agents to rely on ambiguous landscape and botanical analogies. The agents incorrectly mapped the Kenyan savanna to the Brazilian Cerrado, a common error for models trained on global datasets where these biomes are visually similar. The tournament then amplified this bias by selecting Brazil over Thailand based on the same weak signals.",
+    "role_adherence_score": {
+      "linguistic": 1.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.9,
+      "meta": 0.9
+    },
+    "argumentative_quality_score": {
+      "linguistic": 0.5,
+      "landscape": 0.8,
+      "botanics": 0.8,
+      "regulatory": 0.5,
+      "meta": 0.8
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.0,
+      "botanics": 0.0,
+      "regulatory": 0.0,
+      "meta": 0.0
+    },
+    "hallucination_examples": {
+      "linguistic": [],
+      "landscape": [],
+      "botanics": [],
+      "regulatory": [],
+      "meta": []
+    },
+    "visual_consistency_score": {
+      "linguistic": 1.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.9,
+      "meta": 0.9
+    },
+    "visual_consistency_notes": {
+      "linguistic": "Accurately noted no text.",
+      "landscape": "Accurately described the sandy road, scrub, and trees.",
+      "botanics": "Accurately described the canopy and undergrowth.",
+      "regulatory": "Accurately described the dirt road and poles.",
+      "meta": "Accurately described the image quality and pole style."
+    },
+    "confidence_calibration": {
+      "linguistic": 0.5,
+      "landscape": 0.25,
+      "botanics": 0.25,
+      "regulatory": 0.5,
+      "meta": 0.25
+    },
+    "tournament_failure": {
+      "truth_in_pool": false,
+      "truth_lost_to": null,
+      "failure_match_round": null,
+      "failure_reason": "agent_misled_pre_pool",
+      "failure_reasoning": "The ground truth (Kenya) was not included in the candidate pool. The landscape and botanics agents failed to identify the African savanna context, instead mapping the visual features (red soil, deciduous trees, dirt road) to the Brazilian Cerrado or Southeast Asian dry forests. The regulatory agent also missed the lack of African-specific markers (like specific road signs or driving side cues) that might have pointed to Kenya.",
+      "counterfactual_winnable": false
+    }
+  },
+  "validation_error": "1 validation error for JudgeVerdict\noverall_verdict_notes\n  String should have at most 400 characters [type=string_too_long, input_value='The pipeline failed beca... the same weak signals.', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_too_long"
+}

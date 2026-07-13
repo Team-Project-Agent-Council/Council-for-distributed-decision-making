@@ -1,0 +1,732 @@
+{
+  "image_path": "/pfs/data6/home/ma/ma_ma/ma_lweisssc/llm_council_agent_orchestration_tests/clean_images_GeoRC_500/kkJz0TJOX5PkNDIu_4.png",
+  "model": "google/gemma-4-31B-it",
+  "judge_model": "google/gemma-4-31B-it",
+  "timing": {
+    "total_seconds": 82.2
+  },
+  "assessments": {
+    "linguistic": {
+      "agent_name": "linguistic",
+      "candidates": [],
+      "evidence": []
+    },
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Colombia",
+          "confidence": "medium",
+          "reasoning": "The combination of tropical vegetation, concrete-heavy settlement patterns with colorful masonry houses, and the specific style of road infrastructure is very common in Colombian municipalities. The terrain is flat to gently undulating, consistent with inter-Andean valleys."
+        },
+        {
+          "country": "Panama",
+          "confidence": "medium",
+          "reasoning": "The landscape features tropical scrub and broadleaf trees consistent with Central American climates. The settlement style, featuring concrete block construction and flat roofs, is highly characteristic of Panamanian residential areas."
+        },
+        {
+          "country": "Costa Rica",
+          "confidence": "medium",
+          "reasoning": "The lush green vegetation and the style of the residential architecture are very similar to Panama and Colombia. The road quality and concrete drainage gutters are typical for the region."
+        },
+        {
+          "country": "Philippines",
+          "confidence": "low",
+          "reasoning": "As a global analog, the Philippines shares a similar tropical climate, concrete-based residential construction, and similar utility pole/wiring patterns. The vegetation and flat terrain are consistent with lowland Philippine provinces."
+        }
+      ],
+      "evidence": [
+        "Tropical broadleaf vegetation",
+        "Concrete masonry residential construction with bright paint",
+        "Flat to gently undulating terrain",
+        "High sun angle suggesting low latitude/equatorial region",
+        "Concrete drainage gutters along the roadside"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Dominican Republic",
+          "confidence": "medium",
+          "reasoning": "The presence of broadleaf tropical vegetation and specific ornamental shrubs common in the Caribbean basin suggests this region. The mix of wild tropical scrub and managed garden plants is highly characteristic of Hispaniola."
+        },
+        {
+          "country": "Puerto Rico",
+          "confidence": "medium",
+          "reasoning": "The botanical profile is nearly identical to the Dominican Republic, featuring similar tropical broadleaf species and humidity-loving undergrowth typical of the Greater Antilles."
+        },
+        {
+          "country": "Costa Rica",
+          "confidence": "low",
+          "reasoning": "The tropical dry forest elements and general vegetation structure are consistent with Central American lowlands, though less diagnostic than the Caribbean candidates."
+        },
+        {
+          "country": "Philippines",
+          "confidence": "speculative",
+          "reasoning": "As a global analog, the Philippines shares a similar tropical savanna/monsoon biome with similar broadleaf tree silhouettes and opportunistic roadside weeds."
+        }
+      ],
+      "evidence": [
+        "Tropical broadleaf trees",
+        "Caribbean scrub",
+        "Tropical ruderal vegetation"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Dominican Republic",
+          "confidence": "medium",
+          "reasoning": "The combination of concrete sidewalks with irregular edges, specific utility pole styles, and the architectural style of the yellow house is very common in the Caribbean, particularly the Dominican Republic."
+        },
+        {
+          "country": "Colombia",
+          "confidence": "low",
+          "reasoning": "The road width, concrete shoulder treatment, and utility infrastructure are consistent with small-town Colombian roads."
+        },
+        {
+          "country": "Philippines",
+          "confidence": "speculative",
+          "reasoning": "Cross-continent analog: The concrete drainage/sidewalks, overhead power line density, and general rural-urban transition infrastructure are visually similar to those found in the Philippines."
+        },
+        {
+          "country": "Mexico",
+          "confidence": "low",
+          "reasoning": "The utility pole design and the style of the perimeter walls and gates are common across various regions of Mexico."
+        }
+      ],
+      "evidence": [
+        "Concrete sidewalks with rough, unfinished edges",
+        "Wooden and concrete utility poles with dense overhead wiring",
+        "Lack of standardized road signage in immediate view",
+        "Concrete perimeter walls and metal gates typical of Latin American/Caribbean residential areas"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "Guatemala",
+          "confidence": "medium",
+          "reasoning": "The combination of concrete utility poles with specific cross-arm configurations and the style of the perimeter walls/fencing is very common in Guatemala. The architecture of the yellow house with red trim and the specific window frame style is highly characteristic of the region."
+        },
+        {
+          "country": "Honduras",
+          "confidence": "medium",
+          "reasoning": "Shares very similar utility pole infrastructure and residential construction styles (concrete walls and brightly painted stucco) with Guatemala, making it a strong regional candidate."
+        },
+        {
+          "country": "Costa Rica",
+          "confidence": "low",
+          "reasoning": "Similar residential building materials and utility pole styles are found here, though the specific combination of fence and house design is slightly more typical of Northern Central America."
+        },
+        {
+          "country": "Philippines",
+          "confidence": "speculative",
+          "reasoning": "Global analog: The utility pole style, concrete residential walls, and general street layout are visually similar to rural/suburban areas in Southeast Asia, specifically the Philippines."
+        }
+      ],
+      "evidence": [
+        "Concrete utility poles with simple cross-arms",
+        "Concrete perimeter walls with metal gates",
+        "Brightly painted stucco residential architecture with red trim",
+        "Specific window frame and grill design",
+        "Chevrolet pickup truck common in the Americas"
+      ]
+    }
+  },
+  "progressive_narrowing": {
+    "region_consensus": false,
+    "confirmed_region": "Central America & Caribbean",
+    "runner_up_region": "South America",
+    "surviving_regions": [
+      "Central America & Caribbean",
+      "South America"
+    ],
+    "proposed_regions": [
+      "South America",
+      "Central America & Caribbean",
+      "Southeast Asia"
+    ],
+    "region_candidates": {
+      "South America": {
+        "Colombia": 2
+      },
+      "Central America & Caribbean": {
+        "Panama": 1,
+        "Costa Rica": 3,
+        "Dominican Republic": 2,
+        "Puerto Rico": 1,
+        "Mexico": 1,
+        "Guatemala": 1,
+        "Honduras": 1
+      },
+      "Southeast Asia": {
+        "Philippines": 4
+      }
+    },
+    "region_decision_reasoning": "Central America & Caribbean received the highest score, including multiple 'strongly_support' ratings across landscape and meta agents who identified specific architectural and infrastructure markers. South America is the runner-up as it shares the same Neotropical botanical and regulatory profiles, though it was consistently rated slightly lower than Central America.",
+    "path": "B"
+  },
+  "road_evidence": {
+    "outside_color": "none",
+    "inside_color": "yellow",
+    "driving_side": "UNCLEAR",
+    "driving_side_basis": "none"
+  },
+  "country_assessments": {
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Dominican Republic",
+          "confidence": "high",
+          "reasoning": "The combination of bright, multi-colored concrete housing with flat roofs, specific utility pole styles, and the tropical dry-forest vegetation is highly characteristic of the Caribbean. The road infrastructure and settlement pattern are very common in the Dominican Republic's rural-urban fringes."
+        },
+        {
+          "country": "Puerto Rico",
+          "confidence": "medium",
+          "reasoning": "The architectural style and tropical environment are nearly identical to the Dominican Republic. The use of concrete slabs for driveways and the specific greenery are consistent with the Greater Antilles region."
+        },
+        {
+          "country": "Colombia",
+          "confidence": "low",
+          "reasoning": "Certain lowland regions of Colombia feature similar concrete construction and tropical vegetation. However, the specific aesthetic of the yellow house and the road layout are more typical of the Caribbean islands."
+        },
+        {
+          "country": "Panama",
+          "confidence": "low",
+          "reasoning": "The tropical climate and use of concrete block construction are common here. The terrain is flat and the vegetation matches, though the specific house styling is less common than in the Caribbean."
+        }
+      ],
+      "evidence": [
+        "Tropical dry-climate vegetation",
+        "Flat terrain with concrete-based settlement patterns",
+        "High sun angle suggesting low latitude/tropical zone",
+        "Concrete slab driveways and flat-roofed masonry architecture"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Dominican Republic",
+          "confidence": "medium",
+          "reasoning": "The presence of broadleaf tropical vegetation and specific scrub patterns along the roadside is highly consistent with the Caribbean islands. The mix of ornamental tropical shrubs and opportunistic weeds is common in the Hispaniola region."
+        },
+        {
+          "country": "Puerto Rico",
+          "confidence": "medium",
+          "reasoning": "The botanical profile is nearly identical to the Dominican Republic, featuring similar tropical broadleaf species and roadside vegetation typical of the Greater Antilles."
+        },
+        {
+          "country": "Colombia",
+          "confidence": "low",
+          "reasoning": "The tropical lowland vegetation and general flora are consistent with the Caribbean coast of Colombia, though it lacks specific endemic markers to distinguish it from the islands."
+        },
+        {
+          "country": "Venezuela",
+          "confidence": "low",
+          "reasoning": "The xeric-influenced tropical greenery seen in the background is common in the northern coastal regions of Venezuela, sharing a similar biome to the Caribbean islands."
+        }
+      ],
+      "evidence": [
+        "Tropical broadleaf shrubs",
+        "Caribbean lowland vegetation",
+        "Opportunistic tropical ruderal species"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Dominican Republic",
+          "confidence": "medium",
+          "reasoning": "The combination of concrete sidewalks with irregular edges, specific utility pole styles, and the architectural style of the yellow house is very common in the Caribbean, particularly the Dominican Republic."
+        },
+        {
+          "country": "Panama",
+          "confidence": "low",
+          "reasoning": "The road width and the style of the concrete drainage/curbing are consistent with Panamanian residential outskirts."
+        },
+        {
+          "country": "Colombia",
+          "confidence": "low",
+          "reasoning": "The utility pole configuration and the use of concrete for residential boundary walls are seen in various Colombian municipalities."
+        },
+        {
+          "country": "Costa Rica",
+          "confidence": "low",
+          "reasoning": "The general road infrastructure and the presence of similar residential construction styles fit the profile of rural/suburban Costa Rica."
+        }
+      ],
+      "evidence": [
+        "Concrete utility poles with overhead wiring",
+        "Irregular concrete sidewalk/curb treatment",
+        "Concrete boundary walls and metal gates",
+        "Residential architecture with flat roofs and bright paint"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "Costa Rica",
+          "confidence": "medium",
+          "reasoning": "The combination of concrete utility poles with specific cross-arm configurations and the style of the concrete perimeter walls is very common in Costa Rican residential areas. The overall image quality and camera generation are consistent with Costa Rican coverage from this era."
+        },
+        {
+          "country": "Panama",
+          "confidence": "medium",
+          "reasoning": "Panama shares very similar infrastructure patterns, including the use of concrete poles and similar residential construction materials (stucco/concrete with bright paint). The utility pole layout is a strong match for Panamanian suburban roads."
+        },
+        {
+          "country": "Colombia",
+          "confidence": "low",
+          "reasoning": "The architectural style of the yellow house and the concrete fencing are seen in various Colombian municipalities, though the utility pole style is slightly more characteristic of Central America."
+        },
+        {
+          "country": "Dominican Republic",
+          "confidence": "low",
+          "reasoning": "The bright building colors and the specific style of the metal security gates/fences are common in the Caribbean, particularly in the Dominican Republic."
+        }
+      ],
+      "evidence": [
+        "concrete utility poles",
+        "concrete perimeter walls",
+        "metal security gates",
+        "stucco building construction",
+        "Google camera generation/image quality"
+      ]
+    }
+  },
+  "hypothesis_evaluations": [
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_central_america_and_caribbean",
+      "confidence": "strongly_support",
+      "reasoning": "The combination of tropical dry-forest vegetation, bright pastel-colored concrete architecture with flat roofs, and the specific style of roadside drainage and utility poles is highly characteristic of Central America and the Caribbean. The sun angle and shadow direction are consistent with a low-latitude tropical region.",
+      "key_evidence": [
+        "tropical dry-forest vegetation",
+        "pastel concrete architecture",
+        "low-latitude sun angle"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_south_america",
+      "confidence": "support",
+      "reasoning": "The landscape and climate are compatible with northern South American countries (e.g., Colombia, Venezuela), which share similar tropical environments and settlement patterns with Central America. However, the specific architectural style is slightly more typical of the Caribbean basin.",
+      "key_evidence": [
+        "tropical climate",
+        "concrete settlement patterns"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_southeast_asia",
+      "confidence": "contradicts",
+      "reasoning": "While the climate is tropical, the architectural style (specifically the yellow concrete house with red trim and the window styles) and the specific type of utility pole infrastructure are not typical for Southeast Asia. The vegetation, while tropical, lacks the specific density and variety common in that region.",
+      "key_evidence": [
+        "atypical architecture for SE Asia",
+        "infrastructure style"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_central_america_and_caribbean",
+      "confidence": "support",
+      "reasoning": "The vegetation consists of broadleaf tropical trees and opportunistic ruderal species common in the Neotropics. The specific mix of scrub and canopy trees is highly consistent with the humid tropical climate of Central America and the Caribbean.",
+      "key_evidence": [
+        "Tropical broadleaf canopy",
+        "Neotropical ruderal vegetation"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_south_america",
+      "confidence": "support",
+      "reasoning": "The botanical profile is virtually identical to that of Central America, as both share the same Neotropical floral kingdom. Without a specific endemic species, it is equally compatible with northern South American countries (e.g., Colombia, Venezuela).",
+      "key_evidence": [
+        "Tropical broadleaf canopy",
+        "Neotropical ruderal vegetation"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_southeast_asia",
+      "confidence": "low",
+      "reasoning": "While the general biome is tropical, the specific morphology of the broadleaf trees in the background is more characteristic of American tropical species than the dipterocarps or palms typically dominant in Southeast Asian roadside landscapes.",
+      "key_evidence": [
+        "Lack of characteristic SE Asian tropical flora"
+      ]
+    },
+    {
+      "agent_name": "regulatory",
+      "hypothesis_id": "region_south_america",
+      "confidence": "support",
+      "reasoning": "The combination of concrete sidewalks, basic asphalt, and wooden utility poles with overhead wiring is very common in rural and semi-urban areas of South America (e.g., Colombia, Ecuador).",
+      "key_evidence": [
+        "wooden utility poles",
+        "concrete sidewalk style",
+        "road width class"
+      ]
+    },
+    {
+      "agent_name": "regulatory",
+      "hypothesis_id": "region_central_america_and_caribbean",
+      "confidence": "support",
+      "reasoning": "The architectural style of the yellow building combined with the specific utility pole configuration and road infrastructure is highly characteristic of Central American countries like Guatemala or Honduras.",
+      "key_evidence": [
+        "wooden utility poles",
+        "concrete sidewalk style",
+        "road width class"
+      ]
+    },
+    {
+      "agent_name": "regulatory",
+      "hypothesis_id": "region_southeast_asia",
+      "confidence": "low",
+      "reasoning": "While rural asphalt and utility poles exist in SE Asia, the specific style of the concrete drainage/sidewalk and the architectural design of the house are less typical for the region compared to the Americas.",
+      "key_evidence": [
+        "utility pole style",
+        "concrete sidewalk"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_central_america_and_caribbean",
+      "confidence": "strongly_support",
+      "reasoning": "The combination of concrete utility poles with specific cross-arm configurations, the style of the yellow building's window frames and roofline, and the prevalence of the Chevrolet pickup truck are highly characteristic of Central American countries like Guatemala or Honduras. The image quality and blur patterns are consistent with Google's coverage in this region from the 2017 era.",
+      "key_evidence": [
+        "concrete utility poles",
+        "Chevrolet pickup truck",
+        "building construction style",
+        "camera generation/blur"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_south_america",
+      "confidence": "support",
+      "reasoning": "The architectural style and utility poles are compatible with several South American countries (e.g., Colombia or Ecuador), as they share similar colonial-influenced modern construction and infrastructure patterns with Central America.",
+      "key_evidence": [
+        "concrete utility poles",
+        "building materials"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_southeast_asia",
+      "confidence": "contradicts",
+      "reasoning": "The specific style of the residential architecture (flat roof with red trim, specific window glazing) and the type of pickup truck are not typical for Southeast Asia. Additionally, the utility pole design differs from the common patterns seen in Thailand, Indonesia, or the Philippines.",
+      "key_evidence": [
+        "building architecture",
+        "vehicle type",
+        "utility pole design"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_dominican_republic",
+      "confidence": "strongly_support",
+      "reasoning": "The combination of flat coastal-style terrain, specific tropical scrub vegetation, and the architectural style of concrete block houses with bright colors and flat roofs is highly characteristic of the Caribbean, specifically the Dominican Republic.",
+      "key_evidence": [
+        "tropical scrub vegetation",
+        "flat terrain",
+        "concrete block construction style"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_puerto_rico",
+      "confidence": "support",
+      "reasoning": "The landscape and climate are nearly identical to the Dominican Republic, as both are Caribbean islands with similar tropical dry-forest elements and settlement patterns.",
+      "key_evidence": [
+        "tropical climate",
+        "Caribbean settlement style"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_panama",
+      "confidence": "support",
+      "reasoning": "The flat terrain and tropical vegetation are compatible with Panama's lowlands, though the specific house styling is slightly more typical of the Antilles.",
+      "key_evidence": [
+        "tropical vegetation",
+        "flat lowland terrain"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_costa_rica",
+      "confidence": "support",
+      "reasoning": "Compatible with the drier Pacific coast regions of Costa Rica, though the lack of significant slope in the immediate background is more common in Caribbean islands.",
+      "key_evidence": [
+        "tropical dry climate",
+        "flat road profile"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_colombia",
+      "confidence": "neutral",
+      "reasoning": "While the climate is compatible with coastal Colombia, the specific combination of road infrastructure and residential architecture is less diagnostic for this region than for the Caribbean islands.",
+      "key_evidence": [
+        "tropical climate"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_venezuela",
+      "confidence": "neutral",
+      "reasoning": "The landscape is compatible with northern coastal Venezuela, but there is no specific geographic feature that strongly points here over the other Caribbean candidates.",
+      "key_evidence": [
+        "tropical climate"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_dominican_republic",
+      "confidence": "support",
+      "reasoning": "The vegetation consists of generic tropical broadleaf trees and opportunistic ruderal species common in the Caribbean basin. This is entirely compatible with the Dominican Republic's climate and urban flora.",
+      "key_evidence": [
+        "Tropical broadleaf trees",
+        "Ruderal tropical weeds"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_colombia",
+      "confidence": "support",
+      "reasoning": "The mix of tropical greenery and scrub is consistent with lowland Colombian urban areas, though no specific Andean or Amazonian endemics are visible to distinguish it from other tropical regions.",
+      "key_evidence": [
+        "Tropical broadleaf trees",
+        "Ruderal tropical weeds"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_panama",
+      "confidence": "support",
+      "reasoning": "The lush, green, broadleaf vegetation is typical of Panama's humid tropical environment. It is indistinguishable from other Central American or Caribbean locations based on the visible species.",
+      "key_evidence": [
+        "Tropical broadleaf trees",
+        "Ruderal tropical weeds"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_puerto_rico",
+      "confidence": "support",
+      "reasoning": "The botanical profile matches the Caribbean tropical dry/moist forest transition often seen in Puerto Rican urban fringes.",
+      "key_evidence": [
+        "Tropical broadleaf trees",
+        "Ruderal tropical weeds"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_costa_rica",
+      "confidence": "support",
+      "reasoning": "The vegetation is compatible with the tropical climate of Costa Rica, though the lack of specific rainforest indicators makes it generic for the region.",
+      "key_evidence": [
+        "Tropical broadleaf trees",
+        "Ruderal tropical weeds"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_venezuela",
+      "confidence": "support",
+      "reasoning": "The vegetation is consistent with the tropical savanna or coastal regions of Venezuela, but lacks diagnostic species to separate it from the other hypotheses.",
+      "key_evidence": [
+        "Tropical broadleaf trees",
+        "Ruderal tropical weeds"
+      ]
+    },
+    {
+      "agent_name": "regulatory",
+      "hypothesis_id": "country_dominican_republic",
+      "confidence": "support",
+      "reasoning": "The combination of concrete sidewalks with irregular edges, overhead utility wire clusters, and the specific style of residential architecture is very common in the Dominican Republic.",
+      "key_evidence": [
+        "utility pole wiring",
+        "concrete sidewalk style"
+      ]
+    },
+    {
+      "agent_name": "regulatory",
+      "hypothesis_id": "country_puerto_rico",
+      "confidence": "support",
+      "reasoning": "The infrastructure, including the concrete drainage/curb style and the utility pole configuration, is highly compatible with Puerto Rican residential roads.",
+      "key_evidence": [
+        "utility pole wiring",
+        "concrete sidewalk style"
+      ]
+    },
+    {
+      "agent_name": "regulatory",
+      "hypothesis_id": "country_panama",
+      "confidence": "support",
+      "reasoning": "The road width, asphalt quality, and the style of the concrete curbs are consistent with urban/suburban areas in Panama.",
+      "key_evidence": [
+        "concrete curb style",
+        "road width"
+      ]
+    },
+    {
+      "agent_name": "regulatory",
+      "hypothesis_id": "country_costa_rica",
+      "confidence": "support",
+      "reasoning": "The general road infrastructure and utility pole style are compatible with Costa Rican residential zones.",
+      "key_evidence": [
+        "utility pole wiring"
+      ]
+    },
+    {
+      "agent_name": "regulatory",
+      "hypothesis_id": "country_colombia",
+      "confidence": "neutral",
+      "reasoning": "While the general rural/suburban feel is compatible, there are no specific Colombian infrastructure markers (like specific signage or bollards) visible to distinguish it.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "regulatory",
+      "hypothesis_id": "country_venezuela",
+      "confidence": "neutral",
+      "reasoning": "The infrastructure is generic enough to be compatible, but no unique Venezuelan regulatory cues are present in the frame.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_dominican_republic",
+      "confidence": "strongly_support",
+      "reasoning": "The combination of the specific concrete utility pole style, the bright yellow building with red trim (very common architectural palette in DR), and the general image quality/generation is highly characteristic of the Dominican Republic. The concrete poles with simple cross-arms are a staple of DR rural/suburban roads.",
+      "key_evidence": [
+        "concrete utility poles",
+        "building color palette",
+        "street furniture style"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_puerto_rico",
+      "confidence": "support",
+      "reasoning": "Puerto Rico shares very similar architectural styles and utility infrastructure with the Dominican Republic, making it a strong candidate, though the specific pole design is slightly more common in DR.",
+      "key_evidence": [
+        "concrete utility poles",
+        "building style"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_panama",
+      "confidence": "low",
+      "reasoning": "While the general environment is compatible, the specific combination of building materials and pole types is less characteristic of Panama than the Caribbean islands.",
+      "key_evidence": [
+        "concrete utility poles"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_colombia",
+      "confidence": "low",
+      "reasoning": "Compatible with general Latin American infrastructure, but lacks the specific Colombian utility pole markers or common street furniture seen in Colombian towns.",
+      "key_evidence": [
+        "concrete utility poles"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_costa_rica",
+      "confidence": "low",
+      "reasoning": "General infrastructure is compatible, but the architectural style of the yellow house is more typical of the Antilles than Central America.",
+      "key_evidence": [
+        "concrete utility poles"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_venezuela",
+      "confidence": "low",
+      "reasoning": "While the concrete poles are common, the overall image quality and specific house design are more aligned with Caribbean Google Street View coverage patterns.",
+      "key_evidence": [
+        "concrete utility poles"
+      ]
+    }
+  ],
+  "candidate_pool": [
+    "Dominican Republic",
+    "Colombia",
+    "Panama",
+    "Puerto Rico",
+    "Costa Rica",
+    "Venezuela"
+  ],
+  "rag_findings": [
+    {
+      "kind": "tournament_match",
+      "country": "Costa Rica",
+      "detail": "The architectural style of the bright yellow house with red trim and flat roof is highly characteristic of the Caribbean, specifically the Dominican Republic. Additionally, the specific style of concrete utility poles and the general landscape are strongly supported as being typical of the Dominican Republic over Costa Rica.",
+      "opponent": "Dominican Republic",
+      "winner": "Dominican Republic"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Panama",
+      "detail": "The architectural style of the yellow house and the specific concrete curb and drainage infrastructure are highly characteristic of the Caribbean Antilles. Specialist evidence notes that the utility pole configuration and building materials are more typical of Puerto Rico than Panama.",
+      "opponent": "Puerto Rico",
+      "winner": "Puerto Rico"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Puerto Rico",
+      "detail": "The architectural style, specifically the bright yellow building with red trim and flat concrete roof, combined with the specific style of concrete utility poles, is highly characteristic of the Dominican Republic as noted by the meta and landscape specialists. While Puerto Rico is similar, the overall visual composition and infrastructure align more strongly with Dominican Republic patterns.",
+      "opponent": "Dominican Republic",
+      "winner": "Dominican Republic"
+    }
+  ],
+  "rag_refs_seen": [],
+  "road_filter_warnings": [],
+  "tournament_log": [
+    {
+      "round_label": "semi-1",
+      "country_a": "Dominican Republic",
+      "country_b": "Costa Rica",
+      "pool_rank_a": 0,
+      "pool_rank_b": 3,
+      "winner": "Dominican Republic",
+      "reasoning": "The architectural style of the bright yellow house with red trim and flat roof is highly characteristic of the Caribbean, specifically the Dominican Republic. Additionally, the specific style of concrete utility poles and the general landscape are strongly supported as being typical of the Dominican Republic over Costa Rica.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "semi-2",
+      "country_a": "Puerto Rico",
+      "country_b": "Panama",
+      "pool_rank_a": 1,
+      "pool_rank_b": 2,
+      "winner": "Puerto Rico",
+      "reasoning": "The architectural style of the yellow house and the specific concrete curb and drainage infrastructure are highly characteristic of the Caribbean Antilles. Specialist evidence notes that the utility pole configuration and building materials are more typical of Puerto Rico than Panama.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "final",
+      "country_a": "Dominican Republic",
+      "country_b": "Puerto Rico",
+      "pool_rank_a": 0,
+      "pool_rank_b": 1,
+      "winner": "Dominican Republic",
+      "reasoning": "The architectural style, specifically the bright yellow building with red trim and flat concrete roof, combined with the specific style of concrete utility poles, is highly characteristic of the Dominican Republic as noted by the meta and landscape specialists. While Puerto Rico is similar, the overall visual composition and infrastructure align more strongly with Dominican Republic patterns.",
+      "agreement": "agree"
+    }
+  ],
+  "country_result": "Country: Dominican Republic\nCoordinates: 18.4861, -69.9312\nReasoning: The architectural style, specifically the bright yellow building with red trim and flat concrete roof, combined with the specific style of concrete utility poles, is highly characteristic of the Dominican Republic as noted by the meta and landscape specialists. While Puerto Rico is similar, the overall visual composition and infrastructure align more strongly with Dominican Republic patterns.\n\nTournament:\n  semi-1: Dominican Republic vs Costa Rica → Dominican Republic\n  semi-2: Puerto Rico vs Panama → Puerto Rico\n  final: Dominican Republic vs Puerto Rico → Dominican Republic",
+  "coordinates": {
+    "lat": 18.4861,
+    "lng": -69.9312
+  },
+  "final_reasoning": "The architectural style, specifically the bright yellow building with red trim and flat concrete roof, combined with the specific style of concrete utility poles, is highly characteristic of the Dominican Republic as noted by the meta and landscape specialists. While Puerto Rico is similar, the overall visual composition and infrastructure align more strongly with Dominican Republic patterns."
+}

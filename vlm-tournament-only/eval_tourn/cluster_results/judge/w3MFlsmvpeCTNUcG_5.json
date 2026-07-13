@@ -1,0 +1,98 @@
+{
+  "image_id": "w3MFlsmvpeCTNUcG_5",
+  "truth_country": "ecuador",
+  "pred_country": "costa rica",
+  "is_correct": false,
+  "candidate_pool": [
+    "Costa Rica",
+    "Panama",
+    "Colombia",
+    "Vietnam",
+    "Malaysia",
+    "Brazil"
+  ],
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": false,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "role_adherence_notes": {
+      "linguistic": "The linguistic agent provided no candidates and no evidence, failing to perform its role.",
+      "landscape": "Focused on terrain, vegetation, and climate cues as expected.",
+      "botanics": "Focused on plant species and forest types as expected.",
+      "regulatory": "Focused on road signs, markings, and infrastructure standards as expected.",
+      "meta": "Focused on cross-domain features like camera generation and infrastructure style as expected."
+    },
+    "argumentative_quality": {
+      "linguistic": "very_weak",
+      "landscape": "strong",
+      "botanics": "strong",
+      "regulatory": "strong",
+      "meta": "normal"
+    },
+    "constructive_synthesis": true,
+    "overall_verdict_notes": "The pipeline failed to identify the correct country (Ecuador) because the specialist agents (landscape, botanics, meta) were biased towards Central American analogs (Costa Rica, Panama) due to the visual similarity of the tropical montane environment. The regulatory agent correctly identified the signs as MUTCD-influenced but failed to distinguish between the specific regional variants. The tournament judge relied on RAG references that contained factual errors (claiming Colombian chevrons are orange), leading to a confident but incorrect prediction.",
+    "role_adherence_score": {
+      "linguistic": 0.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.9,
+      "meta": 0.9
+    },
+    "argumentative_quality_score": {
+      "linguistic": 0.0,
+      "landscape": 0.8,
+      "botanics": 0.8,
+      "regulatory": 0.8,
+      "meta": 0.6
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.0,
+      "botanics": 0.0,
+      "regulatory": 0.0,
+      "meta": 0.0
+    },
+    "hallucination_examples": {
+      "linguistic": [],
+      "landscape": [],
+      "botanics": [],
+      "regulatory": [],
+      "meta": []
+    },
+    "visual_consistency_score": {
+      "linguistic": 0.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.9,
+      "meta": 0.8
+    },
+    "visual_consistency_notes": {
+      "linguistic": "N/A",
+      "landscape": "Descriptions of tropical montane forest and steep slopes match the image perfectly.",
+      "botanics": "Descriptions of broadleaf evergreens and ferns match the image.",
+      "regulatory": "Descriptions of yellow diamond signs and concrete curbs match the image.",
+      "meta": "Descriptions of road infrastructure and camera quality are consistent with the image."
+    },
+    "confidence_calibration": {
+      "linguistic": 0.0,
+      "landscape": 0.2,
+      "botanics": 0.2,
+      "regulatory": 0.2,
+      "meta": 0.2
+    },
+    "tournament_failure": {
+      "truth_in_pool": false,
+      "truth_lost_to": null,
+      "failure_match_round": null,
+      "failure_reason": "agent_misled_pre_pool",
+      "failure_reasoning": "The ground truth (Ecuador) was not included in the candidate pool. The landscape, botanics, and meta agents all failed to nominate Ecuador, instead favoring Costa Rica and Panama due to the strong visual similarity of the tropical montane cloud forest environment and road infrastructure. The regulatory agent also missed Ecuador, focusing on Central American standards.",
+      "counterfactual_winnable": false
+    }
+  },
+  "validation_error": "1 validation error for JudgeVerdict\noverall_verdict_notes\n  String should have at most 400 characters [type=string_too_long, input_value='The pipeline failed to i...t incorrect prediction.', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_too_long"
+}

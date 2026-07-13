@@ -1,0 +1,97 @@
+{
+  "image_id": "cObaVm83g5wtLkhH_3",
+  "truth_country": "brazil",
+  "pred_country": "cambodia",
+  "is_correct": false,
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": true,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "role_adherence_notes": {
+      "linguistic": "Correctly identified the absence of linguistic cues (no signs) and stayed within domain.",
+      "landscape": "Focused on soil color, terrain, and vegetation density, which are core landscape features.",
+      "botanics": "Analyzed plant morphology (sclerophyllous, bipinnate) and biome types (Cerrado, dry forest).",
+      "regulatory": "Noted the lack of infrastructure (signs, poles) and road surface type.",
+      "meta": "Analyzed camera artifacts and image generation style, which is the correct scope for this agent."
+    },
+    "argumentative_quality": {
+      "linguistic": "normal",
+      "landscape": "strong",
+      "botanics": "strong",
+      "regulatory": "normal",
+      "meta": "weak"
+    },
+    "constructive_synthesis": true,
+    "overall_verdict_notes": "The agents performed well within their domains, but the 'meta' agent's reliance on subjective image artifacts (blur) and the 'landscape' agent's strong bias toward Southeast Asia (ignoring the strong Cerrado match) led the region decision astray. The final judge failed to correct this by prioritizing the 'strongly_support' from landscape over the 'support' from botanics for Brazil.",
+    "assertiveness": null,
+    "assertiveness_score": {},
+    "overall_quality_score": null,
+    "role_adherence_score": {
+      "linguistic": 1.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 1.0,
+      "meta": 0.9
+    },
+    "argumentative_quality_score": {
+      "linguistic": 0.5,
+      "landscape": 0.8,
+      "botanics": 0.8,
+      "regulatory": 0.5,
+      "meta": 0.3
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.1,
+      "botanics": 0.2,
+      "regulatory": 0.0,
+      "meta": 0.5
+    },
+    "hallucination_examples": {
+      "linguistic": [],
+      "landscape": [],
+      "botanics": [
+        "claimed 'Leguminosae species with bipinnate leaves' \u2014 while the trees resemble this, the image resolution is too low to definitively identify the family or leaf structure."
+      ],
+      "regulatory": [],
+      "meta": [
+        "claimed 'specific 'halo' or blur pattern... consistent with Google's Gen 4 camera' \u2014 this is a subjective interpretation of motion blur, not a verifiable camera artifact.",
+        "claimed 'lack of visible car rig shadows suggests a specific camera generation' \u2014 shadows are not visible due to the high sun angle, not the camera rig."
+      ]
+    },
+    "visual_consistency_score": {
+      "linguistic": 1.0,
+      "landscape": 0.9,
+      "botanics": 0.8,
+      "regulatory": 1.0,
+      "meta": 0.5
+    },
+    "visual_consistency_notes": {
+      "linguistic": "Correctly noted no signs.",
+      "landscape": "Accurately described the red soil and scrub.",
+      "botanics": "Descriptions of vegetation are plausible matches for the image, even if the specific ID is debatable.",
+      "regulatory": "Correctly noted the absence of signs/poles.",
+      "meta": "The 'blur' and 'shadow' claims are not clearly visible or are misinterpreted."
+    },
+    "confidence_calibration": {
+      "linguistic": 0.5,
+      "landscape": 0.2,
+      "botanics": 0.5,
+      "regulatory": 0.5,
+      "meta": 0.2
+    },
+    "tournament_failure": {
+      "truth_in_pool": true,
+      "truth_lost_to": "Cambodia",
+      "failure_match_round": "final",
+      "failure_reason": "judge_misjudgment",
+      "failure_reasoning": "The judge had strong evidence for Brazil (botanics 'support', landscape 'support') but over-weighted the landscape agent's 'strongly_support' for Cambodia. The judge's reasoning ('specific combination of vegetation density... highly characteristic of rural Cambodia') is not visually supported by the image, which is a generic tropical savanna that fits both. The judge failed to disambiguate despite having comparable evidence for both.",
+      "counterfactual_winnable": true
+    }
+  }
+}

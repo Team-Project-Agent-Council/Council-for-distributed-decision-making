@@ -1,0 +1,531 @@
+{
+  "image_path": "/pfs/data6/home/ma/ma_ma/ma_lweisssc/llm_council_agent_orchestration_tests/clean_images_GeoRC_500/6ypQOh9cOoE7WaWH_5.png",
+  "model": "google/gemma-4-31B-it",
+  "judge_model": "google/gemma-4-31B-it",
+  "timing": {
+    "total_seconds": 207.1
+  },
+  "assessments": {
+    "linguistic": {
+      "agent_name": "linguistic",
+      "candidates": [],
+      "evidence": []
+    },
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Australia",
+          "confidence": "high",
+          "reasoning": "The presence of tall, smooth-barked Eucalyptus trees combined with a dense understory of tree ferns is highly characteristic of the wet sclerophyll forests found in southeastern Australia (e.g., Victoria or New South Wales). The road construction and shoulder style are consistent with Australian rural forestry roads."
+        },
+        {
+          "country": "New Zealand",
+          "confidence": "medium",
+          "reasoning": "New Zealand shares similar temperate rainforest characteristics and fern undergrowth. However, the specific morphology of the tall, straight, pale-barked trees is more indicative of Australian Eucalyptus than New Zealand's native podocarps or beech forests."
+        },
+        {
+          "country": "Chile",
+          "confidence": "low",
+          "reasoning": "Southern Chile has temperate rainforests with similar lushness and fern growth. It also has extensive Eucalyptus plantations which could mimic this landscape, though the overall road environment is less typical."
+        }
+      ],
+      "evidence": [
+        "Tall smooth-barked Eucalyptus-style trees",
+        "Dense tree fern understory",
+        "Temperate wet sclerophyll forest biome",
+        "Narrow paved rural road with gravel shoulders"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Australia",
+          "confidence": "high",
+          "reasoning": "The forest is dominated by tall, smooth-barked Eucalyptus species with characteristic open canopies and a dense understory of tree ferns (Cyathea/Dicksonia). This specific combination of sclerophyll forest and temperate rainforest elements is highly diagnostic of southeastern Australia, particularly Victoria or New South Wales."
+        },
+        {
+          "country": "New Zealand",
+          "confidence": "medium",
+          "reasoning": "The presence of dense ferns and temperate rainforest characteristics is common in New Zealand. However, the tall, straight, smooth-barked trees are more characteristic of Australian Eucalyptus than New Zealand's native podocarps or beech forests."
+        },
+        {
+          "country": "Chile",
+          "confidence": "low",
+          "reasoning": "Southern Chile features temperate rainforests with similar fern understories and tall trees. While Eucalyptus is widely planted there as an exotic crop, the overall forest structure here more closely resembles native Australian wet sclerophyll forest."
+        },
+        {
+          "country": "United States",
+          "confidence": "speculative",
+          "reasoning": "The Pacific Northwest (Washington/Oregon) has temperate rainforests with ferns and tall conifers. However, the leaf structure and bark of the dominant trees in the image do not match the typical coniferous profile of that region."
+        }
+      ],
+      "evidence": [
+        "Eucalyptus spp. (smooth bark, open canopy)",
+        "Tree ferns (Cyathea/Dicksonia)",
+        "Wet sclerophyll forest biome",
+        "Temperate rainforest understory"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Australia",
+          "confidence": "medium",
+          "reasoning": "The yellow diamond-shaped warning sign with a black symbol is characteristic of Australian road standards. The narrow asphalt road with gravel shoulders and white delineator posts is common in rural Australian forests."
+        },
+        {
+          "country": "United States",
+          "confidence": "low",
+          "reasoning": "The yellow diamond warning sign is consistent with MUTCD standards used in the US. Rural forest roads in the Pacific Northwest or Southeast can share this basic asphalt and gravel shoulder profile."
+        },
+        {
+          "country": "Canada",
+          "confidence": "low",
+          "reasoning": "Similar to the USA, Canada uses yellow diamond warning signs and has similar rural road infrastructure in forested regions."
+        },
+        {
+          "country": "South Africa",
+          "confidence": "speculative",
+          "reasoning": "Cross-continent analog: rural forest roads in South Africa often feature similar asphalt quality, gravel shoulders, and yellow warning signage."
+        }
+      ],
+      "evidence": [
+        "Yellow diamond-shaped warning sign",
+        "White vertical delineator posts",
+        "Narrow asphalt road with unpaved gravel shoulders",
+        "Lack of curbs or formal drainage infrastructure"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "Australia",
+          "confidence": "medium",
+          "reasoning": "The white, slender, cylindrical delineator posts with a small reflector are very common on rural Australian roads. The image quality and lighting are consistent with Gen 3 Google camera coverage used extensively in the region."
+        },
+        {
+          "country": "New Zealand",
+          "confidence": "medium",
+          "reasoning": "New Zealand uses very similar white delineator posts on rural roads. The overall road surface and shoulder style are nearly identical to those found in Australia."
+        },
+        {
+          "country": "United States",
+          "confidence": "low",
+          "reasoning": "Some rural forested areas in the US use similar white delineator posts, though they are often slightly thicker or have different reflector placements. This serves as a cross-continent analog for the generic road meta."
+        }
+      ],
+      "evidence": [
+        "white cylindrical delineator posts",
+        "Gen 3 Google camera image quality"
+      ]
+    }
+  },
+  "progressive_narrowing": {
+    "region_consensus": false,
+    "confirmed_region": "Oceania",
+    "runner_up_region": "South America",
+    "surviving_regions": [
+      "Oceania",
+      "South America"
+    ],
+    "proposed_regions": [
+      "Oceania",
+      "South America",
+      "North America",
+      "Sub-Saharan Africa"
+    ],
+    "region_candidates": {
+      "Oceania": {
+        "Australia": 4,
+        "New Zealand": 3
+      },
+      "South America": {
+        "Chile": 2
+      },
+      "North America": {
+        "United States": 3,
+        "Canada": 1
+      },
+      "Sub-Saharan Africa": {
+        "South Africa": 1
+      }
+    },
+    "region_decision_reasoning": "Oceania received three 'strongly_support' votes across landscape, botanics, and meta agents, specifically citing Eucalyptus trees, tree ferns, and Australian-style road delineators. South America received 'support' or 'low' confidence as a distant second due to similarities in temperate rainforests, while other regions were explicitly contradicted.",
+    "path": "B"
+  },
+  "road_evidence": {
+    "outside_color": "none",
+    "inside_color": "white",
+    "driving_side": "UNCLEAR",
+    "driving_side_basis": "none"
+  },
+  "country_assessments": {
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Australia",
+          "confidence": "high",
+          "reasoning": "The vegetation is highly characteristic of Australian sclerophyll forests, specifically the tall, smooth-barked Eucalyptus trees and the dense understory of tree ferns. The road construction and the specific style of the yellow warning sign are very common in rural Australian states like Victoria or New South Wales."
+        },
+        {
+          "country": "New Zealand",
+          "confidence": "medium",
+          "reasoning": "The temperate rainforest environment with ferns and tall canopy trees is similar to parts of the North and South Islands. However, the specific tree morphology is more indicative of Australian Eucalyptus than New Zealand native bush."
+        },
+        {
+          "country": "Chile",
+          "confidence": "low",
+          "reasoning": "Southern Chile possesses temperate rainforests with similar density and fern undergrowth. However, the specific combination of smooth-barked tall trees and road infrastructure is less typical than the Australian example."
+        }
+      ],
+      "evidence": [
+        "Tall smooth-barked Eucalyptus-style trees",
+        "Dense tree fern understory",
+        "Temperate wet forest biome",
+        "Asphalt road with gravel shoulders",
+        "Yellow diamond-shaped warning sign"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Australia",
+          "confidence": "high",
+          "reasoning": "The forest is dominated by tall, smooth-barked Eucalyptus species with characteristic open canopies and a dense understory of tree ferns (Cyathea/Dicksonia). This specific combination of sclerophyll forest and fern gullies is highly diagnostic of southeastern Australia, particularly Victoria or New South Wales."
+        },
+        {
+          "country": "New Zealand",
+          "confidence": "medium",
+          "reasoning": "The presence of dense ferns and temperate rainforest characteristics is consistent with New Zealand. However, the tall, straight, smooth-barked trees are more characteristic of Australian Eucalyptus than native New Zealand podocarps or beech."
+        },
+        {
+          "country": "Chile",
+          "confidence": "low",
+          "reasoning": "Southern Chile possesses temperate rainforests with similar fern understories and tall trees. However, the specific morphology of the canopy trees strongly resembles the Australian Myrtaceae family rather than the Nothofagus forests typical of the region."
+        }
+      ],
+      "evidence": [
+        "Eucalyptus spp.",
+        "Southeastern Australia",
+        "Tree ferns (Cyathea/Dicksonia)",
+        "Oceania/South America temperate rainforests"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Australia",
+          "confidence": "high",
+          "reasoning": "The yellow diamond-shaped warning sign with a black symbol and a small rectangular speed plaque underneath is characteristic of Australian road standards. The white guide posts (delineators) on the road edge are also very common in rural Australian forested areas."
+        },
+        {
+          "country": "New Zealand",
+          "confidence": "medium",
+          "reasoning": "New Zealand uses similar yellow diamond warning signs and white delineator posts in rural areas. The road width and shoulder treatment are consistent with NZ regional roads."
+        },
+        {
+          "country": "Chile",
+          "confidence": "speculative",
+          "reasoning": "Following the global analog rule for rural infrastructure, the asphalt quality, gravel shoulders, and forested environment are visually similar to southern Chilean roads, though the sign style is less typical."
+        }
+      ],
+      "evidence": [
+        "Yellow diamond-shaped warning sign",
+        "Rectangular speed plaque below warning sign",
+        "White vertical delineator posts",
+        "Gravel shoulders",
+        "Rural asphalt road width"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "Australia",
+          "confidence": "high",
+          "reasoning": "The white delineator posts (bollards) on the right side of the road are characteristic of Australian rural road markers. The image quality and camera generation are consistent with Google's extensive coverage of the Australian bush."
+        },
+        {
+          "country": "New Zealand",
+          "confidence": "medium",
+          "reasoning": "New Zealand uses similar white delineator posts in rural forested areas. However, the specific height and slim profile of the posts seen here are more typical of Australian standards."
+        },
+        {
+          "country": "Chile",
+          "confidence": "low",
+          "reasoning": "Chile has similar forested road environments and uses white delineators, but the specific post design and the overall 'feel' of the Google camera rig are less common for this specific terrain compared to Oceania."
+        }
+      ],
+      "evidence": [
+        "white delineator posts",
+        "Google Street View camera generation/image quality"
+      ]
+    }
+  },
+  "hypothesis_evaluations": [
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_oceania",
+      "confidence": "strongly_support",
+      "reasoning": "The vegetation is highly characteristic of Australian sclerophyll forests, specifically the tall, smooth-barked Eucalyptus trees and the dense understory of tree ferns. The combination of these specific flora and the road style is a strong geographic marker for southeastern Australia (e.g., Victoria or New South Wales).",
+      "key_evidence": [
+        "Eucalyptus-style tall smooth-barked trees",
+        "Tree fern understory",
+        "Sclerophyll forest structure"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_south_america",
+      "confidence": "support",
+      "reasoning": "Temperate rainforests in southern Chile or Argentina (Valdivian forests) can exhibit similar lushness and presence of ferns, though the specific tree morphology is more consistent with Oceania.",
+      "key_evidence": [
+        "Temperate rainforest climate",
+        "Presence of ferns"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_north_america",
+      "confidence": "contradicts",
+      "reasoning": "While the Pacific Northwest has temperate forests, the specific combination of smooth-barked tall hardwoods and the particular species of ferns seen here does not match the coniferous-dominant forests of that region.",
+      "key_evidence": [
+        "Lack of dominant conifers",
+        "Non-native tree morphology for NA temperate zones"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_sub-saharan_africa",
+      "confidence": "contradicts",
+      "reasoning": "The high-moisture temperate forest environment and the specific undergrowth are inconsistent with the typical savanna or tropical rainforest landscapes of Sub-Saharan Africa.",
+      "key_evidence": [
+        "Temperate forest climate",
+        "Lack of tropical or savanna indicators"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_oceania",
+      "confidence": "strongly_support",
+      "reasoning": "The forest composition is highly characteristic of Australian wet sclerophyll forests. The tall, straight-trunked trees with smooth, pale bark are diagnostic of Eucalyptus species, and the dense understory of tree ferns (Cyatheales) is a classic feature of the southeastern Australian highlands and coastal ranges.",
+      "key_evidence": [
+        "Eucalyptus species (smooth bark, canopy structure)",
+        "Tree ferns (understory)"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_south_america",
+      "confidence": "low",
+      "reasoning": "While temperate rainforests in Chile or Argentina (Valdivian forest) can feature ferns and tall trees, the specific morphology of the smooth-barked canopy trees is much more consistent with Myrtaceae (Eucalyptus) than with Nothofagus or other South American genera.",
+      "key_evidence": [
+        "Temperate rainforest biome"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_north_america",
+      "confidence": "contradicts",
+      "reasoning": "The combination of smooth-barked tall hardwoods and a dense tree-fern understory is not characteristic of North American temperate forests, which typically feature different bark textures (e.g., maples, oaks, pines) and different understory compositions.",
+      "key_evidence": [
+        "Absence of typical North American temperate flora",
+        "Presence of tree ferns"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_sub-saharan_africa",
+      "confidence": "low",
+      "reasoning": "Some Afromontane forests can have similar densities, but the specific 'gum tree' appearance of the canopy is a hallmark of the Australian landscape rather than native African highland forests.",
+      "key_evidence": [
+        "Temperate/Montane forest biome"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_oceania",
+      "confidence": "strongly_support",
+      "reasoning": "The white delineator posts (bollards) are thin, white, and cylindrical with a small reflector, which is highly characteristic of rural roads in Australia and New Zealand. The image quality and camera generation are consistent with Google's coverage in these regions.",
+      "key_evidence": [
+        "white cylindrical delineator posts"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_south_america",
+      "confidence": "low",
+      "reasoning": "While some rural roads in South America use white posts, the specific slim profile and placement seen here are more typical of Oceania. The camera generation is compatible but less diagnostic.",
+      "key_evidence": [
+        "generic white posts"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_north_america",
+      "confidence": "contradicts",
+      "reasoning": "North American rural roads typically use much larger, more robust reflective markers or different styles of delineators (often with larger yellow/white reflectors) than the slim white posts seen here.",
+      "key_evidence": [
+        "delineator post style"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_sub-saharan_africa",
+      "confidence": "contradicts",
+      "reasoning": "The infrastructure quality and the specific style of the white delineator posts are not typical for the limited Google Street View coverage available in Sub-Saharan Africa.",
+      "key_evidence": [
+        "delineator post style",
+        "road surface quality"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_australia",
+      "confidence": "strongly_support",
+      "reasoning": "The vegetation is highly characteristic of Australian sclerophyll forests, specifically the tall, smooth-barked Eucalyptus trees and the dense understory of tree ferns. The combination of these specific tree morphologies and the road environment is a classic match for the Great Dividing Range or the highlands of Victoria/NSW.",
+      "key_evidence": [
+        "Tall smooth-barked Eucalyptus trees",
+        "Tree fern understory",
+        "Sclerophyll forest structure"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_new_zealand",
+      "confidence": "support",
+      "reasoning": "New Zealand shares similar temperate rainforest and fern-heavy landscapes, particularly on the North Island. However, the specific tall, slender, pale-barked canopy trees seen here are more typical of Australian Eucalypts than NZ podocarps or beech forests.",
+      "key_evidence": [
+        "Temperate rainforest climate",
+        "Fern undergrowth"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_chile",
+      "confidence": "low",
+      "reasoning": "While southern Chile has temperate rainforests (Valdivian) with ferns and tall trees, the specific architecture of the canopy trees and the overall 'look' of the scrubland is less consistent with the Andean foothills than with the Australasian region.",
+      "key_evidence": [
+        "Temperate forest environment"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_australia",
+      "confidence": "strongly_support",
+      "reasoning": "The forest is dominated by tall, smooth-barked Eucalyptus trees with characteristic open canopies and sclerophyllous foliage. The presence of tree ferns in the understory is highly diagnostic of the wet sclerophyll forests found in southeastern Australia (e.g., Victoria or New South Wales).",
+      "key_evidence": [
+        "Eucalyptus spp. (smooth bark, canopy structure)",
+        "Tree ferns (Cyathea/Dicksonia)",
+        "Wet sclerophyll forest structure"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_new_zealand",
+      "confidence": "support",
+      "reasoning": "New Zealand has similar temperate rainforests with ferns and tall trees; however, the specific morphology of the smooth-barked, tall straight trunks is much more characteristic of Australian Eucalyptus than NZ's native Podocarps or Nothofagus.",
+      "key_evidence": [
+        "Temperate rainforest biome",
+        "Fern understory"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_chile",
+      "confidence": "low",
+      "reasoning": "While southern Chile has temperate rainforests (Valdivian) with ferns, the dominant tree architecture here lacks the typical appearance of Nothofagus or Araucaria and strongly resembles the Australian Eucalyptus forests.",
+      "key_evidence": [
+        "Temperate rainforest biome",
+        "Fern understory"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_australia",
+      "confidence": "strongly_support",
+      "reasoning": "The white delineator posts (bollards) are the classic Australian style: thin, white, and cylindrical with a small reflector. The image quality and slight blur patterns are consistent with the Google camera generation used extensively in rural Australian road coverage.",
+      "key_evidence": [
+        "white cylindrical delineator posts",
+        "Google camera generation/image quality"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_new_zealand",
+      "confidence": "support",
+      "reasoning": "New Zealand uses similar white delineator posts, though they often differ slightly in reflector placement or post thickness compared to Australia. The general camera quality is compatible with NZ coverage.",
+      "key_evidence": [
+        "white delineator posts",
+        "Google camera generation"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_chile",
+      "confidence": "low",
+      "reasoning": "While Chile has forested roads and uses Google Street View, the specific style of the white delineator posts seen here is much more characteristic of Oceania than South America.",
+      "key_evidence": [
+        "delineator post style"
+      ]
+    }
+  ],
+  "candidate_pool": [
+    "Australia",
+    "New Zealand",
+    "Chile"
+  ],
+  "rag_findings": [
+    {
+      "kind": "tournament_match",
+      "country": "New Zealand",
+      "detail": "The landscape is highly characteristic of Australian wet sclerophyll forests, featuring tall, smooth-barked Eucalyptus trees and a dense understory of tree ferns. Additionally, the thin white cylindrical delineator posts are a classic match for rural Australian road infrastructure.",
+      "opponent": "Australia",
+      "winner": "Australia"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Chile",
+      "detail": "The vegetation is highly characteristic of Australian wet sclerophyll forests, featuring tall, smooth-barked Eucalyptus trees and a dense understory of tree ferns. Additionally, the thin white cylindrical delineator posts are a classic match for rural Australian road infrastructure.",
+      "opponent": "Australia",
+      "winner": "Australia"
+    }
+  ],
+  "rag_refs_seen": [],
+  "road_filter_warnings": [],
+  "tournament_log": [
+    {
+      "round_label": "semi",
+      "country_a": "Australia",
+      "country_b": "New Zealand",
+      "pool_rank_a": 0,
+      "pool_rank_b": 1,
+      "winner": "Australia",
+      "reasoning": "The landscape is highly characteristic of Australian wet sclerophyll forests, featuring tall, smooth-barked Eucalyptus trees and a dense understory of tree ferns. Additionally, the thin white cylindrical delineator posts are a classic match for rural Australian road infrastructure.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "final",
+      "country_a": "Australia",
+      "country_b": "Chile",
+      "pool_rank_a": 0,
+      "pool_rank_b": 2,
+      "winner": "Australia",
+      "reasoning": "The vegetation is highly characteristic of Australian wet sclerophyll forests, featuring tall, smooth-barked Eucalyptus trees and a dense understory of tree ferns. Additionally, the thin white cylindrical delineator posts are a classic match for rural Australian road infrastructure.",
+      "agreement": "agree"
+    }
+  ],
+  "country_result": "Country: Australia\nCoordinates: -37.8136, 144.9631\nReasoning: The vegetation is highly characteristic of Australian wet sclerophyll forests, featuring tall, smooth-barked Eucalyptus trees and a dense understory of tree ferns. Additionally, the thin white cylindrical delineator posts are a classic match for rural Australian road infrastructure.\n\nTournament:\n  semi: Australia vs New Zealand → Australia\n  final: Australia vs Chile → Australia",
+  "coordinates": {
+    "lat": -37.8136,
+    "lng": 144.9631
+  },
+  "final_reasoning": "The vegetation is highly characteristic of Australian wet sclerophyll forests, featuring tall, smooth-barked Eucalyptus trees and a dense understory of tree ferns. Additionally, the thin white cylindrical delineator posts are a classic match for rural Australian road infrastructure."
+}

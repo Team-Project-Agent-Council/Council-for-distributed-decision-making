@@ -1,0 +1,74 @@
+{
+  "image_id": "sf2wEErB2IDY3qJ5_1",
+  "truth_country": "kazakhstan",
+  "pred_country": "mongolia",
+  "is_correct": false,
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": true,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.0,
+      "botanics": 0.0,
+      "regulatory": 0.0,
+      "meta": 0.0
+    },
+    "visual_consistency_score": {
+      "linguistic": 1.0,
+      "landscape": 1.0,
+      "botanics": 1.0,
+      "regulatory": 1.0,
+      "meta": 1.0
+    },
+    "confidence_calibration_score": {
+      "linguistic": 1.0,
+      "landscape": 0.25,
+      "botanics": 0.25,
+      "regulatory": 0.25,
+      "meta": 0.25
+    },
+    "round2_improvement": {
+      "linguistic": 0.0,
+      "landscape": 0.5,
+      "botanics": 0.5,
+      "regulatory": 1.0,
+      "meta": 0.5
+    },
+    "round2_improvement_notes": {
+      "linguistic": "Agent provided no output in either round; no improvement possible.",
+      "landscape": "Acknowledged other agents' evidence (Botanics, Meta) and used it to reinforce the initial hypothesis, but did not critically evaluate the correctness of the hypothesis itself.",
+      "botanics": "Acknowledged other agents' evidence (Landscape, Meta) and used it to reinforce the initial hypothesis, but did not critically evaluate the correctness of the hypothesis itself.",
+      "regulatory": "Significantly improved by shifting confidence from Kazakhstan to Mongolia based on the synthesis of other agents' evidence, demonstrating genuine cross-domain reasoning.",
+      "meta": "Acknowledged other agents' evidence (Landscape, Botanics) and used it to reinforce the initial hypothesis, but did not critically evaluate the correctness of the hypothesis itself."
+    },
+    "role_leakage_score": {
+      "linguistic": 0.0,
+      "landscape": 0.5,
+      "botanics": 0.5,
+      "regulatory": 0.5,
+      "meta": 0.5
+    },
+    "role_leakage_notes": {
+      "linguistic": "none",
+      "landscape": "Minor leakage: Referenced Botanics agent's identification of xeric grasses and Meta agent's observation of Gen 4 camera coverage to support landscape analysis.",
+      "botanics": "Minor leakage: Referenced Landscape Agent's observation of the Mongolian plateau and Meta Agent's identification of Gen 4 camera coverage to support botanical analysis.",
+      "regulatory": "Minor leakage: Referenced Landscape and Botanics agents' evidence regarding the specific high-altitude cold-steppe plateau to support regulatory analysis.",
+      "meta": "Minor leakage: Referenced Landscape and Botanics agents' high-confidence identification of the Mongolian plateau's unique arid, treeless steppe and soil color to support meta analysis."
+    },
+    "hallucination_examples": {
+      "linguistic": [],
+      "landscape": [],
+      "botanics": [],
+      "regulatory": [],
+      "meta": []
+    },
+    "judge_synthesis_quality": 0.5,
+    "judge_synthesis_notes": "The judge's synthesis is weak and circular. It lists the agents' outputs and then concludes Mongolia based on the same flawed consensus (Landscape, Botanics, Meta all pointing to Mongolia). The judge fails to critically evaluate the evidence or explain why the visual cues (e.g., the '60' sign, the specific guardrail style) are more indicative of Mongolia than Kazakhstan, despite the ground truth being Kazakhstan. The synthesis does not explicitly eliminate the correct country (Kazakhstan) with strong counter-evidence, nor does it identify the flaw in the agents' reasoning (e.g., that the landscape is generic to the region). It essentially rubber-stamps the majority vote."
+  }
+}

@@ -1,0 +1,547 @@
+{
+  "image_path": "/pfs/data6/home/ma/ma_ma/ma_lweisssc/llm_council_agent_orchestration_tests/clean_images_GeoRC_500/qOTM2e7p8dcC02Fz_2.png",
+  "model": "google/gemma-4-31B-it",
+  "judge_model": "google/gemma-4-31B-it",
+  "timing": {
+    "total_seconds": 86.1
+  },
+  "assessments": {
+    "linguistic": {
+      "agent_name": "linguistic",
+      "candidates": [],
+      "evidence": []
+    },
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Brazil",
+          "confidence": "medium",
+          "reasoning": "The combination of red laterite soil, dense scrubby vegetation (resembling Cerrado), and the specific road marking style (double yellow center line with white edges) is very common in the Brazilian interior."
+        },
+        {
+          "country": "Colombia",
+          "confidence": "medium",
+          "reasoning": "The tropical savanna landscape and road infrastructure are consistent with various regions of Colombia, which shares similar soil colors and vegetation patterns with Brazil."
+        },
+        {
+          "country": "South Africa",
+          "confidence": "low",
+          "reasoning": "The arid scrubland and red soil are characteristic of the Highveld or bushveld regions, though the road markings differ slightly from standard South African norms."
+        },
+        {
+          "country": "Australia",
+          "confidence": "speculative",
+          "reasoning": "Global analog: The red soil and dry, scrubby eucalyptus-like vegetation in the outskirts of the interior match the environmental profile of the Australian outback or coastal scrub."
+        }
+      ],
+      "evidence": [
+        "Red laterite soil",
+        "Tropical savanna/scrubland vegetation",
+        "Double yellow center line road markings",
+        "High sun angle suggesting tropical or subtropical latitude"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Brazil",
+          "confidence": "medium",
+          "reasoning": "The vegetation is highly characteristic of the Cerrado biome, featuring twisted, sclerophyllous shrubs and stunted trees with thick bark. This specific mix of open savanna and dense scrub is very common in the Brazilian highlands."
+        },
+        {
+          "country": "Bolivia",
+          "confidence": "medium",
+          "reasoning": "The eastern lowlands and transitional forests of Bolivia share very similar botanical characteristics with the Brazilian Cerrado and Chaco regions, including similar scrubland density and leaf morphology."
+        },
+        {
+          "country": "Australia",
+          "confidence": "low",
+          "reasoning": "The open woodland and xeric scrub appearance is a global analog to the Australian bush. However, the specific leaf structure and growth habit of the roadside shrubs are more indicative of South American tropical savannas than Eucalyptus-dominated landscapes."
+        },
+        {
+          "country": "South Africa",
+          "confidence": "low",
+          "reasoning": "The landscape resembles the Highveld or parts of the savanna biome. The combination of dry grasses and hardy, small-leafed shrubs is a common botanical analog for this region."
+        }
+      ],
+      "evidence": [
+        "Sclerophyllous scrub",
+        "Cerrado-type savanna",
+        "Xeric shrubland",
+        "Tropical savanna biome"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Botswana",
+          "confidence": "low",
+          "reasoning": "The road width, asphalt quality, and the presence of red sandy shoulders combined with the specific scrubland vegetation are common in Southern African rural corridors."
+        },
+        {
+          "country": "Australia",
+          "confidence": "low",
+          "reasoning": "The rural road infrastructure, including the asphalt grade and the wide, unpaved gravel/dirt shoulders, is highly consistent with outback regional roads."
+        },
+        {
+          "country": "United States",
+          "confidence": "speculative",
+          "reasoning": "The general road width and shoulder treatment are similar to rural highways in the Southwestern US or Florida, though vegetation differs slightly."
+        },
+        {
+          "country": "Brazil",
+          "confidence": "speculative",
+          "reasoning": "The combination of rural asphalt and the specific type of dense green shrubbery/savanna (Cerrado style) is common in interior Brazilian road networks."
+        }
+      ],
+      "evidence": [
+        "No road signs visible",
+        "No license plates visible",
+        "No bollards or guardrails visible",
+        "Rural asphalt road with wide, red-tinted dirt/gravel shoulders",
+        "Basic road width class typical of regional secondary highways"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "Brazil",
+          "confidence": "medium",
+          "reasoning": "The image quality and high-contrast saturation are characteristic of Google's Gen 4 camera coverage in Brazil. The specific combination of asphalt texture and the style of the utility pole visible in the distance is common in rural Brazilian regions."
+        },
+        {
+          "country": "South Africa",
+          "confidence": "low",
+          "reasoning": "The general image quality and road surface are similar to some rural South African coverage, serving as a cross-continent analog for the Gen 4 camera look."
+        },
+        {
+          "country": "Australia",
+          "confidence": "speculative",
+          "reasoning": "Some rural Australian roads share this high-sunlight, high-contrast image profile and similar asphalt wear, though the utility pole style is less typical."
+        }
+      ],
+      "evidence": [
+        "Google Gen 4 camera image quality/saturation",
+        "Distant concrete utility pole style",
+        "Asphalt texture and wear patterns"
+      ]
+    }
+  },
+  "progressive_narrowing": {
+    "region_consensus": false,
+    "confirmed_region": "South America",
+    "runner_up_region": "Sub-Saharan Africa",
+    "surviving_regions": [
+      "South America",
+      "Sub-Saharan Africa"
+    ],
+    "proposed_regions": [
+      "South America",
+      "Sub-Saharan Africa",
+      "Oceania",
+      "North America"
+    ],
+    "region_candidates": {
+      "South America": {
+        "Brazil": 4,
+        "Colombia": 1,
+        "Bolivia": 1
+      },
+      "Sub-Saharan Africa": {
+        "South Africa": 3,
+        "Botswana": 1
+      },
+      "Oceania": {
+        "Australia": 4
+      },
+      "North America": {
+        "United States": 1
+      }
+    },
+    "region_decision_reasoning": "Both South America and Sub-Saharan Africa received support from both the botanics and meta agents, resulting in tied weighted scores. South America is selected as the primary region due to the botanics agent's specific identification of the Cerrado biome and the meta agent's observation of Brazilian highway characteristics.",
+    "path": "B"
+  },
+  "road_evidence": {
+    "outside_color": "white",
+    "inside_color": "yellow",
+    "driving_side": "UNCLEAR",
+    "driving_side_basis": "none"
+  },
+  "country_assessments": {
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Brazil",
+          "confidence": "high",
+          "reasoning": "The combination of red laterite soil, Cerrado-style scrubland/savanna, and the specific road marking pattern (double yellow center line with white outer edges) is highly characteristic of the Brazilian interior. The vegetation density and tree shapes are consistent with the central plateau regions."
+        },
+        {
+          "country": "Colombia",
+          "confidence": "medium",
+          "reasoning": "The tropical savanna landscape and red soil are present in the Llanos region. However, the road infrastructure and specific vegetation density are slightly more typical of the Brazilian highlands."
+        },
+        {
+          "country": "Zimbabwe",
+          "confidence": "low",
+          "reasoning": "The Miombo woodland and red soils of Southern Africa provide a strong geographic analog to the South American Cerrado. The terrain and climate match, though road markings differ slightly from standard Zimbabwean rural highways."
+        },
+        {
+          "country": "Zambia",
+          "confidence": "low",
+          "reasoning": "Similar to Zimbabwe, the plateau landscapes and red-soil savannas are a close environmental match. It is a primary cross-continent analog for the tropical savanna biome seen here."
+        }
+      ],
+      "evidence": [
+        "Red laterite soil visible on road shoulders",
+        "Tropical savanna/scrubland vegetation (Cerrado/Miombo type)",
+        "Double yellow center line with white edge lines",
+        "High sun angle suggesting tropical latitudes",
+        "Flat to gently undulating plateau terrain"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Brazil",
+          "confidence": "high",
+          "reasoning": "The vegetation is highly characteristic of the Cerrado biome, featuring twisted, sclerophyllous shrubs and stunted trees with thick bark. The specific mix of dense scrubland and open grassland on red oxisol soil is a hallmark of the Brazilian highlands."
+        },
+        {
+          "country": "Paraguay",
+          "confidence": "medium",
+          "reasoning": "The landscape resembles the Gran Chaco or the Atlantic Forest transition zones. It shares similar scrubland characteristics with Brazil, though the specific density of the woody shrubs seen here is more typical of the Cerrado."
+        },
+        {
+          "country": "Botswana",
+          "confidence": "low",
+          "reasoning": "The savanna-woodland structure is a global analog to the Cerrado. However, the leaf morphology and the specific shade of green in the scrub are more consistent with South American tropical savannas than the Kalahari basin."
+        },
+        {
+          "country": "Zimbabwe",
+          "confidence": "low",
+          "reasoning": "The Miombo woodland provides a similar visual profile of scattered trees and scrub. However, the undergrowth and soil color are more indicative of the South American interior."
+        }
+      ],
+      "evidence": [
+        "Cerrado-type sclerophyllous vegetation",
+        "Red oxisol soil",
+        "Tropical savanna biome"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Botswana",
+          "confidence": "low",
+          "reasoning": "The road width, asphalt quality, and the presence of red sandy shoulders are common in rural Botswana. The vegetation is consistent with the savanna/bushveld regions of Southern Africa."
+        },
+        {
+          "country": "Namibia",
+          "confidence": "low",
+          "reasoning": "The combination of a well-maintained rural asphalt road and red soil shoulders is highly characteristic of Namibian infrastructure. The scrubland vegetation matches the arid/semi-arid landscape."
+        },
+        {
+          "country": "Brazil",
+          "confidence": "low",
+          "reasoning": "The road quality and the style of the rural shoulder are consistent with many interior state roads in Brazil. The dense green shrubbery is common in the Cerrado or similar biomes."
+        },
+        {
+          "country": "South Africa",
+          "confidence": "low",
+          "reasoning": "The road construction and shoulder treatment are typical for rural provincial roads in South Africa. The vegetation is consistent with various regional bushveld areas."
+        }
+      ],
+      "evidence": [
+        "rural asphalt road",
+        "red sandy shoulders",
+        "absence of road signs",
+        "absence of bollards",
+        "absence of utility poles in immediate foreground"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "Brazil",
+          "confidence": "medium",
+          "reasoning": "The image quality and high-saturation color profile are consistent with Gen 4 Google Street View coverage common in rural Brazil. The road surface texture and the specific style of the white edge lines are frequently seen in the Brazilian interior."
+        },
+        {
+          "country": "Senegal",
+          "confidence": "low",
+          "reasoning": "The camera generation and image clarity are similar to coverage found in West African countries like Senegal. However, it lacks the specific dust or blur patterns often associated with that region's rural roads."
+        },
+        {
+          "country": "Colombia",
+          "confidence": "low",
+          "reasoning": "The road quality and camera generation match Colombian rural coverage. It is a plausible South American analog to Brazil given the similar asphalt and line painting style."
+        }
+      ],
+      "evidence": [
+        "Gen 4 camera quality",
+        "High-saturation color profile",
+        "Specific asphalt texture and edge line painting"
+      ]
+    }
+  },
+  "hypothesis_evaluations": [
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_south_america",
+      "confidence": "support",
+      "reasoning": "The vegetation is highly characteristic of the Cerrado (savanna) biome of Brazil, featuring twisted, thick-barked trees and a dense understory of shrubs and grasses. This specific mix of sclerophyllous vegetation and red soil is very common in the Brazilian highlands.",
+      "key_evidence": [
+        "Cerrado-style savanna",
+        "Sclerophyllous shrubs",
+        "Reddish oxisol soil"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_sub-saharan_africa",
+      "confidence": "support",
+      "reasoning": "The landscape is compatible with the Miombo woodlands or Sudano-Sahelian savannas. The structure of the scrubland and the open canopy are similar to those found in countries like Zambia or Zimbabwe.",
+      "key_evidence": [
+        "Tropical savanna biome",
+        "Open woodland structure"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_oceania",
+      "confidence": "low",
+      "reasoning": "While some parts of Northern Australia have similar savanna-woodland mosaics, the specific density and leaf morphology of the roadside shrubs are more typical of South American or African tropical savannas.",
+      "key_evidence": [
+        "Savanna-woodland mosaic"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_north_america",
+      "confidence": "low",
+      "reasoning": "This could potentially be a tropical region of Mexico or Central America, but the vast, open savanna appearance is less common there than in the interior of South America or Africa.",
+      "key_evidence": [
+        "Tropical scrubland"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_south_america",
+      "confidence": "support",
+      "reasoning": "The image quality and camera generation are consistent with Google's coverage in South America (specifically Brazil). The road surface and shoulder characteristics are common in rural Brazilian highways.",
+      "key_evidence": [
+        "camera generation",
+        "road surface quality"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_sub-saharan_africa",
+      "confidence": "support",
+      "reasoning": "The camera quality and general road infrastructure are compatible with coverage in countries like Senegal or Ghana, which often feature similar rural road layouts and image clarity.",
+      "key_evidence": [
+        "camera generation",
+        "road surface quality"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_oceania",
+      "confidence": "neutral",
+      "reasoning": "While rural roads in Australia or New Zealand can look similar, the specific image quality and lack of distinct Oceania-specific road furniture make this less likely than the other regions.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_north_america",
+      "confidence": "neutral",
+      "reasoning": "The image quality is compatible with North American coverage, but the specific combination of road shoulder and vegetation-adjacent asphalt is less characteristic of US/Canada rural highways.",
+      "key_evidence": [
+        "camera generation"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_brazil",
+      "confidence": "support",
+      "reasoning": "The vegetation is highly characteristic of the Cerrado biome, featuring twisted, sclerophyllous shrubs and stunted trees with thick bark, which is a dominant landscape in central Brazil.",
+      "key_evidence": [
+        "Cerrado-type scrubland",
+        "Sclerophyllous vegetation"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_paraguay",
+      "confidence": "support",
+      "reasoning": "The landscape is compatible with the Gran Chaco or the Atlantic Forest transition zones, which share similar scrubby, xeric-adapted vegetation with the Brazilian Cerrado.",
+      "key_evidence": [
+        "Chaco scrubland",
+        "Xeric shrubs"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_colombia",
+      "confidence": "neutral",
+      "reasoning": "While Colombia has diverse biomes, this specific open, dry scrubland is less characteristic of its primary road networks compared to the South American interior, though not impossible in the Llanos.",
+      "key_evidence": [
+        "Generic tropical scrub"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_zimbabwe",
+      "confidence": "support",
+      "reasoning": "The vegetation strongly resembles the Miombo woodland or savanna mosaics of Southern Africa, which are global analogs to the South American Cerrado in terms of structure and leaf morphology.",
+      "key_evidence": [
+        "Miombo-style woodland",
+        "Savanna scrub"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_zambia",
+      "confidence": "support",
+      "reasoning": "Similar to Zimbabwe, the vegetation is consistent with the Zambezian regional center of endemism, featuring open woodland and hardy shrubs typical of the plateau.",
+      "key_evidence": [
+        "Zambezian woodland",
+        "Savanna scrub"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_brazil",
+      "confidence": "strongly_support",
+      "reasoning": "The image quality and color saturation are highly characteristic of the Google Street View Gen 4 camera used extensively in Brazil. The specific combination of high-contrast blue skies and the crispness of the road surface is a common visual signature for Brazilian rural coverage.",
+      "key_evidence": [
+        "Gen 4 camera image quality",
+        "color saturation profile"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_colombia",
+      "confidence": "support",
+      "reasoning": "Colombia also uses Gen 4 camera coverage, making the image quality compatible. However, the specific lighting and road texture are more typical of the Brazilian interior.",
+      "key_evidence": [
+        "Gen 4 camera image quality"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_paraguay",
+      "confidence": "support",
+      "reasoning": "Paraguay has limited coverage, but where available, the camera quality is compatible. It is a strong regional analog to Brazil, though less likely given the sheer volume of similar-looking Gen 4 rural roads in Brazil.",
+      "key_evidence": [
+        "Gen 4 camera image quality"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_zimbabwe",
+      "confidence": "low",
+      "reasoning": "While rural roads exist, the specific camera generation and image processing seen here are less common in Zimbabwe's limited coverage compared to South American Gen 4 deployments.",
+      "key_evidence": [
+        "camera generation mismatch"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_zambia",
+      "confidence": "low",
+      "reasoning": "Similar to Zimbabwe, the image quality and saturation do not align as closely with the typical coverage patterns found in Zambia as they do with Brazil.",
+      "key_evidence": [
+        "camera generation mismatch"
+      ]
+    }
+  ],
+  "candidate_pool": [
+    "Brazil",
+    "Colombia",
+    "Zimbabwe",
+    "Zambia",
+    "Paraguay"
+  ],
+  "rag_findings": [
+    {
+      "kind": "elim_road_marking",
+      "country": "Botswana",
+      "detail": "observed outside=white, inside=yellow vs table='Outside: Yellow | Inside: White'"
+    },
+    {
+      "kind": "elim_road_marking",
+      "country": "South Africa",
+      "detail": "observed outside=white, inside=yellow vs table='Outside: Yellow | Inside: White | Outside: Red | Inside: White'"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Zimbabwe",
+      "detail": "The image quality and color saturation are highly characteristic of the Google Street View Gen 4 camera used extensively in Brazil. Additionally, the vegetation is strongly indicative of the Brazilian Cerrado biome.",
+      "opponent": "Brazil",
+      "winner": "Brazil"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Colombia",
+      "detail": "The landscape features dry, scrubby vegetation and xeric-adapted plants that are highly characteristic of the Gran Chaco region in Paraguay, as noted in the botanics specialist evidence. While Colombia has diverse biomes, this specific open scrubland is more typical of the South American interior regions like Paraguay.",
+      "opponent": "Paraguay",
+      "winner": "Paraguay"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Paraguay",
+      "detail": "The vegetation is highly characteristic of the Brazilian Cerrado biome, as noted by the botanics specialist. Additionally, the image quality and color saturation are strongly indicative of the Google Street View Gen 4 camera used extensively across rural Brazil.",
+      "opponent": "Brazil",
+      "winner": "Brazil"
+    }
+  ],
+  "rag_refs_seen": [],
+  "road_filter_warnings": [],
+  "tournament_log": [
+    {
+      "round_label": "semi-1",
+      "country_a": "Brazil",
+      "country_b": "Zimbabwe",
+      "pool_rank_a": 0,
+      "pool_rank_b": 3,
+      "winner": "Brazil",
+      "reasoning": "The image quality and color saturation are highly characteristic of the Google Street View Gen 4 camera used extensively in Brazil. Additionally, the vegetation is strongly indicative of the Brazilian Cerrado biome.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "semi-2",
+      "country_a": "Paraguay",
+      "country_b": "Colombia",
+      "pool_rank_a": 1,
+      "pool_rank_b": 2,
+      "winner": "Paraguay",
+      "reasoning": "The landscape features dry, scrubby vegetation and xeric-adapted plants that are highly characteristic of the Gran Chaco region in Paraguay, as noted in the botanics specialist evidence. While Colombia has diverse biomes, this specific open scrubland is more typical of the South American interior regions like Paraguay.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "final",
+      "country_a": "Brazil",
+      "country_b": "Paraguay",
+      "pool_rank_a": 0,
+      "pool_rank_b": 1,
+      "winner": "Brazil",
+      "reasoning": "The vegetation is highly characteristic of the Brazilian Cerrado biome, as noted by the botanics specialist. Additionally, the image quality and color saturation are strongly indicative of the Google Street View Gen 4 camera used extensively across rural Brazil.",
+      "agreement": "agree"
+    }
+  ],
+  "country_result": "Country: Brazil\nCoordinates: -15.7801, -47.8919\nReasoning: The vegetation is highly characteristic of the Brazilian Cerrado biome, as noted by the botanics specialist. Additionally, the image quality and color saturation are strongly indicative of the Google Street View Gen 4 camera used extensively across rural Brazil.\n\nTournament:\n  semi-1: Brazil vs Zimbabwe → Brazil\n  semi-2: Paraguay vs Colombia → Paraguay\n  final: Brazil vs Paraguay → Brazil",
+  "coordinates": {
+    "lat": -15.7801,
+    "lng": -47.8919
+  },
+  "final_reasoning": "The vegetation is highly characteristic of the Brazilian Cerrado biome, as noted by the botanics specialist. Additionally, the image quality and color saturation are strongly indicative of the Google Street View Gen 4 camera used extensively across rural Brazil."
+}

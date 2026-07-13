@@ -1,0 +1,503 @@
+{
+  "image_path": "/pfs/data6/home/ma/ma_ma/ma_lweisssc/llm_council_agent_orchestration_tests/clean_images_GeoRC_500/HVBiwFr2gEcM1dze_1.png",
+  "model": "google/gemma-4-31B-it",
+  "judge_model": "google/gemma-4-31B-it",
+  "timing": {
+    "total_seconds": 91.8
+  },
+  "assessments": {
+    "linguistic": {
+      "agent_name": "linguistic",
+      "candidates": [],
+      "evidence": []
+    },
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Spain",
+          "confidence": "high",
+          "reasoning": "The presence of extensive Eucalyptus plantations combined with lush green undergrowth and rolling hills is highly characteristic of Northwest Spain (Galicia). The road quality and vegetation density are consistent with this Atlantic climate region."
+        },
+        {
+          "country": "Portugal",
+          "confidence": "high",
+          "reasoning": "Portugal shares the same Atlantic climate and heavy reliance on Eucalyptus forestry as Northwest Spain. The terrain and road style are virtually indistinguishable from the Galician landscape in this specific environment."
+        },
+        {
+          "country": "France",
+          "confidence": "medium",
+          "reasoning": "Certain regions of Western France have similar temperate climates and mixed forestry, though the specific density of these tall, slender Eucalyptus is more typical of the Iberian Peninsula."
+        },
+        {
+          "country": "Chile",
+          "confidence": "low",
+          "reasoning": "Chile has massive Eucalyptus plantations and similar temperate landscapes in its central and southern regions, serving as a strong cross-continent analog for this specific forestry style."
+        },
+        {
+          "country": "Australia",
+          "confidence": "speculative",
+          "reasoning": "As the native home of Eucalyptus, Australia has similar forests, but the specific road markings, the presence of deciduous leafless trees on the right, and the damp, green grass suggest a Northern Hemisphere temperate zone rather than typical Australian scrub."
+        }
+      ],
+      "evidence": [
+        "Eucalyptus plantations",
+        "Temperate Atlantic climate",
+        "Deciduous trees in winter state",
+        "Rolling green hills",
+        "Asphalt road with white edge lines"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Portugal",
+          "confidence": "high",
+          "reasoning": "The landscape is dominated by extensive Eucalyptus plantations, which are ubiquitous in Portugal. The combination of these plantations with the specific Atlantic-influenced temperate undergrowth and green roadside verges is highly characteristic of the Portuguese countryside."
+        },
+        {
+          "country": "Spain",
+          "confidence": "high",
+          "reasoning": "Similar to Portugal, Northwest Spain (Galicia) features massive Eucalyptus globulus plantations and a very similar humid temperate climate. Botanically, this region is nearly indistinguishable from Northern Portugal."
+        },
+        {
+          "country": "Brazil",
+          "confidence": "low",
+          "reasoning": "Eucalyptus is native to Australia but widely planted in Brazil for pulp and paper. However, the presence of deciduous trees in a dormant winter state (bare branches on the right) suggests a temperate zone rather than the tropical/subtropical regions where Brazilian Eucalyptus is typically grown."
+        },
+        {
+          "country": "Australia",
+          "confidence": "speculative",
+          "reasoning": "As the native range of Eucalyptus, this is a botanical possibility. However, the specific structure of the plantation and the accompanying deciduous winter vegetation are more typical of European plantations than native Australian sclerophyll forests."
+        }
+      ],
+      "evidence": [
+        "Eucalyptus globulus (Blue Gum)",
+        "Deciduous temperate broadleaf trees (dormant)",
+        "Atlantic temperate undergrowth"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Portugal",
+          "confidence": "medium",
+          "reasoning": "The combination of narrow asphalt road width, specific eucalyptus forestation, and the style of the distant small rectangular road sign is highly characteristic of rural Portugal."
+        },
+        {
+          "country": "Spain",
+          "confidence": "medium",
+          "reasoning": "Similar rural road infrastructure and eucalyptus plantations are common in Northwest Spain (Galicia), making it visually indistinguishable from Portugal in this specific environment."
+        },
+        {
+          "country": "Chile",
+          "confidence": "low",
+          "reasoning": "Chile has extensive eucalyptus plantations and similar rural road widths and asphalt quality in its southern regions."
+        },
+        {
+          "country": "Australia",
+          "confidence": "speculative",
+          "reasoning": "Global analog: Rural roads with basic asphalt and eucalyptus-like trees are common in various Australian states, though the vegetation density here is more typical of Europe/South America."
+        }
+      ],
+      "evidence": [
+        "Narrow rural asphalt road with minimal shoulder treatment",
+        "Small rectangular road sign visible in the distance",
+        "Dense eucalyptus forestation lining the road",
+        "Absence of visible bollards, guardrails, or utility poles in immediate view"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "Spain",
+          "confidence": "medium",
+          "reasoning": "The image quality and camera generation are consistent with Google's coverage in Spain. The road surface and edge wear are typical for rural Spanish secondary roads."
+        },
+        {
+          "country": "Portugal",
+          "confidence": "medium",
+          "reasoning": "Portugal shares very similar road infrastructure and Google camera generation with Spain. The lack of distinctive bollards makes it difficult to distinguish from Spain based on meta alone."
+        },
+        {
+          "country": "Brazil",
+          "confidence": "low",
+          "reasoning": "As a global analog, Brazil has extensive rural road coverage with similar camera quality and asphalt characteristics, though the lack of specific Brazilian utility poles makes this less likely."
+        }
+      ],
+      "evidence": [
+        "Google Street View camera generation (Gen 3/4 quality)",
+        "Asphalt texture and road edge wear",
+        "Absence of distinctive bollards or utility poles"
+      ]
+    }
+  },
+  "progressive_narrowing": {
+    "region_consensus": false,
+    "confirmed_region": "Europe",
+    "runner_up_region": "South America",
+    "surviving_regions": [
+      "Europe",
+      "South America"
+    ],
+    "proposed_regions": [
+      "Europe",
+      "South America",
+      "Oceania"
+    ],
+    "region_candidates": {
+      "Europe": {
+        "Spain": 4,
+        "Portugal": 4,
+        "France": 1
+      },
+      "South America": {
+        "Chile": 2,
+        "Brazil": 2
+      },
+      "Oceania": {
+        "Australia": 3
+      }
+    },
+    "region_decision_reasoning": "Europe received the highest score due to strong support from the botanics agent regarding the specific mix of Eucalyptus and dormant deciduous trees, as well as support from the meta agent. South America follows as the runner-up with consistent support across botanics and meta evaluations.",
+    "path": "B"
+  },
+  "road_evidence": {
+    "outside_color": "white",
+    "inside_color": "white",
+    "driving_side": "UNCLEAR",
+    "driving_side_basis": "none"
+  },
+  "country_assessments": {
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Spain",
+          "confidence": "high",
+          "reasoning": "The presence of extensive Eucalyptus plantations combined with lush green undergrowth and rolling hills is highly characteristic of Northwest Spain (Galicia). The road quality and shoulder style are consistent with Spanish regional roads."
+        },
+        {
+          "country": "Portugal",
+          "confidence": "high",
+          "reasoning": "Portugal shares the same Atlantic climate and heavy reliance on Eucalyptus forestry as Northwest Spain. The terrain and vegetation are virtually identical to the Galician border regions, making it an equally likely candidate."
+        },
+        {
+          "country": "Chile",
+          "confidence": "medium",
+          "reasoning": "Chile has massive Eucalyptus plantations and a similar temperate climate in its central and southern regions. The landscape of managed forests alongside paved roads matches the physical environment of the south-central valley."
+        },
+        {
+          "country": "Uruguay",
+          "confidence": "low",
+          "reasoning": "Uruguay utilizes Eucalyptus for commercial forestry on a large scale. However, the terrain here appears slightly more undulating than the typical Uruguayan plains, though it remains a geographic possibility."
+        }
+      ],
+      "evidence": [
+        "Commercial Eucalyptus plantations",
+        "Temperate Atlantic/Oceanic climate vegetation",
+        "Rolling hills with green undergrowth",
+        "Paved two-lane road with white edge markings"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Spain",
+          "confidence": "high",
+          "reasoning": "The landscape is dominated by extensive Eucalyptus plantations, which are extremely common in Northwest Spain (Galicia). The combination of these plantations with temperate deciduous undergrowth and green roadside verges is highly characteristic of the Atlantic region of the Iberian Peninsula."
+        },
+        {
+          "country": "Portugal",
+          "confidence": "high",
+          "reasoning": "Similar to Spain, Portugal has massive Eucalyptus globulus plantations across its landscape. The botanical profile is virtually identical to Northwest Spain, making it an equally likely candidate based solely on vegetation."
+        },
+        {
+          "country": "Chile",
+          "confidence": "medium",
+          "reasoning": "Chile has significant Eucalyptus plantations in its temperate zones. The lush green grass and mixed deciduous/evergreen forest structure match the southern temperate regions of Chile, though the specific density of the plantation here is very European in style."
+        },
+        {
+          "country": "Brazil",
+          "confidence": "low",
+          "reasoning": "Brazil is a major producer of Eucalyptus; however, the presence of dormant, leafless deciduous trees in the background suggests a temperate winter, which is less common in the primary Eucalyptus-growing regions of Brazil compared to Europe or Southern Chile."
+        },
+        {
+          "country": "Uruguay",
+          "confidence": "low",
+          "reasoning": "Eucalyptus is widely used for windbreaks and forestry in Uruguay. The open, rolling green landscape is consistent, though the specific forest density seen here is more typical of the Iberian Atlantic coast."
+        }
+      ],
+      "evidence": [
+        "Eucalyptus globulus",
+        "Temperate deciduous trees (dormant)",
+        "Atlantic temperate forest biome",
+        "Industrial forestry plantations"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Portugal",
+          "confidence": "medium",
+          "reasoning": "The combination of eucalyptus plantations and the specific narrow asphalt road width with minimal shoulder treatment is very common in rural Portugal. The general road surface quality and vegetation are highly characteristic of the Iberian Peninsula."
+        },
+        {
+          "country": "Spain",
+          "confidence": "medium",
+          "reasoning": "Similar to Portugal, the rural road infrastructure and the presence of eucalyptus forests are common in northern and western Spain. The road width and lack of formal curbing are typical for regional Spanish roads."
+        },
+        {
+          "country": "Chile",
+          "confidence": "low",
+          "reasoning": "Chile has extensive eucalyptus plantations and similar rural asphalt road standards. The landscape and road infrastructure are a strong South American analog to the Iberian style."
+        },
+        {
+          "country": "Brazil",
+          "confidence": "low",
+          "reasoning": "Rural roads in southern Brazil often feature this type of asphalt quality and are frequently flanked by eucalyptus groves. The lack of distinct roadside infrastructure makes it a plausible analog."
+        },
+        {
+          "country": "Uruguay",
+          "confidence": "speculative",
+          "reasoning": "The flat-to-rolling terrain and basic rural road construction with grass shoulders are consistent with Uruguayan rural infrastructure."
+        }
+      ],
+      "evidence": [
+        "narrow asphalt road width",
+        "grass shoulders without curbing",
+        "eucalyptus forest plantations",
+        "absence of visible bollards or signage"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "Spain",
+          "confidence": "medium",
+          "reasoning": "The image quality and camera generation are consistent with Spanish coverage. The road surface and the specific style of the white edge lines are very common in rural Spain, particularly in the north."
+        },
+        {
+          "country": "Portugal",
+          "confidence": "medium",
+          "reasoning": "Portugal shares very similar road infrastructure and Google camera generation with Spain. The rural road layout and asphalt quality are nearly identical to those found in northern Portugal."
+        },
+        {
+          "country": "Chile",
+          "confidence": "low",
+          "reasoning": "As a South American analog, Chile has similar rural road qualities and Google Street View coverage patterns that can mimic Southern European rural roads."
+        }
+      ],
+      "evidence": [
+        "Google Street View camera generation/image quality",
+        "Road surface texture",
+        "White edge line painting style"
+      ]
+    }
+  },
+  "hypothesis_evaluations": [
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "region_europe",
+      "confidence": "neutral",
+      "reasoning": "There is no visible text in the image to provide linguistic evidence for or against this region.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "region_south_america",
+      "confidence": "neutral",
+      "reasoning": "There is no visible text in the image to provide linguistic evidence for or against this region.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "region_oceania",
+      "confidence": "neutral",
+      "reasoning": "There is no visible text in the image to provide linguistic evidence for or against this region.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_europe",
+      "confidence": "strongly_support",
+      "reasoning": "The landscape is dominated by extensive Eucalyptus plantations, which are extremely common in the Atlantic regions of Europe, specifically Portugal and Spain (Galicia). The combination of these plantations with deciduous trees in a dormant winter state and the specific lush, green roadside verge is highly characteristic of the Iberian Peninsula's Atlantic coast.",
+      "key_evidence": [
+        "Eucalyptus globulus plantations",
+        "Dormant deciduous broadleaf trees",
+        "Atlantic temperate undergrowth"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_south_america",
+      "confidence": "support",
+      "reasoning": "Eucalyptus is widely naturalized and planted for timber in South America (e.g., Brazil, Chile, Uruguay). The temperate climate and vegetation are compatible, though the specific mix of dormant deciduous trees and the road-side hedge structure is more typical of European rural landscapes.",
+      "key_evidence": [
+        "Eucalyptus plantations",
+        "Temperate climate vegetation"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_oceania",
+      "confidence": "support",
+      "reasoning": "Eucalyptus is native to Oceania and ubiquitous. However, the presence of deciduous trees in a winter state (bare branches) is less common in the primary Eucalyptus-dominated regions of Australia, though it occurs in temperate zones like Tasmania or Victoria.",
+      "key_evidence": [
+        "Native Eucalyptus species",
+        "Temperate deciduous elements"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_europe",
+      "confidence": "support",
+      "reasoning": "The image quality and camera generation are consistent with standard Google Street View coverage in Europe. The road surface and edge quality are typical for rural European secondary roads.",
+      "key_evidence": [
+        "camera generation",
+        "road surface quality"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_south_america",
+      "confidence": "support",
+      "reasoning": "The camera generation is compatible with coverage found in South American countries like Chile or Brazil. The general road infrastructure is generic enough to be found in these regions.",
+      "key_evidence": [
+        "camera generation"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_oceania",
+      "confidence": "low",
+      "reasoning": "While the camera generation is compatible, the specific combination of road edge wear and the lack of typical Australian/NZ rural road markers makes this less likely than Europe or South America.",
+      "key_evidence": [
+        "camera generation"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_spain",
+      "confidence": "support",
+      "reasoning": "The image quality and camera generation are consistent with Google's coverage in Spain. The road surface and general infrastructure are compatible, though no unique Spanish bollards or poles are visible in this specific frame.",
+      "key_evidence": [
+        "camera generation",
+        "road surface quality"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_portugal",
+      "confidence": "support",
+      "reasoning": "The camera generation and image quality are very similar to Spain. The rural road infrastructure is highly compatible with Portuguese regional roads, though it lacks the specific Portuguese bollards that would make it 'strongly support'.",
+      "key_evidence": [
+        "camera generation",
+        "road surface quality"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_chile",
+      "confidence": "low",
+      "reasoning": "While Chile has similar rural roads and camera coverage, the specific hue and clarity of the image are more characteristic of European Gen 3/4 coverage. It remains a possibility as a cross-continent analog.",
+      "key_evidence": [
+        "camera generation"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_uruguay",
+      "confidence": "low",
+      "reasoning": "Compatible with general Google coverage in the region, but the road quality and lack of specific South American utility pole styles make it less likely than the Iberian candidates.",
+      "key_evidence": [
+        "camera generation"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_brazil",
+      "confidence": "low",
+      "reasoning": "While Brazil has extensive coverage, the specific road texture and the absence of typical Brazilian rural utility poles (concrete with specific hole patterns) make this less likely.",
+      "key_evidence": [
+        "camera generation"
+      ]
+    }
+  ],
+  "candidate_pool": [
+    "Spain",
+    "Portugal",
+    "Chile",
+    "Uruguay",
+    "Brazil"
+  ],
+  "rag_findings": [
+    {
+      "kind": "tournament_match",
+      "country": "Uruguay",
+      "detail": "The landscape, specifically the dense eucalyptus plantations and the style of the road infrastructure, is highly characteristic of northern Spain. Specialist evidence notes that the image quality and general infrastructure are more consistent with Spain than Uruguay.",
+      "opponent": "Spain",
+      "winner": "Spain"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Chile",
+      "detail": "The image quality and camera generation are highly characteristic of European coverage, specifically matching the profile of Portugal as noted in the specialist evidence. The rural road infrastructure and vegetation are more consistent with Portuguese regional roads than Chilean ones.",
+      "opponent": "Portugal",
+      "winner": "Portugal"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Portugal",
+      "detail": "The landscape, specifically the eucalyptus plantations and the road markings (white outer lines and a solid white center line), are highly characteristic of rural Galicia in Spain. While Portugal is similar, the specific combination of road surface quality and vegetation patterns aligns slightly better with Spanish regional road standards.",
+      "opponent": "Spain",
+      "winner": "Spain"
+    }
+  ],
+  "rag_refs_seen": [],
+  "road_filter_warnings": [],
+  "tournament_log": [
+    {
+      "round_label": "semi-1",
+      "country_a": "Spain",
+      "country_b": "Uruguay",
+      "pool_rank_a": 0,
+      "pool_rank_b": 3,
+      "winner": "Spain",
+      "reasoning": "The landscape, specifically the dense eucalyptus plantations and the style of the road infrastructure, is highly characteristic of northern Spain. Specialist evidence notes that the image quality and general infrastructure are more consistent with Spain than Uruguay.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "semi-2",
+      "country_a": "Portugal",
+      "country_b": "Chile",
+      "pool_rank_a": 1,
+      "pool_rank_b": 2,
+      "winner": "Portugal",
+      "reasoning": "The image quality and camera generation are highly characteristic of European coverage, specifically matching the profile of Portugal as noted in the specialist evidence. The rural road infrastructure and vegetation are more consistent with Portuguese regional roads than Chilean ones.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "final",
+      "country_a": "Spain",
+      "country_b": "Portugal",
+      "pool_rank_a": 0,
+      "pool_rank_b": 1,
+      "winner": "Spain",
+      "reasoning": "The landscape, specifically the eucalyptus plantations and the road markings (white outer lines and a solid white center line), are highly characteristic of rural Galicia in Spain. While Portugal is similar, the specific combination of road surface quality and vegetation patterns aligns slightly better with Spanish regional road standards.",
+      "agreement": "agree"
+    }
+  ],
+  "country_result": "Country: Spain\nCoordinates: 42.65, -8.25\nReasoning: The landscape, specifically the eucalyptus plantations and the road markings (white outer lines and a solid white center line), are highly characteristic of rural Galicia in Spain. While Portugal is similar, the specific combination of road surface quality and vegetation patterns aligns slightly better with Spanish regional road standards.\n\nTournament:\n  semi-1: Spain vs Uruguay → Spain\n  semi-2: Portugal vs Chile → Portugal\n  final: Spain vs Portugal → Spain",
+  "coordinates": {
+    "lat": 42.65,
+    "lng": -8.25
+  },
+  "final_reasoning": "The landscape, specifically the eucalyptus plantations and the road markings (white outer lines and a solid white center line), are highly characteristic of rural Galicia in Spain. While Portugal is similar, the specific combination of road surface quality and vegetation patterns aligns slightly better with Spanish regional road standards."
+}

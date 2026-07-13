@@ -1,0 +1,98 @@
+{
+  "image_id": "sFHfIZ209HMmIVTP_3",
+  "truth_country": "south africa",
+  "pred_country": "namibia",
+  "is_correct": false,
+  "candidate_pool": [
+    "Namibia",
+    "Australia",
+    "Botswana",
+    "South Africa",
+    "Argentina",
+    "USA"
+  ],
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": true,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "role_adherence_notes": {
+      "linguistic": "Correctly identified the absence of visible text and remained within the linguistic domain.",
+      "landscape": "Analyzed terrain, soil color, and vegetation density consistent with landscape expertise.",
+      "botanics": "Discussed xeric shrubland and scrub density, staying within botanical scope.",
+      "regulatory": "Focused on road markings, bollards, and utility poles, which are regulatory/infrastructure cues.",
+      "meta": "Synthesized cross-domain evidence (infrastructure + landscape) to form a final hypothesis."
+    },
+    "argumentative_quality": {
+      "linguistic": "normal",
+      "landscape": "strong",
+      "botanics": "strong",
+      "regulatory": "strong",
+      "meta": "very_strong"
+    },
+    "constructive_synthesis": true,
+    "overall_verdict_notes": "The pipeline correctly identified the region (Southern Africa) and the specific visual cue (red/white bollard) that distinguishes the candidates. However, the agents and the tournament judge failed to distinguish between Namibia and South Africa, incorrectly favoring Namibia despite the ground truth being South Africa. The reasoning relied heavily on the bollard being 'characteristic' of Namibia, ignoring that it is a shared regional standard.",
+    "role_adherence_score": {
+      "linguistic": 1.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.9,
+      "meta": 0.9
+    },
+    "argumentative_quality_score": {
+      "linguistic": 0.5,
+      "landscape": 0.8,
+      "botanics": 0.8,
+      "regulatory": 0.8,
+      "meta": 0.9
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.0,
+      "botanics": 0.0,
+      "regulatory": 0.0,
+      "meta": 0.0
+    },
+    "hallucination_examples": {
+      "linguistic": [],
+      "landscape": [],
+      "botanics": [],
+      "regulatory": [],
+      "meta": []
+    },
+    "visual_consistency_score": {
+      "linguistic": 1.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.9,
+      "meta": 0.9
+    },
+    "visual_consistency_notes": {
+      "linguistic": "Accurately noted no text.",
+      "landscape": "Accurately described the arid scrub and flat terrain.",
+      "botanics": "Accurately described the xeric vegetation.",
+      "regulatory": "Accurately described the red/white bollard and yellow shoulder lines.",
+      "meta": "Accurately described the utility poles."
+    },
+    "confidence_calibration": {
+      "linguistic": 0.5,
+      "landscape": 0.25,
+      "botanics": 0.25,
+      "regulatory": 0.25,
+      "meta": 0.25
+    },
+    "tournament_failure": {
+      "truth_in_pool": true,
+      "truth_lost_to": "Namibia",
+      "failure_match_round": "final",
+      "failure_reason": "judge_misjudgment",
+      "failure_reasoning": "The truth (South Africa) was in the pool and reached the final. The judge chose Namibia based on the red/white bollard, claiming it was a 'strong indicator' for Namibia. However, this bollard is a shared regional standard (SADC) and not unique to Namibia. The judge had comparable evidence for both sides (landscape, poles) but made a defensible-on-paper decision that contradicted the ground truth, likely due to over-weighting a non-discriminative feature.",
+      "counterfactual_winnable": true
+    }
+  },
+  "validation_error": "1 validation error for JudgeVerdict\noverall_verdict_notes\n  String should have at most 400 characters [type=string_too_long, input_value=\"The pipeline correctly i...ared regional standard.\", input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_too_long"
+}

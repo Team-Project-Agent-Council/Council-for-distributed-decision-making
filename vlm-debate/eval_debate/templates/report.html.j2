@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VLM Council Debate Evaluation Report</title>
+<style>
+  :root {
+    --bg: #FFFFFF;
+    --fg: #222222;
+    --muted: #666666;
+    --border: #DDDDDD;
+    --accent: #4C72B0;
+    --success: #55A868;
+    --error: #C44E52;
+    --warning: #DD8452;
+    --code-bg: #F4F4F4;
+    --side-bg: #FAFAFA;
+  }
+  [data-theme="dark"] {
+    --bg: #1A1A1A;
+    --fg: #E5E5E5;
+    --muted: #999999;
+    --border: #333333;
+    --accent: #6FA0D6;
+    --success: #6FBE82;
+    --error: #DA6B6E;
+    --warning: #E89A6E;
+    --code-bg: #2A2A2A;
+    --side-bg: #222222;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                 "Helvetica Neue", Arial, sans-serif;
+    color: var(--fg);
+    background: var(--bg);
+    line-height: 1.55;
+  }
+  .layout { display: flex; min-height: 100vh; }
+  nav.toc {
+    width: 250px;
+    flex: 0 0 250px;
+    background: var(--side-bg);
+    border-right: 1px solid var(--border);
+    padding: 1.2rem 1rem;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    font-size: 0.9rem;
+  }
+  nav.toc h2 {
+    font-size: 0.95rem;
+    margin: 0 0 0.6rem 0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+  }
+  nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
+  nav.toc li { margin: 0.25rem 0; }
+  nav.toc a {
+    color: var(--fg);
+    text-decoration: none;
+    border-left: 2px solid transparent;
+    padding-left: 0.5rem;
+    display: block;
+  }
+  nav.toc a:hover { border-left-color: var(--accent); }
+  nav.toc a.active { border-left-color: var(--accent); color: var(--accent); }
+  main {
+    flex: 1;
+    max-width: 1100px;
+    padding: 1.5rem 2rem 4rem 2rem;
+  }
+  h1 { font-size: 1.8rem; margin-top: 0; }
+  h2 {
+    font-size: 1.35rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.3rem;
+    margin-top: 2rem;
+  }
+  h3 { font-size: 1.1rem; }
+  details {
+    margin: 0.75rem 0;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 0.5rem 0.75rem;
+    background: var(--side-bg);
+  }
+  details > summary {
+    cursor: pointer;
+    font-weight: 600;
+    margin: -0.5rem -0.75rem;
+    padding: 0.5rem 0.75rem;
+  }
+  details[open] > summary { border-bottom: 1px solid var(--border); margin-bottom: 0.5rem; }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 0.6rem 0;
+    font-size: 0.92rem;
+  }
+  th, td {
+    border: 1px solid var(--border);
+    padding: 0.45rem 0.6rem;
+    text-align: left;
+  }
+  th {
+    background: var(--side-bg);
+    cursor: pointer;
+    user-select: none;
+  }
+  th.sort-asc::after { content: " ^"; color: var(--muted); }
+  th.sort-desc::after { content: " v"; color: var(--muted); }
+  img.figure {
+    max-width: 100%;
+    height: auto;
+    margin: 0.6rem 0;
+    border: 1px solid var(--border);
+    background: white;
+  }
+  .caption {
+    font-size: 0.85rem;
+    color: var(--muted);
+    font-style: italic;
+    margin-bottom: 1rem;
+  }
+  .headline-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 0.6rem;
+    margin: 1rem 0;
+  }
+  .stat {
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 0.6rem 0.8rem;
+    background: var(--side-bg);
+  }
+  .stat .label { font-size: 0.78rem; color: var(--muted); text-transform: uppercase; }
+  .stat .value { font-size: 1.4rem; font-weight: 600; color: var(--accent); }
+  .badge {
+    display: inline-block;
+    padding: 0.1rem 0.5rem;
+    border-radius: 3px;
+    font-size: 0.78rem;
+    background: var(--code-bg);
+    color: var(--fg);
+  }
+  .badge.ok { background: var(--success); color: white; }
+  .badge.bad { background: var(--error); color: white; }
+  .badge.warn { background: var(--warning); color: white; }
+  blockquote {
+    border-left: 3px solid var(--accent);
+    margin: 0.8rem 0;
+    padding: 0.4rem 0.8rem;
+    background: var(--code-bg);
+  }
+  .controls {
+    position: fixed;
+    top: 0.6rem;
+    right: 0.8rem;
+    display: flex;
+    gap: 0.4rem;
+    z-index: 100;
+  }
+  .controls button {
+    padding: 0.3rem 0.7rem;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--fg);
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 0.85rem;
+  }
+  .controls button:hover { background: var(--side-bg); }
+  code { font-family: "SFMono-Regular", Menlo, monospace; font-size: 0.88rem;
+         background: var(--code-bg); padding: 0.05rem 0.3rem; border-radius: 2px; }
+  .meta { font-size: 0.85rem; color: var(--muted); }
+  .small-table { font-size: 0.85rem; }
+  details.example { background: var(--bg); }
+</style>
+</head>
+<body>
+<div class="controls">
+  <button onclick="toggleTheme()">🌓 theme</button>
+  <button onclick="expandAll(true)">expand all</button>
+  <button onclick="expandAll(false)">collapse all</button>
+</div>
+<div class="layout">
+<nav class="toc">
+  <h2>Sections</h2>
+  <ul>
+    <li><a href="#headline">Headline metrics</a></li>
+    {% if geo %}<li><a href="#geo">1. Ground-truth statistics</a></li>{% endif %}
+    {% if debate_stats %}<li><a href="#dynamics">2. Approach dynamics</a></li>{% endif %}
+    {% if judge and not judge._error is defined %}<li><a href="#judge">3. LLM-as-judge verdicts</a></li>{% endif %}
+  </ul>
+  <p class="meta">
+    Pairwise adversarial debate approach<br>
+    {% if geo and geo.n_total is defined %}{{ geo.n_total }} images{% endif %}
+  </p>
+</nav>
+
+<main>
+<h1 id="headline">VLM Council Debate Evaluation Report</h1>
+
+{# ===== HEADLINE ===== #}
+<div class="headline-grid">
+  {% if geo %}
+  <div class="stat">
+    <div class="label">Country accuracy</div>
+    <div class="value">{% if geo.country_accuracy is not none %}{{ "%.1f"|format(geo.country_accuracy * 100) }}%{% else %}n/a{% endif %}</div>
+  </div>
+  <div class="stat">
+    <div class="label">Median haversine</div>
+    <div class="value">{% if geo.haversine_km and geo.haversine_km.median is not none %}{{ "{:,.0f}".format(geo.haversine_km.median) }} km{% else %}n/a{% endif %}</div>
+  </div>
+  <div class="stat">
+    <div class="label">Images</div>
+    <div class="value">{{ geo.n_total }}</div>
+  </div>
+  {% endif %}
+  {% if debate_stats %}
+  <div class="stat">
+    <div class="label">Debate rate</div>
+    <div class="value">{% if debate_stats.debate_rate is not none %}{{ "%.1f"|format(debate_stats.debate_rate * 100) }}%{% else %}n/a{% endif %}</div>
+  </div>
+  {% endif %}
+  {% if judge and judge.per_agent %}
+  {% set aq_vals = [] %}
+  {% for a in ["linguistic","landscape","botanics","regulatory","meta"] %}
+    {% if judge.per_agent[a] and judge.per_agent[a].argument_quality_score and judge.per_agent[a].argument_quality_score.mean is not none %}
+      {% set _ = aq_vals.append(judge.per_agent[a].argument_quality_score.mean) %}
+    {% endif %}
+  {% endfor %}
+  <div class="stat">
+    <div class="label">Mean argument quality</div>
+    <div class="value">{% if aq_vals %}{{ "%.2f"|format(aq_vals|sum / aq_vals|length) }}{% else %}n/a{% endif %}</div>
+  </div>
+  {% endif %}
+</div>
+
+{# ===== GEO ===== #}
+{% if geo %}
+<h2 id="geo">1. Ground-truth statistics</h2>
+<p>Country accuracy: {% if geo.country_accuracy is not none %}<strong>{{ "%.1f"|format(geo.country_accuracy * 100) }}%</strong>
+  (95% CI {{ "%.1f"|format(geo.ci_low * 100) }}% - {{ "%.1f"|format(geo.ci_high * 100) }}%){% else %}n/a{% endif %}.</p>
+
+{% if geo.haversine_km %}
+<h3>Haversine error (km)</h3>
+<table>
+  <thead><tr><th>Statistic</th><th data-sort="num">Value (km)</th></tr></thead>
+  <tbody>
+    <tr><td>Median</td><td>{% if geo.haversine_km.median is not none %}{{ "{:,.0f}".format(geo.haversine_km.median) }}{% else %}n/a{% endif %}</td></tr>
+    <tr><td>Mean</td><td>{% if geo.haversine_km.mean is not none %}{{ "{:,.0f}".format(geo.haversine_km.mean) }}{% else %}n/a{% endif %}</td></tr>
+    <tr><td>P25</td><td>{% if geo.haversine_km.p25 is not none %}{{ "{:,.0f}".format(geo.haversine_km.p25) }}{% else %}n/a{% endif %}</td></tr>
+    <tr><td>P75</td><td>{% if geo.haversine_km.p75 is not none %}{{ "{:,.0f}".format(geo.haversine_km.p75) }}{% else %}n/a{% endif %}</td></tr>
+  </tbody>
+</table>
+{% endif %}
+
+{% if geo.north_bias_test or geo.east_bias_test %}
+<h3>Directional bias tests</h3>
+<table>
+  <thead><tr><th>Test</th><th data-sort="num">Mean</th><th data-sort="num">p-value</th><th>Significant</th><th>Interpretation</th></tr></thead>
+  <tbody>
+  {% if geo.north_bias_test %}
+    <tr>
+      <td>North bias</td>
+      <td>{% if geo.north_bias_test.mean is not none %}{{ "%.4f"|format(geo.north_bias_test.mean) }}{% else %}n/a{% endif %}</td>
+      <td>{% if geo.north_bias_test.p_value is not none %}{{ "%.4f"|format(geo.north_bias_test.p_value) }}{% else %}n/a{% endif %}</td>
+      <td>{% if geo.north_bias_test.significant %}<span class="badge bad">yes</span>{% else %}<span class="badge ok">no</span>{% endif %}</td>
+      <td>{{ geo.north_bias_test.interpretation }}</td>
+    </tr>
+  {% endif %}
+  {% if geo.east_bias_test %}
+    <tr>
+      <td>East bias</td>
+      <td>{% if geo.east_bias_test.mean is not none %}{{ "%.4f"|format(geo.east_bias_test.mean) }}{% else %}n/a{% endif %}</td>
+      <td>{% if geo.east_bias_test.p_value is not none %}{{ "%.4f"|format(geo.east_bias_test.p_value) }}{% else %}n/a{% endif %}</td>
+      <td>{% if geo.east_bias_test.significant %}<span class="badge bad">yes</span>{% else %}<span class="badge ok">no</span>{% endif %}</td>
+      <td>{{ geo.east_bias_test.interpretation }}</td>
+    </tr>
+  {% endif %}
+  </tbody>
+</table>
+{% endif %}
+
+<img class="figure" src="{{ plots_dir }}/error_distribution.png" alt="Error distribution">
+<p class="caption">Figure: lat/lng/haversine error distributions.</p>
+<img class="figure" src="{{ plots_dir }}/bearing_rose.png" alt="Bearing rose">
+<p class="caption">Figure: direction of prediction errors.</p>
+<img class="figure" src="{{ plots_dir }}/confusion_matrix.png" alt="Confusion matrix">
+<p class="caption">Figure: top confusion pairs (truth -> predicted).</p>
+
+{% if geo.top_confusions %}
+<details>
+  <summary>Top confusion pairs ({{ geo.top_confusions|length }})</summary>
+  <table class="small-table">
+    <thead><tr><th>Truth</th><th>Predicted</th><th data-sort="num">Count</th></tr></thead>
+    <tbody>
+    {% for c in geo.top_confusions[:30] %}
+      <tr><td>{{ c.truth }}</td><td>{{ c.predicted }}</td><td>{{ c.count }}</td></tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</details>
+{% endif %}
+{% endif %}
+
+{# ===== PER-AGENT ===== #}
+{% if agents %}
+<h2 id="agents">Per-agent metrics</h2>
+{% set agent_names = ["linguistic","landscape","botanics","regulatory","meta"] %}
+
+<h3>Initial round (R1) accuracy</h3>
+<table>
+  <thead><tr><th>Agent</th><th data-sort="num">Top-1</th><th data-sort="num">Top-3</th><th data-sort="num">Coverage</th><th data-sort="num">n</th></tr></thead>
+  <tbody>
+  {% for a in agent_names %}
+  {% set m = agents.initial_round[a] if agents.initial_round and a in agents.initial_round else {} %}
+    <tr>
+      <td>{{ a }}</td>
+      <td>{% if m.top1_accuracy is defined %}{{ "%.1f"|format(m.top1_accuracy * 100) }}%{% else %}-{% endif %}</td>
+      <td>{% if m.top3_hit_rate is defined %}{{ "%.1f"|format(m.top3_hit_rate * 100) }}%{% else %}-{% endif %}</td>
+      <td>{% if m.coverage is defined %}{{ "%.1f"|format(m.coverage * 100) }}%{% else %}-{% endif %}</td>
+      <td>{{ m.n if m.n is defined else 0 }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+<img class="figure" src="{{ plots_dir }}/agent_top1.png" alt="Per-agent top-1">
+<p class="caption">Figure: per-agent initial round top-1 accuracy.</p>
+
+<h3>Debate participation</h3>
+<table>
+  <thead><tr>
+    <th>Agent</th><th data-sort="num">Debated</th><th data-sort="num">Revised</th><th data-sort="num">Won</th>
+    <th data-sort="num">Correct side</th><th data-sort="num">Wrong side</th>
+    <th data-sort="num">Rev. rate</th><th data-sort="num">Win rate</th>
+  </tr></thead>
+  <tbody>
+  {% for a in agent_names %}
+  {% set d = agents.debate_participation[a] if agents.debate_participation and a in agents.debate_participation else {} %}
+    <tr>
+      <td>{{ a }}</td>
+      <td>{{ d.n_debated if d.n_debated is defined else 0 }}</td>
+      <td>{{ d.n_revised if d.n_revised is defined else 0 }}</td>
+      <td>{{ d.n_won if d.n_won is defined else 0 }}</td>
+      <td>{{ d.n_correct_side if d.n_correct_side is defined else 0 }}</td>
+      <td>{{ d.n_wrong_side if d.n_wrong_side is defined else 0 }}</td>
+      <td>{% if d.revision_rate is defined and d.revision_rate is not none %}{{ "%.1f"|format(d.revision_rate * 100) }}%{% else %}-{% endif %}</td>
+      <td>{% if d.win_rate is defined and d.win_rate is not none %}{{ "%.1f"|format(d.win_rate * 100) }}%{% else %}-{% endif %}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+{% if judge and judge.per_agent %}
+<h3>Judge per-agent scores</h3>
+<table>
+  <thead><tr>
+    <th>Agent</th><th data-sort="num">n</th>
+    <th data-sort="num">Role adher.</th>
+    <th data-sort="num">Hallucination (lower is better)</th>
+    <th data-sort="num">Arg. quality (higher is better)</th>
+    <th data-sort="num">Rev. justification (higher is better)</th>
+    <th data-sort="num">Debate contrib. (higher is better)</th>
+  </tr></thead>
+  <tbody>
+  {% for a in agent_names %}
+  {% set pa = judge.per_agent[a] if judge.per_agent and a in judge.per_agent else {} %}
+    <tr>
+      <td>{{ a }}</td>
+      <td>{{ pa.n if pa.n is defined else 0 }}</td>
+      <td>{% if pa.role_adherence_rate is defined %}{{ "%.1f"|format(pa.role_adherence_rate * 100) }}%{% else %}-{% endif %}</td>
+      <td>{% if pa.hallucination_score is defined and pa.hallucination_score.mean is not none %}<span class="badge {% if pa.hallucination_score.mean <= 0.2 %}ok{% elif pa.hallucination_score.mean <= 0.5 %}warn{% else %}bad{% endif %}">{{ "%.3f"|format(pa.hallucination_score.mean) }}</span>{% else %}-{% endif %}</td>
+      <td>{% if pa.argument_quality_score is defined and pa.argument_quality_score.mean is not none %}{{ "%.3f"|format(pa.argument_quality_score.mean) }}{% else %}-{% endif %}</td>
+      <td>{% if pa.revision_justification_score is defined and pa.revision_justification_score.mean is not none %}{{ "%.3f"|format(pa.revision_justification_score.mean) }}{% else %}-{% endif %}</td>
+      <td>{% if pa.debate_contribution_score is defined and pa.debate_contribution_score.mean is not none %}{{ "%.3f"|format(pa.debate_contribution_score.mean) }}{% else %}-{% endif %}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+<img class="figure" src="{{ plots_dir }}/judge_role_adherence.png" alt="Role adherence">
+<p class="caption">Figure: role adherence per agent.</p>
+<img class="figure" src="{{ plots_dir }}/judge_argument_quality.png" alt="Argument quality">
+<p class="caption">Figure: argument quality per agent.</p>
+<img class="figure" src="{{ plots_dir }}/judge_revision_justification.png" alt="Revision justification">
+<p class="caption">Figure: revision justification per agent.</p>
+<img class="figure" src="{{ plots_dir }}/judge_debate_contribution.png" alt="Debate contribution">
+<p class="caption">Figure: debate contribution per agent.</p>
+{% endif %}
+{% endif %}
+
+{# ===== DEBATE DYNAMICS ===== #}
+{% if debate_stats %}
+<h2 id="dynamics">2. Approach dynamics</h2>
+<p>Pairings are the adversarial exchanges triggered when agents disagree. Debate rate
+is the share of images that reached at least one debate round; revision rate is the
+share of pairings in which an agent revised its answer.</p>
+
+<div class="headline-grid">
+  <div class="stat">
+    <div class="label">Debate rate</div>
+    <div class="value">{% if debate_stats.debate_rate is not none %}{{ "%.1f"|format(debate_stats.debate_rate * 100) }}%{% else %}n/a{% endif %}</div>
+  </div>
+  <div class="stat">
+    <div class="label">Revision rate (pairings)</div>
+    <div class="value">{% if debate_stats.revision_rate_pairings is not none %}{{ "%.1f"|format(debate_stats.revision_rate_pairings * 100) }}%{% else %}n/a{% endif %}</div>
+  </div>
+  <div class="stat">
+    <div class="label">No debate</div>
+    <div class="value">{{ debate_stats.n_no_debate }}</div>
+  </div>
+  <div class="stat">
+    <div class="label">Debate 1+ round</div>
+    <div class="value">{{ debate_stats.n_debate_1plus }}</div>
+  </div>
+  <div class="stat">
+    <div class="label">Total pairings</div>
+    <div class="value">{{ debate_stats.n_total_pairings }}</div>
+  </div>
+  <div class="stat">
+    <div class="label">Mean exchanges / pairing</div>
+    <div class="value">{% if debate_stats.mean_exchanges_per_pairing is not none %}{{ "%.1f"|format(debate_stats.mean_exchanges_per_pairing) }}{% else %}n/a{% endif %}</div>
+  </div>
+</div>
+
+{% if debate_stats.rounds_distribution %}
+<h3>Rounds distribution</h3>
+<table>
+  <thead><tr><th data-sort="num">Rounds</th><th data-sort="num">Count</th><th data-sort="num">Share</th></tr></thead>
+  <tbody>
+  {% set total = debate_stats.n_total %}
+  {% for k, v in debate_stats.rounds_distribution.items()|sort %}
+    <tr>
+      <td>{{ k }}</td>
+      <td>{{ v }}</td>
+      <td>{% if total %}{{ "%.1f"|format(v / total * 100) }}%{% else %}n/a{% endif %}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endif %}
+
+{% if debate_stats.termination_reasons %}
+<h3>Termination reasons</h3>
+<table>
+  <thead><tr><th>Reason</th><th data-sort="num">Count</th></tr></thead>
+  <tbody>
+  {% for reason, count in debate_stats.termination_reasons.items() %}
+    <tr><td>{{ reason }}</td><td>{{ count }}</td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endif %}
+
+<img class="figure" src="{{ plots_dir }}/agent_debate_stats.png" alt="Per-agent debate stats">
+<p class="caption">Figure: per-agent debate participation.</p>
+
+{% if dynamics and not dynamics._error is defined %}
+<h3>Convergence &amp; ground-truth effect</h3>
+<div class="headline-grid">
+  {% if dynamics.convergence and dynamics.convergence.converged_rate is not none %}
+  <div class="stat">
+    <div class="label">Agents converged</div>
+    <div class="value">{{ "%.1f"|format(dynamics.convergence.converged_rate * 100) }}%</div>
+  </div>
+  {% endif %}
+  {% if dynamics.round1_majority_matches_final and dynamics.round1_majority_matches_final.rate is not none %}
+  <div class="stat">
+    <div class="label">Final = Round-1 majority</div>
+    <div class="value">{{ "%.1f"|format(dynamics.round1_majority_matches_final.rate * 100) }}%</div>
+  </div>
+  {% endif %}
+</div>
+{% if dynamics.gt_pairing_classification and dynamics.gt_pairing_classification.counts %}
+{% set gtp = dynamics.gt_pairing_classification %}
+<h4>Ground-truth pairing classification ({{ gtp.n_pairings }} debated pairings)</h4>
+<table>
+  <thead><tr><th>Category</th><th data-sort="num">Count</th><th data-sort="num">Share</th></tr></thead>
+  <tbody>
+  {% set labels = {"CONSTRUCTIVE":"Constructive (truth-bearer convinced the wrong agent)","DESTRUCTIVE":"Destructive (truth-bearer abandoned the truth)","STAND_CORRECT":"Stand-correct (truth-bearer held the line)","BOTH_WRONG_NEUTRAL":"Both wrong (no truth-bearer)","BOTH_CORRECT":"Both correct"} %}
+  {% for key in ["CONSTRUCTIVE","DESTRUCTIVE","STAND_CORRECT","BOTH_WRONG_NEUTRAL","BOTH_CORRECT"] %}
+  {% if key in gtp.counts %}
+    <tr>
+      <td>{{ labels[key] }}</td>
+      <td>{{ gtp.counts[key] }}</td>
+      <td>{% if gtp.n_pairings %}{{ "%.1f"|format(gtp.counts[key] / gtp.n_pairings * 100) }}%{% else %}-{% endif %}</td>
+    </tr>
+  {% endif %}
+  {% endfor %}
+  </tbody>
+</table>
+{% endif %}
+{% endif %}
+{% endif %}
+
+{# ===== LLM JUDGE ===== #}
+{% if judge and not judge._error is defined %}
+<h2 id="judge">3. LLM-as-judge verdicts</h2>
+<p>Verdicts: {{ judge.n_with_verdict }} / {{ judge.n_total_judge_files }}.</p>
+
+<h3>System-level scores</h3>
+<table>
+  <thead><tr><th>Metric</th><th data-sort="num">Mean</th><th data-sort="num">Median</th><th data-sort="num">Stdev</th><th data-sort="num">n</th></tr></thead>
+  <tbody>
+  {% if judge.judge_synthesis_quality %}
+  {% set syn = judge.judge_synthesis_quality %}
+    <tr>
+      <td>Judge synthesis quality</td>
+      <td>{% if syn.mean is not none %}{{ "%.3f"|format(syn.mean) }}{% else %}-{% endif %}</td>
+      <td>{% if syn.median is not none %}{{ "%.3f"|format(syn.median) }}{% else %}-{% endif %}</td>
+      <td>{% if syn.stdev is not none %}{{ "%.3f"|format(syn.stdev) }}{% else %}-{% endif %}</td>
+      <td>{{ syn.n }}</td>
+    </tr>
+  {% endif %}
+  {% if judge.moderator_pairing_quality_score %}
+  {% set mod = judge.moderator_pairing_quality_score %}
+    <tr>
+      <td>Moderator pairing quality</td>
+      <td>{% if mod.mean is not none %}{{ "%.3f"|format(mod.mean) }}{% else %}-{% endif %}</td>
+      <td>{% if mod.median is not none %}{{ "%.3f"|format(mod.median) }}{% else %}-{% endif %}</td>
+      <td>{% if mod.stdev is not none %}{{ "%.3f"|format(mod.stdev) }}{% else %}-{% endif %}</td>
+      <td>{{ mod.n }}</td>
+    </tr>
+  {% endif %}
+  </tbody>
+</table>
+
+<img class="figure" src="{{ plots_dir }}/judge_synthesis_by_debate.png" alt="Synthesis by debate">
+<p class="caption">Figure: judge synthesis quality, debate vs. no-debate images.</p>
+
+{% set agent_names = ["linguistic","landscape","botanics","regulatory","meta"] %}
+{% set has_hall = [] %}
+{% for a in agent_names %}
+  {% set pa = judge.per_agent[a] if judge.per_agent and a in judge.per_agent else {} %}
+  {% if pa.hallucination_examples and pa.hallucination_examples|length > 0 %}{% set _ = has_hall.append(a) %}{% endif %}
+{% endfor %}
+{% if has_hall %}
+<h3>Hallucination examples</h3>
+{% for a in agent_names %}
+{% set pa = judge.per_agent[a] if judge.per_agent and a in judge.per_agent else {} %}
+{% if pa.hallucination_examples and pa.hallucination_examples|length > 0 %}
+<details class="example">
+  <summary>{{ a }} - {{ pa.hallucination_examples|length }} flagged claims</summary>
+  <table class="small-table">
+    <thead><tr><th>Image</th><th data-sort="num">Score</th><th>Hallucinated claim</th></tr></thead>
+    <tbody>
+    {% for ex in pa.hallucination_examples %}
+      <tr>
+        <td>{{ ex.image_id }}</td>
+        <td>{{ "%.2f"|format(ex.score) if ex.score is not none else "-" }}</td>
+        <td>{{ ex.example }}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</details>
+{% endif %}
+{% endfor %}
+{% endif %}
+{% endif %}
+
+{% if world_maps %}
+<h2 id="world-maps">Geographic world maps</h2>
+{% if heatmap %}
+<p>Per-country accuracy across {{ heatmap.n_countries_with_truth }} countries with truth.
+Macro-averaged TPR:
+<strong>{% if heatmap.macro_avg_tpr is not none %}{{ "%.1f"|format(heatmap.macro_avg_tpr * 100) }}%{% else %}n/a{% endif %}</strong>.</p>
+{% endif %}
+{% for m in world_maps %}
+<img class="figure" src="{{ m.file }}" alt="{{ m.caption }}">
+<p class="caption"><em>{{ m.caption }}</em></p>
+{% endfor %}
+{% endif %}
+
+</main>
+</div>
+
+<script>
+function toggleTheme() {
+  const r = document.documentElement;
+  r.dataset.theme = r.dataset.theme === "dark" ? "light" : "dark";
+}
+function expandAll(open) {
+  document.querySelectorAll("details").forEach(d => { d.open = open; });
+}
+// Sortable tables: any <th> click sorts column. data-sort="num" forces numeric.
+document.querySelectorAll("table").forEach(table => {
+  table.querySelectorAll("th").forEach((th, idx) => {
+    th.addEventListener("click", () => {
+      const tbody = table.tBodies[0];
+      if (!tbody) return;
+      const rows = Array.from(tbody.rows);
+      const numeric = th.dataset.sort === "num";
+      const asc = !th.classList.contains("sort-asc");
+      rows.sort((a, b) => {
+        const x = a.cells[idx]?.innerText || "";
+        const y = b.cells[idx]?.innerText || "";
+        if (numeric) {
+          const xn = parseFloat(x.replace(/[^\d.\-]/g, "")) || 0;
+          const yn = parseFloat(y.replace(/[^\d.\-]/g, "")) || 0;
+          return asc ? xn - yn : yn - xn;
+        }
+        return asc ? x.localeCompare(y) : y.localeCompare(x);
+      });
+      rows.forEach(r => tbody.appendChild(r));
+      table.querySelectorAll("th").forEach(t => t.classList.remove("sort-asc", "sort-desc"));
+      th.classList.toggle("sort-asc", asc);
+      th.classList.toggle("sort-desc", !asc);
+    });
+  });
+});
+// Scroll-spy: highlight active TOC entry
+const sections = Array.from(document.querySelectorAll("main h2"));
+const tocLinks = Array.from(document.querySelectorAll("nav.toc a"));
+function onScroll() {
+  let current = null;
+  for (const s of sections) {
+    if (s.getBoundingClientRect().top < 100) current = s.id;
+  }
+  tocLinks.forEach(a => a.classList.toggle("active",
+    a.getAttribute("href") === "#" + current));
+}
+window.addEventListener("scroll", onScroll, { passive: true });
+onScroll();
+</script>
+</body>
+</html>

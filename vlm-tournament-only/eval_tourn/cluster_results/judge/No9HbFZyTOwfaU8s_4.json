@@ -1,0 +1,100 @@
+{
+  "image_id": "No9HbFZyTOwfaU8s_4",
+  "truth_country": "bulgaria",
+  "pred_country": "ukraine",
+  "is_correct": false,
+  "candidate_pool": [
+    "Ukraine",
+    "Argentina",
+    "Russia",
+    "Romania",
+    "United States",
+    "USA"
+  ],
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": false,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "role_adherence_notes": {
+      "linguistic": "The agent provided an empty candidate list and no evidence, failing to perform its role.",
+      "landscape": "Stayed within terrain and vegetation analysis.",
+      "botanics": "Stayed within plant species and agricultural patterns.",
+      "regulatory": "Stayed within road infrastructure analysis.",
+      "meta": "Stayed within camera hardware and image artifact analysis."
+    },
+    "argumentative_quality": {
+      "linguistic": "very_weak",
+      "landscape": "strong",
+      "botanics": "strong",
+      "regulatory": "normal",
+      "meta": "weak"
+    },
+    "constructive_synthesis": false,
+    "overall_verdict_notes": "The pipeline failed because the linguistic agent provided no input, and the meta agent relied on a hallucinated 'camera blur' artifact to distinguish between Ukraine and Russia. The landscape and botanics agents correctly identified the region as the Pontic-Caspian steppe but could not distinguish the specific country, leading to a 50/50 split that the meta agent resolved incorrectly.",
+    "role_adherence_score": {
+      "linguistic": 0.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.8,
+      "meta": 0.8
+    },
+    "argumentative_quality_score": {
+      "linguistic": 0.0,
+      "landscape": 0.8,
+      "botanics": 0.8,
+      "regulatory": 0.6,
+      "meta": 0.3
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.0,
+      "botanics": 0.0,
+      "regulatory": 0.0,
+      "meta": 0.75
+    },
+    "hallucination_examples": {
+      "linguistic": [],
+      "landscape": [],
+      "botanics": [],
+      "regulatory": [],
+      "meta": [
+        "claimed 'distinct halo or blur pattern... highly diagnostic for this region' (Google camera artifacts are not country-specific)",
+        "claimed 'specific tone of the asphalt... slightly more characteristic of the Romanian/Moldovan region' (unsupported visual claim)"
+      ]
+    },
+    "visual_consistency_score": {
+      "linguistic": 0.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.8,
+      "meta": 0.2
+    },
+    "visual_consistency_notes": {
+      "linguistic": "No claims made.",
+      "landscape": "Accurately described the steppe terrain and sunflower fields.",
+      "botanics": "Accurately identified sunflower monoculture.",
+      "regulatory": "Accurately described the cracked, unmarked road.",
+      "meta": "Invented a diagnostic camera artifact that does not exist in the image."
+    },
+    "confidence_calibration": {
+      "linguistic": 0.0,
+      "landscape": 0.5,
+      "botanics": 0.5,
+      "regulatory": 0.5,
+      "meta": 0.2
+    },
+    "tournament_failure": {
+      "truth_in_pool": false,
+      "truth_lost_to": null,
+      "failure_match_round": null,
+      "failure_reason": "agent_misled_pre_pool",
+      "failure_reasoning": "The ground truth (Bulgaria) was not included in the candidate pool. The landscape and botanics agents failed to consider Bulgaria, likely due to the 'steppe' bias, while the meta agent's hallucinated camera evidence incorrectly favored Ukraine over Romania/Moldova.",
+      "counterfactual_winnable": false
+    }
+  }
+}

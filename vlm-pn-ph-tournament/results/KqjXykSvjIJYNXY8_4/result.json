@@ -1,0 +1,700 @@
+{
+  "image_path": "/pfs/data6/home/ma/ma_ma/ma_lweisssc/llm_council_agent_orchestration_tests/clean_images_GeoRC_500/KqjXykSvjIJYNXY8_4.png",
+  "model": "google/gemma-4-31B-it",
+  "judge_model": "google/gemma-4-31B-it",
+  "timing": {
+    "total_seconds": 82.2
+  },
+  "assessments": {
+    "linguistic": {
+      "agent_name": "linguistic",
+      "candidates": [],
+      "evidence": []
+    },
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Thailand",
+          "confidence": "high",
+          "reasoning": "The combination of narrow paved rural roads, aquaculture ponds (fish/shrimp farms), and specific tropical vegetation is highly characteristic of the Thai lowlands. The settlement style with corrugated metal sheds is very common in rural Thailand."
+        },
+        {
+          "country": "Vietnam",
+          "confidence": "high",
+          "reasoning": "The landscape of narrow dyke roads separating aquaculture ponds is a staple of the Mekong Delta. The vegetation and humid tropical climate are identical to Thailand, making it an equally likely candidate based on geography alone."
+        },
+        {
+          "country": "Cambodia",
+          "confidence": "medium",
+          "reasoning": "Shares the same lowland tropical geography and aquaculture patterns as Thailand and Vietnam. The rural infrastructure and vegetation are consistent with the Cambodian countryside."
+        },
+        {
+          "country": "Indonesia",
+          "confidence": "medium",
+          "reasoning": "Similar tropical wetland and aquaculture landscapes exist across the Indonesian archipelago, particularly in coastal Java or Sumatra, though the road style is slightly more typical of mainland SE Asia."
+        },
+        {
+          "country": "Brazil",
+          "confidence": "speculative",
+          "reasoning": "As a global analog, the coastal wetlands or Pantanal regions can feature similar tropical grasses, humid climates, and small-scale aquaculture ponds, though the road and utility pole style differ."
+        }
+      ],
+      "evidence": [
+        "Tropical lowland terrain",
+        "Aquaculture ponds/fish farms",
+        "Narrow paved rural road",
+        "Humid tropical vegetation",
+        "Corrugated metal rural structures",
+        "Overhead utility lines on concrete poles"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Thailand",
+          "confidence": "medium",
+          "reasoning": "The combination of tropical wetland grasses and the presence of coconut palms (Cocos nucifera) in the background is highly characteristic of coastal aquaculture regions in Southeast Asia, particularly Thailand."
+        },
+        {
+          "country": "Vietnam",
+          "confidence": "medium",
+          "reasoning": "The vegetation profile, featuring dense tropical riparian grasses and palms alongside shrimp/fish ponds, is nearly identical to the Mekong Delta region. It is botanically indistinguishable from Thailand in this specific biome."
+        },
+        {
+          "country": "Indonesia",
+          "confidence": "medium",
+          "reasoning": "The tropical humid climate and the specific mix of opportunistic grasses and palms are consistent with coastal areas of Java or Sumatra."
+        },
+        {
+          "country": "Brazil",
+          "confidence": "low",
+          "reasoning": "As a global analog, the coastal mangroves and tropical wetlands of Brazil can exhibit similar grass and palm structures, though the specific arrangement of aquaculture vegetation is more typical of Asia."
+        }
+      ],
+      "evidence": [
+        "Cocos nucifera (Coconut Palm)",
+        "Tropical riparian grasses",
+        "Aquaculture-associated wetland vegetation",
+        "Southeast Asian tropical humid biome"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Thailand",
+          "confidence": "medium",
+          "reasoning": "The combination of narrow concrete rural roads, specific square-profile concrete utility poles with attached grey electrical boxes, and the surrounding aquaculture pond landscape is very common in rural Thailand."
+        },
+        {
+          "country": "Vietnam",
+          "confidence": "medium",
+          "reasoning": "Similar narrow concrete rural paths and concrete utility pole infrastructure are prevalent in the Mekong Delta region, often adjacent to fish ponds."
+        },
+        {
+          "country": "Indonesia",
+          "confidence": "low",
+          "reasoning": "Rural infrastructure featuring concrete poles and narrow paved access roads in coastal or wetland areas is consistent with Indonesian rural development."
+        },
+        {
+          "country": "Brazil",
+          "confidence": "speculative",
+          "reasoning": "Following the global analog rule, rural concrete utility poles and narrow asphalt/concrete access roads in tropical agricultural areas can appear visually similar to Southeast Asian infrastructure."
+        }
+      ],
+      "evidence": [
+        "Square-profile concrete utility poles",
+        "Grey electrical junction boxes mounted on poles",
+        "Narrow concrete/asphalt rural access road",
+        "Lack of road markings or formal signage",
+        "Unimproved grass/dirt shoulders"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "Thailand",
+          "confidence": "medium",
+          "reasoning": "The concrete utility poles with a specific square cross-section and the style of the electrical boxes mounted on them are very common in rural Thailand. The overall image quality and camera height are consistent with Thai rural coverage."
+        },
+        {
+          "country": "Cambodia",
+          "confidence": "medium",
+          "reasoning": "Shares very similar concrete utility pole designs and rural infrastructure styles with Thailand, making it a strong regional candidate."
+        },
+        {
+          "country": "Vietnam",
+          "confidence": "low",
+          "reasoning": "Similar concrete pole infrastructure is used in rural Vietnam, though the specific mounting of the electrical boxes differs slightly from the most common Vietnamese patterns."
+        },
+        {
+          "country": "Indonesia",
+          "confidence": "speculative",
+          "reasoning": "As a cross-continent analog, Indonesia uses similar concrete utility poles in rural areas, though the specific pole shape and wiring layout are more characteristic of mainland Southeast Asia."
+        }
+      ],
+      "evidence": [
+        "square-profile concrete utility poles",
+        "grey electrical junction boxes mounted on poles",
+        "Google Street View camera height and image quality consistent with SE Asia rural coverage"
+      ]
+    }
+  },
+  "progressive_narrowing": {
+    "region_consensus": false,
+    "confirmed_region": "Southeast Asia",
+    "runner_up_region": "South America",
+    "surviving_regions": [
+      "Southeast Asia",
+      "South America"
+    ],
+    "proposed_regions": [
+      "Southeast Asia",
+      "South America"
+    ],
+    "region_candidates": {
+      "Southeast Asia": {
+        "Thailand": 4,
+        "Vietnam": 3,
+        "Cambodia": 2,
+        "Indonesia": 4
+      },
+      "South America": {
+        "Brazil": 3
+      }
+    },
+    "region_decision_reasoning": "Southeast Asia received strong support from landscape, regulatory, and meta agents, particularly regarding the specific style of concrete utility poles and aquaculture infrastructure. South America was considered a possibility due to the tropical biome, but it received a contradiction from the meta agent regarding architectural and infrastructure details.",
+    "path": "B"
+  },
+  "road_evidence": {
+    "outside_color": "none",
+    "inside_color": "none",
+    "driving_side": "UNCLEAR",
+    "driving_side_basis": "none"
+  },
+  "country_assessments": {
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Thailand",
+          "confidence": "high",
+          "reasoning": "The landscape features typical aquaculture ponds and narrow concrete rural roads common in the Mekong Delta and coastal plains. The vegetation and settlement style are highly characteristic of rural Thai agricultural zones."
+        },
+        {
+          "country": "Vietnam",
+          "confidence": "high",
+          "reasoning": "The flat, low-lying terrain with extensive fish/shrimp ponds and narrow paved paths is a hallmark of the Mekong Delta region. It is geographically nearly identical to the Thai coastal plains in this context."
+        },
+        {
+          "country": "Cambodia",
+          "confidence": "medium",
+          "reasoning": "Similar low-lying alluvial plains and aquaculture practices are found in the Tonle Sap basin and coastal areas, sharing the same tropical wet climate as its neighbors."
+        },
+        {
+          "country": "Colombia",
+          "confidence": "low",
+          "reasoning": "Low-lying coastal wetlands or river delta regions in Colombia can exhibit similar tropical greenery and aquaculture, serving as a South American analog to the Southeast Asian delta landscapes."
+        },
+        {
+          "country": "Brazil",
+          "confidence": "low",
+          "reasoning": "Certain coastal areas or the Pantanal region feature similar flat, water-saturated terrain and tropical grasses, though the road infrastructure style differs slightly from the Asian candidates."
+        }
+      ],
+      "evidence": [
+        "Low-lying alluvial plain with aquaculture ponds",
+        "Narrow concrete rural road",
+        "Tropical wet climate vegetation",
+        "Overhead utility lines on concrete poles",
+        "Flat terrain suggesting a delta or coastal region"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Vietnam",
+          "confidence": "high",
+          "reasoning": "The combination of aquaculture ponds, coconut palms (Cocos nucifera), and dense tropical riparian grasses is highly characteristic of the Mekong Delta. The specific growth habit of the roadside vegetation and the presence of these palms in a flat, water-logged landscape are diagnostic for southern Vietnam."
+        },
+        {
+          "country": "Thailand",
+          "confidence": "medium",
+          "reasoning": "Similar aquaculture landscapes with coconut palms and tropical grasses exist in the Chao Phraya delta and southern coastal regions. It is botanically indistinguishable from Vietnam without more specific endemic markers, though the density of the scrub is very typical for the region."
+        },
+        {
+          "country": "Cambodia",
+          "confidence": "medium",
+          "reasoning": "The vegetation is consistent with the Tonle Sap basin and coastal areas, sharing the same tropical wet-dry biome and coconut palm distribution as its neighbors, Vietnam and Thailand."
+        },
+        {
+          "country": "Brazil",
+          "confidence": "low",
+          "reasoning": "While South America has similar tropical wetlands and coconut palms along the coast (e.g., in the Northeast), the specific composition of the roadside grasses and the integration of the aquaculture ponds are more typical of Southeast Asian agricultural patterns."
+        }
+      ],
+      "evidence": [
+        "Cocos nucifera (Coconut Palm)",
+        "Tropical riparian grasses",
+        "Aquaculture-associated vegetation",
+        "Southeast Asian tropical wet-dry biome"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Thailand",
+          "confidence": "medium",
+          "reasoning": "The style of concrete utility poles with specific cross-arm attachments and the narrow, paved rural road through aquaculture ponds are very common in rural Thailand."
+        },
+        {
+          "country": "Vietnam",
+          "confidence": "medium",
+          "reasoning": "The narrow asphalt road, concrete utility poles, and the presence of fish ponds/shrimp farms are highly characteristic of the Mekong Delta region."
+        },
+        {
+          "country": "Indonesia",
+          "confidence": "low",
+          "reasoning": "Similar rural infrastructure with concrete poles and narrow paved roads is found across the archipelago, particularly in coastal agricultural areas."
+        },
+        {
+          "country": "Colombia",
+          "confidence": "speculative",
+          "reasoning": "Following the global analog rule for rural infrastructure, the combination of basic asphalt and concrete utility poles can be found in rural coastal regions of South America."
+        },
+        {
+          "country": "Brazil",
+          "confidence": "speculative",
+          "reasoning": "Basic rural road construction and concrete utility poles are common in various Brazilian states, though the landscape is more typical of SE Asia."
+        }
+      ],
+      "evidence": [
+        "concrete utility poles",
+        "narrow paved rural road",
+        "lack of road markings",
+        "aquaculture pond infrastructure"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "Thailand",
+          "confidence": "high",
+          "reasoning": "The concrete utility poles with the specific square-profile cross-arms and the style of the electrical boxes mounted on the poles are highly characteristic of rural Thailand. The overall image quality and camera height are consistent with Thailand's extensive Street View coverage in rural areas."
+        },
+        {
+          "country": "Cambodia",
+          "confidence": "medium",
+          "reasoning": "Cambodia uses similar concrete utility poles and has a similar rural infrastructure style. However, the specific mounting of the electrical box on the pole is more typical of Thai standards."
+        },
+        {
+          "country": "Colombia",
+          "confidence": "low",
+          "reasoning": "Following the global analog rule for Southeast Asia/South America, Colombia has similar rural concrete poles and narrow paved roads, though the specific hardware on the poles is less common there than in Thailand."
+        }
+      ],
+      "evidence": [
+        "concrete utility poles",
+        "square-profile pole cross-arms",
+        "pole-mounted electrical box style",
+        "Google Street View camera height/quality"
+      ]
+    }
+  },
+  "hypothesis_evaluations": [
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "region_southeast_asia",
+      "confidence": "neutral",
+      "reasoning": "There is no visible text in the image to provide linguistic evidence for or against this region.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "region_south_america",
+      "confidence": "neutral",
+      "reasoning": "There is no visible text in the image to provide linguistic evidence for or against this region.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_southeast_asia",
+      "confidence": "strongly_support",
+      "reasoning": "The combination of flat, low-lying coastal terrain, aquaculture ponds (fish/shrimp farms), and specific tropical vegetation (palms and dense scrub) is highly characteristic of the Mekong Delta or similar coastal plains in Southeast Asia. The settlement pattern of lightweight, corrugated metal structures on stilts or embankments is a common adaptation to flood-prone tropical regions in this area.",
+      "key_evidence": [
+        "aquaculture ponds",
+        "tropical coastal plain",
+        "palm trees",
+        "low-lying flood-prone terrain"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_south_america",
+      "confidence": "support",
+      "reasoning": "The tropical climate and flat, wet terrain are compatible with coastal regions of South America, such as the coast of Brazil or Colombia. However, the specific style of the aquaculture ponds and the vegetation density are more typical of the Asian tropics than the South American coast.",
+      "key_evidence": [
+        "tropical climate",
+        "flat coastal terrain"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_southeast_asia",
+      "confidence": "support",
+      "reasoning": "The vegetation consists of tropical grasses and broadleaf trees consistent with the humid tropical climate of Southeast Asia. The presence of coconut palms (Cocos nucifera) in the background is highly characteristic of coastal and rural landscapes in this region.",
+      "key_evidence": [
+        "Cocos nucifera (Coconut palm)",
+        "Tropical humid grassland",
+        "Broadleaf tropical canopy"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_south_america",
+      "confidence": "support",
+      "reasoning": "The biome is a tropical wetland/coastal area, which is compatible with regions in South America such as Brazil or Colombia. However, the specific combination of vegetation and land use is slightly more typical of the Asian tropics.",
+      "key_evidence": [
+        "Tropical humid grassland",
+        "Cocos nucifera (Coconut palm)"
+      ]
+    },
+    {
+      "agent_name": "regulatory",
+      "hypothesis_id": "region_southeast_asia",
+      "confidence": "support",
+      "reasoning": "The combination of narrow paved rural roads, concrete utility poles with specific cross-arm mounting, and the style of makeshift corrugated metal structures is very common in Southeast Asian rural landscapes (e.g., Thailand, Vietnam, Indonesia).",
+      "key_evidence": [
+        "concrete utility poles",
+        "narrow asphalt rural road",
+        "corrugated metal building style"
+      ]
+    },
+    {
+      "agent_name": "regulatory",
+      "hypothesis_id": "region_south_america",
+      "confidence": "speculative",
+      "reasoning": "While the rural infrastructure (narrow road, basic utility poles) is visually similar to some rural areas in South America, the specific style of the concrete poles and the surrounding vegetation/building types are more characteristic of Asia.",
+      "key_evidence": [
+        "narrow asphalt rural road",
+        "concrete utility poles"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_southeast_asia",
+      "confidence": "strongly_support",
+      "reasoning": "The utility poles are square-profile concrete poles with a specific mounting style for the electrical boxes and wiring common in Southeast Asia, particularly Thailand and Cambodia. The construction of the makeshift shelters using corrugated metal sheets and simple wooden frames is highly characteristic of rural aquaculture areas in this region.",
+      "key_evidence": [
+        "square concrete utility poles",
+        "corrugated metal shelter construction",
+        "specific electrical box mounting on poles"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_south_america",
+      "confidence": "contradicts",
+      "reasoning": "While rural areas in South America use concrete poles, the specific square-profile design and the way the wiring is strung without heavy cross-arms seen here is much less common than in Southeast Asia. The style of the corrugated metal structures is also more aligned with Asian rural architecture than South American 'rancho' or 'choza' styles.",
+      "key_evidence": [
+        "utility pole profile",
+        "building material style"
+      ]
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "country_thailand",
+      "confidence": "neutral",
+      "reasoning": "No text is visible in the image to support or contradict this hypothesis.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "country_vietnam",
+      "confidence": "neutral",
+      "reasoning": "No text is visible in the image to support or contradict this hypothesis.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "country_cambodia",
+      "confidence": "neutral",
+      "reasoning": "No text is visible in the image to support or contradict this hypothesis.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "country_colombia",
+      "confidence": "neutral",
+      "reasoning": "No text is visible in the image to support or contradict this hypothesis.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "country_brazil",
+      "confidence": "neutral",
+      "reasoning": "No text is visible in the image to support or contradict this hypothesis.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "country_indonesia",
+      "confidence": "neutral",
+      "reasoning": "No text is visible in the image to support or contradict this hypothesis.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_thailand",
+      "confidence": "strongly_support",
+      "reasoning": "The landscape is highly characteristic of the Mekong Delta or Central Plains regions, featuring flat alluvial plains, aquaculture ponds, and specific tropical grasses. The combination of narrow paved rural roads and the style of utility poles is very common in rural Thailand.",
+      "key_evidence": [
+        "flat alluvial terrain",
+        "aquaculture ponds",
+        "tropical grassland",
+        "low-lying coastal/riverine plain"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_vietnam",
+      "confidence": "strongly_support",
+      "reasoning": "The geography is nearly identical to the Mekong Delta in Vietnam, where narrow dyke roads separate shrimp or fish ponds. The vegetation and flat, water-saturated landscape are perfectly consistent with this region.",
+      "key_evidence": [
+        "dyke road structure",
+        "aquaculture ponds",
+        "tropical humid climate vegetation"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_cambodia",
+      "confidence": "support",
+      "reasoning": "The flat, tropical terrain and presence of water-based agriculture are consistent with the lowlands of Cambodia, though the road paving quality is slightly more typical of Thailand or Vietnam.",
+      "key_evidence": [
+        "flat tropical terrain",
+        "water-saturated soil"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_indonesia",
+      "confidence": "support",
+      "reasoning": "The tropical climate and flat coastal plains (such as in Java or Sumatra) are compatible with this landscape, although the specific settlement pattern is more reminiscent of mainland Southeast Asia.",
+      "key_evidence": [
+        "tropical vegetation",
+        "flat coastal plain"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_colombia",
+      "confidence": "low",
+      "reasoning": "While Colombia has tropical lowlands and wetlands, the specific combination of aquaculture pond layout and utility infrastructure is less characteristic than the Southeast Asian candidates.",
+      "key_evidence": [
+        "tropical climate"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_brazil",
+      "confidence": "low",
+      "reasoning": "Similar to Colombia, Brazil has tropical wetlands (Pantanal), but the specific road-and-pond infrastructure seen here is a global analog that more strongly suggests Asia.",
+      "key_evidence": [
+        "tropical climate"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_thailand",
+      "confidence": "support",
+      "reasoning": "The combination of tropical wetland grasses, coconut palms in the background, and the specific layout of aquaculture ponds is highly characteristic of the coastal plains of Thailand.",
+      "key_evidence": [
+        "Cocos nucifera",
+        "Tropical wetland grasses",
+        "Aquaculture vegetation"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_vietnam",
+      "confidence": "support",
+      "reasoning": "The vegetation is very similar to the Mekong Delta region, where similar tropical grasses and palm species are ubiquitous around shrimp and fish ponds.",
+      "key_evidence": [
+        "Cocos nucifera",
+        "Tropical wetland grasses",
+        "Aquaculture vegetation"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_cambodia",
+      "confidence": "support",
+      "reasoning": "The botanical profile matches the lowland tropical regions of Cambodia, which share the same flora as neighboring Thailand and Vietnam.",
+      "key_evidence": [
+        "Cocos nucifera",
+        "Tropical wetland grasses"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_indonesia",
+      "confidence": "support",
+      "reasoning": "The tropical humid environment and presence of palms are consistent with Indonesian coastal landscapes, though the specific grass density is slightly more typical of mainland SE Asia.",
+      "key_evidence": [
+        "Cocos nucifera",
+        "Tropical wetland grasses"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_colombia",
+      "confidence": "low",
+      "reasoning": "While tropical, the specific composition of the roadside grasses and the integration of the palms in this aquaculture setting are more typical of Southeast Asia than South America.",
+      "key_evidence": [
+        "Tropical wetland grasses"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_brazil",
+      "confidence": "low",
+      "reasoning": "The biome is compatible with tropical coastal Brazil, but the specific botanical arrangement and species of palms seen in the distance are more diagnostic of the Indo-Pacific region.",
+      "key_evidence": [
+        "Tropical wetland grasses"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_thailand",
+      "confidence": "strongly_support",
+      "reasoning": "The concrete utility poles with the specific square-profile cross-section and the way the wires are attached are highly characteristic of rural Thailand. Additionally, the Google Street View camera quality and the specific blur pattern at the bottom of the frame are consistent with Thailand's coverage.",
+      "key_evidence": [
+        "concrete utility pole design",
+        "camera blur pattern"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_cambodia",
+      "confidence": "support",
+      "reasoning": "Cambodia uses similar concrete utility poles and has similar rural infrastructure, making it a plausible candidate, though the specific pole mounting style is slightly more common in Thailand.",
+      "key_evidence": [
+        "concrete utility poles"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_vietnam",
+      "confidence": "support",
+      "reasoning": "Vietnam also utilizes concrete poles in rural areas, but the specific arrangement of the power lines and the pole shape seen here is more typical of the Thai style.",
+      "key_evidence": [
+        "concrete utility poles"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_indonesia",
+      "confidence": "low",
+      "reasoning": "While Indonesia has similar rural landscapes, the specific concrete pole design and the camera artifacts are less characteristic of Indonesian coverage compared to mainland Southeast Asia.",
+      "key_evidence": [
+        "concrete utility poles"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_colombia",
+      "confidence": "speculative",
+      "reasoning": "Following the global analog rule, some rural Latin American areas use concrete poles, but the overall infrastructure style and camera artifacts do not align as well as the Southeast Asian candidates.",
+      "key_evidence": [
+        "concrete utility poles"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_brazil",
+      "confidence": "speculative",
+      "reasoning": "Similar to Colombia, while concrete poles exist, the specific visual meta of the poles and the camera rig artifacts are not typical for Brazil.",
+      "key_evidence": [
+        "concrete utility poles"
+      ]
+    }
+  ],
+  "candidate_pool": [
+    "Thailand",
+    "Vietnam",
+    "Cambodia",
+    "Colombia",
+    "Brazil",
+    "Indonesia"
+  ],
+  "rag_findings": [
+    {
+      "kind": "tournament_match",
+      "country": "Indonesia",
+      "detail": "The concrete utility poles with their specific square-profile cross-section and wiring style are highly characteristic of rural Thailand. Additionally, the landscape of aquaculture ponds and the specific camera artifacts are more consistent with Thailand's Street View coverage than Indonesia's.",
+      "opponent": "Thailand",
+      "winner": "Thailand"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Cambodia",
+      "detail": "The landscape is strongly characteristic of the Mekong Delta in Vietnam, specifically the narrow dyke roads separating aquaculture ponds. While both countries share similar tropical flora, the specific combination of the paved narrow road and the water-saturated landscape is most typical of Vietnam.",
+      "opponent": "Vietnam",
+      "winner": "Vietnam"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Vietnam",
+      "detail": "The concrete utility poles with their specific square-profile cross-section and wire attachment style are highly characteristic of rural Thailand. Additionally, the meta-evidence regarding the Google Street View camera quality and blur pattern strongly supports Thailand over Vietnam.",
+      "opponent": "Thailand",
+      "winner": "Thailand"
+    }
+  ],
+  "rag_refs_seen": [],
+  "road_filter_warnings": [],
+  "tournament_log": [
+    {
+      "round_label": "semi-1",
+      "country_a": "Thailand",
+      "country_b": "Indonesia",
+      "pool_rank_a": 0,
+      "pool_rank_b": 3,
+      "winner": "Thailand",
+      "reasoning": "The concrete utility poles with their specific square-profile cross-section and wiring style are highly characteristic of rural Thailand. Additionally, the landscape of aquaculture ponds and the specific camera artifacts are more consistent with Thailand's Street View coverage than Indonesia's.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "semi-2",
+      "country_a": "Vietnam",
+      "country_b": "Cambodia",
+      "pool_rank_a": 1,
+      "pool_rank_b": 2,
+      "winner": "Vietnam",
+      "reasoning": "The landscape is strongly characteristic of the Mekong Delta in Vietnam, specifically the narrow dyke roads separating aquaculture ponds. While both countries share similar tropical flora, the specific combination of the paved narrow road and the water-saturated landscape is most typical of Vietnam.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "final",
+      "country_a": "Thailand",
+      "country_b": "Vietnam",
+      "pool_rank_a": 0,
+      "pool_rank_b": 1,
+      "winner": "Thailand",
+      "reasoning": "The concrete utility poles with their specific square-profile cross-section and wire attachment style are highly characteristic of rural Thailand. Additionally, the meta-evidence regarding the Google Street View camera quality and blur pattern strongly supports Thailand over Vietnam.",
+      "agreement": "agree"
+    }
+  ],
+  "country_result": "Country: Thailand\nCoordinates: 13.5, 100.5\nReasoning: The concrete utility poles with their specific square-profile cross-section and wire attachment style are highly characteristic of rural Thailand. Additionally, the meta-evidence regarding the Google Street View camera quality and blur pattern strongly supports Thailand over Vietnam.\n\nTournament:\n  semi-1: Thailand vs Indonesia → Thailand\n  semi-2: Vietnam vs Cambodia → Vietnam\n  final: Thailand vs Vietnam → Thailand",
+  "coordinates": {
+    "lat": 13.5,
+    "lng": 100.5
+  },
+  "final_reasoning": "The concrete utility poles with their specific square-profile cross-section and wire attachment style are highly characteristic of rural Thailand. Additionally, the meta-evidence regarding the Google Street View camera quality and blur pattern strongly supports Thailand over Vietnam."
+}

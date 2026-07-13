@@ -1,0 +1,94 @@
+{
+  "image_id": "MjBPBTn3iUXdebSu_5",
+  "truth_country": "t\u00fcrkiye",
+  "pred_country": "greece",
+  "is_correct": false,
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": true,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "role_adherence_notes": {
+      "linguistic": "Correctly identified the absence of linguistic cues (no signs) and stayed within domain.",
+      "landscape": "Analyzed terrain, vegetation density, and climate cues consistent with the image.",
+      "botanics": "Identified plant types (sclerophyllous, garrigue) and their regional distributions.",
+      "regulatory": "Analyzed road infrastructure (width, shoulders, markings) and noted the absence of signs.",
+      "meta": "Focused on camera artifacts and road texture, which is the correct scope for this agent."
+    },
+    "argumentative_quality": {
+      "linguistic": "normal",
+      "landscape": "strong",
+      "botanics": "strong",
+      "regulatory": "normal",
+      "meta": "strong"
+    },
+    "constructive_synthesis": true,
+    "overall_verdict_notes": "The pipeline correctly identified the region (Europe/Middle East) and the specific biome (Mediterranean). However, the agents failed to distinguish between the visual signatures of Greece and Turkey, relying heavily on a 'Gen 4 camera' heuristic that was incorrectly mapped to Greece. The final decision was a coin-flip between two visually similar candidates, driven by a hallucinated camera artifact.",
+    "role_adherence_score": {
+      "linguistic": 1.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.9,
+      "meta": 0.9
+    },
+    "argumentative_quality_score": {
+      "linguistic": 0.5,
+      "landscape": 0.8,
+      "botanics": 0.8,
+      "regulatory": 0.5,
+      "meta": 0.7
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.0,
+      "botanics": 0.0,
+      "regulatory": 0.0,
+      "meta": 0.75
+    },
+    "hallucination_examples": {
+      "linguistic": [],
+      "landscape": [],
+      "botanics": [],
+      "regulatory": [],
+      "meta": [
+        "meta agent: 'The image shows a very distinct Google Street View camera artifact: the 'halo' or 'blur' at the bottom center of the frame is characteristic of the Gen 4 camera used extensively in Europe...'",
+        "meta agent: 'The image features a distinct Google Street View Gen 4 camera artifact (the blur at the bottom center) which is highly characteristic of coverage in Greece.'",
+        "meta agent: 'The specific blur pattern at the bottom is more indicative of the Greek coverage patterns...'"
+      ]
+    },
+    "visual_consistency_score": {
+      "linguistic": 1.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.9,
+      "meta": 0.2
+    },
+    "visual_consistency_notes": {
+      "linguistic": "Correctly noted no signs.",
+      "landscape": "Accurately described the dry grass, scrub, and hills.",
+      "botanics": "Accurately described the vegetation type.",
+      "regulatory": "Accurately described the road surface and lack of markings.",
+      "meta": "The 'blur' described as a camera artifact is actually the motion-blurred hood of the car, which is visible in the image. The agent hallucinated a specific 'Gen 4' artifact to support its conclusion."
+    },
+    "confidence_calibration": {
+      "linguistic": 0.5,
+      "landscape": 0.5,
+      "botanics": 0.5,
+      "regulatory": 0.5,
+      "meta": 0.25
+    },
+    "tournament_failure": {
+      "truth_in_pool": true,
+      "truth_lost_to": "Spain",
+      "failure_match_round": "semi-2",
+      "failure_reason": "agent_misled",
+      "failure_reasoning": "The meta agent hallucinated a 'Gen 4 camera artifact' (blur) to strongly support Greece and Spain, while Turkey was dismissed based on a lack of this non-existent artifact. The specialists collectively failed to identify the truth (Turkey) because the meta agent's hallucination biased the tournament against it.",
+      "counterfactual_winnable": false
+    }
+  },
+  "validation_error": "1 validation error for JudgeVerdict\noverall_verdict_notes\n  String should have at most 400 characters [type=string_too_long, input_value=\"The pipeline correctly i...inated camera artifact.\", input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_too_long"
+}

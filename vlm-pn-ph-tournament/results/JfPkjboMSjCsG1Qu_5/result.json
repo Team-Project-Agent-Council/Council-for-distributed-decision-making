@@ -1,0 +1,558 @@
+{
+  "image_path": "/pfs/data6/home/ma/ma_ma/ma_lweisssc/llm_council_agent_orchestration_tests/clean_images_GeoRC_500/JfPkjboMSjCsG1Qu_5.png",
+  "model": "google/gemma-4-31B-it",
+  "judge_model": "google/gemma-4-31B-it",
+  "timing": {
+    "total_seconds": 110.7
+  },
+  "assessments": {
+    "linguistic": {
+      "agent_name": "linguistic",
+      "candidates": [],
+      "evidence": []
+    },
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Ukraine",
+          "confidence": "medium",
+          "reasoning": "The flat, fertile steppe landscape combined with the specific mix of deciduous trees and road shoulder style is highly characteristic of Eastern Europe. The vegetation density and soil appearance match the Ukrainian plains."
+        },
+        {
+          "country": "Russia",
+          "confidence": "medium",
+          "reasoning": "The landscape is virtually identical to the southern regions of Russia (e.g., Krasnodar or Rostov regions), where flat agricultural plains and similar temperate foliage are common."
+        },
+        {
+          "country": "Romania",
+          "confidence": "low",
+          "reasoning": "The flat plains of the Wallachian region share similar soil and vegetation patterns, though the road infrastructure often differs slightly from the Eastern Slavic regions."
+        },
+        {
+          "country": "United States",
+          "confidence": "speculative",
+          "reasoning": "As a global analog, the Midwestern United States (e.g., Iowa or Illinois) features similar flat terrain, temperate deciduous forests, and rural two-lane road layouts."
+        }
+      ],
+      "evidence": [
+        "Flat steppe/plain terrain",
+        "Temperate deciduous vegetation",
+        "Northern hemisphere sun angle (shadows cast slightly north/east)",
+        "Rural asphalt road with unpaved/grass shoulders"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Poland",
+          "confidence": "medium",
+          "reasoning": "The combination of temperate broadleaf deciduous trees and lush, weedy roadside vegetation is highly characteristic of the Central European plain. The specific density and species mix of the scrubland are common in the Polish countryside."
+        },
+        {
+          "country": "Ukraine",
+          "confidence": "medium",
+          "reasoning": "The vegetation is nearly identical to that of Poland, as both share the same temperate forest-steppe biome. The presence of similar deciduous species and agricultural field margins makes it a strong candidate."
+        },
+        {
+          "country": "United States",
+          "confidence": "low",
+          "reasoning": "The temperate deciduous forest biome seen here has a strong global analog in the Midwestern United States. While the species are not uniquely endemic, the general vegetation structure is similar to the American Corn Belt region."
+        },
+        {
+          "country": "Canada",
+          "confidence": "low",
+          "reasoning": "Southern Ontario and Quebec feature very similar temperate broadleaf forests and roadside greenery, serving as a North American analog to the European plains."
+        }
+      ],
+      "evidence": [
+        "Temperate broadleaf deciduous trees",
+        "Central European plain biome",
+        "Ruderal roadside vegetation"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Ukraine",
+          "confidence": "medium",
+          "reasoning": "The blue rectangular information sign with a yellow border and specific iconography is characteristic of Ukrainian road signage. The concrete utility poles and the specific style of rural asphalt with rough gravel shoulders are common in this region."
+        },
+        {
+          "country": "Russia",
+          "confidence": "medium",
+          "reasoning": "Shares very similar road infrastructure, sign styles (Vienna Convention based), and utility pole designs with Ukraine. The rural road quality and shoulder treatment are indistinguishable from Ukrainian rural roads."
+        },
+        {
+          "country": "Romania",
+          "confidence": "low",
+          "reasoning": "Uses similar Vienna Convention signage and has comparable rural road infrastructure with concrete poles and basic asphalt."
+        },
+        {
+          "country": "Canada",
+          "confidence": "speculative",
+          "reasoning": "Global analog rule: rural asphalt roads with wooden/concrete utility poles and grassy shoulders are visually similar across different continents, particularly in prairie regions."
+        }
+      ],
+      "evidence": [
+        "Blue rectangular information sign with yellow border",
+        "Concrete utility poles",
+        "Rough gravel shoulders",
+        "Vienna Convention style signage"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "Lithuania",
+          "confidence": "medium",
+          "reasoning": "The utility poles are concrete with a specific tapered shape and cross-arm configuration common in the Baltics. The road shoulder transition and the style of the small yellow marker plates on the signposts are highly characteristic of Lithuanian rural roads."
+        },
+        {
+          "country": "Latvia",
+          "confidence": "medium",
+          "reasoning": "Shares very similar concrete utility pole designs and rural road infrastructure with Lithuania. The general 'look' of the road maintenance and signage mounting is consistent with Latvian rural areas."
+        },
+        {
+          "country": "Estonia",
+          "confidence": "medium",
+          "reasoning": "Similar Baltic concrete pole meta and rural road shoulder styles. Distinguishing between the three Baltic states often requires text, but the infrastructure meta is nearly identical."
+        },
+        {
+          "country": "Poland",
+          "confidence": "low",
+          "reasoning": "Poland uses similar concrete utility poles in rural areas, though the specific mounting of the small yellow markers is more typical of the Baltics."
+        },
+        {
+          "country": "Romania",
+          "confidence": "speculative",
+          "reasoning": "Global analog: Romania also utilizes concrete utility poles and has similar rural road quality and shoulder transitions, though the specific signpost hardware differs slightly."
+        }
+      ],
+      "evidence": [
+        "concrete utility poles with specific cross-arm style",
+        "small yellow rectangular marker plates on signposts",
+        "road shoulder concrete patching style",
+        "Google Street View Gen 3 camera quality/color balance"
+      ]
+    }
+  },
+  "progressive_narrowing": {
+    "region_consensus": false,
+    "confirmed_region": "Europe",
+    "runner_up_region": "North America",
+    "surviving_regions": [
+      "Europe",
+      "North America"
+    ],
+    "proposed_regions": [
+      "Europe",
+      "North America"
+    ],
+    "region_candidates": {
+      "Europe": {
+        "Ukraine": 3,
+        "Russia": 2,
+        "Romania": 3,
+        "Poland": 2,
+        "Lithuania": 1,
+        "Latvia": 1,
+        "Estonia": 1
+      },
+      "North America": {
+        "United States": 2,
+        "Canada": 2
+      }
+    },
+    "region_decision_reasoning": "Europe received the highest score due to strong support from the meta agent regarding specific infrastructure (concrete utility poles and road markers) and support from the botanics agent. North America was supported by botanics but contradicted by the meta agent, resulting in a lower overall score.",
+    "path": "B"
+  },
+  "road_evidence": {
+    "outside_color": "none",
+    "inside_color": "none",
+    "driving_side": "UNCLEAR",
+    "driving_side_basis": "none"
+  },
+  "country_assessments": {
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Lithuania",
+          "confidence": "high",
+          "reasoning": "The flat, low-lying terrain combined with the specific mix of deciduous trees and lush green roadside vegetation is highly characteristic of the Baltic plains. The road quality and the style of the utility poles are very common in this region."
+        },
+        {
+          "country": "Latvia",
+          "confidence": "high",
+          "reasoning": "The landscape is virtually identical to Lithuania, featuring the same flat topography, soil moisture levels, and temperate forest composition. It is geographically indistinguishable from southern Latvia based on terrain alone."
+        },
+        {
+          "country": "Poland",
+          "confidence": "medium",
+          "reasoning": "The northern plains of Poland share this flat, agricultural landscape and similar vegetation. However, the specific density of the roadside scrub is slightly more typical of the Baltics."
+        },
+        {
+          "country": "Canada",
+          "confidence": "low",
+          "reasoning": "The flat terrain and temperate deciduous foliage could match parts of Southern Ontario or the Prairies. However, the road shoulder construction and utility pole style are less typical for North American rural standards."
+        },
+        {
+          "country": "United States",
+          "confidence": "low",
+          "reasoning": "The Midwest region of the US features similar flat agricultural plains and temperate greenery. The lack of wide paved shoulders makes it less likely than the European candidates."
+        }
+      ],
+      "evidence": [
+        "Flat, low-relief plains topography",
+        "Temperate deciduous forest and lush green roadside scrub",
+        "Asphalt road with narrow, unpaved/gravel shoulders",
+        "Wooden utility poles with cross-arms",
+        "High sun angle suggesting Northern Hemisphere summer"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Poland",
+          "confidence": "medium",
+          "reasoning": "The combination of temperate broadleaf deciduous trees and the specific lush, weedy roadside vegetation is highly characteristic of the Central European plains. The density and species mix of the scrubland are very common in the Polish countryside."
+        },
+        {
+          "country": "Ukraine",
+          "confidence": "medium",
+          "reasoning": "The flat landscape with similar temperate deciduous forest fragments and agricultural fringes is consistent with Western Ukraine. It shares the same botanical profile as Poland, making it a strong candidate."
+        },
+        {
+          "country": "Romania",
+          "confidence": "low",
+          "reasoning": "The vegetation is consistent with the Danubian Plain or other lowland regions of Romania. However, the specific leaf density and species of the roadside shrubs are more typical of the northern Central European belt."
+        },
+        {
+          "country": "United States",
+          "confidence": "low",
+          "reasoning": "The temperate deciduous biome is mirrored in the Midwestern United States. While the species are cosmopolitan, the general growth habit of the roadside greenery is a plausible North American analog."
+        }
+      ],
+      "evidence": [
+        "Temperate broadleaf deciduous trees",
+        "Central European lowland scrub",
+        "Cosmopolitan roadside ruderal species"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Poland",
+          "confidence": "medium",
+          "reasoning": "The blue rectangular informational sign with a white border and specific iconography is highly characteristic of Polish road signage. The utility pole style and the narrow asphalt road with gravel shoulders are common in rural Poland."
+        },
+        {
+          "country": "Ukraine",
+          "confidence": "low",
+          "reasoning": "The road infrastructure, including the utility poles and the general style of the blue informational sign, is very similar to that found in Western Ukraine. The rural road quality and shoulder treatment are consistent with this region."
+        },
+        {
+          "country": "Romania",
+          "confidence": "low",
+          "reasoning": "The use of blue rectangular signs and the specific style of rural asphalt roads with minimal shoulder infrastructure are common across Eastern Europe, including Romania."
+        },
+        {
+          "country": "United States",
+          "confidence": "speculative",
+          "reasoning": "Following the global analog rule for rural infrastructure, the wooden utility poles and basic asphalt road with gravel shoulders are visually similar to rural roads in the US Midwest, though the sign style is less typical."
+        },
+        {
+          "country": "Canada",
+          "confidence": "speculative",
+          "reasoning": "Similar to the USA, the rural road layout, wooden poles, and vegetation are consistent with rural Canadian provinces, despite the sign style being more European."
+        }
+      ],
+      "evidence": [
+        "Blue rectangular informational sign with white border",
+        "Wooden utility poles with cross-arms",
+        "Narrow asphalt road with unpaved gravel shoulders",
+        "Vienna Convention style signage"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "Lithuania",
+          "confidence": "high",
+          "reasoning": "The utility poles are concrete with a specific tapered shape and cross-arm configuration common in the Baltics. The small yellow rectangular markers on the signposts are a highly distinctive Lithuanian meta detail used for road maintenance and identification."
+        },
+        {
+          "country": "Latvia",
+          "confidence": "medium",
+          "reasoning": "Latvia uses very similar concrete utility poles and rural road infrastructure. However, the specific yellow marker style on the signpost is more characteristic of Lithuania."
+        },
+        {
+          "country": "Estonia",
+          "confidence": "medium",
+          "reasoning": "Similar Baltic concrete pole meta and general rural road aesthetic, though the signpost markers differ slightly from typical Estonian standards."
+        }
+      ],
+      "evidence": [
+        "concrete utility poles with specific cross-arm style",
+        "small yellow rectangular markers on signposts",
+        "Google Street View camera generation (Gen 3/4 quality)"
+      ]
+    }
+  },
+  "hypothesis_evaluations": [
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_europe",
+      "confidence": "support",
+      "reasoning": "The vegetation consists of temperate broadleaf deciduous trees and roadside grasses typical of Central or Eastern Europe. The specific mix of scrub and canopy structure is highly compatible with the European plain.",
+      "key_evidence": [
+        "temperate broadleaf deciduous forest",
+        "roadside ruderal vegetation"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_north_america",
+      "confidence": "support",
+      "reasoning": "The biome is a temperate deciduous forest/grassland mosaic, which is a global analog to the European landscape. This vegetation is equally compatible with the Midwestern United States or Southern Canada.",
+      "key_evidence": [
+        "temperate broadleaf deciduous forest",
+        "temperate grassland"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_europe",
+      "confidence": "strongly_support",
+      "reasoning": "The utility poles are concrete with a specific slim profile and cross-arm configuration common in Eastern Europe (particularly the Baltics or Poland). The road quality and the specific style of the small yellow rectangular markers on the signposts are highly characteristic of European rural road infrastructure.",
+      "key_evidence": [
+        "concrete utility poles",
+        "small yellow rectangular markers on signposts",
+        "road surface texture and edge wear"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_north_america",
+      "confidence": "contradicts",
+      "reasoning": "The utility poles are concrete; North American rural roads almost exclusively use wooden poles. Additionally, the signpost mounting and the small yellow markers are not standard for North American road infrastructure.",
+      "key_evidence": [
+        "absence of wooden utility poles",
+        "non-standard signpost markers"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_poland",
+      "confidence": "support",
+      "reasoning": "The mix of temperate broadleaf deciduous trees and lush roadside grasses is highly characteristic of the Central European plain, including Poland.",
+      "key_evidence": [
+        "temperate broadleaf forest",
+        "lush roadside grasses"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_lithuania",
+      "confidence": "support",
+      "reasoning": "The vegetation is consistent with the Baltic region's temperate climate, featuring similar deciduous species and undergrowth as Poland.",
+      "key_evidence": [
+        "temperate broadleaf forest",
+        "lush roadside grasses"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_latvia",
+      "confidence": "support",
+      "reasoning": "The botanical profile matches the Baltic plains, with typical European deciduous foliage and meadow grasses.",
+      "key_evidence": [
+        "temperate broadleaf forest",
+        "lush roadside grasses"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_ukraine",
+      "confidence": "support",
+      "reasoning": "The landscape is compatible with the forest-steppe or forest zones of Northern Ukraine, showing similar temperate vegetation.",
+      "key_evidence": [
+        "temperate broadleaf forest",
+        "lush roadside grasses"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_romania",
+      "confidence": "support",
+      "reasoning": "The vegetation is compatible with the temperate plains of Romania, though the specific density of the roadside scrub is very common across the entire European plain.",
+      "key_evidence": [
+        "temperate broadleaf forest",
+        "lush roadside grasses"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_united_states",
+      "confidence": "low",
+      "reasoning": "While the temperate deciduous biome exists in the US Midwest or East Coast, the specific composition of the roadside scrub and grass species is more typical of European managed roadsides.",
+      "key_evidence": [
+        "temperate broadleaf forest"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_canada",
+      "confidence": "low",
+      "reasoning": "Similar temperate forests exist in Southern Canada, but the overall vegetation density and species mix are more characteristic of the European plain.",
+      "key_evidence": [
+        "temperate broadleaf forest"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_poland",
+      "confidence": "strongly_support",
+      "reasoning": "The utility poles are concrete with a specific rectangular cross-section and mounting style common in Poland. The road shoulder and the specific style of the small yellow rectangular markers on the signposts are highly characteristic of Polish rural roads.",
+      "key_evidence": [
+        "concrete utility pole design",
+        "yellow rectangular sign markers"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_lithuania",
+      "confidence": "support",
+      "reasoning": "Lithuania uses similar concrete utility poles and rural road infrastructure, making it a plausible neighbor, though the specific sign markers are more typical of Poland.",
+      "key_evidence": [
+        "concrete utility poles"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_latvia",
+      "confidence": "support",
+      "reasoning": "Similar to Lithuania, Latvia shares the general Eastern European rural meta of concrete poles and similar road textures, but lacks the specific Polish marker details.",
+      "key_evidence": [
+        "concrete utility poles"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_ukraine",
+      "confidence": "support",
+      "reasoning": "Ukraine uses concrete poles and similar rural road layouts, but the image quality and specific street furniture lean more towards EU standards.",
+      "key_evidence": [
+        "concrete utility poles"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_romania",
+      "confidence": "support",
+      "reasoning": "Romania has similar concrete pole infrastructure, but the overall 'feel' of the road maintenance and furniture is more consistent with Central Europe.",
+      "key_evidence": [
+        "concrete utility poles"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_united_states",
+      "confidence": "strongly_contradicts",
+      "reasoning": "The utility poles are concrete, whereas US rural roads almost exclusively use wooden poles. The road shoulder and signpost design are entirely inconsistent with US standards.",
+      "key_evidence": [
+        "concrete utility poles",
+        "signpost design"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_canada",
+      "confidence": "strongly_contradicts",
+      "reasoning": "Similar to the US, Canada uses wooden utility poles in rural areas and has completely different road furniture and signpost mounting styles.",
+      "key_evidence": [
+        "concrete utility poles",
+        "signpost design"
+      ]
+    }
+  ],
+  "candidate_pool": [
+    "Poland",
+    "United States",
+    "Lithuania",
+    "Latvia",
+    "Canada",
+    "Ukraine",
+    "Romania"
+  ],
+  "rag_findings": [
+    {
+      "kind": "tournament_match",
+      "country": "Ukraine",
+      "detail": "The utility poles are concrete with a rectangular cross-section and mounting style highly characteristic of Poland. Additionally, the small yellow rectangular markers on the signposts are a specific feature of Polish rural road infrastructure.",
+      "opponent": "Poland",
+      "winner": "Poland"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Latvia",
+      "detail": "The streetview shows a rural road with concrete utility poles and vegetation consistent with the Baltic region. Between the two candidates, Lithuania is slightly more plausible given the specific road shoulder texture and the style of the small yellow markers on the signposts, which are more common in the southern Baltic/Polish border region.",
+      "opponent": "Lithuania",
+      "winner": "Lithuania"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Lithuania",
+      "detail": "The utility poles and the specific small yellow rectangular markers on the signposts are highly characteristic of rural Polish road infrastructure, as noted in the meta evidence. The landscape and vegetation are consistent with the Central European plain of Poland.",
+      "opponent": "Poland",
+      "winner": "Poland"
+    }
+  ],
+  "rag_refs_seen": [],
+  "road_filter_warnings": [],
+  "tournament_log": [
+    {
+      "round_label": "semi-1",
+      "country_a": "Poland",
+      "country_b": "Ukraine",
+      "pool_rank_a": 0,
+      "pool_rank_b": 3,
+      "winner": "Poland",
+      "reasoning": "The utility poles are concrete with a rectangular cross-section and mounting style highly characteristic of Poland. Additionally, the small yellow rectangular markers on the signposts are a specific feature of Polish rural road infrastructure.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "semi-2",
+      "country_a": "Lithuania",
+      "country_b": "Latvia",
+      "pool_rank_a": 1,
+      "pool_rank_b": 2,
+      "winner": "Lithuania",
+      "reasoning": "The streetview shows a rural road with concrete utility poles and vegetation consistent with the Baltic region. Between the two candidates, Lithuania is slightly more plausible given the specific road shoulder texture and the style of the small yellow markers on the signposts, which are more common in the southern Baltic/Polish border region.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "final",
+      "country_a": "Poland",
+      "country_b": "Lithuania",
+      "pool_rank_a": 0,
+      "pool_rank_b": 1,
+      "winner": "Poland",
+      "reasoning": "The utility poles and the specific small yellow rectangular markers on the signposts are highly characteristic of rural Polish road infrastructure, as noted in the meta evidence. The landscape and vegetation are consistent with the Central European plain of Poland.",
+      "agreement": "agree"
+    }
+  ],
+  "country_result": "Country: Poland\nCoordinates: 52.2297, 21.0122\nReasoning: The utility poles and the specific small yellow rectangular markers on the signposts are highly characteristic of rural Polish road infrastructure, as noted in the meta evidence. The landscape and vegetation are consistent with the Central European plain of Poland.\n\nTournament:\n  semi-1: Poland vs Ukraine → Poland\n  semi-2: Lithuania vs Latvia → Lithuania\n  final: Poland vs Lithuania → Poland",
+  "coordinates": {
+    "lat": 52.2297,
+    "lng": 21.0122
+  },
+  "final_reasoning": "The utility poles and the specific small yellow rectangular markers on the signposts are highly characteristic of rural Polish road infrastructure, as noted in the meta evidence. The landscape and vegetation are consistent with the Central European plain of Poland."
+}

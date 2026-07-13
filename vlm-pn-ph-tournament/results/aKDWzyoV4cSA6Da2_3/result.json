@@ -1,0 +1,596 @@
+{
+  "image_path": "/pfs/data6/home/ma/ma_ma/ma_lweisssc/llm_council_agent_orchestration_tests/clean_images_GeoRC_500/aKDWzyoV4cSA6Da2_3.png",
+  "model": "google/gemma-4-31B-it",
+  "judge_model": "google/gemma-4-31B-it",
+  "timing": {
+    "total_seconds": 98.4
+  },
+  "assessments": {
+    "linguistic": {
+      "agent_name": "linguistic",
+      "candidates": [],
+      "evidence": []
+    },
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Australia",
+          "confidence": "high",
+          "reasoning": "The combination of wide residential roads, specific utility pole design with overhead transformers, and the mix of eucalyptus-like greenery and manicured lawns is highly characteristic of Australian suburbs. The sun angle suggests a southern hemisphere location."
+        },
+        {
+          "country": "New Zealand",
+          "confidence": "high",
+          "reasoning": "The landscape, vegetation, and suburban settlement patterns are nearly identical to Australia's, sharing the same temperate climate and colonial-style urban planning. The road quality and residential fencing are very common in NZ suburbs."
+        },
+        {
+          "country": "South Africa",
+          "confidence": "low",
+          "reasoning": "Certain suburban areas in South Africa share similar temperate climates and vegetation patterns, though the specific utility pole infrastructure is less common here than in Oceania."
+        },
+        {
+          "country": "United States",
+          "confidence": "speculative",
+          "reasoning": "The wide roads and suburban layout are a global analog to North American suburbs, particularly in California or the Pacific Northwest, though the specific utility pole hardware and vegetation differ slightly."
+        }
+      ],
+      "evidence": [
+        "Southern hemisphere sun angle",
+        "Temperate suburban vegetation",
+        "Wide asphalt roads with concrete curbing",
+        "Specific overhead power line infrastructure",
+        "Low-density residential settlement pattern"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Australia",
+          "confidence": "high",
+          "reasoning": "The combination of Eucalyptus-type sclerophyll foliage in the background and the specific mix of introduced ornamental species like Betula (birch) and Cupressus is very characteristic of Australian suburban landscapes, particularly in the southeast. The grass type and general leaf morphology of the larger canopy trees are highly consistent with Australian urban flora."
+        },
+        {
+          "country": "New Zealand",
+          "confidence": "high",
+          "reasoning": "The vegetation is nearly identical to that of Australia, featuring a similar mix of native evergreen broadleaf trees and introduced European deciduous species. The lushness of the grass and the specific appearance of the ornamental trees are common in New Zealand suburbs."
+        },
+        {
+          "country": "United States",
+          "confidence": "low",
+          "reasoning": "The presence of Betula (birch) and various conifers is common in temperate US suburbs (e.g., West Coast). However, the specific structure of the evergreen canopy trees in the background is more reminiscent of Oceania than North American species."
+        },
+        {
+          "country": "South Africa",
+          "confidence": "speculative",
+          "reasoning": "Certain suburban areas in South Africa share a similar Mediterranean-style climate and mix of introduced European ornamentals and native evergreens, though the specific tree silhouettes here are less typical for the region."
+        }
+      ],
+      "evidence": [
+        "Betula (Birch)",
+        "Eucalyptus/Sclerophyll canopy",
+        "Cupressus (Cypress)",
+        "Temperate suburban lawn grass"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Australia",
+          "confidence": "high",
+          "reasoning": "The utility pole design with the specific transformer mounting and cross-arm configuration is very characteristic of Australian suburbs. The concrete curb and channel style, combined with the wide residential road layout and wooden fencing, strongly align with Australian suburban infrastructure."
+        },
+        {
+          "country": "New Zealand",
+          "confidence": "medium",
+          "reasoning": "Infrastructure is very similar to Australia, including the utility pole style and residential road layout. The general aesthetic of the housing and fencing is consistent with New Zealand suburbs."
+        },
+        {
+          "country": "United States",
+          "confidence": "low",
+          "reasoning": "The presence of wooden/concrete utility poles and wide residential streets with driveways is a global analog for suburban North America. However, the specific transformer and pole hardware are less common in the US."
+        },
+        {
+          "country": "South Africa",
+          "confidence": "speculative",
+          "reasoning": "Cross-continent analog based on similar colonial-influenced suburban planning, utility pole styles, and road width, though less likely given the specific hardware."
+        }
+      ],
+      "evidence": [
+        "Concrete utility pole with specific transformer and cross-arm assembly",
+        "Concrete curb and channel drainage",
+        "Residential wooden slat fencing",
+        "Wide asphalt residential road with concrete driveway aprons"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "New Zealand",
+          "confidence": "high",
+          "reasoning": "The utility pole is a classic New Zealand concrete pole with a specific transformer mount and cross-arm configuration. The wooden fence style and the specific concrete sidewalk slabs are very common in NZ residential suburbs."
+        },
+        {
+          "country": "Australia",
+          "confidence": "medium",
+          "reasoning": "Australia shares very similar residential infrastructure, including concrete utility poles and similar fencing styles. However, the specific transformer shape on the pole is more characteristic of New Zealand."
+        },
+        {
+          "country": "United States",
+          "confidence": "low",
+          "reasoning": "The general suburban layout and use of utility poles are common in North America, but the specific concrete pole design and sidewalk patterns are not typical for the US."
+        }
+      ],
+      "evidence": [
+        "concrete utility pole with specific transformer mount",
+        "wooden residential fencing style",
+        "concrete sidewalk slab pattern",
+        "Google Street View camera generation (Gen 3/4 quality)"
+      ]
+    }
+  },
+  "progressive_narrowing": {
+    "region_consensus": false,
+    "confirmed_region": "Oceania",
+    "runner_up_region": "North America",
+    "surviving_regions": [
+      "Oceania",
+      "North America"
+    ],
+    "proposed_regions": [
+      "Oceania",
+      "Sub-Saharan Africa",
+      "North America"
+    ],
+    "region_candidates": {
+      "Oceania": {
+        "Australia": 4,
+        "New Zealand": 4
+      },
+      "Sub-Saharan Africa": {
+        "South Africa": 3
+      },
+      "North America": {
+        "United States": 4
+      }
+    },
+    "region_decision_reasoning": "Oceania received the highest score due to multiple 'strongly_support' ratings, specifically regarding the utility pole design, residential fencing, and flora characteristic of New Zealand and Australia. North America is the runner-up as it was consistently supported as a compatible alternative, though it lacked the strong specific identifiers found in the Oceania evaluations.",
+    "path": "B"
+  },
+  "road_evidence": {
+    "outside_color": "white",
+    "inside_color": "none",
+    "driving_side": "UNCLEAR",
+    "driving_side_basis": "none"
+  },
+  "country_assessments": {
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Australia",
+          "confidence": "high",
+          "reasoning": "The combination of wide residential streets, specific wooden fence styles, and the presence of eucalyptus-like greenery is highly characteristic of Australian suburbs. The sun angle and shadow direction are consistent with a southern hemisphere location."
+        },
+        {
+          "country": "New Zealand",
+          "confidence": "high",
+          "reasoning": "The lush green grass, temperate vegetation, and suburban layout are nearly identical to Australia's. Both countries share similar colonial settlement patterns and environmental conditions in their coastal suburbs."
+        },
+        {
+          "country": "United States",
+          "confidence": "low",
+          "reasoning": "Certain suburban layouts in California or the Pacific Northwest can mirror this temperate, green environment. However, the specific utility pole design and fence styles are less common in North American residential zones."
+        }
+      ],
+      "evidence": [
+        "Temperate climate with lush green lawns",
+        "Southern hemisphere sun angle based on shadow cast",
+        "Suburban settlement pattern with detached housing and wide roads",
+        "Mixed evergreen and deciduous vegetation"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Australia",
+          "confidence": "high",
+          "reasoning": "The combination of Eucalyptus-type sclerophyll foliage in the background and the specific growth habit of the ornamental trees is highly characteristic of Australian suburban landscapes. The vegetation is consistent with temperate regions of Southeast Australia."
+        },
+        {
+          "country": "New Zealand",
+          "confidence": "medium",
+          "reasoning": "The lush green lawns and the presence of deciduous ornamental trees like the Betula (birch) on the right are common in New Zealand suburbs. However, the overall canopy structure is slightly more indicative of Australian coastal/temperate zones."
+        },
+        {
+          "country": "United States",
+          "confidence": "low",
+          "reasoning": "The presence of Betula (birch) and general suburban greenery is common in the US Pacific Northwest or Northeast. However, the specific mix of evergreen foliage in the background is less typical for these North American residential zones compared to Oceania."
+        }
+      ],
+      "evidence": [
+        "Betula (Birch)",
+        "Eucalyptus-like canopy",
+        "Temperate suburban turfgrass"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Australia",
+          "confidence": "high",
+          "reasoning": "The utility pole design with the specific transformer mounting and cross-arm configuration is very characteristic of Australian residential suburbs. The concrete curb and gutter style combined with the wide, paved nature strip/sidewalk is typical for Australian urban planning."
+        },
+        {
+          "country": "New Zealand",
+          "confidence": "medium",
+          "reasoning": "The residential infrastructure, including the wooden fencing and utility pole styles, is very similar to Australia and common in New Zealand suburbs. The general road width and shoulder treatment are consistent with NZ residential areas."
+        },
+        {
+          "country": "United States",
+          "confidence": "low",
+          "reasoning": "The presence of wooden utility poles and suburban residential layouts is common across North America. However, the specific transformer housing and pole hardware are less typical for standard US residential grids compared to Oceania."
+        },
+        {
+          "country": "Canada",
+          "confidence": "low",
+          "reasoning": "Similar to the USA, the general suburban layout and utility pole usage are common, but the specific hardware on the poles and the curb style are more indicative of Oceania."
+        }
+      ],
+      "evidence": [
+        "Concrete utility pole with specific transformer mount",
+        "Concrete curb and gutter with integrated nature strip",
+        "Residential wooden slat fencing",
+        "Suburban road width and asphalt quality"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "New Zealand",
+          "confidence": "high",
+          "reasoning": "The utility pole is a classic New Zealand concrete pole with a specific transformer mounting and cross-arm configuration. The wooden fence style and the specific concrete sidewalk slabs are very characteristic of NZ residential suburbs."
+        },
+        {
+          "country": "Australia",
+          "confidence": "medium",
+          "reasoning": "Australia shares very similar residential infrastructure, including concrete utility poles and similar fencing. However, the specific transformer shape and pole hardware are more typical of New Zealand."
+        },
+        {
+          "country": "United States",
+          "confidence": "low",
+          "reasoning": "Some suburban areas in the US use similar concrete poles and residential layouts, but the specific combination of the pole hardware and the sidewalk design is less common than in Oceania."
+        }
+      ],
+      "evidence": [
+        "Concrete utility pole with specific transformer mount",
+        "Wooden slat perimeter fencing",
+        "Concrete sidewalk slab patterns",
+        "Residential roof tile style"
+      ]
+    }
+  },
+  "hypothesis_evaluations": [
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_oceania",
+      "confidence": "strongly_support",
+      "reasoning": "The combination of temperate greenery, specific eucalyptus-like tree silhouettes, and the suburban layout is highly characteristic of New Zealand or Australia. The sun angle and shadow direction are consistent with a southern hemisphere location.",
+      "key_evidence": [
+        "Southern hemisphere sun angle",
+        "Temperate oceanic vegetation",
+        "Suburban settlement pattern typical of Australasia"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_north_america",
+      "confidence": "support",
+      "reasoning": "The temperate climate and suburban road infrastructure are compatible with parts of the US or Canada. However, the specific mix of flora and the light quality are more indicative of the Southern Hemisphere.",
+      "key_evidence": [
+        "Temperate climate",
+        "Suburban road layout"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_sub-saharan_africa",
+      "confidence": "contradicts",
+      "reasoning": "The lush, temperate green lawns and specific deciduous/evergreen tree mix do not match the typical soil colors or vegetation patterns found in Sub-Saharan African suburban areas.",
+      "key_evidence": [
+        "Lack of characteristic red/laterite soils",
+        "Inconsistent vegetation types"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_oceania",
+      "confidence": "support",
+      "reasoning": "The combination of Betula pendula (Silver Birch) as an ornamental, alongside dense, dark-green evergreen broadleaf trees and specific lawn grass types, is highly characteristic of suburban New Zealand or Southern Australia. The vegetation reflects a temperate maritime climate common in these regions.",
+      "key_evidence": [
+        "Betula pendula",
+        "Temperate maritime evergreen canopy",
+        "Suburban turf grass"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_north_america",
+      "confidence": "support",
+      "reasoning": "The vegetation, specifically the Silver Birch and the general temperate deciduous/evergreen mix, is entirely compatible with the Pacific Northwest or Northeast regions of the US and Canada. However, the specific density and hue of the background evergreens are slightly more typical of Oceania.",
+      "key_evidence": [
+        "Betula pendula",
+        "Temperate broadleaf mix"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_sub-saharan_africa",
+      "confidence": "contradicts",
+      "reasoning": "The presence of Betula pendula (Silver Birch) and the overall temperate, lush green suburban landscape are inconsistent with the typical vegetation and climate zones of Sub-Saharan Africa, which would feature more savanna, tropical, or xeric species.",
+      "key_evidence": [
+        "Betula pendula",
+        "Temperate climate vegetation"
+      ]
+    },
+    {
+      "agent_name": "regulatory",
+      "hypothesis_id": "region_oceania",
+      "confidence": "strongly_support",
+      "reasoning": "The utility pole design with the specific transformer mounting and cross-arm configuration is highly characteristic of New Zealand and Australia. The residential road layout, concrete curbing, and the style of the wooden fencing are very common in these regions.",
+      "key_evidence": [
+        "utility pole transformer style",
+        "concrete curb and gutter design",
+        "residential fencing style"
+      ]
+    },
+    {
+      "agent_name": "regulatory",
+      "hypothesis_id": "region_north_america",
+      "confidence": "support",
+      "reasoning": "The general suburban layout, asphalt quality, and wooden utility poles are compatible with North American residential areas, though the specific pole hardware is less common than in Oceania.",
+      "key_evidence": [
+        "wooden utility poles",
+        "suburban road width"
+      ]
+    },
+    {
+      "agent_name": "regulatory",
+      "hypothesis_id": "region_sub-saharan_africa",
+      "confidence": "speculative",
+      "reasoning": "While some former colonies in Sub-Saharan Africa share similar colonial-era infrastructure layouts, the high quality of the road surface, curbing, and specific electrical hardware makes this much less likely than Oceania or North America.",
+      "key_evidence": [
+        "general rural/suburban asphalt"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_oceania",
+      "confidence": "strongly_support",
+      "reasoning": "The utility pole is a classic New Zealand/Australian style concrete pole with a specific transformer mount and cross-arm configuration. The wooden fence style (vertical slats) and the specific concrete driveway patterns are extremely common in New Zealand suburbs.",
+      "key_evidence": [
+        "concrete utility pole design",
+        "transformer mounting style",
+        "residential wooden fencing style",
+        "concrete driveway slab patterns"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_north_america",
+      "confidence": "support",
+      "reasoning": "The general suburban layout, utility poles, and car types are compatible with North American suburbs, though the specific concrete pole design is less common than wooden poles in the US/Canada.",
+      "key_evidence": [
+        "suburban residential architecture",
+        "utility pole presence"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_sub-saharan_africa",
+      "confidence": "contradicts",
+      "reasoning": "The high quality of road surfacing, the specific style of residential fencing, and the modern utility infrastructure are inconsistent with the typical street-level meta found in Sub-Saharan African coverage.",
+      "key_evidence": [
+        "road surface quality",
+        "modern residential infrastructure"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_australia",
+      "confidence": "strongly_support",
+      "reasoning": "The combination of suburban settlement patterns, specific eucalyptus-like evergreen foliage, and the sun angle (shadows casting slightly south/east) is highly characteristic of Australian coastal suburbs. The road infrastructure and wide grassy verges are very common in Australian residential planning.",
+      "key_evidence": [
+        "eucalyptus-style vegetation",
+        "suburban settlement pattern",
+        "sun angle/shadows"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_new_zealand",
+      "confidence": "support",
+      "reasoning": "The temperate climate, lush green grass, and general suburban layout are very similar to Australia. However, the specific mix of trees and the lack of more rugged topography in the immediate background make it slightly less diagnostic than Australia, though still highly compatible.",
+      "key_evidence": [
+        "temperate climate",
+        "lush green grass",
+        "suburban layout"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_united_states",
+      "confidence": "low",
+      "reasoning": "While some West Coast US suburbs (like California) have similar climates and road widths, the specific style of the utility poles and the vegetation mix are less typical for North American residential zones.",
+      "key_evidence": [
+        "temperate climate",
+        "road width"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_canada",
+      "confidence": "contradicts",
+      "reasoning": "The vegetation is too lush and evergreen in a way that suggests a warmer, temperate or subtropical climate rather than the deciduous-heavy or coniferous forests typical of Canadian residential areas. The lack of any winter-specific infrastructure or typical Canadian flora contradicts this.",
+      "key_evidence": [
+        "vegetation type",
+        "climate indicators"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_australia",
+      "confidence": "support",
+      "reasoning": "The mix of introduced European deciduous trees (like the Betula/birch on the right) and evergreen conifers is very common in Australian suburban landscapes. The general temperate climate and lawn grass are compatible with southeastern Australia.",
+      "key_evidence": [
+        "Betula pendula (Silver Birch)",
+        "Mixed suburban temperate vegetation"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_new_zealand",
+      "confidence": "support",
+      "reasoning": "The lush green lawns and the specific combination of ornamental deciduous trees and dense evergreen foliage are highly characteristic of New Zealand suburbs. The vegetation is virtually indistinguishable from southeastern Australia in this context.",
+      "key_evidence": [
+        "Betula pendula (Silver Birch)",
+        "Lush temperate suburban greenery"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_united_states",
+      "confidence": "low",
+      "reasoning": "While the vegetation (birch and conifers) is compatible with the Pacific Northwest or Northeast US, the specific density and variety of the garden shrubs are more typical of Oceania's colonial-style suburban planting.",
+      "key_evidence": [
+        "Betula pendula (Silver Birch)"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_canada",
+      "confidence": "low",
+      "reasoning": "The presence of birch is common in Canada, but the overall vibrancy of the green lawns and the specific types of evergreen shrubs in the background are more indicative of a milder temperate climate than most Canadian residential areas.",
+      "key_evidence": [
+        "Betula pendula (Silver Birch)"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_new_zealand",
+      "confidence": "strongly_support",
+      "reasoning": "The utility pole is a classic New Zealand concrete pole with a specific transformer mounting and cross-arm configuration. The wooden fence style and the specific concrete sidewalk slabs are highly characteristic of NZ residential suburbs.",
+      "key_evidence": [
+        "concrete utility pole design",
+        "transformer style",
+        "residential fence style",
+        "sidewalk slab pattern"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_australia",
+      "confidence": "support",
+      "reasoning": "Australia shares many similar residential aesthetics, including the fence styles and general utility infrastructure, making it a strong analog, though the specific pole design is more typical of NZ.",
+      "key_evidence": [
+        "residential fence style",
+        "general utility infrastructure"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_united_states",
+      "confidence": "contradicts",
+      "reasoning": "The utility pole design and the specific style of the concrete sidewalk slabs are not typical for US residential areas. The overall street furniture and house construction materials differ from standard US suburban patterns.",
+      "key_evidence": [
+        "utility pole design",
+        "sidewalk construction"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_canada",
+      "confidence": "contradicts",
+      "reasoning": "The utility pole and transformer configuration do not match Canadian standards. Additionally, the lack of typical North American residential infrastructure (like specific mailbox styles or driveway curbs) makes this unlikely.",
+      "key_evidence": [
+        "utility pole design",
+        "infrastructure style"
+      ]
+    }
+  ],
+  "candidate_pool": [
+    "Australia",
+    "New Zealand",
+    "United States",
+    "Canada"
+  ],
+  "rag_findings": [
+    {
+      "kind": "tournament_match",
+      "country": "Canada",
+      "detail": "The suburban layout, wide grassy verges, and specific mix of evergreen and deciduous vegetation strongly align with Australian residential patterns. Specialist evidence notes that the utility pole configuration and general infrastructure contradict Canadian standards while supporting an Australian or similar temperate climate profile.",
+      "opponent": "Australia",
+      "winner": "Australia"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "United States",
+      "detail": "The utility pole design, featuring a specific concrete structure and transformer mounting, is highly characteristic of New Zealand. Additionally, the suburban layout, including the specific style of wooden fencing and concrete sidewalk slabs, strongly aligns with New Zealand's infrastructure and contradicts typical US patterns.",
+      "opponent": "New Zealand",
+      "winner": "New Zealand"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Australia",
+      "detail": "The utility pole design, specifically the concrete pole with its transformer mounting and cross-arm configuration, is highly characteristic of New Zealand. Additionally, the specific style of concrete sidewalk slabs and wooden fencing strongly align with New Zealand residential suburban patterns.",
+      "opponent": "New Zealand",
+      "winner": "New Zealand"
+    }
+  ],
+  "rag_refs_seen": [],
+  "road_filter_warnings": [],
+  "tournament_log": [
+    {
+      "round_label": "semi-1",
+      "country_a": "Australia",
+      "country_b": "Canada",
+      "pool_rank_a": 0,
+      "pool_rank_b": 3,
+      "winner": "Australia",
+      "reasoning": "The suburban layout, wide grassy verges, and specific mix of evergreen and deciduous vegetation strongly align with Australian residential patterns. Specialist evidence notes that the utility pole configuration and general infrastructure contradict Canadian standards while supporting an Australian or similar temperate climate profile.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "semi-2",
+      "country_a": "New Zealand",
+      "country_b": "United States",
+      "pool_rank_a": 1,
+      "pool_rank_b": 2,
+      "winner": "New Zealand",
+      "reasoning": "The utility pole design, featuring a specific concrete structure and transformer mounting, is highly characteristic of New Zealand. Additionally, the suburban layout, including the specific style of wooden fencing and concrete sidewalk slabs, strongly aligns with New Zealand's infrastructure and contradicts typical US patterns.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "final",
+      "country_a": "Australia",
+      "country_b": "New Zealand",
+      "pool_rank_a": 0,
+      "pool_rank_b": 1,
+      "winner": "New Zealand",
+      "reasoning": "The utility pole design, specifically the concrete pole with its transformer mounting and cross-arm configuration, is highly characteristic of New Zealand. Additionally, the specific style of concrete sidewalk slabs and wooden fencing strongly align with New Zealand residential suburban patterns.",
+      "agreement": "agree"
+    }
+  ],
+  "country_result": "Country: New Zealand\nCoordinates: -36.8485, 174.7633\nReasoning: The utility pole design, specifically the concrete pole with its transformer mounting and cross-arm configuration, is highly characteristic of New Zealand. Additionally, the specific style of concrete sidewalk slabs and wooden fencing strongly align with New Zealand residential suburban patterns.\n\nTournament:\n  semi-1: Australia vs Canada → Australia\n  semi-2: New Zealand vs United States → New Zealand\n  final: Australia vs New Zealand → New Zealand",
+  "coordinates": {
+    "lat": -36.8485,
+    "lng": 174.7633
+  },
+  "final_reasoning": "The utility pole design, specifically the concrete pole with its transformer mounting and cross-arm configuration, is highly characteristic of New Zealand. Additionally, the specific style of concrete sidewalk slabs and wooden fencing strongly align with New Zealand residential suburban patterns."
+}

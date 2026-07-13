@@ -1,0 +1,574 @@
+{
+  "image_path": "/pfs/data6/home/ma/ma_ma/ma_lweisssc/llm_council_agent_orchestration_tests/clean_images_GeoRC_500/4UvmdTHySo6AXW4M_1.png",
+  "model": "google/gemma-4-31B-it",
+  "judge_model": "google/gemma-4-31B-it",
+  "timing": {
+    "total_seconds": 84.6
+  },
+  "assessments": {
+    "linguistic": {
+      "agent_name": "linguistic",
+      "candidates": [],
+      "evidence": []
+    },
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "United Kingdom",
+          "confidence": "high",
+          "reasoning": "The combination of rolling green pastures, deciduous trees without leaves (winter/early spring), and the specific style of narrow, paved rural lane with soft shoulders is highly characteristic of the British Isles."
+        },
+        {
+          "country": "Ireland",
+          "confidence": "high",
+          "reasoning": "The landscape is virtually identical to the UK, featuring the same temperate maritime climate, lush green grass, and hedgerow-style vegetation patterns common across the island of Ireland."
+        },
+        {
+          "country": "France",
+          "confidence": "medium",
+          "reasoning": "Northern France shares similar temperate deciduous forests and agricultural patterns, though the road shoulder and field fencing style are slightly more typical of the UK/Ireland."
+        },
+        {
+          "country": "Belgium",
+          "confidence": "medium",
+          "reasoning": "The flat to gently undulating terrain and temperate vegetation match the Low Countries' rural landscape."
+        },
+        {
+          "country": "New Zealand",
+          "confidence": "speculative",
+          "reasoning": "As a global analog, New Zealand's North Island has similar lush green rolling hills and temperate vegetation due to its maritime climate, though the tree species and road construction differ slightly."
+        }
+      ],
+      "evidence": [
+        "Temperate maritime climate",
+        "Deciduous trees in dormant state",
+        "Lush green pastureland",
+        "Narrow paved rural road with uncurbed edges",
+        "Overcast sky with diffused lighting suggesting high latitude Northern Hemisphere"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "United Kingdom",
+          "confidence": "medium",
+          "reasoning": "The combination of dormant deciduous broadleaf trees (likely Fraxinus or Quercus) and lush, managed perennial ryegrass pastures is highly characteristic of the British Isles. The hedgerow structure and damp, temperate climate indicators are consistent with this region."
+        },
+        {
+          "country": "France",
+          "confidence": "medium",
+          "reasoning": "Similar temperate broadleaf forests and agricultural pasture lands are found in Northern France. The vegetation is virtually indistinguishable from the UK in this specific biome without endemic species visible."
+        },
+        {
+          "country": "Germany",
+          "confidence": "medium",
+          "reasoning": "The temperate deciduous woodland and green agricultural fields are common across Central Europe, including Germany, particularly in the lowland regions."
+        },
+        {
+          "country": "New Zealand",
+          "confidence": "low",
+          "reasoning": "As a global analog, New Zealand's temperate pastures and introduced European deciduous trees create a visually similar landscape, though the specific tree architecture here leans more towards Northern Hemisphere patterns."
+        },
+        {
+          "country": "United States",
+          "confidence": "low",
+          "reasoning": "The Northeastern US or Pacific Northwest can exhibit similar temperate broadleaf forests and green pastures during the dormant season."
+        }
+      ],
+      "evidence": [
+        "Deciduous broadleaf trees (dormant)",
+        "Perennial ryegrass (pasture)",
+        "Temperate broadleaf and mixed forest biome"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "United Kingdom",
+          "confidence": "low",
+          "reasoning": "The narrow asphalt road with rough gravel shoulders and the style of the wooden fence posts are common in rural UK landscapes."
+        },
+        {
+          "country": "France",
+          "confidence": "low",
+          "reasoning": "The road width and the presence of basic rural asphalt with grass verges are consistent with rural French departmental roads."
+        },
+        {
+          "country": "New Zealand",
+          "confidence": "speculative",
+          "reasoning": "Global analog: The combination of rural asphalt, wooden fencing, and green rolling hills is visually similar to rural New Zealand infrastructure."
+        },
+        {
+          "country": "Ireland",
+          "confidence": "low",
+          "reasoning": "The narrow road profile and the specific type of rural greenery and fencing are highly characteristic of the Irish countryside."
+        }
+      ],
+      "evidence": [
+        "narrow asphalt road",
+        "rough gravel/dirt shoulders",
+        "wooden fence posts",
+        "no visible road signs",
+        "no visible license plates",
+        "no visible bollards"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "United Kingdom",
+          "confidence": "medium",
+          "reasoning": "The style of the wooden post-and-wire fencing and the specific texture of the narrow rural asphalt road are very common in the UK. The image quality and lack of distinct camera artifacts are consistent with Gen 4 coverage in rural Britain."
+        },
+        {
+          "country": "France",
+          "confidence": "medium",
+          "reasoning": "Rural French 'chemins' often feature similar narrow asphalt and simple wooden fencing. The overall image clarity and color palette are consistent with French rural coverage."
+        },
+        {
+          "country": "Ireland",
+          "confidence": "medium",
+          "reasoning": "The combination of narrow rural roads and simple wire fencing is nearly identical to the UK, making it a strong candidate based on these meta-details."
+        },
+        {
+          "country": "New Zealand",
+          "confidence": "low",
+          "reasoning": "As a global analog, New Zealand shares very similar rural road textures and wooden fence styles (post-and-wire) common in former Commonwealth countries."
+        }
+      ],
+      "evidence": [
+        "wooden post-and-wire fencing",
+        "narrow rural asphalt road texture",
+        "Gen 4 camera image quality"
+      ]
+    }
+  },
+  "progressive_narrowing": {
+    "region_consensus": false,
+    "confirmed_region": "Europe",
+    "runner_up_region": "North America",
+    "surviving_regions": [
+      "Europe",
+      "North America"
+    ],
+    "proposed_regions": [
+      "Europe",
+      "Oceania",
+      "North America"
+    ],
+    "region_candidates": {
+      "Europe": {
+        "United Kingdom": 4,
+        "Ireland": 3,
+        "France": 4,
+        "Belgium": 1,
+        "Germany": 1
+      },
+      "Oceania": {
+        "New Zealand": 4
+      },
+      "North America": {
+        "United States": 1
+      }
+    },
+    "region_decision_reasoning": "Europe received the highest total score with support from both the botanics and meta agents, citing characteristic temperate vegetation and rural infrastructure. North America is the runner-up due to botanical similarities, although the meta agent noted infrastructure differences.",
+    "path": "B"
+  },
+  "road_evidence": {
+    "outside_color": "none",
+    "inside_color": "none",
+    "driving_side": "UNCLEAR",
+    "driving_side_basis": "none"
+  },
+  "country_assessments": {
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "United Kingdom",
+          "confidence": "high",
+          "reasoning": "The combination of rolling green pastures, deciduous hedgerow-style vegetation, and the specific narrow, paved rural lane is highly characteristic of the British countryside. The damp, overcast lighting and soil moisture levels are typical for the UK's temperate maritime climate."
+        },
+        {
+          "country": "Ireland",
+          "confidence": "high",
+          "reasoning": "The landscape is virtually identical to the UK, featuring lush green fields and similar deciduous tree species. The lack of distinct mountains in the immediate vicinity and the soil saturation are very common across the Irish landscape."
+        },
+        {
+          "country": "France",
+          "confidence": "medium",
+          "reasoning": "Northern France shares similar temperate forests and agricultural patterns with the UK and Ireland. However, the specific style of the narrow rural road and fence lines is slightly more characteristic of the British Isles."
+        },
+        {
+          "country": "Belgium",
+          "confidence": "medium",
+          "reasoning": "The flat to gently undulating terrain and the mix of deciduous trees and green fields are consistent with the Low Countries. The climate and vegetation match the Northern European temperate zone."
+        },
+        {
+          "country": "United States",
+          "confidence": "low",
+          "reasoning": "Certain regions in the Northeast or Midwest could have similar deciduous forests and green fields during early spring. However, the road width and the specific style of rural land partitioning are less common than in Western Europe."
+        }
+      ],
+      "evidence": [
+        "Temperate maritime climate indicated by lush green grass and overcast sky",
+        "Deciduous trees in a dormant/early spring state (leafless)",
+        "Narrow, paved rural road with soft, muddy shoulders",
+        "Rolling lowland terrain with agricultural field partitioning",
+        "Northern hemisphere lighting based on the soft, diffused sun angle"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "United Kingdom",
+          "confidence": "medium",
+          "reasoning": "The combination of deciduous hedgerows, managed pasture, and the specific structure of the dormant broadleaf trees is highly characteristic of the British countryside. The damp, lush green grass in a dormant season is typical for the UK's maritime climate."
+        },
+        {
+          "country": "France",
+          "confidence": "medium",
+          "reasoning": "The temperate broadleaf forest remnants and agricultural field patterns are consistent with Northern France. It shares very similar botanical characteristics with the UK and Belgium in this biome."
+        },
+        {
+          "country": "Belgium",
+          "confidence": "medium",
+          "reasoning": "The vegetation and land use are typical of the Low Countries, featuring similar deciduous species and managed grasslands as seen in neighboring France and Germany."
+        },
+        {
+          "country": "Germany",
+          "confidence": "medium",
+          "reasoning": "The temperate deciduous forest structure and agricultural landscape are consistent with Central European regions, though it lacks specific endemic markers to distinguish it from France or Belgium."
+        },
+        {
+          "country": "United States",
+          "confidence": "low",
+          "reasoning": "The temperate broadleaf biome is present in the Eastern US, but the specific density and management of the hedgerows are more characteristic of European agricultural traditions."
+        }
+      ],
+      "evidence": [
+        "Temperate broadleaf deciduous trees",
+        "Managed pasture grass",
+        "European-style hedgerow vegetation"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "United Kingdom",
+          "confidence": "medium",
+          "reasoning": "The narrow, winding rural road with rough asphalt edges and simple wooden post-and-wire fencing is very characteristic of the British countryside. The general landscape and vegetation align with Northern European rural infrastructure."
+        },
+        {
+          "country": "Ireland",
+          "confidence": "medium",
+          "reasoning": "The road width, lack of formal shoulders, and the specific style of rural field boundaries are highly consistent with Irish boreens or minor rural roads."
+        },
+        {
+          "country": "France",
+          "confidence": "low",
+          "reasoning": "Similar narrow rural roads exist in rural France, though the lack of specific French bollards or signage makes this less certain."
+        },
+        {
+          "country": "United States",
+          "confidence": "speculative",
+          "reasoning": "Rural backroads in the Northeast or Midwest can feature similar narrow asphalt and wooden fencing, though the overall 'feel' of the greenery is more European."
+        }
+      ],
+      "evidence": [
+        "narrow rural road width",
+        "rough asphalt edges without curbing",
+        "wooden post-and-wire field fencing",
+        "absence of formal road markings or signage"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "United Kingdom",
+          "confidence": "medium",
+          "reasoning": "The style of the wooden post-and-wire fencing and the specific texture of the narrow rural asphalt road are very common in the UK. The image quality and lack of distinct camera artifacts are consistent with Gen 4 coverage in rural Britain."
+        },
+        {
+          "country": "Ireland",
+          "confidence": "medium",
+          "reasoning": "The rural infrastructure, specifically the simple wooden fencing and road edge characteristics, is nearly identical to the UK. It is a primary candidate due to the shared 'British Isles' rural meta."
+        },
+        {
+          "country": "France",
+          "confidence": "low",
+          "reasoning": "Certain rural areas in Northern France utilize similar wooden fencing and narrow paved lanes. However, the lack of specific French bollards or utility poles makes this less certain than the UK/Ireland."
+        },
+        {
+          "country": "United States",
+          "confidence": "speculative",
+          "reasoning": "While the landscape is generic, some rural areas in the Northeast or Midwest use similar wooden fencing. This is included as a cross-continent analog per the global analog rule, though the road surface feels more European."
+        }
+      ],
+      "evidence": [
+        "wooden post-and-wire fencing style",
+        "narrow rural asphalt road texture",
+        "Gen 4 Google camera image quality"
+      ]
+    }
+  },
+  "hypothesis_evaluations": [
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_europe",
+      "confidence": "support",
+      "reasoning": "The combination of dormant temperate broadleaf trees (likely Fraxinus or Quercus species) and lush, managed green pasture is highly characteristic of the Atlantic/Central European landscape during late winter or early spring.",
+      "key_evidence": [
+        "temperate broadleaf forest",
+        "managed pasture",
+        "deciduous dormancy"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_north_america",
+      "confidence": "support",
+      "reasoning": "The vegetation is compatible with the Northeastern US or Southeastern Canada, which share the same temperate deciduous biome and similar agricultural land-use patterns as Europe.",
+      "key_evidence": [
+        "temperate broadleaf forest",
+        "managed pasture"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_oceania",
+      "confidence": "contradicts",
+      "reasoning": "While some parts of New Zealand or Southern Australia have temperate climates, the specific structure of these deciduous trees and the associated hedgerow-style vegetation are not native to Oceania and are far less common than in the Northern Hemisphere.",
+      "key_evidence": [
+        "deciduous broadleaf structure",
+        "lack of endemic Oceania flora"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_europe",
+      "confidence": "support",
+      "reasoning": "The image quality and camera generation are consistent with standard Google Street View coverage in Europe. The style of the narrow asphalt road and the simple wooden post-and-wire fencing are very common in rural European landscapes, particularly in the UK, France, or Germany.",
+      "key_evidence": [
+        "Google Street View camera generation",
+        "Wooden post-and-wire fence style",
+        "Narrow rural asphalt road construction"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_oceania",
+      "confidence": "low",
+      "reasoning": "While rural roads in New Zealand or Australia can look similar, the specific quality of the asphalt and the style of the fencing are more characteristic of European rural areas. It is a possible global analog but less likely given the overall visual 'feel' of the infrastructure.",
+      "key_evidence": [
+        "Generic rural road",
+        "Wooden fencing"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_north_america",
+      "confidence": "contradicts",
+      "reasoning": "The road width and the lack of typical North American rural infrastructure (such as specific utility pole styles or wider road shoulders) make this less likely. The fencing style is less common for primary rural roads in the US or Canada compared to Europe.",
+      "key_evidence": [
+        "Road width",
+        "Fencing style"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_united_kingdom",
+      "confidence": "support",
+      "reasoning": "The combination of dormant deciduous trees (likely Fraxinus or Quercus), lush green perennial pasture, and hedgerow-style vegetation is highly characteristic of the British Isles' temperate oceanic climate.",
+      "key_evidence": [
+        "temperate deciduous forest",
+        "perennial pasture"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_ireland",
+      "confidence": "support",
+      "reasoning": "The intense green of the grass despite the dormant state of the trees suggests a very high-moisture, mild winter environment typical of Ireland, which is botanically similar to the UK.",
+      "key_evidence": [
+        "temperate deciduous forest",
+        "perennial pasture"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_france",
+      "confidence": "support",
+      "reasoning": "Compatible with Northern France (Normandy/Brittany), where the vegetation patterns and tree species mirror the UK and Ireland.",
+      "key_evidence": [
+        "temperate deciduous forest",
+        "perennial pasture"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_belgium",
+      "confidence": "support",
+      "reasoning": "The vegetation is consistent with the lowland temperate forests and agricultural pastures of the Benelux region.",
+      "key_evidence": [
+        "temperate deciduous forest",
+        "perennial pasture"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_germany",
+      "confidence": "support",
+      "reasoning": "Compatible with Western Germany, though the extreme greenness of the grass in winter is slightly more characteristic of the Atlantic coast than the continental interior.",
+      "key_evidence": [
+        "temperate deciduous forest",
+        "perennial pasture"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_united_states",
+      "confidence": "low",
+      "reasoning": "While this resembles the US Northeast or Pacific Northwest, the specific structure of the hedgerows and the uniformity of the pasture are more typical of European agricultural landscapes.",
+      "key_evidence": [
+        "temperate deciduous forest",
+        "perennial pasture"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_united_kingdom",
+      "confidence": "support",
+      "reasoning": "The image quality and camera generation are consistent with UK coverage. The simple wooden post-and-wire fencing is extremely common in rural UK landscapes.",
+      "key_evidence": [
+        "camera generation",
+        "wooden post-and-wire fencing"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_ireland",
+      "confidence": "support",
+      "reasoning": "The rural road infrastructure and fencing style are nearly identical to the UK, making it a strong candidate based on meta-visuals alone.",
+      "key_evidence": [
+        "camera generation",
+        "wooden post-and-wire fencing"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_france",
+      "confidence": "support",
+      "reasoning": "Compatible with rural French coverage, though the specific style of the narrow paved lane and fencing is slightly more characteristic of the British Isles.",
+      "key_evidence": [
+        "camera generation"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_belgium",
+      "confidence": "support",
+      "reasoning": "Compatible with rural Belgian coverage, though lacks specific Belgian bollards or utility poles to elevate confidence.",
+      "key_evidence": [
+        "camera generation"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_germany",
+      "confidence": "support",
+      "reasoning": "Compatible with rural German coverage, but the lack of standard German delineators (Leitpfosten) on a road of this type makes it less likely than UK/Ireland.",
+      "key_evidence": [
+        "camera generation"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_united_states",
+      "confidence": "contradicts",
+      "reasoning": "The road width, asphalt texture, and the specific style of the wooden fencing are not typical for rural US Street View coverage.",
+      "key_evidence": [
+        "road width",
+        "fencing style"
+      ]
+    }
+  ],
+  "candidate_pool": [
+    "United Kingdom",
+    "France",
+    "United States",
+    "Ireland",
+    "Belgium",
+    "Germany"
+  ],
+  "rag_findings": [
+    {
+      "kind": "tournament_match",
+      "country": "Belgium",
+      "detail": "The landscape features a combination of dormant deciduous trees, lush green perennial pasture, and simple wooden post-and-wire fencing that is highly characteristic of the rural United Kingdom. While the vegetation is compatible with Belgium, the overall aesthetic and meta-data regarding camera generation align more strongly with UK rural coverage.",
+      "opponent": "United Kingdom",
+      "winner": "United Kingdom"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "France",
+      "detail": "The narrow, paved rural lane and the specific style of post-and-wire fencing are highly characteristic of the British Isles. The intense green of the grass combined with dormant trees strongly supports the mild, high-moisture climate typical of Ireland.",
+      "opponent": "Ireland",
+      "winner": "Ireland"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Ireland",
+      "detail": "The landscape, featuring dormant deciduous trees and lush green pastures with post-and-wire fencing, is highly characteristic of the rural United Kingdom. While botanically similar to Ireland, the specific combination of road texture and hedgerow structure is very common in the English countryside.",
+      "opponent": "United Kingdom",
+      "winner": "United Kingdom"
+    }
+  ],
+  "rag_refs_seen": [],
+  "road_filter_warnings": [],
+  "tournament_log": [
+    {
+      "round_label": "semi-1",
+      "country_a": "United Kingdom",
+      "country_b": "Belgium",
+      "pool_rank_a": 0,
+      "pool_rank_b": 3,
+      "winner": "United Kingdom",
+      "reasoning": "The landscape features a combination of dormant deciduous trees, lush green perennial pasture, and simple wooden post-and-wire fencing that is highly characteristic of the rural United Kingdom. While the vegetation is compatible with Belgium, the overall aesthetic and meta-data regarding camera generation align more strongly with UK rural coverage.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "semi-2",
+      "country_a": "France",
+      "country_b": "Ireland",
+      "pool_rank_a": 1,
+      "pool_rank_b": 2,
+      "winner": "Ireland",
+      "reasoning": "The narrow, paved rural lane and the specific style of post-and-wire fencing are highly characteristic of the British Isles. The intense green of the grass combined with dormant trees strongly supports the mild, high-moisture climate typical of Ireland.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "final",
+      "country_a": "United Kingdom",
+      "country_b": "Ireland",
+      "pool_rank_a": 0,
+      "pool_rank_b": 2,
+      "winner": "United Kingdom",
+      "reasoning": "The landscape, featuring dormant deciduous trees and lush green pastures with post-and-wire fencing, is highly characteristic of the rural United Kingdom. While botanically similar to Ireland, the specific combination of road texture and hedgerow structure is very common in the English countryside.",
+      "agreement": "agree"
+    }
+  ],
+  "country_result": "Country: United Kingdom\nCoordinates: 52.4862, -1.8904\nReasoning: The landscape, featuring dormant deciduous trees and lush green pastures with post-and-wire fencing, is highly characteristic of the rural United Kingdom. While botanically similar to Ireland, the specific combination of road texture and hedgerow structure is very common in the English countryside.\n\nTournament:\n  semi-1: United Kingdom vs Belgium → United Kingdom\n  semi-2: France vs Ireland → Ireland\n  final: United Kingdom vs Ireland → United Kingdom",
+  "coordinates": {
+    "lat": 52.4862,
+    "lng": -1.8904
+  },
+  "final_reasoning": "The landscape, featuring dormant deciduous trees and lush green pastures with post-and-wire fencing, is highly characteristic of the rural United Kingdom. While botanically similar to Ireland, the specific combination of road texture and hedgerow structure is very common in the English countryside."
+}

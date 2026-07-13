@@ -1,0 +1,626 @@
+{
+  "image_path": "/pfs/data6/home/ma/ma_ma/ma_lweisssc/llm_council_agent_orchestration_tests/clean_images_GeoRC_500/Y2QhKx7sks9MExvw_1.png",
+  "model": "google/gemma-4-31B-it",
+  "judge_model": "google/gemma-4-31B-it",
+  "timing": {
+    "total_seconds": 247.7
+  },
+  "assessments": {
+    "linguistic": {
+      "agent_name": "linguistic",
+      "candidates": [
+        {
+          "country": "Italy",
+          "confidence": "high",
+          "reasoning": "The text 'Via' (street) and 'Cecco Angiolieri' are characteristic of Italian street naming conventions. The wording on the yellow sign is in Italian, which is the official language of Italy."
+        }
+      ],
+      "evidence": [
+        "Cecco Angiolieri",
+        "VIA LOMBA IN CAPODOCIO",
+        "Italian",
+        "Latin"
+      ]
+    },
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Italy",
+          "confidence": "high",
+          "reasoning": "The combination of Mediterranean vegetation, specific architectural styles of the residential building, and the layout of the narrow asphalt road is highly characteristic of Southern Europe, specifically Italy. The presence of cedar-like trees and dense evergreen hedging is common in Italian suburban landscapes."
+        },
+        {
+          "country": "Spain",
+          "confidence": "medium",
+          "reasoning": "The climate and vegetation are very similar to Italy, with Mediterranean scrub and similar sun angles. However, the specific building facade and road curbing are slightly more typical of Italian residential zones."
+        },
+        {
+          "country": "Greece",
+          "confidence": "medium",
+          "reasoning": "Shares the same Mediterranean biome and sunlight intensity. The terrain is flat to gently rolling, which is consistent with many Greek suburban areas, though the architectural style is less typical than in Italy."
+        },
+        {
+          "country": "California, USA",
+          "confidence": "speculative",
+          "reasoning": "As a global analog, the Mediterranean climate of coastal California features similar evergreen trees, sun angles, and residential greenery, though the road infrastructure and building materials differ from the European style seen here."
+        }
+      ],
+      "evidence": [
+        "Mediterranean vegetation (cedars, dense evergreen hedges)",
+        "Northern hemisphere sun angle based on shadow cast",
+        "Asphalt road with narrow European-style curbing",
+        "Temperate, sunny climate with clear skies"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Italy",
+          "confidence": "high",
+          "reasoning": "The presence of a mature Cedrus libani or Cedrus atlantica (Cedar of Lebanon/Atlas Cedar) combined with dense Mediterranean evergreen hedging and broadleaf deciduous trees is highly characteristic of Italian residential landscaping. This specific combination of ornamental conifers and Mediterranean scrub is ubiquitous in Southern European urban planning."
+        },
+        {
+          "country": "Spain",
+          "confidence": "medium",
+          "reasoning": "Spain shares the same Mediterranean biome and frequently uses similar ornamental cedars and evergreen shrubs in residential areas. The vegetation is virtually indistinguishable from Italy without specific endemic species visible."
+        },
+        {
+          "country": "Greece",
+          "confidence": "medium",
+          "reasoning": "The Mediterranean flora, including the cedar and the dense, waxy-leaved hedging, is consistent with Greek urban greenery, though the specific landscaping style is slightly more common in Western Mediterranean regions."
+        },
+        {
+          "country": "California, USA",
+          "confidence": "low",
+          "reasoning": "California's Mediterranean climate supports the same biome, including the cultivation of Cedrus species and similar evergreen hedges. This is a cross-continent analog based on the shared Mediterranean vegetation type."
+        },
+        {
+          "country": "South Africa",
+          "confidence": "speculative",
+          "reasoning": "The Western Cape region has a Mediterranean climate where similar ornamental cedars and broadleaf greenery are common in affluent residential areas, serving as a Southern Hemisphere analog."
+        }
+      ],
+      "evidence": [
+        "Cedrus (Cedar) species",
+        "Mediterranean evergreen hedging",
+        "Temperate broadleaf deciduous trees",
+        "Mediterranean biome"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Italy",
+          "confidence": "high",
+          "reasoning": "The street name sign 'Cecco Angiolieri' is in Italian. The blue circular pedestrian sign and the yellow rectangular warning/information sign are consistent with Italian road sign standards and typography."
+        },
+        {
+          "country": "Spain",
+          "confidence": "low",
+          "reasoning": "Shares similar Vienna Convention sign styles (blue circular signs) and Mediterranean architectural styles, though the text on the signs is specifically Italian."
+        },
+        {
+          "country": "France",
+          "confidence": "low",
+          "reasoning": "Similar European urban infrastructure and sign shapes, but the specific language on the street sign points away from France."
+        }
+      ],
+      "evidence": [
+        "Vienna Convention style blue circular pedestrian sign",
+        "Italian text on street name sign ('Cecco Angiolieri')",
+        "Yellow rectangular information sign with Italian text",
+        "European style concrete curbing and asphalt road quality",
+        "Residential architecture typical of Southern Europe"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "Italy",
+          "confidence": "high",
+          "reasoning": "The combination of the specific style of the concrete utility pole, the architectural style of the house with brown shutters, and the design of the green metal gate is highly characteristic of Italian residential areas. The street furniture and the specific shade of the road asphalt are consistent with Italian coverage."
+        },
+        {
+          "country": "Spain",
+          "confidence": "low",
+          "reasoning": "Spain shares similar Mediterranean architectural elements like shutters and light-colored walls, and uses similar concrete utility poles in some regions, making it a regional analog."
+        }
+      ],
+      "evidence": [
+        "concrete utility pole style",
+        "brown window shutters",
+        "green metal property gate",
+        "residential wall construction",
+        "Google Street View camera generation (Gen 3/4 quality)"
+      ]
+    }
+  },
+  "progressive_narrowing": {
+    "region_consensus": false,
+    "confirmed_region": "Europe",
+    "runner_up_region": "North America",
+    "surviving_regions": [
+      "Europe",
+      "North America"
+    ],
+    "proposed_regions": [
+      "Europe",
+      "North America",
+      "Sub-Saharan Africa"
+    ],
+    "region_candidates": {
+      "Europe": {
+        "Italy": 5,
+        "Spain": 4,
+        "Greece": 2,
+        "France": 1
+      },
+      "North America": {
+        "USA": 2
+      },
+      "Sub-Saharan Africa": {
+        "South Africa": 1
+      }
+    },
+    "region_decision_reasoning": "Europe received overwhelming support across all agents, with multiple 'strongly_support' ratings based on architecture, road signage (Vienna Convention), and vegetation. North America was considered a possibility by landscape and botanics agents but was strongly contradicted by regulatory and meta agents due to non-MUTCD signage and architectural styles.",
+    "path": "B"
+  },
+  "road_evidence": {
+    "outside_color": "none",
+    "inside_color": "none",
+    "driving_side": "RIGHT",
+    "driving_side_basis": "oncoming_traffic"
+  },
+  "country_assessments": {
+    "linguistic": {
+      "agent_name": "linguistic",
+      "candidates": [
+        {
+          "country": "Italy",
+          "confidence": "high",
+          "reasoning": "The text 'Via' (street) and 'Cecco Angiolieri' are characteristic of Italian street naming conventions. The yellow sign contains Italian words such as 'VIA', 'CHIUSA' (closed), and 'ORE' (hours), which are specific to the Italian language."
+        }
+      ],
+      "evidence": [
+        "Cecco Angiolieri",
+        "VIA CHIUSA",
+        "ORE",
+        "Italian",
+        "Latin"
+      ]
+    },
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Italy",
+          "confidence": "high",
+          "reasoning": "The combination of Mediterranean vegetation, specifically the large cedar-like tree and dense evergreen hedging, is highly characteristic of Southern Europe. The architectural style of the house with shutters and the specific road layout are very common in Italian residential suburbs."
+        },
+        {
+          "country": "Spain",
+          "confidence": "medium",
+          "reasoning": "The climate and flora are very similar to Italy, featuring Mediterranean scrub and similar sun angles. However, the specific style of the residential wall and greenery is slightly more typical of the Italian peninsula."
+        },
+        {
+          "country": "France",
+          "confidence": "low",
+          "reasoning": "Southern France shares the same Mediterranean landscape and vegetation patterns. The terrain is consistent with the Provence or Côte d'Azur regions, though the settlement pattern feels more Italian."
+        },
+        {
+          "country": "United States",
+          "confidence": "speculative",
+          "reasoning": "Certain parts of California have a matching Mediterranean climate and similar imported ornamental trees (like the cedar). However, the road infrastructure and building style are less typical for North American residential zones."
+        }
+      ],
+      "evidence": [
+        "Mediterranean vegetation (cedar, dense evergreen hedges)",
+        "Northern hemisphere sun angle based on shadow cast",
+        "Southern European residential settlement pattern",
+        "Asphalt road condition with narrow European-style curbs"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Italy",
+          "confidence": "high",
+          "reasoning": "The presence of a mature Cedrus atlantica (Atlas Cedar) combined with dense Mediterranean-style hedging and broadleaf evergreen shrubs is highly characteristic of Italian residential landscaping. This specific combination of ornamental conifers and lush, semi-wild greenery is ubiquitous in Central and Southern Italy."
+        },
+        {
+          "country": "Spain",
+          "confidence": "medium",
+          "reasoning": "The vegetation is consistent with Mediterranean climates found in Spain, where Atlas Cedars are commonly used in urban parks and gardens. However, the specific density and leaf structure of the surrounding deciduous shrubs are slightly more typical of the Italian peninsula."
+        },
+        {
+          "country": "France",
+          "confidence": "medium",
+          "reasoning": "Southern France shares the same Mediterranean biome and frequently utilizes the same ornamental cedar species. The botanical profile is nearly identical to Italy and Spain, making it a strong candidate based solely on vegetation."
+        },
+        {
+          "country": "United States",
+          "confidence": "low",
+          "reasoning": "Similar Mediterranean-style landscaping with Atlas Cedars can be found in California. However, the specific growth habit of the hedge and the accompanying undergrowth are more characteristic of European urban gardening styles."
+        }
+      ],
+      "evidence": [
+        "Cedrus atlantica (Atlas Cedar)",
+        "Mediterranean broadleaf evergreen shrubs",
+        "Temperate deciduous hedging"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Italy",
+          "confidence": "high",
+          "reasoning": "The street sign 'Cecco Angiolieri' is a typical Italian street nameplate. The blue circular pedestrian sign and the yellow rectangular warning/information sign are consistent with Italian road signage standards."
+        },
+        {
+          "country": "Spain",
+          "confidence": "low",
+          "reasoning": "Shares similar Vienna Convention sign styles (blue circular signs) and general Mediterranean residential road infrastructure, though the text on the signs is not Spanish."
+        },
+        {
+          "country": "France",
+          "confidence": "low",
+          "reasoning": "Uses similar Vienna Convention signage and residential road layouts, but the specific street sign format is more characteristic of Italy."
+        }
+      ],
+      "evidence": [
+        "Vienna Convention style blue circular pedestrian sign",
+        "Italian-style rectangular street nameplate ('Cecco Angiolieri')",
+        "Yellow rectangular information sign",
+        "European residential asphalt road width and curb style"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "Italy",
+          "confidence": "high",
+          "reasoning": "The combination of the specific style of the house with brown shutters, the low concrete perimeter wall with a hedge on top, and the design of the street lighting pole is highly characteristic of Italian residential areas. The white van in the distance is a common European model, and the overall architectural aesthetic is typical of Southern Europe, specifically Italy."
+        },
+        {
+          "country": "Spain",
+          "confidence": "medium",
+          "reasoning": "Spain shares similar architectural styles, including the use of light-colored stucco walls and similar perimeter fencing/hedging. However, the specific shutter style and the utility pole design are slightly more aligned with Italian standards."
+        },
+        {
+          "country": "France",
+          "confidence": "low",
+          "reasoning": "Some residential areas in Southern France exhibit similar building materials and wall styles, but the specific combination of the street furniture and house design is less common than in Italy or Spain."
+        }
+      ],
+      "evidence": [
+        "brown window shutters",
+        "low concrete perimeter wall with hedge",
+        "specific street lighting pole design",
+        "white European delivery van",
+        "stucco building exterior"
+      ]
+    }
+  },
+  "hypothesis_evaluations": [
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_europe",
+      "confidence": "strongly_support",
+      "reasoning": "The combination of Mediterranean-style vegetation (cypress-like conifers, dense broadleaf hedges), the specific architectural style of the villa with shutters, and the temperate climate indicated by the lush green foliage is highly characteristic of Southern Europe, particularly Italy or Spain.",
+      "key_evidence": [
+        "Mediterranean flora",
+        "Temperate climate vegetation",
+        "European residential settlement pattern"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_north_america",
+      "confidence": "support",
+      "reasoning": "The landscape is compatible with Mediterranean climates found in California or parts of the US Southwest, where similar imported flora and residential styles are common, though the specific density of the greenery is more typical of Europe.",
+      "key_evidence": [
+        "Mediterranean-analog climate",
+        "Suburban residential layout"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_sub-saharan_africa",
+      "confidence": "strongly_contradicts",
+      "reasoning": "The vegetation, soil moisture levels, and overall temperate environment are entirely inconsistent with the arid or tropical landscapes of Sub-Saharan Africa. The presence of these specific temperate deciduous and coniferous trees contradicts this region.",
+      "key_evidence": [
+        "Lack of tropical/arid flora",
+        "Inconsistent climate indicators"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_europe",
+      "confidence": "support",
+      "reasoning": "The presence of a mature Cedrus atlantica (Atlas Cedar) and Mediterranean-style evergreen hedging is very common in Southern European urban landscaping, particularly in Italy or Spain.",
+      "key_evidence": [
+        "Cedrus atlantica",
+        "Mediterranean evergreen shrubs"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_north_america",
+      "confidence": "support",
+      "reasoning": "The vegetation, including the cedar and broadleaf deciduous trees, is compatible with Mediterranean climates in North America, such as California, though the specific combination of species is more characteristic of European urban planning.",
+      "key_evidence": [
+        "Cedrus atlantica",
+        "Temperate broadleaf trees"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_sub-saharan_africa",
+      "confidence": "contradicts",
+      "reasoning": "The combination of temperate broadleaf deciduous trees and the specific growth habit of the cedar is inconsistent with the dominant vegetation patterns of Sub-Saharan Africa.",
+      "key_evidence": [
+        "Temperate deciduous foliage",
+        "Cedrus atlantica"
+      ]
+    },
+    {
+      "agent_name": "regulatory",
+      "hypothesis_id": "region_europe",
+      "confidence": "strongly_support",
+      "reasoning": "The road signs follow the Vienna Convention style, specifically the circular blue pedestrian sign and the rectangular white street name sign. The architecture and the specific style of the yellow warning sign on the right are highly characteristic of Southern Europe, particularly Italy.",
+      "key_evidence": [
+        "Vienna Convention circular blue pedestrian sign",
+        "European style rectangular street name sign",
+        "European style yellow warning sign"
+      ]
+    },
+    {
+      "agent_name": "regulatory",
+      "hypothesis_id": "region_north_america",
+      "confidence": "strongly_contradicts",
+      "reasoning": "The road signage (circular blue pedestrian sign and rectangular street signs) does not follow the MUTCD standards used in North America. The overall infrastructure and sign shapes are inconsistent with North American standards.",
+      "key_evidence": [
+        "Non-MUTCD sign shapes",
+        "Vienna Convention sign style"
+      ]
+    },
+    {
+      "agent_name": "regulatory",
+      "hypothesis_id": "region_sub-saharan_africa",
+      "confidence": "contradicts",
+      "reasoning": "While some former colonies use European sign styles, the combination of high-quality asphalt, specific European street furniture, and the architectural style of the surrounding buildings is inconsistent with typical Sub-Saharan African road infrastructure.",
+      "key_evidence": [
+        "High-quality European urban road infrastructure",
+        "Specific European sign styles"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_europe",
+      "confidence": "strongly_support",
+      "reasoning": "The architecture (stucco walls, specific roof tile style, and window shutters) is highly characteristic of Southern Europe, particularly Italy. The street furniture, including the specific style of the pedestrian sign post and the small, rounded convex traffic mirror, is standard for European urban environments.",
+      "key_evidence": [
+        "stucco building walls",
+        "window shutters",
+        "European-style pedestrian sign post",
+        "convex traffic mirror design"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_north_america",
+      "confidence": "strongly_contradicts",
+      "reasoning": "The construction materials, specifically the roof tiles and the style of the residential building with shutters, are not typical for North American suburbs. The street furniture and the narrow road layout are inconsistent with North American standards.",
+      "key_evidence": [
+        "roof tile style",
+        "window shutters",
+        "narrow road width"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_sub-saharan_africa",
+      "confidence": "strongly_contradicts",
+      "reasoning": "The high-quality asphalt, the specific style of the residential architecture, and the standardized European-style street furniture are inconsistent with typical Street View coverage in Sub-Saharan Africa.",
+      "key_evidence": [
+        "asphalt quality",
+        "residential architecture",
+        "street furniture"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_italy",
+      "confidence": "support",
+      "reasoning": "The presence of a large Cedrus atlantica (Atlas Cedar) and dense Mediterranean-style hedging is very common in Italian residential landscaping, particularly in central and northern regions. This vegetation is highly compatible with the Italian climate and urban gardening style.",
+      "key_evidence": [
+        "Cedrus atlantica",
+        "Mediterranean shrubbery"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_spain",
+      "confidence": "support",
+      "reasoning": "The vegetation, including the cedar and the evergreen hedge, is consistent with Mediterranean climates found in Spain. It is botanically indistinguishable from Italy in this specific urban context.",
+      "key_evidence": [
+        "Cedrus atlantica",
+        "Mediterranean shrubbery"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_france",
+      "confidence": "support",
+      "reasoning": "The mix of temperate deciduous trees and ornamental conifers is common in Southern France. The botanical profile matches the Mediterranean-Atlantic transition zone.",
+      "key_evidence": [
+        "Cedrus atlantica",
+        "Temperate broadleaf trees"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_united_states",
+      "confidence": "low",
+      "reasoning": "While these species (Atlas Cedar and common hedges) are used ornamentally in the US (e.g., California), the specific combination and growth habit of the surrounding greenery are more characteristic of European urban planning. It is a possible but less likely botanical match.",
+      "key_evidence": [
+        "Ornamental Cedrus"
+      ]
+    },
+    {
+      "agent_name": "regulatory",
+      "hypothesis_id": "country_italy",
+      "confidence": "strongly_support",
+      "reasoning": "The street sign 'Cecco Angiolieri' is a classic Italian street nameplate style. The yellow rectangular warning/information sign on the right is typical for Italian municipal notices, and the blue circular pedestrian sign follows the Vienna Convention style used in Italy.",
+      "key_evidence": [
+        "Italian street nameplate 'Cecco Angiolieri'",
+        "Yellow municipal information sign",
+        "Vienna Convention blue circular sign"
+      ]
+    },
+    {
+      "agent_name": "regulatory",
+      "hypothesis_id": "country_spain",
+      "confidence": "support",
+      "reasoning": "The signage follows the Vienna Convention, which is compatible with Spain, but the specific text and street sign style are more characteristic of Italy.",
+      "key_evidence": [
+        "Vienna Convention sign style"
+      ]
+    },
+    {
+      "agent_name": "regulatory",
+      "hypothesis_id": "country_france",
+      "confidence": "support",
+      "reasoning": "The signage follows the Vienna Convention, which is compatible with France, but the specific street nameplate and yellow sign style are not typical for France.",
+      "key_evidence": [
+        "Vienna Convention sign style"
+      ]
+    },
+    {
+      "agent_name": "regulatory",
+      "hypothesis_id": "country_united_states",
+      "confidence": "strongly_contradicts",
+      "reasoning": "The road signs (circular blue pedestrian sign and rectangular street nameplate) follow the Vienna Convention rather than the MUTCD standards used in the US.",
+      "key_evidence": [
+        "Non-MUTCD sign shapes and styles"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_italy",
+      "confidence": "strongly_support",
+      "reasoning": "The architecture features classic Italian residential styles, specifically the window shutters (persiane) and the light-colored stucco walls. The street furniture, including the specific style of the small blue pedestrian sign and the yellow temporary construction sign, is highly characteristic of Italy.",
+      "key_evidence": [
+        "Italian style window shutters",
+        "Specific yellow temporary road sign design",
+        "Residential stucco and wall construction typical of Southern Europe/Italy"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_spain",
+      "confidence": "support",
+      "reasoning": "The general Mediterranean construction materials and the use of stucco are compatible with Spain, though the specific shutter style and sign colors are more aligned with Italy.",
+      "key_evidence": [
+        "Stucco walls",
+        "Mediterranean residential architecture"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_france",
+      "confidence": "support",
+      "reasoning": "While the architecture is generally European, the specific combination of the yellow sign and the window shutter style is less common in France than in Italy.",
+      "key_evidence": [
+        "European residential construction"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_united_states",
+      "confidence": "strongly_contradicts",
+      "reasoning": "The architecture, street furniture, and overall urban design are entirely inconsistent with US standards. The window shutters and the specific style of the road signs are not found in the US.",
+      "key_evidence": [
+        "Non-US window shutter style",
+        "European-style street signage",
+        "European residential building materials"
+      ]
+    }
+  ],
+  "candidate_pool": [
+    "Italy",
+    "Spain",
+    "France",
+    "United States"
+  ],
+  "rag_findings": [
+    {
+      "kind": "tournament_match",
+      "country": "United States",
+      "detail": "The streetview contains multiple strong indicators for Italy, including a street sign for 'Cecco Angiolieri' and a blue circular pedestrian sign, both of which follow European/Italian standards. Additionally, the architecture with window shutters (persiane) and the yellow municipal notice sign are highly characteristic of Italy and strongly contradict US standards.",
+      "opponent": "Italy",
+      "winner": "Italy"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "France",
+      "detail": "The visual evidence is highly ambiguous as both candidates are Mediterranean, but the regulatory and botanical evidence for Spain is slightly more consistent with the stucco architecture and vegetation seen in the image. France is less likely due to the specific style of the yellow signage and window shutters which the specialist evidence notes as atypical for France.",
+      "opponent": "Spain",
+      "winner": "Spain"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Spain",
+      "detail": "The street sign 'Cecco Angiolieri' is a distinctly Italian name and style. Additionally, the yellow municipal notice sign and the specific style of window shutters (persiane) are highly characteristic of Italian residential architecture and urban furniture.",
+      "opponent": "Italy",
+      "winner": "Italy"
+    }
+  ],
+  "rag_refs_seen": [],
+  "road_filter_warnings": [],
+  "tournament_log": [
+    {
+      "round_label": "semi-1",
+      "country_a": "Italy",
+      "country_b": "United States",
+      "pool_rank_a": 0,
+      "pool_rank_b": 3,
+      "winner": "Italy",
+      "reasoning": "The streetview contains multiple strong indicators for Italy, including a street sign for 'Cecco Angiolieri' and a blue circular pedestrian sign, both of which follow European/Italian standards. Additionally, the architecture with window shutters (persiane) and the yellow municipal notice sign are highly characteristic of Italy and strongly contradict US standards.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "semi-2",
+      "country_a": "Spain",
+      "country_b": "France",
+      "pool_rank_a": 1,
+      "pool_rank_b": 2,
+      "winner": "Spain",
+      "reasoning": "The visual evidence is highly ambiguous as both candidates are Mediterranean, but the regulatory and botanical evidence for Spain is slightly more consistent with the stucco architecture and vegetation seen in the image. France is less likely due to the specific style of the yellow signage and window shutters which the specialist evidence notes as atypical for France.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "final",
+      "country_a": "Italy",
+      "country_b": "Spain",
+      "pool_rank_a": 0,
+      "pool_rank_b": 1,
+      "winner": "Italy",
+      "reasoning": "The street sign 'Cecco Angiolieri' is a distinctly Italian name and style. Additionally, the yellow municipal notice sign and the specific style of window shutters (persiane) are highly characteristic of Italian residential architecture and urban furniture.",
+      "agreement": "agree"
+    }
+  ],
+  "country_result": "Country: Italy\nCoordinates: 42.3812, 12.4851\nReasoning: The street sign 'Cecco Angiolieri' is a distinctly Italian name and style. Additionally, the yellow municipal notice sign and the specific style of window shutters (persiane) are highly characteristic of Italian residential architecture and urban furniture.\n\nTournament:\n  semi-1: Italy vs United States → Italy\n  semi-2: Spain vs France → Spain\n  final: Italy vs Spain → Italy",
+  "coordinates": {
+    "lat": 42.3812,
+    "lng": 12.4851
+  },
+  "final_reasoning": "The street sign 'Cecco Angiolieri' is a distinctly Italian name and style. Additionally, the yellow municipal notice sign and the specific style of window shutters (persiane) are highly characteristic of Italian residential architecture and urban furniture."
+}

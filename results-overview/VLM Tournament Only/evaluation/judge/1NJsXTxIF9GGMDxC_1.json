@@ -1,0 +1,98 @@
+{
+  "image_id": "1NJsXTxIF9GGMDxC_1",
+  "truth_country": "kyrgyzstan",
+  "pred_country": "azerbaijan",
+  "is_correct": false,
+  "candidate_pool": [
+    "Azerbaijan",
+    "Kyrgyzstan",
+    "Kazakhstan",
+    "Turkey",
+    "Russia",
+    "Belarus"
+  ],
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": true,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "role_adherence_notes": {
+      "linguistic": "Analyzed the Cyrillic abbreviation '\u0410\u0417\u0421' and its usage in post-Soviet states.",
+      "landscape": "Evaluated semi-arid soil, deciduous foliage, and rural road infrastructure.",
+      "botanics": "Identified Populus species and the cultural practice of painting tree trunks white.",
+      "regulatory": "Analyzed the green fuel totem, utility poles, and road markings.",
+      "meta": "Synthesized the 'SOCAR' brand association with the green totem and cross-referenced infrastructure."
+    },
+    "argumentative_quality": {
+      "linguistic": "normal",
+      "landscape": "strong",
+      "botanics": "strong",
+      "regulatory": "strong",
+      "meta": "very_strong"
+    },
+    "constructive_synthesis": true,
+    "overall_verdict_notes": "The pipeline failed because the specialists (and the meta-agent) confidently misidentified the '\u0410\u0417\u0421' sign as a specific Azerbaijani (SOCAR) brand rather than the generic Russian abbreviation for 'gas station' used in Kyrgyzstan. The landscape and botanics agents also leaned heavily towards the Caucasus (Azerbaijan) over Central Asia (Kyrgyzstan) based on the flat terrain, ignoring that Kyrgyzstan has significant flat valleys. The tournament then correctly followed the strongest specialist signal (the totem), leading to a wrong final prediction.",
+    "role_adherence_score": {
+      "linguistic": 1.0,
+      "landscape": 1.0,
+      "botanics": 1.0,
+      "regulatory": 1.0,
+      "meta": 1.0
+    },
+    "argumentative_quality_score": {
+      "linguistic": 0.5,
+      "landscape": 0.8,
+      "botanics": 0.8,
+      "regulatory": 0.8,
+      "meta": 0.9
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.0,
+      "botanics": 0.0,
+      "regulatory": 0.0,
+      "meta": 0.0
+    },
+    "hallucination_examples": {
+      "linguistic": [],
+      "landscape": [],
+      "botanics": [],
+      "regulatory": [],
+      "meta": []
+    },
+    "visual_consistency_score": {
+      "linguistic": 1.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 1.0,
+      "meta": 0.9
+    },
+    "visual_consistency_notes": {
+      "linguistic": "Correctly identified Cyrillic text.",
+      "landscape": "Accurately described the semi-arid, flat terrain and autumn foliage.",
+      "botanics": "Correctly identified deciduous trees and white-painted trunks.",
+      "regulatory": "Correctly described the green totem and utility poles.",
+      "meta": "Correctly linked the visual totem to the SOCAR brand hypothesis."
+    },
+    "confidence_calibration": {
+      "linguistic": 0.5,
+      "landscape": 0.25,
+      "botanics": 0.25,
+      "regulatory": 0.25,
+      "meta": 0.0
+    },
+    "tournament_failure": {
+      "truth_in_pool": true,
+      "truth_lost_to": "Kazakhstan",
+      "failure_match_round": "semi-2",
+      "failure_reason": "agent_misled_in_tournament",
+      "failure_reasoning": "The landscape and meta agents assigned 'neutral' or 'support' to Kyrgyzstan but 'strongly_support' to Azerbaijan. Specifically, the landscape agent contradicted Kyrgyzstan based on terrain flatness, and the meta agent downgraded Kyrgyzstan based on the totem. This caused the tournament judge to eliminate Kyrgyzstan in the semi-finals against Kazakhstan, preventing it from ever facing Azerbaijan.",
+      "counterfactual_winnable": false
+    }
+  },
+  "validation_error": "1 validation error for JudgeVerdict\noverall_verdict_notes\n  String should have at most 400 characters [type=string_too_long, input_value=\"The pipeline failed beca...wrong final prediction.\", input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_too_long"
+}

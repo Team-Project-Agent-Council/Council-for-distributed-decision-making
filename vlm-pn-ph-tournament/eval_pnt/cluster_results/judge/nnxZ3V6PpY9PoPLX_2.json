@@ -1,0 +1,92 @@
+{
+  "image_id": "nnxZ3V6PpY9PoPLX_2",
+  "truth_country": "new zealand",
+  "pred_country": "spain",
+  "is_correct": false,
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": true,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "role_adherence_notes": {
+      "linguistic": "Correctly identified lack of text; stayed within domain.",
+      "landscape": "Focused on terrain, soil, and vegetation.",
+      "botanics": "Analyzed plant types (xeric, sclerophyllous) and biomes.",
+      "regulatory": "Analyzed road width, shoulders, and infrastructure.",
+      "meta": "Used utility pole styles and camera generation artifacts."
+    },
+    "argumentative_quality": {
+      "linguistic": "normal",
+      "landscape": "strong",
+      "botanics": "strong",
+      "regulatory": "normal",
+      "meta": "strong"
+    },
+    "constructive_synthesis": true,
+    "overall_verdict_notes": "The pipeline failed to identify the correct country (New Zealand) because the agents relied on a 'Mediterranean' heuristic for the landscape and infrastructure. The agents hallucinated a lack of specific vegetation (Eucalyptus) to rule out Australia/NZ, and the tournament judge selected Spain based on generic 'rural' features that are not unique to Spain. The failure is due to the agents' inability to distinguish the specific 'dry scrub' of NZ from the Mediterranean, leading to a 'judge_misjudgment' where the judge accepted a plausible but incorrect match.",
+    "role_adherence_score": {
+      "linguistic": 1.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.9,
+      "meta": 0.9
+    },
+    "argumentative_quality_score": {
+      "linguistic": 0.5,
+      "landscape": 0.8,
+      "botanics": 0.8,
+      "regulatory": 0.5,
+      "meta": 0.8
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.1,
+      "botanics": 0.2,
+      "regulatory": 0.0,
+      "meta": 0.0
+    },
+    "hallucination_examples": {
+      "linguistic": [],
+      "landscape": [],
+      "botanics": [
+        "claimed 'lack of visible Eucalyptus species' (Phase 1) \u2014 while true, this was used to dismiss Oceania, ignoring that NZ scrub often lacks obvious Eucalyptus in dry inland areas."
+      ],
+      "regulatory": [],
+      "meta": []
+    },
+    "visual_consistency_score": {
+      "linguistic": 1.0,
+      "landscape": 0.9,
+      "botanics": 0.8,
+      "regulatory": 1.0,
+      "meta": 0.9
+    },
+    "visual_consistency_notes": {
+      "linguistic": "Accurately noted no text.",
+      "landscape": "Accurately described the arid, scrubby hills.",
+      "botanics": "Accurately described the vegetation type (xeric scrub).",
+      "regulatory": "Accurately described the road and poles.",
+      "meta": "Accurately described the pole style and image quality."
+    },
+    "confidence_calibration": {
+      "linguistic": 0.5,
+      "landscape": 0.2,
+      "botanics": 0.2,
+      "regulatory": 0.2,
+      "meta": 0.2
+    },
+    "tournament_failure": {
+      "truth_in_pool": false,
+      "truth_lost_to": "Spain",
+      "failure_match_round": "final",
+      "failure_reason": "not_applicable",
+      "failure_reasoning": "New Zealand was not in the candidate pool. The agents failed to consider it, likely due to the 'Mediterranean' bias in landscape/botanics and the 'lack of Eucalyptus' hallucination. Since the truth was not in the pool, the tournament failure rules do not apply.",
+      "counterfactual_winnable": false
+    }
+  },
+  "validation_error": "1 validation error for JudgeVerdict\noverall_verdict_notes\n  String should have at most 400 characters [type=string_too_long, input_value=\"The pipeline failed to i...le but incorrect match.\", input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_too_long"
+}

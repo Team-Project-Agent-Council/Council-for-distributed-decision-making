@@ -1,0 +1,587 @@
+{
+  "image_path": "/pfs/data6/home/ma/ma_ma/ma_lweisssc/llm_council_agent_orchestration_tests/clean_images_GeoRC_500/QTmrnxW99iiyS2xS_3.png",
+  "model": "google/gemma-4-31B-it",
+  "judge_model": "google/gemma-4-31B-it",
+  "timing": {
+    "total_seconds": 77.3
+  },
+  "assessments": {
+    "linguistic": {
+      "agent_name": "linguistic",
+      "candidates": [],
+      "evidence": []
+    },
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "United States",
+          "confidence": "high",
+          "reasoning": "The double yellow center line is a standard North American road marking. The combination of temperate deciduous forest and rocky, light-colored soil is highly characteristic of the Appalachian or Ozark regions."
+        },
+        {
+          "country": "Canada",
+          "confidence": "medium",
+          "reasoning": "Shares the same road marking standards as the USA and similar temperate forest biomes, though the specific vegetation density and soil color are more typical of the US mid-latitudes."
+        },
+        {
+          "country": "Mexico",
+          "confidence": "low",
+          "reasoning": "Some highland regions in Mexico feature similar temperate forests and road markings, though the specific foliage and soil composition are less common than in the US."
+        },
+        {
+          "country": "Australia",
+          "confidence": "speculative",
+          "reasoning": "Certain temperate eucalyptus forests in the southeast can mimic this green canopy and road style, though the soil and tree structure differ from the Northern Hemisphere deciduous look."
+        }
+      ],
+      "evidence": [
+        "Double yellow center lines",
+        "Temperate deciduous forest",
+        "Light-colored rocky soil/embankment",
+        "Northern hemisphere sun angle based on shadow cast"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "United States",
+          "confidence": "medium",
+          "reasoning": "The combination of mixed oak-pine forest and the specific scrubby undergrowth is highly characteristic of the Appalachian or Ozark highlands. The vegetation is consistent with temperate broadleaf and mixed forests of North America."
+        },
+        {
+          "country": "Mexico",
+          "confidence": "low",
+          "reasoning": "Similar temperate oak-pine forests exist in the Sierra Madre ranges, though the understory density and road-side vegetation here lean more towards a northern temperate profile."
+        },
+        {
+          "country": "Turkey",
+          "confidence": "low",
+          "reasoning": "The Mediterranean-influenced temperate forests of the Taurus mountains or northern Anatolia feature similar oak species and scrubland transitions."
+        },
+        {
+          "country": "Italy",
+          "confidence": "low",
+          "reasoning": "The Apennine mountains host similar mixed deciduous forests with oak and scrubby margins, though the specific leaf density suggests a more humid temperate zone."
+        },
+        {
+          "country": "Australia",
+          "confidence": "speculative",
+          "reasoning": "While the biome differs, some high-altitude temperate regions in Southeast Australia have similar green canopy densities, though the species are likely Eucalypts rather than Quercus."
+        }
+      ],
+      "evidence": [
+        "Mixed Oak-Pine forest",
+        "Temperate broadleaf biome",
+        "Sclerophyllous scrub understory"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "United States",
+          "confidence": "medium",
+          "reasoning": "The road width, asphalt quality, and lack of defined shoulders are typical for rural secondary roads in the United States."
+        },
+        {
+          "country": "Canada",
+          "confidence": "medium",
+          "reasoning": "The rural road infrastructure and surrounding vegetation are highly consistent with rural Canadian provinces."
+        },
+        {
+          "country": "Argentina",
+          "confidence": "low",
+          "reasoning": "Rural asphalt roads in mountainous or forested regions of South America often share this basic construction style and lack of edge infrastructure."
+        },
+        {
+          "country": "Australia",
+          "confidence": "low",
+          "reasoning": "Basic rural road construction with gravel shoulders and similar asphalt texture is common in various Australian territories."
+        }
+      ],
+      "evidence": [
+        "No road signs visible",
+        "No license plates visible",
+        "No bollards or guardrails visible",
+        "Basic rural asphalt road with gravel/dirt shoulders",
+        "No utility poles or electrical infrastructure visible"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "United States",
+          "confidence": "medium",
+          "reasoning": "The image quality and lighting are consistent with Gen 4 Google camera coverage. The double yellow center line is a very common standard in the US, and the road surface texture is typical for rural American state or county roads."
+        },
+        {
+          "country": "Mexico",
+          "confidence": "medium",
+          "reasoning": "Shares the same Gen 4 camera quality and double yellow line standard as the USA. The road construction and lack of shoulder are common in rural Mexican highlands."
+        },
+        {
+          "country": "Chile",
+          "confidence": "low",
+          "reasoning": "Chile uses double yellow lines and has similar Gen 4 coverage in rural areas. This serves as a cross-continent analog with similar road markings and camera artifacts."
+        },
+        {
+          "country": "South Africa",
+          "confidence": "speculative",
+          "reasoning": "Some rural areas in South Africa utilize similar road markings and have Google coverage that can mimic this image quality, though less common than the Americas."
+        }
+      ],
+      "evidence": [
+        "Gen 4 Google Street View camera quality",
+        "Double yellow center line markings",
+        "Asphalt texture and road edge style"
+      ]
+    }
+  },
+  "progressive_narrowing": {
+    "region_consensus": false,
+    "confirmed_region": "North America",
+    "runner_up_region": "Europe",
+    "surviving_regions": [
+      "North America",
+      "Europe"
+    ],
+    "proposed_regions": [
+      "North America",
+      "Oceania",
+      "Europe",
+      "South America",
+      "Sub-Saharan Africa"
+    ],
+    "region_candidates": {
+      "North America": {
+        "United States": 4,
+        "Canada": 2,
+        "Mexico": 3
+      },
+      "Oceania": {
+        "Australia": 3
+      },
+      "Europe": {
+        "Turkey": 1,
+        "Italy": 1
+      },
+      "South America": {
+        "Argentina": 1,
+        "Chile": 1
+      },
+      "Sub-Saharan Africa": {
+        "South Africa": 1
+      }
+    },
+    "region_decision_reasoning": "North America received the highest total score due to strong support from the meta agent regarding camera artifacts and road characteristics, combined with support from the botanics agent. Europe is the runner-up as it received support from the botanics agent, despite a contradiction from the meta agent.",
+    "path": "B"
+  },
+  "road_evidence": {
+    "outside_color": "none",
+    "inside_color": "yellow",
+    "driving_side": "UNCLEAR",
+    "driving_side_basis": "none"
+  },
+  "country_assessments": {
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "United States",
+          "confidence": "high",
+          "reasoning": "The double yellow center line is a standard North American road marking. The combination of deciduous oak-like forests and dry, rocky soil is highly characteristic of the Appalachian or Ozark regions."
+        },
+        {
+          "country": "Canada",
+          "confidence": "medium",
+          "reasoning": "Shares the same road marking standards as the USA. The temperate forest and terrain are consistent with Southern Ontario or the Maritime provinces, though the soil appears slightly drier than typical Canadian shield landscapes."
+        },
+        {
+          "country": "Mexico",
+          "confidence": "low",
+          "reasoning": "While double yellow lines are used, the specific density and type of temperate deciduous forest are more common in the higher altitude regions of Mexico, though less typical than the US/Canada candidates."
+        },
+        {
+          "country": "Spain",
+          "confidence": "speculative",
+          "reasoning": "The dry, rocky embankments and Mediterranean-style scrub/oak forest are geographically similar to the interior highlands of Spain, although the double yellow line is less common there than in North America."
+        }
+      ],
+      "evidence": [
+        "Double yellow center line road markings",
+        "Temperate deciduous forest with oak-like canopy",
+        "Dry, rocky soil on road embankments",
+        "High sun angle suggesting mid-latitude summer"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "United States",
+          "confidence": "medium",
+          "reasoning": "The vegetation consists of mixed temperate broadleaf forest, likely including Quercus (oak) species common in the Appalachian or Ozark regions. The density and structure of the undergrowth are highly characteristic of the Eastern United States."
+        },
+        {
+          "country": "Canada",
+          "confidence": "low",
+          "reasoning": "Similar mixed deciduous forests are found in Southern Ontario and Quebec. However, the specific leaf density and scrubby roadside vegetation are more typical of slightly warmer temperate zones."
+        },
+        {
+          "country": "France",
+          "confidence": "low",
+          "reasoning": "The forest structure resembles the temperate broadleaf forests of Central or Southern France. The mix of deciduous canopy and dry, scrubby roadside grass is common in the Massif Central region."
+        },
+        {
+          "country": "Spain",
+          "confidence": "low",
+          "reasoning": "The presence of sclerophyllous-looking shrubs and the dry, rocky soil on the embankment are consistent with the Mediterranean-influenced forests of Northern Spain."
+        }
+      ],
+      "evidence": [
+        "Temperate broadleaf forest",
+        "Quercus species (Oak)",
+        "Xeric roadside grasses",
+        "Mixed deciduous canopy"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "United States",
+          "confidence": "medium",
+          "reasoning": "The road width, asphalt texture, and lack of defined curbing or formal drainage are typical of rural US state or county roads. The general environment is consistent with North American rural infrastructure."
+        },
+        {
+          "country": "Canada",
+          "confidence": "medium",
+          "reasoning": "The rural road construction and shoulder treatment are virtually identical to those found in the USA, making it a highly plausible North American candidate."
+        },
+        {
+          "country": "Mexico",
+          "confidence": "low",
+          "reasoning": "While the road style is common in North America, the vegetation and road quality are consistent with higher-altitude rural regions of Mexico."
+        },
+        {
+          "country": "Spain",
+          "confidence": "speculative",
+          "reasoning": "The dry, scrubby vegetation and narrow rural asphalt road are common in Mediterranean Europe, though the lack of specific European bollards makes this less certain."
+        }
+      ],
+      "evidence": [
+        "narrow rural asphalt road",
+        "unimproved gravel/dirt shoulders",
+        "absence of road signs or bollards",
+        "absence of utility poles in immediate view"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "United States",
+          "confidence": "medium",
+          "reasoning": "The image quality and lighting are consistent with Gen 4 Google camera coverage common in the US. The double yellow center line is a standard North American road marking, and the lack of roadside delineators/bollards is common in rural US forest roads."
+        },
+        {
+          "country": "Canada",
+          "confidence": "medium",
+          "reasoning": "Shares the same North American road marking standards (double yellow lines) and Google camera generation as the USA. The rural road infrastructure is virtually identical to that of the US in forested regions."
+        },
+        {
+          "country": "Mexico",
+          "confidence": "low",
+          "reasoning": "While in North America and using similar road markings, the specific lighting and image clarity are more characteristic of US/Canada coverage, though still a possibility."
+        },
+        {
+          "country": "Spain",
+          "confidence": "speculative",
+          "reasoning": "Some rural areas in Spain use similar asphalt textures and have minimal roadside furniture, though the double yellow line is much less common than in North America."
+        }
+      ],
+      "evidence": [
+        "Google Gen 4 camera quality",
+        "Double yellow center lines",
+        "Absence of European-style roadside bollards"
+      ]
+    }
+  },
+  "hypothesis_evaluations": [
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_north_america",
+      "confidence": "support",
+      "reasoning": "The vegetation consists of temperate broadleaf deciduous trees and scrubland that is highly characteristic of the Mediterranean climate zones in California or the Appalachian/Ozark regions of the US. The mix of oak-like canopies and dry undergrowth is very common here.",
+      "key_evidence": [
+        "Temperate broadleaf deciduous forest",
+        "Xeric scrub understory"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_europe",
+      "confidence": "support",
+      "reasoning": "The flora is consistent with Southern European Mediterranean forests (e.g., Spain, Italy, Greece, or the Balkans), specifically the Quercus species (oaks) and associated maquis/garrigue shrubland seen on the embankments.",
+      "key_evidence": [
+        "Quercus-dominated canopy",
+        "Mediterranean scrubland"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_oceania",
+      "confidence": "low",
+      "reasoning": "While some parts of Australia or New Zealand have temperate forests, the specific leaf structure and canopy density of these deciduous trees are less characteristic of native Australian sclerophyll forests, though some introduced European species exist.",
+      "key_evidence": [
+        "Deciduous broadleaf canopy"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_south_america",
+      "confidence": "low",
+      "reasoning": "Similar temperate forests exist in the Southern Cone (Chile/Argentina), but the specific composition of the scrub and the appearance of the deciduous trees are more typical of Northern Hemisphere temperate zones.",
+      "key_evidence": [
+        "Temperate broadleaf forest"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_north_america",
+      "confidence": "strongly_support",
+      "reasoning": "The image quality and lighting are consistent with Gen 4 Google Street View camera coverage common in the US. The specific asphalt texture and the presence of double yellow center lines (though road markings are handled by others, the overall 'look' of the road surface and camera rig artifacts are highly characteristic of North American rural roads).",
+      "key_evidence": [
+        "Google Street View Gen 4 camera quality",
+        "Asphalt texture and road width typical of US rural secondary roads"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_oceania",
+      "confidence": "support",
+      "reasoning": "The camera generation is compatible with coverage found in Australia or New Zealand, and the rural road environment is similar, though the specific asphalt wear is more typical of North America.",
+      "key_evidence": [
+        "Google Street View Gen 4 camera quality"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_south_america",
+      "confidence": "low",
+      "reasoning": "While some rural roads in South America use similar asphalt, the image clarity and lack of specific regional artifacts (like certain pole types or road debris) make it less likely than North America.",
+      "key_evidence": [
+        "Generic asphalt"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_europe",
+      "confidence": "contradicts",
+      "reasoning": "The road width, the lack of European-style delineator posts (bollards) on a winding rural road, and the specific camera rig rendering are inconsistent with typical European rural coverage.",
+      "key_evidence": [
+        "Absence of European bollards/delineators",
+        "Camera rig artifacts"
+      ]
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "country_united_states",
+      "confidence": "neutral",
+      "reasoning": "There is no visible text in the image to provide linguistic evidence for or against this hypothesis.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "country_canada",
+      "confidence": "neutral",
+      "reasoning": "There is no visible text in the image to provide linguistic evidence for or against this hypothesis.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "country_spain",
+      "confidence": "neutral",
+      "reasoning": "There is no visible text in the image to provide linguistic evidence for or against this hypothesis.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "country_mexico",
+      "confidence": "neutral",
+      "reasoning": "There is no visible text in the image to provide linguistic evidence for or against this hypothesis.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "country_france",
+      "confidence": "neutral",
+      "reasoning": "There is no visible text in the image to provide linguistic evidence for or against this hypothesis.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_united_states",
+      "confidence": "support",
+      "reasoning": "The vegetation consists of temperate broadleaf deciduous trees and scrubland consistent with the Appalachian or Ozark regions of the US. The mix of oak-like canopies and dry undergrowth is highly compatible.",
+      "key_evidence": [
+        "temperate broadleaf forest",
+        "deciduous scrub"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_canada",
+      "confidence": "neutral",
+      "reasoning": "While compatible with Southern Ontario or Quebec, the lack of coniferous species (pines, spruces) in this specific view makes it less characteristic of typical Canadian landscapes compared to the US.",
+      "key_evidence": [
+        "deciduous trees"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_spain",
+      "confidence": "support",
+      "reasoning": "The vegetation is very similar to the Mediterranean sclerophyllous forests (encinas/alcornoques) found in central and northern Spain, characterized by hardy, small-leaved evergreen or semi-deciduous oaks.",
+      "key_evidence": [
+        "sclerophyllous vegetation",
+        "Mediterranean scrub"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_mexico",
+      "confidence": "low",
+      "reasoning": "While some highland regions of Mexico have temperate forests, the specific density and leaf structure seen here are more typical of Northern Hemisphere temperate zones than the Mexican highlands.",
+      "key_evidence": [
+        "temperate broadleaf"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_france",
+      "confidence": "support",
+      "reasoning": "The forest composition is highly compatible with the temperate deciduous forests of central or southern France, particularly the mix of oak and understory scrub.",
+      "key_evidence": [
+        "temperate broadleaf forest",
+        "deciduous scrub"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_united_states",
+      "confidence": "support",
+      "reasoning": "The image quality and camera generation are consistent with standard US Google Street View coverage. While the road markings are handled by other agents, the overall image clarity and lack of specific European artifacts make this a strong candidate.",
+      "key_evidence": [
+        "Google camera generation",
+        "image quality"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_canada",
+      "confidence": "support",
+      "reasoning": "Similar to the US, the camera generation and image quality are compatible with Canadian coverage. There are no unique meta-details present to distinguish it from the US in this specific view.",
+      "key_evidence": [
+        "Google camera generation",
+        "image quality"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_mexico",
+      "confidence": "support",
+      "reasoning": "The camera generation is compatible with Mexico's coverage. The lack of specific European street furniture or bollards keeps this as a viable candidate.",
+      "key_evidence": [
+        "Google camera generation"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_spain",
+      "confidence": "neutral",
+      "reasoning": "While possible, there are no distinctive Spanish meta-details visible, such as the specific white-and-black bollards or typical Spanish utility pole designs.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_france",
+      "confidence": "neutral",
+      "reasoning": "There is a lack of characteristic French meta-details, such as the specific red-topped bollards or typical French concrete utility poles.",
+      "key_evidence": []
+    }
+  ],
+  "candidate_pool": [
+    "United States",
+    "Canada",
+    "Spain",
+    "Mexico",
+    "France"
+  ],
+  "rag_findings": [
+    {
+      "kind": "tournament_match",
+      "country": "Mexico",
+      "detail": "The double yellow center lines are a quintessential road marking for the United States. Additionally, the botanic evidence strongly supports the US, noting that the temperate broadleaf deciduous trees and scrubland are highly compatible with regions like the Appalachians or Ozarks.",
+      "opponent": "United States",
+      "winner": "United States"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Spain",
+      "detail": "The streetview features a double yellow center line, which is a standard road marking in Canada and the US, but is not used in Spain (which uses white lines). The botanics specialist notes the vegetation is compatible with parts of Canada, whereas the road markings strongly contradict Spanish infrastructure.",
+      "opponent": "Canada",
+      "winner": "Canada"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Canada",
+      "detail": "The double yellow center lines are a standard road marking in the United States. The vegetation, consisting of temperate broadleaf deciduous trees and dry scrubland, is highly characteristic of the Appalachian or Ozark regions of the US, as noted by the botanics specialist.",
+      "opponent": "United States",
+      "winner": "United States"
+    }
+  ],
+  "rag_refs_seen": [],
+  "road_filter_warnings": [],
+  "tournament_log": [
+    {
+      "round_label": "semi-1",
+      "country_a": "United States",
+      "country_b": "Mexico",
+      "pool_rank_a": 0,
+      "pool_rank_b": 3,
+      "winner": "United States",
+      "reasoning": "The double yellow center lines are a quintessential road marking for the United States. Additionally, the botanic evidence strongly supports the US, noting that the temperate broadleaf deciduous trees and scrubland are highly compatible with regions like the Appalachians or Ozarks.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "semi-2",
+      "country_a": "Canada",
+      "country_b": "Spain",
+      "pool_rank_a": 1,
+      "pool_rank_b": 2,
+      "winner": "Canada",
+      "reasoning": "The streetview features a double yellow center line, which is a standard road marking in Canada and the US, but is not used in Spain (which uses white lines). The botanics specialist notes the vegetation is compatible with parts of Canada, whereas the road markings strongly contradict Spanish infrastructure.",
+      "agreement": "disagree"
+    },
+    {
+      "round_label": "final",
+      "country_a": "United States",
+      "country_b": "Canada",
+      "pool_rank_a": 0,
+      "pool_rank_b": 1,
+      "winner": "United States",
+      "reasoning": "The double yellow center lines are a standard road marking in the United States. The vegetation, consisting of temperate broadleaf deciduous trees and dry scrubland, is highly characteristic of the Appalachian or Ozark regions of the US, as noted by the botanics specialist.",
+      "agreement": "agree"
+    }
+  ],
+  "country_result": "Country: United States\nCoordinates: 36.123, -83.456\nReasoning: The double yellow center lines are a standard road marking in the United States. The vegetation, consisting of temperate broadleaf deciduous trees and dry scrubland, is highly characteristic of the Appalachian or Ozark regions of the US, as noted by the botanics specialist.\n\nTournament:\n  semi-1: United States vs Mexico → United States\n  semi-2: Canada vs Spain → Canada\n  final: United States vs Canada → United States",
+  "coordinates": {
+    "lat": 36.123,
+    "lng": -83.456
+  },
+  "final_reasoning": "The double yellow center lines are a standard road marking in the United States. The vegetation, consisting of temperate broadleaf deciduous trees and dry scrubland, is highly characteristic of the Appalachian or Ozark regions of the US, as noted by the botanics specialist."
+}

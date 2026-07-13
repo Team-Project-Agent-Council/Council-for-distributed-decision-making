@@ -1,0 +1,531 @@
+{
+  "image_path": "/pfs/data6/home/ma/ma_ma/ma_lweisssc/llm_council_agent_orchestration_tests/clean_images_GeoRC_500/Lz6IDBZmUTr5oPdV_2.png",
+  "model": "google/gemma-4-31B-it",
+  "judge_model": "google/gemma-4-31B-it",
+  "timing": {
+    "total_seconds": 85.3
+  },
+  "assessments": {
+    "linguistic": {
+      "agent_name": "linguistic",
+      "candidates": [],
+      "evidence": []
+    },
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Bangladesh",
+          "confidence": "high",
+          "reasoning": "The extremely flat alluvial plain, lush tropical greenery, and specific combination of narrow paved roads with adjacent irrigation ditches are highly characteristic of the Bengal Delta. The settlement pattern and vegetation are consistent with the Ganges-Brahmaputra delta region."
+        },
+        {
+          "country": "India",
+          "confidence": "high",
+          "reasoning": "The landscape is virtually identical to West Bengal and Bihar states, sharing the same riverine plains, soil composition, and tropical climate as Bangladesh. Geographically, these regions are part of the same landform."
+        },
+        {
+          "country": "Vietnam",
+          "confidence": "low",
+          "reasoning": "The flat, green agricultural landscape with narrow roads and high-voltage power lines is reminiscent of the Mekong Delta. However, the specific tree species and road shoulder composition are more typical of South Asia."
+        },
+        {
+          "country": "Thailand",
+          "confidence": "low",
+          "reasoning": "The central plains of Thailand feature similar flat, irrigated agricultural land and tropical vegetation. The road infrastructure in rural areas can mirror this layout."
+        }
+      ],
+      "evidence": [
+        "Flat alluvial plain",
+        "Tropical broadleaf vegetation",
+        "Irrigation ditches/wetlands adjacent to road",
+        "High-voltage power line corridor through agricultural land",
+        "Sun angle suggests low latitude/tropical zone"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Bangladesh",
+          "confidence": "high",
+          "reasoning": "The combination of lush, tropical broadleaf vegetation, flat alluvial plains, and the specific appearance of the roadside shrubs and distant paddy-like fields is highly characteristic of the Bengal Delta. The vegetation density and species morphology are consistent with the humid subtropical climate of this region."
+        },
+        {
+          "country": "India",
+          "confidence": "high",
+          "reasoning": "The vegetation is virtually identical to that found in West Bengal and the eastern states of India. The presence of tropical broadleaf trees and wet agricultural plains makes it botanically indistinguishable from Bangladesh without further non-botanical evidence."
+        },
+        {
+          "country": "Vietnam",
+          "confidence": "low",
+          "reasoning": "The tropical river-delta landscape with similar broadleaf greenery and wet agricultural fields provides a global analog in Southeast Asia, though the specific tree architecture is more reminiscent of South Asia."
+        },
+        {
+          "country": "Thailand",
+          "confidence": "low",
+          "reasoning": "Similar tropical lowland biomes with intensive agriculture and broadleaf riparian vegetation exist here, serving as a cross-continent analog for the humid tropical plains."
+        }
+      ],
+      "evidence": [
+        "Tropical broadleaf trees",
+        "Alluvial plain grassland",
+        "Wetland agricultural crops (likely Oryza sativa/Rice)",
+        "Humid subtropical riparian vegetation"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Bangladesh",
+          "confidence": "medium",
+          "reasoning": "The combination of narrow asphalt rural roads, specific red-and-white painted high-voltage transmission towers, and the general landscape is highly characteristic of the Bengal region."
+        },
+        {
+          "country": "India",
+          "confidence": "medium",
+          "reasoning": "The rural road infrastructure, including the narrow paved surface with dirt shoulders and the style of electrical pylons, is very common across rural India, particularly in the east."
+        },
+        {
+          "country": "Thailand",
+          "confidence": "low",
+          "reasoning": "Similar rural road widths and utility pole placements are found in Southeast Asia, though the pylon coloring is less common here."
+        },
+        {
+          "country": "Brazil",
+          "confidence": "speculative",
+          "reasoning": "Following the global analog rule, rural asphalt roads with basic dirt shoulders and overhead power lines are visually similar in rural South America."
+        }
+      ],
+      "evidence": [
+        "Red and white painted lattice electricity pylons",
+        "Narrow asphalt road with unpaved dirt shoulders",
+        "Simple wooden/concrete utility poles",
+        "Lack of road markings or formal signage"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "India",
+          "confidence": "medium",
+          "reasoning": "The combination of the specific red-and-white painted lattice power pylons and the style of the narrow asphalt road is very common in rural India. The presence of a small motorcycle/scooter as the primary vehicle also aligns with regional patterns."
+        },
+        {
+          "country": "Bangladesh",
+          "confidence": "medium",
+          "reasoning": "The power pylon design and the general infrastructure (narrow road, utility pole style) are nearly identical to those in India, making it a strong candidate given the regional similarity in utility infrastructure."
+        },
+        {
+          "country": "Thailand",
+          "confidence": "low",
+          "reasoning": "Thailand uses similar red-and-white painted lattice pylons in rural areas, providing a cross-continent analog with similar utility meta, though the road shoulder style differs slightly."
+        },
+        {
+          "country": "Brazil",
+          "confidence": "speculative",
+          "reasoning": "Some rural regions in Brazil utilize similar lattice power towers and narrow paved roads, serving as a distant global analog for this specific infrastructure layout."
+        }
+      ],
+      "evidence": [
+        "red-and-white painted lattice power pylons",
+        "narrow asphalt road without markings",
+        "small capacity motorcycle/scooter",
+        "simple wooden/concrete utility poles"
+      ]
+    }
+  },
+  "progressive_narrowing": {
+    "region_consensus": false,
+    "confirmed_region": "South Asia",
+    "runner_up_region": "Southeast Asia",
+    "surviving_regions": [
+      "South Asia",
+      "Southeast Asia"
+    ],
+    "proposed_regions": [
+      "South Asia",
+      "Southeast Asia",
+      "South America"
+    ],
+    "region_candidates": {
+      "South Asia": {
+        "Bangladesh": 4,
+        "India": 4
+      },
+      "Southeast Asia": {
+        "Vietnam": 2,
+        "Thailand": 4
+      },
+      "South America": {
+        "Brazil": 2
+      }
+    },
+    "region_decision_reasoning": "South Asia received three 'strongly_support' votes across landscape, botanics, and meta agents, resulting in the highest weighted score. Southeast Asia was consistently rated as 'support' across all agents, making it the clear runner-up.",
+    "path": "B"
+  },
+  "road_evidence": {
+    "outside_color": "none",
+    "inside_color": "none",
+    "driving_side": "UNCLEAR",
+    "driving_side_basis": "none"
+  },
+  "country_assessments": {
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Bangladesh",
+          "confidence": "high",
+          "reasoning": "The extremely flat, alluvial plain landscape with lush green paddy-like fields and small water bodies is characteristic of the Ganges-Brahmaputra delta. The combination of narrow paved roads and high-voltage power lines crossing flat wetlands is very common in rural Bangladesh."
+        },
+        {
+          "country": "India",
+          "confidence": "medium",
+          "reasoning": "The terrain is highly consistent with the West Bengal or Assam regions of India, which share the same deltaic geography as Bangladesh. It is distinguished from other Indian states by the lack of elevation and the specific humid, tropical greenery."
+        },
+        {
+          "country": "Vietnam",
+          "confidence": "low",
+          "reasoning": "The flat, agricultural landscape of the Mekong Delta shares similar characteristics of water-saturated soil and lush greenery. However, the specific vegetation and road shoulder style are more typical of South Asia than Southeast Asia."
+        }
+      ],
+      "evidence": [
+        "Flat alluvial plain",
+        "Lush tropical greenery",
+        "Small standing water bodies/wetlands",
+        "Narrow paved rural road",
+        "High-voltage transmission towers over agricultural land"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Bangladesh",
+          "confidence": "high",
+          "reasoning": "The combination of lush, low-lying alluvial plains, extensive rice paddy fields, and the specific growth habit of the broad-leaved trees (likely Teak or similar tropical hardwoods) is highly characteristic of the Bengal Delta. The vegetation density and water-saturated soil visible in the ditches are typical for this region."
+        },
+        {
+          "country": "India",
+          "confidence": "high",
+          "reasoning": "The botanical profile is nearly identical to Bangladesh, specifically in the West Bengal state. The presence of tropical broadleaf trees and irrigated rice cultivation is a staple of the Indo-Gangetic Plain."
+        },
+        {
+          "country": "Vietnam",
+          "confidence": "medium",
+          "reasoning": "The flat landscape with intensive rice cultivation and similar tropical roadside vegetation is common in the Mekong or Red River Deltas. However, the specific tree morphology is slightly more indicative of South Asian varieties."
+        },
+        {
+          "country": "Thailand",
+          "confidence": "low",
+          "reasoning": "The agricultural landscape of rice paddies and tropical scrub is present, but the specific combination of tree species and soil moisture levels is more typical of the wetter delta regions of South Asia."
+        }
+      ],
+      "evidence": [
+        "Oryza sativa (Rice)",
+        "Tropical broadleaf deciduous trees",
+        "Alluvial plain vegetation",
+        "Indo-Gangetic/Mekong Delta biome"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Bangladesh",
+          "confidence": "medium",
+          "reasoning": "The combination of narrow asphalt rural roads with soft dirt shoulders and the specific style of high-voltage lattice power pylons is very common in the Bangladeshi countryside. The flat, lush green landscape with small water bodies is highly characteristic of the region."
+        },
+        {
+          "country": "India",
+          "confidence": "medium",
+          "reasoning": "Rural road infrastructure in West Bengal or Assam shares nearly identical characteristics with this scene, including the road width and the style of electrical transmission towers. The general utility pole placement and road quality are consistent with rural Indian state roads."
+        },
+        {
+          "country": "Vietnam",
+          "confidence": "low",
+          "reasoning": "The narrow paved road through agricultural land and the style of electrical infrastructure can be found in rural Vietnam, though the specific pylon design is more typical of South Asia."
+        },
+        {
+          "country": "Thailand",
+          "confidence": "low",
+          "reasoning": "Rural provincial roads in Thailand often feature similar narrow asphalt strips and utility poles, although the landscape and pylon style are less definitive."
+        }
+      ],
+      "evidence": [
+        "Narrow asphalt road width with unpaved dirt shoulders",
+        "High-voltage lattice power pylons (red and white painted sections)",
+        "Simple wooden/concrete utility poles at road edge",
+        "Lack of formal road signage or bollards in the immediate vicinity"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "India",
+          "confidence": "high",
+          "reasoning": "The red and white painted lattice power pylons are extremely common across India. The specific style of the small, single-wire utility poles and the general image quality are consistent with Google's coverage in rural Indian states."
+        },
+        {
+          "country": "Bangladesh",
+          "confidence": "medium",
+          "reasoning": "The landscape and infrastructure, including the red and white pylons and simple utility poles, are very similar to India due to regional proximity. However, the specific pylon design is slightly more characteristic of Indian grids."
+        },
+        {
+          "country": "Thailand",
+          "confidence": "low",
+          "reasoning": "Thailand uses similar red and white markings on high-voltage pylons, but the overall utility pole style and road shoulder composition are less typical for rural Thailand compared to South Asia."
+        }
+      ],
+      "evidence": [
+        "Red and white painted lattice power pylons",
+        "Simple single-wire utility poles",
+        "Google Street View image quality and blur patterns consistent with South Asian coverage"
+      ]
+    }
+  },
+  "hypothesis_evaluations": [
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_south_asia",
+      "confidence": "strongly_support",
+      "reasoning": "The combination of flat alluvial plains, specific lush green vegetation, and the style of rural road infrastructure is highly characteristic of the Indo-Gangetic Plain. The presence of high-voltage power lines crossing open agricultural fields is a common sight in the rural landscapes of India and Bangladesh.",
+      "key_evidence": [
+        "flat alluvial terrain",
+        "tropical deciduous vegetation",
+        "rural agricultural settlement pattern"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_southeast_asia",
+      "confidence": "support",
+      "reasoning": "The tropical climate and flat, green landscape are compatible with regions like Thailand or Vietnam. However, the specific foliage and the lack of typical Southeast Asian paddy field terracing or specific palm varieties make it slightly less diagnostic than South Asia.",
+      "key_evidence": [
+        "tropical climate",
+        "flat plains",
+        "lush greenery"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_south_america",
+      "confidence": "low",
+      "reasoning": "While some flat agricultural regions in Brazil or Argentina could share a similar look, the specific combination of vegetation and the layout of the utility infrastructure is less typical for the South American interior.",
+      "key_evidence": [
+        "flat terrain",
+        "tropical/subtropical vegetation"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_south_asia",
+      "confidence": "strongly_support",
+      "reasoning": "The vegetation is highly characteristic of the Indo-Gangetic plain. The broad-leaved trees along the road resemble Teak (Tectona grandis) or similar tropical deciduous species common in India and Bangladesh, and the flat, irrigated agricultural landscape with low-lying green crops is typical of the region's rice-wheat rotation zones.",
+      "key_evidence": [
+        "Tectona grandis-like foliage",
+        "irrigated alluvial plain agriculture",
+        "tropical deciduous scrub"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_southeast_asia",
+      "confidence": "support",
+      "reasoning": "The tropical climate and presence of broad-leaved evergreen/deciduous trees are compatible with Southeast Asia (e.g., Thailand or Vietnam). However, the specific open, flat agricultural layout is more reminiscent of South Asian plains than the more fragmented or forested landscapes often seen in SE Asia.",
+      "key_evidence": [
+        "tropical broadleaf vegetation",
+        "wetland agriculture"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_south_america",
+      "confidence": "low",
+      "reasoning": "While the tropical biome is compatible with parts of Brazil or Colombia, the specific combination of tree morphology and the style of agricultural field management is less typical for South American landscapes and more aligned with Asian tropical agriculture.",
+      "key_evidence": [
+        "tropical biome compatibility"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_south_asia",
+      "confidence": "strongly_support",
+      "reasoning": "The combination of the specific red-and-white painted lattice power pylons and the style of the small motorcycle/moped is highly characteristic of South Asian countries, particularly India or Bangladesh. The image quality and camera generation are consistent with Google's coverage in this region.",
+      "key_evidence": [
+        "red-and-white painted lattice power pylons",
+        "small capacity motorcycle style",
+        "camera generation/image quality"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_southeast_asia",
+      "confidence": "support",
+      "reasoning": "The general infrastructure, such as the narrow paved road and the presence of small motorcycles, is compatible with Southeast Asia. However, the specific pylon painting style is more common in South Asia.",
+      "key_evidence": [
+        "small capacity motorcycle",
+        "narrow paved road"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_south_america",
+      "confidence": "contradicts",
+      "reasoning": "The specific design of the power transmission towers and the type of small-displacement motorcycle seen here are not typical for South American rural infrastructure, where different pylon styles and vehicle types predominate.",
+      "key_evidence": [
+        "power pylon design",
+        "motorcycle type"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_bangladesh",
+      "confidence": "strongly_support",
+      "reasoning": "The combination of lush, low-lying alluvial plains, the specific morphology of the broad-leafed trees (likely Teak or similar tropical hardwoods common in the region), and the presence of wet paddy-style fields is highly characteristic of the Bengal Delta. The vegetation density and species composition are quintessential for the Bangladeshi landscape.",
+      "key_evidence": [
+        "alluvial plain vegetation",
+        "tropical broadleaf trees",
+        "wetland agriculture"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_india",
+      "confidence": "support",
+      "reasoning": "The vegetation is extremely similar to that of West Bengal and the eastern states of India. Botanically, it is nearly indistinguishable from Bangladesh due to the shared ecosystem of the Ganges-Brahmaputra delta.",
+      "key_evidence": [
+        "tropical broadleaf trees",
+        "wetland agriculture"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_vietnam",
+      "confidence": "low",
+      "reasoning": "While Vietnam has tropical agriculture and similar greenery, the specific structure of the roadside vegetation and the open, flat alluvial plain layout seen here is more characteristic of South Asia than the typical Mekong or Red River delta landscapes.",
+      "key_evidence": [
+        "tropical greenery"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_thailand",
+      "confidence": "low",
+      "reasoning": "Thailand shares the tropical climate and rice-growing capabilities, but the specific tree species and the overall 'look' of the scrub and field vegetation are more aligned with the Indian subcontinent's humid subtropical/tropical transition.",
+      "key_evidence": [
+        "tropical greenery"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_bangladesh",
+      "confidence": "strongly_support",
+      "reasoning": "The image quality and the specific 'halo' or blur pattern at the bottom of the frame are characteristic of the Google Street View camera generation used extensively in Bangladesh. Additionally, the red-and-white painted lattice power pylons are a very common standard for high-voltage transmission lines in Bangladesh.",
+      "key_evidence": [
+        "camera generation blur pattern",
+        "red-and-white lattice power pylons"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_india",
+      "confidence": "support",
+      "reasoning": "The infrastructure, specifically the lattice power pylons and the general road quality, is compatible with rural India. However, the specific camera artifacts are more typical of recent Bangladesh coverage than typical Indian coverage.",
+      "key_evidence": [
+        "lattice power pylons"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_vietnam",
+      "confidence": "low",
+      "reasoning": "While rural roads and power lines exist here, the specific style of the red-and-white pylons and the camera artifacts do not align as strongly with Vietnamese Street View meta as they do with Bangladesh.",
+      "key_evidence": [
+        "lattice power pylons"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_thailand",
+      "confidence": "low",
+      "reasoning": "The scene is generically compatible with Southeast Asian rural roads, but lacks the specific Thai utility pole styles (often concrete with specific cross-arms) and the camera meta is not a strong match.",
+      "key_evidence": [
+        "lattice power pylons"
+      ]
+    }
+  ],
+  "candidate_pool": [
+    "Bangladesh",
+    "India",
+    "Vietnam",
+    "Thailand"
+  ],
+  "rag_findings": [
+    {
+      "kind": "tournament_match",
+      "country": "Thailand",
+      "detail": "The landscape features lush alluvial plains and wet paddy fields highly characteristic of the Bengal Delta. Additionally, the red-and-white painted lattice power pylons and the specific camera blur at the bottom of the frame are strong indicators for Bangladesh.",
+      "opponent": "Bangladesh",
+      "winner": "Bangladesh"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Vietnam",
+      "detail": "The botanics specialist notes that the vegetation and flat alluvial plain layout are extremely similar to West Bengal and eastern India. In contrast, the evidence for Vietnam is rated as low, as the landscape and infrastructure do not align as strongly with Vietnamese patterns.",
+      "opponent": "India",
+      "winner": "India"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "India",
+      "detail": "The red-and-white painted lattice power pylons and the specific camera artifacts at the bottom of the frame are strongly characteristic of Google Street View coverage in Bangladesh. The lush, low-lying alluvial plains and vegetation are highly consistent with the Bengal Delta landscape described in the specialist evidence for Bangladesh.",
+      "opponent": "Bangladesh",
+      "winner": "Bangladesh"
+    }
+  ],
+  "rag_refs_seen": [],
+  "road_filter_warnings": [],
+  "tournament_log": [
+    {
+      "round_label": "semi-1",
+      "country_a": "Bangladesh",
+      "country_b": "Thailand",
+      "pool_rank_a": 0,
+      "pool_rank_b": 3,
+      "winner": "Bangladesh",
+      "reasoning": "The landscape features lush alluvial plains and wet paddy fields highly characteristic of the Bengal Delta. Additionally, the red-and-white painted lattice power pylons and the specific camera blur at the bottom of the frame are strong indicators for Bangladesh.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "semi-2",
+      "country_a": "India",
+      "country_b": "Vietnam",
+      "pool_rank_a": 1,
+      "pool_rank_b": 2,
+      "winner": "India",
+      "reasoning": "The botanics specialist notes that the vegetation and flat alluvial plain layout are extremely similar to West Bengal and eastern India. In contrast, the evidence for Vietnam is rated as low, as the landscape and infrastructure do not align as strongly with Vietnamese patterns.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "final",
+      "country_a": "Bangladesh",
+      "country_b": "India",
+      "pool_rank_a": 0,
+      "pool_rank_b": 1,
+      "winner": "Bangladesh",
+      "reasoning": "The red-and-white painted lattice power pylons and the specific camera artifacts at the bottom of the frame are strongly characteristic of Google Street View coverage in Bangladesh. The lush, low-lying alluvial plains and vegetation are highly consistent with the Bengal Delta landscape described in the specialist evidence for Bangladesh.",
+      "agreement": "agree"
+    }
+  ],
+  "country_result": "Country: Bangladesh\nCoordinates: 23.8103, 90.4125\nReasoning: The red-and-white painted lattice power pylons and the specific camera artifacts at the bottom of the frame are strongly characteristic of Google Street View coverage in Bangladesh. The lush, low-lying alluvial plains and vegetation are highly consistent with the Bengal Delta landscape described in the specialist evidence for Bangladesh.\n\nTournament:\n  semi-1: Bangladesh vs Thailand → Bangladesh\n  semi-2: India vs Vietnam → India\n  final: Bangladesh vs India → Bangladesh",
+  "coordinates": {
+    "lat": 23.8103,
+    "lng": 90.4125
+  },
+  "final_reasoning": "The red-and-white painted lattice power pylons and the specific camera artifacts at the bottom of the frame are strongly characteristic of Google Street View coverage in Bangladesh. The lush, low-lying alluvial plains and vegetation are highly consistent with the Bengal Delta landscape described in the specialist evidence for Bangladesh."
+}

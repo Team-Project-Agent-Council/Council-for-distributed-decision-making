@@ -1,0 +1,98 @@
+{
+  "image_id": "qREuLz0JK8CfSFMC_3",
+  "truth_country": "germany",
+  "pred_country": "denmark",
+  "is_correct": false,
+  "candidate_pool": [
+    "Denmark",
+    "Germany",
+    "Netherlands",
+    "United Kingdom",
+    "Canada",
+    "New Zealand"
+  ],
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": true,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "role_adherence_notes": {
+      "linguistic": "Correctly identified the absence of text and remained within script/language analysis.",
+      "landscape": "Focused on terrain, drainage, and climate cues appropriate to the domain.",
+      "botanics": "Analyzed plant species (poppy) and vegetation types consistent with the domain.",
+      "regulatory": "Evaluated road infrastructure (guardrails, shoulders) and standards.",
+      "meta": "Used cross-domain cues like camera generation and general infrastructure style."
+    },
+    "argumentative_quality": {
+      "linguistic": "normal",
+      "landscape": "strong",
+      "botanics": "strong",
+      "regulatory": "strong",
+      "meta": "normal"
+    },
+    "constructive_synthesis": true,
+    "overall_verdict_notes": "The pipeline failed to identify the correct country (Germany) because the specialists relied on generic 'Northern European' landscape features (flatness, ditches) that are shared by Denmark and Germany, but failed to identify the specific regulatory markers (delineator posts) that distinguish them. The tournament then defaulted to Denmark based on a slight preference for the 'ditch' feature, which is not unique to Denmark.",
+    "role_adherence_score": {
+      "linguistic": 1.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.9,
+      "meta": 0.9
+    },
+    "argumentative_quality_score": {
+      "linguistic": 0.5,
+      "landscape": 0.8,
+      "botanics": 0.8,
+      "regulatory": 0.8,
+      "meta": 0.5
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.0,
+      "botanics": 0.0,
+      "regulatory": 0.0,
+      "meta": 0.0
+    },
+    "hallucination_examples": {
+      "linguistic": [],
+      "landscape": [],
+      "botanics": [],
+      "regulatory": [],
+      "meta": []
+    },
+    "visual_consistency_score": {
+      "linguistic": 1.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.9,
+      "meta": 0.9
+    },
+    "visual_consistency_notes": {
+      "linguistic": "Accurately noted lack of text.",
+      "landscape": "Accurately described flat terrain, ditches, and vegetation.",
+      "botanics": "Accurately identified poppies and deciduous trees.",
+      "regulatory": "Accurately described guardrails and road shoulders.",
+      "meta": "Accurately described general scene quality."
+    },
+    "confidence_calibration": {
+      "linguistic": 0.5,
+      "landscape": 0.25,
+      "botanics": 0.25,
+      "regulatory": 0.25,
+      "meta": 0.25
+    },
+    "tournament_failure": {
+      "truth_in_pool": true,
+      "truth_lost_to": "Netherlands",
+      "failure_match_round": "semi-2",
+      "failure_reason": "agent_misled_in_tournament",
+      "failure_reasoning": "In the semi-final match, the landscape and meta agents assigned 'support' to the Netherlands and 'support' to Germany, but the landscape agent explicitly favored the Netherlands due to the 'ditch' feature. The meta agent noted the absence of German delineator posts, which should have been a negative signal for Germany, but the specialists collectively gave equal or higher confidence to the Netherlands (a wrong answer) over Germany (the truth), setting up the tournament to fail.",
+      "counterfactual_winnable": false
+    }
+  },
+  "validation_error": "1 validation error for JudgeVerdict\noverall_verdict_notes\n  String should have at most 400 characters [type=string_too_long, input_value=\"The pipeline failed to i... not unique to Denmark.\", input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_too_long"
+}

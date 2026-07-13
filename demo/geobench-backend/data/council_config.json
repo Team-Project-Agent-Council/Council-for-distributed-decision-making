@@ -1,0 +1,92 @@
+{
+  "agents": [
+    {
+      "agentId": "linguistic",
+      "displayName": "Linguistic",
+      "tagline": "Reads scripts, languages, and signs",
+      "description": "The council's only source for textual evidence. Transcribes everything visible — road signs, shopfronts, graffiti, vehicle text — and maps scripts and languages to candidate countries. Distinguishes near-identical scripts (Cyrillic variants, CJK forms) and notes when a language is shared across multiple countries.",
+      "avatarEmoji": "🔤",
+      "tools": ["Script Identification", "Language Detection", "Text Transcription"],
+      "specialization": "Language & script evidence",
+      "color": "#8b5cf6"
+    },
+    {
+      "agentId": "landscape",
+      "displayName": "Landscape",
+      "tagline": "Terrain, climate, and settlement patterns",
+      "description": "Reads physical geography from the image: terrain morphology, vegetation density, soil colour, sun angle, road texture, and settlement layout. Narrows down the climate zone and broad geographic region before any country-level reasoning happens.",
+      "avatarEmoji": "🏔️",
+      "tools": ["Terrain Analysis", "Climate Zone", "Settlement Density"],
+      "specialization": "Physical geography",
+      "color": "#3b82f6"
+    },
+    {
+      "agentId": "botanics",
+      "displayName": "Botanics",
+      "tagline": "Vegetation, crops, and endemic species",
+      "description": "Identifies plants visible in the image — trees, undergrowth, crops, and ornamentals — and uses biogeography to constrain the country. Recognises endemic species and crops that pin down regions with high precision (e.g. olive cultivation, eucalyptus monoculture, betel-nut palms).",
+      "avatarEmoji": "🌿",
+      "tools": ["Species ID", "Endemic Markers", "Crop Recognition"],
+      "specialization": "Flora identification",
+      "color": "#22c55e"
+    },
+    {
+      "agentId": "regulatory",
+      "displayName": "Regulatory",
+      "tagline": "Roads, signs, license plates",
+      "description": "Studies road infrastructure: driving side, road markings, signage shapes and colours, license plate formats, traffic lights, guard rails, kilometre posts. These are the highest-signal eliminators in GeoGuessr — a single visible plate or sign can collapse the search to one country.",
+      "avatarEmoji": "🛑",
+      "tools": ["Driving Side", "Sign Format", "License Plate"],
+      "specialization": "Infrastructure & traffic",
+      "color": "#ef4444"
+    },
+    {
+      "agentId": "meta",
+      "displayName": "Meta",
+      "tagline": "Country-specific visual details",
+      "description": "The GeoGuessr-meta specialist. Recognises bollards, utility poles, guardrails, mailboxes, road paint quality, the Google Street View camera's own metadata (rig generation, blur style), and any object whose design is country-specific without being intentional signage.",
+      "avatarEmoji": "📍",
+      "tools": ["Bollard Style", "Utility Poles", "Camera Meta"],
+      "specialization": "GeoGuessr meta",
+      "color": "#f59e0b"
+    }
+  ],
+  "collaborationSteps": [
+    {
+      "stepNumber": 1,
+      "title": "Specialist Assessment",
+      "description": "All five specialists analyse the same Google Street View image in parallel. Each agent only uses its own expertise — text, terrain, flora, infrastructure, or meta — and proposes candidate countries with confidence levels.",
+      "agentsInvolved": ["linguistic", "landscape", "botanics", "regulatory", "meta"]
+    },
+    {
+      "stepNumber": 2,
+      "title": "Region Consensus Check",
+      "description": "A judge agent maps every candidate to a world region (Europe, East Asia, etc.). If all five specialists agree on the same region, the council fast-tracks to country-level reasoning (Path A). If not, it enters region hypothesis evaluation (Path B).",
+      "agentsInvolved": ["linguistic", "landscape", "botanics", "regulatory", "meta"]
+    },
+    {
+      "stepNumber": 3,
+      "title": "Region Hypothesis Evaluation",
+      "description": "Path B only. The judge generates 2–4 region hypotheses and each specialist evaluates them in isolation on a 5-level scale (strongly supports → strongly contradicts). No anchoring between regions. The judge picks the winning region.",
+      "agentsInvolved": ["linguistic", "landscape", "botanics", "regulatory", "meta"]
+    },
+    {
+      "stepNumber": 4,
+      "title": "Region-Bound Assessment",
+      "description": "Path B only. Once the region is locked, specialists re-assess the image with that region as a hard constraint, proposing only countries within it. The judge collects every country named by ≥3 agents plus the top candidates into a country-hypothesis set.",
+      "agentsInvolved": ["linguistic", "landscape", "botanics", "regulatory", "meta"]
+    },
+    {
+      "stepNumber": 5,
+      "title": "Country Hypothesis Evaluation",
+      "description": "Each specialist scores every country hypothesis on the 5-level confidence scale. Hypotheses are shuffled per agent so positional bias doesn't correlate across the council. The judge aggregates the votes with hard-eliminator rules.",
+      "agentsInvolved": ["linguistic", "landscape", "botanics", "regulatory", "meta"]
+    },
+    {
+      "stepNumber": 6,
+      "title": "Country Determination",
+      "description": "The judge weighs the country evaluations, resolves any remaining ties, and outputs the final country plus a coordinate estimate with a written rationale.",
+      "agentsInvolved": ["linguistic", "landscape", "botanics", "regulatory", "meta"]
+    }
+  ]
+}

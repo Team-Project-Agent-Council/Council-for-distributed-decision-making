@@ -1,0 +1,618 @@
+{
+  "image_path": "/pfs/data6/home/ma/ma_ma/ma_lweisssc/llm_council_agent_orchestration_tests/clean_images_GeoRC_500/Lz6IDBZmUTr5oPdV_1.png",
+  "model": "google/gemma-4-31B-it",
+  "judge_model": "google/gemma-4-31B-it",
+  "timing": {
+    "total_seconds": 566.5
+  },
+  "assessments": {
+    "linguistic": {
+      "agent_name": "linguistic",
+      "candidates": [],
+      "evidence": []
+    },
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Poland",
+          "confidence": "medium",
+          "reasoning": "The temperate deciduous forest composition, specifically the mix of oak and beech with dense undergrowth, is highly characteristic of Central European lowlands. The road quality and forest management style are common in this region."
+        },
+        {
+          "country": "Germany",
+          "confidence": "medium",
+          "reasoning": "The landscape is virtually identical to the forests of Western and Central Germany. The soil moisture and vegetation density match the temperate maritime/continental transition zone."
+        },
+        {
+          "country": "France",
+          "confidence": "medium",
+          "reasoning": "Similar deciduous forest structures are found across eastern and central France. The terrain is flat to gently rolling, consistent with many French rural forest roads."
+        },
+        {
+          "country": "United States",
+          "confidence": "low",
+          "reasoning": "The Eastern Deciduous Forest biome in the Northeastern US or Midwest presents a very similar visual profile of broadleaf trees and understory shrubs during the early autumn transition."
+        },
+        {
+          "country": "Japan",
+          "confidence": "speculative",
+          "reasoning": "Temperate forests in Honshu can exhibit similar foliage and road styles, though the specific tree species and undergrowth density often differ slightly from European models."
+        }
+      ],
+      "evidence": [
+        "Temperate deciduous forest",
+        "Early autumn foliage transition",
+        "Flat to gently undulating terrain",
+        "Paved narrow rural road with weathered asphalt",
+        "Northern hemisphere sun angle (high, slightly south)"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Poland",
+          "confidence": "medium",
+          "reasoning": "The combination of Quercus robur (English oak) and mixed deciduous undergrowth is highly characteristic of Central European lowland forests. The specific density and leaf litter pattern are common in Polish woodland corridors."
+        },
+        {
+          "country": "Germany",
+          "confidence": "medium",
+          "reasoning": "The vegetation is virtually identical to that of Poland, as both share the same temperate broadleaf forest biome. Without endemic species, it is botanically indistinguishable from Western Poland or Eastern Germany."
+        },
+        {
+          "country": "France",
+          "confidence": "medium",
+          "reasoning": "Similar temperate deciduous forests with oak and beech are prevalent across Northern and Central France, showing the same seasonal coloration and understory structure."
+        },
+        {
+          "country": "United States",
+          "confidence": "low",
+          "reasoning": "The Eastern Deciduous Forest of the US (e.g., Ohio Valley or New England) presents a global analog with similar oak-dominated canopies and temperate undergrowth, though the specific species composition often differs slightly."
+        },
+        {
+          "country": "Japan",
+          "confidence": "speculative",
+          "reasoning": "Temperate broadleaf forests in Honshu can mirror this appearance, although the specific leaf shapes of the undergrowth here lean more towards European species."
+        }
+      ],
+      "evidence": [
+        "Quercus robur (English Oak)",
+        "Temperate broadleaf forest biome",
+        "Deciduous understory shrubs"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Poland",
+          "confidence": "low",
+          "reasoning": "The narrow asphalt road with weathered edges and the specific deciduous forest composition are common in rural Central Europe."
+        },
+        {
+          "country": "France",
+          "confidence": "low",
+          "reasoning": "The road width and the style of the rural forest canopy are consistent with many departmental roads in rural France."
+        },
+        {
+          "country": "United States",
+          "confidence": "speculative",
+          "reasoning": "Global analog: Rural paved roads through deciduous forests in the Eastern US can appear visually identical to European counterparts when no signage is present."
+        },
+        {
+          "country": "Russia",
+          "confidence": "speculative",
+          "reasoning": "Global analog: Rural asphalt roads in the western regions of Russia often share this specific level of wear and surrounding vegetation."
+        }
+      ],
+      "evidence": [
+        "narrow asphalt road",
+        "weathered road edges",
+        "no visible road signs",
+        "no visible bollards",
+        "no visible utility poles"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "Poland",
+          "confidence": "low",
+          "reasoning": "The image quality and slight blur patterns are consistent with Gen 3/4 coverage common in Central Europe. The asphalt texture and road edge wear are typical for rural Polish forest roads."
+        },
+        {
+          "country": "Russia",
+          "confidence": "low",
+          "reasoning": "The general image quality and the way the road is paved are similar to rural Russian coverage. It shares the same generic 'forest road' meta as many Eastern European countries."
+        },
+        {
+          "country": "United States",
+          "confidence": "speculative",
+          "reasoning": "Following the global analog rule, the generic asphalt and image quality could potentially match rural US coverage (e.g., East Coast), although the lack of specific US-style road shoulders makes this less likely."
+        }
+      ],
+      "evidence": [
+        "Google Street View camera generation (Gen 3/4 quality)",
+        "Asphalt texture and wear patterns"
+      ]
+    }
+  },
+  "progressive_narrowing": {
+    "region_consensus": false,
+    "confirmed_region": "Europe",
+    "runner_up_region": "North America",
+    "surviving_regions": [
+      "Europe",
+      "North America"
+    ],
+    "proposed_regions": [
+      "Europe",
+      "North America",
+      "East Asia"
+    ],
+    "region_candidates": {
+      "Europe": {
+        "Poland": 4,
+        "Germany": 2,
+        "France": 3,
+        "Russia": 2
+      },
+      "North America": {
+        "United States": 4
+      },
+      "East Asia": {
+        "Japan": 2
+      }
+    },
+    "region_decision_reasoning": "Europe received the highest weighted score due to strong support from the landscape agent and consistent support from botanics and meta agents. North America is the runner-up as it was supported by landscape and botanics agents, though it lacked the 'strongly_support' weight and had a neutral meta evaluation.",
+    "path": "B"
+  },
+  "road_evidence": {
+    "outside_color": "none",
+    "inside_color": "none",
+    "driving_side": "UNCLEAR",
+    "driving_side_basis": "none"
+  },
+  "country_assessments": {
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Poland",
+          "confidence": "medium",
+          "reasoning": "The combination of broadleaf deciduous forest (likely oak/beech) and the specific style of narrow, cracked asphalt rural road is very common in Central Europe. The flat terrain and dense undergrowth are characteristic of the Polish lowlands."
+        },
+        {
+          "country": "Germany",
+          "confidence": "medium",
+          "reasoning": "The temperate forest composition and road quality are nearly identical to Poland. The landscape is consistent with the Central European plain, where similar mixed deciduous forests dominate."
+        },
+        {
+          "country": "France",
+          "confidence": "low",
+          "reasoning": "The vegetation and climate match the temperate zones of Western Europe. However, the road surface and forest density are more typical of the east than the west."
+        },
+        {
+          "country": "United States",
+          "confidence": "low",
+          "reasoning": "The deciduous forest is highly reminiscent of the Eastern United States (e.g., Ohio or Pennsylvania). The road width and asphalt degradation are common in rural American state parks or county roads."
+        },
+        {
+          "country": "Canada",
+          "confidence": "low",
+          "reasoning": "The mixed forest and temperate climate match Southern Ontario or Quebec. The landscape is a global analog for the North American temperate broadleaf forest."
+        }
+      ],
+      "evidence": [
+        "Temperate deciduous forest with broadleaf trees showing early autumn coloration",
+        "Flat to gently undulating terrain",
+        "Narrow, weathered asphalt road with longitudinal cracking",
+        "Dense shrubbery and undergrowth along the road shoulder",
+        "High sun angle suggesting a mid-latitude location in the Northern Hemisphere"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Poland",
+          "confidence": "medium",
+          "reasoning": "The dense stand of Quercus robur (English Oak) and mixed deciduous undergrowth is highly characteristic of Central European lowland forests. The specific leaf litter and canopy structure are common in the Polish plains."
+        },
+        {
+          "country": "Germany",
+          "confidence": "medium",
+          "reasoning": "The vegetation is consistent with the temperate broadleaf forests of Central Europe. It is botanically indistinguishable from Poland in this specific biome of mixed oak and beech."
+        },
+        {
+          "country": "France",
+          "confidence": "low",
+          "reasoning": "Similar temperate deciduous forests exist in Northeastern France, though the density and species mix are more typical of the Central European plains."
+        },
+        {
+          "country": "United States",
+          "confidence": "low",
+          "reasoning": "The Eastern Deciduous Forest biome in the US (e.g., Ohio Valley or New England) features similar oak-dominated canopies, though the understory composition often differs slightly from European counterparts."
+        }
+      ],
+      "evidence": [
+        "Quercus robur (English Oak)",
+        "Temperate broadleaf and mixed forests",
+        "Central European lowland biome"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Poland",
+          "confidence": "low",
+          "reasoning": "The narrow asphalt road with weathered edges and the specific density of the deciduous forest are common in rural Polish woodlands."
+        },
+        {
+          "country": "Germany",
+          "confidence": "low",
+          "reasoning": "The road width and the style of the forest canopy are consistent with rural forest roads found in various German states."
+        },
+        {
+          "country": "France",
+          "confidence": "low",
+          "reasoning": "The narrow, cracked asphalt surface and the surrounding vegetation are typical of rural departmental roads in forested regions of France."
+        },
+        {
+          "country": "United States",
+          "confidence": "speculative",
+          "reasoning": "Basic rural asphalt roads with gravel/dirt shoulders and mixed deciduous forests are common across the Eastern United States."
+        },
+        {
+          "country": "Canada",
+          "confidence": "speculative",
+          "reasoning": "The forest type and the simple, narrow road infrastructure are consistent with rural areas in Southern Canada."
+        }
+      ],
+      "evidence": [
+        "narrow asphalt road",
+        "cracked pavement surface",
+        "no visible road signs",
+        "no visible bollards",
+        "no visible utility poles",
+        "unmarked gravel/dirt shoulders"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "Poland",
+          "confidence": "medium",
+          "reasoning": "The image quality and slight blur patterns are consistent with Gen 3 Google camera coverage common in rural Poland. The road surface texture and edge wear are typical for secondary forest roads in Central Europe."
+        },
+        {
+          "country": "United States",
+          "confidence": "low",
+          "reasoning": "The general image quality and lighting are consistent with North American Gen 3 coverage. However, the lack of specific road shoulder markers or utility poles makes this a generic analog based on camera generation."
+        },
+        {
+          "country": "France",
+          "confidence": "low",
+          "reasoning": "The road width and asphalt degradation are similar to rural French 'chemins'. The camera generation is consistent with European coverage from the same era as Poland."
+        }
+      ],
+      "evidence": [
+        "Gen 3 Google Street View camera quality",
+        "Asphalt texture and degradation patterns",
+        "Lack of visible road markings or shoulder delineators"
+      ]
+    }
+  },
+  "hypothesis_evaluations": [
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_europe",
+      "confidence": "strongly_support",
+      "reasoning": "The combination of deciduous broadleaf forest (likely oak/beech), the specific density of the undergrowth, and the narrow, weathered asphalt road with soft shoulders is highly characteristic of Central or Eastern European rural landscapes. The light quality and foliage transition suggest a temperate maritime or continental climate typical of this region.",
+      "key_evidence": [
+        "deciduous broadleaf forest",
+        "temperate climate foliage",
+        "narrow rural asphalt road style"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_north_america",
+      "confidence": "support",
+      "reasoning": "The temperate forest and road type are compatible with the Eastern United States or Southern Canada. However, the specific 'feel' of the road width and the density of the forest edge are slightly more aligned with European rural planning than North American rural roads, which tend to be wider or have different shoulder grading.",
+      "key_evidence": [
+        "temperate deciduous forest",
+        "asphalt road"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_east_asia",
+      "confidence": "low",
+      "reasoning": "While temperate forests exist in Japan, Korea, and Northern China, the specific species of broadleaf trees and the road construction style are less typical for these regions compared to the European or North American models.",
+      "key_evidence": [
+        "temperate vegetation"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_europe",
+      "confidence": "support",
+      "reasoning": "The vegetation consists of a temperate broadleaf forest dominated by Quercus (oak) species and a dense understory of shrubs. This composition is highly characteristic of Central and Eastern European deciduous forests during early autumn.",
+      "key_evidence": [
+        "Quercus species",
+        "Temperate broadleaf forest",
+        "Autumnal foliage"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_north_america",
+      "confidence": "support",
+      "reasoning": "The forest structure is compatible with the Eastern Deciduous Forest biome of North America. However, the specific density and leaf morphology of the undergrowth are slightly more typical of European managed woodlands.",
+      "key_evidence": [
+        "Temperate deciduous forest",
+        "Broadleaf canopy"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_east_asia",
+      "confidence": "low",
+      "reasoning": "While temperate forests exist in East Asia, the specific combination of oak-like canopy and the particular structure of the roadside scrub is less characteristic of the region compared to the Atlantic/Continental European or North American patterns.",
+      "key_evidence": [
+        "Temperate broadleaf forest"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_europe",
+      "confidence": "support",
+      "reasoning": "The image quality and the specific blur patterns on the road surface are consistent with Google Street View Gen 3 or Gen 4 coverage common in European rural areas. The narrow, paved road without shoulder markings is a very common sight in European forests.",
+      "key_evidence": [
+        "camera generation",
+        "road surface texture"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_north_america",
+      "confidence": "neutral",
+      "reasoning": "While the camera quality is compatible with North American coverage, the road width and lack of typical North American rural road infrastructure (like wider gravel shoulders or specific utility pole styles) make it less likely than Europe, though not impossible.",
+      "key_evidence": [
+        "camera generation"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_east_asia",
+      "confidence": "neutral",
+      "reasoning": "There are no specific East Asian meta cues present, such as distinctive utility pole designs (e.g., Japanese concrete poles with yellow caps) or specific camera artifacts common in that region.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_poland",
+      "confidence": "support",
+      "reasoning": "The temperate deciduous forest with a mix of oak and beech, combined with the flat terrain and specific road wear, is highly characteristic of the Central European plains found in Poland.",
+      "key_evidence": [
+        "temperate deciduous forest",
+        "flat terrain",
+        "Central European vegetation"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_germany",
+      "confidence": "support",
+      "reasoning": "The landscape is virtually identical to the lowland forests of Northern and Central Germany. The vegetation and climate markers are indistinguishable from those in Poland.",
+      "key_evidence": [
+        "temperate deciduous forest",
+        "flat terrain",
+        "Central European vegetation"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_france",
+      "confidence": "support",
+      "reasoning": "The forest composition is compatible with the temperate zones of Northern or Central France, though the extreme flatness is more typical of the North European Plain.",
+      "key_evidence": [
+        "temperate deciduous forest",
+        "moderate climate markers"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_united_states",
+      "confidence": "support",
+      "reasoning": "This represents a global analog; the Eastern Deciduous Forest of the US (e.g., Ohio Valley or New England) shares the same climate, tree species, and seasonal foliage patterns.",
+      "key_evidence": [
+        "temperate deciduous forest",
+        "global climate analog"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_canada",
+      "confidence": "contradicts",
+      "reasoning": "While Canada has deciduous forests in the south, the specific density and species mix seen here, combined with the lack of coniferous integration typical of Canadian mixed forests, make it less likely than European or US counterparts.",
+      "key_evidence": [
+        "lack of coniferous mix",
+        "vegetation density"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_poland",
+      "confidence": "support",
+      "reasoning": "The temperate broadleaf forest composition, featuring Quercus (oak) and mixed deciduous undergrowth, is highly characteristic of Central European lowland forests found in Poland.",
+      "key_evidence": [
+        "Quercus species",
+        "Temperate broadleaf forest"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_germany",
+      "confidence": "support",
+      "reasoning": "The vegetation is virtually identical to that of Poland, as both share the same Central European temperate biome with dominant oak and beech forests.",
+      "key_evidence": [
+        "Quercus species",
+        "Temperate broadleaf forest"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_france",
+      "confidence": "support",
+      "reasoning": "Compatible with the temperate forests of Northern and Central France, though the specific density and species mix are more typical of the Central European plain.",
+      "key_evidence": [
+        "Deciduous broadleaf trees"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_united_states",
+      "confidence": "low",
+      "reasoning": "While the Eastern US has similar temperate forests (e.g., Appalachia), the specific structure and leaf litter pattern are more indicative of European managed forests.",
+      "key_evidence": [
+        "Temperate broadleaf analog"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_canada",
+      "confidence": "contradicts",
+      "reasoning": "The absence of coniferous species (pines, spruces, firs) in a forest of this density makes a Canadian location unlikely, as most Canadian forests are boreal or mixed-wood.",
+      "key_evidence": [
+        "Lack of conifers",
+        "Dominance of broadleaf deciduous"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_poland",
+      "confidence": "support",
+      "reasoning": "The image quality and slight blur patterns are consistent with Gen 3/Gen 4 Google camera coverage common in Central Europe. The road surface and lack of specific markings are compatible with rural Polish forest roads.",
+      "key_evidence": [
+        "camera generation",
+        "road surface texture"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_germany",
+      "confidence": "support",
+      "reasoning": "Similar to Poland, the camera quality and general environment are compatible with German rural coverage. There are no specific German bollards visible to elevate this above Poland.",
+      "key_evidence": [
+        "camera generation",
+        "road surface texture"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_france",
+      "confidence": "support",
+      "reasoning": "The image quality is compatible with European Google Street View coverage. However, there is no specific French street furniture or bollard design visible to distinguish it.",
+      "key_evidence": [
+        "camera generation"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_united_states",
+      "confidence": "low",
+      "reasoning": "While rural roads exist in the US, the specific image processing and color grading are more characteristic of European coverage. The lack of a visible car hood/rig shadow makes it less likely to be standard US Gen 4 coverage.",
+      "key_evidence": [
+        "image processing",
+        "camera generation"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_canada",
+      "confidence": "low",
+      "reasoning": "Similar to the US, the visual meta (color balance and blur) leans more towards European coverage patterns than North American ones.",
+      "key_evidence": [
+        "image processing",
+        "camera generation"
+      ]
+    }
+  ],
+  "candidate_pool": [
+    "Poland",
+    "France",
+    "United States",
+    "Germany",
+    "Canada"
+  ],
+  "rag_findings": [
+    {
+      "kind": "tournament_match",
+      "country": "United States",
+      "detail": "The landscape and botanics evidence strongly support Poland, noting that the specific structure of the temperate broadleaf forest and leaf litter are more indicative of European managed forests than those in the US. Additionally, the meta-analysis suggests the image quality and color grading are more characteristic of European Google Street View coverage.",
+      "opponent": "Poland",
+      "winner": "Poland"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "France",
+      "detail": "The landscape and vegetation are highly characteristic of the Central European temperate biome, specifically the lowland forests of Northern and Central Germany. While compatible with France, the extreme flatness and specific forest density align more closely with the North European Plain typical of Germany.",
+      "opponent": "Germany",
+      "winner": "Germany"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Germany",
+      "detail": "The landscape and botanics are characteristic of the Central European plains. Given the lack of distinguishing German infrastructure (like specific bollards or signage) and the specialist evidence supporting the road wear and forest composition as highly characteristic of rural Poland, Poland is selected.",
+      "opponent": "Poland",
+      "winner": "Poland"
+    }
+  ],
+  "rag_refs_seen": [],
+  "road_filter_warnings": [],
+  "tournament_log": [
+    {
+      "round_label": "semi-1",
+      "country_a": "Poland",
+      "country_b": "United States",
+      "pool_rank_a": 0,
+      "pool_rank_b": 3,
+      "winner": "Poland",
+      "reasoning": "The landscape and botanics evidence strongly support Poland, noting that the specific structure of the temperate broadleaf forest and leaf litter are more indicative of European managed forests than those in the US. Additionally, the meta-analysis suggests the image quality and color grading are more characteristic of European Google Street View coverage.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "semi-2",
+      "country_a": "France",
+      "country_b": "Germany",
+      "pool_rank_a": 1,
+      "pool_rank_b": 2,
+      "winner": "Germany",
+      "reasoning": "The landscape and vegetation are highly characteristic of the Central European temperate biome, specifically the lowland forests of Northern and Central Germany. While compatible with France, the extreme flatness and specific forest density align more closely with the North European Plain typical of Germany.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "final",
+      "country_a": "Poland",
+      "country_b": "Germany",
+      "pool_rank_a": 0,
+      "pool_rank_b": 2,
+      "winner": "Poland",
+      "reasoning": "The landscape and botanics are characteristic of the Central European plains. Given the lack of distinguishing German infrastructure (like specific bollards or signage) and the specialist evidence supporting the road wear and forest composition as highly characteristic of rural Poland, Poland is selected.",
+      "agreement": "agree"
+    }
+  ],
+  "country_result": "Country: Poland\nCoordinates: 52.2297, 21.0122\nReasoning: The landscape and botanics are characteristic of the Central European plains. Given the lack of distinguishing German infrastructure (like specific bollards or signage) and the specialist evidence supporting the road wear and forest composition as highly characteristic of rural Poland, Poland is selected.\n\nTournament:\n  semi-1: Poland vs United States → Poland\n  semi-2: France vs Germany → Germany\n  final: Poland vs Germany → Poland",
+  "coordinates": {
+    "lat": 52.2297,
+    "lng": 21.0122
+  },
+  "final_reasoning": "The landscape and botanics are characteristic of the Central European plains. Given the lack of distinguishing German infrastructure (like specific bollards or signage) and the specialist evidence supporting the road wear and forest composition as highly characteristic of rural Poland, Poland is selected."
+}

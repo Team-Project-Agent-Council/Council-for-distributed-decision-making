@@ -1,0 +1,547 @@
+{
+  "image_path": "/pfs/data6/home/ma/ma_ma/ma_lweisssc/llm_council_agent_orchestration_tests/clean_images_GeoRC_500/UYeUpGpQlvb7ExfK_4.png",
+  "model": "google/gemma-4-31B-it",
+  "judge_model": "google/gemma-4-31B-it",
+  "timing": {
+    "total_seconds": 83.4
+  },
+  "assessments": {
+    "linguistic": {
+      "agent_name": "linguistic",
+      "candidates": [],
+      "evidence": []
+    },
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Greece",
+          "confidence": "medium",
+          "reasoning": "The combination of arid, rocky mountains in the background, Mediterranean scrub, and olive-like orchards is very characteristic of the Greek mainland. The soil color and road style are consistent with rural Peloponnese or Central Greece."
+        },
+        {
+          "country": "Turkey",
+          "confidence": "medium",
+          "reasoning": "The landscape features similar semi-arid plateau characteristics and mountain ranges as Greece. The agricultural patterns and vegetation are nearly identical to those found in Western Anatolia."
+        },
+        {
+          "country": "Spain",
+          "confidence": "low",
+          "reasoning": "The dry, scrubby terrain and distant barren mountains are reminiscent of the Spanish interior (Meseta) or Andalusia. The vegetation and soil tone match the Mediterranean climate zone."
+        },
+        {
+          "country": "Chile",
+          "confidence": "speculative",
+          "reasoning": "As a cross-continent analog, the Central Valley of Chile features similar Mediterranean climates with fertile agricultural plains flanked by dry, rugged mountain ranges (Andes/Coastal range)."
+        }
+      ],
+      "evidence": [
+        "Semi-arid Mediterranean climate",
+        "Barren, rocky mountain range in background",
+        "Olive or fruit orchard settlement pattern",
+        "Dry, light-brown soil",
+        "Low-density rural road infrastructure"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Turkey",
+          "confidence": "medium",
+          "reasoning": "The combination of managed fruit orchards (likely stone fruits or apples) and the arid, scrubby hillsides is highly characteristic of the Anatolian plateau. The vegetation transition from irrigated valley crops to xeric hillside scrub is a common pattern here."
+        },
+        {
+          "country": "Greece",
+          "confidence": "medium",
+          "reasoning": "The Mediterranean scrub and the presence of small-scale fruit orchards in a valley setting are very similar to the Greek landscape. It is botanically indistinguishable from Western Turkey in this specific biome."
+        },
+        {
+          "country": "Iran",
+          "confidence": "low",
+          "reasoning": "The arid mountain backdrop and the use of intensive irrigation for orchards in a dry landscape are consistent with Iranian agricultural patterns, though the specific scrub types are less diagnostic."
+        },
+        {
+          "country": "Chile",
+          "confidence": "speculative",
+          "reasoning": "The Central Valley of Chile features a similar Mediterranean climate with irrigated orchards adjacent to dry, scrubby foothills (matorral), serving as a cross-continent analog to the Mediterranean basin."
+        }
+      ],
+      "evidence": [
+        "Managed fruit orchards",
+        "Xeric scrubland",
+        "Mediterranean biome",
+        "Irrigated valley agriculture"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Spain",
+          "confidence": "low",
+          "reasoning": "The concrete drainage channel/curb on the left side of the rural road is common in Mediterranean regions, specifically Spain. The utility pole style with multiple cross-arms is consistent with rural Spanish infrastructure."
+        },
+        {
+          "country": "Turkey",
+          "confidence": "low",
+          "reasoning": "The combination of arid landscape, concrete road edging, and the specific style of utility poles is frequently seen in rural Anatolia."
+        },
+        {
+          "country": "Mexico",
+          "confidence": "speculative",
+          "reasoning": "Following the global analog rule, the rural asphalt road with basic wooden/concrete utility poles and gravel shoulders is visually similar to rural infrastructure in Mexico."
+        },
+        {
+          "country": "South Africa",
+          "confidence": "speculative",
+          "reasoning": "Following the global analog rule, the open landscape with basic utility poles and a narrow rural paved road is a common sight in various South African provinces."
+        }
+      ],
+      "evidence": [
+        "Concrete drainage channel/curb on the left road edge",
+        "Utility poles with multiple horizontal cross-arms",
+        "Narrow rural asphalt road with unpaved shoulders",
+        "No road signs or license plates visible"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "Turkey",
+          "confidence": "medium",
+          "reasoning": "The utility poles are concrete with a specific cross-arm configuration common in rural Turkey. The overall image quality and blur patterns are consistent with Google's coverage in the region."
+        },
+        {
+          "country": "Greece",
+          "confidence": "medium",
+          "reasoning": "The concrete utility pole style is very similar to those found in rural Greece, making it a strong regional candidate alongside Turkey."
+        },
+        {
+          "country": "Mexico",
+          "confidence": "low",
+          "reasoning": "Global analog: Rural Mexico often utilizes similar concrete utility poles and has similar road quality/blur patterns in its Street View coverage."
+        },
+        {
+          "country": "Spain",
+          "confidence": "low",
+          "reasoning": "Global analog: Certain rural areas of Spain use similar concrete pole designs and have comparable road textures."
+        }
+      ],
+      "evidence": [
+        "concrete utility poles with specific cross-arm design",
+        "Google Street View image quality and motion blur patterns"
+      ]
+    }
+  },
+  "progressive_narrowing": {
+    "region_consensus": false,
+    "confirmed_region": "Europe",
+    "runner_up_region": "Middle East",
+    "surviving_regions": [
+      "Europe",
+      "Middle East"
+    ],
+    "proposed_regions": [
+      "Europe",
+      "Middle East",
+      "South America",
+      "Central America & Caribbean",
+      "Sub-Saharan Africa"
+    ],
+    "region_candidates": {
+      "Europe": {
+        "Greece": 3,
+        "Spain": 3
+      },
+      "Middle East": {
+        "Turkey": 4,
+        "Iran": 1
+      },
+      "South America": {
+        "Chile": 2
+      },
+      "Central America & Caribbean": {
+        "Mexico": 2
+      },
+      "Sub-Saharan Africa": {
+        "South Africa": 1
+      }
+    },
+    "region_decision_reasoning": "Both Europe and the Middle East received consistent support from both the botanics and meta agents, with scores of +2 each. Europe is selected as the primary region due to the meta agent's specific identification of the utility pole design as very common in Southern and Eastern Europe.",
+    "path": "B"
+  },
+  "road_evidence": {
+    "outside_color": "none",
+    "inside_color": "none",
+    "driving_side": "UNCLEAR",
+    "driving_side_basis": "none"
+  },
+  "country_assessments": {
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Turkey",
+          "confidence": "high",
+          "reasoning": "The combination of arid, rolling mountains in the background, Mediterranean-style scrub and orchards, and the specific style of rural road infrastructure is highly characteristic of the Anatolian plateau or Aegean hinterlands."
+        },
+        {
+          "country": "Greece",
+          "confidence": "medium",
+          "reasoning": "The landscape features similar limestone-based mountains and semi-arid vegetation common in the Peloponnese or Central Greece, though the scale of the mountains is slightly more reminiscent of Turkey."
+        },
+        {
+          "country": "Spain",
+          "confidence": "low",
+          "reasoning": "The dry, yellowish soil and sparse vegetation match the Meseta or southern regions of Spain, though the mountain silhouettes are less distinctively Iberian."
+        },
+        {
+          "country": "Iran",
+          "confidence": "low",
+          "reasoning": "The arid valley floor and distant barren mountains are consistent with the Iranian plateau, though the specific greenery of the orchards is more typical of the Mediterranean basin."
+        }
+      ],
+      "evidence": [
+        "Semi-arid climate with yellowish-brown soil",
+        "Low-lying scrubland and managed orchards",
+        "Barren, eroded limestone mountains in the background",
+        "Rural paved road with concrete drainage edge",
+        "Overhead power lines with wooden/concrete poles"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Turkey",
+          "confidence": "high",
+          "reasoning": "The combination of managed fruit orchards (likely stone fruits or apples) and the arid, scrubby hillsides is highly characteristic of the Anatolian plateau. The vegetation transition from cultivated valley floors to xeric mountain slopes is a common botanical pattern in central and western Turkey."
+        },
+        {
+          "country": "Greece",
+          "confidence": "medium",
+          "reasoning": "The Mediterranean scrub and the presence of small-scale fruit orchards are consistent with the Greek mainland. However, the specific density and type of the orchard canopy are slightly more typical of the interior Anatolian regions than the coastal Greek landscape."
+        },
+        {
+          "country": "Iran",
+          "confidence": "low",
+          "reasoning": "The arid landscape and the use of irrigated orchards in a valley setting are common in the foothills of the Zagros mountains. The vegetation is botanically similar to the Anatolian region, though the specific tree morphology is less diagnostic here."
+        },
+        {
+          "country": "Spain",
+          "confidence": "low",
+          "reasoning": "The xeric shrubland and agricultural layout resemble the interior plateaus (Meseta) of Spain. The botanical profile of the dry-land scrub is similar to the Mediterranean-climate regions of the Middle East."
+        }
+      ],
+      "evidence": [
+        "Managed fruit orchards",
+        "Xeric scrubland",
+        "Mediterranean-climate vegetation",
+        "Semi-arid mountain flora"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Turkey",
+          "confidence": "medium",
+          "reasoning": "The combination of concrete-edged rural roads, specific utility pole design with cross-arms, and the arid mountainous landscape is very common in the Anatolian region."
+        },
+        {
+          "country": "Greece",
+          "confidence": "low",
+          "reasoning": "The rural road quality, utility pole style, and Mediterranean vegetation/topography are consistent with rural Greek landscapes."
+        },
+        {
+          "country": "Spain",
+          "confidence": "low",
+          "reasoning": "The arid environment and the style of the utility poles are similar to those found in rural southern Spain."
+        },
+        {
+          "country": "Iran",
+          "confidence": "speculative",
+          "reasoning": "The landscape and basic rural asphalt infrastructure with similar utility poles are common in various Iranian provinces."
+        }
+      ],
+      "evidence": [
+        "concrete road edge/curbing on left side",
+        "wooden/concrete utility poles with horizontal cross-arms",
+        "narrow rural asphalt road without shoulders",
+        "arid mountainous background"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "Turkey",
+          "confidence": "medium",
+          "reasoning": "The utility poles are concrete with a specific cross-arm configuration common in rural Turkey. The image quality and slight blur patterns are consistent with Google's coverage in the Anatolian region."
+        },
+        {
+          "country": "Greece",
+          "confidence": "low",
+          "reasoning": "Rural Greece often utilizes similar concrete utility poles and has similar road textures. However, the specific pole design is slightly more characteristic of Turkish rural infrastructure."
+        },
+        {
+          "country": "Jordan",
+          "confidence": "speculative",
+          "reasoning": "The utility pole style and the arid, dusty road shoulder are seen in some Middle Eastern regions, though the specific concrete pole shape is less common here than in the Mediterranean/Balkan region."
+        }
+      ],
+      "evidence": [
+        "Concrete utility poles with specific cross-arm mounting",
+        "Google Street View image quality and blur patterns",
+        "Road shoulder material and texture"
+      ]
+    }
+  },
+  "hypothesis_evaluations": [
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_middle_east",
+      "confidence": "support",
+      "reasoning": "The combination of xeric shrubland, sparse deciduous trees, and the specific appearance of the orchard crops is highly characteristic of the Levant or Anatolian plateau. The vegetation is adapted to a semi-arid climate with seasonal rainfall.",
+      "key_evidence": [
+        "xeric scrub",
+        "semi-arid orchard patterns"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_europe",
+      "confidence": "support",
+      "reasoning": "The vegetation is compatible with Southern Europe, specifically the Mediterranean basin (e.g., Spain, Greece, or Italy). The scrubland and deciduous tree types are common in these Mediterranean-climate regions.",
+      "key_evidence": [
+        "Mediterranean scrub",
+        "temperate deciduous trees"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_south_america",
+      "confidence": "low",
+      "reasoning": "While some xeric regions in South America (like the Argentine Monte) share this biome, the specific structure of the cultivated orchards and the accompanying roadside vegetation are less typical for those regions compared to the Mediterranean/Middle East axis.",
+      "key_evidence": [
+        "xeric shrubland analog"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_central_america_and_caribbean",
+      "confidence": "contradicts",
+      "reasoning": "The vegetation lacks the characteristic lushness, broad-leafed tropical species, or specific agricultural crops (like palms or bananas) associated with this region. The landscape is too arid and the tree morphology is too temperate/xeric.",
+      "key_evidence": [
+        "absence of tropical flora",
+        "semi-arid biome"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_europe",
+      "confidence": "support",
+      "reasoning": "The utility pole design, featuring a concrete base with a wooden or metal cross-arm and specific insulator patterns, is very common in Southern and Eastern Europe (e.g., Greece, Turkey, Balkans). The image quality and camera generation are consistent with European coverage.",
+      "key_evidence": [
+        "utility pole design",
+        "camera generation"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_middle_east",
+      "confidence": "support",
+      "reasoning": "The utility poles and general infrastructure are compatible with countries like Turkey or Jordan. The lack of specific high-density urban furniture makes it harder to distinguish from Southern Europe, but the pole style is a match.",
+      "key_evidence": [
+        "utility pole design"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_south_america",
+      "confidence": "low",
+      "reasoning": "While some rural areas in South America use similar utility poles, the specific combination of the concrete pole base and the overhead line configuration is more characteristic of the Mediterranean/Eurasian region. No specific South American camera artifacts (like the roof rack or specific blur) are visible.",
+      "key_evidence": [
+        "utility pole design"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_central_america_and_caribbean",
+      "confidence": "low",
+      "reasoning": "The infrastructure is generic enough to be possible, but the specific style of the power line poles is less common here than in the European/Middle Eastern regions. No region-specific camera meta is present to support this.",
+      "key_evidence": [
+        "utility pole design"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_turkey",
+      "confidence": "support",
+      "reasoning": "The combination of Mediterranean-style fruit orchards (likely stone fruits or citrus) and the arid, scrubby hillsides is highly characteristic of the Anatolian plateau and coastal regions. The vegetation is consistent with Turkey's diverse agricultural landscape.",
+      "key_evidence": [
+        "Mediterranean fruit orchards",
+        "Xeric scrubland"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_greece",
+      "confidence": "support",
+      "reasoning": "The vegetation is very similar to Turkey, featuring Mediterranean maquis and cultivated orchards. The landscape is botanically indistinguishable from the Greek mainland or larger islands without more specific endemic markers.",
+      "key_evidence": [
+        "Mediterranean maquis",
+        "Cultivated orchards"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_spain",
+      "confidence": "support",
+      "reasoning": "The arid landscape and the presence of managed orchards are compatible with the Spanish interior (e.g., Andalusia or Castilla-La Mancha). It follows the same Mediterranean biome pattern as Greece and Turkey.",
+      "key_evidence": [
+        "Xeric shrubland",
+        "Agricultural orchards"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_iran",
+      "confidence": "medium",
+      "reasoning": "The specific appearance of the arid hills and the style of the orchard rows are very common in the foothills of the Zagros mountains. The vegetation suggests a semi-arid climate with irrigation, which is a hallmark of Iranian agricultural valleys.",
+      "key_evidence": [
+        "Semi-arid valley vegetation",
+        "Irrigated orchards"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_jordan",
+      "confidence": "low",
+      "reasoning": "While the arid hills are compatible, the density and type of the green orchard canopy on the left are slightly more characteristic of Mediterranean or West Asian highlands than the typical Jordan Valley vegetation, though it remains possible.",
+      "key_evidence": [
+        "Arid scrub",
+        "Irrigated crops"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_turkey",
+      "confidence": "strongly_support",
+      "reasoning": "The utility poles are highly characteristic of Turkey, featuring concrete poles with a specific cross-arm configuration and insulator style common in rural Anatolian regions. The image quality and blur patterns are consistent with Turkey's extensive Gen 3/Gen 4 coverage.",
+      "key_evidence": [
+        "concrete utility pole design",
+        "insulator style",
+        "camera generation"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_greece",
+      "confidence": "support",
+      "reasoning": "Greece uses similar concrete utility poles in rural areas, making it a strong regional candidate, though the specific cross-arm spacing is slightly more typical of Turkey.",
+      "key_evidence": [
+        "concrete utility poles"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_spain",
+      "confidence": "low",
+      "reasoning": "While Spain has rural concrete poles, the overall infrastructure style and the specific way the power lines are strung are less common than in the Eastern Mediterranean/West Asia region.",
+      "key_evidence": [
+        "concrete utility poles"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_iran",
+      "confidence": "low",
+      "reasoning": "Iran has similar rural landscapes and utility poles, but Google Street View coverage in Iran is extremely limited and typically not provided via the standard official car in this manner.",
+      "key_evidence": [
+        "utility pole style"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_jordan",
+      "confidence": "low",
+      "reasoning": "Jordan uses concrete poles, but the specific design of the cross-arms and the general image quality/coverage pattern are more aligned with Turkey or Greece.",
+      "key_evidence": [
+        "utility pole style"
+      ]
+    }
+  ],
+  "candidate_pool": [
+    "Turkey",
+    "Greece",
+    "Spain",
+    "Iran",
+    "Jordan"
+  ],
+  "rag_findings": [
+    {
+      "kind": "tournament_match",
+      "country": "Iran",
+      "detail": "The utility poles and their specific cross-arm configuration are highly characteristic of rural Turkey. Additionally, the meta-evidence notes that official Google Street View coverage is extensive in Turkey but extremely limited in Iran, making Turkey the far more plausible location.",
+      "opponent": "Turkey",
+      "winner": "Turkey"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Spain",
+      "detail": "The landscape and vegetation are highly characteristic of the Eastern Mediterranean, and the specific style of concrete utility poles is more typical of Greece than Spain, as noted in the meta evidence.",
+      "opponent": "Greece",
+      "winner": "Greece"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Greece",
+      "detail": "The utility poles, specifically the concrete design and cross-arm configuration, are highly characteristic of rural Turkey as noted by the meta specialist. The landscape of Mediterranean orchards paired with arid hills is consistent with the Anatolian region.",
+      "opponent": "Turkey",
+      "winner": "Turkey"
+    }
+  ],
+  "rag_refs_seen": [],
+  "road_filter_warnings": [],
+  "tournament_log": [
+    {
+      "round_label": "semi-1",
+      "country_a": "Turkey",
+      "country_b": "Iran",
+      "pool_rank_a": 0,
+      "pool_rank_b": 3,
+      "winner": "Turkey",
+      "reasoning": "The utility poles and their specific cross-arm configuration are highly characteristic of rural Turkey. Additionally, the meta-evidence notes that official Google Street View coverage is extensive in Turkey but extremely limited in Iran, making Turkey the far more plausible location.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "semi-2",
+      "country_a": "Greece",
+      "country_b": "Spain",
+      "pool_rank_a": 1,
+      "pool_rank_b": 2,
+      "winner": "Greece",
+      "reasoning": "The landscape and vegetation are highly characteristic of the Eastern Mediterranean, and the specific style of concrete utility poles is more typical of Greece than Spain, as noted in the meta evidence.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "final",
+      "country_a": "Turkey",
+      "country_b": "Greece",
+      "pool_rank_a": 0,
+      "pool_rank_b": 1,
+      "winner": "Turkey",
+      "reasoning": "The utility poles, specifically the concrete design and cross-arm configuration, are highly characteristic of rural Turkey as noted by the meta specialist. The landscape of Mediterranean orchards paired with arid hills is consistent with the Anatolian region.",
+      "agreement": "agree"
+    }
+  ],
+  "country_result": "Country: Turkey\nCoordinates: 38.4237, 27.1428\nReasoning: The utility poles, specifically the concrete design and cross-arm configuration, are highly characteristic of rural Turkey as noted by the meta specialist. The landscape of Mediterranean orchards paired with arid hills is consistent with the Anatolian region.\n\nTournament:\n  semi-1: Turkey vs Iran → Turkey\n  semi-2: Greece vs Spain → Greece\n  final: Turkey vs Greece → Turkey",
+  "coordinates": {
+    "lat": 38.4237,
+    "lng": 27.1428
+  },
+  "final_reasoning": "The utility poles, specifically the concrete design and cross-arm configuration, are highly characteristic of rural Turkey as noted by the meta specialist. The landscape of Mediterranean orchards paired with arid hills is consistent with the Anatolian region."
+}

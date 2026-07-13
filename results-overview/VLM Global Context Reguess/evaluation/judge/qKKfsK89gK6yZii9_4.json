@@ -1,0 +1,82 @@
+{
+  "image_id": "qKKfsK89gK6yZii9_4",
+  "truth_country": "france",
+  "pred_country": "portugal",
+  "is_correct": false,
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": true,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.25,
+      "botanics": 0.25,
+      "regulatory": 0.75,
+      "meta": 0.25
+    },
+    "visual_consistency_score": {
+      "linguistic": 1.0,
+      "landscape": 0.75,
+      "botanics": 0.75,
+      "regulatory": 0.25,
+      "meta": 0.75
+    },
+    "confidence_calibration_score": {
+      "linguistic": 0.5,
+      "landscape": 0.25,
+      "botanics": 0.25,
+      "regulatory": 0.0,
+      "meta": 0.25
+    },
+    "round2_improvement": {
+      "linguistic": 0.0,
+      "landscape": 0.5,
+      "botanics": 0.5,
+      "regulatory": 0.5,
+      "meta": 0.5
+    },
+    "round2_improvement_notes": {
+      "linguistic": "Agent provided no output in either round; no improvement possible.",
+      "landscape": "Acknowledged other agents' findings (Meta, Botanics) but maintained the same incorrect conclusion without substantive refinement.",
+      "botanics": "Changed top candidate from Spain to Portugal based on cross-agent synthesis, but the reasoning remained speculative and incorrect.",
+      "regulatory": "Maintained the same incorrect conclusion; did not substantively improve reasoning despite the hallucinated evidence.",
+      "meta": "Incorporated Regulatory Agent's (incorrect) license plate observation into its own reasoning, reinforcing the wrong conclusion."
+    },
+    "role_leakage_score": {
+      "linguistic": 0.0,
+      "landscape": 0.5,
+      "botanics": 0.5,
+      "regulatory": 0.0,
+      "meta": 1.0
+    },
+    "role_leakage_notes": {
+      "linguistic": "none",
+      "landscape": "Minor leakage: Cited 'Meta Agent's observation of Portuguese-style concrete utility poles' in R2.",
+      "botanics": "Minor leakage: Cited 'Landscape and Meta agents' observations' to bolster botanical claims in R2.",
+      "regulatory": "none",
+      "meta": "Heavy leakage: R2 reasoning relies primarily on importing the Regulatory Agent's license plate observation ('via Regulatory Agent') rather than independent visual analysis."
+    },
+    "hallucination_examples": {
+      "linguistic": [],
+      "landscape": [
+        "Mediterranean scrub and Nerium oleander"
+      ],
+      "botanics": [
+        "Nerium oleander visible in the red blooms"
+      ],
+      "regulatory": [
+        "The license plate on the white car shows a yellow vertical strip on the right, which is a definitive characteristic of Portuguese plates issued between 1998 and 2020."
+      ],
+      "meta": [
+        "concrete utility pole with specific curved lamp bracket"
+      ]
+    },
+    "judge_synthesis_quality": 0.25,
+    "judge_synthesis_notes": "The Judge's synthesis is weak and circular. It relies entirely on the hallucinated evidence from the Regulatory Agent (the 'yellow strip') to confirm the incorrect prediction of Portugal. It fails to critically evaluate the visual evidence (or lack thereof) and does not attempt to eliminate the correct country (France) despite the agents' failure to identify it."
+  }
+}

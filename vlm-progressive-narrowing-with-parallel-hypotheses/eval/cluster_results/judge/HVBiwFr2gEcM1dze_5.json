@@ -1,0 +1,76 @@
+{
+  "image_id": "HVBiwFr2gEcM1dze_5",
+  "truth_country": "india",
+  "pred_country": "egypt",
+  "is_correct": false,
+  "path": "",
+  "truth_in_hypothesis_pool": false,
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": true,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "role_adherence_notes": {
+      "linguistic": "Correctly identified lack of evidence (no signs).",
+      "landscape": "Stayed within terrain/soil analysis, though the specific region hypothesis was incorrect.",
+      "botanics": "Stayed within plant/vegetation analysis.",
+      "regulatory": "Correctly identified lack of evidence (no road markings).",
+      "meta": "Stayed within synthesis, though relied on a weak heuristic (hood shape)."
+    },
+    "argumentative_quality": {
+      "linguistic": "normal",
+      "landscape": "strong",
+      "botanics": "strong",
+      "regulatory": "normal",
+      "meta": "weak"
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.1,
+      "botanics": 0.1,
+      "regulatory": 0.0,
+      "meta": 0.2
+    },
+    "hallucination_examples": {
+      "linguistic": [],
+      "landscape": [],
+      "botanics": [],
+      "regulatory": [],
+      "meta": [
+        "Claimed hood shape is 'more characteristic of recent Senegalese captures' \u2014 this is a subjective inference not grounded in visual fact."
+      ]
+    },
+    "visual_consistency_score": {
+      "linguistic": 1.0,
+      "landscape": 0.8,
+      "botanics": 0.8,
+      "regulatory": 1.0,
+      "meta": 0.6
+    },
+    "visual_consistency_notes": {
+      "linguistic": "Accurately reported absence of text.",
+      "landscape": "Visuals (soil, flatness) match description, though the regional attribution is wrong.",
+      "botanics": "Visuals (green strips, trees) match description.",
+      "regulatory": "Accurately reported absence of markings.",
+      "meta": "Hood is visible, but the specific regional link is weak."
+    },
+    "confidence_calibration": {
+      "linguistic": 0.5,
+      "landscape": 0.2,
+      "botanics": 0.2,
+      "regulatory": 0.5,
+      "meta": 0.2
+    },
+    "constructive_synthesis": false,
+    "overall_verdict_notes": "The pipeline failed to identify the correct region (South Asia) due to a lack of linguistic/regulatory evidence and a strong bias from landscape/botanics agents towards the Middle East/North Africa. The meta agent's hallucination about the car hood further misled the process. The final decision was a guess based on the strongest (but incorrect) visual signals.",
+    "region_narrowing_quality": 0.25,
+    "region_narrowing_notes": "The judge failed to narrow the region effectively. With no consensus, it should have prioritized the landscape/botanics evidence (which pointed to arid/semi-arid river valleys) over the meta agent's weak hood heuristic. The final choice of Egypt is plausible visually but incorrect geographically.",
+    "hypothesis_pool_quality": 0.25,
+    "hypothesis_pool_notes": "The pool (Egypt, Iraq, Pakistan, Senegal) is poor. It includes the correct country (India) as a 'low' candidate in Phase 1 but the final pool presented for evaluation (implied by the final answer) seems to have excluded it or failed to weigh it correctly. The pool is heavily skewed towards the Middle East/North Africa, missing the South Asian context entirely."
+  },
+  "validation_error": "1 validation error for JudgeVerdict\nhypothesis_pool_notes\n  String should have at most 300 characters [type=string_too_long, input_value=\"The pool (Egypt, Iraq, P...Asian context entirely.\", input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_too_long"
+}

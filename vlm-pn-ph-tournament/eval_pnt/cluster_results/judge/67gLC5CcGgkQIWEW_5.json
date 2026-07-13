@@ -1,0 +1,95 @@
+{
+  "image_id": "67gLC5CcGgkQIWEW_5",
+  "truth_country": "philippines",
+  "pred_country": "cambodia",
+  "is_correct": false,
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": true,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "role_adherence_notes": {
+      "linguistic": "Correctly identified lack of visible text; stayed within domain.",
+      "landscape": "Focused on terrain, vegetation, and settlement patterns.",
+      "botanics": "Analyzed plant species (Cocos nucifera, Musa) and distribution.",
+      "regulatory": "Evaluated road width, concrete poles, and fencing standards.",
+      "meta": "Analyzed camera rig artifacts and cross-domain infrastructure cues."
+    },
+    "argumentative_quality": {
+      "linguistic": "normal",
+      "landscape": "strong",
+      "botanics": "strong",
+      "regulatory": "normal",
+      "meta": "strong"
+    },
+    "constructive_synthesis": true,
+    "overall_verdict_notes": "The pipeline correctly identified the region (Southeast Asia) and the specific country (Cambodia) as a strong candidate, but failed to select the ground truth (Philippines). The failure was driven by the meta-agent's reliance on a hallucinated 'Google rig' artifact to distinguish Cambodia from the Philippines, leading to a biased tournament outcome.",
+    "assertiveness": null,
+    "assertiveness_score": {},
+    "overall_quality_score": null,
+    "role_adherence_score": {
+      "linguistic": 1.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.9,
+      "meta": 0.9
+    },
+    "argumentative_quality_score": {
+      "linguistic": 0.5,
+      "landscape": 0.8,
+      "botanics": 0.8,
+      "regulatory": 0.6,
+      "meta": 0.7
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.0,
+      "botanics": 0.0,
+      "regulatory": 0.0,
+      "meta": 0.75
+    },
+    "hallucination_examples": {
+      "linguistic": [],
+      "landscape": [],
+      "botanics": [],
+      "regulatory": [],
+      "meta": [
+        "claimed 'distinct rounded, light-colored camera car hood... characteristic of the Google Street View rig used in Cambodia'",
+        "claimed 'specific style of low concrete perimeter walls... strongly indicative of rural Cambodian infrastructure'"
+      ]
+    },
+    "visual_consistency_score": {
+      "linguistic": 1.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.8,
+      "meta": 0.3
+    },
+    "visual_consistency_notes": {
+      "linguistic": "Accurately noted absence of text.",
+      "landscape": "Accurately described tropical flora and terrain.",
+      "botanics": "Accurately identified palm and banana species.",
+      "regulatory": "Accurately described road and pole infrastructure.",
+      "meta": "The 'hood' and 'pole style' claims are visually consistent with the image but factually hallucinated as diagnostic markers for Cambodia."
+    },
+    "confidence_calibration": {
+      "linguistic": 0.5,
+      "landscape": 0.5,
+      "botanics": 0.5,
+      "regulatory": 0.5,
+      "meta": 0.2
+    },
+    "tournament_failure": {
+      "truth_in_pool": true,
+      "truth_lost_to": "Cambodia",
+      "failure_match_round": "semi-1",
+      "failure_reason": "agent_misled",
+      "failure_reasoning": "The meta-agent hallucinated specific diagnostic features (hood shape, pole style) for Cambodia and assigned 'strongly_support' to it while giving 'low' confidence to the Philippines. This biased the tournament setup, causing the judge to pick Cambodia over the truth.",
+      "counterfactual_winnable": true
+    }
+  }
+}

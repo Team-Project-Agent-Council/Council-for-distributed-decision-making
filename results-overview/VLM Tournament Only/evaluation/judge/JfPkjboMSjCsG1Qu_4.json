@@ -1,0 +1,100 @@
+{
+  "image_id": "JfPkjboMSjCsG1Qu_4",
+  "truth_country": "colombia",
+  "pred_country": "mexico",
+  "is_correct": false,
+  "candidate_pool": [
+    "Mexico",
+    "Australia",
+    "Brazil",
+    "Guatemala",
+    "Thailand",
+    "Belize"
+  ],
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": true,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "role_adherence_notes": {
+      "linguistic": "Correctly identified the absence of visible text and remained neutral.",
+      "landscape": "Focused on terrain, vegetation type, and climate cues.",
+      "botanics": "Analyzed plant species (Opuntia) and biome types.",
+      "regulatory": "Analyzed road markings and infrastructure standards.",
+      "meta": "Used camera artifacts and vehicle silhouettes as cross-domain cues."
+    },
+    "argumentative_quality": {
+      "linguistic": "normal",
+      "landscape": "strong",
+      "botanics": "strong",
+      "regulatory": "weak",
+      "meta": "normal"
+    },
+    "constructive_synthesis": true,
+    "overall_verdict_notes": "The pipeline failed because the agents hallucinated a key visual cue (Opuntia cactus) that was not present in the image. This hallucination drove the botanics and meta agents to strongly favor Mexico, leading the tournament to select the wrong country. The regulatory agent failed to provide a strong differentiator, and the linguistic agent provided no signal.",
+    "role_adherence_score": {
+      "linguistic": 1.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.9,
+      "meta": 0.9
+    },
+    "argumentative_quality_score": {
+      "linguistic": 0.5,
+      "landscape": 0.8,
+      "botanics": 0.8,
+      "regulatory": 0.3,
+      "meta": 0.5
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.0,
+      "botanics": 0.75,
+      "regulatory": 0.0,
+      "meta": 0.0
+    },
+    "hallucination_examples": {
+      "linguistic": [],
+      "landscape": [],
+      "botanics": [
+        "claimed 'presence of Opuntia (prickly pear) cacti in the mid-ground'",
+        "claimed 'presence of Opuntia-like cacti in the distance'"
+      ],
+      "regulatory": [],
+      "meta": []
+    },
+    "visual_consistency_score": {
+      "linguistic": 1.0,
+      "landscape": 0.9,
+      "botanics": 0.2,
+      "regulatory": 0.9,
+      "meta": 0.9
+    },
+    "visual_consistency_notes": {
+      "linguistic": "Accurately noted no text.",
+      "landscape": "Accurately described flat terrain and scrub.",
+      "botanics": "Fabricated the presence of cacti which are not visible in the image.",
+      "regulatory": "Accurately described road markings.",
+      "meta": "Accurately described image artifacts."
+    },
+    "confidence_calibration": {
+      "linguistic": 0.5,
+      "landscape": 0.2,
+      "botanics": 0.0,
+      "regulatory": 0.2,
+      "meta": 0.2
+    },
+    "tournament_failure": {
+      "truth_in_pool": false,
+      "truth_lost_to": null,
+      "failure_match_round": null,
+      "failure_reason": "agent_misled_pre_pool",
+      "failure_reasoning": "The ground truth (Colombia) was not included in the candidate pool. The botanics agent hallucinated the presence of Opuntia cacti, which strongly biased the pool towards Mexico and Central America, excluding Colombia.",
+      "counterfactual_winnable": false
+    }
+  }
+}

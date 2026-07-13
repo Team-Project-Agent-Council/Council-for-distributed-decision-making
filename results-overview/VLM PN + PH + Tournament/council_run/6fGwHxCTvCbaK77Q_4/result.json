@@ -1,0 +1,488 @@
+{
+  "image_path": "/pfs/data6/home/ma/ma_ma/ma_lweisssc/llm_council_agent_orchestration_tests/clean_images_GeoRC_500/6fGwHxCTvCbaK77Q_4.png",
+  "model": "google/gemma-4-31B-it",
+  "judge_model": "google/gemma-4-31B-it",
+  "timing": {
+    "total_seconds": 81.4
+  },
+  "assessments": {
+    "linguistic": {
+      "agent_name": "linguistic",
+      "candidates": [],
+      "evidence": []
+    },
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "New Zealand",
+          "confidence": "high",
+          "reasoning": "The combination of lush green rolling hills, specific coniferous plantation styles (likely Pinus radiata), and the presence of ferns in the undergrowth is highly characteristic of the North and South Islands. The road quality and settlement pattern are typical of rural NZ."
+        },
+        {
+          "country": "Australia",
+          "confidence": "medium",
+          "reasoning": "The temperate rainforest and mountainous regions of Tasmania or the Great Dividing Range share similar greenery and road styles. However, the specific density of the coniferous forest is more typical of New Zealand's plantations."
+        },
+        {
+          "country": "Chile",
+          "confidence": "medium",
+          "reasoning": "The Southern Cone landscape, particularly in the Lake District, features similar volcanic soil, temperate forests, and steep green slopes. The vegetation is very similar to New Zealand due to shared Southern Hemisphere temperate climates."
+        },
+        {
+          "country": "Canada",
+          "confidence": "low",
+          "reasoning": "As a cross-continent analog, the Pacific Northwest/British Columbia region features similar coniferous forests and mountainous terrain. However, the specific grass texture and undergrowth ferns are more indicative of a Southern Hemisphere temperate zone."
+        }
+      ],
+      "evidence": [
+        "Temperate coniferous forest",
+        "Lush green rolling hills",
+        "Fern undergrowth",
+        "Asphalt rural road with no markings",
+        "Overcast sky with diffused lighting suggesting high latitude or temperate maritime climate"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Portugal",
+          "confidence": "high",
+          "reasoning": "The combination of dense Cupressus plantations (left) and Pinus radiata or Pinus pinaster forests on steep slopes is highly characteristic of the Azores or mainland Portuguese highlands. The presence of lush, temperate ferns in the understory suggests a humid, Macaronesian or Atlantic climate."
+        },
+        {
+          "country": "Spain",
+          "confidence": "high",
+          "reasoning": "Similar to Portugal, the Galician or Canary Islands regions feature this specific mix of coniferous plantations and humid temperate undergrowth. The botanical profile is nearly identical to Northern Portugal due to the shared Atlantic climate zone."
+        },
+        {
+          "country": "New Zealand",
+          "confidence": "medium",
+          "reasoning": "The landscape strongly resembles the North Island's hilly terrain, featuring exotic Pinus radiata plantations and native ferns. The lush green grass and cloud cover are consistent with New Zealand's temperate rainforest biomes."
+        },
+        {
+          "country": "Chile",
+          "confidence": "low",
+          "reasoning": "The southern Lake District of Chile utilizes similar Pinus and Cupressus plantations on volcanic slopes with a similar humid temperate climate and fern-rich understory."
+        }
+      ],
+      "evidence": [
+        "Cupressus (Cypress) hedge/plantation",
+        "Pinus (Pine) forest",
+        "Pteridophyta (Ferns)",
+        "Humid temperate biome"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "New Zealand",
+          "confidence": "medium",
+          "reasoning": "The combination of narrow asphalt rural roads, specific pine forestry patterns, and the general landscape is highly characteristic of New Zealand's rural infrastructure."
+        },
+        {
+          "country": "Chile",
+          "confidence": "low",
+          "reasoning": "Similar rural road width and asphalt quality found in southern regions, often paired with similar coniferous forestry and mountainous terrain."
+        },
+        {
+          "country": "Canada",
+          "confidence": "speculative",
+          "reasoning": "Global analog: rural asphalt roads with wooden utility poles and coniferous forests are visually similar across North American rural regions."
+        },
+        {
+          "country": "Australia",
+          "confidence": "speculative",
+          "reasoning": "Global analog: rural road infrastructure in temperate/mountainous regions of Australia shares similar asphalt and shoulder characteristics."
+        }
+      ],
+      "evidence": [
+        "narrow asphalt road width",
+        "unmarked gravel shoulders",
+        "wooden utility pole visible in distance",
+        "absence of road signs or bollards in immediate view"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "New Zealand",
+          "confidence": "medium",
+          "reasoning": "The image quality and the specific blur/stitching pattern at the bottom of the frame are consistent with New Zealand's Gen 3 camera coverage. The simple wooden fence posts visible on the left are very common in rural NZ."
+        },
+        {
+          "country": "Chile",
+          "confidence": "low",
+          "reasoning": "Chile shares similar rural road textures and wooden fencing styles. It serves as a cross-continent analog with similar Google camera artifacts in certain rural regions."
+        },
+        {
+          "country": "Canada",
+          "confidence": "speculative",
+          "reasoning": "Rural Canadian roads often feature similar asphalt quality and simple wooden boundary markers, though the camera rig shadow/blur is less characteristic of their primary coverage."
+        }
+      ],
+      "evidence": [
+        "Google Street View Gen 3 camera blur/stitching at the bottom of the frame",
+        "Simple wooden fence posts on the left shoulder",
+        "Asphalt road texture and quality"
+      ]
+    }
+  },
+  "progressive_narrowing": {
+    "region_consensus": false,
+    "confirmed_region": "Oceania",
+    "runner_up_region": "South America",
+    "surviving_regions": [
+      "Oceania",
+      "South America"
+    ],
+    "proposed_regions": [
+      "Oceania",
+      "South America",
+      "North America",
+      "Europe"
+    ],
+    "region_candidates": {
+      "Oceania": {
+        "New Zealand": 4,
+        "Australia": 2
+      },
+      "South America": {
+        "Chile": 4
+      },
+      "North America": {
+        "Canada": 3
+      },
+      "Europe": {
+        "Portugal": 1,
+        "Spain": 1
+      }
+    },
+    "region_decision_reasoning": "Oceania received two 'strongly_support' votes from both the botanics and meta agents, citing diagnostic botanical signatures (Pinus radiata and tree ferns) and specific Google Street View camera artifacts characteristic of New Zealand. South America is the runner-up as it received 'support' from both agents for having a compatible biome and similar infrastructure.",
+    "path": "B"
+  },
+  "road_evidence": {
+    "outside_color": "none",
+    "inside_color": "none",
+    "driving_side": "UNCLEAR",
+    "driving_side_basis": "none"
+  },
+  "country_assessments": {
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "New Zealand",
+          "confidence": "high",
+          "reasoning": "The combination of lush green rolling hills, dense coniferous plantations (likely Pinus radiata), and the specific mix of ferns and temperate grasses is highly characteristic of the North and South Islands. The road quality and settlement pattern of rural farmland bordering forested slopes are very common in New Zealand."
+        },
+        {
+          "country": "Chile",
+          "confidence": "medium",
+          "reasoning": "The southern regions of Chile feature similar temperate rainforests, coniferous plantations, and mountainous terrain. The landscape of the Lake District or Los Ríos region shares a very similar climate and vegetation profile with New Zealand."
+        },
+        {
+          "country": "Australia",
+          "confidence": "low",
+          "reasoning": "While most of Australia is arid, the temperate highlands of Tasmania or the Great Dividing Range in Victoria/NSW can exhibit similar greenery and road styles, though the specific coniferous forest density is less common than in NZ."
+        }
+      ],
+      "evidence": [
+        "Temperate coniferous forest plantations on steep slopes",
+        "Lush green pasture with small white wildflowers",
+        "Rolling mountainous terrain with high humidity/cloud cover",
+        "Narrow paved rural road with no shoulder"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "New Zealand",
+          "confidence": "high",
+          "reasoning": "The combination of dense Pinus radiata plantations on the hillside and the presence of large tree ferns (Cyatheales) in the understory is highly characteristic of the New Zealand landscape. The lush, temperate grassland with small white wildflowers is typical of the North and South Island rural roadsides."
+        },
+        {
+          "country": "Chile",
+          "confidence": "medium",
+          "reasoning": "Southern Chile shares a very similar temperate rainforest biome and utilizes Pinus radiata for commercial forestry. However, the specific growth habit of the ferns and the overall composition of the roadside flora are more indicative of New Zealand."
+        }
+      ],
+      "evidence": [
+        "Pinus radiata",
+        "Tree ferns (Cyatheales)",
+        "Temperate grassland"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "New Zealand",
+          "confidence": "medium",
+          "reasoning": "The narrow asphalt road with rough, chip-seal texture and gravel shoulders is very characteristic of rural New Zealand. The surrounding vegetation, including the specific mix of conifers and ferns on the hillside, is highly consistent with the New Zealand landscape."
+        },
+        {
+          "country": "Chile",
+          "confidence": "low",
+          "reasoning": "The mountainous terrain and the use of similar asphalt/gravel road construction in rural areas are common in the southern regions of Chile. The pine-heavy forestry on the slopes is a plausible match for Chilean plantations."
+        },
+        {
+          "country": "Australia",
+          "confidence": "low",
+          "reasoning": "Rural roads in temperate regions of Australia often feature this same chip-seal surface and lack of formal curbing. However, the specific lushness and tree types are more typical of New Zealand or South America."
+        }
+      ],
+      "evidence": [
+        "chip-seal asphalt road surface",
+        "unpaved gravel shoulders",
+        "absence of road markings",
+        "rural road width class"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "New Zealand",
+          "confidence": "high",
+          "reasoning": "The image shows a distinct Google Street View camera generation with a prominent, wide, blurred hood/bonnet visible at the bottom, which is characteristic of New Zealand's coverage. The road surface and the style of the wooden utility pole in the distance are highly consistent with rural NZ."
+        },
+        {
+          "country": "Chile",
+          "confidence": "low",
+          "reasoning": "Chile has similar rural road textures and uses wooden utility poles. However, the specific blur pattern and hood shape of the Google car are more typical of the New Zealand fleet."
+        }
+      ],
+      "evidence": [
+        "Google car hood/bonnet blur pattern",
+        "Wooden utility pole style",
+        "Road surface texture"
+      ]
+    }
+  },
+  "hypothesis_evaluations": [
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_oceania",
+      "confidence": "strongly_support",
+      "reasoning": "The combination of large-scale Pinus radiata plantations on steep slopes and the presence of large tree ferns (Cyatheales) in the understory is highly characteristic of New Zealand's landscape. This specific mix of introduced forestry and native fern species is a diagnostic botanical signature for the region.",
+      "key_evidence": [
+        "Pinus radiata",
+        "Tree ferns (Cyatheales)"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_south_america",
+      "confidence": "support",
+      "reasoning": "The temperate rainforest/mountainous biome is compatible with the Southern Andes (Chile/Argentina), where similar pine plantations and ferns exist. However, the specific growth habit and density of the ferns seen here are more typical of Oceania.",
+      "key_evidence": [
+        "Temperate conifers",
+        "Ferns"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_north_america",
+      "confidence": "low",
+      "reasoning": "While the Pacific Northwest has similar conifers and ferns, the specific appearance of the roadside vegetation and the structure of the pine plantation are less typical than the Southern Hemisphere analogs.",
+      "key_evidence": [
+        "Coniferous forest"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_europe",
+      "confidence": "low",
+      "reasoning": "Some mountainous regions in Southern Europe have similar pine forests, but the presence of these specific large tree ferns in an open roadside setting is uncommon for European temperate zones.",
+      "key_evidence": [
+        "Coniferous forest"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_oceania",
+      "confidence": "strongly_support",
+      "reasoning": "The image shows a very distinct Google Street View camera artifact: the 'halo' or 'blur' at the bottom of the frame is characteristic of the Gen 3 camera used extensively in New Zealand. The road surface and the specific style of the wooden utility pole visible in the distance are highly consistent with rural New Zealand coverage.",
+      "key_evidence": [
+        "Gen 3 camera blur/halo",
+        "rural wooden utility pole style"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_south_america",
+      "confidence": "support",
+      "reasoning": "While the camera generation is less common here, some rural areas in South America (like Chile) have similar road textures and wooden poles, but they lack the specific Gen 3 camera artifacts seen here.",
+      "key_evidence": [
+        "generic wooden pole",
+        "asphalt texture"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_north_america",
+      "confidence": "support",
+      "reasoning": "Rural North America uses similar wooden utility poles and asphalt, but the specific camera rig blur is not typical for the primary coverage patterns in the US or Canada.",
+      "key_evidence": [
+        "generic wooden pole"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_europe",
+      "confidence": "low",
+      "reasoning": "While some European rural roads look similar, the combination of the camera artifact and the specific utility pole design is less common than in Oceania.",
+      "key_evidence": [
+        "generic asphalt"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_new_zealand",
+      "confidence": "strongly_support",
+      "reasoning": "The combination of lush, rolling green hills, dense coniferous plantations (likely Pinus radiata), and the specific mix of ferns and temperate grassland is highly characteristic of the New Zealand landscape, particularly the North Island or South Island foothills.",
+      "key_evidence": [
+        "coniferous plantation style",
+        "lush temperate greenery",
+        "rolling hill topography",
+        "fern undergrowth"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_chile",
+      "confidence": "support",
+      "reasoning": "The temperate rainforest and mountainous terrain of Southern Chile share a very similar climate and vegetation profile to New Zealand, including the use of similar pine plantations in the Lake District.",
+      "key_evidence": [
+        "temperate climate",
+        "mountainous backdrop",
+        "coniferous forests"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_australia",
+      "confidence": "low",
+      "reasoning": "While the highlands of Victoria or Tasmania have similar greenery and pine forests, the overall saturation of the green and the specific slope of the terrain are more typical of oceanic climates than the majority of the Australian landmass.",
+      "key_evidence": [
+        "temperate highland vegetation"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_new_zealand",
+      "confidence": "strongly_support",
+      "reasoning": "The combination of dense Pinus radiata plantations on the hillside and the presence of large tree ferns (Cyatheales) in the understory is highly characteristic of the New Zealand landscape. The lush, temperate rainforest transition into commercial pine forestry is a diagnostic pattern for the North and South Islands.",
+      "key_evidence": [
+        "Pinus radiata",
+        "Tree ferns (Cyatheales)",
+        "Temperate rainforest understory"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_chile",
+      "confidence": "support",
+      "reasoning": "Chile also utilizes Pinus radiata extensively in its forestry sector and has a similar temperate climate in the south. However, the specific density and arrangement of the ferns and the overall greenery are more typical of New Zealand's humid temperate zones.",
+      "key_evidence": [
+        "Pinus radiata",
+        "Temperate climate vegetation"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_australia",
+      "confidence": "low",
+      "reasoning": "While Australia has pine plantations and ferns, the specific combination of this lush, moist hillside vegetation and the particular growth habit of the conifers is less common than in New Zealand or Chile, appearing more like a maritime temperate rainforest than typical Australian bushland.",
+      "key_evidence": [
+        "Coniferous plantations",
+        "Ferns"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_new_zealand",
+      "confidence": "strongly_support",
+      "reasoning": "The image shows a very distinct Google Street View camera artifact: the 'halo' or 'blur' at the bottom of the frame is characteristic of the Gen 3 camera used extensively in New Zealand. Additionally, the specific style of the wooden utility pole visible in the distance is highly consistent with NZ rural infrastructure.",
+      "key_evidence": [
+        "Gen 3 camera blur/halo at bottom of frame",
+        "Rural wooden utility pole style"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_australia",
+      "confidence": "support",
+      "reasoning": "Australia also uses Gen 3 camera equipment and similar rural wooden poles, making it a strong analog. However, the specific image quality and blur pattern are slightly more typical of NZ's rural coverage patterns.",
+      "key_evidence": [
+        "Gen 3 camera blur/halo",
+        "Rural wooden utility pole"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_chile",
+      "confidence": "low",
+      "reasoning": "While Chile has similar landscapes and some wooden poles, the specific Google camera generation artifacts seen here are less common in the rural Chilean coverage compared to the Oceania region.",
+      "key_evidence": [
+        "Generic wooden utility pole"
+      ]
+    }
+  ],
+  "candidate_pool": [
+    "New Zealand",
+    "Chile",
+    "Australia"
+  ],
+  "rag_findings": [
+    {
+      "kind": "tournament_match",
+      "country": "Chile",
+      "detail": "The landscape features a combination of Pinus radiata plantations and tree ferns that are highly characteristic of New Zealand. Furthermore, the specific Google Street View camera artifacts (the blur at the bottom) and the style of the rural wooden utility pole strongly support New Zealand over Chile.",
+      "opponent": "New Zealand",
+      "winner": "New Zealand"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Australia",
+      "detail": "The landscape features a combination of lush green hills, dense Pinus radiata plantations, and tree ferns that are highly characteristic of New Zealand. The specific vegetation density and the maritime temperate rainforest appearance strongly align with the specialist evidence for New Zealand over Australia.",
+      "opponent": "New Zealand",
+      "winner": "New Zealand"
+    }
+  ],
+  "rag_refs_seen": [],
+  "road_filter_warnings": [],
+  "tournament_log": [
+    {
+      "round_label": "semi",
+      "country_a": "New Zealand",
+      "country_b": "Chile",
+      "pool_rank_a": 0,
+      "pool_rank_b": 1,
+      "winner": "New Zealand",
+      "reasoning": "The landscape features a combination of Pinus radiata plantations and tree ferns that are highly characteristic of New Zealand. Furthermore, the specific Google Street View camera artifacts (the blur at the bottom) and the style of the rural wooden utility pole strongly support New Zealand over Chile.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "final",
+      "country_a": "New Zealand",
+      "country_b": "Australia",
+      "pool_rank_a": 0,
+      "pool_rank_b": 2,
+      "winner": "New Zealand",
+      "reasoning": "The landscape features a combination of lush green hills, dense Pinus radiata plantations, and tree ferns that are highly characteristic of New Zealand. The specific vegetation density and the maritime temperate rainforest appearance strongly align with the specialist evidence for New Zealand over Australia.",
+      "agreement": "agree"
+    }
+  ],
+  "country_result": "Country: New Zealand\nCoordinates: -38.521, 175.342\nReasoning: The landscape features a combination of lush green hills, dense Pinus radiata plantations, and tree ferns that are highly characteristic of New Zealand. The specific vegetation density and the maritime temperate rainforest appearance strongly align with the specialist evidence for New Zealand over Australia.\n\nTournament:\n  semi: New Zealand vs Chile → New Zealand\n  final: New Zealand vs Australia → New Zealand",
+  "coordinates": {
+    "lat": -38.521,
+    "lng": 175.342
+  },
+  "final_reasoning": "The landscape features a combination of lush green hills, dense Pinus radiata plantations, and tree ferns that are highly characteristic of New Zealand. The specific vegetation density and the maritime temperate rainforest appearance strongly align with the specialist evidence for New Zealand over Australia."
+}

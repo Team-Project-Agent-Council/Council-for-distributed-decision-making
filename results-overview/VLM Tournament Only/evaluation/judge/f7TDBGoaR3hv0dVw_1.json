@@ -1,0 +1,98 @@
+{
+  "image_id": "f7TDBGoaR3hv0dVw_1",
+  "truth_country": "kazakhstan",
+  "pred_country": "russia",
+  "is_correct": false,
+  "candidate_pool": [
+    "Russia",
+    "Ukraine",
+    "Kazakhstan",
+    "Canada",
+    "USA",
+    "Argentina"
+  ],
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": true,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "role_adherence_notes": {
+      "linguistic": "The agent provided no candidates or evidence, effectively failing its domain.",
+      "landscape": "Analyzed terrain, vegetation, and climate cues consistent with the role.",
+      "botanics": "Identified specific tree species (Populus, Betula) and biome types.",
+      "regulatory": "Analyzed road infrastructure (guardrails, shoulders) consistent with the role.",
+      "meta": "Synthesized cross-domain cues (camera quality, infrastructure standards) consistent with the role."
+    },
+    "argumentative_quality": {
+      "linguistic": "very_weak",
+      "landscape": "strong",
+      "botanics": "strong",
+      "regulatory": "normal",
+      "meta": "strong"
+    },
+    "constructive_synthesis": true,
+    "overall_verdict_notes": "The pipeline failed to identify the correct country (Kazakhstan) because the specialist agents, lacking linguistic or regulatory 'smoking guns', defaulted to Russia and Ukraine based on generic Eurasian steppe-forest features. The tournament then correctly selected Russia over Ukraine, but the initial pool construction was biased by the agents' inability to distinguish the specific regional variants of the landscape.",
+    "role_adherence_score": {
+      "linguistic": 0.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.8,
+      "meta": 0.9
+    },
+    "argumentative_quality_score": {
+      "linguistic": 0.0,
+      "landscape": 0.8,
+      "botanics": 0.8,
+      "regulatory": 0.6,
+      "meta": 0.8
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.0,
+      "botanics": 0.0,
+      "regulatory": 0.0,
+      "meta": 0.0
+    },
+    "hallucination_examples": {
+      "linguistic": [],
+      "landscape": [],
+      "botanics": [],
+      "regulatory": [],
+      "meta": []
+    },
+    "visual_consistency_score": {
+      "linguistic": 0.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.9,
+      "meta": 0.9
+    },
+    "visual_consistency_notes": {
+      "linguistic": "N/A",
+      "landscape": "Descriptions of flat terrain and deciduous trees match the image.",
+      "botanics": "Descriptions of Poplar/Birch and steppe-forest transition match the image.",
+      "regulatory": "Descriptions of W-beam guardrails and gravel shoulders match the image.",
+      "meta": "Descriptions of road texture and camera quality match the image."
+    },
+    "confidence_calibration": {
+      "linguistic": 0.0,
+      "landscape": 0.25,
+      "botanics": 0.25,
+      "regulatory": 0.25,
+      "meta": 0.25
+    },
+    "tournament_failure": {
+      "truth_in_pool": true,
+      "truth_lost_to": "Russia",
+      "failure_match_round": "semi-2",
+      "failure_reason": "agent_misled_in_tournament",
+      "failure_reasoning": "Kazakhstan was in the pool but lost to Ukraine in the semi-finals. The specialists collectively assigned 'support' to Ukraine and 'support' to Kazakhstan, but the tournament judge favored Ukraine based on the 'Pontic-Caspian steppe' label. The agents failed to provide distinguishing evidence for Kazakhstan, and the judge's preference for Ukraine (a neighbor of Russia) over Kazakhstan (the truth) was driven by the agents' generic 'Eurasian Steppe' framing rather than specific visual evidence.",
+      "counterfactual_winnable": false
+    }
+  },
+  "validation_error": "1 validation error for JudgeVerdict\noverall_verdict_notes\n  String should have at most 400 characters [type=string_too_long, input_value=\"The pipeline failed to i...iants of the landscape.\", input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_too_long"
+}

@@ -1,0 +1,638 @@
+{
+  "image_path": "/pfs/data6/home/ma/ma_ma/ma_lweisssc/llm_council_agent_orchestration_tests/clean_images_GeoRC_500/9lNwy1vjD53PTSwt_5.png",
+  "model": "google/gemma-4-31B-it",
+  "judge_model": "google/gemma-4-31B-it",
+  "timing": {
+    "total_seconds": 90.6
+  },
+  "assessments": {
+    "linguistic": {
+      "agent_name": "linguistic",
+      "candidates": [],
+      "evidence": []
+    },
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Jamaica",
+          "confidence": "medium",
+          "reasoning": "The combination of steep volcanic-style hills, lush tropical vegetation including banana trees, and the specific style of narrow asphalt roads with weathered shoulders is very characteristic of the Jamaican interior."
+        },
+        {
+          "country": "Dominican Republic",
+          "confidence": "medium",
+          "reasoning": "Similar tropical mountainous terrain and vegetation patterns. The road infrastructure and utility pole style are consistent with rural Caribbean highlands, making it geographically indistinguishable from Jamaica without further clues."
+        },
+        {
+          "country": "Puerto Rico",
+          "confidence": "medium",
+          "reasoning": "The humid tropical climate, steep slopes, and dense green canopy are typical of the island's interior mountains. The road quality and guardrail style are common across US and Caribbean territories."
+        },
+        {
+          "country": "Indonesia",
+          "confidence": "low",
+          "reasoning": "Global analog: The volcanic terrain, tropical rainforest, and narrow winding roads are highly similar to the highlands of Java or Bali, though the utility pole material differs slightly from typical rural SE Asia."
+        }
+      ],
+      "evidence": [
+        "Lush tropical vegetation with banana plants",
+        "Steep mountainous terrain with high humidity",
+        "Narrow asphalt road with weathered edges",
+        "Wooden utility poles",
+        "Overcast sky suggesting a tropical rainforest climate"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Puerto Rico",
+          "confidence": "medium",
+          "reasoning": "The combination of steep tropical hillside terrain, Musa (banana/plantain) cultivation, and dense broadleaf evergreen forest is highly characteristic of the Caribbean highlands. The specific density and layering of the undergrowth are common in the Greater Antilles."
+        },
+        {
+          "country": "Dominican Republic",
+          "confidence": "medium",
+          "reasoning": "Similar to Puerto Rico, the presence of Musa species integrated into a humid tropical forest on steep slopes is a primary agricultural pattern in the Central Range and other mountainous regions."
+        },
+        {
+          "country": "Costa Rica",
+          "confidence": "low",
+          "reasoning": "The lush, humid tropical forest and banana cultivation are consistent with the cloud forest fringes or foothills of Central America, though the specific road-side vegetation density is more typical of the Caribbean islands."
+        },
+        {
+          "country": "Indonesia",
+          "confidence": "speculative",
+          "reasoning": "As a global analog, the humid tropical biome with mixed forest and Musa cultivation on volcanic slopes is very common in Southeast Asia, though the specific species of broadleaf shrubs differ from the Caribbean."
+        }
+      ],
+      "evidence": [
+        "Musa (Banana/Plantain)",
+        "Tropical broadleaf evergreen forest",
+        "Humid tropical hillside vegetation"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Jamaica",
+          "confidence": "medium",
+          "reasoning": "The combination of wooden utility poles, basic asphalt road quality, and the specific style of the galvanized steel guardrail is common in Caribbean mountainous regions."
+        },
+        {
+          "country": "Costa Rica",
+          "confidence": "medium",
+          "reasoning": "The lush tropical vegetation paired with simple rural road infrastructure and wooden poles is highly characteristic of Central American highlands."
+        },
+        {
+          "country": "Philippines",
+          "confidence": "low",
+          "reasoning": "Similar rural road width, wooden utility poles, and tropical hillside terrain are found across Southeast Asian islands."
+        },
+        {
+          "country": "Brazil",
+          "confidence": "speculative",
+          "reasoning": "Cross-continent analog: rural mountainous regions in Brazil often feature similar basic asphalt, wooden poles, and tropical greenery."
+        }
+      ],
+      "evidence": [
+        "Wooden utility poles",
+        "Galvanized steel W-beam guardrail",
+        "Narrow rural asphalt road with gravel/dirt shoulders",
+        "No visible road signs or license plates"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "Puerto Rico",
+          "confidence": "high",
+          "reasoning": "The presence of the Google Street View 'truck bed' (the blue cargo area visible in the foreground) is a highly specific meta cue for Puerto Rico, as Google used a pickup truck for coverage there. The wooden utility pole style and the specific metal guardrail design are also consistent with US territories/mainland US."
+        },
+        {
+          "country": "United States",
+          "confidence": "medium",
+          "reasoning": "The wooden utility pole and guardrail are standard North American infrastructure. While the truck bed is common in PR, some rural US coverage may feature similar vehicle rigs, though less frequently in this specific visual configuration."
+        },
+        {
+          "country": "Costa Rica",
+          "confidence": "low",
+          "reasoning": "Global analog: Central American regions often use similar wooden utility poles and have similar road infrastructure in mountainous areas, though the specific Google truck bed meta is not standard for this region."
+        }
+      ],
+      "evidence": [
+        "Google Street View truck bed (blue cargo area visible)",
+        "Wooden utility pole",
+        "Metal guardrail design"
+      ]
+    }
+  },
+  "progressive_narrowing": {
+    "region_consensus": false,
+    "confirmed_region": "Central America & Caribbean",
+    "runner_up_region": "South America",
+    "surviving_regions": [
+      "Central America & Caribbean",
+      "South America"
+    ],
+    "proposed_regions": [
+      "Central America & Caribbean",
+      "Southeast Asia",
+      "South America",
+      "North America"
+    ],
+    "region_candidates": {
+      "Central America & Caribbean": {
+        "Jamaica": 2,
+        "Dominican Republic": 2,
+        "Puerto Rico": 3,
+        "Costa Rica": 3
+      },
+      "Southeast Asia": {
+        "Indonesia": 2,
+        "Philippines": 1
+      },
+      "South America": {
+        "Brazil": 1
+      },
+      "North America": {
+        "United States": 1
+      }
+    },
+    "region_decision_reasoning": "Central America & Caribbean received the highest score due to multiple 'strongly_support' ratings across landscape, botanics, and meta-data (specifically the Google Street View pickup rig). South America is the runner-up as it consistently received 'support' across all three specialist evaluations for its compatible tropical mountainous terrain.",
+    "path": "B"
+  },
+  "road_evidence": {
+    "outside_color": "none",
+    "inside_color": "none",
+    "driving_side": "UNCLEAR",
+    "driving_side_basis": "none"
+  },
+  "country_assessments": {
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Puerto Rico",
+          "confidence": "high",
+          "reasoning": "The combination of steep volcanic-style terrain, lush tropical vegetation including banana plants, and the specific style of utility poles and road guardrails is highly characteristic of the island's interior. The soil color and moisture levels match the humid tropical climate of the Antilles."
+        },
+        {
+          "country": "Dominican Republic",
+          "confidence": "medium",
+          "reasoning": "The mountainous tropical landscape and road infrastructure are very similar to Puerto Rico. The dense, green hillside settlement patterns are common across the Greater Antilles."
+        },
+        {
+          "country": "Costa Rica",
+          "confidence": "medium",
+          "reasoning": "The lush, mountainous terrain and presence of tropical broadleaf plants are consistent with the Central American highlands. The road quality and vegetation density are typical for rural Costa Rican mountain passes."
+        },
+        {
+          "country": "Colombia",
+          "confidence": "low",
+          "reasoning": "The Andean foothills feature similar steep, verdant slopes and tropical flora. However, the specific road shoulder and guardrail style are slightly more reminiscent of Caribbean territories."
+        }
+      ],
+      "evidence": [
+        "Lush tropical vegetation with banana plants",
+        "Steep mountainous terrain with volcanic soil characteristics",
+        "Humid tropical climate indicated by dense canopy and overcast sky",
+        "Rural paved road with metal guardrails and wooden utility poles"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Puerto Rico",
+          "confidence": "high",
+          "reasoning": "The combination of steep volcanic topography, lush tropical rainforest, and the specific presence of Musa (banana/plantain) and coconut palms integrated into small-scale hillside agriculture is highly characteristic of the Puerto Rican interior. The vegetation density and species mix are consistent with the island's humid tropical climate."
+        },
+        {
+          "country": "Dominican Republic",
+          "confidence": "medium",
+          "reasoning": "The landscape shows similar tropical moist forest and agricultural patterns to Puerto Rico, including the use of plantains on slopes. It is botanically indistinguishable from the Greater Antilles without more specific endemic markers."
+        },
+        {
+          "country": "Costa Rica",
+          "confidence": "low",
+          "reasoning": "The lush, mountainous tropical vegetation and presence of Musa species are common in the cloud forest and highland regions of Costa Rica. However, the specific density and road-side scrub patterns are more typical of Caribbean islands."
+        },
+        {
+          "country": "Colombia",
+          "confidence": "low",
+          "reasoning": "The Andean foothills feature similar tropical moist forests and plantain cultivation on steep slopes. The botanical profile matches the humid tropical zones of the Colombian coast or Andean slopes."
+        }
+      ],
+      "evidence": [
+        "Musa (Banana/Plantain)",
+        "Cocos nucifera (Coconut Palm)",
+        "Tropical moist forest canopy",
+        "Humid tropical hillside agriculture"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Costa Rica",
+          "confidence": "medium",
+          "reasoning": "The combination of wooden utility poles, basic asphalt road quality, and the specific style of the galvanized steel guardrail is very common in rural Costa Rican highlands. The lush, tropical vegetation and road width are consistent with secondary roads in this region."
+        },
+        {
+          "country": "Panama",
+          "confidence": "medium",
+          "reasoning": "Similar to Costa Rica, Panama utilizes these types of wooden poles and standard galvanized guardrails on rural mountain roads. The infrastructure is generic but fits the regional profile of Central American rural roads."
+        },
+        {
+          "country": "Colombia",
+          "confidence": "low",
+          "reasoning": "The mountainous terrain and basic road infrastructure with wooden poles are common in the Andean regions. However, the specific guardrail mounting is more characteristic of Central American standards."
+        },
+        {
+          "country": "Dominican Republic",
+          "confidence": "low",
+          "reasoning": "The tropical foliage and the style of the utility poles are consistent with rural Caribbean infrastructure. The road width and shoulder treatment are typical for secondary routes in the region."
+        }
+      ],
+      "evidence": [
+        "wooden utility poles",
+        "galvanized steel guardrail",
+        "narrow rural asphalt road",
+        "lack of formal curbing or paved shoulders"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "Puerto Rico",
+          "confidence": "high",
+          "reasoning": "The presence of the Google Street View truck bed (pickup truck rig) is a very strong meta indicator for Puerto Rico in this region. The specific style of the wooden utility pole and the metal guardrail are also highly consistent with US-territory infrastructure standards found on the island."
+        },
+        {
+          "country": "Dominican Republic",
+          "confidence": "low",
+          "reasoning": "While the landscape and utility poles are similar, the specific truck-bed camera rig is much more characteristic of Puerto Rico's coverage. It is listed as a regional analog due to similar infrastructure styles."
+        },
+        {
+          "country": "Costa Rica",
+          "confidence": "speculative",
+          "reasoning": "Some rural areas use similar wooden poles and guardrails, but the camera rig does not match the standard Google car coverage typically seen in Costa Rica."
+        }
+      ],
+      "evidence": [
+        "Google Street View truck bed (pickup rig) visible in the foreground",
+        "Wooden utility pole style",
+        "Metal guardrail design"
+      ]
+    }
+  },
+  "hypothesis_evaluations": [
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_central_america_and_caribbean",
+      "confidence": "strongly_support",
+      "reasoning": "The combination of steep volcanic-style slopes, lush tropical broadleaf vegetation, banana plants, and the specific style of roadside infrastructure (wooden utility poles and metal guardrails) is highly characteristic of Caribbean islands or Central American highlands.",
+      "key_evidence": [
+        "tropical broadleaf forest",
+        "banana plants",
+        "steep volcanic terrain",
+        "humid climate"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_south_america",
+      "confidence": "support",
+      "reasoning": "The landscape is very similar to the Andean foothills or coastal regions of Colombia, Ecuador, or Brazil, where tropical rainforest meets mountainous terrain.",
+      "key_evidence": [
+        "tropical vegetation",
+        "mountainous terrain",
+        "humid climate"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_southeast_asia",
+      "confidence": "support",
+      "reasoning": "The lush, green, mountainous tropical environment is compatible with regions like Indonesia, Malaysia, or the Philippines, though the specific road shoulder and guardrail style are slightly more common in the Americas.",
+      "key_evidence": [
+        "tropical jungle",
+        "steep slopes",
+        "humid climate"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_north_america",
+      "confidence": "low",
+      "reasoning": "While compatible with Hawaii or Southern Mexico, it is generally less representative of the broader North American landmass compared to the other tropical regions.",
+      "key_evidence": [
+        "tropical vegetation",
+        "volcanic soil"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_central_america_and_caribbean",
+      "confidence": "support",
+      "reasoning": "The combination of Musa (banana/plantain) and Cocos nucifera (coconut palm) integrated into steep, lush hillside slopes is highly characteristic of the Caribbean islands and Central American highlands.",
+      "key_evidence": [
+        "Musa",
+        "Cocos nucifera",
+        "Tropical moist forest"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_south_america",
+      "confidence": "support",
+      "reasoning": "The vegetation is entirely compatible with the Andean foothills or coastal tropical regions of South America, where similar mixed agricultural and wild tropical growth occurs.",
+      "key_evidence": [
+        "Musa",
+        "Cocos nucifera",
+        "Tropical moist forest"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_southeast_asia",
+      "confidence": "support",
+      "reasoning": "The biome is a global analog to Southeast Asian tropical highlands; however, the specific arrangement of the roadside vegetation is slightly more typical of the Americas.",
+      "key_evidence": [
+        "Musa",
+        "Cocos nucifera",
+        "Tropical moist forest"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_north_america",
+      "confidence": "low",
+      "reasoning": "While compatible with Southern Mexico or Hawaii, this vegetation is not representative of the vast majority of North America. It contradicts any non-tropical North American hypothesis.",
+      "key_evidence": [
+        "Tropical broadleaf species"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_central_america_and_caribbean",
+      "confidence": "strongly_support",
+      "reasoning": "The most diagnostic meta detail is the Google Street View camera car. The image shows a prominent black truck bed (pickup) as the camera rig, which is the signature 'Trekker' or specialized pickup rig used extensively in Caribbean islands (like Puerto Rico, Dominican Republic, Jamaica) and parts of Central America to navigate narrow, rural roads. The wooden utility pole style is also very common in this region.",
+      "key_evidence": [
+        "black pickup truck bed camera rig",
+        "wooden utility pole"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_south_america",
+      "confidence": "support",
+      "reasoning": "While the pickup rig is less common than the standard car in South America, it is used in some remote or mountainous regions. The wooden poles are compatible with several South American countries, but the specific rig is more characteristic of the Caribbean/Central American coverage patterns.",
+      "key_evidence": [
+        "black pickup truck bed camera rig",
+        "wooden utility pole"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_southeast_asia",
+      "confidence": "low",
+      "reasoning": "While the environment is compatible, the specific black pickup truck bed rig is not a standard meta for Southeast Asian coverage, where standard cars or specialized trikes/bikes are more common for rural areas.",
+      "key_evidence": [
+        "black pickup truck bed camera rig"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_north_america",
+      "confidence": "low",
+      "reasoning": "The pickup rig is occasionally used in very specific US territories or remote areas, but the overall combination of the rig and the specific style of the wooden pole/wiring is more typical of the Caribbean/Central American regions.",
+      "key_evidence": [
+        "black pickup truck bed camera rig"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_puerto_rico",
+      "confidence": "strongly_support",
+      "reasoning": "The combination of steep, lush volcanic-style hills, specific tropical broadleaf vegetation, and the narrow, winding asphalt road with a metal guardrail is highly characteristic of the Central Mountain range (Cordillera Central) in Puerto Rico. The soil color and moisture levels are very consistent with the island's humid tropical climate.",
+      "key_evidence": [
+        "steep tropical hillside",
+        "humid tropical vegetation",
+        "narrow winding mountain road"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_dominican_republic",
+      "confidence": "support",
+      "reasoning": "The landscape is very similar to Puerto Rico as they share the Greater Antilles geography. The lush, mountainous terrain and tropical flora are compatible, though the road infrastructure style is slightly more typical of Puerto Rico's interior.",
+      "key_evidence": [
+        "tropical mountain terrain",
+        "similar flora to Puerto Rico"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_costa_rica",
+      "confidence": "support",
+      "reasoning": "The cloud-forest-like humidity and steep green slopes are compatible with the highlands of Costa Rica. However, the specific road shoulder and utility pole style are slightly less common here than in the Caribbean.",
+      "key_evidence": [
+        "humid tropical highlands",
+        "dense green canopy"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_panama",
+      "confidence": "support",
+      "reasoning": "The tropical environment and hilly terrain are compatible with the Panamanian highlands. It is geographically similar to Costa Rica and the Caribbean islands in terms of vegetation.",
+      "key_evidence": [
+        "tropical vegetation",
+        "hilly terrain"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_colombia",
+      "confidence": "support",
+      "reasoning": "The Andean foothills provide similar steep, lush landscapes. While compatible, the specific scale of the hill and the road layout are more reminiscent of smaller island mountain ranges.",
+      "key_evidence": [
+        "lush mountainous terrain",
+        "tropical climate"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_puerto_rico",
+      "confidence": "support",
+      "reasoning": "The combination of steep volcanic-style terrain, lush tropical broadleaf forest, and the presence of Musa (banana/plantain) and coconut palms is highly characteristic of the Caribbean highlands, specifically the interior of Puerto Rico.",
+      "key_evidence": [
+        "Musa (plantain/banana)",
+        "Cocos nucifera",
+        "Tropical moist forest"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_dominican_republic",
+      "confidence": "support",
+      "reasoning": "The vegetation is virtually identical to that of Puerto Rico, featuring the same mix of cultivated tropical crops and dense secondary growth common in the Greater Antilles.",
+      "key_evidence": [
+        "Musa (plantain/banana)",
+        "Cocos nucifera",
+        "Tropical moist forest"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_costa_rica",
+      "confidence": "support",
+      "reasoning": "The humid tropical forest and agricultural integration are compatible with Costa Rican highlands, though the specific density and slope profile are slightly more reminiscent of Caribbean islands.",
+      "key_evidence": [
+        "Tropical broadleaf vegetation",
+        "Musa species"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_panama",
+      "confidence": "support",
+      "reasoning": "The botanical composition is compatible with the humid tropical zones of Panama, though it lacks any specific endemic markers to distinguish it from other Central American or Caribbean regions.",
+      "key_evidence": [
+        "Tropical moist forest",
+        "Cocos nucifera"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_colombia",
+      "confidence": "support",
+      "reasoning": "The vegetation is compatible with the Andean foothills or coastal regions of Colombia, but the specific scale of the roadside growth is very generic for the humid tropics.",
+      "key_evidence": [
+        "Tropical broadleaf vegetation",
+        "Musa species"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_puerto_rico",
+      "confidence": "strongly_support",
+      "reasoning": "The most diagnostic feature is the Google Street View camera car. The image shows a black truck bed (pickup) as the camera rig, which is the signature 'truck' coverage used extensively in Puerto Rico. This differs from the standard white cars used in most other Latin American countries.",
+      "key_evidence": [
+        "black pickup truck bed visible in the foreground"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_dominican_republic",
+      "confidence": "support",
+      "reasoning": "The wooden utility poles and general road infrastructure are compatible with the Caribbean, but the specific camera rig (black truck bed) is much more characteristic of Puerto Rico coverage.",
+      "key_evidence": [
+        "wooden utility poles"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_costa_rica",
+      "confidence": "low",
+      "reasoning": "While the environment is compatible, Costa Rica typically uses the standard Google car rather than the black pickup truck rig seen here.",
+      "key_evidence": [
+        "wooden utility poles"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_colombia",
+      "confidence": "low",
+      "reasoning": "The infrastructure is generic, but the specific camera car meta strongly points toward a US territory/Caribbean region rather than mainland Colombia.",
+      "key_evidence": [
+        "wooden utility poles"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_panama",
+      "confidence": "low",
+      "reasoning": "Similar to Colombia and Costa Rica, the general meta is compatible, but the black truck bed rig is not the standard for Panama coverage.",
+      "key_evidence": [
+        "wooden utility poles"
+      ]
+    }
+  ],
+  "candidate_pool": [
+    "Dominican Republic",
+    "Costa Rica",
+    "Puerto Rico",
+    "Colombia",
+    "Panama"
+  ],
+  "rag_findings": [
+    {
+      "kind": "tournament_match",
+      "country": "Colombia",
+      "detail": "The most diagnostic evidence is the meta-data of the camera car; the visible black pickup truck bed is a signature characteristic of Google Street View coverage in Puerto Rico. Additionally, the lush, steep volcanic landscape and tropical vegetation are highly consistent with the Cordillera Central region of Puerto Rico.",
+      "opponent": "Puerto Rico",
+      "winner": "Puerto Rico"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Costa Rica",
+      "detail": "The landscape and botanics are highly characteristic of the Greater Antilles, matching the profile for the Dominican Republic. Furthermore, the meta-evidence regarding the black pickup truck camera rig is a strong indicator for Caribbean coverage, whereas Costa Rica typically uses standard Google cars.",
+      "opponent": "Dominican Republic",
+      "winner": "Dominican Republic"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Dominican Republic",
+      "detail": "The most diagnostic piece of evidence is the visible black truck bed of the Google Street View camera rig, which is a signature characteristic of coverage in Puerto Rico. Additionally, the lush, steep volcanic terrain and road infrastructure are highly consistent with the Cordillera Central region of Puerto Rico.",
+      "opponent": "Puerto Rico",
+      "winner": "Puerto Rico"
+    }
+  ],
+  "rag_refs_seen": [],
+  "road_filter_warnings": [],
+  "tournament_log": [
+    {
+      "round_label": "semi-1",
+      "country_a": "Puerto Rico",
+      "country_b": "Colombia",
+      "pool_rank_a": 0,
+      "pool_rank_b": 3,
+      "winner": "Puerto Rico",
+      "reasoning": "The most diagnostic evidence is the meta-data of the camera car; the visible black pickup truck bed is a signature characteristic of Google Street View coverage in Puerto Rico. Additionally, the lush, steep volcanic landscape and tropical vegetation are highly consistent with the Cordillera Central region of Puerto Rico.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "semi-2",
+      "country_a": "Dominican Republic",
+      "country_b": "Costa Rica",
+      "pool_rank_a": 1,
+      "pool_rank_b": 2,
+      "winner": "Dominican Republic",
+      "reasoning": "The landscape and botanics are highly characteristic of the Greater Antilles, matching the profile for the Dominican Republic. Furthermore, the meta-evidence regarding the black pickup truck camera rig is a strong indicator for Caribbean coverage, whereas Costa Rica typically uses standard Google cars.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "final",
+      "country_a": "Puerto Rico",
+      "country_b": "Dominican Republic",
+      "pool_rank_a": 0,
+      "pool_rank_b": 1,
+      "winner": "Puerto Rico",
+      "reasoning": "The most diagnostic piece of evidence is the visible black truck bed of the Google Street View camera rig, which is a signature characteristic of coverage in Puerto Rico. Additionally, the lush, steep volcanic terrain and road infrastructure are highly consistent with the Cordillera Central region of Puerto Rico.",
+      "agreement": "agree"
+    }
+  ],
+  "country_result": "Country: Puerto Rico\nCoordinates: 18.3215, -66.5821\nReasoning: The most diagnostic piece of evidence is the visible black truck bed of the Google Street View camera rig, which is a signature characteristic of coverage in Puerto Rico. Additionally, the lush, steep volcanic terrain and road infrastructure are highly consistent with the Cordillera Central region of Puerto Rico.\n\nTournament:\n  semi-1: Puerto Rico vs Colombia → Puerto Rico\n  semi-2: Dominican Republic vs Costa Rica → Dominican Republic\n  final: Puerto Rico vs Dominican Republic → Puerto Rico",
+  "coordinates": {
+    "lat": 18.3215,
+    "lng": -66.5821
+  },
+  "final_reasoning": "The most diagnostic piece of evidence is the visible black truck bed of the Google Street View camera rig, which is a signature characteristic of coverage in Puerto Rico. Additionally, the lush, steep volcanic terrain and road infrastructure are highly consistent with the Cordillera Central region of Puerto Rico."
+}

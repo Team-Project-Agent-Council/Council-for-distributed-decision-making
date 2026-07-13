@@ -1,0 +1,101 @@
+{
+  "image_id": "cV9n1YpMOmaTJpG7_3",
+  "truth_country": "uruguay",
+  "pred_country": "spain",
+  "is_correct": false,
+  "candidate_pool": [
+    "Spain",
+    "Greece",
+    "Turkey",
+    "Italy",
+    "Mexico",
+    "Australia"
+  ],
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": true,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "role_adherence_notes": {
+      "linguistic": "Correctly identified the absence of text and remained within the linguistic domain.",
+      "landscape": "Focused on terrain, geology, and climate cues.",
+      "botanics": "Analyzed vegetation types (scrub, sclerophyllous) and biome.",
+      "regulatory": "Analyzed road infrastructure and utility poles; correctly noted the absence of regulatory signs.",
+      "meta": "Analyzed camera artifacts and infrastructure styles as cross-domain indicators."
+    },
+    "argumentative_quality": {
+      "linguistic": "normal",
+      "landscape": "strong",
+      "botanics": "strong",
+      "regulatory": "weak",
+      "meta": "strong"
+    },
+    "constructive_synthesis": true,
+    "overall_verdict_notes": "The pipeline failed because the image lacked specific regulatory or linguistic markers, forcing the agents to rely on generic landscape and infrastructure cues. These cues were visually consistent with Southern Europe (Spain/Greece) but failed to identify the actual location (Uruguay). The agents hallucinated specific pole types to support their European bias.",
+    "role_adherence_score": {
+      "linguistic": 1.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.8,
+      "meta": 0.9
+    },
+    "argumentative_quality_score": {
+      "linguistic": 0.5,
+      "landscape": 0.8,
+      "botanics": 0.8,
+      "regulatory": 0.3,
+      "meta": 0.8
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.1,
+      "botanics": 0.1,
+      "regulatory": 0.5,
+      "meta": 0.5
+    },
+    "hallucination_examples": {
+      "linguistic": [],
+      "landscape": [],
+      "botanics": [],
+      "regulatory": [
+        "claimed 'wooden utility poles' in hypothesis evaluation (image shows concrete poles)"
+      ],
+      "meta": [
+        "claimed 'wooden poles with basic cross-arm' in hypothesis evaluation (image shows concrete poles)"
+      ]
+    },
+    "visual_consistency_score": {
+      "linguistic": 1.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.4,
+      "meta": 0.4
+    },
+    "visual_consistency_notes": {
+      "linguistic": "Accurately noted lack of text.",
+      "landscape": "Accurately described the rocky, scrubby terrain.",
+      "botanics": "Accurately described the vegetation structure.",
+      "regulatory": "Failed to accurately describe the utility poles (hallucinated wood vs concrete).",
+      "meta": "Failed to accurately describe the utility poles."
+    },
+    "confidence_calibration": {
+      "linguistic": 0.5,
+      "landscape": 0.2,
+      "botanics": 0.2,
+      "regulatory": 0.2,
+      "meta": 0.2
+    },
+    "tournament_failure": {
+      "truth_in_pool": false,
+      "truth_lost_to": null,
+      "failure_match_round": null,
+      "failure_reason": "agent_misled_pre_pool",
+      "failure_reasoning": "The ground truth (Uruguay) was not included in the candidate pool. The agents relied on a 'Mediterranean' visual heuristic (karst, scrub) that is common to both Southern Europe and the Pampas, but failed to consider the Southern Hemisphere or South American analogs beyond a speculative 'Australia' mention. The landscape and botanics agents strongly supported Spain/Greece based on generic features.",
+      "counterfactual_winnable": false
+    }
+  }
+}

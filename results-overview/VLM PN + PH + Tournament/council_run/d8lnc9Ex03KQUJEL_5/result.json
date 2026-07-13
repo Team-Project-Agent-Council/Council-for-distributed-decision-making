@@ -1,0 +1,491 @@
+{
+  "image_path": "/pfs/data6/home/ma/ma_ma/ma_lweisssc/llm_council_agent_orchestration_tests/clean_images_GeoRC_500/d8lnc9Ex03KQUJEL_5.png",
+  "model": "google/gemma-4-31B-it",
+  "judge_model": "google/gemma-4-31B-it",
+  "timing": {
+    "total_seconds": 85.1
+  },
+  "assessments": {
+    "linguistic": {
+      "agent_name": "linguistic",
+      "candidates": [],
+      "evidence": []
+    },
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Bangladesh",
+          "confidence": "high",
+          "reasoning": "The combination of extremely flat alluvial terrain, dense tropical greenery, and the presence of water-logged areas with water hyacinths is highly characteristic of the Bengal Delta. The settlement pattern with simple corrugated metal structures and the specific road shoulder composition are very common here."
+        },
+        {
+          "country": "India",
+          "confidence": "high",
+          "reasoning": "The landscape is virtually identical to the West Bengal region of India, which shares the same deltaic geography, soil, and vegetation as Bangladesh. Without linguistic or signage clues, these two are geographically indistinguishable in this environment."
+        },
+        {
+          "country": "Vietnam",
+          "confidence": "low",
+          "reasoning": "The Mekong Delta features similar flat, water-rich landscapes with tropical vegetation and small roadside structures. However, the specific tree species and road shoulder texture are more reminiscent of South Asia than Southeast Asia."
+        },
+        {
+          "country": "Thailand",
+          "confidence": "speculative",
+          "reasoning": "Low-lying river plains in central Thailand can exhibit similar greenery and water-logged margins, serving as a cross-continent analog for tropical alluvial plains."
+        }
+      ],
+      "evidence": [
+        "Flat alluvial plain",
+        "Water hyacinths in roadside ditches",
+        "Tropical broadleaf vegetation",
+        "High humidity haze",
+        "Sandy/silty road shoulders"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Bangladesh",
+          "confidence": "high",
+          "reasoning": "The combination of dense mango trees (Mangifera indica), water hyacinth (Eichhornia crassipes) clogging the roadside pond, and the specific humid subtropical riverine vegetation is highly characteristic of the Bengal Delta. This specific mix of agricultural fruit trees and invasive aquatic plants is ubiquitous across rural Bangladesh."
+        },
+        {
+          "country": "India",
+          "confidence": "high",
+          "reasoning": "The vegetation is virtually identical to that of West Bengal and Assam. The presence of mango trees and water hyacinth in a tropical wet-and-dry climate is common across the eastern Indian subcontinent, making it botanically indistinguishable from Bangladesh in this view."
+        },
+        {
+          "country": "Thailand",
+          "confidence": "low",
+          "reasoning": "Southeast Asian riverine landscapes also feature mango trees and water hyacinth. However, the specific density and arrangement of the broadleaf canopy here are more typical of the South Asian monsoon regions than the Indochinese peninsula."
+        },
+        {
+          "country": "Brazil",
+          "confidence": "speculative",
+          "reasoning": "As a global analog, the tropical wetlands of Brazil can host both mangoes (introduced) and water hyacinth (native). However, the overall forest structure and accompanying scrub are less characteristic of the Amazonian or Cerrado biomes."
+        }
+      ],
+      "evidence": [
+        "Mangifera indica (Mango)",
+        "Eichhornia crassipes (Water Hyacinth)",
+        "Tropical monsoon broadleaf canopy"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Bangladesh",
+          "confidence": "medium",
+          "reasoning": "The road width, asphalt quality with sandy shoulders, and the specific style of the three-wheeled auto-rickshaw are highly characteristic of rural Bangladesh. The utility pole placement and the presence of water-logged vegetation (water hyacinth) are common in this region."
+        },
+        {
+          "country": "India",
+          "confidence": "medium",
+          "reasoning": "The rural road infrastructure, including the asphalt quality and the presence of similar three-wheeled vehicles, is nearly identical to that found in West Bengal or other eastern states of India."
+        },
+        {
+          "country": "Thailand",
+          "confidence": "low",
+          "reasoning": "Rural roads in Southeast Asia often share this combination of narrow asphalt, sandy edges, and similar utility pole styles, though the vehicle type is more specific to South Asia."
+        },
+        {
+          "country": "Vietnam",
+          "confidence": "speculative",
+          "reasoning": "Global analog for rural asphalt roads with basic utility poles and adjacent water features/vegetation, though the vehicle and building styles are less typical."
+        }
+      ],
+      "evidence": [
+        "Narrow asphalt road with unpaved sandy shoulders",
+        "Three-wheeled auto-rickshaw vehicle",
+        "Basic concrete/wooden utility poles with overhead wiring",
+        "Lack of formal road signage or bollards",
+        "Simple corrugated metal and wood roadside structures"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "Bangladesh",
+          "confidence": "high",
+          "reasoning": "The presence of a motorized rickshaw (auto-rickshaw) with this specific chassis and canopy design is highly characteristic of Bangladesh. The utility poles are simple concrete/wooden poles with haphazard wiring common in the region."
+        },
+        {
+          "country": "India",
+          "confidence": "medium",
+          "reasoning": "Similar auto-rickshaws and utility pole styles are found in India, particularly in West Bengal, making it a strong regional neighbor candidate."
+        },
+        {
+          "country": "Thailand",
+          "confidence": "low",
+          "reasoning": "Global analog: Thailand also utilizes three-wheeled tuk-tuks and similar concrete utility poles, though the vehicle design here is more aligned with South Asian models."
+        }
+      ],
+      "evidence": [
+        "motorized auto-rickshaw design",
+        "concrete utility poles with overhead wiring",
+        "corrugated metal roofing on roadside structures"
+      ]
+    }
+  },
+  "progressive_narrowing": {
+    "region_consensus": false,
+    "confirmed_region": "South Asia",
+    "runner_up_region": "Southeast Asia",
+    "surviving_regions": [
+      "South Asia",
+      "Southeast Asia"
+    ],
+    "proposed_regions": [
+      "South Asia",
+      "Southeast Asia",
+      "South America"
+    ],
+    "region_candidates": {
+      "South Asia": {
+        "Bangladesh": 4,
+        "India": 4
+      },
+      "Southeast Asia": {
+        "Vietnam": 2,
+        "Thailand": 4
+      },
+      "South America": {
+        "Brazil": 1
+      }
+    },
+    "region_decision_reasoning": "South Asia received three 'strongly_support' votes across landscape, botanics, and meta agents, highlighting the specific combination of water hyacinth, mango trees, and auto-rickshaws. Southeast Asia was consistently rated as 'support' but was considered less diagnostic than the South Asian indicators.",
+    "path": "B"
+  },
+  "road_evidence": {
+    "outside_color": "none",
+    "inside_color": "none",
+    "driving_side": "UNCLEAR",
+    "driving_side_basis": "none"
+  },
+  "country_assessments": {
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Bangladesh",
+          "confidence": "high",
+          "reasoning": "The combination of extremely flat alluvial terrain, dense tropical greenery, and the presence of water-logged areas with water hyacinths is highly characteristic of the Bengal Delta. The settlement pattern with simple corrugated metal structures and the specific road shoulder composition are very common in rural Bangladesh."
+        },
+        {
+          "country": "India",
+          "confidence": "medium",
+          "reasoning": "The landscape is nearly identical to the West Bengal region of India, which shares the same deltaic geography and climate as Bangladesh. It is distinguished from other Indian states by the specific flatness and abundance of surface water/wetlands seen here."
+        },
+        {
+          "country": "Myanmar",
+          "confidence": "low",
+          "reasoning": "The Irrawaddy Delta features similar flat, wet terrain and tropical vegetation. However, the specific style of roadside structures and the density of the greenery are more typical of the Ganges-Brahmaputra delta."
+        }
+      ],
+      "evidence": [
+        "Flat alluvial plain",
+        "Water hyacinth infestation in roadside ponds",
+        "Tropical broadleaf vegetation",
+        "Corrugated metal rural architecture",
+        "High humidity haze/atmospheric conditions"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Bangladesh",
+          "confidence": "high",
+          "reasoning": "The combination of dense Eichhornia crassipes (water hyacinth) in the roadside ditches, Mango trees (Mangifera indica), and the specific growth habit of the tall, slender palms in the background is highly characteristic of the Bengal Delta. This specific riparian vegetation pattern is ubiquitous across rural Bangladesh."
+        },
+        {
+          "country": "India",
+          "confidence": "medium",
+          "reasoning": "The vegetation is nearly identical to that of Bangladesh, particularly in the West Bengal state. The presence of Mango trees and water hyacinth is common in the Gangetic plains, making it botanically indistinguishable from Bangladesh without further non-botanical clues."
+        },
+        {
+          "country": "Myanmar",
+          "confidence": "low",
+          "reasoning": "Similar tropical broadleaf species and aquatic invasive plants like water hyacinth are found in the Irrawaddy Delta region. However, the specific density and arrangement of the canopy are more typical of the Bengal region."
+        }
+      ],
+      "evidence": [
+        "Eichhornia crassipes (Water Hyacinth)",
+        "Mangifera indica (Mango tree)",
+        "Arecaceae (Tropical palms)",
+        "Tropical monsoon riparian vegetation"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Bangladesh",
+          "confidence": "high",
+          "reasoning": "The road quality, shoulder treatment with sandy/dusty edges, and the specific style of the three-wheeled auto-rickshaw are highly characteristic of rural Bangladesh. The utility pole placement and the presence of water-logged vegetation (water hyacinth) alongside the road are common in the deltaic landscape."
+        },
+        {
+          "country": "India",
+          "confidence": "medium",
+          "reasoning": "The rural asphalt quality and the presence of similar three-wheeled vehicles are common in several Indian states. However, the specific combination of vegetation and road-edge debris is more typical of the Bengal region."
+        },
+        {
+          "country": "Myanmar",
+          "confidence": "low",
+          "reasoning": "Some rural roads in Myanmar share similar asphalt degradation and utility pole styles, though the vehicle type is less common in this specific configuration."
+        }
+      ],
+      "evidence": [
+        "Three-wheeled auto-rickshaw",
+        "Sandy/unpaved road shoulders",
+        "Basic concrete/wooden utility poles",
+        "Rural asphalt road width class"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "Bangladesh",
+          "confidence": "high",
+          "reasoning": "The presence of a motorized rickshaw (auto-rickshaw) with a specific canopy shape common in Bangladesh, combined with the concrete utility poles and the specific style of corrugated metal roofing on the roadside structures. The image quality and camera generation are consistent with recent Bangladesh coverage."
+        },
+        {
+          "country": "India",
+          "confidence": "medium",
+          "reasoning": "Similar auto-rickshaws and concrete utility poles are found in India, particularly in West Bengal. However, the specific combination of the roadside shack construction and the road shoulder texture is more characteristic of Bangladesh."
+        },
+        {
+          "country": "Sri Lanka",
+          "confidence": "low",
+          "reasoning": "While Sri Lanka uses similar utility poles and has auto-rickshaws, the overall architectural style of the roadside dwellings and the specific vehicle silhouette are less typical for the island."
+        }
+      ],
+      "evidence": [
+        "Motorized auto-rickshaw design",
+        "Concrete utility poles",
+        "Corrugated metal roofing on roadside structures",
+        "Google Street View camera generation/image quality"
+      ]
+    }
+  },
+  "hypothesis_evaluations": [
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_south_asia",
+      "confidence": "strongly_support",
+      "reasoning": "The combination of flat alluvial plains, dense tropical broadleaf vegetation, and the presence of water hyacinth (Eichhornia crassipes) in the roadside pond is highly characteristic of the Ganges-Brahmaputra delta region. The settlement pattern with lightweight corrugated metal and bamboo structures is typical for rural Bangladesh or West Bengal, India.",
+      "key_evidence": [
+        "alluvial flat terrain",
+        "water hyacinth infestation in pond",
+        "tropical broadleaf canopy",
+        "humid subtropical climate indicators"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_southeast_asia",
+      "confidence": "support",
+      "reasoning": "The tropical climate, flat terrain, and vegetation are compatible with regions like Vietnam or Thailand. However, the specific combination of the pond's vegetation and the style of rural roadside construction is more diagnostic of South Asia than Southeast Asia.",
+      "key_evidence": [
+        "tropical vegetation",
+        "flat lowland terrain",
+        "humid climate"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_south_america",
+      "confidence": "low",
+      "reasoning": "While tropical lowlands in Brazil or Colombia could share similar vegetation and humidity, the specific settlement pattern and the appearance of the roadside drainage/pond system are less common in South American rural landscapes compared to the Asian candidates.",
+      "key_evidence": [
+        "tropical climate",
+        "flat terrain"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_south_asia",
+      "confidence": "strongly_support",
+      "reasoning": "The combination of Mango trees (Mangifera indica) and the dense infestation of Water Hyacinth (Pontederia crassipes) in the roadside ditch is extremely characteristic of the humid subtropical/tropical plains of South Asia, particularly the Ganges-Brahmaputra delta region. The specific growth habit of the broadleaf evergreens and the presence of palms in the background align perfectly with the vegetation of Bangladesh or Eastern India.",
+      "key_evidence": [
+        "Mangifera indica (Mango)",
+        "Pontederia crassipes (Water Hyacinth)",
+        "Tropical broadleaf evergreen canopy"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_southeast_asia",
+      "confidence": "support",
+      "reasoning": "The tropical vegetation, including the water hyacinth and broadleaf trees, is compatible with Southeast Asia. However, the specific density and arrangement of the mango-like canopy and the riparian vegetation are more diagnostic of the South Asian plains than the typical rainforest or plantation landscapes of SE Asia.",
+      "key_evidence": [
+        "Pontederia crassipes (Water Hyacinth)",
+        "Tropical broadleaf trees"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_south_america",
+      "confidence": "low",
+      "reasoning": "While Water Hyacinth is native to South America and the general tropical biome is compatible, the specific composition of the roadside trees (Mangoes) and the overall botanical structure are far more typical of Asian agricultural landscapes than South American ones.",
+      "key_evidence": [
+        "Pontederia crassipes (Water Hyacinth)"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_south_asia",
+      "confidence": "strongly_support",
+      "reasoning": "The vehicle in the distance is a motorized rickshaw (auto-rickshaw) with a design highly characteristic of Bangladesh and India. The utility poles are simple concrete/wooden poles with haphazard wiring common in this region, and the corrugated metal roofing on the roadside structures is a staple of South Asian rural architecture.",
+      "key_evidence": [
+        "motorized rickshaw design",
+        "corrugated metal roofing",
+        "utility pole wiring style"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_southeast_asia",
+      "confidence": "support",
+      "reasoning": "While the motorized rickshaw is common in Southeast Asia (e.g., Tuk-tuks), the specific silhouette and the style of the roadside shacks are more aligned with South Asian patterns. However, the general infrastructure is compatible with rural areas of Thailand or Cambodia.",
+      "key_evidence": [
+        "motorized rickshaw",
+        "corrugated metal roofing"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_south_america",
+      "confidence": "contradicts",
+      "reasoning": "The specific design of the three-wheeled vehicle is not typical for South American rural roads. Additionally, the style of the utility poles and the specific combination of building materials (corrugated metal on wooden frames in this specific configuration) are inconsistent with South American patterns.",
+      "key_evidence": [
+        "vehicle type",
+        "utility pole style"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_bangladesh",
+      "confidence": "strongly_support",
+      "reasoning": "The vehicle in the distance is a distinctive three-wheeled auto-rickshaw (CNG) common in Bangladesh. The utility poles are simple concrete/wooden poles with haphazard wiring typical of the region, and the corrugated metal roofing on the roadside structures is extremely prevalent in rural Bangladesh.",
+      "key_evidence": [
+        "three-wheeled auto-rickshaw design",
+        "corrugated metal roofing",
+        "utility pole style"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_india",
+      "confidence": "support",
+      "reasoning": "The auto-rickshaws and general construction materials (corrugated metal, concrete poles) are very similar to those found in India, particularly in West Bengal. However, the specific silhouette of the rickshaw and the overall road environment are slightly more characteristic of Bangladesh.",
+      "key_evidence": [
+        "three-wheeled auto-rickshaw",
+        "corrugated metal roofing"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_sri_lanka",
+      "confidence": "low",
+      "reasoning": "While Sri Lanka uses three-wheelers, the specific design of the vehicle and the style of the roadside shacks are less typical than those in the Bengal region.",
+      "key_evidence": [
+        "three-wheeled vehicle"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_myanmar",
+      "confidence": "low",
+      "reasoning": "Myanmar has similar rural road settings and three-wheelers, but the specific combination of building materials and the vehicle's profile is less common than in Bangladesh or India.",
+      "key_evidence": [
+        "three-wheeled vehicle"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_thailand",
+      "confidence": "contradicts",
+      "reasoning": "The style of the three-wheeled vehicle (Tuk-Tuk) in Thailand is significantly different from the enclosed auto-rickshaw seen here. Additionally, the utility pole and construction styles do not match typical rural Thai patterns.",
+      "key_evidence": [
+        "vehicle design",
+        "construction materials"
+      ]
+    }
+  ],
+  "candidate_pool": [
+    "Bangladesh",
+    "India",
+    "Myanmar",
+    "Sri Lanka",
+    "Thailand"
+  ],
+  "rag_findings": [
+    {
+      "kind": "tournament_match",
+      "country": "Sri Lanka",
+      "detail": "The streetview features a distinctive three-wheeled auto-rickshaw (CNG) and corrugated metal roadside structures that are highly characteristic of rural Bangladesh. The overall landscape and infrastructure align more closely with the specialist evidence for Bangladesh than for Sri Lanka.",
+      "opponent": "Bangladesh",
+      "winner": "Bangladesh"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Myanmar",
+      "detail": "The streetview features auto-rickshaws and rural construction materials (corrugated metal and concrete poles) that align with the specialist evidence for India, specifically West Bengal. Myanmar is rated as low probability due to the vehicle profile and building materials being less common there.",
+      "opponent": "India",
+      "winner": "India"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "India",
+      "detail": "The visual evidence, specifically the silhouette of the three-wheeled auto-rickshaw (CNG) and the style of the corrugated metal roadside structures, is highly characteristic of rural Bangladesh. While similar to West Bengal, India, the overall environment and vehicle type strongly align with the specialist evidence for Bangladesh.",
+      "opponent": "Bangladesh",
+      "winner": "Bangladesh"
+    }
+  ],
+  "rag_refs_seen": [],
+  "road_filter_warnings": [],
+  "tournament_log": [
+    {
+      "round_label": "semi-1",
+      "country_a": "Bangladesh",
+      "country_b": "Sri Lanka",
+      "pool_rank_a": 0,
+      "pool_rank_b": 3,
+      "winner": "Bangladesh",
+      "reasoning": "The streetview features a distinctive three-wheeled auto-rickshaw (CNG) and corrugated metal roadside structures that are highly characteristic of rural Bangladesh. The overall landscape and infrastructure align more closely with the specialist evidence for Bangladesh than for Sri Lanka.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "semi-2",
+      "country_a": "India",
+      "country_b": "Myanmar",
+      "pool_rank_a": 1,
+      "pool_rank_b": 2,
+      "winner": "India",
+      "reasoning": "The streetview features auto-rickshaws and rural construction materials (corrugated metal and concrete poles) that align with the specialist evidence for India, specifically West Bengal. Myanmar is rated as low probability due to the vehicle profile and building materials being less common there.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "final",
+      "country_a": "Bangladesh",
+      "country_b": "India",
+      "pool_rank_a": 0,
+      "pool_rank_b": 1,
+      "winner": "Bangladesh",
+      "reasoning": "The visual evidence, specifically the silhouette of the three-wheeled auto-rickshaw (CNG) and the style of the corrugated metal roadside structures, is highly characteristic of rural Bangladesh. While similar to West Bengal, India, the overall environment and vehicle type strongly align with the specialist evidence for Bangladesh.",
+      "agreement": "agree"
+    }
+  ],
+  "country_result": "Country: Bangladesh\nCoordinates: 23.8103, 90.4125\nReasoning: The visual evidence, specifically the silhouette of the three-wheeled auto-rickshaw (CNG) and the style of the corrugated metal roadside structures, is highly characteristic of rural Bangladesh. While similar to West Bengal, India, the overall environment and vehicle type strongly align with the specialist evidence for Bangladesh.\n\nTournament:\n  semi-1: Bangladesh vs Sri Lanka → Bangladesh\n  semi-2: India vs Myanmar → India\n  final: Bangladesh vs India → Bangladesh",
+  "coordinates": {
+    "lat": 23.8103,
+    "lng": 90.4125
+  },
+  "final_reasoning": "The visual evidence, specifically the silhouette of the three-wheeled auto-rickshaw (CNG) and the style of the corrugated metal roadside structures, is highly characteristic of rural Bangladesh. While similar to West Bengal, India, the overall environment and vehicle type strongly align with the specialist evidence for Bangladesh."
+}

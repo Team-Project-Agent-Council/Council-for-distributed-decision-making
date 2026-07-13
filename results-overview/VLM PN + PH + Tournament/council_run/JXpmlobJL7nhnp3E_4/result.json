@@ -1,0 +1,660 @@
+{
+  "image_path": "/pfs/data6/home/ma/ma_ma/ma_lweisssc/llm_council_agent_orchestration_tests/clean_images_GeoRC_500/JXpmlobJL7nhnp3E_4.png",
+  "model": "google/gemma-4-31B-it",
+  "judge_model": "google/gemma-4-31B-it",
+  "timing": {
+    "total_seconds": 110.5
+  },
+  "assessments": {
+    "linguistic": {
+      "agent_name": "linguistic",
+      "candidates": [],
+      "evidence": []
+    },
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "France",
+          "confidence": "medium",
+          "reasoning": "The combination of flat terrain, specific poplar-style tree lines used as windbreaks, and the style of the metal guardrails is very common in rural French landscapes. The road quality and markings are consistent with European standards."
+        },
+        {
+          "country": "Belgium",
+          "confidence": "medium",
+          "reasoning": "The flat, low-lying geography and temperate vegetation are nearly identical to Northern France. The settlement pattern of open fields divided by managed tree lines is a hallmark of the Benelux region."
+        },
+        {
+          "country": "Italy",
+          "confidence": "low",
+          "reasoning": "The Po Valley region features similar flat plains with rows of poplar trees and similar road infrastructure, though the grass color suggests a more northern temperate climate."
+        },
+        {
+          "country": "United States",
+          "confidence": "speculative",
+          "reasoning": "The Midwest (e.g., Illinois or Iowa) features similar flat agricultural plains and temperate deciduous trees, serving as a cross-continent analog for this type of rural infrastructure."
+        }
+      ],
+      "evidence": [
+        "Flat lowland terrain",
+        "Managed rows of deciduous windbreak trees",
+        "Temperate climate vegetation",
+        "European-style metal guardrails",
+        "Northern hemisphere sun angle based on shadow cast"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "France",
+          "confidence": "medium",
+          "reasoning": "The presence of tall, columnar Populus nigra 'Italica' (Lombardy Poplar) planted in a strict windbreak line is extremely common in the French countryside, particularly in the north and center. This specific agricultural landscaping is a hallmark of French rural road planning."
+        },
+        {
+          "country": "Italy",
+          "confidence": "medium",
+          "reasoning": "Lombardy Poplars are native to the region and widely used for windbreaks and boundary markers across the Po Valley and other northern regions. The vegetation profile is nearly identical to that of France."
+        },
+        {
+          "country": "United States",
+          "confidence": "low",
+          "reasoning": "Lombardy Poplars are widely naturalized and used ornamentally in the Midwest and Northeast US. However, the specific density and linear planting style seen here is more characteristic of European agricultural traditions."
+        },
+        {
+          "country": "China",
+          "confidence": "low",
+          "reasoning": "Populus species are used extensively for fast-growing timber and windbreaks in Northern China. The biome is a global analog for temperate broadleaf deciduous forests used in agriculture."
+        }
+      ],
+      "evidence": [
+        "Populus nigra 'Italica' (Lombardy Poplar)",
+        "Temperate broadleaf deciduous windbreak",
+        "Managed agricultural grassland"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "France",
+          "confidence": "medium",
+          "reasoning": "The guardrail style (steel beam with specific post spacing) and the general road width and shoulder treatment are very common on French departmental roads. The landscape and tree line are consistent with rural Western Europe."
+        },
+        {
+          "country": "Poland",
+          "confidence": "low",
+          "reasoning": "The guardrail design and the clean, modern asphalt quality are similar to Polish regional roads. The flat terrain and poplar-style tree lines are common in the Polish plains."
+        },
+        {
+          "country": "Argentina",
+          "confidence": "speculative",
+          "reasoning": "Following the global analog rule, this rural asphalt road with basic steel guardrails and a flat landscape is visually similar to rural infrastructure found in the Pampas region of Argentina."
+        },
+        {
+          "country": "United States",
+          "confidence": "speculative",
+          "reasoning": "Following the global analog rule, the basic steel guardrail system and rural road layout are common in many US states, though the lack of wide shoulders makes it less typical for major highways."
+        }
+      ],
+      "evidence": [
+        "Steel beam guardrails with vertical support posts",
+        "Modern asphalt road surface",
+        "Lack of visible road signs or license plates",
+        "Absence of utility poles in immediate vicinity"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "France",
+          "confidence": "medium",
+          "reasoning": "The guardrail design with the specific small red triangular reflectors on the posts is very common in France. The overall road quality and the style of the bridge in the distance are consistent with French regional roads."
+        },
+        {
+          "country": "Spain",
+          "confidence": "medium",
+          "reasoning": "Spain uses very similar guardrail systems and red reflectors on the posts. The asphalt texture and the style of the overpass are common across Southern Europe."
+        },
+        {
+          "country": "Italy",
+          "confidence": "low",
+          "reasoning": "Similar guardrail and reflector meta is found in Italy, though the specific post spacing and bridge design are slightly more characteristic of France or Spain."
+        },
+        {
+          "country": "United States",
+          "confidence": "speculative",
+          "reasoning": "As a global analog, some US state highways use similar galvanized steel guardrails, although the specific red triangular reflector placement is less common than in Europe."
+        }
+      ],
+      "evidence": [
+        "red triangular reflectors on guardrail posts",
+        "galvanized steel guardrail design",
+        "concrete bridge/overpass architecture",
+        "Google Street View Gen 3/4 image quality"
+      ]
+    }
+  },
+  "progressive_narrowing": {
+    "region_consensus": false,
+    "confirmed_region": "Europe",
+    "runner_up_region": "North America",
+    "surviving_regions": [
+      "Europe",
+      "North America"
+    ],
+    "proposed_regions": [
+      "Europe",
+      "North America",
+      "East Asia",
+      "South America"
+    ],
+    "region_candidates": {
+      "Europe": {
+        "France": 4,
+        "Belgium": 1,
+        "Italy": 3,
+        "Poland": 1,
+        "Spain": 1
+      },
+      "North America": {
+        "United States": 4
+      },
+      "East Asia": {
+        "China": 1
+      },
+      "South America": {
+        "Argentina": 1
+      }
+    },
+    "region_decision_reasoning": "Europe received the highest score due to strong support from the meta agent and consistent support from botanics and regulatory agents regarding the specific poplar tree planting and guardrail design. North America is the runner-up as it shares similar temperate vegetation and infrastructure, though it was rated as less characteristic than Europe.",
+    "path": "B"
+  },
+  "road_evidence": {
+    "outside_color": "white",
+    "inside_color": "white",
+    "driving_side": "UNCLEAR",
+    "driving_side_basis": "none"
+  },
+  "country_assessments": {
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "France",
+          "confidence": "medium",
+          "reasoning": "The combination of flat terrain, specific poplar-style tree lines used as windbreaks, and the style of the metal guardrails is very common in rural French departments. The road quality and shoulder markings are consistent with French regional roads."
+        },
+        {
+          "country": "Italy",
+          "confidence": "medium",
+          "reasoning": "The flat, fertile plains (similar to the Po Valley) often feature these tall, slender deciduous tree rows along highways. The landscape and light quality are consistent with Northern Italy."
+        },
+        {
+          "country": "Spain",
+          "confidence": "low",
+          "reasoning": "The arid quality of the grass in the field suggests a Mediterranean climate, which is common in the Castilian plateau. However, the tree species are more typical of wetter European regions."
+        },
+        {
+          "country": "United States",
+          "confidence": "low",
+          "reasoning": "The flat landscape and wide road infrastructure could match the Midwestern United States. However, the specific design of the guardrail posts and the tree planting pattern are more characteristic of European land management."
+        }
+      ],
+      "evidence": [
+        "Flat lowland terrain",
+        "Linear windbreak of tall deciduous trees (likely Populus species)",
+        "Dry, yellowish grassland indicating a temperate or Mediterranean summer",
+        "Modern asphalt road with white edge lines and galvanized steel guardrails",
+        "High sun angle suggesting Northern Hemisphere summer"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "France",
+          "confidence": "medium",
+          "reasoning": "The presence of tall, columnar Populus nigra 'Italica' (Lombardy Poplar) planted in a strict linear windbreak is extremely common in the French countryside, particularly in the north and center. This specific agricultural landscaping style is a hallmark of French rural road planning."
+        },
+        {
+          "country": "Italy",
+          "confidence": "medium",
+          "reasoning": "Lombardy Poplars are native to the region and widely used for boundary marking and windbreaks across the Po Valley and other northern regions. The vegetation density and tree form are highly consistent with Northern Italian landscapes."
+        },
+        {
+          "country": "United States",
+          "confidence": "low",
+          "reasoning": "Lombardy Poplars are widely naturalized and used ornamentally in the Midwest and Northeast. However, the specific density and linear planting pattern seen here are more characteristic of European agricultural traditions than North American ones."
+        },
+        {
+          "country": "Poland",
+          "confidence": "low",
+          "reasoning": "Poplar plantations are common in Central Europe for timber and windbreaks. The temperate broadleaf mix and grass types are consistent with the Polish lowland plains."
+        }
+      ],
+      "evidence": [
+        "Populus nigra 'Italica' (Lombardy Poplar)",
+        "Temperate broadleaf biome",
+        "Linear windbreak planting"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "France",
+          "confidence": "medium",
+          "reasoning": "The guardrail style with the specific post spacing and the presence of small red reflective markers on the outer rail are common on French departmental roads. The overall road width and shoulder treatment are consistent with rural French infrastructure."
+        },
+        {
+          "country": "Italy",
+          "confidence": "low",
+          "reasoning": "The guardrail design and the style of the overpass in the distance are seen in various regions of Italy. The vegetation and road quality are consistent with Southern European rural highways."
+        },
+        {
+          "country": "Spain",
+          "confidence": "low",
+          "reasoning": "The metallic guardrail system and the clean, wide asphalt surface are typical of Spanish regional roads. The landscape and tree line are plausible for northern or central Spain."
+        },
+        {
+          "country": "United States",
+          "confidence": "speculative",
+          "reasoning": "The basic galvanized steel W-beam guardrail is a global standard and is used extensively across North America. Without specific signage or plates, this rural road layout is visually similar to many US state highways."
+        }
+      ],
+      "evidence": [
+        "Galvanized steel W-beam guardrails",
+        "Small red reflective markers on guardrail posts",
+        "Concrete overpass bridge structure",
+        "Rural asphalt road with narrow grass shoulders"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "France",
+          "confidence": "medium",
+          "reasoning": "The guardrail design with the specific spacing of the vertical supports and the small red triangular reflectors is very common on French departmental roads. The overall image quality and camera height are consistent with Gen 4 coverage in rural France."
+        },
+        {
+          "country": "Spain",
+          "confidence": "medium",
+          "reasoning": "Spain uses very similar guardrail systems and red reflectors on rural highways. The road surface texture and the style of the overpass in the distance are consistent with Spanish infrastructure."
+        },
+        {
+          "country": "Italy",
+          "confidence": "low",
+          "reasoning": "Italy shares similar European guardrail standards and reflector patterns. However, the specific combination of the guardrail profile and the bridge design is slightly more characteristic of France or Spain."
+        },
+        {
+          "country": "United States",
+          "confidence": "speculative",
+          "reasoning": "While the guardrail is a generic W-beam, the specific red reflector placement is less common in the US compared to Europe. Included as a cross-continent analog due to the general road layout."
+        }
+      ],
+      "evidence": [
+        "Guardrail vertical support spacing",
+        "Small red triangular reflectors on guardrails",
+        "Gen 4 Google Street View camera quality",
+        "Concrete overpass design"
+      ]
+    }
+  },
+  "hypothesis_evaluations": [
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "region_europe",
+      "confidence": "neutral",
+      "reasoning": "There is no visible text in the image to provide linguistic evidence for or against this region.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "region_north_america",
+      "confidence": "neutral",
+      "reasoning": "There is no visible text in the image to provide linguistic evidence for or against this region.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "region_east_asia",
+      "confidence": "neutral",
+      "reasoning": "There is no visible text in the image to provide linguistic evidence for or against this region.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "region_south_america",
+      "confidence": "neutral",
+      "reasoning": "There is no visible text in the image to provide linguistic evidence for or against this region.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_europe",
+      "confidence": "support",
+      "reasoning": "The row of tall, columnar Populus species (likely Populus nigra 'Italica' or hybrids) is a very common windbreak and roadside planting pattern across Central and Southern Europe, particularly in France, Italy, and the Balkans.",
+      "key_evidence": [
+        "Populus nigra 'Italica'",
+        "temperate deciduous windbreak"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_north_america",
+      "confidence": "support",
+      "reasoning": "Similar Populus species and temperate grasslands are common in the Midwestern United States and Southern Canada, though the specific columnar planting style is slightly more characteristic of European landscapes.",
+      "key_evidence": [
+        "Populus species",
+        "temperate grassland"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_east_asia",
+      "confidence": "low",
+      "reasoning": "While temperate deciduous trees exist in China, Japan, and Korea, the specific combination of this poplar variety and the open, managed grassland is less diagnostic for this region compared to Europe or North America.",
+      "key_evidence": [
+        "temperate deciduous vegetation"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_south_america",
+      "confidence": "contradicts",
+      "reasoning": "The vegetation consists of temperate deciduous trees and grasses that do not match the dominant biomes of South America, except for very small southern temperate zones (e.g., Argentina/Chile), but the specific poplar arrangement is not typical there.",
+      "key_evidence": [
+        "absence of tropical/subtropical flora",
+        "temperate deciduous species"
+      ]
+    },
+    {
+      "agent_name": "regulatory",
+      "hypothesis_id": "region_europe",
+      "confidence": "support",
+      "reasoning": "The guardrail design (corrugated steel with specific post mounting) and the overall road engineering style are very common across European highways and regional roads.",
+      "key_evidence": [
+        "guardrail style",
+        "road width class"
+      ]
+    },
+    {
+      "agent_name": "regulatory",
+      "hypothesis_id": "region_north_america",
+      "confidence": "low",
+      "reasoning": "While the rural asphalt and guardrails are generic, the specific profile of the guardrail and the lack of wide paved shoulders are less typical for North American divided highways of this class.",
+      "key_evidence": [
+        "guardrail style",
+        "shoulder treatment"
+      ]
+    },
+    {
+      "agent_name": "regulatory",
+      "hypothesis_id": "region_east_asia",
+      "confidence": "neutral",
+      "reasoning": "There are no distinctive signs, plates, or utility poles visible to either support or contradict this region.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "regulatory",
+      "hypothesis_id": "region_south_america",
+      "confidence": "low",
+      "reasoning": "Basic rural asphalt and steel barriers are globally common, making this a plausible but speculative analog to the European infrastructure seen here.",
+      "key_evidence": [
+        "guardrail style",
+        "rural road infrastructure"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_europe",
+      "confidence": "strongly_support",
+      "reasoning": "The guardrail design (W-beam with specific post spacing and mounting) and the high-quality, modern Google Street View camera generation are highly characteristic of European road infrastructure. The specific style of the bridge railing in the distance is common in Central and Western Europe.",
+      "key_evidence": [
+        "guardrail design",
+        "camera generation",
+        "bridge railing style"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_north_america",
+      "confidence": "support",
+      "reasoning": "While the guardrails are similar to those in North America, the overall road width and the specific curvature of the asphalt edges are more typical of European standards. However, it remains a plausible analog for generic highway meta.",
+      "key_evidence": [
+        "guardrail design"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_east_asia",
+      "confidence": "neutral",
+      "reasoning": "There are no specific East Asian meta cues present, such as unique utility poles or specific pedestrian signal styles, to support or contradict this region.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_south_america",
+      "confidence": "neutral",
+      "reasoning": "No distinctive South American meta details (like specific concrete pole styles or regional vehicle types) are visible in this rural road setting.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "country_france",
+      "confidence": "neutral",
+      "reasoning": "There is no visible text in the image to support or contradict this hypothesis.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "country_italy",
+      "confidence": "neutral",
+      "reasoning": "There is no visible text in the image to support or contradict this hypothesis.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "country_spain",
+      "confidence": "neutral",
+      "reasoning": "There is no visible text in the image to support or contradict this hypothesis.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "linguistic",
+      "hypothesis_id": "country_poland",
+      "confidence": "neutral",
+      "reasoning": "There is no visible text in the image to support or contradict this hypothesis.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_france",
+      "confidence": "support",
+      "reasoning": "The presence of a dense, linear windbreak of Populus nigra (Black Poplar) or hybrid poplars is extremely common in the agricultural landscapes of Northern and Central France. The temperate broadleaf vegetation and managed grass verges are highly compatible with the French countryside.",
+      "key_evidence": [
+        "Populus nigra",
+        "temperate broadleaf windbreak"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_italy",
+      "confidence": "support",
+      "reasoning": "Poplar plantations are widely used for timber and windbreaks in the Po Valley and Northern Italy. The vegetation is consistent with the humid temperate climate of Northern Italy, though it lacks the specific Mediterranean scrub of the south.",
+      "key_evidence": [
+        "Populus nigra",
+        "temperate broadleaf windbreak"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_poland",
+      "confidence": "support",
+      "reasoning": "The species composition, specifically the poplar rows and the type of roadside grasses, is very common in Central and Eastern Europe, including Poland. The lush green foliage suggests a temperate climate with sufficient rainfall.",
+      "key_evidence": [
+        "Populus nigra",
+        "temperate broadleaf windbreak"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_spain",
+      "confidence": "neutral",
+      "reasoning": "While poplars are found in Northern Spain (Green Spain), the overall lack of xeric vegetation or Mediterranean sclerophyllous plants makes this less characteristic of the majority of the country compared to the other candidates.",
+      "key_evidence": [
+        "absence of Mediterranean scrub"
+      ]
+    },
+    {
+      "agent_name": "regulatory",
+      "hypothesis_id": "country_france",
+      "confidence": "support",
+      "reasoning": "The guardrail style and the general road engineering are compatible with French regional roads, though no unique French markers like specific bollards are visible.",
+      "key_evidence": [
+        "guardrail style"
+      ]
+    },
+    {
+      "agent_name": "regulatory",
+      "hypothesis_id": "country_italy",
+      "confidence": "support",
+      "reasoning": "The infrastructure is compatible with Italian road standards, particularly the guardrail design and asphalt quality, but lacks distinctive Italian signage.",
+      "key_evidence": [
+        "guardrail style"
+      ]
+    },
+    {
+      "agent_name": "regulatory",
+      "hypothesis_id": "country_spain",
+      "confidence": "support",
+      "reasoning": "The road layout and barrier style are compatible with Spanish infrastructure, though no specific Spanish regulatory cues are present.",
+      "key_evidence": [
+        "guardrail style"
+      ]
+    },
+    {
+      "agent_name": "regulatory",
+      "hypothesis_id": "country_poland",
+      "confidence": "support",
+      "reasoning": "The road construction and guardrail style are compatible with Polish regional roads, but there are no unique Polish markers visible.",
+      "key_evidence": [
+        "guardrail style"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_france",
+      "confidence": "support",
+      "reasoning": "The guardrail design and the specific style of the small red-and-white delineator reflectors attached to the guardrail posts are very common in France. The image quality and camera generation are consistent with French coverage.",
+      "key_evidence": [
+        "guardrail reflector style",
+        "camera generation"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_italy",
+      "confidence": "support",
+      "reasoning": "The guardrail and road infrastructure are compatible with Italian standards. The general image quality is consistent with European coverage, though it lacks specific Italian-only meta markers.",
+      "key_evidence": [
+        "guardrail design"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_spain",
+      "confidence": "support",
+      "reasoning": "The infrastructure is compatible with Spanish road standards. However, the specific reflector placement on the guardrail is slightly more characteristic of Central/Western Europe than Spain.",
+      "key_evidence": [
+        "guardrail design"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_poland",
+      "confidence": "low",
+      "reasoning": "While the road quality is compatible, the specific style of the guardrail reflectors and the overall 'feel' of the camera rig shadow/blur is less typical for Poland compared to Western European countries.",
+      "key_evidence": [
+        "guardrail reflector style"
+      ]
+    }
+  ],
+  "candidate_pool": [
+    "France",
+    "Italy",
+    "Spain",
+    "Poland"
+  ],
+  "rag_findings": [
+    {
+      "kind": "elim_road_marking",
+      "country": "United States",
+      "detail": "observed outside=white, inside=white vs table='Outside: White | Inside: Yellow'"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Poland",
+      "detail": "The guardrail design and the specific small red-and-white delineator reflectors attached to the posts are highly characteristic of French regional roads. Specialist evidence also notes that the linear poplar windbreaks and the camera rig characteristics are more consistent with France than Poland.",
+      "opponent": "France",
+      "winner": "France"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Spain",
+      "detail": "The botanical evidence strongly supports Italy, as the dense poplar plantations are highly characteristic of the Po Valley and Northern Italy. While the infrastructure is compatible with both, the specific vegetation profile is more indicative of Northern Italy than Spain.",
+      "opponent": "Italy",
+      "winner": "Italy"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Italy",
+      "detail": "The small red-and-white delineator reflectors attached to the guardrail posts are a highly characteristic feature of French road infrastructure. Additionally, the linear windbreak of poplars is extremely common in the agricultural landscapes of Northern and Central France.",
+      "opponent": "France",
+      "winner": "France"
+    }
+  ],
+  "rag_refs_seen": [],
+  "road_filter_warnings": [],
+  "tournament_log": [
+    {
+      "round_label": "semi-1",
+      "country_a": "France",
+      "country_b": "Poland",
+      "pool_rank_a": 0,
+      "pool_rank_b": 3,
+      "winner": "France",
+      "reasoning": "The guardrail design and the specific small red-and-white delineator reflectors attached to the posts are highly characteristic of French regional roads. Specialist evidence also notes that the linear poplar windbreaks and the camera rig characteristics are more consistent with France than Poland.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "semi-2",
+      "country_a": "Italy",
+      "country_b": "Spain",
+      "pool_rank_a": 1,
+      "pool_rank_b": 2,
+      "winner": "Italy",
+      "reasoning": "The botanical evidence strongly supports Italy, as the dense poplar plantations are highly characteristic of the Po Valley and Northern Italy. While the infrastructure is compatible with both, the specific vegetation profile is more indicative of Northern Italy than Spain.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "final",
+      "country_a": "France",
+      "country_b": "Italy",
+      "pool_rank_a": 0,
+      "pool_rank_b": 1,
+      "winner": "France",
+      "reasoning": "The small red-and-white delineator reflectors attached to the guardrail posts are a highly characteristic feature of French road infrastructure. Additionally, the linear windbreak of poplars is extremely common in the agricultural landscapes of Northern and Central France.",
+      "agreement": "agree"
+    }
+  ],
+  "country_result": "Country: France\nCoordinates: 48.8566, 2.3522\nReasoning: The small red-and-white delineator reflectors attached to the guardrail posts are a highly characteristic feature of French road infrastructure. Additionally, the linear windbreak of poplars is extremely common in the agricultural landscapes of Northern and Central France.\n\nTournament:\n  semi-1: France vs Poland → France\n  semi-2: Italy vs Spain → Italy\n  final: France vs Italy → France",
+  "coordinates": {
+    "lat": 48.8566,
+    "lng": 2.3522
+  },
+  "final_reasoning": "The small red-and-white delineator reflectors attached to the guardrail posts are a highly characteristic feature of French road infrastructure. Additionally, the linear windbreak of poplars is extremely common in the agricultural landscapes of Northern and Central France."
+}

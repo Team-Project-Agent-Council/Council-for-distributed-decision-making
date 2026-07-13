@@ -1,0 +1,538 @@
+{
+  "image_path": "/pfs/data6/home/ma/ma_ma/ma_lweisssc/llm_council_agent_orchestration_tests/clean_images_GeoRC_500/XwCZ4C6astQYennV_1.png",
+  "model": "google/gemma-4-31B-it",
+  "judge_model": "google/gemma-4-31B-it",
+  "timing": {
+    "total_seconds": 88.7
+  },
+  "assessments": {
+    "linguistic": {
+      "agent_name": "linguistic",
+      "candidates": [
+        {
+          "country": "Brazil",
+          "confidence": "high",
+          "reasoning": "The text 'Azul marina' is Portuguese. While Portuguese is also spoken in Portugal and several African nations, the phone number format on the sign (starting with 27) is consistent with the area code for Espírito Santo, Brazil."
+        }
+      ],
+      "evidence": [
+        "Azul marina",
+        "Portuguese",
+        "Latin"
+      ]
+    },
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Brazil",
+          "confidence": "high",
+          "reasoning": "The combination of sandy coastal soil, tropical scrub vegetation, and the specific style of road infrastructure is highly characteristic of the Brazilian coast. The presence of a lagoon/estuary adjacent to a sandy road is common in the Northeast region."
+        },
+        {
+          "country": "Colombia",
+          "confidence": "medium",
+          "reasoning": "Similar coastal lowland terrain and tropical vegetation patterns exist along the Caribbean coast. The road quality and sandy shoulders are consistent with rural coastal areas here."
+        },
+        {
+          "country": "Mexico",
+          "confidence": "medium",
+          "reasoning": "The arid-tropical transition zone with sandy soils and low scrub is common in coastal states like Yucatan or Veracruz, sharing similar environmental markers with South American coasts."
+        },
+        {
+          "country": "Australia",
+          "confidence": "speculative",
+          "reasoning": "As a global analog, the coastal scrubland and sandy road shoulders in Northern Australia or Queensland share a similar physical environment and sun angle, though the vegetation density differs slightly."
+        }
+      ],
+      "evidence": [
+        "Sandy coastal soil",
+        "Tropical scrubland/grasses",
+        "Low-lying coastal lagoon/estuary",
+        "High sun angle suggesting tropical/subtropical latitude",
+        "Unpaved sandy road shoulders"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Brazil",
+          "confidence": "high",
+          "reasoning": "The combination of coastal sandy soil, dense Atlantic Forest remnants (Mata Atlântica) in the background, and the specific tall, coarse tropical grasses is highly characteristic of the Brazilian coastline, particularly in the Northeast or Southeast regions."
+        },
+        {
+          "country": "Colombia",
+          "confidence": "medium",
+          "reasoning": "Similar coastal tropical savanna and mangrove-adjacent vegetation can be found along the Caribbean coast, though the specific density of the scrubland is more typical of Brazil."
+        },
+        {
+          "country": "Australia",
+          "confidence": "low",
+          "reasoning": "The xeric coastal grassland and scrubland biome is a global analog to the Australian coast (e.g., Queensland), though the specific leaf structure of the background trees is more indicative of Neotropical species than Eucalyptus."
+        },
+        {
+          "country": "India",
+          "confidence": "low",
+          "reasoning": "Coastal plains in regions like Goa or Kerala feature similar tropical grasses and sandy soil compositions, serving as a cross-continent biome analog."
+        }
+      ],
+      "evidence": [
+        "Tropical coastal grasses",
+        "Atlantic Forest scrub",
+        "Sandy xeric soil"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Brazil",
+          "confidence": "high",
+          "reasoning": "The blue directional sign for 'Azul Marina' uses a font and layout common in Brazil. The utility pole style with multiple cross-arms and the specific model of the Mercedes-Benz truck are very common in Brazilian rural areas."
+        },
+        {
+          "country": "Colombia",
+          "confidence": "low",
+          "reasoning": "Similar rural road infrastructure with basic asphalt, sandy shoulders, and similar utility pole configurations."
+        },
+        {
+          "country": "Australia",
+          "confidence": "speculative",
+          "reasoning": "Global analog: rural asphalt roads with sandy shoulders and basic wooden/concrete utility poles are visually similar to rural coastal regions of Australia."
+        },
+        {
+          "country": "United States",
+          "confidence": "speculative",
+          "reasoning": "Global analog: rural coastal roads in states like Florida share similar sandy shoulders and basic utility infrastructure."
+        }
+      ],
+      "evidence": [
+        "Blue rectangular directional sign with white text ('Azul Marina')",
+        "Concrete/wooden utility poles with multiple horizontal cross-arms",
+        "Narrow asphalt road with unpaved sandy shoulders",
+        "Mercedes-Benz truck (common global model but prevalent in South America)"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "Brazil",
+          "confidence": "high",
+          "reasoning": "The presence of a Mercedes-Benz Atego/Axor style truck with a specific white chassis configuration is extremely common in Brazil. The utility poles are simple concrete posts with a specific cross-arm arrangement typical of rural Brazilian roads."
+        },
+        {
+          "country": "Colombia",
+          "confidence": "medium",
+          "reasoning": "Similar utility pole styles and the use of white Mercedes-Benz commercial trucks are common in Colombia, though the specific road shoulder texture is more characteristic of Brazil."
+        },
+        {
+          "country": "Thailand",
+          "confidence": "low",
+          "reasoning": "Global analog: Thailand also utilizes similar concrete utility poles and white commercial trucks, though the specific truck model and road environment are less typical than in South America."
+        }
+      ],
+      "evidence": [
+        "Concrete utility poles with simple cross-arms",
+        "White Mercedes-Benz commercial truck",
+        "Google Street View camera generation (Gen 3/4 based on image clarity and lack of halo)"
+      ]
+    }
+  },
+  "progressive_narrowing": {
+    "region_consensus": false,
+    "confirmed_region": "South America",
+    "runner_up_region": "North America",
+    "surviving_regions": [
+      "South America",
+      "North America"
+    ],
+    "proposed_regions": [
+      "South America",
+      "North America",
+      "Oceania",
+      "South Asia",
+      "Southeast Asia"
+    ],
+    "region_candidates": {
+      "South America": {
+        "Brazil": 5,
+        "Colombia": 4
+      },
+      "North America": {
+        "Mexico": 1,
+        "United States": 1
+      },
+      "Oceania": {
+        "Australia": 3
+      },
+      "South Asia": {
+        "India": 1
+      },
+      "Southeast Asia": {
+        "Thailand": 1
+      }
+    },
+    "region_decision_reasoning": "South America received the highest score due to strong support from the meta agent regarding the specific truck model and utility pole infrastructure, combined with botanical support for Brazilian Restinga vegetation. North America is the runner-up as it received support from both agents for its compatible coastal biomes and rural infrastructure.",
+    "path": "B"
+  },
+  "road_evidence": {
+    "outside_color": "none",
+    "inside_color": "yellow",
+    "driving_side": "RIGHT",
+    "driving_side_basis": "oncoming_traffic"
+  },
+  "country_assessments": {
+    "linguistic": {
+      "agent_name": "linguistic",
+      "candidates": [
+        {
+          "country": "Brazil",
+          "confidence": "high",
+          "reasoning": "The text 'Azul marina' is Portuguese/Spanish, but the phone number format (starting with 27) is consistent with the area code for Espírito Santo, Brazil. The word 'Azul' is common in Portuguese, and the overall phrasing is typical for Brazilian signage."
+        }
+      ],
+      "evidence": [
+        "Azul marina",
+        "Portuguese",
+        "Latin"
+      ]
+    },
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Brazil",
+          "confidence": "high",
+          "reasoning": "The combination of sandy coastal soil, tropical scrub vegetation, and the specific style of road infrastructure is highly characteristic of the Brazilian coast. The presence of a 'Marina' sign in Portuguese ('Azul Marina') strongly aligns with the coastal geography of the Northeast or Southeast regions."
+        },
+        {
+          "country": "Colombia",
+          "confidence": "medium",
+          "reasoning": "The tropical coastal landscape with sandy terrain and similar vegetation patterns is found along the Caribbean coast. However, the specific road markings and signage style are more typical of Brazil."
+        },
+        {
+          "country": "Mexico",
+          "confidence": "low",
+          "reasoning": "The arid-tropical coastal scrub and sandy road shoulders are common in the Yucatan or Gulf regions. The landscape is a global analog for tropical coastal plains, though the signage language is a primary differentiator."
+        },
+        {
+          "country": "United States",
+          "confidence": "speculative",
+          "reasoning": "The coastal plains of Florida or the Gulf Coast share similar flat terrain, sandy soils, and tropical grasses. However, the road quality and utility pole style are less common for these regions."
+        }
+      ],
+      "evidence": [
+        "Sandy, light-colored coastal soil",
+        "Tropical scrub and tall coastal grasses",
+        "Flat coastal plain topography",
+        "Proximity to a body of water (lagoon or estuary)",
+        "Overhead utility lines typical of developing coastal infrastructure"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Brazil",
+          "confidence": "high",
+          "reasoning": "The combination of coastal sandy soil, dense Atlantic Forest remnants (Mata Atlântica) in the background, and the specific tall, coarse tropical grasses is highly characteristic of the Brazilian coastline. The vegetation pattern is consistent with the Restinga ecosystems found in the eastern coastal regions of Brazil."
+        },
+        {
+          "country": "Colombia",
+          "confidence": "medium",
+          "reasoning": "The tropical coastal scrub and grassland biome is similar to the Caribbean coast of Colombia. However, the specific density and structure of the broadleaf shrubs in the mid-ground are more typical of the Brazilian coast."
+        },
+        {
+          "country": "Mexico",
+          "confidence": "low",
+          "reasoning": "The xeric-influenced tropical grassland could appear in coastal regions of Mexico. However, the lushness of the green shrubs on the left suggests a higher humidity environment than most similar Mexican coastal plains."
+        }
+      ],
+      "evidence": [
+        "Restinga vegetation",
+        "Atlantic Forest (Mata Atlântica) remnants",
+        "Tropical coastal grasslands"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Brazil",
+          "confidence": "high",
+          "reasoning": "The blue directional sign for 'Azul Marina' uses a font and layout common in Brazil. The utility pole construction and the specific model of the Mercedes-Benz truck are extremely prevalent in rural Brazilian regions."
+        },
+        {
+          "country": "Colombia",
+          "confidence": "low",
+          "reasoning": "Rural road infrastructure with similar asphalt quality and wooden/concrete utility poles is found here. However, the sign style is less characteristic of Colombian standards."
+        },
+        {
+          "country": "Mexico",
+          "confidence": "speculative",
+          "reasoning": "Similar rural road width and shoulder treatment with basic utility poles. The sign style does not strongly match typical Mexican MUTCD-influenced signage."
+        }
+      ],
+      "evidence": [
+        "Blue rectangular directional sign with white text ('Azul Marina')",
+        "Concrete/wooden utility poles with multiple overhead lines",
+        "Mercedes-Benz truck (common regional model)",
+        "Unpaved sandy shoulders and basic asphalt road width"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "Brazil",
+          "confidence": "high",
+          "reasoning": "The utility poles are concrete with a specific tapered design common in Brazil. The white Mercedes-Benz truck model is extremely prevalent in Brazilian logistics and rural transport."
+        },
+        {
+          "country": "Colombia",
+          "confidence": "low",
+          "reasoning": "Colombia also uses similar concrete utility poles and Mercedes-Benz trucks, though the specific pole taper and overall road shoulder style are more characteristic of Brazil."
+        },
+        {
+          "country": "Mexico",
+          "confidence": "speculative",
+          "reasoning": "Mexico uses similar concrete poles and white commercial trucks, serving as a North American analog for this general infrastructure style."
+        }
+      ],
+      "evidence": [
+        "concrete utility poles",
+        "Mercedes-Benz truck model",
+        "road shoulder composition"
+      ]
+    }
+  },
+  "hypothesis_evaluations": [
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_south_america",
+      "confidence": "support",
+      "reasoning": "The combination of coastal sandy soil, dense tropical scrub/mangrove-adjacent vegetation, and tall coarse grasses is highly characteristic of the Brazilian coastline (Restinga vegetation).",
+      "key_evidence": [
+        "Restinga-type scrub",
+        "Coastal tropical grasses"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_north_america",
+      "confidence": "support",
+      "reasoning": "The vegetation is compatible with coastal tropical or subtropical regions of North America, such as Mexico or the Caribbean coast, which share similar xeric-coastal biomes.",
+      "key_evidence": [
+        "Coastal tropical scrub"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_oceania",
+      "confidence": "support",
+      "reasoning": "The landscape resembles coastal areas of Northern Australia or Papua New Guinea, where similar tropical savanna and coastal scrub patterns occur.",
+      "key_evidence": [
+        "Tropical coastal grasses"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_south_asia",
+      "confidence": "support",
+      "reasoning": "The vegetation is compatible with coastal regions of India or Sri Lanka, which feature similar tropical coastal plains and scrubland.",
+      "key_evidence": [
+        "Tropical coastal scrub"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_south_america",
+      "confidence": "strongly_support",
+      "reasoning": "The combination of the Mercedes-Benz truck model (common in Brazil), the specific style of concrete utility poles with cross-arms, and the overall image quality/generation is highly characteristic of Brazilian rural roads. The blue signage style is also very common in South American coastal regions.",
+      "key_evidence": [
+        "Mercedes-Benz truck model",
+        "Concrete utility pole design",
+        "Google camera generation/image quality"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_north_america",
+      "confidence": "support",
+      "reasoning": "While the road and utility poles are compatible with some rural areas in Mexico or Central America, the specific truck model and pole construction are more typical of South American infrastructure.",
+      "key_evidence": [
+        "Generic asphalt and utility poles"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_oceania",
+      "confidence": "low",
+      "reasoning": "The utility pole style and vehicle types do not align as closely with Australian or New Zealand standards, where wooden poles are more prevalent in such rural settings.",
+      "key_evidence": [
+        "Concrete utility poles"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_south_asia",
+      "confidence": "contradicts",
+      "reasoning": "The vehicle types, road construction quality, and utility pole infrastructure are inconsistent with typical South Asian rural road metas.",
+      "key_evidence": [
+        "Vehicle types",
+        "Infrastructure style"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_brazil",
+      "confidence": "support",
+      "reasoning": "The vegetation consists of coastal scrub and tall, coarse grasses typical of the Brazilian 'Restinga' or coastal plains. The mix of dense, low-lying evergreen shrubs and sandy-soil grasses is highly characteristic of the Atlantic coast of Brazil.",
+      "key_evidence": [
+        "Coastal scrub",
+        "Restinga-type grasses",
+        "Sandy soil vegetation"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_colombia",
+      "confidence": "support",
+      "reasoning": "The tropical coastal biome is compatible with the Caribbean coast of Colombia, which features similar sandy plains and scrubland vegetation.",
+      "key_evidence": [
+        "Tropical coastal scrub",
+        "Coarse grasses"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_mexico",
+      "confidence": "support",
+      "reasoning": "The xeric-leaning coastal vegetation is compatible with various coastal regions of Mexico, particularly in the Gulf or Caribbean coasts where sandy soils support similar grass and shrub assemblages.",
+      "key_evidence": [
+        "Coastal scrub",
+        "Sandy soil grasses"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_united_states",
+      "confidence": "low",
+      "reasoning": "While similar coastal grasslands exist in the US (e.g., Florida or the Gulf Coast), the specific density and morphology of the background scrub are more characteristic of South American tropical coastal zones.",
+      "key_evidence": [
+        "Coastal grasses"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_brazil",
+      "confidence": "strongly_support",
+      "reasoning": "The white Mercedes-Benz truck is a very common model in Brazil. The utility poles are concrete with a specific cross-arm configuration typical of Brazilian rural roads. The overall image quality and camera generation are consistent with Brazil's extensive coverage.",
+      "key_evidence": [
+        "Mercedes-Benz truck model common in Brazil",
+        "Concrete utility pole design",
+        "Google camera generation/quality"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_colombia",
+      "confidence": "support",
+      "reasoning": "The utility poles and general road infrastructure are compatible with rural Colombia, and similar truck models are used in South America, though the specific pole style is more characteristic of Brazil.",
+      "key_evidence": [
+        "Concrete utility poles",
+        "Vehicle type"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_mexico",
+      "confidence": "support",
+      "reasoning": "The rural road setting and concrete poles are compatible with Mexico, but the specific combination of vehicle and pole style is less typical than in Brazil.",
+      "key_evidence": [
+        "Concrete utility poles"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_united_states",
+      "confidence": "contradicts",
+      "reasoning": "The utility pole design and the specific model of the Mercedes-Benz truck are not standard for rural US roads. The overall infrastructure style is distinctly non-North American.",
+      "key_evidence": [
+        "Non-US utility pole style",
+        "Vehicle model"
+      ]
+    }
+  ],
+  "candidate_pool": [
+    "Brazil",
+    "Colombia",
+    "Mexico",
+    "United States"
+  ],
+  "rag_findings": [
+    {
+      "kind": "tournament_match",
+      "country": "United States",
+      "detail": "The presence of a Mercedes-Benz truck and the specific concrete utility pole design are highly characteristic of Brazil and atypical for the United States. Additionally, the coastal vegetation matches the description of Brazilian 'Restinga' provided in the specialist evidence.",
+      "opponent": "Brazil",
+      "winner": "Brazil"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Mexico",
+      "detail": "The streetview shows a blue sign for 'Azul Marina' with a phone number starting with '127', which is not a standard Mexican area code but is consistent with regional formats in South America. The overall landscape and infrastructure, including the specific style of the Mercedes-Benz truck, are more characteristic of rural Colombia than Mexico.",
+      "opponent": "Colombia",
+      "winner": "Colombia"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Colombia",
+      "detail": "The visual evidence strongly supports Brazil, specifically the concrete utility pole configuration and the prevalence of the white Mercedes-Benz truck model, which are highly characteristic of Brazilian rural infrastructure. Additionally, the coastal vegetation matches the 'Restinga' biome typical of the Brazilian Atlantic coast.",
+      "opponent": "Brazil",
+      "winner": "Brazil"
+    }
+  ],
+  "rag_refs_seen": [],
+  "road_filter_warnings": [],
+  "tournament_log": [
+    {
+      "round_label": "semi-1",
+      "country_a": "Brazil",
+      "country_b": "United States",
+      "pool_rank_a": 0,
+      "pool_rank_b": 3,
+      "winner": "Brazil",
+      "reasoning": "The presence of a Mercedes-Benz truck and the specific concrete utility pole design are highly characteristic of Brazil and atypical for the United States. Additionally, the coastal vegetation matches the description of Brazilian 'Restinga' provided in the specialist evidence.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "semi-2",
+      "country_a": "Colombia",
+      "country_b": "Mexico",
+      "pool_rank_a": 1,
+      "pool_rank_b": 2,
+      "winner": "Colombia",
+      "reasoning": "The streetview shows a blue sign for 'Azul Marina' with a phone number starting with '127', which is not a standard Mexican area code but is consistent with regional formats in South America. The overall landscape and infrastructure, including the specific style of the Mercedes-Benz truck, are more characteristic of rural Colombia than Mexico.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "final",
+      "country_a": "Brazil",
+      "country_b": "Colombia",
+      "pool_rank_a": 0,
+      "pool_rank_b": 1,
+      "winner": "Brazil",
+      "reasoning": "The visual evidence strongly supports Brazil, specifically the concrete utility pole configuration and the prevalence of the white Mercedes-Benz truck model, which are highly characteristic of Brazilian rural infrastructure. Additionally, the coastal vegetation matches the 'Restinga' biome typical of the Brazilian Atlantic coast.",
+      "agreement": "agree"
+    }
+  ],
+  "country_result": "Country: Brazil\nCoordinates: -23.5505, -46.6333\nReasoning: The visual evidence strongly supports Brazil, specifically the concrete utility pole configuration and the prevalence of the white Mercedes-Benz truck model, which are highly characteristic of Brazilian rural infrastructure. Additionally, the coastal vegetation matches the 'Restinga' biome typical of the Brazilian Atlantic coast.\n\nTournament:\n  semi-1: Brazil vs United States → Brazil\n  semi-2: Colombia vs Mexico → Colombia\n  final: Brazil vs Colombia → Brazil",
+  "coordinates": {
+    "lat": -23.5505,
+    "lng": -46.6333
+  },
+  "final_reasoning": "The visual evidence strongly supports Brazil, specifically the concrete utility pole configuration and the prevalence of the white Mercedes-Benz truck model, which are highly characteristic of Brazilian rural infrastructure. Additionally, the coastal vegetation matches the 'Restinga' biome typical of the Brazilian Atlantic coast."
+}

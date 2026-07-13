@@ -1,0 +1,562 @@
+{
+  "image_path": "/pfs/data6/home/ma/ma_ma/ma_lweisssc/llm_council_agent_orchestration_tests/clean_images_GeoRC_500/JXpmlobJL7nhnp3E_5.png",
+  "model": "google/gemma-4-31B-it",
+  "judge_model": "google/gemma-4-31B-it",
+  "timing": {
+    "total_seconds": 244.1
+  },
+  "assessments": {
+    "linguistic": {
+      "agent_name": "linguistic",
+      "candidates": [],
+      "evidence": []
+    },
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Russia",
+          "confidence": "medium",
+          "reasoning": "The combination of dense spruce/fir forests mixed with deciduous birch-like trees and a sandy, unpaved forest road is highly characteristic of the Russian taiga and mixed forest zones."
+        },
+        {
+          "country": "Finland",
+          "confidence": "medium",
+          "reasoning": "The boreal forest composition and the specific light-colored sandy soil of the forest track are very common across Finland and the Nordic region."
+        },
+        {
+          "country": "Estonia",
+          "confidence": "medium",
+          "reasoning": "The flat to gently rolling terrain and the mix of coniferous and deciduous trees are consistent with the Baltic landscape, which mirrors the Russian and Finnish borders."
+        },
+        {
+          "country": "Canada",
+          "confidence": "low",
+          "reasoning": "The boreal forest (taiga) landscape with similar spruce and birch species is a global analog found across the Canadian shield and northern provinces."
+        },
+        {
+          "country": "United States",
+          "confidence": "low",
+          "reasoning": "Similar mixed coniferous and deciduous forests with sandy logging roads can be found in the Pacific Northwest or New England regions."
+        }
+      ],
+      "evidence": [
+        "Boreal mixed forest (coniferous spruce/fir and deciduous birch/aspen)",
+        "Sandy, light-brown soil on an unpaved forest road",
+        "Temperate/Cool climate indicated by autumn foliage colors",
+        "Flat to gently undulating terrain"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Russia",
+          "confidence": "medium",
+          "reasoning": "The combination of Picea abies (Norway Spruce) and Betula (Birch) is highly characteristic of the Russian taiga and mixed forests. The density and growth pattern of the conifers are consistent with Northern European Russia."
+        },
+        {
+          "country": "Finland",
+          "confidence": "medium",
+          "reasoning": "The boreal forest composition of spruce and birch is a primary landscape feature of Finland. It is botanically indistinguishable from neighboring Russia or Sweden in this specific biome."
+        },
+        {
+          "country": "Sweden",
+          "confidence": "medium",
+          "reasoning": "The mixed coniferous-deciduous forest seen here is typical of the Swedish landscape. The presence of spruce and birch is standard for the region's temperate and boreal zones."
+        },
+        {
+          "country": "Canada",
+          "confidence": "low",
+          "reasoning": "The boreal forest biome in Canada features similar spruce and birch associations. However, the specific leaf shape of the deciduous trees on the right is more characteristic of European species than North American counterparts."
+        },
+        {
+          "country": "United States",
+          "confidence": "low",
+          "reasoning": "Similar mixed coniferous forests exist in the Pacific Northwest or New England. This is a global analog for the temperate/boreal mixed forest biome."
+        }
+      ],
+      "evidence": [
+        "Picea abies (Norway Spruce)",
+        "Betula (Birch)",
+        "Boreal mixed forest biome"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Russia",
+          "confidence": "low",
+          "reasoning": "The dirt road quality and the specific mix of coniferous and deciduous forest are very common in rural Russian regions."
+        },
+        {
+          "country": "Finland",
+          "confidence": "low",
+          "reasoning": "The forest composition and the well-maintained but unpaved nature of the forest road are consistent with Nordic rural infrastructure."
+        },
+        {
+          "country": "Canada",
+          "confidence": "speculative",
+          "reasoning": "Global analog: Rural forest roads with similar dirt composition and pine/birch vegetation are common across North American boreal forests."
+        },
+        {
+          "country": "Chile",
+          "confidence": "speculative",
+          "reasoning": "Global analog: Southern Chilean forest roads share similar dirt textures and temperate rainforest vegetation patterns."
+        }
+      ],
+      "evidence": [
+        "unpaved dirt road",
+        "no road signs visible",
+        "no license plates visible",
+        "no bollards visible",
+        "no utility poles visible"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "Russia",
+          "confidence": "medium",
+          "reasoning": "The image quality and the specific blur pattern at the bottom of the frame are consistent with the Google Street View camera generation used extensively in rural Russia. The dirt road texture and lack of roadside infrastructure are common in these regions."
+        },
+        {
+          "country": "Canada",
+          "confidence": "low",
+          "reasoning": "The camera generation and image quality are similar to those used in remote parts of Canada. However, the specific dirt road composition is more generic and lacks unique Canadian markers like specific utility pole styles."
+        },
+        {
+          "country": "Finland",
+          "confidence": "low",
+          "reasoning": "The image quality matches Gen 3/4 coverage found in Nordic countries. While the environment is similar, there are no distinctive Finnish bollards or poles visible to elevate confidence."
+        }
+      ],
+      "evidence": [
+        "Google Street View camera generation blur pattern",
+        "Image quality/resolution",
+        "Dirt road surface texture"
+      ]
+    }
+  },
+  "progressive_narrowing": {
+    "region_consensus": false,
+    "confirmed_region": "Europe",
+    "runner_up_region": "North America",
+    "surviving_regions": [
+      "Europe",
+      "North America"
+    ],
+    "proposed_regions": [
+      "Europe",
+      "North America",
+      "South America"
+    ],
+    "region_candidates": {
+      "Europe": {
+        "Russia": 4,
+        "Finland": 4,
+        "Estonia": 1,
+        "Sweden": 1
+      },
+      "North America": {
+        "Canada": 4,
+        "United States": 2
+      },
+      "South America": {
+        "Chile": 1
+      }
+    },
+    "region_decision_reasoning": "Europe received the highest weighted score due to consistent support from both the botanics and meta agents, specifically citing the spruce/birch mix and road characteristics. North America is the runner-up as it is botanically compatible, though the meta-analysis found it less likely than Europe.",
+    "path": "B"
+  },
+  "road_evidence": {
+    "outside_color": "none",
+    "inside_color": "none",
+    "driving_side": "UNCLEAR",
+    "driving_side_basis": "none"
+  },
+  "country_assessments": {
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Russia",
+          "confidence": "high",
+          "reasoning": "The combination of dense spruce/fir forests mixed with deciduous birch-like trees and the specific sandy, light-colored soil of the unpaved road is highly characteristic of the Russian taiga and mixed forests. The flat to gently rolling terrain is consistent with Western Russia."
+        },
+        {
+          "country": "Finland",
+          "confidence": "high",
+          "reasoning": "The landscape features a classic boreal forest composition with a high density of conifers and sandy forest roads. The vegetation and soil profile are nearly identical to those found in Russia, making it an equally likely candidate."
+        },
+        {
+          "country": "Estonia",
+          "confidence": "medium",
+          "reasoning": "The mixed forest and sandy soil are very common in the Baltic region. It shares the same boreal characteristics as Finland and Russia, though the terrain is generally flatter."
+        },
+        {
+          "country": "Canada",
+          "confidence": "medium",
+          "reasoning": "The boreal forest (taiga) of Canada features similar spruce and fir densities and sandy logging roads. Geographically, this is a strong North American analog to the Northern European landscape."
+        },
+        {
+          "country": "United States",
+          "confidence": "low",
+          "reasoning": "Similar mixed coniferous and deciduous forests exist in the Great Lakes region or the Pacific Northwest, though the specific road texture and tree spacing are more typical of Northern Europe/Russia."
+        }
+      ],
+      "evidence": [
+        "Boreal mixed forest (coniferous spruce/fir and deciduous birch/aspen)",
+        "Light-colored sandy soil on an unpaved forest road",
+        "Autumnal foliage transition (yellowing leaves)",
+        "Flat to gently undulating terrain",
+        "Northern hemisphere lighting (diffuse, high-latitude sun angle)"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Russia",
+          "confidence": "medium",
+          "reasoning": "The combination of Picea abies (Norway Spruce) and Betula pendula (Silver Birch) is highly characteristic of the Russian taiga and mixed forests. The density and growth pattern of the spruce stand are very common in Western Russia."
+        },
+        {
+          "country": "Finland",
+          "confidence": "medium",
+          "reasoning": "The boreal forest composition of spruce and birch is the dominant vegetation type across Finland. It is botanically indistinguishable from neighboring Baltic or Russian forests without endemic markers."
+        },
+        {
+          "country": "Sweden",
+          "confidence": "medium",
+          "reasoning": "The mixed coniferous-deciduous forest structure is typical of the Swedish landscape. The presence of Picea and Betula is consistent with the Swedish boreal zone."
+        },
+        {
+          "country": "Canada",
+          "confidence": "low",
+          "reasoning": "The boreal forest biome in Canada features similar spruce and birch associations. However, the specific morphology of the deciduous leaves suggests European species rather than North American counterparts."
+        },
+        {
+          "country": "United States",
+          "confidence": "low",
+          "reasoning": "Similar mixed forests exist in the Great Lakes region or New England. However, the specific density and species mix are more characteristic of the Eurasian boreal forest."
+        }
+      ],
+      "evidence": [
+        "Picea abies (Norway Spruce)",
+        "Betula pendula (Silver Birch)",
+        "Boreal mixed forest biome",
+        "Northern Hemisphere temperate/subarctic distribution"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Russia",
+          "confidence": "low",
+          "reasoning": "The dirt road quality and the specific mix of coniferous and deciduous forest are very common in rural European Russia. Lack of formal road infrastructure is typical for these forest tracks."
+        },
+        {
+          "country": "Finland",
+          "confidence": "low",
+          "reasoning": "The boreal forest composition and the sandy/dirt forest road structure are highly characteristic of Finnish rural landscapes."
+        },
+        {
+          "country": "Canada",
+          "confidence": "low",
+          "reasoning": "The dense evergreen forest and the unpaved, rutted road surface are visually identical to many rural logging or access roads in Canada."
+        },
+        {
+          "country": "United States",
+          "confidence": "low",
+          "reasoning": "Similar rural forest infrastructure and unpaved road surfaces are found across the Pacific Northwest and Northeast regions of the US."
+        }
+      ],
+      "evidence": [
+        "unpaved dirt road",
+        "lack of road signs",
+        "lack of bollards",
+        "lack of utility poles"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "Russia",
+          "confidence": "medium",
+          "reasoning": "The image quality and the specific blur pattern at the bottom of the frame are characteristic of the Google Street View camera used in Russia. The dirt road texture and lack of roadside infrastructure are common in rural Russian forest coverage."
+        },
+        {
+          "country": "Canada",
+          "confidence": "low",
+          "reasoning": "Canada has extensive coverage of similar unpaved forest roads. The camera generation appears consistent with North American rural coverage, though it lacks specific Canadian markers like unique utility poles."
+        },
+        {
+          "country": "United States",
+          "confidence": "low",
+          "reasoning": "Similar to Canada, the US has vast networks of forest service roads captured with this camera generation. The image quality is consistent with Gen 3 or Gen 4 coverage found in rural North American regions."
+        }
+      ],
+      "evidence": [
+        "Google Street View camera blur pattern",
+        "Image quality/generation",
+        "Road surface texture"
+      ]
+    }
+  },
+  "hypothesis_evaluations": [
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_europe",
+      "confidence": "support",
+      "reasoning": "The combination of Picea abies (Norway Spruce) and Betula (Birch) is highly characteristic of the boreal and temperate forests of Northern and Central Europe. The specific growth habit and the mix of deciduous and coniferous trees are very common in the Baltic states, Scandinavia, and Russia.",
+      "key_evidence": [
+        "Picea abies",
+        "Betula species",
+        "Mixed temperate-boreal forest"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_north_america",
+      "confidence": "support",
+      "reasoning": "The vegetation is compatible with the northern United States and Canada (e.g., the Great Lakes region or New England), where spruce and birch forests are prevalent. However, the specific density and appearance of the spruce are slightly more typical of European managed forests.",
+      "key_evidence": [
+        "Picea species",
+        "Betula species",
+        "North American boreal forest"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_south_america",
+      "confidence": "strongly_contradicts",
+      "reasoning": "The image shows a temperate/boreal forest with deciduous broadleaf trees in autumn colors and northern hemisphere conifers. This is entirely inconsistent with the flora of South America, except for very small, high-altitude Andean pockets which would not look like this lowland forest road.",
+      "key_evidence": [
+        "Absence of tropical/subtropical flora",
+        "Presence of northern hemisphere temperate deciduous trees"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_europe",
+      "confidence": "support",
+      "reasoning": "The image quality and the specific blur pattern at the bottom of the frame are consistent with Google Street View Gen 3 or Gen 4 coverage often found in European rural areas. The dirt road texture and lack of wide shoulders are common in Eastern and Northern European forests.",
+      "key_evidence": [
+        "camera generation blur",
+        "road surface texture"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_north_america",
+      "confidence": "low",
+      "reasoning": "While dirt roads exist in North America, the specific camera artifacts and the narrowness of the track are less typical for standard US/Canada Google coverage, which usually features wider roads or different camera rig shadows.",
+      "key_evidence": [
+        "camera generation blur"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_south_america",
+      "confidence": "speculative",
+      "reasoning": "There are no specific meta-details (like unique poles or car parts) to support this, but the general camera quality is generic enough that it cannot be entirely ruled out, though it is less likely than Europe.",
+      "key_evidence": [
+        "camera generation blur"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_russia",
+      "confidence": "support",
+      "reasoning": "The mix of Picea (spruce) and Betula (birch) is highly characteristic of the Russian taiga and mixed forests. This composition is ubiquitous across European Russia.",
+      "key_evidence": [
+        "Picea",
+        "Betula",
+        "Mixed boreal forest"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_finland",
+      "confidence": "support",
+      "reasoning": "The vegetation is perfectly consistent with Finnish boreal forests, where spruce and birch dominate the landscape. It is indistinguishable from Russia or Estonia based on botany alone.",
+      "key_evidence": [
+        "Picea",
+        "Betula",
+        "Boreal forest"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_estonia",
+      "confidence": "support",
+      "reasoning": "The temperate mixed forest with spruce and deciduous birch is typical for the Baltic region, including Estonia.",
+      "key_evidence": [
+        "Picea",
+        "Betula",
+        "Mixed forest"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_sweden",
+      "confidence": "support",
+      "reasoning": "The forest composition of spruce and birch is standard for southern and central Sweden.",
+      "key_evidence": [
+        "Picea",
+        "Betula",
+        "Boreal forest"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_canada",
+      "confidence": "low",
+      "reasoning": "While Canada has similar boreal forests, the specific density and appearance of the deciduous understory and birch species here are more characteristic of the Eurasian taiga than the North American boreal forest.",
+      "key_evidence": [
+        "Boreal forest analog"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_united_states",
+      "confidence": "low",
+      "reasoning": "Similar mixed forests exist in the Northeast or Alaska, but the overall botanical profile is a stronger match for Northern Europe/Russia.",
+      "key_evidence": [
+        "Boreal forest analog"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_russia",
+      "confidence": "support",
+      "reasoning": "The image quality and the specific blur pattern at the bottom of the frame are consistent with Google's coverage in Russia, which often features this specific camera generation on rural dirt roads. The lack of road markings or infrastructure is common for Russian forest roads.",
+      "key_evidence": [
+        "camera generation blur",
+        "road surface quality"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_finland",
+      "confidence": "support",
+      "reasoning": "The camera quality and the general appearance of the dirt road are compatible with Finnish rural coverage. However, there are no specific Finnish bollards or poles visible to elevate this above Russia.",
+      "key_evidence": [
+        "camera generation",
+        "road surface"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_estonia",
+      "confidence": "support",
+      "reasoning": "Compatible with Baltic rural coverage patterns and camera quality. No unique Estonian street furniture is present to distinguish it from neighboring Finland or Russia.",
+      "key_evidence": [
+        "camera generation"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_sweden",
+      "confidence": "support",
+      "reasoning": "Compatible with Swedish rural forest roads, but lacks the specific Swedish camera artifacts or road-side markers often seen in these environments.",
+      "key_evidence": [
+        "camera generation"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_canada",
+      "confidence": "low",
+      "reasoning": "While the environment is similar, the specific blur and image processing at the bottom of the frame are more characteristic of European/Asian Google camera rigs than the ones typically used in North American rural coverage.",
+      "key_evidence": [
+        "camera blur pattern"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_united_states",
+      "confidence": "low",
+      "reasoning": "Similar to Canada, the camera artifacts and the specific way the road is rendered are less typical for US rural coverage compared to the Eurasian regions.",
+      "key_evidence": [
+        "camera blur pattern"
+      ]
+    }
+  ],
+  "candidate_pool": [
+    "Russia",
+    "Canada",
+    "United States",
+    "Finland",
+    "Estonia",
+    "Sweden"
+  ],
+  "rag_findings": [
+    {
+      "kind": "tournament_match",
+      "country": "Sweden",
+      "detail": "The visual evidence is primarily based on meta-analysis and botanics, as no reference images were provided. The specific blur pattern at the bottom of the frame is highly characteristic of Google's camera generation used in Russia, and the forest composition is consistent with the Russian taiga.",
+      "opponent": "Russia",
+      "winner": "Russia"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Estonia",
+      "detail": "The image shows a boreal forest landscape with spruce and birch trees, which is consistent with both candidates. However, the specific quality and appearance of the dirt road and camera coverage are highly characteristic of Finnish rural streetview patterns.",
+      "opponent": "Finland",
+      "winner": "Finland"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Finland",
+      "detail": "The vegetation consisting of spruce and birch is characteristic of both countries, but the specific camera blur and image quality are highly indicative of Google's rural coverage in Russia. The lack of any Finnish-specific infrastructure (like bollards or signage) makes the meta-evidence for Russia more compelling.",
+      "opponent": "Russia",
+      "winner": "Russia"
+    }
+  ],
+  "rag_refs_seen": [],
+  "road_filter_warnings": [],
+  "tournament_log": [
+    {
+      "round_label": "semi-1",
+      "country_a": "Russia",
+      "country_b": "Sweden",
+      "pool_rank_a": 0,
+      "pool_rank_b": 3,
+      "winner": "Russia",
+      "reasoning": "The visual evidence is primarily based on meta-analysis and botanics, as no reference images were provided. The specific blur pattern at the bottom of the frame is highly characteristic of Google's camera generation used in Russia, and the forest composition is consistent with the Russian taiga.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "semi-2",
+      "country_a": "Finland",
+      "country_b": "Estonia",
+      "pool_rank_a": 1,
+      "pool_rank_b": 2,
+      "winner": "Finland",
+      "reasoning": "The image shows a boreal forest landscape with spruce and birch trees, which is consistent with both candidates. However, the specific quality and appearance of the dirt road and camera coverage are highly characteristic of Finnish rural streetview patterns.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "final",
+      "country_a": "Russia",
+      "country_b": "Finland",
+      "pool_rank_a": 0,
+      "pool_rank_b": 1,
+      "winner": "Russia",
+      "reasoning": "The vegetation consisting of spruce and birch is characteristic of both countries, but the specific camera blur and image quality are highly indicative of Google's rural coverage in Russia. The lack of any Finnish-specific infrastructure (like bollards or signage) makes the meta-evidence for Russia more compelling.",
+      "agreement": "agree"
+    }
+  ],
+  "country_result": "Country: Russia\nCoordinates: 61.2167, 39.6\nReasoning: The vegetation consisting of spruce and birch is characteristic of both countries, but the specific camera blur and image quality are highly indicative of Google's rural coverage in Russia. The lack of any Finnish-specific infrastructure (like bollards or signage) makes the meta-evidence for Russia more compelling.\n\nTournament:\n  semi-1: Russia vs Sweden → Russia\n  semi-2: Finland vs Estonia → Finland\n  final: Russia vs Finland → Russia",
+  "coordinates": {
+    "lat": 61.2167,
+    "lng": 39.6
+  },
+  "final_reasoning": "The vegetation consisting of spruce and birch is characteristic of both countries, but the specific camera blur and image quality are highly indicative of Google's rural coverage in Russia. The lack of any Finnish-specific infrastructure (like bollards or signage) makes the meta-evidence for Russia more compelling."
+}

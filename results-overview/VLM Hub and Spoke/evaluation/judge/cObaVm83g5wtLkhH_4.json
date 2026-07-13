@@ -1,0 +1,101 @@
+{
+  "image_id": "cObaVm83g5wtLkhH_4",
+  "truth_country": "botswana",
+  "pred_country": "senegal",
+  "is_correct": false,
+  "discussion_rounds": 2,
+  "was_questioned": {
+    "linguistic": true,
+    "landscape": true,
+    "botanics": false,
+    "regulatory": true,
+    "meta": true
+  },
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": true,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.5,
+      "botanics": 0.5,
+      "regulatory": 0.5,
+      "meta": 0.75
+    },
+    "visual_consistency_score": {
+      "linguistic": 1.0,
+      "landscape": 0.75,
+      "botanics": 0.75,
+      "regulatory": 0.75,
+      "meta": 0.25
+    },
+    "confidence_calibration_score": {
+      "linguistic": 0.5,
+      "landscape": 0.25,
+      "botanics": 0.25,
+      "regulatory": 0.25,
+      "meta": 0.25
+    },
+    "question_relevance_score": {
+      "linguistic": 1.0,
+      "landscape": 1.0,
+      "botanics": 0.5,
+      "regulatory": 1.0,
+      "meta": 1.0
+    },
+    "question_relevance_notes": {
+      "linguistic": "Question asked for text/signs, squarely in linguistic domain.",
+      "landscape": "Question asked for soil/tree density comparisons, squarely in landscape domain.",
+      "botanics": "Agent was not questioned; default score applied.",
+      "regulatory": "Question asked for road construction details, squarely in regulatory domain.",
+      "meta": "Question asked for camera generation and coverage patterns, squarely in meta domain."
+    },
+    "response_update_quality": {
+      "linguistic": 1.0,
+      "landscape": 0.75,
+      "botanics": 0.5,
+      "regulatory": 0.75,
+      "meta": 0.75
+    },
+    "response_update_notes": {
+      "linguistic": "Agent correctly confirmed absence of text.",
+      "landscape": "Agent provided a specific visual distinction (soil color) to update its assessment.",
+      "botanics": "Agent was not questioned; default score applied.",
+      "regulatory": "Agent provided a specific visual observation (edge degradation) to update its assessment.",
+      "meta": "Agent provided a specific visual observation (rig shadow) to update its assessment."
+    },
+    "targeted_agent_addressed_question": {
+      "linguistic": true,
+      "landscape": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "hallucination_examples": {
+      "linguistic": [],
+      "landscape": [
+        "The flat, arid landscape with scattered acacia-style trees and sandy, light-colored soil is highly characteristic of the Sahel region."
+      ],
+      "botanics": [
+        "The presence of flat-topped Acacia species (likely Vachellia tortilis or similar) in a semi-arid Sahelian landscape is highly characteristic of northern and central Senegal."
+      ],
+      "regulatory": [
+        "right-hand drive (implied by road orientation)"
+      ],
+      "meta": [
+        "The image exhibits the characteristic 'Gen 4' camera quality with high dynamic range and specific stitching artifacts common in recent West African coverage.",
+        "The image shows a clear car-mounted rig shadow and stitching patterns consistent with official Google Street View car coverage."
+      ]
+    },
+    "judge_question_strategy_score": 0.5,
+    "judge_question_strategy_notes": "The judge targeted the correct agents for the questions asked (e.g., asking meta about camera, landscape about soil). However, the strategy was flawed because it relied on the agents' hallucinated 'West African' priors. The judge failed to ask the regulatory agent about the driving side (a critical differentiator between Botswana and Senegal) and instead asked about 'subtle clues' in road construction, which the agents couldn't find. The judge also failed to ask the botanics agent, missing a chance to verify the specific tree species.",
+    "judge_synthesis_quality": 0.25,
+    "judge_synthesis_notes": "The judge's synthesis was poor. It accepted the meta agent's hallucinated claim about 'Gen 4' cameras and 'rig shadows' (which are not visible in the image) as the deciding factor. It also accepted the landscape agent's hallucinated claim about Senegal having 'bleached sand' while Mali has 'reddish soil' (the image shows light sand, which is common in Botswana too). The judge completely ignored the lack of regulatory evidence (no signs, no driving side) and the fact that the landscape/botany evidence was consistent with Botswana.",
+    "discussion_convergence_score": 0.0,
+    "discussion_convergence_notes": "The discussion did not converge on the truth. Instead, it converged on a hallucinated narrative (West Africa) based on false premises. The agents' responses were largely unhelpful or fabricated, and the judge's final decision was incorrect."
+  }
+}

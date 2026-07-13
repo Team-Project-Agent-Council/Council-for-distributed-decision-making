@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VLM Council PN + PH + Tournament Evaluation Report</title>
+<style>
+  :root {
+    --bg: #FFFFFF;
+    --fg: #222222;
+    --muted: #666666;
+    --border: #DDDDDD;
+    --accent: #4C72B0;
+    --success: #55A868;
+    --error: #C44E52;
+    --warning: #DD8452;
+    --code-bg: #F4F4F4;
+    --side-bg: #FAFAFA;
+  }
+  [data-theme="dark"] {
+    --bg: #1A1A1A;
+    --fg: #E5E5E5;
+    --muted: #999999;
+    --border: #333333;
+    --accent: #6FA0D6;
+    --success: #6FBE82;
+    --error: #DA6B6E;
+    --warning: #E89A6E;
+    --code-bg: #2A2A2A;
+    --side-bg: #222222;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                 "Helvetica Neue", Arial, sans-serif;
+    color: var(--fg);
+    background: var(--bg);
+    line-height: 1.55;
+  }
+  .layout { display: flex; min-height: 100vh; }
+  nav.toc {
+    width: 250px;
+    flex: 0 0 250px;
+    background: var(--side-bg);
+    border-right: 1px solid var(--border);
+    padding: 1.2rem 1rem;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    font-size: 0.9rem;
+  }
+  nav.toc h2 {
+    font-size: 0.95rem;
+    margin: 0 0 0.6rem 0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+  }
+  nav.toc ul { list-style: none; padding-left: 0; margin: 0; }
+  nav.toc li { margin: 0.25rem 0; }
+  nav.toc a {
+    color: var(--fg);
+    text-decoration: none;
+    border-left: 2px solid transparent;
+    padding-left: 0.5rem;
+    display: block;
+  }
+  nav.toc a:hover { border-left-color: var(--accent); }
+  nav.toc a.active { border-left-color: var(--accent); color: var(--accent); }
+  main {
+    flex: 1;
+    max-width: 1100px;
+    padding: 1.5rem 2rem 4rem 2rem;
+  }
+  h1 { font-size: 1.8rem; margin-top: 0; }
+  h2 {
+    font-size: 1.35rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.3rem;
+    margin-top: 2rem;
+  }
+  h3 { font-size: 1.1rem; }
+  details {
+    margin: 0.75rem 0;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 0.5rem 0.75rem;
+    background: var(--side-bg);
+  }
+  details > summary {
+    cursor: pointer;
+    font-weight: 600;
+    margin: -0.5rem -0.75rem;
+    padding: 0.5rem 0.75rem;
+  }
+  details[open] > summary { border-bottom: 1px solid var(--border); margin-bottom: 0.5rem; }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 0.6rem 0;
+    font-size: 0.92rem;
+  }
+  th, td {
+    border: 1px solid var(--border);
+    padding: 0.45rem 0.6rem;
+    text-align: left;
+  }
+  th {
+    background: var(--side-bg);
+    cursor: pointer;
+    user-select: none;
+  }
+  th.sort-asc::after { content: " ▲"; color: var(--muted); }
+  th.sort-desc::after { content: " ▼"; color: var(--muted); }
+  img.figure {
+    max-width: 100%;
+    height: auto;
+    margin: 0.6rem 0;
+    border: 1px solid var(--border);
+    background: white;
+  }
+  .caption {
+    font-size: 0.85rem;
+    color: var(--muted);
+    font-style: italic;
+    margin-bottom: 1rem;
+  }
+  .headline-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 0.6rem;
+    margin: 1rem 0;
+  }
+  .stat {
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 0.6rem 0.8rem;
+    background: var(--side-bg);
+  }
+  .stat .label { font-size: 0.78rem; color: var(--muted); text-transform: uppercase; }
+  .stat .value { font-size: 1.4rem; font-weight: 600; color: var(--accent); }
+  .badge {
+    display: inline-block;
+    padding: 0.1rem 0.5rem;
+    border-radius: 3px;
+    font-size: 0.78rem;
+    background: var(--code-bg);
+    color: var(--fg);
+  }
+  .badge.ok { background: var(--success); color: white; }
+  .badge.bad { background: var(--error); color: white; }
+  .badge.warn { background: var(--warning); color: white; }
+  blockquote {
+    border-left: 3px solid var(--accent);
+    margin: 0.8rem 0;
+    padding: 0.4rem 0.8rem;
+    background: var(--code-bg);
+  }
+  iframe.world-map {
+    width: 100%;
+    height: 600px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+  }
+  .controls {
+    position: fixed;
+    top: 0.6rem;
+    right: 0.8rem;
+    display: flex;
+    gap: 0.4rem;
+    z-index: 100;
+  }
+  .controls button {
+    padding: 0.3rem 0.7rem;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--fg);
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 0.85rem;
+  }
+  .controls button:hover { background: var(--side-bg); }
+  code { font-family: "SFMono-Regular", Menlo, monospace; font-size: 0.88rem;
+         background: var(--code-bg); padding: 0.05rem 0.3rem; border-radius: 2px; }
+  .meta { font-size: 0.85rem; color: var(--muted); }
+  .small-table { font-size: 0.85rem; }
+  details.example { background: var(--bg); }
+</style>
+</head>
+<body>
+<div class="controls">
+  <button onclick="toggleTheme()">🌓 theme</button>
+  <button onclick="expandAll(true)">expand all</button>
+  <button onclick="expandAll(false)">collapse all</button>
+</div>
+<div class="layout">
+<nav class="toc">
+  <h2>Sections</h2>
+  <ul>
+    <li><a href="#headline">TL;DR</a></li>
+    {% if geo or agents or calibration or heatmap %}<li><a href="#gt-stats">1. Ground-truth statistics</a></li>{% endif %}
+    {% if dynamics or funnel or anchoring or rag_utility %}<li><a href="#dynamics">2. Approach dynamics</a></li>{% endif %}
+    {% if judge %}<li><a href="#judge">3. LLM-as-judge verdicts</a></li>{% endif %}
+  </ul>
+  <p class="meta">
+    Generated {{ generated_at }}<br>
+    {% if run_metadata.git_commit %}commit {{ run_metadata.git_commit }}<br>{% endif %}
+    {{ run_metadata.n_images }} images
+  </p>
+</nav>
+
+<main>
+<h1 id="headline">VLM Council PN + PH + Tournament Evaluation Report</h1>
+
+<div class="headline-grid">
+  {% if geo %}
+  <div class="stat">
+    <div class="label">Country accuracy</div>
+    <div class="value">{{ pct(geo.country_accuracy) }}</div>
+  </div>
+  <div class="stat">
+    <div class="label">Median haversine</div>
+    <div class="value">{{ km(geo.haversine_km.median) }}</div>
+  </div>
+  <div class="stat">
+    <div class="label">Images</div>
+    <div class="value">{{ geo.n_total }}</div>
+  </div>
+  {% endif %}
+  {% if agents %}
+  <div class="stat">
+    <div class="label">Path A / B</div>
+    <div class="value">{{ agents.n_path_a }} / {{ agents.n_path_b }}</div>
+  </div>
+  {% endif %}
+  {% if judge and judge.overall_quality_score and judge.overall_quality_score.n %}
+  <div class="stat">
+    <div class="label">Mean overall quality</div>
+    <div class="value">{{ "%.2f"|format(judge.overall_quality_score.mean) }}</div>
+  </div>
+  {% endif %}
+</div>
+
+{# ========================= 1. GROUND-TRUTH STATISTICS ========================= #}
+{% if geo or agents or calibration or heatmap %}
+<h2 id="gt-stats">1. Ground-truth statistics</h2>
+
+{# GEO #}
+{% if geo %}
+<h3>Geo-spatial bias</h3>
+<ul>
+  <li>North/south bias: {{ geo.north_bias_test.interpretation }}</li>
+  <li>East/west bias: {{ geo.east_bias_test.interpretation }}</li>
+</ul>
+<img class="figure" src="plots/error_distribution.png" alt="Error distribution">
+<p class="caption">Figure {{ 11 }}: Lat/lng error distribution.</p>
+<img class="figure" src="plots/bearing_rose.png" alt="Bearing rose">
+<p class="caption">Bearing of prediction errors.</p>
+{% if geo.top_confusions %}
+<details><summary>Top confusion pairs</summary>
+<table class="small-table"><thead><tr><th>Truth</th><th>Predicted</th><th data-sort="num">Count</th></tr></thead><tbody>
+{% for row in geo.top_confusions[:30] %}
+<tr><td>{{ row.truth }}</td><td>{{ row.predicted }}</td><td>{{ row.count }}</td></tr>
+{% endfor %}
+</tbody></table></details>
+{% endif %}
+{% endif %}
+
+{# AGENTS #}
+{% if agents %}
+<h3>Per-agent ground-truth accuracy</h3>
+<h4>Initial round</h4>
+<table>
+  <thead><tr><th>Agent</th><th data-sort="num">n</th>
+    <th data-sort="num">Top-1</th><th data-sort="num">Top-3</th>
+    <th data-sort="num">Coverage</th></tr></thead>
+  <tbody>
+  {% for a in agent_names %}
+    {% set m = agents.initial_round.get(a) or {} %}
+    <tr><td>{{ a }}</td><td>{{ m.n or 0 }}</td>
+      <td>{{ pct(m.top1_accuracy or 0) }}</td>
+      <td>{{ pct(m.top3_hit_rate or 0) }}</td>
+      <td>{{ pct(m.coverage or 0) }}</td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+<img class="figure" src="plots/agent_top1.png" alt="Agent top-1">
+<p class="caption">Per-agent top-1 accuracy.</p>
+{% endif %}
+
+{# CALIBRATION #}
+{% if calibration %}
+<h3>Confidence calibration</h3>
+<p>Each specialist annotates <strong>every candidate</strong> in its list with a
+confidence label (<em>high / medium / low / speculative</em>). These labels are then
+handed to the tournament judge as evidence, so the relevant question is: when an agent
+assigns label X to a country, in what fraction of those (image, country) pairs was
+that country the ground truth?</p>
+
+<h4>Per-label hit-rate, P(truth | label)</h4>
+{% set labels = calibration.labels or ["high", "medium", "low", "speculative"] %}
+<table>
+  <thead><tr><th>Agent</th>
+    {% for lab in labels %}<th>{{ lab }} (n)</th>{% endfor %}
+  </tr></thead>
+  <tbody>
+  {% for agent, m in calibration.per_agent.items() %}
+    <tr><td>{{ agent }}</td>
+    {% for lab in labels %}
+      {% set blk = (m.label_hit_rate or {}).get(lab) or {} %}
+      <td>{% if blk.rate is not none and blk.n %}{{ pct(blk.rate) }} ({{ blk.n }}){% else %}n/a ({{ blk.n or 0 }}){% endif %}</td>
+    {% endfor %}
+    </tr>
+  {% endfor %}
+    <tr><td><strong>average</strong></td>
+    {% for lab in labels %}
+      {% set blk = (calibration.average.label_hit_rate or {}).get(lab) or {} %}
+      <td>{% if blk.rate is not none and blk.n %}<strong>{{ pct(blk.rate) }}</strong> ({{ blk.n }}){% else %}n/a ({{ blk.n or 0 }}){% endif %}</td>
+    {% endfor %}
+    </tr>
+  </tbody>
+</table>
+<img class="figure" src="plots/calibration_label_hit_rate.png" alt="Per-label hit-rate">
+<p class="caption">Per-label hit-rate: how often a labeled candidate equals
+the ground truth. A well-calibrated agent shows monotonically falling bars
+(high &gt; medium &gt; low &gt; speculative).</p>
+
+<h4>Top-1 Brier / ECE</h4>
+<p>Single-number summary of how well the <strong>top-1 pick's</strong> confidence
+label correlates with being correct. Brier = mean squared error of <code>p</code>
+(mapped via {{ calibration.confidence_to_p }}) against the 0/1 outcome; ECE = expected
+calibration error across confidence bins. Lower is better for both.</p>
+<table>
+  <thead><tr><th>Agent</th><th data-sort="num">n</th>
+    <th data-sort="num">Brier</th><th data-sort="num">ECE</th></tr></thead>
+  <tbody>
+  {% for agent, m in calibration.per_agent.items() %}
+    <tr><td>{{ agent }}</td><td>{{ m.n_top1 }}</td>
+      <td>{{ "%.3f"|format(m.brier) }}</td>
+      <td>{{ "%.3f"|format(m.ece) }}</td></tr>
+  {% endfor %}
+    <tr><td><strong>average</strong></td><td>{{ calibration.average.n_top1 }}</td>
+      <td><strong>{{ "%.3f"|format(calibration.average.brier) }}</strong></td>
+      <td><strong>{{ "%.3f"|format(calibration.average.ece) }}</strong></td></tr>
+  </tbody>
+</table>
+{% endif %}
+
+{# HEATMAP (world maps live under ground-truth statistics) #}
+{% if heatmap %}
+<h3>Geographic world maps</h3>
+<p>Per-country true-positive rate (TPR = correct div truth = country) and false-positive
+counts. Macro-averaged TPR across countries with truth: <strong>{{ pct(heatmap.macro_avg_tpr) }}</strong>
+({{ heatmap.n_countries_with_truth }} countries).</p>
+<img class="figure" src="plots/world_map_accuracy.png" alt="World accuracy heatmap">
+<p class="caption">Per-country TPR (green) with FP outlines (red).</p>
+<img class="figure" src="plots/world_map_f1.png" alt="World F1 map">
+<p class="caption">Per-country F1 = 2 P R / (P + R), divergent around the run's macro-F1.
+Green = above average, red = below average. Alpha scales with sqrt(TP+FP+FN) so low-evidence
+countries fade out.</p>
+<img class="figure" src="plots/world_map_error_bias.png" alt="World error-bias map">
+<p class="caption">Per-country error bias (FP minus FN)/(FP + FN), TP ignored.
+Red = the country is over-predicted; blue = the country is missed; pastel tones = mixed
+FP/FN. Only countries with at least 1 error are drawn.</p>
+<details><summary>Per-country breakdown ({{ heatmap.per_country|length }} entries)</summary>
+<table class="small-table"><thead><tr>
+  <th>Country</th><th data-sort="num">n_truth</th><th data-sort="num">n_correct</th>
+  <th data-sort="num">n_predicted</th><th data-sort="num">n_false_positive</th>
+  <th data-sort="num">TPR</th><th data-sort="num">PPV</th>
+</tr></thead><tbody>
+{% for name, blk in heatmap.per_country.items() %}
+<tr>
+  <td>{{ name|title }}</td>
+  <td>{{ blk.n_truth }}</td>
+  <td>{{ blk.n_correct }}</td>
+  <td>{{ blk.n_predicted }}</td>
+  <td>{{ blk.n_false_positive }}</td>
+  <td>{{ pct(blk.tpr) if blk.tpr is not none else "n/a" }}</td>
+  <td>{{ pct(blk.ppv) if blk.ppv is not none else "n/a" }}</td>
+</tr>
+{% endfor %}
+</tbody></table></details>
+{% endif %}
+{% endif %}
+
+{# ============================= 2. APPROACH DYNAMICS ============================ #}
+{% if dynamics or funnel or anchoring or rag_utility %}
+<h2 id="dynamics">2. Approach dynamics</h2>
+
+{# DYNAMICS (region narrowing funnel + tournament bracket dynamics) #}
+{% if dynamics and not dynamics._error is defined %}
+<h3>Region narrowing funnel and tournament bracket dynamics</h3>
+<p>This approach narrows the world to a region, builds a candidate pool inside that
+region, then runs a 1v1 country tournament. The tables below trace whether the ground
+truth survives each narrowing gate and how the bracket behaves.</p>
+{% if dynamics.pool %}
+<p>Candidate pool size: mean {{ "%.2f"|format(dynamics.pool.mean_size) }},
+median {{ "%.0f"|format(dynamics.pool.median_size) }},
+max {{ dynamics.pool.max_size }}.</p>
+{% endif %}
+{% if dynamics.tournament_shape_distribution %}
+<h4>Tournament shape distribution</h4>
+<table>
+  <thead><tr><th>Shape</th><th data-sort="num">Count</th><th data-sort="num">Share</th></tr></thead>
+  <tbody>
+  {% for shape, cnt in dynamics.tournament_shape_distribution.items() %}
+    <tr><td>{{ shape }}</td><td>{{ cnt }}</td>
+      <td>{% if dynamics.n_total %}{{ pct(cnt / dynamics.n_total) }}{% else %}n/a{% endif %}</td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endif %}
+{% if dynamics.region_narrowing_funnel and dynamics.region_narrowing_funnel.stages %}
+<h4>Ground truth narrowing funnel (n = {{ dynamics.region_narrowing_funnel.n }} images with ground truth)</h4>
+<p>Each stage is a binary check on whether the ground truth was still reachable after
+that narrowing step. A gate that drops the truth can never be recovered downstream, so
+the survival rate strictly falls.</p>
+<table>
+  <thead><tr><th>Stage</th><th>Description</th><th data-sort="num">Truth survives</th></tr></thead>
+  <tbody>
+  {% for s in dynamics.region_narrowing_funnel.stages %}
+    <tr><td><strong>{{ s.code }}</strong></td><td>{{ s.label }}</td>
+      <td>{{ s.n }}/{{ dynamics.region_narrowing_funnel.n }} ({{ pct(s.rate) }})</td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endif %}
+{% if dynamics.bracket and dynamics.bracket.n_matches %}
+<h4>Tournament bracket dynamics</h4>
+<table>
+  <thead><tr><th>Metric</th><th data-sort="num">Value</th></tr></thead>
+  <tbody>
+    <tr><td>Total 1v1 matches</td><td>{{ dynamics.bracket.n_matches }}</td></tr>
+    <tr><td>Judge agrees with specialists</td><td>{{ dynamics.bracket.n_agree }} ({{ pct(dynamics.bracket.agree_rate) }})</td></tr>
+    <tr><td>Judge overruled a specialist</td><td>{{ dynamics.bracket.n_disagree }} ({{ pct(dynamics.bracket.disagree_rate) }})</td></tr>
+    <tr><td>Bracket upsets (lower seed beat higher seed)</td><td>{{ dynamics.bracket.n_upsets }} ({{ pct(dynamics.bracket.upset_rate) }})</td></tr>
+    <tr><td>Finals played</td><td>{{ dynamics.bracket.n_finals_played }}</td></tr>
+    <tr><td>Top seed wins final</td><td>{{ dynamics.bracket.n_top_seed_wins_final }} ({{ pct(dynamics.bracket.top_seed_win_rate) }})</td></tr>
+  </tbody>
+</table>
+{% endif %}
+{% if dynamics.tournament_gt and dynamics.tournament_gt.n_decisive_matches %}
+<h4>Tournament decisions vs ground truth</h4>
+<p>A decisive match is one where the truth was on exactly one side, so the tournament
+could get it right or wrong. Upsets that move toward truth are the value the bracket
+adds over the pool ranking.</p>
+<table>
+  <thead><tr><th>Metric</th><th data-sort="num">Value</th></tr></thead>
+  <tbody>
+    <tr><td>Decisive matches</td><td>{{ dynamics.tournament_gt.n_decisive_matches }}</td></tr>
+    <tr><td>Toward truth (winner = truth)</td><td>{{ dynamics.tournament_gt.n_toward_truth }} ({{ pct(dynamics.tournament_gt.toward_truth_rate) }})</td></tr>
+    <tr><td>Away from truth (winner not truth)</td><td>{{ dynamics.tournament_gt.n_away_from_truth }}</td></tr>
+    <tr><td>Both wrong (truth not in match)</td><td>{{ dynamics.tournament_gt.n_both_wrong }}</td></tr>
+    <tr><td>Upsets total</td><td>{{ dynamics.tournament_gt.upsets.n_total }}</td></tr>
+    <tr><td>Upsets toward truth</td><td>{{ dynamics.tournament_gt.upsets.n_toward_truth }} ({{ pct(dynamics.tournament_gt.upsets.toward_truth_rate) }})</td></tr>
+    <tr><td>Upsets away from truth</td><td>{{ dynamics.tournament_gt.upsets.n_away_from_truth }}</td></tr>
+  </tbody>
+</table>
+{% endif %}
+{% endif %}
+
+{# FUNNEL #}
+{% if funnel and funnel.funnel and funnel.funnel.stages %}
+<h3>Pipeline funnel, where does the truth get lost?</h3>
+<p>Each stage is a binary check on whether the <strong>ground-truth country</strong>
+was still reachable after that stage of the pipeline. Cumulative survival = truth
+survived all stages from S0 up to and including this one. Conditional rate =
+survivors / survivors of the previous stage. Wilson 95% confidence intervals.</p>
+{% if funnel.funnel.bottleneck %}
+<blockquote>
+  <strong>Bottleneck:</strong> stage {{ funnel.funnel.bottleneck.stage_code }},
+  <em>{{ funnel.funnel.bottleneck.description }}</em>.
+  Conditional survival here is
+  <strong>{{ pct(funnel.funnel.bottleneck.conditional_rate) }}</strong>
+  [{{ pct(funnel.funnel.bottleneck.ci_low) }},
+   {{ pct(funnel.funnel.bottleneck.ci_high) }}].
+</blockquote>
+{% endif %}
+<table>
+  <thead><tr><th>Stage</th><th>Description</th>
+    <th>Cumulative survival</th><th>Conditional on prev</th></tr></thead>
+  <tbody>
+  {% for s in funnel.funnel.stages %}
+    <tr>
+      <td><strong>{{ s.code }}</strong></td>
+      <td>{{ s.description }}</td>
+      <td>{{ pct_ci(s.cumulative_survival) }}</td>
+      <td>{{ pct_ci(s.conditional_on_prev) }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+<img class="figure" src="plots/funnel.png" alt="Pipeline funnel">
+<p class="caption">Pipeline funnel survival per stage with Wilson 95% CI.</p>
+{% endif %}
+
+{# ORACLE #}
+{% if funnel and funnel.oracle_ceilings and funnel.oracle_ceilings.n_total %}
+<h3>Oracle ceilings</h3>
+<p>Each oracle row shows what the end-to-end accuracy <em>would</em> be if a
+particular pipeline stage made no mistakes.</p>
+{% set actual_rate = funnel.oracle_ceilings.actual.rate %}
+<table>
+  <thead><tr><th>Scenario</th><th>Accuracy (95% CI)</th><th>Delta vs. actual</th></tr></thead>
+  <tbody>
+  {% for key, label in [
+      ("actual", "Actual pipeline"),
+      ("majority_vote_baseline", "Baseline: majority-vote of 5 agents"),
+      ("oracle_region", "Oracle region"),
+      ("oracle_pool", "Oracle pool"),
+      ("oracle_tournament", "Oracle tournament"),
+  ] %}
+    {% set blk = funnel.oracle_ceilings.get(key) or {} %}
+    <tr>
+      <td>{{ label }}</td>
+      <td>{{ pct_ci(blk) }}</td>
+      <td>{% if key != "actual" %}{{ "%+.1f%%"|format((blk.rate - actual_rate) * 100) }}{% else %}n/a{% endif %}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+<img class="figure" src="plots/oracle_ceilings.png" alt="Oracle ceilings">
+<p class="caption">Counterfactual accuracy under perfect-stage oracles.</p>
+{% endif %}
+
+{# TOURNAMENT DIAG #}
+{% if funnel and funnel.tournament_diagnostics and funnel.tournament_diagnostics.n_matches %}
+<h3>Tournament diagnostics</h3>
+<p>The judge runs each match twice (forward + reverse positions) and only commits a winner if both runs agree;
+otherwise it falls back to pool-rank. <code>country_a</code>/<code>country_b</code> are bracket slots, not prompt positions.</p>
+<p><strong>Agreement distribution</strong>
+(n={{ funnel.tournament_diagnostics.n_matches }} matches):</p>
+<ul>
+  {% set ag = funnel.tournament_diagnostics.agreement_distribution %}
+  {% if ag.agree and ag.agree.n %}<li>both runs agree: {{ pct_ci(ag.agree) }}</li>{% endif %}
+  {% if ag.forward_only and ag.forward_only.n %}<li>only forward: {{ pct_ci(ag.forward_only) }}</li>{% endif %}
+  {% if ag.reverse_only and ag.reverse_only.n %}<li>only reverse: {{ pct_ci(ag.reverse_only) }}</li>{% endif %}
+  {% if ag.disagree and ag.disagree.n %}<li>disagree, pool-rank tiebreak: {{ pct_ci(ag.disagree) }}</li>{% endif %}
+  {% if ag.both_empty and ag.both_empty.n %}<li>both empty, pool-rank tiebreak: {{ pct_ci(ag.both_empty) }}</li>{% endif %}
+</ul>
+<p><strong>Pool-seed bias</strong> (does the higher-seeded country win?):
+{{ pct_ci(funnel.tournament_diagnostics.pool_seed_bias) }}</p>
+<p><strong>Truth match-win rate:</strong>
+{{ pct_ci(funnel.tournament_diagnostics.truth_match_win_rate) }}</p>
+<img class="figure" src="plots/tournament_symmetry.png" alt="Tournament symmetry">
+<p class="caption">Symmetric judge agreement and pool-seed-bias check.</p>
+{% endif %}
+
+{# AGREEMENT #}
+{% if funnel and funnel.agreement_curve and funnel.agreement_curve.levels %}
+<h3>Agreement vs. accuracy</h3>
+<p>Bucketed by how many of the 5 agents picked the same top-1 country.</p>
+<table>
+  <thead><tr><th data-sort="num">Agents agreeing</th><th data-sort="num">n</th>
+    <th>Accuracy (95% CI)</th></tr></thead>
+  <tbody>
+  {% for lv in funnel.agreement_curve.levels %}
+    <tr><td>{{ lv.agreement }}</td><td>{{ lv.n }}</td><td>{{ pct_ci(lv) }}</td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+<img class="figure" src="plots/agreement_curve.png" alt="Agreement curve">
+<p class="caption">Initial-round agent agreement vs. final accuracy.</p>
+{% endif %}
+
+{# PATH #}
+{% if funnel and funnel.path_comparison %}
+{% set pa = funnel.path_comparison.path_a or {} %}
+{% set pb = funnel.path_comparison.path_b or {} %}
+{% if pa.n or pb.n %}
+<h3>Path A vs. Path B</h3>
+<table>
+  <thead><tr><th>Metric</th><th>Path A</th><th>Path B</th></tr></thead>
+  <tbody>
+    <tr><td>n</td><td>{{ pa.n or 0 }}</td><td>{{ pb.n or 0 }}</td></tr>
+    <tr><td>Country accuracy</td><td>{{ pct_ci(pa) }}</td><td>{{ pct_ci(pb) }}</td></tr>
+    <tr><td>Median haversine</td><td>{{ km(pa.median_haversine_km) }}</td><td>{{ km(pb.median_haversine_km) }}</td></tr>
+    <tr><td>Mean total seconds</td><td>{{ "%.1f"|format(pa.mean_total_seconds or 0) }} s</td><td>{{ "%.1f"|format(pb.mean_total_seconds or 0) }} s</td></tr>
+  </tbody>
+</table>
+{% endif %}
+{% endif %}
+
+{# SEVERITY #}
+{% if funnel and funnel.severity and funnel.severity.n_total %}
+<h3>Severity of errors</h3>
+<p>Of <strong>{{ funnel.severity.n_wrong }}</strong> wrong predictions
+(out of {{ funnel.severity.n_total }} total):</p>
+<ul>
+  <li><span class="badge warn">near-miss</span> (haversine &lt; 500 km):
+    {{ funnel.severity.near_miss_count }}</li>
+  <li><span class="badge warn">same-region wrong</span>:
+    {{ funnel.severity.same_region_wrong_count }}</li>
+  <li><span class="badge bad">wrong region</span>:
+    {{ funnel.severity.wrong_region_count }}</li>
+</ul>
+{% if funnel.severity.near_miss_examples %}
+<details><summary>Near-miss examples ({{ funnel.severity.near_miss_examples|length }})</summary>
+<table class="small-table"><thead><tr><th>Image</th><th>Truth</th><th>Pred</th><th data-sort="num">Haversine</th></tr></thead><tbody>
+{% for e in funnel.severity.near_miss_examples %}
+<tr><td>{{ e.image_id }}</td><td>{{ e.truth }}</td><td>{{ e.pred }}</td>
+<td>{{ "%.0f km"|format(e.haversine_km) if e.haversine_km is not none else "n/a" }}</td></tr>
+{% endfor %}
+</tbody></table></details>
+{% endif %}
+{% endif %}
+
+{# ANCHORING #}
+{% if anchoring and anchoring.n_with_pool %}
+<h3>Tournament anchoring, does the bracket actually re-rank?</h3>
+<p>Of <strong>{{ anchoring.n_with_pool }}</strong> images with a non-trivial pool
+(at least 2 candidates), the tournament winner equals the top-seeded candidate
+<strong>{{ pct(anchoring.anchoring_rate) }}</strong> of the time
+(n={{ anchoring.n_anchored }}). When anchored, the seed was correct
+<strong>{{ pct(anchoring.anchoring_correctness) }}</strong> of the time.</p>
+<p>Of the <strong>{{ anchoring.n_re_ranked }}</strong> re-ranked images
+(winner not top seed):
+<span class="badge ok">{{ anchoring.n_re_rank_helped }} flipped toward truth</span>,
+<span class="badge bad">{{ anchoring.n_re_rank_hurt }} flipped away</span>,
+<span class="badge warn">{{ anchoring.n_re_rank_neutral }} neutral</span>.
+Net help: <strong>{{ "%+d"|format(anchoring.re_rank_net_help) }}</strong> images.</p>
+<img class="figure" src="plots/anchoring.png" alt="Anchoring outcomes">
+<p class="caption">Anchoring vs. re-ranking outcomes. Left: stacked
+outcomes split by whether the tournament confirmed the top seed; right: net
+effect of re-ranking on truth recovery.</p>
+{% if anchoring.examples_helped %}
+<details><summary>Re-ranking saved truth ({{ anchoring.examples_helped|length }} examples)</summary>
+<table class="small-table"><thead><tr>
+  <th>Image</th><th>Top seed</th><th>Tournament winner</th><th>Truth</th>
+</tr></thead><tbody>
+{% for e in anchoring.examples_helped %}
+<tr><td>{{ e.image_id }}</td><td>{{ e.seed_top1 }}</td>
+<td><strong>{{ e.tournament_winner }}</strong></td><td>{{ e.truth }}</td></tr>
+{% endfor %}
+</tbody></table></details>
+{% endif %}
+{% if anchoring.examples_hurt %}
+<details><summary>Re-ranking flipped away from truth ({{ anchoring.examples_hurt|length }} examples)</summary>
+<table class="small-table"><thead><tr>
+  <th>Image</th><th>Top seed (= truth)</th><th>Tournament winner</th><th>Truth</th>
+</tr></thead><tbody>
+{% for e in anchoring.examples_hurt %}
+<tr><td>{{ e.image_id }}</td><td>{{ e.seed_top1 }}</td>
+<td>{{ e.tournament_winner }}</td><td><strong>{{ e.truth }}</strong></td></tr>
+{% endfor %}
+</tbody></table></details>
+{% endif %}
+{% endif %}
+
+{# RAG UTILITY #}
+{% if rag_utility and rag_utility.n_with_pool %}
+<h3>RAG utility, does retrieval actually move the needle?</h3>
+<p>Of <strong>{{ rag_utility.n_with_pool }}</strong> images with a non-trivial pool,
+<strong>{{ pct(rag_utility.ref_coverage_rate) }}</strong> had at least one verified
+RAG reference surface (n={{ rag_utility.n_with_any_refs }};
+mean refs/image = {{ "%.1f"|format(rag_utility.mean_refs_per_image) }},
+mean countries with refs/image = {{ "%.1f"|format(rag_utility.mean_countries_with_refs_per_image) }}).</p>
+{% if rag_utility.n_prefilter_eliminations %}
+<p>Pre-filter eliminations (driving-side / road-marking veto):
+<strong>{{ rag_utility.n_prefilter_eliminations }}</strong> candidates dropped
+before the tournament; truth was killed by the pre-filter
+<strong>{{ rag_utility.n_truth_eliminated_by_prefilter }} time(s)</strong>
+(rate {{ pct(rag_utility.prefilter_truth_kill_rate) }}).</p>
+{% if rag_utility.prefilter_by_kind %}
+<p>Per-veto breakdown, when truth gets killed here, either the LLM's observation
+of the image is wrong or the country-side reference table is wrong.</p>
+<table>
+  <thead><tr><th>Veto kind</th>
+    <th data-sort="num">Eliminations</th>
+    <th data-sort="num">Truth killed</th>
+    <th data-sort="num">Truth-kill rate</th></tr></thead>
+  <tbody>
+    {% set drv = rag_utility.prefilter_by_kind.elim_driving or {} %}
+    {% set rdm = rag_utility.prefilter_by_kind.elim_road_marking or {} %}
+    <tr><td>driving-side</td>
+      <td>{{ drv.n_eliminations or 0 }}</td>
+      <td>{{ drv.n_truth_eliminated or 0 }}</td>
+      <td>{{ pct(drv.truth_kill_rate) }}</td></tr>
+    <tr><td>road-marking</td>
+      <td>{{ rdm.n_eliminations or 0 }}</td>
+      <td>{{ rdm.n_truth_eliminated or 0 }}</td>
+      <td>{{ pct(rdm.truth_kill_rate) }}</td></tr>
+  </tbody>
+</table>
+{% endif %}
+{% endif %}
+{% if rag_utility.n_matches_total %}
+<p>Per-match ref availability (across {{ rag_utility.n_matches_total }} tournament matches):
+both sides have refs in {{ rag_utility.n_matches_both_have_refs }},
+asymmetric in <strong>{{ rag_utility.n_matches_asymmetric }}</strong>
+({{ pct(rag_utility.asymmetric_match_share) }}),
+neither side has refs in {{ rag_utility.n_matches_neither_has_refs }}.</p>
+{% endif %}
+{% if rag_utility.n_matches_asymmetric %}
+<p>In the {{ rag_utility.n_matches_asymmetric }} asymmetric matches, the ref-side
+wins <strong>{{ pct(rag_utility.asym_ref_side_win_rate) }}</strong> of the time
+(n={{ rag_utility.n_asym_ref_side_won }}). When the ref-side wins, it equals
+the truth <strong>{{ pct(rag_utility.asym_ref_side_won_correctly_rate) }}</strong>
+of the time, i.e. ref-asymmetry steers toward truth in
+{{ rag_utility.n_asym_ref_side_was_truth_and_won }} of
+{{ rag_utility.n_asym_ref_side_won }} ref-side wins.</p>
+{% endif %}
+<img class="figure" src="plots/rag_utility.png" alt="RAG utility">
+<p class="caption">RAG utility, coverage (left), per-match ref
+availability (middle), and outcome of asymmetric matches (right).
+The "ref-side won (= truth)" column is the only one that demonstrates
+RAG steering the bracket toward the correct answer.</p>
+{% if rag_utility.examples_ref_side_won_truth %}
+<details><summary>RAG-asymmetric matches won by the ref-side
+(= truth, {{ rag_utility.examples_ref_side_won_truth|length }} examples)</summary>
+<table class="small-table"><thead><tr>
+  <th>Image</th><th>Round</th><th>Winner</th><th>Truth</th>
+</tr></thead><tbody>
+{% for e in rag_utility.examples_ref_side_won_truth %}
+<tr><td>{{ e.image_id }}</td><td>{{ e.match }}</td>
+<td>{{ e.winner }}</td><td>{{ e.truth }}</td></tr>
+{% endfor %}
+</tbody></table></details>
+{% endif %}
+{% if rag_utility.examples_ref_side_won_wrong %}
+<details><summary>RAG-asymmetric matches where ref-side won but truth was the other side
+({{ rag_utility.examples_ref_side_won_wrong|length }} examples)</summary>
+<table class="small-table"><thead><tr>
+  <th>Image</th><th>Round</th><th>Ref-side winner</th><th>Truth</th>
+</tr></thead><tbody>
+{% for e in rag_utility.examples_ref_side_won_wrong %}
+<tr><td>{{ e.image_id }}</td><td>{{ e.match }}</td>
+<td>{{ e.ref_side_winner }}</td><td><strong>{{ e.truth_was }}</strong></td></tr>
+{% endfor %}
+</tbody></table></details>
+{% endif %}
+{% endif %}
+{% endif %}
+
+{# =========================== 3. LLM-AS-JUDGE VERDICTS ========================== #}
+{% if judge %}
+<h2 id="judge">3. LLM-as-judge verdicts</h2>
+<p>Verdicts: {{ judge.n_with_verdict }} / {{ judge.n_total_judge_files }} .
+   Constructive synthesis: {{ pct(judge.constructive_synthesis_rate) }}
+   (n={{ judge.constructive_synthesis_n }})</p>
+{% if judge.overall_quality_score and judge.overall_quality_score.n %}
+<p>Overall quality score,
+mean {{ "%.3f"|format(judge.overall_quality_score.mean) }},
+median {{ "%.3f"|format(judge.overall_quality_score.median) }},
+sigma {{ "%.3f"|format(judge.overall_quality_score.stdev) }}.</p>
+{% endif %}
+<h3>Per-agent quantitative scores</h3>
+<table>
+  <thead><tr><th>Agent</th><th data-sort="num">n</th>
+    <th data-sort="num">Role adher.</th>
+    <th data-sort="num">Hallucination (lower is better)</th>
+    <th data-sort="num">Visual cons. (higher is better)</th>
+    <th data-sort="num">Calibration (higher is better)</th></tr></thead>
+  <tbody>
+  {% for a in agent_names %}
+    {% set m = judge.per_agent.get(a) or {} %}
+    <tr>
+      <td>{{ a }}</td>
+      <td>{{ m.n or 0 }}</td>
+      <td>{{ pct(m.role_adherence_rate or 0) }}</td>
+      <td>{{ stat_or_dash(m, "hallucination_score") }}</td>
+      <td>{{ stat_or_dash(m, "visual_consistency_score") }}</td>
+      <td>{{ stat_or_dash(m, "confidence_calibration_score") }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+<img class="figure" src="plots/judge_role_adherence.png" alt="Role adherence">
+<p class="caption">Per-agent role adherence rate.</p>
+<img class="figure" src="plots/judge_hallucination.png" alt="Hallucination scores">
+<p class="caption">Per-agent mean hallucination score (0 = clean, 1 = severe).</p>
+<img class="figure" src="plots/judge_visual_consistency.png" alt="Visual consistency">
+<p class="caption">Per-agent mean visual consistency.</p>
+
+{# JUDGE FAILURE #}
+{% if judge.tournament_failure and judge.tournament_failure.by_reason %}
+<h3>Tournament failure attribution</h3>
+<p>For matches where the truth was in the candidate pool but did not win, the judge
+classifies <em>why</em>. Counterfactual winnable rate:
+<strong>{{ pct(judge.tournament_failure.counterfactual_winnable_rate) }}</strong>
+({{ judge.tournament_failure.counterfactual_n }} attributable losses).</p>
+<table>
+  <thead><tr><th>Failure reason</th><th data-sort="num">Count</th></tr></thead>
+  <tbody>
+  {% for reason, count in judge.tournament_failure.by_reason.items() %}
+    <tr><td>{{ reason }}</td><td>{{ count }}</td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+<img class="figure" src="plots/judge_failure_reasons.png" alt="Failure attribution">
+<p class="caption">Tournament failure attribution histogram.</p>
+{% if judge.tournament_failure.examples %}
+<details><summary>Failure examples ({{ judge.tournament_failure.examples|length }})</summary>
+{% for e in judge.tournament_failure.examples %}
+<details class="example"><summary>{{ e.image_id }}, {{ e.failure_reason }}
+  (lost to {{ e.truth_lost_to or "n/a" }})</summary>
+<p><strong>Round:</strong> {{ e.failure_match_round or "n/a" }} .
+   <strong>Counterfactual winnable:</strong>
+   <span class="badge {{ 'ok' if e.counterfactual_winnable else 'bad' }}">
+     {{ "yes" if e.counterfactual_winnable else "no" }}</span></p>
+{% if e.failure_reasoning %}<p>{{ e.failure_reasoning }}</p>{% endif %}
+</details>
+{% endfor %}
+</details>
+{% endif %}
+{% endif %}
+
+{# HALLUCINATION #}
+{% if judge.per_agent %}
+<h3>Hallucination examples</h3>
+{% for a in agent_names %}
+{% set m = judge.per_agent.get(a) or {} %}
+{% if m.hallucination_examples %}
+<details><summary>{{ a }}, {{ m.hallucination_examples|length }} flagged claims</summary>
+<table class="small-table"><thead><tr><th>Image</th><th data-sort="num">Score</th><th>Hallucinated claim</th></tr></thead><tbody>
+{% for ex in m.hallucination_examples %}
+<tr><td>{{ ex.image_id }}</td>
+  <td>{{ "%.2f"|format(ex.score) if ex.score is not none else "n/a" }}</td>
+  <td>{{ ex.example }}</td></tr>
+{% endfor %}
+</tbody></table></details>
+{% endif %}
+{% endfor %}
+{% endif %}
+{% endif %}
+
+</main>
+</div>
+
+<script>
+function toggleTheme() {
+  const r = document.documentElement;
+  r.dataset.theme = r.dataset.theme === "dark" ? "light" : "dark";
+}
+function expandAll(open) {
+  document.querySelectorAll("details").forEach(d => { d.open = open; });
+}
+// Sortable tables: any <th> click sorts column. data-sort="num" forces numeric.
+document.querySelectorAll("table").forEach(table => {
+  table.querySelectorAll("th").forEach((th, idx) => {
+    th.addEventListener("click", () => {
+      const tbody = table.tBodies[0];
+      if (!tbody) return;
+      const rows = Array.from(tbody.rows);
+      const numeric = th.dataset.sort === "num";
+      const asc = !th.classList.contains("sort-asc");
+      rows.sort((a, b) => {
+        const x = a.cells[idx]?.innerText || "";
+        const y = b.cells[idx]?.innerText || "";
+        if (numeric) {
+          const xn = parseFloat(x.replace(/[^\d.\-]/g, "")) || 0;
+          const yn = parseFloat(y.replace(/[^\d.\-]/g, "")) || 0;
+          return asc ? xn - yn : yn - xn;
+        }
+        return asc ? x.localeCompare(y) : y.localeCompare(x);
+      });
+      rows.forEach(r => tbody.appendChild(r));
+      table.querySelectorAll("th").forEach(t => t.classList.remove("sort-asc", "sort-desc"));
+      th.classList.toggle("sort-asc", asc);
+      th.classList.toggle("sort-desc", !asc);
+    });
+  });
+});
+// Scroll-spy: highlight active TOC entry
+const sections = Array.from(document.querySelectorAll("main h2"));
+const tocLinks = Array.from(document.querySelectorAll("nav.toc a"));
+function onScroll() {
+  let current = null;
+  for (const s of sections) {
+    if (s.getBoundingClientRect().top < 100) current = s.id;
+  }
+  tocLinks.forEach(a => a.classList.toggle("active",
+    a.getAttribute("href") === "#" + current));
+}
+window.addEventListener("scroll", onScroll, { passive: true });
+onScroll();
+</script>
+</body>
+</html>

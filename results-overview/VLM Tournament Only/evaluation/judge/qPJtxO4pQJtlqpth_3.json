@@ -1,0 +1,97 @@
+{
+  "image_id": "qPJtxO4pQJtlqpth_3",
+  "truth_country": "panama",
+  "pred_country": "puerto rico",
+  "is_correct": false,
+  "candidate_pool": [
+    "Puerto Rico",
+    "Dominican Republic",
+    "Philippines",
+    "Mexico",
+    "Cuba"
+  ],
+  "finish_reason": "stop",
+  "verdict": {
+    "role_adherence": {
+      "linguistic": false,
+      "landscape": true,
+      "botanics": true,
+      "regulatory": true,
+      "meta": true
+    },
+    "role_adherence_notes": {
+      "linguistic": "The linguistic agent provided no candidates and no evidence, effectively failing to participate in the pipeline.",
+      "landscape": "Stayed within terrain, vegetation, and climate analysis.",
+      "botanics": "Stayed within plant species and soil profile analysis.",
+      "regulatory": "Stayed within infrastructure, road, and utility pole analysis.",
+      "meta": "Stayed within cross-domain synthesis (car color, architectural style) analysis."
+    },
+    "argumentative_quality": {
+      "linguistic": "very_weak",
+      "landscape": "strong",
+      "botanics": "strong",
+      "regulatory": "strong",
+      "meta": "strong"
+    },
+    "constructive_synthesis": true,
+    "overall_verdict_notes": "The pipeline failed to identify the correct country (Panama) because the specialist agents (except the silent linguistic one) were biased towards the Caribbean (Puerto Rico/DR) based on shared architectural tropes (concrete block, tile roofs) and vegetation. The tournament correctly selected Puerto Rico as the best fit among the candidates, but the candidate pool itself was flawed due to the agents' inability to distinguish Panama from Puerto Rico visually.",
+    "role_adherence_score": {
+      "linguistic": 0.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.9,
+      "meta": 0.9
+    },
+    "argumentative_quality_score": {
+      "linguistic": 0.0,
+      "landscape": 0.8,
+      "botanics": 0.8,
+      "regulatory": 0.8,
+      "meta": 0.8
+    },
+    "hallucination_score": {
+      "linguistic": 0.0,
+      "landscape": 0.0,
+      "botanics": 0.0,
+      "regulatory": 0.0,
+      "meta": 0.0
+    },
+    "hallucination_examples": {
+      "linguistic": [],
+      "landscape": [],
+      "botanics": [],
+      "regulatory": [],
+      "meta": []
+    },
+    "visual_consistency_score": {
+      "linguistic": 0.0,
+      "landscape": 0.9,
+      "botanics": 0.9,
+      "regulatory": 0.9,
+      "meta": 0.9
+    },
+    "visual_consistency_notes": {
+      "linguistic": "No claims made.",
+      "landscape": "Descriptions of vegetation, terrain, and architecture match the image perfectly.",
+      "botanics": "Descriptions of palms and shrubs match the image.",
+      "regulatory": "Descriptions of poles and fences match the image.",
+      "meta": "Descriptions of car color and house styles match the image."
+    },
+    "confidence_calibration": {
+      "linguistic": 0.0,
+      "landscape": 0.25,
+      "botanics": 0.25,
+      "regulatory": 0.25,
+      "meta": 0.25
+    },
+    "tournament_failure": {
+      "truth_in_pool": false,
+      "truth_lost_to": null,
+      "failure_match_round": null,
+      "failure_reason": "agent_misled_pre_pool",
+      "failure_reasoning": "The ground truth (Panama) was not included in the candidate pool. The landscape, botanics, regulatory, and meta agents all converged on Caribbean nations (Puerto Rico, Dominican Republic) and Mexico/Philippines as analogs, failing to nominate Panama despite the visual evidence being consistent with Panamanian residential architecture.",
+      "counterfactual_winnable": false
+    }
+  },
+  "validation_error": "1 validation error for JudgeVerdict\noverall_verdict_notes\n  String should have at most 400 characters [type=string_too_long, input_value=\"The pipeline failed to i...m Puerto Rico visually.\", input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_too_long"
+}

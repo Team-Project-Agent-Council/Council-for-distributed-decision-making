@@ -1,0 +1,665 @@
+{
+  "image_path": "/pfs/data6/home/ma/ma_ma/ma_lweisssc/llm_council_agent_orchestration_tests/clean_images_GeoRC_500/iF7CiuoojlFChTQ9_4.png",
+  "model": "google/gemma-4-31B-it",
+  "judge_model": "google/gemma-4-31B-it",
+  "timing": {
+    "total_seconds": 207.3
+  },
+  "assessments": {
+    "linguistic": {
+      "agent_name": "linguistic",
+      "candidates": [],
+      "evidence": []
+    },
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Taiwan",
+          "confidence": "medium",
+          "reasoning": "The combination of steep, lush subtropical mountains, specific road drainage gutters, and the mix of broadleaf and pine-like trees is very characteristic of the central mountain ranges of Taiwan."
+        },
+        {
+          "country": "Japan",
+          "confidence": "medium",
+          "reasoning": "The temperate rainforest environment, steep terrain, and high-quality narrow paved roads with concrete edging are common in the mountainous regions of Honshu or Kyushu."
+        },
+        {
+          "country": "Vietnam",
+          "confidence": "low",
+          "reasoning": "The humid, mountainous landscape and dense greenery are consistent with the highlands of Northern Vietnam, though the road infrastructure here appears slightly more formalized than typical rural Vietnamese mountain paths."
+        },
+        {
+          "country": "Mexico",
+          "confidence": "speculative",
+          "reasoning": "As a cross-continent analog, the cloud forest regions of the Sierra Madre mountains feature similar steep slopes, dense evergreen foliage, and narrow winding roads."
+        }
+      ],
+      "evidence": [
+        "Steep mountainous terrain with high slope stability issues (visible cut bank)",
+        "Subtropical/Temperate moist forest with a mix of deciduous and coniferous trees",
+        "Narrow paved road with integrated concrete drainage channel",
+        "Overcast sky with high humidity/mist in the background valley"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Taiwan",
+          "confidence": "medium",
+          "reasoning": "The combination of subtropical broadleaf forest and high-altitude Pinus species (likely Pinus massoniana or Pinus taiwanensis) is very characteristic of the Taiwanese central mountain ranges. The dense, humid undergrowth and slope vegetation are consistent with this region."
+        },
+        {
+          "country": "Vietnam",
+          "confidence": "medium",
+          "reasoning": "The montane forests of Northern Vietnam exhibit similar mixed pine and broadleaf compositions. The lush, humid environment and specific tree architecture are common in the highlands of the north."
+        },
+        {
+          "country": "Japan",
+          "confidence": "low",
+          "reasoning": "Similar temperate/subtropical mixed forests exist in the Japanese highlands, though the specific density and leaf structure here lean slightly more toward a Southeast Asian or East Asian subtropical profile."
+        },
+        {
+          "country": "Mexico",
+          "confidence": "speculative",
+          "reasoning": "As a global analog, the cloud forests and pine-oak forests of the Sierra Madre mountains provide a similar biome of steep slopes with mixed coniferous and broadleaf vegetation."
+        }
+      ],
+      "evidence": [
+        "Mixed subtropical broadleaf and pine forest",
+        "Pinus species (likely P. massoniana or similar)",
+        "Humid montane undergrowth"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Vietnam",
+          "confidence": "low",
+          "reasoning": "The narrow asphalt road with a concrete drainage gutter on the left is common in mountainous regions of Southeast Asia, specifically Vietnam."
+        },
+        {
+          "country": "Taiwan",
+          "confidence": "low",
+          "reasoning": "The combination of lush subtropical forest and the specific style of concrete edge curbing is frequently seen on rural mountain roads in Taiwan."
+        },
+        {
+          "country": "Costa Rica",
+          "confidence": "speculative",
+          "reasoning": "Global analog: Rural mountain roads with basic asphalt and similar vegetation patterns are common in Central America."
+        },
+        {
+          "country": "Colombia",
+          "confidence": "speculative",
+          "reasoning": "Global analog: The road width and the presence of a concrete drainage channel alongside a steep forested slope are typical of Andean rural infrastructure."
+        }
+      ],
+      "evidence": [
+        "narrow asphalt road",
+        "concrete drainage gutter/curbing",
+        "absence of road signs",
+        "absence of utility poles in immediate view"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "Kyrgyzstan",
+          "confidence": "medium",
+          "reasoning": "The presence of a visible, rounded car hood (car bonnet) in the foreground is a strong meta indicator for the Google Street View car used in Kyrgyzstan. This specific car rig is distinct from the standard Gen 3/4 rigs used in most other regions."
+        },
+        {
+          "country": "Mongolia",
+          "confidence": "medium",
+          "reasoning": "Mongolia also utilizes a similar car rig where the hood is prominently visible in the image, making it a primary candidate alongside Kyrgyzstan for this specific camera artifact."
+        },
+        {
+          "country": "Albania",
+          "confidence": "low",
+          "reasoning": "Some older or specific coverage areas in Albania have shown similar car hood visibility, though it is less common than in Central Asia."
+        },
+        {
+          "country": "Costa Rica",
+          "confidence": "speculative",
+          "reasoning": "Following the global analog rule, some Latin American coverage has utilized non-standard rigs that can occasionally show the vehicle's hood, though the image quality and road texture here lean more towards Central Asia."
+        }
+      ],
+      "evidence": [
+        "visible car hood/bonnet in the foreground"
+      ]
+    }
+  },
+  "progressive_narrowing": {
+    "region_consensus": false,
+    "confirmed_region": "Southeast Asia",
+    "runner_up_region": "East Asia",
+    "surviving_regions": [
+      "Southeast Asia",
+      "East Asia"
+    ],
+    "proposed_regions": [
+      "East Asia",
+      "Southeast Asia",
+      "North America",
+      "Central America & Caribbean",
+      "South America",
+      "Central Asia",
+      "Europe"
+    ],
+    "region_candidates": {
+      "East Asia": {
+        "Taiwan": 3,
+        "Japan": 2
+      },
+      "Southeast Asia": {
+        "Vietnam": 3
+      },
+      "North America": {
+        "Mexico": 2
+      },
+      "Central America & Caribbean": {
+        "Costa Rica": 2
+      },
+      "South America": {
+        "Colombia": 1
+      },
+      "Central Asia": {
+        "Kyrgyzstan": 1,
+        "Mongolia": 1
+      },
+      "Europe": {
+        "Albania": 1
+      }
+    },
+    "region_decision_reasoning": "Southeast Asia received the highest weighted score due to multiple 'strongly_support' ratings across landscape, botanics, and meta-data agents, specifically citing the Google Street View camera artifacts and montane vegetation. East Asia is the runner-up as it was consistently supported as a viable alternative for the vegetation and terrain.",
+    "path": "B"
+  },
+  "road_evidence": {
+    "outside_color": "none",
+    "inside_color": "none",
+    "driving_side": "UNCLEAR",
+    "driving_side_basis": "none"
+  },
+  "country_assessments": {
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Vietnam",
+          "confidence": "high",
+          "reasoning": "The combination of steep, red-brown soil embankments, dense subtropical broadleaf and pine mixed forests, and the specific style of narrow, paved mountain roads with concrete drainage gutters is highly characteristic of the Central Highlands or Northern mountains of Vietnam."
+        },
+        {
+          "country": "Laos",
+          "confidence": "medium",
+          "reasoning": "Laos shares very similar mountainous terrain and subtropical vegetation with Vietnam. The road quality and soil composition are consistent with the highlands of Laos, though the drainage infrastructure is slightly more common in Vietnam."
+        },
+        {
+          "country": "Thailand",
+          "confidence": "medium",
+          "reasoning": "The northern mountainous regions of Thailand feature similar lush, green slopes and road layouts. The soil color and tree species are consistent with the Doi Inthanon or Chiang Mai regions."
+        },
+        {
+          "country": "Taiwan",
+          "confidence": "low",
+          "reasoning": "Taiwan has similar steep, forested mountain roads and subtropical climate. However, the specific road shoulder and drainage style seen here are more typical of mainland Southeast Asian highlands."
+        }
+      ],
+      "evidence": [
+        "Reddish-brown tropical/subtropical soil",
+        "Dense mixed broadleaf and coniferous forest",
+        "Narrow paved road with concrete side-drainage",
+        "Steep mountainous terrain with high humidity/cloud cover"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Vietnam",
+          "confidence": "high",
+          "reasoning": "The combination of Pinus species (likely Pinus kesiya) mixed with broadleaf subtropical forest on steep slopes is highly characteristic of the Central Highlands and Northern mountains. The specific density and growth habit of the understory ferns and shrubs are very common in the Da Lat region."
+        },
+        {
+          "country": "Thailand",
+          "confidence": "medium",
+          "reasoning": "Similar montane pine-broadleaf mixed forests occur in Northern Thailand. However, the specific lushness and soil moisture indicated by the roadside vegetation are slightly more typical of the Vietnamese highlands."
+        },
+        {
+          "country": "Laos",
+          "confidence": "medium",
+          "reasoning": "The vegetation is consistent with the Annamite Range, where mixed pine and broadleaf forests are prevalent. It is botanically indistinguishable from the border regions of Vietnam and Thailand."
+        },
+        {
+          "country": "Taiwan",
+          "confidence": "low",
+          "reasoning": "Taiwan possesses similar montane forests with Pinus species and broadleaf evergreens, though the specific composition of the roadside scrub here is more indicative of mainland Southeast Asian highlands."
+        }
+      ],
+      "evidence": [
+        "Pinus kesiya (Khasi Pine)",
+        "Subtropical mixed montane forest",
+        "Pteridophyta (ferns) understory"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Vietnam",
+          "confidence": "medium",
+          "reasoning": "The narrow asphalt road with a concrete drainage gutter on the left is very common in the mountainous regions of Vietnam. The surrounding vegetation and road width are consistent with rural highland provinces."
+        },
+        {
+          "country": "Thailand",
+          "confidence": "low",
+          "reasoning": "Similar rural road construction with concrete edge reinforcement is found in Northern Thailand's mountainous areas. However, the specific foliage and road texture are slightly more characteristic of Indochina."
+        },
+        {
+          "country": "Laos",
+          "confidence": "low",
+          "reasoning": "The basic asphalt quality and the presence of a simple concrete drainage channel are typical for rural roads in Laos."
+        },
+        {
+          "country": "Taiwan",
+          "confidence": "speculative",
+          "reasoning": "The mountainous terrain and road style are similar to rural Taiwan, though the lack of specific guardrails or signage makes this less certain."
+        }
+      ],
+      "evidence": [
+        "concrete drainage gutter",
+        "narrow rural asphalt road",
+        "lack of road markings",
+        "mountainous road cut"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "Taiwan",
+          "confidence": "medium",
+          "reasoning": "The Google car hood is visible and has a distinct grey/silver color and shape common in Taiwan's coverage. The road quality and the specific concrete drainage gutter on the left are very characteristic of rural Taiwanese mountain roads."
+        },
+        {
+          "country": "Japan",
+          "confidence": "low",
+          "reasoning": "Japan has extensive mountain road coverage with similar concrete drainage systems. However, the car hood shape is less typical for the standard Japanese Gen 3/4 coverage seen in these environments."
+        },
+        {
+          "country": "South Korea",
+          "confidence": "low",
+          "reasoning": "Similar road infrastructure and camera quality are found in rural Korea, though the specific hood artifact is more strongly associated with other regions in East Asia."
+        }
+      ],
+      "evidence": [
+        "Visible grey Google car hood",
+        "Concrete drainage gutter/curb style",
+        "Image quality and blur patterns consistent with Gen 3 camera"
+      ]
+    }
+  },
+  "hypothesis_evaluations": [
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_southeast_asia",
+      "confidence": "strongly_support",
+      "reasoning": "The combination of steep, humid mountainous terrain, dense mixed broadleaf and coniferous (pine) forests, and the specific appearance of the road shoulder and drainage suggests the highlands of Southeast Asia (e.g., Northern Thailand, Vietnam, or Laos). The lush, moist undergrowth and soil color are highly characteristic of this region's montane zones.",
+      "key_evidence": [
+        "montane mixed forest",
+        "humid tropical highland climate",
+        "steep slope settlement pattern"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_east_asia",
+      "confidence": "support",
+      "reasoning": "The landscape is compatible with the mountainous regions of Southern China, Taiwan, or Japan. However, the specific density and type of undergrowth are slightly more characteristic of the Southeast Asian highlands than the temperate forests of East Asia.",
+      "key_evidence": [
+        "mountainous terrain",
+        "mixed forest canopy"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_central_america_and_caribbean",
+      "confidence": "support",
+      "reasoning": "The cloud-forest appearance and steep road cutting are compatible with the highlands of Costa Rica, Guatemala, or Panama. It is a viable global analog for the humid montane environment seen here.",
+      "key_evidence": [
+        "tropical montane forest",
+        "steep road cutting"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_north_america",
+      "confidence": "contradicts",
+      "reasoning": "While some parts of the Pacific Northwest or Mexico have mountains and forests, the specific combination of vegetation density, leaf structure, and the overall 'feel' of the humid tropical highland environment does not align well with the typical North American temperate or boreal forests.",
+      "key_evidence": [
+        "vegetation type",
+        "climate indicators"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_southeast_asia",
+      "confidence": "support",
+      "reasoning": "The combination of montane tropical broadleaf forest and the presence of Pinus species (likely Pinus kesiya or similar) is very characteristic of the highlands in Southeast Asia, such as Northern Thailand, Vietnam, or Laos.",
+      "key_evidence": [
+        "Pinus species",
+        "Montane tropical broadleaf forest"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_east_asia",
+      "confidence": "support",
+      "reasoning": "The vegetation is highly compatible with the temperate to subtropical montane forests of Southern China, Taiwan, or Japan, where mixed pine and broadleaf forests are common in hilly terrain.",
+      "key_evidence": [
+        "Mixed pine-broadleaf forest",
+        "Subtropical montane vegetation"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_north_america",
+      "confidence": "low",
+      "reasoning": "While similar mixed forests exist in the Appalachians or Pacific Northwest, the specific leaf morphology and the understory density are more characteristic of Asian subtropical highlands than North American temperate forests.",
+      "key_evidence": [
+        "Mixed forest structure"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_central_america_and_caribbean",
+      "confidence": "low",
+      "reasoning": "Cloud forests in Central America can look similar, but the specific arrangement of the pine species seen here is more typical of the Asian highlands than the Pinus oocarpa/patula forests of Mexico or Guatemala.",
+      "key_evidence": [
+        "Montane forest structure"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_southeast_asia",
+      "confidence": "strongly_support",
+      "reasoning": "The image shows a very distinct Google Street View camera artifact: the 'halo' or 'blur' pattern on the hood of the car, combined with the specific greyish-blue tint and image quality typical of Gen 4 coverage in Southeast Asian countries like Thailand or Indonesia. The narrow, paved road with a concrete drainage gutter on the left is a common infrastructure pattern in this region.",
+      "key_evidence": [
+        "Google car hood blur/reflection pattern",
+        "Concrete drainage gutter style",
+        "Image quality/color profile"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_east_asia",
+      "confidence": "support",
+      "reasoning": "The road infrastructure and camera quality are compatible with some East Asian regions (like Taiwan), but the specific hood artifact is more characteristic of the fleet used in Southeast Asia.",
+      "key_evidence": [
+        "Concrete drainage gutter",
+        "Image quality"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_north_america",
+      "confidence": "contradicts",
+      "reasoning": "The road construction (narrow width, specific concrete guttering) and the Google camera car's visual artifacts do not match the standard Gen 3 or Gen 4 deployments typically seen in North America.",
+      "key_evidence": [
+        "Road width",
+        "Concrete gutter style",
+        "Camera car hood artifact"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_central_america_and_caribbean",
+      "confidence": "low",
+      "reasoning": "While some mountainous roads in Central America have similar paving, the specific Google camera car artifact is not a primary match for the coverage patterns seen in that region.",
+      "key_evidence": [
+        "Camera car hood artifact"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_taiwan",
+      "confidence": "strongly_support",
+      "reasoning": "The combination of steep, lush mountainous terrain, specific mixed broadleaf and coniferous forestation, and the narrow, well-maintained asphalt road with a concrete drainage gutter is highly characteristic of Taiwan's central mountain ranges.",
+      "key_evidence": [
+        "steep mountain slope",
+        "concrete drainage gutter",
+        "mixed subtropical forest"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_japan",
+      "confidence": "support",
+      "reasoning": "The temperate/subtropical forest and mountainous road infrastructure are compatible with Japan, though the specific vegetation density and soil appearance are slightly more typical of the subtropical highlands of Taiwan.",
+      "key_evidence": [
+        "mountainous terrain",
+        "temperate forest",
+        "asphalt road quality"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_south_korea",
+      "confidence": "support",
+      "reasoning": "Similar to Japan, the mountainous landscape and forest type are compatible, although the specific humidity suggested by the foliage and the road style are slightly more aligned with Taiwan.",
+      "key_evidence": [
+        "mountainous terrain",
+        "mixed forest"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_vietnam",
+      "confidence": "neutral",
+      "reasoning": "While Vietnam has mountainous regions with similar greenery, the road infrastructure (specifically the concrete guttering) is more common in East Asian developed territories than in rural Vietnamese highlands.",
+      "key_evidence": [
+        "lush greenery",
+        "mountainous terrain"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_thailand",
+      "confidence": "neutral",
+      "reasoning": "The terrain is compatible with Northern Thailand, but the specific mix of tree species and the road construction style are less characteristic than the East Asian candidates.",
+      "key_evidence": [
+        "mountainous terrain",
+        "tropical/subtropical forest"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_laos",
+      "confidence": "neutral",
+      "reasoning": "The landscape is physically possible, but the high quality of the road surface and the integrated drainage system are atypical for remote mountainous areas of Laos.",
+      "key_evidence": [
+        "mountainous terrain",
+        "dense forest"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_taiwan",
+      "confidence": "support",
+      "reasoning": "The combination of subtropical broadleaf forest and the presence of Pinus species (likely Pinus massoniana or similar) on steep slopes is very characteristic of Taiwan's mid-altitude mountainous regions.",
+      "key_evidence": [
+        "Subtropical broadleaf forest",
+        "Pinus species"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_vietnam",
+      "confidence": "support",
+      "reasoning": "The vegetation is highly compatible with the northern highlands of Vietnam, where mixed pine and broadleaf forests are common in mountainous terrain.",
+      "key_evidence": [
+        "Mixed pine-broadleaf forest",
+        "Subtropical montane vegetation"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_laos",
+      "confidence": "support",
+      "reasoning": "The lush, humid subtropical forest seen here is consistent with the mountainous regions of Laos, though less diagnostic than in Taiwan or Vietnam.",
+      "key_evidence": [
+        "Humid subtropical forest"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_thailand",
+      "confidence": "support",
+      "reasoning": "Compatible with the northern highlands of Thailand, which feature similar mixed forest types and steep topography.",
+      "key_evidence": [
+        "Northern Thai highland vegetation"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_japan",
+      "confidence": "low",
+      "reasoning": "While Japan has similar mountainous forests, the specific leaf density and the appearance of the undergrowth suggest a more subtropical climate than typical temperate Japanese highlands.",
+      "key_evidence": [
+        "Subtropical broadleaf density"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_south_korea",
+      "confidence": "low",
+      "reasoning": "Similar to Japan, while the forest type exists, the overall botanical 'feel' and humidity indicated by the foliage are more characteristic of Southeast Asia or Taiwan.",
+      "key_evidence": [
+        "Subtropical foliage patterns"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_taiwan",
+      "confidence": "strongly_support",
+      "reasoning": "The image shows a very distinct Google Street View camera artifact: the 'halo' or 'roof rack' shadow/reflection on the road is characteristic of the camera rig used in Taiwan. Additionally, the specific concrete drainage gutter design along the left side of the road is extremely common in Taiwanese mountainous regions.",
+      "key_evidence": [
+        "Google camera rig reflection/shadow",
+        "concrete drainage gutter style"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_japan",
+      "confidence": "support",
+      "reasoning": "The road quality and the presence of concrete drainage are compatible with Japan, but the specific camera rig artifact is more indicative of Taiwan's coverage style.",
+      "key_evidence": [
+        "concrete drainage gutter"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_south_korea",
+      "confidence": "support",
+      "reasoning": "Similar to Japan, the infrastructure is compatible, but the camera car meta does not align as strongly as it does for Taiwan.",
+      "key_evidence": [
+        "concrete drainage gutter"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_vietnam",
+      "confidence": "neutral",
+      "reasoning": "While the environment is compatible, there are no specific Vietnamese meta markers (like specific utility poles or camera artifacts) visible to support this over Taiwan.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_laos",
+      "confidence": "neutral",
+      "reasoning": "No specific meta evidence present to support or contradict Laos, though the road infrastructure is more developed than typical rural Laos coverage.",
+      "key_evidence": []
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_thailand",
+      "confidence": "neutral",
+      "reasoning": "No specific Thai meta markers (such as distinctive bollards or poles) are visible in this frame.",
+      "key_evidence": []
+    }
+  ],
+  "candidate_pool": [
+    "Taiwan",
+    "Vietnam",
+    "Laos",
+    "Thailand",
+    "Japan",
+    "South Korea"
+  ],
+  "rag_findings": [
+    {
+      "kind": "tournament_match",
+      "country": "Vietnam",
+      "detail": "The image features a concrete drainage gutter and road infrastructure highly characteristic of Taiwan's mountainous regions. Additionally, the specific camera artifact (the roof rack reflection) is a known meta-marker for Google Street View in Taiwan.",
+      "opponent": "Taiwan",
+      "winner": "Taiwan"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "South Korea",
+      "detail": "Both countries are plausible based on the mountainous landscape and road infrastructure, but the concrete drainage gutter along the left side of the road is a very common feature of Japanese rural road construction. Without distinguishing reference images, Japan is slightly more consistent with the overall infrastructure profile.",
+      "opponent": "Japan",
+      "winner": "Japan"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Japan",
+      "detail": "The landscape, specifically the combination of steep subtropical broadleaf and coniferous forests with a narrow asphalt road and concrete drainage gutter, strongly matches the characteristics of Taiwan's central mountains. Furthermore, the specific camera rig artifact visible on the road is highly characteristic of Google Street View coverage in Taiwan.",
+      "opponent": "Taiwan",
+      "winner": "Taiwan"
+    }
+  ],
+  "rag_refs_seen": [],
+  "road_filter_warnings": [],
+  "tournament_log": [
+    {
+      "round_label": "semi-1",
+      "country_a": "Taiwan",
+      "country_b": "Vietnam",
+      "pool_rank_a": 0,
+      "pool_rank_b": 3,
+      "winner": "Taiwan",
+      "reasoning": "The image features a concrete drainage gutter and road infrastructure highly characteristic of Taiwan's mountainous regions. Additionally, the specific camera artifact (the roof rack reflection) is a known meta-marker for Google Street View in Taiwan.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "semi-2",
+      "country_a": "Japan",
+      "country_b": "South Korea",
+      "pool_rank_a": 1,
+      "pool_rank_b": 2,
+      "winner": "Japan",
+      "reasoning": "Both countries are plausible based on the mountainous landscape and road infrastructure, but the concrete drainage gutter along the left side of the road is a very common feature of Japanese rural road construction. Without distinguishing reference images, Japan is slightly more consistent with the overall infrastructure profile.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "final",
+      "country_a": "Taiwan",
+      "country_b": "Japan",
+      "pool_rank_a": 0,
+      "pool_rank_b": 1,
+      "winner": "Taiwan",
+      "reasoning": "The landscape, specifically the combination of steep subtropical broadleaf and coniferous forests with a narrow asphalt road and concrete drainage gutter, strongly matches the characteristics of Taiwan's central mountains. Furthermore, the specific camera rig artifact visible on the road is highly characteristic of Google Street View coverage in Taiwan.",
+      "agreement": "agree"
+    }
+  ],
+  "country_result": "Country: Taiwan\nCoordinates: 23.95, 120.85\nReasoning: The landscape, specifically the combination of steep subtropical broadleaf and coniferous forests with a narrow asphalt road and concrete drainage gutter, strongly matches the characteristics of Taiwan's central mountains. Furthermore, the specific camera rig artifact visible on the road is highly characteristic of Google Street View coverage in Taiwan.\n\nTournament:\n  semi-1: Taiwan vs Vietnam → Taiwan\n  semi-2: Japan vs South Korea → Japan\n  final: Taiwan vs Japan → Taiwan",
+  "coordinates": {
+    "lat": 23.95,
+    "lng": 120.85
+  },
+  "final_reasoning": "The landscape, specifically the combination of steep subtropical broadleaf and coniferous forests with a narrow asphalt road and concrete drainage gutter, strongly matches the characteristics of Taiwan's central mountains. Furthermore, the specific camera rig artifact visible on the road is highly characteristic of Google Street View coverage in Taiwan."
+}

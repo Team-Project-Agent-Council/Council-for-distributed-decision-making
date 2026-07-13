@@ -1,0 +1,623 @@
+{
+  "image_path": "/pfs/data6/home/ma/ma_ma/ma_lweisssc/llm_council_agent_orchestration_tests/clean_images_GeoRC_500/xYdYhcgnMuyj35eG_3.png",
+  "model": "google/gemma-4-31B-it",
+  "judge_model": "google/gemma-4-31B-it",
+  "timing": {
+    "total_seconds": 84.6
+  },
+  "assessments": {
+    "linguistic": {
+      "agent_name": "linguistic",
+      "candidates": [],
+      "evidence": []
+    },
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Brazil",
+          "confidence": "medium",
+          "reasoning": "The landscape strongly resembles the Cerrado (tropical savanna) of central Brazil, characterized by flat terrain, scrubby vegetation, and dry yellow grasses. The road quality and utility pole style are common in rural Brazilian states."
+        },
+        {
+          "country": "Colombia",
+          "confidence": "medium",
+          "reasoning": "The Llanos region shares nearly identical geography with the Brazilian Cerrado, featuring vast flat grasslands and similar tropical savanna vegetation. It is geographically indistinguishable from Brazil in this specific view."
+        },
+        {
+          "country": "Venezuela",
+          "confidence": "medium",
+          "reasoning": "The eastern Llanos of Venezuela feature the same flat, arid scrubland and grass patterns seen here, making it a primary candidate alongside Colombia and Brazil."
+        },
+        {
+          "country": "Australia",
+          "confidence": "low",
+          "reasoning": "The arid, flat grasslands and sparse scrub are a global analog to the Australian Outback or interior plains. The sun position and vegetation type are consistent with semi-arid regions of the Southern Hemisphere."
+        },
+        {
+          "country": "South Africa",
+          "confidence": "low",
+          "reasoning": "The highveld or scrublands of South Africa present similar dry grass and flat horizons, serving as another Southern Hemisphere analog for this terrain type."
+        }
+      ],
+      "evidence": [
+        "Flat tropical savanna/scrubland terrain",
+        "Dry yellow/brown grass indicating a dry season",
+        "High sun angle suggesting low latitude",
+        "Sparse, low-canopy deciduous scrub trees",
+        "Single-lane paved road with weathered asphalt and simple utility poles"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Brazil",
+          "confidence": "medium",
+          "reasoning": "The landscape is highly characteristic of the Cerrado biome, featuring a mix of open grasslands and stunted, twisted woody shrubs with thick bark. This specific transition between savanna and scrub is very common in the central highlands of Brazil."
+        },
+        {
+          "country": "Australia",
+          "confidence": "low",
+          "reasoning": "The open grassland and scattered, sparse scrubland are visually similar to the Australian Outback or semi-arid regions. However, the specific structure of the broad-leafed shrubs on the left is more indicative of South American savanna than typical Eucalyptus-dominated Australian landscapes."
+        },
+        {
+          "country": "South Africa",
+          "confidence": "low",
+          "reasoning": "The vegetation resembles the Highveld or parts of the Karoo, where dry grasses and scattered hardy shrubs dominate. It shares the same tropical/subtropical savanna analog as the Brazilian Cerrado."
+        },
+        {
+          "country": "Botswana",
+          "confidence": "speculative",
+          "reasoning": "The flat horizon and dry, golden grass with scattered acacia-like shrubs are consistent with the Kalahari basin vegetation."
+        }
+      ],
+      "evidence": [
+        "Cerrado-type savanna",
+        "Xeric scrubland",
+        "Dry tropical grassland"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Brazil",
+          "confidence": "low",
+          "reasoning": "The combination of rural asphalt quality, wide gravel shoulders, and the specific style of concrete utility poles is common in the Brazilian Cerrado region."
+        },
+        {
+          "country": "Australia",
+          "confidence": "low",
+          "reasoning": "The arid landscape, flat terrain, and simple wooden/concrete utility pole infrastructure are highly characteristic of rural Australian highways."
+        },
+        {
+          "country": "South Africa",
+          "confidence": "low",
+          "reasoning": "The road width, shoulder treatment, and utility pole placement are consistent with rural infrastructure found in the South African interior."
+        },
+        {
+          "country": "United States",
+          "confidence": "speculative",
+          "reasoning": "The general layout of a two-lane rural road with basic utility poles and wide shoulders is a global analog found in the American Midwest or Southwest."
+        }
+      ],
+      "evidence": [
+        "Concrete/wooden utility poles with simple cross-arms",
+        "Wide, unpaved gravel shoulders",
+        "Basic two-lane asphalt road with weathered surface",
+        "No road signs, license plates, or bollards visible"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "Brazil",
+          "confidence": "medium",
+          "reasoning": "The utility poles are simple concrete posts with a specific slim profile common in rural Brazil. The overall image quality and sun glare are consistent with Gen 3/4 coverage in South America."
+        },
+        {
+          "country": "Australia",
+          "confidence": "low",
+          "reasoning": "The rural road setting and simple wooden/concrete utility poles are a global analog to the Brazilian landscape. However, the specific pole shape is less common in the Australian Outback than in South America."
+        },
+        {
+          "country": "South Africa",
+          "confidence": "speculative",
+          "reasoning": "Similar rural infrastructure and utility pole styles are found in South Africa, serving as a cross-continent analog for this type of open-road meta."
+        }
+      ],
+      "evidence": [
+        "concrete utility poles",
+        "Google Street View camera generation (Gen 3/4 quality)",
+        "rural fence post style"
+      ]
+    }
+  },
+  "progressive_narrowing": {
+    "region_consensus": false,
+    "confirmed_region": "South America",
+    "runner_up_region": "Sub-Saharan Africa",
+    "surviving_regions": [
+      "South America",
+      "Sub-Saharan Africa"
+    ],
+    "proposed_regions": [
+      "South America",
+      "Oceania",
+      "Sub-Saharan Africa",
+      "North America"
+    ],
+    "region_candidates": {
+      "South America": {
+        "Brazil": 4,
+        "Colombia": 1,
+        "Venezuela": 1
+      },
+      "Oceania": {
+        "Australia": 4
+      },
+      "Sub-Saharan Africa": {
+        "South Africa": 4,
+        "Botswana": 1
+      },
+      "North America": {
+        "United States": 1
+      }
+    },
+    "region_decision_reasoning": "South America received the highest score due to multiple 'strongly_support' ratings across landscape, botanics, and meta-data (specifically the Brazilian Cerrado and Google Street View artifacts). Sub-Saharan Africa is the runner-up as it was consistently supported as a geographical and botanical analog to the observed savanna landscape.",
+    "path": "B"
+  },
+  "road_evidence": {
+    "outside_color": "white",
+    "inside_color": "yellow",
+    "driving_side": "UNCLEAR",
+    "driving_side_basis": "none"
+  },
+  "country_assessments": {
+    "landscape": {
+      "agent_name": "landscape",
+      "candidates": [
+        {
+          "country": "Brazil",
+          "confidence": "high",
+          "reasoning": "The landscape is highly characteristic of the Cerrado (tropical savanna) region, featuring stunted trees, coarse yellow-brown grasses, and flat terrain. The road quality and utility pole style are very common in the Brazilian interior."
+        },
+        {
+          "country": "Colombia",
+          "confidence": "medium",
+          "reasoning": "The Llanos region shares a very similar tropical savanna ecology with flat plains and similar vegetation. However, the specific road wear and utility infrastructure are slightly more indicative of Brazil."
+        },
+        {
+          "country": "Venezuela",
+          "confidence": "medium",
+          "reasoning": "Similar to Colombia, the Venezuelan Llanos feature this exact type of flat, grassy terrain with scattered scrub. It is geographically nearly identical to the Colombian plains."
+        },
+        {
+          "country": "Botswana",
+          "confidence": "low",
+          "reasoning": "The arid, flat grassland and scrubland of the Kalahari basin provide a strong cross-continent analog to the South American savannas. The vegetation density and soil color are consistent with this region."
+        },
+        {
+          "country": "South Africa",
+          "confidence": "low",
+          "reasoning": "The highveld or interior scrublands feature similar dry grasses and flat horizons. The road infrastructure is generally higher quality, but rural stretches can match this appearance."
+        }
+      ],
+      "evidence": [
+        "Tropical savanna (Cerrado/Llanos) vegetation",
+        "Flat terrain with coarse, dry yellow-brown grasses",
+        "High sun angle suggesting low latitude",
+        "Asphalt road with weathered edges and simple utility poles",
+        "Scattered, low-canopy scrub trees"
+      ]
+    },
+    "botanics": {
+      "agent_name": "botanics",
+      "candidates": [
+        {
+          "country": "Brazil",
+          "confidence": "high",
+          "reasoning": "The vegetation is highly characteristic of the Cerrado biome, featuring a mix of stunted, twisted trees with thick bark and expansive grasslands. This specific combination of open savanna and scrubby woodland is a hallmark of the Brazilian highlands."
+        },
+        {
+          "country": "Colombia",
+          "confidence": "medium",
+          "reasoning": "The Llanos region shares a very similar tropical savanna structure with open grasslands and scattered shrubs. However, the specific density and form of the scrub on the left are more typical of the Brazilian Cerrado."
+        },
+        {
+          "country": "Venezuela",
+          "confidence": "medium",
+          "reasoning": "Similar to Colombia, the Venezuelan Llanos exhibit this tropical savanna biome. The vegetation is consistent with the region, though it lacks the specific diagnostic markers to distinguish it from other South American savannas."
+        },
+        {
+          "country": "Angola",
+          "confidence": "low",
+          "reasoning": "The Miombo woodlands and surrounding savannas in Angola can present a similar visual profile of dry grasses and scattered trees. This is a cross-continent analog based on the tropical savanna biome."
+        },
+        {
+          "country": "Zambia",
+          "confidence": "low",
+          "reasoning": "The plateau savannas of Zambia feature similar open grasslands and scattered deciduous scrub. This is a cross-continent analog based on the tropical savanna biome."
+        }
+      ],
+      "evidence": [
+        "Tropical Savanna (Cerrado/Llanos type)",
+        "Sclerophyllous scrub",
+        "Dry seasonal grasses"
+      ]
+    },
+    "regulatory": {
+      "agent_name": "regulatory",
+      "candidates": [
+        {
+          "country": "Brazil",
+          "confidence": "medium",
+          "reasoning": "The road width, asphalt quality, and the specific style of the concrete/wooden utility poles are very common in the Cerrado region of Brazil. The shoulder treatment and general rural road layout are consistent with Brazilian state highways."
+        },
+        {
+          "country": "South Africa",
+          "confidence": "low",
+          "reasoning": "The arid landscape and the style of the utility poles are similar to rural South African roads. However, the specific road surface texture is slightly more characteristic of South American rural infrastructure."
+        },
+        {
+          "country": "Botswana",
+          "confidence": "low",
+          "reasoning": "The flat, dry savanna landscape and basic asphalt road with minimal shoulder infrastructure are common in Botswana. The utility pole spacing and design are plausible for this region."
+        },
+        {
+          "country": "Argentina",
+          "confidence": "speculative",
+          "reasoning": "The open plains and basic rural road infrastructure with wooden poles are found in the Pampas or Chaco regions, though the vegetation is more reminiscent of a tropical savanna."
+        }
+      ],
+      "evidence": [
+        "wooden/concrete utility poles",
+        "narrow asphalt road with gravel shoulders",
+        "absence of road signs or bollards",
+        "rural road width class"
+      ]
+    },
+    "meta": {
+      "agent_name": "meta",
+      "candidates": [
+        {
+          "country": "Brazil",
+          "confidence": "medium",
+          "reasoning": "The utility poles are simple concrete poles with a specific slim profile common in rural Brazil. The road surface quality and the specific 'halo' or blur pattern at the bottom of the frame are consistent with Google's Gen 4 camera coverage in South America."
+        },
+        {
+          "country": "Senegal",
+          "confidence": "low",
+          "reasoning": "The utility pole style and the arid, flat landscape are similar to rural West African coverage. However, the specific concrete pole design is more characteristic of Brazilian rural infrastructure than Senegalese."
+        },
+        {
+          "country": "Colombia",
+          "confidence": "low",
+          "reasoning": "Similar concrete utility poles are used in rural Colombia. The camera generation matches South American coverage, though the lack of specific bollards makes it harder to distinguish from Brazil."
+        }
+      ],
+      "evidence": [
+        "Concrete utility poles with slim profile",
+        "Gen 4 camera blur/artifact at the bottom of the image",
+        "Lack of roadside delineators/bollards"
+      ]
+    }
+  },
+  "hypothesis_evaluations": [
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_south_america",
+      "confidence": "strongly_support",
+      "reasoning": "The landscape is highly characteristic of the Brazilian Cerrado (savanna), featuring a mix of open grasslands, scattered scrubby trees, and flat to gently undulating terrain. The road quality and utility pole style are very common in rural Brazil.",
+      "key_evidence": [
+        "Cerrado-style savanna vegetation",
+        "flat plateau terrain",
+        "specific scrub tree morphology"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_sub-saharan_africa",
+      "confidence": "support",
+      "reasoning": "The arid savanna landscape is geographically compatible with regions in Sub-Saharan Africa, such as the Sahel or parts of Southern Africa, which share similar grass-to-shrub ratios.",
+      "key_evidence": [
+        "Savanna biome",
+        "arid grassland"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_oceania",
+      "confidence": "support",
+      "reasoning": "The open, dry plains and sparse vegetation are consistent with the Australian Outback or interior plains, though the specific tree shapes are slightly more reminiscent of South American scrub.",
+      "key_evidence": [
+        "Arid plains",
+        "sparse scrubland"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "region_north_america",
+      "confidence": "low",
+      "reasoning": "While it could resemble the dry plains of Mexico or the Southwestern US, the overall vegetation density and the specific 'look' of the scrub are less typical for these regions compared to the tropical savannas of the south.",
+      "key_evidence": [
+        "Dry grassland"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_south_america",
+      "confidence": "support",
+      "reasoning": "The vegetation is highly characteristic of the Brazilian Cerrado (tropical savanna), featuring a mix of stunted, twisted trees with thick bark and expansive grasslands. This biome is a dominant feature of central South America.",
+      "key_evidence": [
+        "Tropical savanna biome",
+        "Cerrado-style stunted woody vegetation"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_sub-saharan_africa",
+      "confidence": "support",
+      "reasoning": "The landscape strongly resembles the African savanna (e.g., in Brazil's analog regions). The open grassland with scattered, drought-resistant shrubs and trees is a global analog to the South American Cerrado.",
+      "key_evidence": [
+        "Savanna grassland",
+        "Xeric shrubland"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_oceania",
+      "confidence": "low",
+      "reasoning": "While some parts of Northern Australia share this open savanna appearance, the specific density and structure of the scrub on the left are more typical of the Neotropics or Afrotropics.",
+      "key_evidence": [
+        "Open savanna"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "region_north_america",
+      "confidence": "low",
+      "reasoning": "This could potentially be the dry scrublands of Mexico or the Southwestern US, but the specific 'savanna' feel with the tree canopy structure is less common than in the other three regions.",
+      "key_evidence": [
+        "Xeric scrubland"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_south_america",
+      "confidence": "strongly_support",
+      "reasoning": "The image shows a very distinct Google Street View camera artifact: the 'halo' or 'blur' at the bottom of the frame is characteristic of the Google car used extensively in Brazil. Additionally, the utility poles are simple concrete poles with a specific slim profile common in rural Brazilian regions.",
+      "key_evidence": [
+        "Google car hood blur/halo",
+        "concrete utility pole style"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_oceania",
+      "confidence": "support",
+      "reasoning": "The general road quality and utility pole style are compatible with rural Australia, but the specific camera artifact at the bottom is more indicative of the South American fleet.",
+      "key_evidence": [
+        "utility pole style"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_sub-saharan_africa",
+      "confidence": "low",
+      "reasoning": "While some rural roads in Africa have similar utility poles, the specific image quality and the camera car artifact do not align as strongly as they do with South American coverage.",
+      "key_evidence": [
+        "utility pole style"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "region_north_america",
+      "confidence": "contradicts",
+      "reasoning": "The utility pole design (slim concrete) is not typical for rural North American roads, which predominantly use wooden poles with different cross-arm configurations.",
+      "key_evidence": [
+        "utility pole material/design"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_brazil",
+      "confidence": "strongly_support",
+      "reasoning": "The landscape is highly characteristic of the Brazilian Cerrado (savanna), featuring flat terrain, sparse scrubby vegetation, and dry, yellowish grasses. The road quality and utility pole style are very common in the interior regions of Brazil.",
+      "key_evidence": [
+        "Cerrado-style savanna",
+        "flat plateau terrain",
+        "dry tropical grassland"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_colombia",
+      "confidence": "support",
+      "reasoning": "The landscape is compatible with the Llanos region of Colombia, which shares similar flat, grassy savanna characteristics with the Brazilian interior.",
+      "key_evidence": [
+        "Llanos savanna terrain",
+        "flat horizon"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_venezuela",
+      "confidence": "support",
+      "reasoning": "Similar to Colombia, the Venezuelan Llanos feature this type of flat, open grassland and scrubland environment.",
+      "key_evidence": [
+        "Llanos savanna terrain",
+        "flat horizon"
+      ]
+    },
+    {
+      "agent_name": "landscape",
+      "hypothesis_id": "country_angola",
+      "confidence": "support",
+      "reasoning": "As a cross-continent analog, the Angolan highlands and plateaus feature similar tropical savanna landscapes and dry grasses, though the road infrastructure typically differs.",
+      "key_evidence": [
+        "African savanna analog",
+        "flat plateau"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_brazil",
+      "confidence": "support",
+      "reasoning": "The vegetation is highly characteristic of the Cerrado (tropical savanna) biome, featuring a mix of open grasslands and scattered, twisted woody shrubs and trees. This landscape is extremely common in the central highlands of Brazil.",
+      "key_evidence": [
+        "Cerrado-style savanna",
+        "sclerophyllous shrubs",
+        "open grassland"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_colombia",
+      "confidence": "support",
+      "reasoning": "The vegetation is compatible with the Llanos region of Colombia, which shares the tropical savanna characteristics of the Brazilian Cerrado, though the specific tree density here is very typical of South American savannas.",
+      "key_evidence": [
+        "Llanos savanna vegetation",
+        "tropical grassland"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_venezuela",
+      "confidence": "support",
+      "reasoning": "Similar to Colombia, the Venezuelan Llanos exhibit this exact type of open savanna with scattered scrub, making it botanically indistinguishable from the Colombian Llanos in this view.",
+      "key_evidence": [
+        "Llanos savanna vegetation",
+        "tropical grassland"
+      ]
+    },
+    {
+      "agent_name": "botanics",
+      "hypothesis_id": "country_angola",
+      "confidence": "low",
+      "reasoning": "While Angola has Miombo woodlands and tropical savannas that can look similar, the specific structure of the scrub and the grass color/texture is more characteristic of the South American savanna biomes.",
+      "key_evidence": [
+        "African savanna analog",
+        "Miombo-like scrub"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_brazil",
+      "confidence": "strongly_support",
+      "reasoning": "The image shows a very distinct Google Street View camera artifact: the 'halo' or 'blur' at the bottom of the frame is characteristic of the Gen 4 camera used extensively in Brazil. Additionally, the utility poles are simple concrete poles with a specific slim profile common in rural Brazilian regions.",
+      "key_evidence": [
+        "Gen 4 camera car blur/halo at bottom of frame",
+        "Slim concrete utility poles"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_colombia",
+      "confidence": "support",
+      "reasoning": "The utility poles and general road quality are compatible with rural Colombia, but the specific camera artifact is more strongly associated with Brazilian coverage patterns in this landscape type.",
+      "key_evidence": [
+        "Concrete utility poles"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_venezuela",
+      "confidence": "support",
+      "reasoning": "While the landscape and poles are compatible, Venezuela has significantly less recent Gen 4 coverage compared to Brazil, making it a less likely candidate for this specific image quality.",
+      "key_evidence": [
+        "Concrete utility poles"
+      ]
+    },
+    {
+      "agent_name": "meta",
+      "hypothesis_id": "country_angola",
+      "confidence": "low",
+      "reasoning": "Angola has very limited Street View coverage. While the concrete poles are a global analog, the specific camera rig artifact is not typical of the limited coverage seen in Angola.",
+      "key_evidence": [
+        "Concrete utility poles"
+      ]
+    }
+  ],
+  "candidate_pool": [
+    "Brazil",
+    "Colombia",
+    "Venezuela",
+    "Angola"
+  ],
+  "rag_findings": [
+    {
+      "kind": "elim_road_marking",
+      "country": "Botswana",
+      "detail": "observed outside=white, inside=yellow vs table='Outside: Yellow | Inside: White'"
+    },
+    {
+      "kind": "elim_road_marking",
+      "country": "South Africa",
+      "detail": "observed outside=white, inside=yellow vs table='Outside: Yellow | Inside: White | Outside: Red | Inside: White'"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Angola",
+      "detail": "The landscape is highly characteristic of the Brazilian Cerrado, featuring the specific scrubby vegetation and dry grasses described in the specialist evidence. Furthermore, the camera artifact at the bottom of the frame is a strong meta-indicator of the Gen 4 camera used extensively in Brazil, whereas Angola has very limited coverage.",
+      "opponent": "Brazil",
+      "winner": "Brazil"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Venezuela",
+      "detail": "Both countries share the identical Llanos savanna landscape and vegetation. However, the specialist evidence notes that Venezuela has significantly less recent Gen 4 coverage compared to the image quality seen here, making Colombia the more plausible candidate.",
+      "opponent": "Colombia",
+      "winner": "Colombia"
+    },
+    {
+      "kind": "tournament_match",
+      "country": "Colombia",
+      "detail": "The landscape is highly characteristic of the Brazilian Cerrado, featuring the specific mix of open grasslands and twisted woody shrubs. Additionally, the Gen 4 camera artifact at the bottom of the frame and the specific slim concrete utility poles strongly support Brazil over Colombia.",
+      "opponent": "Brazil",
+      "winner": "Brazil"
+    }
+  ],
+  "rag_refs_seen": [],
+  "road_filter_warnings": [],
+  "tournament_log": [
+    {
+      "round_label": "semi-1",
+      "country_a": "Brazil",
+      "country_b": "Angola",
+      "pool_rank_a": 0,
+      "pool_rank_b": 3,
+      "winner": "Brazil",
+      "reasoning": "The landscape is highly characteristic of the Brazilian Cerrado, featuring the specific scrubby vegetation and dry grasses described in the specialist evidence. Furthermore, the camera artifact at the bottom of the frame is a strong meta-indicator of the Gen 4 camera used extensively in Brazil, whereas Angola has very limited coverage.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "semi-2",
+      "country_a": "Colombia",
+      "country_b": "Venezuela",
+      "pool_rank_a": 1,
+      "pool_rank_b": 2,
+      "winner": "Colombia",
+      "reasoning": "Both countries share the identical Llanos savanna landscape and vegetation. However, the specialist evidence notes that Venezuela has significantly less recent Gen 4 coverage compared to the image quality seen here, making Colombia the more plausible candidate.",
+      "agreement": "agree"
+    },
+    {
+      "round_label": "final",
+      "country_a": "Brazil",
+      "country_b": "Colombia",
+      "pool_rank_a": 0,
+      "pool_rank_b": 1,
+      "winner": "Brazil",
+      "reasoning": "The landscape is highly characteristic of the Brazilian Cerrado, featuring the specific mix of open grasslands and twisted woody shrubs. Additionally, the Gen 4 camera artifact at the bottom of the frame and the specific slim concrete utility poles strongly support Brazil over Colombia.",
+      "agreement": "agree"
+    }
+  ],
+  "country_result": "Country: Brazil\nCoordinates: -15.7801, -47.8919\nReasoning: The landscape is highly characteristic of the Brazilian Cerrado, featuring the specific mix of open grasslands and twisted woody shrubs. Additionally, the Gen 4 camera artifact at the bottom of the frame and the specific slim concrete utility poles strongly support Brazil over Colombia.\n\nTournament:\n  semi-1: Brazil vs Angola → Brazil\n  semi-2: Colombia vs Venezuela → Colombia\n  final: Brazil vs Colombia → Brazil",
+  "coordinates": {
+    "lat": -15.7801,
+    "lng": -47.8919
+  },
+  "final_reasoning": "The landscape is highly characteristic of the Brazilian Cerrado, featuring the specific mix of open grasslands and twisted woody shrubs. Additionally, the Gen 4 camera artifact at the bottom of the frame and the specific slim concrete utility poles strongly support Brazil over Colombia."
+}
